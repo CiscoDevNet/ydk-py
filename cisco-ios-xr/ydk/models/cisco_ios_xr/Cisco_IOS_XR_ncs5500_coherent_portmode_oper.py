@@ -25,7 +25,7 @@ class ControllerPortMode(Entity):
     .. attribute:: optics_name
     
     	Name of optics controller
-    	**type**\: list of    :py:class:`OpticsName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName>`
+    	**type**\: list of  		 :py:class:`OpticsName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName>`
     
     
 
@@ -59,12 +59,14 @@ class ControllerPortMode(Entity):
         .. attribute:: interface_name  <key>
         
         	Interface Name
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         .. attribute:: port_mode_info
         
         	PortMode  operational data
-        	**type**\:   :py:class:`PortModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName.PortModeInfo>`
+        	**type**\:  :py:class:`PortModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName.PortModeInfo>`
         
         
 
@@ -103,35 +105,35 @@ class ControllerPortMode(Entity):
             .. attribute:: intf_name
             
             	intf name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: speed
             
             	speed
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: fec
             
             	fec
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: diff
             
             	diff
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: modulation
             
             	modulation
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             

@@ -404,7 +404,7 @@ class Diag(Entity):
     .. attribute:: racks
     
     	Diag operational data for available racks
-    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks>`
+    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks>`
     
     
 
@@ -438,7 +438,7 @@ class Diag(Entity):
         .. attribute:: rack
         
         	Diag operational data for a particular rack
-        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack>`
+        	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack>`
         
         
 
@@ -472,34 +472,34 @@ class Diag(Entity):
             .. attribute:: rack_name  <key>
             
             	Rack name
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: fan_traies
             
             	Fan tray table operational data
-            	**type**\:   :py:class:`FanTraies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies>`
+            	**type**\:  :py:class:`FanTraies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies>`
             
             .. attribute:: power_supplies
             
             	Power supply table operational data
-            	**type**\:   :py:class:`PowerSupplies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies>`
+            	**type**\:  :py:class:`PowerSupplies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies>`
             
             .. attribute:: slots
             
             	Diag operational data for all available slots
-            	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots>`
+            	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots>`
             
             .. attribute:: chassis
             
             	Chassis information
-            	**type**\:   :py:class:`Chassis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Chassis>`
+            	**type**\:  :py:class:`Chassis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Chassis>`
             
             .. attribute:: summary
             
             	Summary information
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Summary>`
             
             
 
@@ -558,7 +558,7 @@ class Diag(Entity):
                 .. attribute:: fan_tray
                 
                 	Fan tray operational data
-                	**type**\: list of    :py:class:`FanTray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray>`
+                	**type**\: list of  		 :py:class:`FanTray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray>`
                 
                 
 
@@ -591,12 +591,14 @@ class Diag(Entity):
                     .. attribute:: fan_tray_name  <key>
                     
                     	Fan tray name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: detail
                     
                     	Diag detailed information
-                    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail>`
+                    	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail>`
                     
                     
 
@@ -634,12 +636,12 @@ class Diag(Entity):
                         .. attribute:: node
                         
                         	Node information
-                        	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node>`
+                        	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node>`
                         
                         .. attribute:: spa
                         
                         	SPA information
-                        	**type**\:   :py:class:`Spa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa>`
+                        	**type**\:  :py:class:`Spa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa>`
                         
                         
 
@@ -677,94 +679,94 @@ class Diag(Entity):
                             .. attribute:: pld
                             
                             	Programmable logic device information
-                            	**type**\:   :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.Pld>`
+                            	**type**\:  :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.Pld>`
                             
                             .. attribute:: hardware_revision
                             
                             	Hardware revision
-                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision>`
+                            	**type**\:  :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision>`
                             
                             .. attribute:: cbc_active_partition
                             
                             	CBC active partition
-                            	**type**\:   :py:class:`CbcActivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.CbcActivePartition>`
+                            	**type**\:  :py:class:`CbcActivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.CbcActivePartition>`
                             
                             .. attribute:: cbc_inactive_partition
                             
                             	CBC inactive partition
-                            	**type**\:   :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.CbcInactivePartition>`
+                            	**type**\:  :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.CbcInactivePartition>`
                             
                             .. attribute:: description
                             
                             	Describes in user\-readable terms
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: serial_number
                             
                             	Main serial number
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: tan
                             
                             	Top assembly number
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pid
                             
                             	PID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: vid
                             
                             	VID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: chip_hardware_revision
                             
                             	Chip hardware revision
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: new_deviation_number
                             
                             	New deviation number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: clei
                             
                             	CLEI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: board_state
                             
                             	Module operational state
-                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
+                            	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
                             
                             .. attribute:: pld_motherboard
                             
                             	Motherboard PLD version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pld_power
                             
                             	Power PLD version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: monlib
                             
                             	MONLIB version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: rommon
                             
                             	ROMMON version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: cpu0
                             
                             	Processor type
-                            	**type**\:   :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagProcessor>`
+                            	**type**\:  :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagProcessor>`
                             
                             
 
@@ -843,21 +845,21 @@ class Diag(Entity):
                                 .. attribute:: type
                                 
                                 	Processor PLD version
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: processor_higher_version
                                 
                                 	HigherVerion
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: processor_lower_version
                                 
                                 	LowerVersion
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -896,7 +898,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision>`
                                 
                                 
 
@@ -929,37 +931,37 @@ class Diag(Entity):
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
                                     	Node decsription
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: version
                                     
                                     	Version information
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -1019,14 +1021,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1063,14 +1065,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1107,14 +1109,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1151,26 +1153,26 @@ class Diag(Entity):
                                         .. attribute:: size
                                         
                                         	Size in MB
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: speed
                                         
                                         	Speed in MHz
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: locator
                                         
                                         	Locator information
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: cas
                                         
                                         	Column address strobe latency in clock cycles
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1211,17 +1213,17 @@ class Diag(Entity):
                                         .. attribute:: number
                                         
                                         	SSD number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: fw_rev
                                         
                                         	Firmware revision
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: serial_number
                                         
                                         	Serial number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -1258,14 +1260,14 @@ class Diag(Entity):
                                 .. attribute:: major_revision
                                 
                                 	Major revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: minor_revision
                                 
                                 	Minor revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1302,14 +1304,14 @@ class Diag(Entity):
                                 .. attribute:: major_revision
                                 
                                 	Major revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: minor_revision
                                 
                                 	Minor revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1346,52 +1348,54 @@ class Diag(Entity):
                             .. attribute:: main
                             
                             	Main
-                            	**type**\:   :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.Main>`
+                            	**type**\:  :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.Main>`
                             
                             .. attribute:: hardware_revision
                             
                             	Hardware revision
-                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision>`
+                            	**type**\:  :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision>`
                             
                             .. attribute:: node
                             
                             	Node
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: name
                             
                             	SPA name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pca_unit_number
                             
                             	Format is C\-BN\-V where C = Class Code, BN = Base Number, and V = Version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pca_revision
                             
                             	PCA revision information
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pid
                             
                             	PID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: vid
                             
                             	VID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: clei
                             
                             	CLEI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: node_state
                             
                             	Node state
-                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
+                            	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
                             
                             
 
@@ -1448,31 +1452,31 @@ class Diag(Entity):
                                 .. attribute:: board_type
                                 
                                 	Board type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: tan
                                 
                                 	Top assembly number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: tan_revision
                                 
                                 	Top assembly number revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: deviation_number
                                 
                                 	Deviation number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: serial_number
                                 
                                 	Serial number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -1513,7 +1517,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision>`
                                 
                                 
 
@@ -1546,37 +1550,37 @@ class Diag(Entity):
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
                                     	Node decsription
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: version
                                     
                                     	Version information
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -1636,14 +1640,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1680,14 +1684,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1724,14 +1728,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1768,26 +1772,26 @@ class Diag(Entity):
                                         .. attribute:: size
                                         
                                         	Size in MB
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: speed
                                         
                                         	Speed in MHz
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: locator
                                         
                                         	Locator information
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: cas
                                         
                                         	Column address strobe latency in clock cycles
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1828,17 +1832,17 @@ class Diag(Entity):
                                         .. attribute:: number
                                         
                                         	SSD number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: fw_rev
                                         
                                         	Firmware revision
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: serial_number
                                         
                                         	Serial number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -1875,7 +1879,7 @@ class Diag(Entity):
                 .. attribute:: power_supply
                 
                 	Power supply operational data
-                	**type**\: list of    :py:class:`PowerSupply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply>`
+                	**type**\: list of  		 :py:class:`PowerSupply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply>`
                 
                 
 
@@ -1908,12 +1912,14 @@ class Diag(Entity):
                     .. attribute:: power_supply_name  <key>
                     
                     	Power supply name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: detail
                     
                     	Diag detailed information
-                    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail>`
+                    	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail>`
                     
                     
 
@@ -1951,12 +1957,12 @@ class Diag(Entity):
                         .. attribute:: node
                         
                         	Node information
-                        	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node>`
+                        	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node>`
                         
                         .. attribute:: spa
                         
                         	SPA information
-                        	**type**\:   :py:class:`Spa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa>`
+                        	**type**\:  :py:class:`Spa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa>`
                         
                         
 
@@ -1994,94 +2000,94 @@ class Diag(Entity):
                             .. attribute:: pld
                             
                             	Programmable logic device information
-                            	**type**\:   :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld>`
+                            	**type**\:  :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld>`
                             
                             .. attribute:: hardware_revision
                             
                             	Hardware revision
-                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision>`
+                            	**type**\:  :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision>`
                             
                             .. attribute:: cbc_active_partition
                             
                             	CBC active partition
-                            	**type**\:   :py:class:`CbcActivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcActivePartition>`
+                            	**type**\:  :py:class:`CbcActivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcActivePartition>`
                             
                             .. attribute:: cbc_inactive_partition
                             
                             	CBC inactive partition
-                            	**type**\:   :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcInactivePartition>`
+                            	**type**\:  :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcInactivePartition>`
                             
                             .. attribute:: description
                             
                             	Describes in user\-readable terms
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: serial_number
                             
                             	Main serial number
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: tan
                             
                             	Top assembly number
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pid
                             
                             	PID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: vid
                             
                             	VID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: chip_hardware_revision
                             
                             	Chip hardware revision
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: new_deviation_number
                             
                             	New deviation number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: clei
                             
                             	CLEI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: board_state
                             
                             	Module operational state
-                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
+                            	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
                             
                             .. attribute:: pld_motherboard
                             
                             	Motherboard PLD version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pld_power
                             
                             	Power PLD version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: monlib
                             
                             	MONLIB version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: rommon
                             
                             	ROMMON version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: cpu0
                             
                             	Processor type
-                            	**type**\:   :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagProcessor>`
+                            	**type**\:  :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagProcessor>`
                             
                             
 
@@ -2160,21 +2166,21 @@ class Diag(Entity):
                                 .. attribute:: type
                                 
                                 	Processor PLD version
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: processor_higher_version
                                 
                                 	HigherVerion
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: processor_lower_version
                                 
                                 	LowerVersion
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2213,7 +2219,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision>`
                                 
                                 
 
@@ -2246,37 +2252,37 @@ class Diag(Entity):
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
                                     	Node decsription
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: version
                                     
                                     	Version information
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -2336,14 +2342,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2380,14 +2386,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2424,14 +2430,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2468,26 +2474,26 @@ class Diag(Entity):
                                         .. attribute:: size
                                         
                                         	Size in MB
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: speed
                                         
                                         	Speed in MHz
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: locator
                                         
                                         	Locator information
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: cas
                                         
                                         	Column address strobe latency in clock cycles
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2528,17 +2534,17 @@ class Diag(Entity):
                                         .. attribute:: number
                                         
                                         	SSD number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: fw_rev
                                         
                                         	Firmware revision
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: serial_number
                                         
                                         	Serial number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -2575,14 +2581,14 @@ class Diag(Entity):
                                 .. attribute:: major_revision
                                 
                                 	Major revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: minor_revision
                                 
                                 	Minor revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2619,14 +2625,14 @@ class Diag(Entity):
                                 .. attribute:: major_revision
                                 
                                 	Major revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: minor_revision
                                 
                                 	Minor revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2663,52 +2669,54 @@ class Diag(Entity):
                             .. attribute:: main
                             
                             	Main
-                            	**type**\:   :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main>`
+                            	**type**\:  :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main>`
                             
                             .. attribute:: hardware_revision
                             
                             	Hardware revision
-                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision>`
+                            	**type**\:  :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision>`
                             
                             .. attribute:: node
                             
                             	Node
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: name
                             
                             	SPA name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pca_unit_number
                             
                             	Format is C\-BN\-V where C = Class Code, BN = Base Number, and V = Version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pca_revision
                             
                             	PCA revision information
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pid
                             
                             	PID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: vid
                             
                             	VID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: clei
                             
                             	CLEI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: node_state
                             
                             	Node state
-                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
+                            	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
                             
                             
 
@@ -2765,31 +2773,31 @@ class Diag(Entity):
                                 .. attribute:: board_type
                                 
                                 	Board type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: tan
                                 
                                 	Top assembly number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: tan_revision
                                 
                                 	Top assembly number revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: deviation_number
                                 
                                 	Deviation number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: serial_number
                                 
                                 	Serial number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -2830,7 +2838,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision>`
                                 
                                 
 
@@ -2863,37 +2871,37 @@ class Diag(Entity):
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
                                     	Node decsription
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: version
                                     
                                     	Version information
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -2953,14 +2961,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2997,14 +3005,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3041,14 +3049,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3085,26 +3093,26 @@ class Diag(Entity):
                                         .. attribute:: size
                                         
                                         	Size in MB
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: speed
                                         
                                         	Speed in MHz
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: locator
                                         
                                         	Locator information
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: cas
                                         
                                         	Column address strobe latency in clock cycles
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3145,17 +3153,17 @@ class Diag(Entity):
                                         .. attribute:: number
                                         
                                         	SSD number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: fw_rev
                                         
                                         	Firmware revision
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: serial_number
                                         
                                         	Serial number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -3192,7 +3200,7 @@ class Diag(Entity):
                 .. attribute:: slot
                 
                 	Diag operational data for a particular slot
-                	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot>`
+                	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot>`
                 
                 
 
@@ -3225,17 +3233,19 @@ class Diag(Entity):
                     .. attribute:: slot_name  <key>
                     
                     	Slot name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: detail
                     
                     	Slot detailed information
-                    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail>`
+                    	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail>`
                     
                     .. attribute:: instances
                     
                     	Diag operational data for all available instances
-                    	**type**\:   :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances>`
+                    	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances>`
                     
                     
 
@@ -3278,12 +3288,12 @@ class Diag(Entity):
                         .. attribute:: node_detail
                         
                         	Detail information for slot
-                        	**type**\: list of    :py:class:`NodeDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail>`
+                        	**type**\: list of  		 :py:class:`NodeDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail>`
                         
                         .. attribute:: spa_detail
                         
                         	Detail information for spa
-                        	**type**\: list of    :py:class:`SpaDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail>`
+                        	**type**\: list of  		 :py:class:`SpaDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail>`
                         
                         
 
@@ -3317,94 +3327,94 @@ class Diag(Entity):
                             .. attribute:: pld
                             
                             	Programmable logic device information
-                            	**type**\:   :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld>`
+                            	**type**\:  :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld>`
                             
                             .. attribute:: hardware_revision
                             
                             	Hardware revision
-                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision>`
+                            	**type**\:  :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision>`
                             
                             .. attribute:: cbc_active_partition
                             
                             	CBC active partition
-                            	**type**\:   :py:class:`CbcActivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition>`
+                            	**type**\:  :py:class:`CbcActivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition>`
                             
                             .. attribute:: cbc_inactive_partition
                             
                             	CBC inactive partition
-                            	**type**\:   :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition>`
+                            	**type**\:  :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition>`
                             
                             .. attribute:: description
                             
                             	Describes in user\-readable terms
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: serial_number
                             
                             	Main serial number
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: tan
                             
                             	Top assembly number
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pid
                             
                             	PID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: vid
                             
                             	VID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: chip_hardware_revision
                             
                             	Chip hardware revision
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: new_deviation_number
                             
                             	New deviation number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: clei
                             
                             	CLEI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: board_state
                             
                             	Module operational state
-                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
+                            	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
                             
                             .. attribute:: pld_motherboard
                             
                             	Motherboard PLD version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pld_power
                             
                             	Power PLD version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: monlib
                             
                             	MONLIB version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: rommon
                             
                             	ROMMON version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: cpu0
                             
                             	Processor type
-                            	**type**\:   :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagProcessor>`
+                            	**type**\:  :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagProcessor>`
                             
                             
 
@@ -3483,21 +3493,21 @@ class Diag(Entity):
                                 .. attribute:: type
                                 
                                 	Processor PLD version
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: processor_higher_version
                                 
                                 	HigherVerion
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: processor_lower_version
                                 
                                 	LowerVersion
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -3536,7 +3546,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision>`
                                 
                                 
 
@@ -3569,37 +3579,37 @@ class Diag(Entity):
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
                                     	Node decsription
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: version
                                     
                                     	Version information
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -3659,14 +3669,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3703,14 +3713,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3747,14 +3757,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3791,26 +3801,26 @@ class Diag(Entity):
                                         .. attribute:: size
                                         
                                         	Size in MB
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: speed
                                         
                                         	Speed in MHz
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: locator
                                         
                                         	Locator information
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: cas
                                         
                                         	Column address strobe latency in clock cycles
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3851,17 +3861,17 @@ class Diag(Entity):
                                         .. attribute:: number
                                         
                                         	SSD number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: fw_rev
                                         
                                         	Firmware revision
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: serial_number
                                         
                                         	Serial number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -3898,14 +3908,14 @@ class Diag(Entity):
                                 .. attribute:: major_revision
                                 
                                 	Major revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: minor_revision
                                 
                                 	Minor revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -3942,14 +3952,14 @@ class Diag(Entity):
                                 .. attribute:: major_revision
                                 
                                 	Major revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: minor_revision
                                 
                                 	Minor revision
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -3986,52 +3996,54 @@ class Diag(Entity):
                             .. attribute:: main
                             
                             	Main
-                            	**type**\:   :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main>`
+                            	**type**\:  :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main>`
                             
                             .. attribute:: hardware_revision
                             
                             	Hardware revision
-                            	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision>`
+                            	**type**\:  :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision>`
                             
                             .. attribute:: node
                             
                             	Node
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: name
                             
                             	SPA name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pca_unit_number
                             
                             	Format is C\-BN\-V where C = Class Code, BN = Base Number, and V = Version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pca_revision
                             
                             	PCA revision information
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: pid
                             
                             	PID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: vid
                             
                             	VID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: clei
                             
                             	CLEI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: node_state
                             
                             	Node state
-                            	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
+                            	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
                             
                             
 
@@ -4088,31 +4100,31 @@ class Diag(Entity):
                                 .. attribute:: board_type
                                 
                                 	Board type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: tan
                                 
                                 	Top assembly number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: tan_revision
                                 
                                 	Top assembly number revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: deviation_number
                                 
                                 	Deviation number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: serial_number
                                 
                                 	Serial number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -4153,7 +4165,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision>`
                                 
                                 
 
@@ -4186,37 +4198,37 @@ class Diag(Entity):
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
                                     	Node decsription
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: version
                                     
                                     	Version information
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -4276,14 +4288,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4320,14 +4332,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4364,14 +4376,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4408,26 +4420,26 @@ class Diag(Entity):
                                         .. attribute:: size
                                         
                                         	Size in MB
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: speed
                                         
                                         	Speed in MHz
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: locator
                                         
                                         	Locator information
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: cas
                                         
                                         	Column address strobe latency in clock cycles
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4468,17 +4480,17 @@ class Diag(Entity):
                                         .. attribute:: number
                                         
                                         	SSD number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: fw_rev
                                         
                                         	Firmware revision
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: serial_number
                                         
                                         	Serial number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -4516,7 +4528,7 @@ class Diag(Entity):
                         .. attribute:: instance
                         
                         	Diag operational data for a particular instance
-                        	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance>`
+                        	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance>`
                         
                         
 
@@ -4550,12 +4562,14 @@ class Diag(Entity):
                             .. attribute:: instance_name  <key>
                             
                             	Instance name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: detail
                             
                             	Diag detailed information
-                            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail>`
+                            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail>`
                             
                             
 
@@ -4593,12 +4607,12 @@ class Diag(Entity):
                                 .. attribute:: node
                                 
                                 	Node information
-                                	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node>`
+                                	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node>`
                                 
                                 .. attribute:: spa
                                 
                                 	SPA information
-                                	**type**\:   :py:class:`Spa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa>`
+                                	**type**\:  :py:class:`Spa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa>`
                                 
                                 
 
@@ -4636,94 +4650,94 @@ class Diag(Entity):
                                     .. attribute:: pld
                                     
                                     	Programmable logic device information
-                                    	**type**\:   :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld>`
+                                    	**type**\:  :py:class:`Pld <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld>`
                                     
                                     .. attribute:: hardware_revision
                                     
                                     	Hardware revision
-                                    	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision>`
+                                    	**type**\:  :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision>`
                                     
                                     .. attribute:: cbc_active_partition
                                     
                                     	CBC active partition
-                                    	**type**\:   :py:class:`CbcActivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition>`
+                                    	**type**\:  :py:class:`CbcActivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition>`
                                     
                                     .. attribute:: cbc_inactive_partition
                                     
                                     	CBC inactive partition
-                                    	**type**\:   :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition>`
+                                    	**type**\:  :py:class:`CbcInactivePartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition>`
                                     
                                     .. attribute:: description
                                     
                                     	Describes in user\-readable terms
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: serial_number
                                     
                                     	Main serial number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: tan
                                     
                                     	Top assembly number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: pid
                                     
                                     	PID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: vid
                                     
                                     	VID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: chip_hardware_revision
                                     
                                     	Chip hardware revision
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: new_deviation_number
                                     
                                     	New deviation number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: clei
                                     
                                     	CLEI
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: board_state
                                     
                                     	Module operational state
-                                    	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
+                                    	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
                                     
                                     .. attribute:: pld_motherboard
                                     
                                     	Motherboard PLD version
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: pld_power
                                     
                                     	Power PLD version
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: monlib
                                     
                                     	MONLIB version
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: rommon
                                     
                                     	ROMMON version
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: cpu0
                                     
                                     	Processor type
-                                    	**type**\:   :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagProcessor>`
+                                    	**type**\:  :py:class:`DiagProcessor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagProcessor>`
                                     
                                     
 
@@ -4802,21 +4816,21 @@ class Diag(Entity):
                                         .. attribute:: type
                                         
                                         	Processor PLD version
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: processor_higher_version
                                         
                                         	HigherVerion
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: processor_lower_version
                                         
                                         	LowerVersion
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4855,7 +4869,7 @@ class Diag(Entity):
                                         .. attribute:: hardware_revision
                                         
                                         	Board FPGA/CPLD/ASIC hardware revision
-                                        	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision>`
+                                        	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision>`
                                         
                                         
 
@@ -4888,37 +4902,37 @@ class Diag(Entity):
                                             .. attribute:: hw_rev
                                             
                                             	Hardware version
-                                            	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
+                                            	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
                                             
                                             .. attribute:: fw_rev
                                             
                                             	Firmware version
-                                            	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
+                                            	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
                                             
                                             .. attribute:: sw_rev
                                             
                                             	Software version
-                                            	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
+                                            	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
                                             
                                             .. attribute:: dimm_rev
                                             
                                             	DIMM version information
-                                            	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
+                                            	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
                                             
                                             .. attribute:: ssd_rev
                                             
                                             	SSD version information
-                                            	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
+                                            	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
                                             
                                             .. attribute:: node_description
                                             
                                             	Node decsription
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: version
                                             
                                             	Version information
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -4978,14 +4992,14 @@ class Diag(Entity):
                                                 .. attribute:: major_revision
                                                 
                                                 	Major revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: minor_revision
                                                 
                                                 	Minor revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5022,14 +5036,14 @@ class Diag(Entity):
                                                 .. attribute:: major_revision
                                                 
                                                 	Major revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: minor_revision
                                                 
                                                 	Minor revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5066,14 +5080,14 @@ class Diag(Entity):
                                                 .. attribute:: major_revision
                                                 
                                                 	Major revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: minor_revision
                                                 
                                                 	Minor revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5110,26 +5124,26 @@ class Diag(Entity):
                                                 .. attribute:: size
                                                 
                                                 	Size in MB
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: speed
                                                 
                                                 	Speed in MHz
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: locator
                                                 
                                                 	Locator information
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: cas
                                                 
                                                 	Column address strobe latency in clock cycles
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5170,17 +5184,17 @@ class Diag(Entity):
                                                 .. attribute:: number
                                                 
                                                 	SSD number
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: fw_rev
                                                 
                                                 	Firmware revision
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: serial_number
                                                 
                                                 	Serial number
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 
 
@@ -5217,14 +5231,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -5261,14 +5275,14 @@ class Diag(Entity):
                                         .. attribute:: major_revision
                                         
                                         	Major revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_revision
                                         
                                         	Minor revision
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -5305,52 +5319,54 @@ class Diag(Entity):
                                     .. attribute:: main
                                     
                                     	Main
-                                    	**type**\:   :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main>`
+                                    	**type**\:  :py:class:`Main <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main>`
                                     
                                     .. attribute:: hardware_revision
                                     
                                     	Hardware revision
-                                    	**type**\:   :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision>`
+                                    	**type**\:  :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision>`
                                     
                                     .. attribute:: node
                                     
                                     	Node
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                     
                                     .. attribute:: name
                                     
                                     	SPA name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: pca_unit_number
                                     
                                     	Format is C\-BN\-V where C = Class Code, BN = Base Number, and V = Version
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: pca_revision
                                     
                                     	PCA revision information
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: pid
                                     
                                     	PID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: vid
                                     
                                     	VID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: clei
                                     
                                     	CLEI
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_state
                                     
                                     	Node state
-                                    	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
+                                    	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.NodeState>`
                                     
                                     
 
@@ -5407,31 +5423,31 @@ class Diag(Entity):
                                         .. attribute:: board_type
                                         
                                         	Board type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: tan
                                         
                                         	Top assembly number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: tan_revision
                                         
                                         	Top assembly number revision
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: deviation_number
                                         
                                         	Deviation number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: serial_number
                                         
                                         	Serial number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -5472,7 +5488,7 @@ class Diag(Entity):
                                         .. attribute:: hardware_revision
                                         
                                         	Board FPGA/CPLD/ASIC hardware revision
-                                        	**type**\: list of    :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision>`
+                                        	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision>`
                                         
                                         
 
@@ -5505,37 +5521,37 @@ class Diag(Entity):
                                             .. attribute:: hw_rev
                                             
                                             	Hardware version
-                                            	**type**\:   :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
+                                            	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
                                             
                                             .. attribute:: fw_rev
                                             
                                             	Firmware version
-                                            	**type**\:   :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
+                                            	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
                                             
                                             .. attribute:: sw_rev
                                             
                                             	Software version
-                                            	**type**\:   :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
+                                            	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
                                             
                                             .. attribute:: dimm_rev
                                             
                                             	DIMM version information
-                                            	**type**\:   :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
+                                            	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
                                             
                                             .. attribute:: ssd_rev
                                             
                                             	SSD version information
-                                            	**type**\:   :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
+                                            	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
                                             
                                             .. attribute:: node_description
                                             
                                             	Node decsription
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: version
                                             
                                             	Version information
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -5595,14 +5611,14 @@ class Diag(Entity):
                                                 .. attribute:: major_revision
                                                 
                                                 	Major revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: minor_revision
                                                 
                                                 	Minor revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5639,14 +5655,14 @@ class Diag(Entity):
                                                 .. attribute:: major_revision
                                                 
                                                 	Major revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: minor_revision
                                                 
                                                 	Minor revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5683,14 +5699,14 @@ class Diag(Entity):
                                                 .. attribute:: major_revision
                                                 
                                                 	Major revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: minor_revision
                                                 
                                                 	Minor revision
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5727,26 +5743,26 @@ class Diag(Entity):
                                                 .. attribute:: size
                                                 
                                                 	Size in MB
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: speed
                                                 
                                                 	Speed in MHz
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: locator
                                                 
                                                 	Locator information
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: cas
                                                 
                                                 	Column address strobe latency in clock cycles
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5787,17 +5803,17 @@ class Diag(Entity):
                                                 .. attribute:: number
                                                 
                                                 	SSD number
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: fw_rev
                                                 
                                                 	Firmware revision
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: serial_number
                                                 
                                                 	Serial number
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 
 
@@ -5834,32 +5850,32 @@ class Diag(Entity):
                 .. attribute:: serial_number
                 
                 	Serial number
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: pid
                 
                 	PID
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: vid
                 
                 	VID
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: description
                 
                 	Describes in user\-readable terms
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: clei
                 
                 	CLEI
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: tan
                 
                 	Top assembly number
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -5902,7 +5918,7 @@ class Diag(Entity):
                 .. attribute:: summary
                 
                 	Summary data
-                	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Summary.Summary>`
+                	**type**\: list of  		 :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Summary.Summary>`
                 
                 
 
@@ -5935,22 +5951,24 @@ class Diag(Entity):
                     .. attribute:: type
                     
                     	Node type
-                    	**type**\:   :py:class:`DiagNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagNode>`
+                    	**type**\:  :py:class:`DiagNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagNode>`
                     
                     .. attribute:: node
                     
                     	Node ID
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     .. attribute:: slot_type
                     
                     	Slot type
-                    	**type**\:   :py:class:`DiagSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagSlot>`
+                    	**type**\:  :py:class:`DiagSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.DiagSlot>`
                     
                     .. attribute:: description
                     
                     	Description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

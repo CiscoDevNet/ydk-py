@@ -25,17 +25,17 @@ class DynamicTemplate(Entity):
     .. attribute:: ppps
     
     	Templates of the PPP Type
-    	**type**\:   :py:class:`Ppps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps>`
+    	**type**\:  :py:class:`Ppps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps>`
     
     .. attribute:: ip_subscribers
     
     	The IP Subscriber Template Table
-    	**type**\:   :py:class:`IpSubscribers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers>`
+    	**type**\:  :py:class:`IpSubscribers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers>`
     
     .. attribute:: subscriber_services
     
     	The Service Type Template Table
-    	**type**\:   :py:class:`SubscriberServices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices>`
+    	**type**\:  :py:class:`SubscriberServices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices>`
     
     
 
@@ -79,7 +79,7 @@ class DynamicTemplate(Entity):
         .. attribute:: ppp
         
         	A Template of the PPP Type
-        	**type**\: list of    :py:class:`Ppp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp>`
+        	**type**\: list of  		 :py:class:`Ppp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp>`
         
         
 
@@ -113,79 +113,81 @@ class DynamicTemplate(Entity):
             .. attribute:: template_name  <key>
             
             	The name of the template
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
-            	**type**\:   :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions>`
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions>`
             
             .. attribute:: vrf
             
             	Assign the interface to a VRF 
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: ipv4_packet_filter
             
             	IPv4 Packet Filtering configuration for the template
-            	**type**\:   :py:class:`Ipv4PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter>`
+            	**type**\:  :py:class:`Ipv4PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter>`
             
             .. attribute:: ipv6_packet_filter
             
             	IPv6 Packet Filtering configuration for the interface
-            	**type**\:   :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter>`
+            	**type**\:  :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter>`
             
             .. attribute:: igmp
             
             	IGMPconfiguration
-            	**type**\:   :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp>`
+            	**type**\:  :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp>`
             
             .. attribute:: ipv4_network
             
             	Interface IPv4 Network configuration data
-            	**type**\:   :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4Network>`
+            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4Network>`
             
             .. attribute:: ipv6_network
             
             	Interface IPv6 Network configuration data
-            	**type**\:   :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network>`
+            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network>`
             
             .. attribute:: ipv6_neighbor
             
             	Interface IPv6 Network configuration data
-            	**type**\:   :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor>`
+            	**type**\:  :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor>`
             
             .. attribute:: dhcpv6
             
             	Interface dhcpv6 configuration data
-            	**type**\:   :py:class:`Dhcpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Dhcpv6>`
+            	**type**\:  :py:class:`Dhcpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Dhcpv6>`
             
             .. attribute:: pbr
             
             	Dynamic Template PBR configuration
-            	**type**\:   :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr>`
+            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr>`
             
             .. attribute:: ppp_template
             
             	PPP template configuration data
-            	**type**\:   :py:class:`PppTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate>`
+            	**type**\:  :py:class:`PppTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate>`
             
             .. attribute:: qos
             
             	QoS dynamically applied configuration template
-            	**type**\:   :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos>`
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos>`
             
             .. attribute:: accounting
             
             	Subscriber accounting dynamic\-template commands
-            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting>`
+            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting>`
             
             .. attribute:: pppoe_template
             
             	PPPoE template configuration data
-            	**type**\:   :py:class:`PppoeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppoeTemplate>`
+            	**type**\:  :py:class:`PppoeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppoeTemplate>`
             
             
 
@@ -201,7 +203,7 @@ class DynamicTemplate(Entity):
                 self.yang_parent_name = "ppps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"span-monitor-sessions" : ("span_monitor_sessions", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions), "ipv4-packet-filter" : ("ipv4_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter), "ipv6-packet-filter" : ("ipv6_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter), "igmp" : ("igmp", DynamicTemplate.Ppps.Ppp.Igmp), "ipv4-network" : ("ipv4_network", DynamicTemplate.Ppps.Ppp.Ipv4Network), "ipv6-network" : ("ipv6_network", DynamicTemplate.Ppps.Ppp.Ipv6Network), "ipv6-neighbor" : ("ipv6_neighbor", DynamicTemplate.Ppps.Ppp.Ipv6Neighbor), "dhcpv6" : ("dhcpv6", DynamicTemplate.Ppps.Ppp.Dhcpv6), "pbr" : ("pbr", DynamicTemplate.Ppps.Ppp.Pbr), "ppp-template" : ("ppp_template", DynamicTemplate.Ppps.Ppp.PppTemplate), "qos" : ("qos", DynamicTemplate.Ppps.Ppp.Qos), "accounting" : ("accounting", DynamicTemplate.Ppps.Ppp.Accounting), "pppoe-template" : ("pppoe_template", DynamicTemplate.Ppps.Ppp.PppoeTemplate)}
+                self._child_container_classes = {"Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" : ("span_monitor_sessions", DynamicTemplate.Ppps.Ppp.SpanMonitorSessions), "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" : ("ipv4_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter), "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" : ("ipv6_packet_filter", DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter), "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp" : ("igmp", DynamicTemplate.Ppps.Ppp.Igmp), "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" : ("ipv4_network", DynamicTemplate.Ppps.Ppp.Ipv4Network), "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" : ("ipv6_network", DynamicTemplate.Ppps.Ppp.Ipv6Network), "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" : ("ipv6_neighbor", DynamicTemplate.Ppps.Ppp.Ipv6Neighbor), "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6" : ("dhcpv6", DynamicTemplate.Ppps.Ppp.Dhcpv6), "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" : ("pbr", DynamicTemplate.Ppps.Ppp.Pbr), "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template" : ("ppp_template", DynamicTemplate.Ppps.Ppp.PppTemplate), "Cisco-IOS-XR-qos-ma-bng-cfg:qos" : ("qos", DynamicTemplate.Ppps.Ppp.Qos), "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" : ("accounting", DynamicTemplate.Ppps.Ppp.Accounting), "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template" : ("pppoe_template", DynamicTemplate.Ppps.Ppp.PppoeTemplate)}
                 self._child_list_classes = {}
 
                 self.template_name = YLeaf(YType.str, "template-name")
@@ -286,7 +288,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: span_monitor_session
                 
                 	Configuration for a particular class of Monitor Session
-                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession>`
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession>`
                 
                 
 
@@ -320,12 +322,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: session_class  <key>
                     
                     	Session Class
-                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
                     
                     .. attribute:: mirror_first
                     
                     	Mirror a specified number of bytes from start of packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -334,19 +336,19 @@ class DynamicTemplate(Entity):
                     .. attribute:: attachment
                     
                     	Attach the interface to a Monitor Session
-                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
                     
                     .. attribute:: acl
                     
                     	Enable ACL matching for traffic mirroring
-                    	**type**\:   :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Acl>`
                     
                     	**presence node**\: True
                     
@@ -393,7 +395,7 @@ class DynamicTemplate(Entity):
                         .. attribute:: session_name
                         
                         	Session Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..79
                         
@@ -402,12 +404,12 @@ class DynamicTemplate(Entity):
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
                         
                         .. attribute:: port_level_enable
                         
                         	Enable port level traffic mirroring
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -447,14 +449,14 @@ class DynamicTemplate(Entity):
                         .. attribute:: acl_enable
                         
                         	Enable ACL
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: acl_name
                         
                         	ACL Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..80
                         
@@ -495,14 +497,14 @@ class DynamicTemplate(Entity):
                 .. attribute:: outbound
                 
                 	IPv4 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound>`
+                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: inbound
                 
                 	IPv4 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound>`
+                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound>`
                 
                 
 
@@ -540,12 +542,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
@@ -554,12 +556,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -602,24 +604,24 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -659,12 +661,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: inbound
                 
                 	IPv6 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound>`
+                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound>`
                 
                 .. attribute:: outbound
                 
                 	IPv6 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound>`
+                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound>`
                 
                 	**presence node**\: True
                 
@@ -704,19 +706,19 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -754,12 +756,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
@@ -768,7 +770,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -808,7 +810,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: default_vrf
                 
                 	Default VRF
-                	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf>`
+                	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf>`
                 
                 
 
@@ -841,14 +843,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: explicit_tracking
                     
                     	IGMPv3 explicit host tracking
-                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking>`
+                    	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: max_groups
                     
                     	IGMP Max Groups
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -857,14 +859,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: access_group
                     
                     	Access list specifying access\-list group range
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: version
                     
                     	IGMP Version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3
                     
@@ -873,7 +875,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: query_interval
                     
                     	Query interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3600
                     
@@ -884,7 +886,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: query_max_response_time
                     
                     	Query response value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..12
                     
@@ -895,7 +897,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: multicast_mode
                     
                     	Configure Multicast mode variable
-                    	**type**\:   :py:class:`DynTmplMulticastMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastMode>`
+                    	**type**\:  :py:class:`DynTmplMulticastMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastMode>`
                     
                     
 
@@ -942,14 +944,14 @@ class DynamicTemplate(Entity):
                         .. attribute:: enable
                         
                         	Enable or disable, when value is TRUE or FALSE respectively
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**mandatory**\: True
                         
                         .. attribute:: access_list_name
                         
                         	Access list specifying tracking group range
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -989,12 +991,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: unnumbered
                 
                 	Enable IP processing without an explicit address
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: mtu
                 
                 	The IP Maximum Transmission Unit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 68..65535
                 
@@ -1003,14 +1005,14 @@ class DynamicTemplate(Entity):
                 .. attribute:: unreachables
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
@@ -1051,12 +1053,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: addresses
                 
                 	Set the IPv6 address of an interface
-                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses>`
+                	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses>`
                 
                 .. attribute:: mtu
                 
                 	MTU Setting of Interface
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1280..65535
                 
@@ -1065,12 +1067,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: unreachables
                 
                 	Override Sending of ICMP Unreachable Messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1112,7 +1114,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: auto_configuration
                     
                     	Auto IPv6 Interface Configuration
-                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration>`
+                    	**type**\:  :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration>`
                     
                     
 
@@ -1145,7 +1147,7 @@ class DynamicTemplate(Entity):
                         .. attribute:: enable
                         
                         	The flag to enable auto ipv6 interface configuration
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -1178,58 +1180,58 @@ class DynamicTemplate(Entity):
                 .. attribute:: ra_interval
                 
                 	Set IPv6 Router Advertisement (RA) interval in seconds
-                	**type**\:   :py:class:`RaInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInterval>`
+                	**type**\:  :py:class:`RaInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInterval>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: framed_prefix
                 
                 	Set the IPv6 framed ipv6 prefix for a subscriber interface 
-                	**type**\:   :py:class:`FramedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix>`
+                	**type**\:  :py:class:`FramedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: duplicate_address_detection
                 
                 	Duplicate Address Detection (DAD)
-                	**type**\:   :py:class:`DuplicateAddressDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection>`
+                	**type**\:  :py:class:`DuplicateAddressDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection>`
                 
                 .. attribute:: ra_initial
                 
                 	IPv6 ND RA Initial
-                	**type**\:   :py:class:`RaInitial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial>`
+                	**type**\:  :py:class:`RaInitial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: framed_prefix_pool
                 
                 	Set the IPv6 framed ipv6 prefix pool for a subscriber interface 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: managed_config
                 
                 	Host to use stateful protocol for address configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: other_config
                 
                 	Host to use stateful protocol for non\-address configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
                 	Start RA on ipv6\-enable config
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: nud_enable
                 
                 	NUD enable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_lifetime
                 
                 	Set IPv6 Router Advertisement (RA) lifetime in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..9000
                 
@@ -1238,37 +1240,37 @@ class DynamicTemplate(Entity):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
+                	**type**\:  :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
                 
                 .. attribute:: ra_suppress
                 
                 	Enable suppress IPv6 router advertisement
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_unicast
                 
                 	Enable RA unicast Flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_unspecify_hoplimit
                 
                 	Unspecify IPv6 Router Advertisement (RA) hop\-limit
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_suppress_mtu
                 
                 	RA suppress MTU flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: suppress_cache_learning
                 
                 	Suppress cache learning flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: reachable_time
                 
                 	Set advertised reachability time in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..3600000
                 
@@ -1277,7 +1279,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: ns_interval
                 
                 	Set advertised NS retransmission interval in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1000..4294967295
                 
@@ -1358,7 +1360,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: maximum
                     
                     	Maximum RA interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 4..1800
                     
@@ -1369,7 +1371,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: minimum
                     
                     	Minimum RA interval in seconds. Must be less than 0.75 \* maximum interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 3..1800
                     
@@ -1412,7 +1414,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: prefix_length
                     
                     	IPv6 framed prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -1421,7 +1423,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: prefix
                     
                     	IPV6 framed prefix address
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
@@ -1461,7 +1463,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: attempts
                     
                     	Set IPv6 duplicate address detection transmits
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..600
                     
@@ -1496,7 +1498,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: count
                     
                     	Initial RA count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..32
                     
@@ -1505,7 +1507,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: interval
                     
                     	Initial RA interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 4..1800
                     
@@ -1549,39 +1551,43 @@ class DynamicTemplate(Entity):
                 .. attribute:: delegated_prefix
                 
                 	The prefix to be used for Prefix Delegation
-                	**type**\:   :py:class:`DelegatedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix>`
+                	**type**\:  :py:class:`DelegatedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: dns_ipv6address
                 
                 	Dns IPv6 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: mode_class
                 
                 	Select proxy/server profile based on mode class name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: address_pool
                 
                 	The pool to be used for Address assignment
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: delegated_prefix_pool
                 
                 	The pool to be used for Prefix Delegation
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: class_
                 
                 	The class to be used for proxy/server profile
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: stateful_address
                 
                 	Stateful IPv6 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -1628,14 +1634,16 @@ class DynamicTemplate(Entity):
                     .. attribute:: prefix
                     
                     	IPv6 Prefix
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     	**mandatory**\: True
                     
                     .. attribute:: prefix_length
                     
                     	PD Prefix Length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -1677,12 +1685,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: service_policy
                 
                 	PBR service policy configuration
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy>`
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy>`
                 
                 .. attribute:: service_policy_in
                 
                 	Class for subscriber ingress policy
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1720,7 +1728,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: input
                     
                     	Ingress service policy
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -1753,22 +1761,22 @@ class DynamicTemplate(Entity):
                 .. attribute:: fsm
                 
                 	PPP FSM global template configuration data
-                	**type**\:   :py:class:`Fsm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Fsm>`
+                	**type**\:  :py:class:`Fsm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Fsm>`
                 
                 .. attribute:: lcp
                 
                 	PPP LCP global template configuration data
-                	**type**\:   :py:class:`Lcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp>`
+                	**type**\:  :py:class:`Lcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp>`
                 
                 .. attribute:: ipv6cp
                 
                 	PPP IPv6CP global template configuration data
-                	**type**\:   :py:class:`Ipv6Cp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipv6Cp>`
+                	**type**\:  :py:class:`Ipv6Cp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipv6Cp>`
                 
                 .. attribute:: ipcp
                 
                 	PPP IPCP global template configuration data
-                	**type**\:   :py:class:`Ipcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp>`
+                	**type**\:  :py:class:`Ipcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp>`
                 
                 
 
@@ -1816,7 +1824,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: max_consecutive_conf_naks
                     
                     	This specifies the maximum number of consecutive Conf\-Naks
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 2..10
                     
@@ -1825,7 +1833,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: max_unacknowledged_conf_requests
                     
                     	This specifies the maximum number of unacknowledged Conf\-Requests
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 4..20
                     
@@ -1834,7 +1842,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: retry_timeout
                     
                     	This specifies the maximum time to wait for a response during PPP negotiation
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10
                     
@@ -1843,7 +1851,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: protocol_reject_timeout
                     
                     	This specifies the maximum time to wait before sending Protocol Reject
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..60
                     
@@ -1886,32 +1894,32 @@ class DynamicTemplate(Entity):
                     .. attribute:: absolute_timeout
                     
                     	This specifies the session absolute timeout value
-                    	**type**\:   :py:class:`AbsoluteTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.AbsoluteTimeout>`
+                    	**type**\:  :py:class:`AbsoluteTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.AbsoluteTimeout>`
                     
                     .. attribute:: delay
                     
                     	This specifies the time to delay before starting active LCPnegotiations
-                    	**type**\:   :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Delay>`
+                    	**type**\:  :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Delay>`
                     
                     .. attribute:: authentication
                     
                     	PPP authentication parameters
-                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication>`
+                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication>`
                     
                     .. attribute:: keepalive
                     
                     	This specifies the rate at which EchoReq packets are sent
-                    	**type**\:   :py:class:`Keepalive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Keepalive>`
+                    	**type**\:  :py:class:`Keepalive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Keepalive>`
                     
                     .. attribute:: renegotiation
                     
                     	Specify whether to ignore attempts to renegotiate LCP
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: service_type
                     
                     	This is the Service\-Type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..15
                     
@@ -1920,12 +1928,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: send_term_request_on_shut_down
                     
                     	Enable Sending LCP Terminate request on shutdown
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: mru_ignore
                     
                     	Ignore MRU negotiated with peer while setting interface BW
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1985,14 +1993,14 @@ class DynamicTemplate(Entity):
                         .. attribute:: minutes
                         
                         	Minutes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..35000000
                         
                         .. attribute:: seconds
                         
                         	Seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..59
                         
@@ -2030,14 +2038,14 @@ class DynamicTemplate(Entity):
                         .. attribute:: seconds
                         
                         	Seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: milliseconds
                         
                         	Milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..999
                         
@@ -2074,36 +2082,36 @@ class DynamicTemplate(Entity):
                         .. attribute:: methods
                         
                         	This specifies the PPP link authentication method
-                        	**type**\:   :py:class:`Methods <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication.Methods>`
+                        	**type**\:  :py:class:`Methods <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication.Methods>`
                         
                         .. attribute:: chap_host_name
                         
                         	This specifies the CHAP hostname
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: pap
                         
                         	<1> for accepting null\-passwordduring authentication
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: mschap_host_name
                         
                         	This specifies the MS\-CHAP hostname
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: max_authentication_failures
                         
                         	This specifies whether to allow multiple authentication failures and, if so, how many
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10
                         
                         .. attribute:: timeout
                         
                         	Maximum time to wait for an authentication response
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 3..30
                         
@@ -2154,7 +2162,7 @@ class DynamicTemplate(Entity):
                             .. attribute:: method
                             
                             	Select between one and three authentication methods in order of preference
-                            	**type**\:  list of   :py:class:`PppAuthenticationMethodGbl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_gbl_cfg.PppAuthenticationMethodGbl>`
+                            	**type**\: list of   :py:class:`PppAuthenticationMethodGbl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_gbl_cfg.PppAuthenticationMethodGbl>`
                             
                             
 
@@ -2188,19 +2196,19 @@ class DynamicTemplate(Entity):
                         .. attribute:: keepalive_disable
                         
                         	TRUE to disable keepalives, FALSE to specify a new keepalive interval
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: interval
                         
                         	The keepalive interval. Leave unspecified when disabling keepalives
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 10..180
                         
                         .. attribute:: retry_count
                         
                         	The keepalive retry count. Leave unspecified when disabling keepalives
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
@@ -2239,22 +2247,22 @@ class DynamicTemplate(Entity):
                     .. attribute:: passive
                     
                     	Specify whether to run IPv6CP in Passive mode
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: renegotiation
                     
                     	Specify whether to ignore attempts to renegotiate IPv6CP
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: peer_interface_id
                     
                     	Specify the Interface\-Id to impose on the peer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: protocol_reject
                     
                     	Specify whether to protocol reject IPv6CP
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -2293,37 +2301,39 @@ class DynamicTemplate(Entity):
                     .. attribute:: wins
                     
                     	IPCP WINS parameters
-                    	**type**\:   :py:class:`Wins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins>`
+                    	**type**\:  :py:class:`Wins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins>`
                     
                     .. attribute:: dns
                     
                     	IPCP DNS parameters
-                    	**type**\:   :py:class:`Dns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns>`
+                    	**type**\:  :py:class:`Dns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns>`
                     
                     .. attribute:: peer_address
                     
                     	IPCP address parameters
-                    	**type**\:   :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.PeerAddress>`
+                    	**type**\:  :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.PeerAddress>`
                     
                     .. attribute:: renegotiation
                     
                     	Specify whether to ignore attempts to renegotiate IPCP
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: passive
                     
                     	Specify whether to run IPCP in Passive mode
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: protocol_reject
                     
                     	Specify whether to protocol reject IPCP
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: peer_netmask
                     
                     	Specify the IPv4 netmask to negotiate for the peer
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -2377,7 +2387,7 @@ class DynamicTemplate(Entity):
                         .. attribute:: wins_addresses
                         
                         	Specify WINS address(es) to provide
-                        	**type**\:   :py:class:`WinsAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins.WinsAddresses>`
+                        	**type**\:  :py:class:`WinsAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins.WinsAddresses>`
                         
                         
 
@@ -2410,12 +2420,16 @@ class DynamicTemplate(Entity):
                             .. attribute:: primary
                             
                             	Primary WINS IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: secondary
                             
                             	Secondary WINS IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2450,7 +2464,7 @@ class DynamicTemplate(Entity):
                         .. attribute:: dns_addresses
                         
                         	Specify DNS address(es) to provide
-                        	**type**\:   :py:class:`DnsAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns.DnsAddresses>`
+                        	**type**\:  :py:class:`DnsAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns.DnsAddresses>`
                         
                         
 
@@ -2483,12 +2497,16 @@ class DynamicTemplate(Entity):
                             .. attribute:: primary
                             
                             	Primary DNS IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: secondary
                             
                             	Secondary DNS IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2523,12 +2541,14 @@ class DynamicTemplate(Entity):
                         .. attribute:: default
                         
                         	Specify an IP address to assign to peers through IPCP
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: pool
                         
                         	Accepts an IP address from the peer if in the pool, else allocates one from the pool
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -2563,17 +2583,17 @@ class DynamicTemplate(Entity):
                 .. attribute:: service_policy
                 
                 	Service policy to be applied in ingress/egress direction
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
                 
                 .. attribute:: account
                 
                 	QoS L2 overhead accounting
-                	**type**\:   :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Account>`
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Account>`
                 
                 .. attribute:: output
                 
                 	QoS to be applied in egress direction
-                	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Output>`
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Output>`
                 
                 
 
@@ -2617,14 +2637,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: input
                     
                     	Subscriber ingress policy
-                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input>`
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: output
                     
                     	Subscriber egress policy
-                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output>`
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output>`
                     
                     	**presence node**\: True
                     
@@ -2662,31 +2682,31 @@ class DynamicTemplate(Entity):
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: spi_name
                         
                         	Name of the SPI
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: merge_id
                         
                         	Merge ID value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: account_stats
                         
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2730,31 +2750,31 @@ class DynamicTemplate(Entity):
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: spi_name
                         
                         	Name of the SPI
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: merge_id
                         
                         	Merge ID value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: account_stats
                         
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2798,22 +2818,22 @@ class DynamicTemplate(Entity):
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\:   :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
                     
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\:   :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
                     
                     .. attribute:: atm_cell_tax
                     
                     	ATM cell tax to L2 overhead
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: user_defined
                     
                     	Numeric L2 overhead offset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-63..63
                     
@@ -2854,7 +2874,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: minimum_bandwidth
                     
                     	Minimum bandwidth value for the subscriber (in kbps)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..4294967295
                     
@@ -2891,22 +2911,22 @@ class DynamicTemplate(Entity):
                 .. attribute:: idle_timeout
                 
                 	Subscriber accounting idle timeout
-                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout>`
+                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout>`
                 
                 .. attribute:: session
                 
                 	Subscriber accounting session accounting
-                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.Session>`
+                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.Session>`
                 
                 .. attribute:: service_accounting
                 
                 	Subscriber accounting service accounting
-                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting>`
+                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting>`
                 
                 .. attribute:: prepaid_feature
                 
                 	Subscriber accounting prepaid feature
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -2954,21 +2974,21 @@ class DynamicTemplate(Entity):
                     .. attribute:: timeout_value
                     
                     	Idle timeout value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 60..4320000
                     
                     .. attribute:: threshold
                     
                     	Threshold in minute(s) per packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
                     .. attribute:: direction
                     
                     	Idle timeout traffic direction
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -3005,26 +3025,26 @@ class DynamicTemplate(Entity):
                     .. attribute:: method_list_name
                     
                     	Session accounting method list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: periodic_interval
                     
                     	Interim accounting interval in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: dual_stack_delay
                     
                     	Dual stack wait delay in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: hold_acct_start
                     
                     	Hold Accounting start based on IA\_PD
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -3065,12 +3085,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: method_list_name
                     
                     	Service accounting method list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: accounting_interim_interval
                     
                     	Accounting interim interval in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -3107,7 +3127,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: port_limit
                 
                 	Specify the Port limit (attr 62) to apply to the subscriber
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
@@ -3142,7 +3162,7 @@ class DynamicTemplate(Entity):
         .. attribute:: ip_subscriber
         
         	A IP Subscriber Type Template 
-        	**type**\: list of    :py:class:`IpSubscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber>`
+        	**type**\: list of  		 :py:class:`IpSubscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber>`
         
         
 
@@ -3176,74 +3196,76 @@ class DynamicTemplate(Entity):
             .. attribute:: template_name  <key>
             
             	The name of the template
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
-            	**type**\:   :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions>`
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions>`
             
             .. attribute:: vrf
             
             	Assign the interface to a VRF 
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: ipv4_packet_filter
             
             	IPv4 Packet Filtering configuration for the template
-            	**type**\:   :py:class:`Ipv4PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter>`
+            	**type**\:  :py:class:`Ipv4PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter>`
             
             .. attribute:: ipv6_packet_filter
             
             	IPv6 Packet Filtering configuration for the interface
-            	**type**\:   :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter>`
+            	**type**\:  :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter>`
             
             .. attribute:: dhcpd
             
             	Interface dhcpv4 configuration data
-            	**type**\:   :py:class:`Dhcpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd>`
+            	**type**\:  :py:class:`Dhcpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd>`
             
             .. attribute:: igmp
             
             	IGMPconfiguration
-            	**type**\:   :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp>`
+            	**type**\:  :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp>`
             
             .. attribute:: ipv4_network
             
             	Interface IPv4 Network configuration data
-            	**type**\:   :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network>`
+            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network>`
             
             .. attribute:: ipv6_network
             
             	Interface IPv6 Network configuration data
-            	**type**\:   :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network>`
+            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network>`
             
             .. attribute:: ipv6_neighbor
             
             	Interface IPv6 Network configuration data
-            	**type**\:   :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor>`
+            	**type**\:  :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor>`
             
             .. attribute:: dhcpv6
             
             	Interface dhcpv6 configuration data
-            	**type**\:   :py:class:`Dhcpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6>`
+            	**type**\:  :py:class:`Dhcpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6>`
             
             .. attribute:: pbr
             
             	Dynamic Template PBR configuration
-            	**type**\:   :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr>`
+            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr>`
             
             .. attribute:: qos
             
             	QoS dynamically applied configuration template
-            	**type**\:   :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos>`
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos>`
             
             .. attribute:: accounting
             
             	Subscriber accounting dynamic\-template commands
-            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting>`
+            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting>`
             
             
 
@@ -3259,7 +3281,7 @@ class DynamicTemplate(Entity):
                 self.yang_parent_name = "ip-subscribers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"span-monitor-sessions" : ("span_monitor_sessions", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions), "ipv4-packet-filter" : ("ipv4_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter), "ipv6-packet-filter" : ("ipv6_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter), "dhcpd" : ("dhcpd", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd), "igmp" : ("igmp", DynamicTemplate.IpSubscribers.IpSubscriber.Igmp), "ipv4-network" : ("ipv4_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network), "ipv6-network" : ("ipv6_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network), "ipv6-neighbor" : ("ipv6_neighbor", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor), "dhcpv6" : ("dhcpv6", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6), "pbr" : ("pbr", DynamicTemplate.IpSubscribers.IpSubscriber.Pbr), "qos" : ("qos", DynamicTemplate.IpSubscribers.IpSubscriber.Qos), "accounting" : ("accounting", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting)}
+                self._child_container_classes = {"Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" : ("span_monitor_sessions", DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions), "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" : ("ipv4_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter), "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" : ("ipv6_packet_filter", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter), "Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd" : ("dhcpd", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd), "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp" : ("igmp", DynamicTemplate.IpSubscribers.IpSubscriber.Igmp), "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" : ("ipv4_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network), "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" : ("ipv6_network", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network), "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" : ("ipv6_neighbor", DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor), "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6" : ("dhcpv6", DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6), "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" : ("pbr", DynamicTemplate.IpSubscribers.IpSubscriber.Pbr), "Cisco-IOS-XR-qos-ma-bng-cfg:qos" : ("qos", DynamicTemplate.IpSubscribers.IpSubscriber.Qos), "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" : ("accounting", DynamicTemplate.IpSubscribers.IpSubscriber.Accounting)}
                 self._child_list_classes = {}
 
                 self.template_name = YLeaf(YType.str, "template-name")
@@ -3339,7 +3361,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: span_monitor_session
                 
                 	Configuration for a particular class of Monitor Session
-                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession>`
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession>`
                 
                 
 
@@ -3373,12 +3395,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: session_class  <key>
                     
                     	Session Class
-                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
                     
                     .. attribute:: mirror_first
                     
                     	Mirror a specified number of bytes from start of packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -3387,19 +3409,19 @@ class DynamicTemplate(Entity):
                     .. attribute:: attachment
                     
                     	Attach the interface to a Monitor Session
-                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
                     
                     .. attribute:: acl
                     
                     	Enable ACL matching for traffic mirroring
-                    	**type**\:   :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Acl>`
                     
                     	**presence node**\: True
                     
@@ -3446,7 +3468,7 @@ class DynamicTemplate(Entity):
                         .. attribute:: session_name
                         
                         	Session Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..79
                         
@@ -3455,12 +3477,12 @@ class DynamicTemplate(Entity):
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
                         
                         .. attribute:: port_level_enable
                         
                         	Enable port level traffic mirroring
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -3500,14 +3522,14 @@ class DynamicTemplate(Entity):
                         .. attribute:: acl_enable
                         
                         	Enable ACL
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: acl_name
                         
                         	ACL Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..80
                         
@@ -3548,14 +3570,14 @@ class DynamicTemplate(Entity):
                 .. attribute:: outbound
                 
                 	IPv4 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound>`
+                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: inbound
                 
                 	IPv4 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound>`
+                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound>`
                 
                 
 
@@ -3593,12 +3615,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
@@ -3607,12 +3629,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -3655,24 +3677,24 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -3712,12 +3734,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: inbound
                 
                 	IPv6 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound>`
+                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound>`
                 
                 .. attribute:: outbound
                 
                 	IPv6 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound>`
+                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound>`
                 
                 	**presence node**\: True
                 
@@ -3757,19 +3779,19 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -3807,12 +3829,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
@@ -3821,7 +3843,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -3861,24 +3883,26 @@ class DynamicTemplate(Entity):
                 .. attribute:: class_
                 
                 	The class to be used for proxy/server profile
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: default_gateway
                 
                 	The Default Gateway IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: session_limit
                 
                 	The pool to be used for Prefix Delegation
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: dhcpv4_option
                 
                 	Cisco VSA to configure any dhcp4 option per subscriber
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -3917,7 +3941,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: default_vrf
                 
                 	Default VRF
-                	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf>`
+                	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf>`
                 
                 
 
@@ -3950,14 +3974,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: explicit_tracking
                     
                     	IGMPv3 explicit host tracking
-                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking>`
+                    	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: max_groups
                     
                     	IGMP Max Groups
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -3966,14 +3990,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: access_group
                     
                     	Access list specifying access\-list group range
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: version
                     
                     	IGMP Version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3
                     
@@ -3982,7 +4006,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: query_interval
                     
                     	Query interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3600
                     
@@ -3993,7 +4017,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: query_max_response_time
                     
                     	Query response value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..12
                     
@@ -4004,7 +4028,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: multicast_mode
                     
                     	Configure Multicast mode variable
-                    	**type**\:   :py:class:`DynTmplMulticastMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastMode>`
+                    	**type**\:  :py:class:`DynTmplMulticastMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastMode>`
                     
                     
 
@@ -4051,14 +4075,14 @@ class DynamicTemplate(Entity):
                         .. attribute:: enable
                         
                         	Enable or disable, when value is TRUE or FALSE respectively
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**mandatory**\: True
                         
                         .. attribute:: access_list_name
                         
                         	Access list specifying tracking group range
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -4098,12 +4122,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: unnumbered
                 
                 	Enable IP processing without an explicit address
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: mtu
                 
                 	The IP Maximum Transmission Unit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 68..65535
                 
@@ -4112,14 +4136,14 @@ class DynamicTemplate(Entity):
                 .. attribute:: unreachables
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
@@ -4160,12 +4184,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: addresses
                 
                 	Set the IPv6 address of an interface
-                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses>`
+                	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses>`
                 
                 .. attribute:: mtu
                 
                 	MTU Setting of Interface
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1280..65535
                 
@@ -4174,12 +4198,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: unreachables
                 
                 	Override Sending of ICMP Unreachable Messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -4221,7 +4245,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: auto_configuration
                     
                     	Auto IPv6 Interface Configuration
-                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration>`
+                    	**type**\:  :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration>`
                     
                     
 
@@ -4254,7 +4278,7 @@ class DynamicTemplate(Entity):
                         .. attribute:: enable
                         
                         	The flag to enable auto ipv6 interface configuration
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -4287,58 +4311,58 @@ class DynamicTemplate(Entity):
                 .. attribute:: ra_interval
                 
                 	Set IPv6 Router Advertisement (RA) interval in seconds
-                	**type**\:   :py:class:`RaInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInterval>`
+                	**type**\:  :py:class:`RaInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInterval>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: framed_prefix
                 
                 	Set the IPv6 framed ipv6 prefix for a subscriber interface 
-                	**type**\:   :py:class:`FramedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix>`
+                	**type**\:  :py:class:`FramedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: duplicate_address_detection
                 
                 	Duplicate Address Detection (DAD)
-                	**type**\:   :py:class:`DuplicateAddressDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection>`
+                	**type**\:  :py:class:`DuplicateAddressDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection>`
                 
                 .. attribute:: ra_initial
                 
                 	IPv6 ND RA Initial
-                	**type**\:   :py:class:`RaInitial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial>`
+                	**type**\:  :py:class:`RaInitial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: framed_prefix_pool
                 
                 	Set the IPv6 framed ipv6 prefix pool for a subscriber interface 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: managed_config
                 
                 	Host to use stateful protocol for address configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: other_config
                 
                 	Host to use stateful protocol for non\-address configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
                 	Start RA on ipv6\-enable config
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: nud_enable
                 
                 	NUD enable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_lifetime
                 
                 	Set IPv6 Router Advertisement (RA) lifetime in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..9000
                 
@@ -4347,37 +4371,37 @@ class DynamicTemplate(Entity):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
+                	**type**\:  :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
                 
                 .. attribute:: ra_suppress
                 
                 	Enable suppress IPv6 router advertisement
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_unicast
                 
                 	Enable RA unicast Flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_unspecify_hoplimit
                 
                 	Unspecify IPv6 Router Advertisement (RA) hop\-limit
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_suppress_mtu
                 
                 	RA suppress MTU flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: suppress_cache_learning
                 
                 	Suppress cache learning flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: reachable_time
                 
                 	Set advertised reachability time in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..3600000
                 
@@ -4386,7 +4410,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: ns_interval
                 
                 	Set advertised NS retransmission interval in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1000..4294967295
                 
@@ -4467,7 +4491,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: maximum
                     
                     	Maximum RA interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 4..1800
                     
@@ -4478,7 +4502,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: minimum
                     
                     	Minimum RA interval in seconds. Must be less than 0.75 \* maximum interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 3..1800
                     
@@ -4521,7 +4545,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: prefix_length
                     
                     	IPv6 framed prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -4530,7 +4554,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: prefix
                     
                     	IPV6 framed prefix address
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
@@ -4570,7 +4594,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: attempts
                     
                     	Set IPv6 duplicate address detection transmits
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..600
                     
@@ -4605,7 +4629,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: count
                     
                     	Initial RA count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..32
                     
@@ -4614,7 +4638,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: interval
                     
                     	Initial RA interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 4..1800
                     
@@ -4658,39 +4682,43 @@ class DynamicTemplate(Entity):
                 .. attribute:: delegated_prefix
                 
                 	The prefix to be used for Prefix Delegation
-                	**type**\:   :py:class:`DelegatedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix>`
+                	**type**\:  :py:class:`DelegatedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: dns_ipv6address
                 
                 	Dns IPv6 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: mode_class
                 
                 	Select proxy/server profile based on mode class name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: address_pool
                 
                 	The pool to be used for Address assignment
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: delegated_prefix_pool
                 
                 	The pool to be used for Prefix Delegation
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: class_
                 
                 	The class to be used for proxy/server profile
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: stateful_address
                 
                 	Stateful IPv6 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -4737,14 +4765,16 @@ class DynamicTemplate(Entity):
                     .. attribute:: prefix
                     
                     	IPv6 Prefix
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     	**mandatory**\: True
                     
                     .. attribute:: prefix_length
                     
                     	PD Prefix Length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -4786,12 +4816,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: service_policy
                 
                 	PBR service policy configuration
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy>`
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy>`
                 
                 .. attribute:: service_policy_in
                 
                 	Class for subscriber ingress policy
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -4829,7 +4859,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: input
                     
                     	Ingress service policy
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -4862,17 +4892,17 @@ class DynamicTemplate(Entity):
                 .. attribute:: service_policy
                 
                 	Service policy to be applied in ingress/egress direction
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy>`
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy>`
                 
                 .. attribute:: account
                 
                 	QoS L2 overhead accounting
-                	**type**\:   :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account>`
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account>`
                 
                 .. attribute:: output
                 
                 	QoS to be applied in egress direction
-                	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output>`
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output>`
                 
                 
 
@@ -4916,14 +4946,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: input
                     
                     	Subscriber ingress policy
-                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input>`
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: output
                     
                     	Subscriber egress policy
-                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output>`
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output>`
                     
                     	**presence node**\: True
                     
@@ -4961,31 +4991,31 @@ class DynamicTemplate(Entity):
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: spi_name
                         
                         	Name of the SPI
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: merge_id
                         
                         	Merge ID value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: account_stats
                         
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5029,31 +5059,31 @@ class DynamicTemplate(Entity):
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: spi_name
                         
                         	Name of the SPI
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: merge_id
                         
                         	Merge ID value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: account_stats
                         
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5097,22 +5127,22 @@ class DynamicTemplate(Entity):
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\:   :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
                     
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\:   :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
                     
                     .. attribute:: atm_cell_tax
                     
                     	ATM cell tax to L2 overhead
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: user_defined
                     
                     	Numeric L2 overhead offset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-63..63
                     
@@ -5153,7 +5183,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: minimum_bandwidth
                     
                     	Minimum bandwidth value for the subscriber (in kbps)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..4294967295
                     
@@ -5190,22 +5220,22 @@ class DynamicTemplate(Entity):
                 .. attribute:: service_accounting
                 
                 	Subscriber accounting service accounting
-                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting>`
+                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting>`
                 
                 .. attribute:: session
                 
                 	Subscriber accounting session accounting
-                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session>`
+                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session>`
                 
                 .. attribute:: idle_timeout
                 
                 	Subscriber accounting idle timeout
-                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout>`
+                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout>`
                 
                 .. attribute:: prepaid_feature
                 
                 	Subscriber accounting prepaid feature
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -5253,12 +5283,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: method_list_name
                     
                     	Service accounting method list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: accounting_interim_interval
                     
                     	Accounting interim interval in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -5297,12 +5327,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: method_list_name
                     
                     	Session accounting method list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: periodic_interval
                     
                     	Interim accounting interval in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -5311,7 +5341,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: dual_stack_delay
                     
                     	Dual stack wait delay in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -5320,7 +5350,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: hold_acct_start
                     
                     	Hold Accounting start based on IA\_PD
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -5361,7 +5391,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: timeout_value
                     
                     	Idle timeout value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 60..4320000
                     
@@ -5370,14 +5400,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: threshold
                     
                     	Threshold in minute(s) per packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
                     .. attribute:: direction
                     
                     	Idle timeout traffic direction
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -5414,7 +5444,7 @@ class DynamicTemplate(Entity):
         .. attribute:: subscriber_service
         
         	A Service Type Template 
-        	**type**\: list of    :py:class:`SubscriberService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService>`
+        	**type**\: list of  		 :py:class:`SubscriberService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService>`
         
         
 
@@ -5448,59 +5478,61 @@ class DynamicTemplate(Entity):
             .. attribute:: template_name  <key>
             
             	The name of the template
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
-            	**type**\:   :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions>`
+            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions>`
             
             .. attribute:: vrf
             
             	Assign the interface to a VRF 
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: ipv4_packet_filter
             
             	IPv4 Packet Filtering configuration for the template
-            	**type**\:   :py:class:`Ipv4PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter>`
+            	**type**\:  :py:class:`Ipv4PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter>`
             
             .. attribute:: ipv6_packet_filter
             
             	IPv6 Packet Filtering configuration for the interface
-            	**type**\:   :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter>`
+            	**type**\:  :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter>`
             
             .. attribute:: ipv4_network
             
             	Interface IPv4 Network configuration data
-            	**type**\:   :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network>`
+            	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network>`
             
             .. attribute:: ipv6_network
             
             	Interface IPv6 Network configuration data
-            	**type**\:   :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network>`
+            	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network>`
             
             .. attribute:: ipv6_neighbor
             
             	Interface IPv6 Network configuration data
-            	**type**\:   :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor>`
+            	**type**\:  :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor>`
             
             .. attribute:: pbr
             
             	Dynamic Template PBR configuration
-            	**type**\:   :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr>`
+            	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr>`
             
             .. attribute:: qos
             
             	QoS dynamically applied configuration template
-            	**type**\:   :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos>`
+            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos>`
             
             .. attribute:: accounting
             
             	Subscriber accounting dynamic\-template commands
-            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting>`
+            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting>`
             
             
 
@@ -5516,7 +5548,7 @@ class DynamicTemplate(Entity):
                 self.yang_parent_name = "subscriber-services"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"span-monitor-sessions" : ("span_monitor_sessions", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions), "ipv4-packet-filter" : ("ipv4_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter), "ipv6-packet-filter" : ("ipv6_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter), "ipv4-network" : ("ipv4_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network), "ipv6-network" : ("ipv6_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network), "ipv6-neighbor" : ("ipv6_neighbor", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor), "pbr" : ("pbr", DynamicTemplate.SubscriberServices.SubscriberService.Pbr), "qos" : ("qos", DynamicTemplate.SubscriberServices.SubscriberService.Qos), "accounting" : ("accounting", DynamicTemplate.SubscriberServices.SubscriberService.Accounting)}
+                self._child_container_classes = {"Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" : ("span_monitor_sessions", DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions), "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" : ("ipv4_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter), "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" : ("ipv6_packet_filter", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter), "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" : ("ipv4_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network), "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" : ("ipv6_network", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network), "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" : ("ipv6_neighbor", DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor), "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" : ("pbr", DynamicTemplate.SubscriberServices.SubscriberService.Pbr), "Cisco-IOS-XR-qos-ma-bng-cfg:qos" : ("qos", DynamicTemplate.SubscriberServices.SubscriberService.Qos), "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" : ("accounting", DynamicTemplate.SubscriberServices.SubscriberService.Accounting)}
                 self._child_list_classes = {}
 
                 self.template_name = YLeaf(YType.str, "template-name")
@@ -5581,7 +5613,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: span_monitor_session
                 
                 	Configuration for a particular class of Monitor Session
-                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession>`
+                	**type**\: list of  		 :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession>`
                 
                 
 
@@ -5615,12 +5647,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: session_class  <key>
                     
                     	Session Class
-                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
                     
                     .. attribute:: mirror_first
                     
                     	Mirror a specified number of bytes from start of packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5629,19 +5661,19 @@ class DynamicTemplate(Entity):
                     .. attribute:: attachment
                     
                     	Attach the interface to a Monitor Session
-                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
+                    	**type**\:  :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
                     
                     .. attribute:: acl
                     
                     	Enable ACL matching for traffic mirroring
-                    	**type**\:   :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl>`
+                    	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Acl>`
                     
                     	**presence node**\: True
                     
@@ -5688,7 +5720,7 @@ class DynamicTemplate(Entity):
                         .. attribute:: session_name
                         
                         	Session Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..79
                         
@@ -5697,12 +5729,12 @@ class DynamicTemplate(Entity):
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
+                        	**type**\:  :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
                         
                         .. attribute:: port_level_enable
                         
                         	Enable port level traffic mirroring
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -5742,14 +5774,14 @@ class DynamicTemplate(Entity):
                         .. attribute:: acl_enable
                         
                         	Enable ACL
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: acl_name
                         
                         	ACL Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..80
                         
@@ -5790,14 +5822,14 @@ class DynamicTemplate(Entity):
                 .. attribute:: outbound
                 
                 	IPv4 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound>`
+                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: inbound
                 
                 	IPv4 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound>`
+                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound>`
                 
                 
 
@@ -5835,12 +5867,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
@@ -5849,12 +5881,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -5897,24 +5929,24 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -5954,12 +5986,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: inbound
                 
                 	IPv6 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound>`
+                	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound>`
                 
                 .. attribute:: outbound
                 
                 	IPv6 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound>`
+                	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound>`
                 
                 	**presence node**\: True
                 
@@ -5999,19 +6031,19 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -6049,12 +6081,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: common_acl_name
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
@@ -6063,7 +6095,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -6103,12 +6135,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: unnumbered
                 
                 	Enable IP processing without an explicit address
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: mtu
                 
                 	The IP Maximum Transmission Unit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 68..65535
                 
@@ -6117,14 +6149,14 @@ class DynamicTemplate(Entity):
                 .. attribute:: unreachables
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
@@ -6165,12 +6197,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: addresses
                 
                 	Set the IPv6 address of an interface
-                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses>`
+                	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses>`
                 
                 .. attribute:: mtu
                 
                 	MTU Setting of Interface
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1280..65535
                 
@@ -6179,12 +6211,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: unreachables
                 
                 	Override Sending of ICMP Unreachable Messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -6226,7 +6258,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: auto_configuration
                     
                     	Auto IPv6 Interface Configuration
-                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration>`
+                    	**type**\:  :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration>`
                     
                     
 
@@ -6259,7 +6291,7 @@ class DynamicTemplate(Entity):
                         .. attribute:: enable
                         
                         	The flag to enable auto ipv6 interface configuration
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -6292,58 +6324,58 @@ class DynamicTemplate(Entity):
                 .. attribute:: ra_interval
                 
                 	Set IPv6 Router Advertisement (RA) interval in seconds
-                	**type**\:   :py:class:`RaInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInterval>`
+                	**type**\:  :py:class:`RaInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInterval>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: framed_prefix
                 
                 	Set the IPv6 framed ipv6 prefix for a subscriber interface 
-                	**type**\:   :py:class:`FramedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix>`
+                	**type**\:  :py:class:`FramedPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: duplicate_address_detection
                 
                 	Duplicate Address Detection (DAD)
-                	**type**\:   :py:class:`DuplicateAddressDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection>`
+                	**type**\:  :py:class:`DuplicateAddressDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection>`
                 
                 .. attribute:: ra_initial
                 
                 	IPv6 ND RA Initial
-                	**type**\:   :py:class:`RaInitial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial>`
+                	**type**\:  :py:class:`RaInitial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: framed_prefix_pool
                 
                 	Set the IPv6 framed ipv6 prefix pool for a subscriber interface 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: managed_config
                 
                 	Host to use stateful protocol for address configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: other_config
                 
                 	Host to use stateful protocol for non\-address configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
                 	Start RA on ipv6\-enable config
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: nud_enable
                 
                 	NUD enable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_lifetime
                 
                 	Set IPv6 Router Advertisement (RA) lifetime in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..9000
                 
@@ -6352,37 +6384,37 @@ class DynamicTemplate(Entity):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
+                	**type**\:  :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
                 
                 .. attribute:: ra_suppress
                 
                 	Enable suppress IPv6 router advertisement
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_unicast
                 
                 	Enable RA unicast Flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_unspecify_hoplimit
                 
                 	Unspecify IPv6 Router Advertisement (RA) hop\-limit
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ra_suppress_mtu
                 
                 	RA suppress MTU flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: suppress_cache_learning
                 
                 	Suppress cache learning flag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: reachable_time
                 
                 	Set advertised reachability time in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..3600000
                 
@@ -6391,7 +6423,7 @@ class DynamicTemplate(Entity):
                 .. attribute:: ns_interval
                 
                 	Set advertised NS retransmission interval in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1000..4294967295
                 
@@ -6472,7 +6504,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: maximum
                     
                     	Maximum RA interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 4..1800
                     
@@ -6483,7 +6515,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: minimum
                     
                     	Minimum RA interval in seconds. Must be less than 0.75 \* maximum interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 3..1800
                     
@@ -6526,7 +6558,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: prefix_length
                     
                     	IPv6 framed prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -6535,7 +6567,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: prefix
                     
                     	IPV6 framed prefix address
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
@@ -6575,7 +6607,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: attempts
                     
                     	Set IPv6 duplicate address detection transmits
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..600
                     
@@ -6610,7 +6642,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: count
                     
                     	Initial RA count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..32
                     
@@ -6619,7 +6651,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: interval
                     
                     	Initial RA interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 4..1800
                     
@@ -6663,12 +6695,12 @@ class DynamicTemplate(Entity):
                 .. attribute:: service_policy
                 
                 	PBR service policy configuration
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy>`
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy>`
                 
                 .. attribute:: service_policy_in
                 
                 	Class for subscriber ingress policy
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -6706,7 +6738,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: input
                     
                     	Ingress service policy
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -6739,17 +6771,17 @@ class DynamicTemplate(Entity):
                 .. attribute:: service_policy
                 
                 	Service policy to be applied in ingress/egress direction
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy>`
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy>`
                 
                 .. attribute:: account
                 
                 	QoS L2 overhead accounting
-                	**type**\:   :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account>`
+                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account>`
                 
                 .. attribute:: output
                 
                 	QoS to be applied in egress direction
-                	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output>`
+                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output>`
                 
                 
 
@@ -6793,14 +6825,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: input
                     
                     	Subscriber ingress policy
-                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input>`
+                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: output
                     
                     	Subscriber egress policy
-                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output>`
+                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output>`
                     
                     	**presence node**\: True
                     
@@ -6838,31 +6870,31 @@ class DynamicTemplate(Entity):
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: spi_name
                         
                         	Name of the SPI
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: merge_id
                         
                         	Merge ID value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: account_stats
                         
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -6906,31 +6938,31 @@ class DynamicTemplate(Entity):
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: spi_name
                         
                         	Name of the SPI
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: merge_id
                         
                         	Merge ID value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: account_stats
                         
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -6974,22 +7006,22 @@ class DynamicTemplate(Entity):
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\:   :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
+                    	**type**\:  :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
                     
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\:   :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
+                    	**type**\:  :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
                     
                     .. attribute:: atm_cell_tax
                     
                     	ATM cell tax to L2 overhead
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: user_defined
                     
                     	Numeric L2 overhead offset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-63..63
                     
@@ -7030,7 +7062,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: minimum_bandwidth
                     
                     	Minimum bandwidth value for the subscriber (in kbps)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..4294967295
                     
@@ -7067,22 +7099,22 @@ class DynamicTemplate(Entity):
                 .. attribute:: service_accounting
                 
                 	Subscriber accounting service accounting
-                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting>`
+                	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting>`
                 
                 .. attribute:: session
                 
                 	Subscriber accounting session accounting
-                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session>`
+                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session>`
                 
                 .. attribute:: idle_timeout
                 
                 	Subscriber accounting idle timeout
-                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout>`
+                	**type**\:  :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout>`
                 
                 .. attribute:: prepaid_feature
                 
                 	Subscriber accounting prepaid feature
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -7130,12 +7162,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: method_list_name
                     
                     	Service accounting method list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: accounting_interim_interval
                     
                     	Accounting interim interval in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -7174,12 +7206,12 @@ class DynamicTemplate(Entity):
                     .. attribute:: method_list_name
                     
                     	Session accounting method list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: periodic_interval
                     
                     	Interim accounting interval in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -7188,7 +7220,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: dual_stack_delay
                     
                     	Dual stack wait delay in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -7197,7 +7229,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: hold_acct_start
                     
                     	Hold Accounting start based on IA\_PD
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -7238,7 +7270,7 @@ class DynamicTemplate(Entity):
                     .. attribute:: timeout_value
                     
                     	Idle timeout value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 60..4320000
                     
@@ -7247,14 +7279,14 @@ class DynamicTemplate(Entity):
                     .. attribute:: threshold
                     
                     	Threshold in minute(s) per packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
                     .. attribute:: direction
                     
                     	Idle timeout traffic direction
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

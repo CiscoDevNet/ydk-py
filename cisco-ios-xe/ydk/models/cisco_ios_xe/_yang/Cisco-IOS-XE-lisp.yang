@@ -37,6 +37,12 @@ module Cisco-IOS-XE-lisp {
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-04-28 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -2958,6 +2964,14 @@ module Cisco-IOS-XE-lisp {
     uses config-interface-ip-lisp-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-lisp-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Port-channel/ios:ip" {
     uses config-interface-ip-lisp-grouping;
   }
@@ -2982,6 +2996,14 @@ module Cisco-IOS-XE-lisp {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     uses config-interface-lisp-grouping;
   }
 

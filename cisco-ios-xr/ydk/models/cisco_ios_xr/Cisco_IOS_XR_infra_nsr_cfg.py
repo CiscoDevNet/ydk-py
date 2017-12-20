@@ -25,7 +25,7 @@ class Nsr(Entity):
     .. attribute:: process_failure
     
     	Recovery action for process failures on active RP/DRP
-    	**type**\:   :py:class:`ProcessFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_nsr_cfg.Nsr.ProcessFailure>`
+    	**type**\:  :py:class:`ProcessFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_nsr_cfg.Nsr.ProcessFailure>`
     
     
 
@@ -60,7 +60,7 @@ class Nsr(Entity):
         .. attribute:: switchover
         
         	Enable RP/DRP switchover on process failures
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 

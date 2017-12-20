@@ -9,6 +9,13 @@ submodule tailf-meta-extensions {
   description
     "This submodule defines Tail-f YANG meta extensions statements.";
 
+  revision 2017-03-08 {
+    description
+      "Released as part of ConfD-6.4 / NCS-4.4.
+
+       Corrected the pattern for the tailf:tailf-oid typedef.";
+  }
+
   revision 2016-11-24 {
     description
       "Released as part of ConfD-6.3.

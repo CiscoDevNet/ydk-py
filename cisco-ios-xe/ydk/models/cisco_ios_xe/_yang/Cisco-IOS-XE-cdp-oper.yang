@@ -25,6 +25,11 @@ module Cisco-IOS-XE-cdp-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-21 {
+    description
+      "Rename container cdp-neighbour-details to cdp-neighbor-details";
+    reference "2.0.0";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -407,14 +412,14 @@ module Cisco-IOS-XE-cdp-oper {
     }
   }
 
-  container cdp-neighbour-details {
+  container cdp-neighbor-details {
     config false;
     description
-      "Cisco CDP neighbour operational data";
-    list cdp-neighbour-detail {
+      "Cisco CDP neighbor operational data";
+    list cdp-neighbor-detail {
       key "device-id";
       description
-        "List of CDP neighbour details";
+        "List of CDP neighbor details";
       uses cdp-ios-xe-oper:st-cdp-oper;
     }
   }

@@ -25,7 +25,7 @@ class Config(Entity):
     .. attribute:: global_
     
     	Global operational data
-    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global_>`
+    	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global_>`
     
     
 

@@ -25,7 +25,7 @@ class FabricStats(Entity):
     .. attribute:: nodes
     
     	Table of Nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class FabricStats(Entity):
         .. attribute:: node
         
         	Information about a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node>`
         
         
 
@@ -93,12 +93,14 @@ class FabricStats(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: statses
             
             	Table of stats information
-            	**type**\:   :py:class:`Statses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses>`
+            	**type**\:  :py:class:`Statses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses>`
             
             
 
@@ -137,7 +139,7 @@ class FabricStats(Entity):
                 .. attribute:: stats
                 
                 	Stats information for a particular type
-                	**type**\: list of    :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats>`
+                	**type**\: list of  		 :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats>`
                 
                 
 
@@ -170,24 +172,26 @@ class FabricStats(Entity):
                     .. attribute:: type  <key>
                     
                     	Fabric asic type
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: last_clear_time
                     
                     	Last Clear Time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: stat_table_name
                     
                     	Stat Table Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: stats_table
                     
                     	Array of counters 
-                    	**type**\: list of    :py:class:`StatsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats.StatsTable>`
+                    	**type**\: list of  		 :py:class:`StatsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats.StatsTable>`
                     
                     
 
@@ -226,7 +230,7 @@ class FabricStats(Entity):
                         .. attribute:: fsi_stat
                         
                         	Stats Table
-                        	**type**\: list of    :py:class:`FsiStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat>`
+                        	**type**\: list of  		 :py:class:`FsiStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat>`
                         
                         
 
@@ -259,14 +263,14 @@ class FabricStats(Entity):
                             .. attribute:: count
                             
                             	Counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: counter_name
                             
                             	Counter Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 

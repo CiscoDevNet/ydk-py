@@ -22,12 +22,12 @@ class CISCOETHERLIKEEXTMIB(Entity):
     .. attribute:: ceedot3pauseexttable
     
     	A list of additional descriptive and status information about the MAC Control PAUSE  function on the ethernet\-like interfaces  attached to a particular system, in extension to dot3PauseTable in EtherLike\-MIB. There will be  one row in this table for each ethernet\-like  interface in the system which supports the MAC  Control PAUSE function
-    	**type**\:   :py:class:`Ceedot3Pauseexttable <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable>`
+    	**type**\:  :py:class:`Ceedot3Pauseexttable <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable>`
     
     .. attribute:: ceesubinterfacetable
     
     	This table provides the subinterface related information associated to the Ethernet\-like interfaces.  The subinterface is a division of one physical interface into multiple logical interfaces. As an example of what a typical subinterface setup might look like on a device, a single Ethernet port such as GigabitEthernet0/0 would be subdivided into Gi0/0.1, Gi0/0.2, Gi0/0.3 and so on, each one performing as if it were a separate interface
-    	**type**\:   :py:class:`Ceesubinterfacetable <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceesubinterfacetable>`
+    	**type**\:  :py:class:`Ceesubinterfacetable <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceesubinterfacetable>`
     
     
 
@@ -73,7 +73,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
         .. attribute:: ceedot3pauseextentry
         
         	An entry in the table, containing additional information about the MAC Control PAUSE function  on a single ethernet\-like interface, in extension  to dot3PauseEntry in Etherlike\-MIB
-        	**type**\: list of    :py:class:`Ceedot3Pauseextentry <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable.Ceedot3Pauseextentry>`
+        	**type**\: list of  		 :py:class:`Ceedot3Pauseextentry <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable.Ceedot3Pauseextentry>`
         
         
 
@@ -110,7 +110,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
             .. attribute:: dot3statsindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -119,12 +119,12 @@ class CISCOETHERLIKEEXTMIB(Entity):
             .. attribute:: ceedot3pauseextadminmode
             
             	Indicates preference to send or process pause frames on this interface. txDesired(0)  \-  indicates preference to send pause                   frames, but autonegotiates flow                   control. This bit can only be                   turned on when the corresponding                   instance of dot3PauseAdminMode                   has the value of 'enabledXmit' or                   'enabledXmitAndRcv'. rxDesired(1)  \-  indicates preference to process                   pause frames, but autonegotiates                   flow control. This bit can only be                   turned on when the corresponding                   instance of dot3PauseAdminMode                   has the value of 'enabledRcv' or                   'enabledXmitAndRcv'
-            	**type**\:   :py:class:`Ceedot3Pauseextadminmode <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable.Ceedot3Pauseextentry.Ceedot3Pauseextadminmode>`
+            	**type**\:  :py:class:`Ceedot3Pauseextadminmode <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable.Ceedot3Pauseextentry.Ceedot3Pauseextadminmode>`
             
             .. attribute:: ceedot3pauseextopermode
             
             	Provides additional information about the flow control operational status on this interface. txDisagree(0) \- the transmit pause function on                  this interface is disabled due to                  disagreement from the far end on                  negotiation. rxDisagree(1) \- the receive pause function on                   this interface is disabled due to                  disagreement from the far end on                  negotiation. txDesired(2)  \- the transmit pause function on                  this interface is desired. rxDesired(3)  \- the receive pause function on                   this interface is desired
-            	**type**\:   :py:class:`Ceedot3Pauseextopermode <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable.Ceedot3Pauseextentry.Ceedot3Pauseextopermode>`
+            	**type**\:  :py:class:`Ceedot3Pauseextopermode <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable.Ceedot3Pauseextentry.Ceedot3Pauseextopermode>`
             
             
 
@@ -170,7 +170,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
         .. attribute:: ceesubinterfaceentry
         
         	This table contains a row for each Ethernet\-like interface by it's ifTable ifIndex in the system, which supports the sub\-interface.  An entry is created by an agent, when it detects a Ethernet\-like interface is created in ifTable and it  can support sub\-interface.  An entry is deleted by an agent, when the ifTable entry associated to the Ethernet\-like interface is deleted. Typically, when the card is removed from the device
-        	**type**\: list of    :py:class:`Ceesubinterfaceentry <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceesubinterfacetable.Ceesubinterfaceentry>`
+        	**type**\: list of  		 :py:class:`Ceesubinterfaceentry <ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB.CISCOETHERLIKEEXTMIB.Ceesubinterfacetable.Ceesubinterfaceentry>`
         
         
 
@@ -214,7 +214,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -223,7 +223,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
             .. attribute:: ceesubinterfacecount
             
             	This object represents the number of subinterfaces created on a Ethernet\-like interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

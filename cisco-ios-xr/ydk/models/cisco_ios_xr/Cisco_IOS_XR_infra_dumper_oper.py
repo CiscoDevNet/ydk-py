@@ -25,17 +25,17 @@ class Context(Entity):
     .. attribute:: context_numbers
     
     	Context number table
-    	**type**\:   :py:class:`ContextNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers>`
+    	**type**\:  :py:class:`ContextNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers>`
     
     .. attribute:: context_locations
     
     	Core Context location table
-    	**type**\:   :py:class:`ContextLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations>`
+    	**type**\:  :py:class:`ContextLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations>`
     
     .. attribute:: all
     
     	context bag
-    	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All>`
+    	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All>`
     
     
 
@@ -79,7 +79,7 @@ class Context(Entity):
         .. attribute:: context_number
         
         	Context number 
-        	**type**\: list of    :py:class:`ContextNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber>`
+        	**type**\: list of  		 :py:class:`ContextNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber>`
         
         
 
@@ -113,19 +113,19 @@ class Context(Entity):
             .. attribute:: context_num  <key>
             
             	Context for which crash dump info required
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: locations
             
             	Core Context location table
-            	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations>`
+            	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations>`
             
             .. attribute:: all
             
             	context bag
-            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All>`
+            	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All>`
             
             
 
@@ -169,7 +169,7 @@ class Context(Entity):
                 .. attribute:: location
                 
                 	Operational Context for a particular location
-                	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location>`
+                	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location>`
                 
                 
 
@@ -202,12 +202,14 @@ class Context(Entity):
                     .. attribute:: node_name  <key>
                     
                     	The node
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     .. attribute:: enter
                     
                     	Context info bag
-                    	**type**\:   :py:class:`Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter>`
+                    	**type**\:  :py:class:`Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter>`
                     
                     
 
@@ -245,7 +247,7 @@ class Context(Entity):
                         .. attribute:: crash_info
                         
                         	All crash info
-                        	**type**\: list of    :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo>`
+                        	**type**\: list of  		 :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo>`
                         
                         
 
@@ -278,17 +280,17 @@ class Context(Entity):
                             .. attribute:: node
                             
                             	Node name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: context_info
                             
                             	Context Information
-                            	**type**\: list of    :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo>`
+                            	**type**\: list of  		 :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo>`
                             
                             .. attribute:: crash_package_information
                             
                             	Crash Package Information
-                            	**type**\: list of    :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.CrashPackageInformation>`
+                            	**type**\: list of  		 :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.CrashPackageInformation>`
                             
                             
 
@@ -324,77 +326,77 @@ class Context(Entity):
                                 .. attribute:: process_name
                                 
                                 	Process name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: pid
                                 
                                 	Process ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: tid
                                 
                                 	Thread ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: core_dump_time
                                 
                                 	Core dump time/Crash time
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: sig_num
                                 
                                 	Signal number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: sin_err_str
                                 
                                 	Signal error string
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: sig_send_pid
                                 
                                 	Sender pid
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: sig_code
                                 
                                 	Signal code
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: sin_info
                                 
                                 	Signal info
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: core_for_process
                                 
                                 	Core for process at 
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: registers_info
                                 
                                 	Registers Info
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: stack_trace
                                 
                                 	Stack Trace
-                                	**type**\: list of    :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo.StackTrace>`
+                                	**type**\: list of  		 :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo.StackTrace>`
                                 
                                 .. attribute:: dll_info
                                 
                                 	DLL Information
-                                	**type**\: list of    :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo.DllInfo>`
+                                	**type**\: list of  		 :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo.DllInfo>`
                                 
                                 
 
@@ -450,7 +452,7 @@ class Context(Entity):
                                     .. attribute:: stack_trace
                                     
                                     	stack trace
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -485,40 +487,40 @@ class Context(Entity):
                                     .. attribute:: path
                                     
                                     	DLL Path
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: text_addr
                                     
                                     	text addr
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: text_size
                                     
                                     	text size
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: data_addr
                                     
                                     	data addr
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: data_size
                                     
                                     	data size
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: version
                                     
                                     	version
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -563,12 +565,12 @@ class Context(Entity):
                                 .. attribute:: name
                                 
                                 	Package name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: source
                                 
                                 	Package Source
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -603,7 +605,7 @@ class Context(Entity):
                 .. attribute:: crash_info
                 
                 	All crash info
-                	**type**\: list of    :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo>`
+                	**type**\: list of  		 :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo>`
                 
                 
 
@@ -636,17 +638,17 @@ class Context(Entity):
                     .. attribute:: node
                     
                     	Node name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: context_info
                     
                     	Context Information
-                    	**type**\: list of    :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo>`
+                    	**type**\: list of  		 :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo>`
                     
                     .. attribute:: crash_package_information
                     
                     	Crash Package Information
-                    	**type**\: list of    :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo.CrashPackageInformation>`
+                    	**type**\: list of  		 :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo.CrashPackageInformation>`
                     
                     
 
@@ -682,77 +684,77 @@ class Context(Entity):
                         .. attribute:: process_name
                         
                         	Process name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: pid
                         
                         	Process ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tid
                         
                         	Thread ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: core_dump_time
                         
                         	Core dump time/Crash time
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: sig_num
                         
                         	Signal number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sin_err_str
                         
                         	Signal error string
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: sig_send_pid
                         
                         	Sender pid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sig_code
                         
                         	Signal code
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sin_info
                         
                         	Signal info
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: core_for_process
                         
                         	Core for process at 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: registers_info
                         
                         	Registers Info
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: stack_trace
                         
                         	Stack Trace
-                        	**type**\: list of    :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo.StackTrace>`
+                        	**type**\: list of  		 :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo.StackTrace>`
                         
                         .. attribute:: dll_info
                         
                         	DLL Information
-                        	**type**\: list of    :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo.DllInfo>`
+                        	**type**\: list of  		 :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo.DllInfo>`
                         
                         
 
@@ -808,7 +810,7 @@ class Context(Entity):
                             .. attribute:: stack_trace
                             
                             	stack trace
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -843,40 +845,40 @@ class Context(Entity):
                             .. attribute:: path
                             
                             	DLL Path
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: text_addr
                             
                             	text addr
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: text_size
                             
                             	text size
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_addr
                             
                             	data addr
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_size
                             
                             	data size
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: version
                             
                             	version
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -921,12 +923,12 @@ class Context(Entity):
                         .. attribute:: name
                         
                         	Package name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: source
                         
                         	Package Source
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -961,7 +963,7 @@ class Context(Entity):
         .. attribute:: context_location
         
         	Operational Context for a particular location
-        	**type**\: list of    :py:class:`ContextLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation>`
+        	**type**\: list of  		 :py:class:`ContextLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation>`
         
         
 
@@ -995,17 +997,19 @@ class Context(Entity):
             .. attribute:: node_name  <key>
             
             	The node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: numbers
             
             	Context number Table
-            	**type**\:   :py:class:`Numbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers>`
+            	**type**\:  :py:class:`Numbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers>`
             
             .. attribute:: all
             
             	context bag
-            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All>`
+            	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All>`
             
             
 
@@ -1049,7 +1053,7 @@ class Context(Entity):
                 .. attribute:: number
                 
                 	Context number
-                	**type**\: list of    :py:class:`Number <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number>`
+                	**type**\: list of  		 :py:class:`Number <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number>`
                 
                 
 
@@ -1082,14 +1086,14 @@ class Context(Entity):
                     .. attribute:: context_num  <key>
                     
                     	Context for which crash dump info required
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: enter
                     
                     	Context info bag
-                    	**type**\:   :py:class:`Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter>`
+                    	**type**\:  :py:class:`Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter>`
                     
                     
 
@@ -1127,7 +1131,7 @@ class Context(Entity):
                         .. attribute:: crash_info
                         
                         	All crash info
-                        	**type**\: list of    :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo>`
+                        	**type**\: list of  		 :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo>`
                         
                         
 
@@ -1160,17 +1164,17 @@ class Context(Entity):
                             .. attribute:: node
                             
                             	Node name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: context_info
                             
                             	Context Information
-                            	**type**\: list of    :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo>`
+                            	**type**\: list of  		 :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo>`
                             
                             .. attribute:: crash_package_information
                             
                             	Crash Package Information
-                            	**type**\: list of    :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.CrashPackageInformation>`
+                            	**type**\: list of  		 :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.CrashPackageInformation>`
                             
                             
 
@@ -1206,77 +1210,77 @@ class Context(Entity):
                                 .. attribute:: process_name
                                 
                                 	Process name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: pid
                                 
                                 	Process ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: tid
                                 
                                 	Thread ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: core_dump_time
                                 
                                 	Core dump time/Crash time
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: sig_num
                                 
                                 	Signal number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: sin_err_str
                                 
                                 	Signal error string
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: sig_send_pid
                                 
                                 	Sender pid
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: sig_code
                                 
                                 	Signal code
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: sin_info
                                 
                                 	Signal info
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: core_for_process
                                 
                                 	Core for process at 
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: registers_info
                                 
                                 	Registers Info
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: stack_trace
                                 
                                 	Stack Trace
-                                	**type**\: list of    :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo.StackTrace>`
+                                	**type**\: list of  		 :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo.StackTrace>`
                                 
                                 .. attribute:: dll_info
                                 
                                 	DLL Information
-                                	**type**\: list of    :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo.DllInfo>`
+                                	**type**\: list of  		 :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo.DllInfo>`
                                 
                                 
 
@@ -1332,7 +1336,7 @@ class Context(Entity):
                                     .. attribute:: stack_trace
                                     
                                     	stack trace
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1367,40 +1371,40 @@ class Context(Entity):
                                     .. attribute:: path
                                     
                                     	DLL Path
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: text_addr
                                     
                                     	text addr
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: text_size
                                     
                                     	text size
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: data_addr
                                     
                                     	data addr
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: data_size
                                     
                                     	data size
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: version
                                     
                                     	version
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1445,12 +1449,12 @@ class Context(Entity):
                                 .. attribute:: name
                                 
                                 	Package name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: source
                                 
                                 	Package Source
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -1485,7 +1489,7 @@ class Context(Entity):
                 .. attribute:: crash_info
                 
                 	All crash info
-                	**type**\: list of    :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo>`
+                	**type**\: list of  		 :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo>`
                 
                 
 
@@ -1518,17 +1522,17 @@ class Context(Entity):
                     .. attribute:: node
                     
                     	Node name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: context_info
                     
                     	Context Information
-                    	**type**\: list of    :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo>`
+                    	**type**\: list of  		 :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo>`
                     
                     .. attribute:: crash_package_information
                     
                     	Crash Package Information
-                    	**type**\: list of    :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo.CrashPackageInformation>`
+                    	**type**\: list of  		 :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo.CrashPackageInformation>`
                     
                     
 
@@ -1564,77 +1568,77 @@ class Context(Entity):
                         .. attribute:: process_name
                         
                         	Process name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: pid
                         
                         	Process ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tid
                         
                         	Thread ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: core_dump_time
                         
                         	Core dump time/Crash time
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: sig_num
                         
                         	Signal number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sin_err_str
                         
                         	Signal error string
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: sig_send_pid
                         
                         	Sender pid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sig_code
                         
                         	Signal code
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sin_info
                         
                         	Signal info
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: core_for_process
                         
                         	Core for process at 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: registers_info
                         
                         	Registers Info
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: stack_trace
                         
                         	Stack Trace
-                        	**type**\: list of    :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo.StackTrace>`
+                        	**type**\: list of  		 :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo.StackTrace>`
                         
                         .. attribute:: dll_info
                         
                         	DLL Information
-                        	**type**\: list of    :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo.DllInfo>`
+                        	**type**\: list of  		 :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo.DllInfo>`
                         
                         
 
@@ -1690,7 +1694,7 @@ class Context(Entity):
                             .. attribute:: stack_trace
                             
                             	stack trace
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1725,40 +1729,40 @@ class Context(Entity):
                             .. attribute:: path
                             
                             	DLL Path
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: text_addr
                             
                             	text addr
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: text_size
                             
                             	text size
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_addr
                             
                             	data addr
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_size
                             
                             	data size
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: version
                             
                             	version
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1803,12 +1807,12 @@ class Context(Entity):
                         .. attribute:: name
                         
                         	Package name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: source
                         
                         	Package Source
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -1843,7 +1847,7 @@ class Context(Entity):
         .. attribute:: crash_info
         
         	All crash info
-        	**type**\: list of    :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo>`
+        	**type**\: list of  		 :py:class:`CrashInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo>`
         
         
 
@@ -1877,17 +1881,17 @@ class Context(Entity):
             .. attribute:: node
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: context_info
             
             	Context Information
-            	**type**\: list of    :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo.ContextInfo>`
+            	**type**\: list of  		 :py:class:`ContextInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo.ContextInfo>`
             
             .. attribute:: crash_package_information
             
             	Crash Package Information
-            	**type**\: list of    :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo.CrashPackageInformation>`
+            	**type**\: list of  		 :py:class:`CrashPackageInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo.CrashPackageInformation>`
             
             
 
@@ -1924,77 +1928,77 @@ class Context(Entity):
                 .. attribute:: process_name
                 
                 	Process name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: pid
                 
                 	Process ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tid
                 
                 	Thread ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: core_dump_time
                 
                 	Core dump time/Crash time
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: sig_num
                 
                 	Signal number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sin_err_str
                 
                 	Signal error string
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: sig_send_pid
                 
                 	Sender pid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sig_code
                 
                 	Signal code
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sin_info
                 
                 	Signal info
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: core_for_process
                 
                 	Core for process at 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: registers_info
                 
                 	Registers Info
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: stack_trace
                 
                 	Stack Trace
-                	**type**\: list of    :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo.ContextInfo.StackTrace>`
+                	**type**\: list of  		 :py:class:`StackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo.ContextInfo.StackTrace>`
                 
                 .. attribute:: dll_info
                 
                 	DLL Information
-                	**type**\: list of    :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo.ContextInfo.DllInfo>`
+                	**type**\: list of  		 :py:class:`DllInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper.Context.All.CrashInfo.ContextInfo.DllInfo>`
                 
                 
 
@@ -2051,7 +2055,7 @@ class Context(Entity):
                     .. attribute:: stack_trace
                     
                     	stack trace
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2087,40 +2091,40 @@ class Context(Entity):
                     .. attribute:: path
                     
                     	DLL Path
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: text_addr
                     
                     	text addr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: text_size
                     
                     	text size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: data_addr
                     
                     	data addr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: data_size
                     
                     	data size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: version
                     
                     	version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2166,12 +2170,12 @@ class Context(Entity):
                 .. attribute:: name
                 
                 	Package name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: source
                 
                 	Package Source
-                	**type**\:  str
+                	**type**\: str
                 
                 
 

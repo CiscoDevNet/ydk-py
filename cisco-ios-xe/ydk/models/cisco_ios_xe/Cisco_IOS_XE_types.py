@@ -569,6 +569,10 @@ class InterfaceType(Enum):
 
     .. data:: Vlan = 7
 
+    .. data:: FiveGigabitEthernet = 8
+
+    .. data:: TwentyFiveGigabitEthernet = 9
+
     """
 
     BDI = Enum.YLeaf(0, "BDI")
@@ -586,6 +590,10 @@ class InterfaceType(Enum):
     TenGigabitEthernet = Enum.YLeaf(6, "TenGigabitEthernet")
 
     Vlan = Enum.YLeaf(7, "Vlan")
+
+    FiveGigabitEthernet = Enum.YLeaf(8, "FiveGigabitEthernet")
+
+    TwentyFiveGigabitEthernet = Enum.YLeaf(9, "TwentyFiveGigabitEthernet")
 
 
 class LimitDcNonDcType(Enum):

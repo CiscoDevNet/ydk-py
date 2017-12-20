@@ -79,7 +79,7 @@ class MacsecCtrlrOper(Entity):
     .. attribute:: macsec_ctrlr_ports
     
     	All Macsec Controller Port operational data
-    	**type**\:   :py:class:`MacsecCtrlrPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts>`
+    	**type**\:  :py:class:`MacsecCtrlrPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts>`
     
     
 
@@ -113,7 +113,7 @@ class MacsecCtrlrOper(Entity):
         .. attribute:: macsec_ctrlr_port
         
         	Controller name
-        	**type**\: list of    :py:class:`MacsecCtrlrPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort>`
+        	**type**\: list of  		 :py:class:`MacsecCtrlrPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort>`
         
         
 
@@ -147,12 +147,14 @@ class MacsecCtrlrOper(Entity):
             .. attribute:: name  <key>
             
             	Port name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: macsec_ctrlr_info
             
             	Macsec Controller operational data
-            	**type**\:   :py:class:`MacsecCtrlrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo>`
+            	**type**\:  :py:class:`MacsecCtrlrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo>`
             
             
 
@@ -191,34 +193,34 @@ class MacsecCtrlrOper(Entity):
                 .. attribute:: encrypt_sc_status
                 
                 	Encrypt Secure Channel Status
-                	**type**\:   :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus>`
+                	**type**\:  :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus>`
                 
                 .. attribute:: decrypt_sc_status
                 
                 	Decrypt Secure Channel Status
-                	**type**\:   :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus>`
+                	**type**\:  :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:   :py:class:`MacsecCtrlrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrState>`
+                	**type**\:  :py:class:`MacsecCtrlrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrState>`
                 
                 .. attribute:: replay_window_size
                 
                 	Replay Window Size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: must_secure
                 
                 	Must Secure
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: secure_mode
                 
                 	Secure Mode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -269,43 +271,43 @@ class MacsecCtrlrOper(Entity):
                     .. attribute:: protection_enabled
                     
                     	Protection Enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: confidentiality_offset
                     
                     	Confidentiality offset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
-                    	**type**\:   :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
+                    	**type**\:  :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
                     
                     .. attribute:: max_packet_number
                     
                     	Max packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: recent_packet_number
                     
                     	Recent Packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: active_association
                     
                     	Active Associations
-                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation>`
+                    	**type**\: list of  		 :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation>`
                     
                     
 
@@ -350,14 +352,14 @@ class MacsecCtrlrOper(Entity):
                         .. attribute:: association_number
                         
                         	Association Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: short_secure_channel_id
                         
                         	Short secure channel id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -394,43 +396,43 @@ class MacsecCtrlrOper(Entity):
                     .. attribute:: protection_enabled
                     
                     	Protection Enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: confidentiality_offset
                     
                     	Confidentiality offset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
-                    	**type**\:   :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
+                    	**type**\:  :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
                     
                     .. attribute:: max_packet_number
                     
                     	Max packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: recent_packet_number
                     
                     	Recent Packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: active_association
                     
                     	Active Associations
-                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation>`
+                    	**type**\: list of  		 :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation>`
                     
                     
 
@@ -475,14 +477,14 @@ class MacsecCtrlrOper(Entity):
                         .. attribute:: association_number
                         
                         	Association Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: short_secure_channel_id
                         
                         	Short secure channel id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         

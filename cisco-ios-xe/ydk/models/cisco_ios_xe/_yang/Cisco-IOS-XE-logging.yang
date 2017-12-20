@@ -34,6 +34,11 @@ submodule Cisco-IOS-XE-logging {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-25 {
+    description
+      "enforce order of deleting logging cli";
+  }
+
   revision 2017-06-02 {
     description
       "logging host ipv6 more support";
@@ -135,6 +140,10 @@ submodule Cisco-IOS-XE-logging {
         leaf name {
           type string;
         }
+        leaf severity {
+           type logging-level-type;
+         }
+
         container msg-body {
           description
             "Msg-body pattern for messsage filtering";

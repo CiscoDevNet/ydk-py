@@ -70,7 +70,7 @@ class Banners(Entity):
     .. attribute:: banner
     
     	Select a Banner Type
-    	**type**\: list of    :py:class:`Banner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_cfg.Banners.Banner>`
+    	**type**\: list of  		 :py:class:`Banner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_cfg.Banners.Banner>`
     
     
 
@@ -104,12 +104,12 @@ class Banners(Entity):
         .. attribute:: banner_name  <key>
         
         	Banner Type
-        	**type**\:   :py:class:`Banner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_cfg.Banner>`
+        	**type**\:  :py:class:`Banner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_cfg.Banner>`
         
         .. attribute:: banner_text
         
         	Banner text message
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         

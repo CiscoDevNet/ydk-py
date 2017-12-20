@@ -41,7 +41,7 @@ class Aps(Entity):
     .. attribute:: aps_modules
     
     	Enclosing container for list of automatic protection switch modules
-    	**type**\:   :py:class:`ApsModules <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules>`
+    	**type**\:  :py:class:`ApsModules <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules>`
     
     
 
@@ -76,7 +76,7 @@ class Aps(Entity):
         .. attribute:: aps_module
         
         	List of automatic protection switch modules present in the device
-        	**type**\: list of    :py:class:`ApsModule <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule>`
+        	**type**\: list of  		 :py:class:`ApsModule <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule>`
         
         
 
@@ -111,24 +111,24 @@ class Aps(Entity):
             .. attribute:: name  <key>
             
             	Reference to the config name list key
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Config>`
             
             .. attribute:: config
             
             	Configuration data for an automatic protection switch module
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Config>`
             
             .. attribute:: state
             
             	Operational state data for an automatic protection switch module
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.State>`
             
             .. attribute:: ports
             
             	Top level grouping for automatic protection switch ports
-            	**type**\:   :py:class:`Ports <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports>`
+            	**type**\:  :py:class:`Ports <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports>`
             
             
 
@@ -178,19 +178,19 @@ class Aps(Entity):
                 .. attribute:: name
                 
                 	Reference to the component name (in the platform model) corresponding to this automatic protection switch module in the device
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                 
                 .. attribute:: revertive
                 
                 	Revertive behavior of the module. If True, then automatically revert after protection switch once the fault is restored
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: primary_switch_threshold
                 
                 	The threshold at which the primary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -199,7 +199,7 @@ class Aps(Entity):
                 .. attribute:: primary_switch_hysteresis
                 
                 	The delta in 0.01 dB between the primary\-switch\-threshold and the signal received before initiating a reversion in order to prevent toggling between ports when an input signal is very close to threshold. If the hardware supports only one switch hysteresis for primary and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -208,7 +208,7 @@ class Aps(Entity):
                 .. attribute:: secondary_switch_threshold
                 
                 	The threshold at which the secondary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -217,7 +217,7 @@ class Aps(Entity):
                 .. attribute:: secondary_switch_hysteresis
                 
                 	The delta in 0.01 dB between the secondary\-switch\-threshold and the signal received before initiating a reversion in order to prevent toggling between ports when an input signal is very close to threshold. If the hardware supports only one switch hysteresis for primary and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -265,19 +265,19 @@ class Aps(Entity):
                 .. attribute:: name
                 
                 	Reference to the component name (in the platform model) corresponding to this automatic protection switch module in the device
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                 
                 .. attribute:: revertive
                 
                 	Revertive behavior of the module. If True, then automatically revert after protection switch once the fault is restored
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: primary_switch_threshold
                 
                 	The threshold at which the primary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -286,7 +286,7 @@ class Aps(Entity):
                 .. attribute:: primary_switch_hysteresis
                 
                 	The delta in 0.01 dB between the primary\-switch\-threshold and the signal received before initiating a reversion in order to prevent toggling between ports when an input signal is very close to threshold. If the hardware supports only one switch hysteresis for primary and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -295,7 +295,7 @@ class Aps(Entity):
                 .. attribute:: secondary_switch_threshold
                 
                 	The threshold at which the secondary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -304,7 +304,7 @@ class Aps(Entity):
                 .. attribute:: secondary_switch_hysteresis
                 
                 	The delta in 0.01 dB between the secondary\-switch\-threshold and the signal received before initiating a reversion in order to prevent toggling between ports when an input signal is very close to threshold. If the hardware supports only one switch hysteresis for primary and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -313,7 +313,7 @@ class Aps(Entity):
                 .. attribute:: active_path
                 
                 	Indicates which line path on the automatic protection switch is currently the active path connected to the common port
-                	**type**\:   :py:class:`APSPATHS <ydk.models.openconfig.openconfig_transport_line_protection.APSPATHS>`
+                	**type**\:  :py:class:`APSPATHS <ydk.models.openconfig.openconfig_transport_line_protection.APSPATHS>`
                 
                 
 
@@ -358,32 +358,32 @@ class Aps(Entity):
                 .. attribute:: line_primary_in
                 
                 	Container for information related to the line primary input port
-                	**type**\:   :py:class:`LinePrimaryIn <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn>`
+                	**type**\:  :py:class:`LinePrimaryIn <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn>`
                 
                 .. attribute:: line_primary_out
                 
                 	Container for information related to the line primary output port
-                	**type**\:   :py:class:`LinePrimaryOut <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut>`
+                	**type**\:  :py:class:`LinePrimaryOut <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut>`
                 
                 .. attribute:: line_secondary_in
                 
                 	Container for information related to the line secondary input port
-                	**type**\:   :py:class:`LineSecondaryIn <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn>`
+                	**type**\:  :py:class:`LineSecondaryIn <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn>`
                 
                 .. attribute:: line_secondary_out
                 
                 	Container for information related to the line secondary output port
-                	**type**\:   :py:class:`LineSecondaryOut <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut>`
+                	**type**\:  :py:class:`LineSecondaryOut <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut>`
                 
                 .. attribute:: common_in
                 
                 	Container for information related to the line common input port
-                	**type**\:   :py:class:`CommonIn <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn>`
+                	**type**\:  :py:class:`CommonIn <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn>`
                 
                 .. attribute:: common_output
                 
                 	Container for information related to the line common output port
-                	**type**\:   :py:class:`CommonOutput <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput>`
+                	**type**\:  :py:class:`CommonOutput <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput>`
                 
                 
 
@@ -442,12 +442,12 @@ class Aps(Entity):
                     .. attribute:: config
                     
                     	Configuration data for the line primary input port
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config>`
                     
                     .. attribute:: state
                     
                     	State data for the line primary input port
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State>`
                     
                     
 
@@ -485,14 +485,14 @@ class Aps(Entity):
                         .. attribute:: enabled
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -531,14 +531,14 @@ class Aps(Entity):
                         .. attribute:: enabled
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -547,7 +547,7 @@ class Aps(Entity):
                         .. attribute:: attenuation
                         
                         	The attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -556,7 +556,7 @@ class Aps(Entity):
                         .. attribute:: optical_power
                         
                         	The optical input power of this port in units of 0.01dBm. Optical input power represents the signal traversing from an external destination into the module. The power is measured before any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower>`
+                        	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower>`
                         
                         
 
@@ -603,7 +603,7 @@ class Aps(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -612,7 +612,7 @@ class Aps(Entity):
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -621,7 +621,7 @@ class Aps(Entity):
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -630,7 +630,7 @@ class Aps(Entity):
                             .. attribute:: max
                             
                             	The maximum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -674,12 +674,12 @@ class Aps(Entity):
                     .. attribute:: config
                     
                     	Configuration data for the line primary output port
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config>`
                     
                     .. attribute:: state
                     
                     	State data for the line primary output port
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State>`
                     
                     
 
@@ -717,7 +717,7 @@ class Aps(Entity):
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -754,7 +754,7 @@ class Aps(Entity):
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -763,7 +763,7 @@ class Aps(Entity):
                         .. attribute:: attenuation
                         
                         	The attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -772,7 +772,7 @@ class Aps(Entity):
                         .. attribute:: optical_power
                         
                         	The optical output power of this port in units of 0.01dBm. Optical output power represents the signal traversing from the module to an external destination. The power is measured after any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower>`
+                        	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower>`
                         
                         
 
@@ -817,7 +817,7 @@ class Aps(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -826,7 +826,7 @@ class Aps(Entity):
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -835,7 +835,7 @@ class Aps(Entity):
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -844,7 +844,7 @@ class Aps(Entity):
                             .. attribute:: max
                             
                             	The maximum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -888,12 +888,12 @@ class Aps(Entity):
                     .. attribute:: config
                     
                     	Configuration data for the line secondary input port
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config>`
                     
                     .. attribute:: state
                     
                     	State data for the line secondary input port
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State>`
                     
                     
 
@@ -931,14 +931,14 @@ class Aps(Entity):
                         .. attribute:: enabled
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -977,14 +977,14 @@ class Aps(Entity):
                         .. attribute:: enabled
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -993,7 +993,7 @@ class Aps(Entity):
                         .. attribute:: attenuation
                         
                         	The attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1002,7 +1002,7 @@ class Aps(Entity):
                         .. attribute:: optical_power
                         
                         	The optical input power of this port in units of 0.01dBm. Optical input power represents the signal traversing from an external destination into the module. The power is measured before any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower>`
+                        	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower>`
                         
                         
 
@@ -1049,7 +1049,7 @@ class Aps(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1058,7 +1058,7 @@ class Aps(Entity):
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1067,7 +1067,7 @@ class Aps(Entity):
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1076,7 +1076,7 @@ class Aps(Entity):
                             .. attribute:: max
                             
                             	The maximum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1120,12 +1120,12 @@ class Aps(Entity):
                     .. attribute:: config
                     
                     	Configuration data for the line secondary output port
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config>`
                     
                     .. attribute:: state
                     
                     	State data for the line secondary output port
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State>`
                     
                     
 
@@ -1163,7 +1163,7 @@ class Aps(Entity):
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1200,7 +1200,7 @@ class Aps(Entity):
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1209,7 +1209,7 @@ class Aps(Entity):
                         .. attribute:: attenuation
                         
                         	The attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1218,7 +1218,7 @@ class Aps(Entity):
                         .. attribute:: optical_power
                         
                         	The optical output power of this port in units of 0.01dBm. Optical output power represents the signal traversing from the module to an external destination. The power is measured after any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower>`
+                        	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower>`
                         
                         
 
@@ -1263,7 +1263,7 @@ class Aps(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1272,7 +1272,7 @@ class Aps(Entity):
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1281,7 +1281,7 @@ class Aps(Entity):
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1290,7 +1290,7 @@ class Aps(Entity):
                             .. attribute:: max
                             
                             	The maximum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1334,12 +1334,12 @@ class Aps(Entity):
                     .. attribute:: config
                     
                     	Configuration data for the line common input port
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn.Config>`
                     
                     .. attribute:: state
                     
                     	State data for the line common input port
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn.State>`
                     
                     
 
@@ -1377,14 +1377,14 @@ class Aps(Entity):
                         .. attribute:: enabled
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1423,14 +1423,14 @@ class Aps(Entity):
                         .. attribute:: enabled
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1439,7 +1439,7 @@ class Aps(Entity):
                         .. attribute:: attenuation
                         
                         	The attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1448,7 +1448,7 @@ class Aps(Entity):
                         .. attribute:: optical_power
                         
                         	The optical input power of this port in units of 0.01dBm. Optical input power represents the signal traversing from an external destination into the module. The power is measured before any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower>`
+                        	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower>`
                         
                         
 
@@ -1495,7 +1495,7 @@ class Aps(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1504,7 +1504,7 @@ class Aps(Entity):
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1513,7 +1513,7 @@ class Aps(Entity):
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1522,7 +1522,7 @@ class Aps(Entity):
                             .. attribute:: max
                             
                             	The maximum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1566,12 +1566,12 @@ class Aps(Entity):
                     .. attribute:: config
                     
                     	Configuration data for the line common output port
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput.Config>`
                     
                     .. attribute:: state
                     
                     	State data for the line common output port
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput.State>`
                     
                     
 
@@ -1609,7 +1609,7 @@ class Aps(Entity):
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1646,7 +1646,7 @@ class Aps(Entity):
                         .. attribute:: target_attenuation
                         
                         	Target attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1655,7 +1655,7 @@ class Aps(Entity):
                         .. attribute:: attenuation
                         
                         	The attenuation of the variable optical attenuator associated with the port in increments of 0.01 dB
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1664,7 +1664,7 @@ class Aps(Entity):
                         .. attribute:: optical_power
                         
                         	The optical output power of this port in units of 0.01dBm. Optical output power represents the signal traversing from the module to an external destination. The power is measured after any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower>`
+                        	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower>`
                         
                         
 
@@ -1709,7 +1709,7 @@ class Aps(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1718,7 +1718,7 @@ class Aps(Entity):
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1727,7 +1727,7 @@ class Aps(Entity):
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
@@ -1736,7 +1736,7 @@ class Aps(Entity):
                             .. attribute:: max
                             
                             	The maximum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             

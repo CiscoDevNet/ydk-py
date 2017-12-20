@@ -41,6 +41,26 @@ module Cisco-IOS-XE-eigrp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-09-21 {
+    description 
+      "fix the regression issue that a cli is splitted";
+  }
+
+  revision 2017-08-22 {
+    description 
+      "Allow to set autonomous-system under address-family ipv4 vrf";
+  }
+
+  revision 2017-08-01 {
+    description 
+      "Fix passive interface data model";
+  }
+
+  revision 2017-06-27 {
+    description 
+      "NED extension for IWAN 2.x - router eigrp";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -194,6 +214,60 @@ module Cisco-IOS-XE-eigrp {
             presence true;
           }
         }
+        list summary-metric {
+          description 
+            "Specify summary to apply metric/filtering";
+          key "ipv4-addr-slash-prefix-len";
+          leaf ipv4-addr-slash-prefix-len {
+            description 
+              "Summary <network>/<length>, e.g., 192.168.0.0/16";
+            type inet:ipv4-prefix;
+          }
+          container metric {
+            leaf bandwidth-metric {
+              description 
+                "Bandwidth metric in Kbits per second";
+              type uint32 {
+                range "1..4294967295";
+              }
+            }
+            leaf delay-metric {
+              description
+                "delay metric in 10 microsecond units";
+              type uint32 {
+                range "1..4294967295";
+              }
+            }
+            leaf reliability-metric {
+              description 
+                "reliability metric where 255 is 100% reliable";
+              type uint8 {
+                range "0..255";
+              }
+            }
+            leaf effective-bandwidth-metric {
+              description 
+                "Effective bandwidth metric (Loading) where 255 is 100% loaded";
+              type uint8 {
+                range "0..255";                                           
+              }
+            }
+            leaf mtu {
+              description 
+                "MTU of the path";
+              type uint16 {
+                range "1..65535";                                         
+              }
+            }
+          }
+          leaf distance {
+            description 
+              "Set administrative distance for summary route";
+            type uint8 {
+              range "1..255";
+            }
+          }
+        }
       }
     }
   }
@@ -227,12 +301,21 @@ module Cisco-IOS-XE-eigrp {
       leaf passive-interface {
         description
           "Suppress address updates on an interface";
-        type empty;
+        type boolean;
       }
       leaf split-horizon {
         description
           "Perform split horizon";
         type boolean;
+      }
+      container stub-site {
+        description
+          "Stub-Site";
+          leaf wan-interface {
+            description 
+              "Wan Interface";
+            type empty;  
+          }
       }
       container authentication {
         description
@@ -269,6 +352,13 @@ module Cisco-IOS-XE-eigrp {
         leaf mask {
           type inet:ipv4-address;
         }
+      }
+    }
+    container set-as-in-submode {
+      leaf autonomous-system {
+        description
+        "Specify Address-Family Autonomous System Number?";
+          type uint16;
       }
     }
     leaf auto-summary {
@@ -552,6 +642,11 @@ module Cisco-IOS-XE-eigrp {
             "Do advertise static routes";
           type empty;
         }
+      }
+      leaf stub-site {
+        description
+          "ASN:nn, Dotted-Decimal:nn or 4BASN:nn  Stub-Site ID in aa:nn format";
+        type string;   
       }
     }
     leaf maximum-paths {

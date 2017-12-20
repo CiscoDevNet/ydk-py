@@ -29,27 +29,27 @@ class Ptp(Entity):
     .. attribute:: clock
     
     	PTP local clock configuration
-    	**type**\:   :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Clock>`
+    	**type**\:  :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Clock>`
     
     .. attribute:: profiles
     
     	Table for profile configuration
-    	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles>`
+    	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles>`
     
     .. attribute:: logging
     
     	PTP logging configuration
-    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging>`
+    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging>`
     
     .. attribute:: transparent_clock
     
     	Transparent clock configuration
-    	**type**\:   :py:class:`TransparentClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.TransparentClock>`
+    	**type**\:  :py:class:`TransparentClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.TransparentClock>`
     
     .. attribute:: time_of_day_priority
     
     	Time\-of\-day priority
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..254
     
@@ -58,7 +58,7 @@ class Ptp(Entity):
     .. attribute:: frequency_priority
     
     	Frequency priority
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..254
     
@@ -67,19 +67,19 @@ class Ptp(Entity):
     .. attribute:: enable
     
     	Enable the precision time protocol
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: min_clock_class
     
     	Clocks with a clock\-class higher than the minimum clock class will not be considered for selection as a parent clock
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..255
     
     .. attribute:: uncalibrated_clock_class
     
     	Clock class to be used while acquiring phase\-lock to a parent clock
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..255
     
@@ -143,22 +143,22 @@ class Ptp(Entity):
         .. attribute:: profile
         
         	Local clock PTP profile
-        	**type**\:   :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Clock.Profile>`
+        	**type**\:  :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Clock.Profile>`
         
         .. attribute:: identity
         
         	Local clock identity
-        	**type**\:   :py:class:`Identity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Clock.Identity>`
+        	**type**\:  :py:class:`Identity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Clock.Identity>`
         
         .. attribute:: timescale
         
         	Local clock timescale
-        	**type**\:   :py:class:`PtpTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimescale>`
+        	**type**\:  :py:class:`PtpTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimescale>`
         
         .. attribute:: domain
         
         	Local clock domain
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -167,7 +167,7 @@ class Ptp(Entity):
         .. attribute:: priority2
         
         	Local clock priority2
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -176,12 +176,12 @@ class Ptp(Entity):
         .. attribute:: time_source
         
         	Local clock time source
-        	**type**\:   :py:class:`PtpTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimeSource>`
+        	**type**\:  :py:class:`PtpTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimeSource>`
         
         .. attribute:: priority1
         
         	Local clock priority1
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -190,7 +190,7 @@ class Ptp(Entity):
         .. attribute:: clock_class
         
         	Local clock class
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -248,14 +248,14 @@ class Ptp(Entity):
             .. attribute:: clock_profile
             
             	Clock profile
-            	**type**\:   :py:class:`PtpClockProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockProfile>`
+            	**type**\:  :py:class:`PtpClockProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockProfile>`
             
             	**default value**\: default
             
             .. attribute:: telecom_clock_type
             
             	Telecom clock type
-            	**type**\:   :py:class:`PtpTelecomClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTelecomClock>`
+            	**type**\:  :py:class:`PtpTelecomClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTelecomClock>`
             
             
 
@@ -291,19 +291,21 @@ class Ptp(Entity):
             .. attribute:: clock_id_type
             
             	Clock identity type
-            	**type**\:   :py:class:`PtpClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockId>`
+            	**type**\:  :py:class:`PtpClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockId>`
             
             	**default value**\: router-mac
             
             .. attribute:: mac_address
             
             	MAC Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: eui
             
             	EUI\-64 number
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -341,7 +343,7 @@ class Ptp(Entity):
         .. attribute:: profile
         
         	Profile configuration
-        	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile>`
+        	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile>`
         
         
 
@@ -375,52 +377,54 @@ class Ptp(Entity):
             .. attribute:: profile_name  <key>
             
             	Profile
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: announce_interval
             
             	Announce interval
-            	**type**\:   :py:class:`AnnounceInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.AnnounceInterval>`
+            	**type**\:  :py:class:`AnnounceInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.AnnounceInterval>`
             
             .. attribute:: source_ipv4_address
             
             	Source IPv4 Address
-            	**type**\:   :py:class:`SourceIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.SourceIpv4Address>`
+            	**type**\:  :py:class:`SourceIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.SourceIpv4Address>`
             
             .. attribute:: slaves
             
             	Table for slave configuration
-            	**type**\:   :py:class:`Slaves <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Slaves>`
+            	**type**\:  :py:class:`Slaves <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Slaves>`
             
             .. attribute:: sync_interval
             
             	Sync interval
-            	**type**\:   :py:class:`SyncInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.SyncInterval>`
+            	**type**\:  :py:class:`SyncInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.SyncInterval>`
             
             .. attribute:: masters
             
             	Table for master configuration
-            	**type**\:   :py:class:`Masters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters>`
+            	**type**\:  :py:class:`Masters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters>`
             
             .. attribute:: communication
             
             	Communication model
-            	**type**\:   :py:class:`Communication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Communication>`
+            	**type**\:  :py:class:`Communication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Communication>`
             
             .. attribute:: delay_request_minimum_interval
             
             	Minimum delay request interval
-            	**type**\:   :py:class:`DelayRequestMinimumInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.DelayRequestMinimumInterval>`
+            	**type**\:  :py:class:`DelayRequestMinimumInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.DelayRequestMinimumInterval>`
             
             .. attribute:: source_ipv6_address
             
             	Source IPv6 Address
-            	**type**\:   :py:class:`SourceIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.SourceIpv6Address>`
+            	**type**\:  :py:class:`SourceIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.SourceIpv6Address>`
             
             .. attribute:: sync_grant_duration
             
             	Sync unicast grant duration, in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 60..1000
             
@@ -431,7 +435,7 @@ class Ptp(Entity):
             .. attribute:: general_cos
             
             	General COS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -440,7 +444,7 @@ class Ptp(Entity):
             .. attribute:: sync_timeout
             
             	Sync timeout, in milliseconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 100..100000
             
@@ -451,14 +455,14 @@ class Ptp(Entity):
             .. attribute:: transport
             
             	Transport
-            	**type**\:   :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
+            	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
             
             	**default value**\: ipv4
             
             .. attribute:: announce_timeout
             
             	Announce Timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 2..10
             
@@ -467,7 +471,7 @@ class Ptp(Entity):
             .. attribute:: cos
             
             	COS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -476,14 +480,14 @@ class Ptp(Entity):
             .. attribute:: port_state
             
             	Port state restriction
-            	**type**\:   :py:class:`PtpPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpPortState>`
+            	**type**\:  :py:class:`PtpPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpPortState>`
             
             	**default value**\: any
             
             .. attribute:: delay_response_timeout
             
             	Delay\-Response timeout, in milliseconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 100..100000
             
@@ -494,7 +498,7 @@ class Ptp(Entity):
             .. attribute:: delay_response_grant_duration
             
             	Delay\-Response unicast grant duration, in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 60..1000
             
@@ -505,7 +509,7 @@ class Ptp(Entity):
             .. attribute:: event_cos
             
             	Event COS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -514,7 +518,7 @@ class Ptp(Entity):
             .. attribute:: dscp
             
             	DSCP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..63
             
@@ -523,7 +527,7 @@ class Ptp(Entity):
             .. attribute:: general_dscp
             
             	General DSCP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..63
             
@@ -532,14 +536,14 @@ class Ptp(Entity):
             .. attribute:: clock_operation
             
             	Clock Operation
-            	**type**\:   :py:class:`PtpClockOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockOperation>`
+            	**type**\:  :py:class:`PtpClockOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockOperation>`
             
             	**default value**\: two-step
             
             .. attribute:: announce_grant_duration
             
             	Announce unicast grant duration, in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 60..1000
             
@@ -550,14 +554,14 @@ class Ptp(Entity):
             .. attribute:: unicast_grant_invalid_request
             
             	Invalid unicast grant request response
-            	**type**\:   :py:class:`PtpInvalidUnicastGrantRequestResponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpInvalidUnicastGrantRequestResponse>`
+            	**type**\:  :py:class:`PtpInvalidUnicastGrantRequestResponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpInvalidUnicastGrantRequestResponse>`
             
             	**default value**\: reduce
             
             .. attribute:: event_dscp
             
             	Event DSCP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..63
             
@@ -667,14 +671,14 @@ class Ptp(Entity):
                 .. attribute:: time_type
                 
                 	Interval or Frequency
-                	**type**\:   :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
+                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
                 
                 	**default value**\: interval
                 
                 .. attribute:: time_period
                 
                 	Time Period
-                	**type**\:   :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
+                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
                 
                 	**default value**\: 2
                 
@@ -711,12 +715,14 @@ class Ptp(Entity):
                 .. attribute:: enable
                 
                 	Enable source IP address
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: source_ip
                 
                 	Source IP address to use
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -751,7 +757,7 @@ class Ptp(Entity):
                 .. attribute:: slave
                 
                 	Slave configuration
-                	**type**\: list of    :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Slaves.Slave>`
+                	**type**\: list of  		 :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Slaves.Slave>`
                 
                 
 
@@ -784,17 +790,17 @@ class Ptp(Entity):
                     .. attribute:: transport  <key>
                     
                     	Slave Transport Type
-                    	**type**\:   :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
+                    	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
                     
                     .. attribute:: ethernet
                     
                     	ethernet
-                    	**type**\: list of    :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Slaves.Slave.Ethernet>`
+                    	**type**\: list of  		 :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Slaves.Slave.Ethernet>`
                     
                     .. attribute:: ipv4_or_ipv6
                     
                     	ipv4 or ipv6
-                    	**type**\: list of    :py:class:`Ipv4OrIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6>`
+                    	**type**\: list of  		 :py:class:`Ipv4OrIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6>`
                     
                     
 
@@ -830,12 +836,14 @@ class Ptp(Entity):
                         .. attribute:: slave_mac_address  <key>
                         
                         	Slave MAC Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: non_negotiated
                         
                         	Enable non\-negotiated unicast on this interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -870,20 +878,20 @@ class Ptp(Entity):
                         .. attribute:: slave_ip_address  <key>
                         
                         	Slave IP Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: non_negotiated
                         
                         	Enable non\-negotiated unicast on this interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -918,14 +926,14 @@ class Ptp(Entity):
                 .. attribute:: time_type
                 
                 	Interval or Frequency
-                	**type**\:   :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
+                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
                 
                 	**default value**\: interval
                 
                 .. attribute:: time_period
                 
                 	Time Period
-                	**type**\:   :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
+                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
                 
                 	**default value**\: 1
                 
@@ -962,7 +970,7 @@ class Ptp(Entity):
                 .. attribute:: master
                 
                 	Master configuration
-                	**type**\: list of    :py:class:`Master <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master>`
+                	**type**\: list of  		 :py:class:`Master <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master>`
                 
                 
 
@@ -995,17 +1003,17 @@ class Ptp(Entity):
                     .. attribute:: transport  <key>
                     
                     	Master Transport Type
-                    	**type**\:   :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
+                    	**type**\:  :py:class:`PtpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpEncap>`
                     
                     .. attribute:: ethernet
                     
                     	ethernet
-                    	**type**\: list of    :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master.Ethernet>`
+                    	**type**\: list of  		 :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master.Ethernet>`
                     
                     .. attribute:: ipv4_or_ipv6
                     
                     	ipv4 or ipv6
-                    	**type**\: list of    :py:class:`Ipv4OrIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6>`
+                    	**type**\: list of  		 :py:class:`Ipv4OrIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6>`
                     
                     
 
@@ -1041,38 +1049,40 @@ class Ptp(Entity):
                         .. attribute:: master_mac_address  <key>
                         
                         	Master MAC Address \- only used if Transport is Ethernet
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: delay_asymmetry
                         
                         	The delay asymmetry for this master
-                        	**type**\:   :py:class:`DelayAsymmetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry>`
+                        	**type**\:  :py:class:`DelayAsymmetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: master_clock_class
                         
                         	Master clock class
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: non_negotiated
                         
                         	Enable non\-negotiated unicast on this interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: priority
                         
                         	Master priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: communication
                         
                         	Communication Model
-                        	**type**\:   :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
+                        	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
                         
                         	**default value**\: unicast
                         
@@ -1119,7 +1129,7 @@ class Ptp(Entity):
                             .. attribute:: magnitude
                             
                             	How much longer the master to slave path takes than the reverse
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-500000000..500000000
                             
@@ -1128,7 +1138,7 @@ class Ptp(Entity):
                             .. attribute:: units
                             
                             	The units to use for the delay asymmetry
-                            	**type**\:   :py:class:`PtpDelayAsymmetryUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpDelayAsymmetryUnits>`
+                            	**type**\:  :py:class:`PtpDelayAsymmetryUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpDelayAsymmetryUnits>`
                             
                             	**mandatory**\: True
                             
@@ -1168,46 +1178,46 @@ class Ptp(Entity):
                         .. attribute:: master_ip_address  <key>
                         
                         	Master IP Address \- used if Transport is not Ethernet
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: delay_asymmetry
                         
                         	The delay asymmetry for this master
-                        	**type**\:   :py:class:`DelayAsymmetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry>`
+                        	**type**\:  :py:class:`DelayAsymmetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: master_clock_class
                         
                         	Master clock class
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: non_negotiated
                         
                         	Enable non\-negotiated unicast on this interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: priority
                         
                         	Master priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: communication
                         
                         	Communication Model
-                        	**type**\:   :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
+                        	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
                         
                         	**default value**\: unicast
                         
@@ -1254,7 +1264,7 @@ class Ptp(Entity):
                             .. attribute:: magnitude
                             
                             	How much longer the master to slave path takes than the reverse
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-500000000..500000000
                             
@@ -1263,7 +1273,7 @@ class Ptp(Entity):
                             .. attribute:: units
                             
                             	The units to use for the delay asymmetry
-                            	**type**\:   :py:class:`PtpDelayAsymmetryUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpDelayAsymmetryUnits>`
+                            	**type**\:  :py:class:`PtpDelayAsymmetryUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpDelayAsymmetryUnits>`
                             
                             	**mandatory**\: True
                             
@@ -1303,21 +1313,21 @@ class Ptp(Entity):
                 .. attribute:: model
                 
                 	Communication Model
-                	**type**\:   :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
+                	**type**\:  :py:class:`PtpTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTransport>`
                 
                 	**default value**\: unicast
                 
                 .. attribute:: target_address_set
                 
                 	Target address set
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: target_address
                 
                 	Target address
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1354,14 +1364,14 @@ class Ptp(Entity):
                 .. attribute:: time_type
                 
                 	Interval or Frequency
-                	**type**\:   :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
+                	**type**\:  :py:class:`PtpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTime>`
                 
                 	**default value**\: interval
                 
                 .. attribute:: time_period
                 
                 	Time Period
-                	**type**\:   :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
+                	**type**\:  :py:class:`PtpTimePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpTimePeriod>`
                 
                 	**default value**\: 1
                 
@@ -1398,12 +1408,14 @@ class Ptp(Entity):
                 .. attribute:: enable
                 
                 	Enable source IPv6 address
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: source_ipv6
                 
                 	Source IPv6 address to use
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -1438,12 +1450,12 @@ class Ptp(Entity):
         .. attribute:: best_master_clock
         
         	PTP best master clock logging configuration
-        	**type**\:   :py:class:`BestMasterClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging.BestMasterClock>`
+        	**type**\:  :py:class:`BestMasterClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging.BestMasterClock>`
         
         .. attribute:: servo
         
         	PTP PD Servo logging configuration
-        	**type**\:   :py:class:`Servo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging.Servo>`
+        	**type**\:  :py:class:`Servo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging.Servo>`
         
         
 
@@ -1459,7 +1471,7 @@ class Ptp(Entity):
             self.yang_parent_name = "ptp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"best-master-clock" : ("best_master_clock", Ptp.Logging.BestMasterClock), "servo" : ("servo", Ptp.Logging.Servo)}
+            self._child_container_classes = {"best-master-clock" : ("best_master_clock", Ptp.Logging.BestMasterClock), "Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo" : ("servo", Ptp.Logging.Servo)}
             self._child_list_classes = {}
 
             self.best_master_clock = Ptp.Logging.BestMasterClock()
@@ -1482,7 +1494,7 @@ class Ptp(Entity):
             .. attribute:: changes
             
             	Enable best master clock changes logging
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1516,7 +1528,7 @@ class Ptp(Entity):
             .. attribute:: events
             
             	Enable servo events logging
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1550,7 +1562,7 @@ class Ptp(Entity):
         .. attribute:: domains
         
         	Table of domains containing transparent clock configuration
-        	**type**\:   :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.TransparentClock.Domains>`
+        	**type**\:  :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.TransparentClock.Domains>`
         
         
 
@@ -1585,7 +1597,7 @@ class Ptp(Entity):
             .. attribute:: domain
             
             	Transparent clock domain configuration
-            	**type**\: list of    :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.TransparentClock.Domains.Domain>`
+            	**type**\: list of  		 :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.TransparentClock.Domains.Domain>`
             
             
 
@@ -1619,7 +1631,9 @@ class Ptp(Entity):
                 .. attribute:: domain  <key>
                 
                 	Domain
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (all)
                 
                 
 

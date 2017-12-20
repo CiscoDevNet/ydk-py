@@ -106,7 +106,7 @@ class Components(Entity):
     .. attribute:: component
     
     	List of components, keyed by component name
-    	**type**\: list of    :py:class:`Component <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component>`
+    	**type**\: list of  		 :py:class:`Component <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component>`
     
     
 
@@ -140,22 +140,22 @@ class Components(Entity):
         .. attribute:: cname  <key>
         
         	References component name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: state
         
         	Operational state data for each component
-        	**type**\:   :py:class:`State <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.State>`
+        	**type**\:  :py:class:`State <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.State>`
         
         .. attribute:: platform_properties
         
         	Platform component properties
-        	**type**\:   :py:class:`PlatformProperties <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformProperties>`
+        	**type**\:  :py:class:`PlatformProperties <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformProperties>`
         
         .. attribute:: platform_subcomponents
         
         	Platform subcomponents
-        	**type**\:   :py:class:`PlatformSubcomponents <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformSubcomponents>`
+        	**type**\:  :py:class:`PlatformSubcomponents <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformSubcomponents>`
         
         
 
@@ -204,42 +204,42 @@ class Components(Entity):
             .. attribute:: type
             
             	Type of component as identified by the system
-            	**type**\:   :py:class:`PlatformCompType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.PlatformCompType>`
+            	**type**\:  :py:class:`PlatformCompType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.PlatformCompType>`
             
             .. attribute:: id
             
             	Unique identifier assigned to the component by the system
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: description
             
             	System\-supplied description of the component
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: mfg_name
             
             	System\-supplied identifier for the manufacturer of the component.  This data is particularly useful when a component manufacturer is different than the overall device vendor
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: version
             
             	System\-defined version string for a hardware, firmware, or software component
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: serial_no
             
             	System\-assigned serial number of the component
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: part_no
             
             	System\-assigned part number for the component.  This should be present in particular if the component is also an FRU (field replacable unit)
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: temp
             
             	Temperature in degrees Celsius of the component. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-            	**type**\:   :py:class:`Temp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.State.Temp>`
+            	**type**\:  :py:class:`Temp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.State.Temp>`
             
             
 
@@ -292,28 +292,28 @@ class Components(Entity):
                 .. attribute:: temp_instant
                 
                 	Instantaneous temperature value of a component
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
                 .. attribute:: temp_avg
                 
                 	Arithmetic mean value of the statistic over a sampling period
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
                 .. attribute:: temp_max
                 
                 	High water mark value of the statistic over a sampling period
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
                 .. attribute:: temp_min
                 
                 	Low water mark value of the statistic over a sampling period
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -354,7 +354,7 @@ class Components(Entity):
             .. attribute:: platform_property
             
             	List of platform component properties
-            	**type**\: list of    :py:class:`PlatformProperty <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformProperties.PlatformProperty>`
+            	**type**\: list of  		 :py:class:`PlatformProperty <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformProperties.PlatformProperty>`
             
             
 
@@ -387,22 +387,22 @@ class Components(Entity):
                 .. attribute:: name  <key>
                 
                 	Property name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: value
                 
                 	Property value
-                	**type**\:   :py:class:`Value <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformProperties.PlatformProperty.Value>`
+                	**type**\:  :py:class:`Value <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformProperties.PlatformProperty.Value>`
                 
                 .. attribute:: configurable
                 
                 	Indication of whether the property is user\-configurable
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: parent_platform_component_cname_key
                 
                 	Name of the parent component
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -444,31 +444,31 @@ class Components(Entity):
                     .. attribute:: string
                     
                     	String property value
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: boolean
                     
                     	Boolean property value
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: intsixfour
                     
                     	Integer64 property value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uintsixfour
                     
                     	Unsigned integer64 property value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: decimal
                     
                     	Decimal64 property value
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -511,7 +511,7 @@ class Components(Entity):
             .. attribute:: platform_subcomponent
             
             	List of platform subcomponents
-            	**type**\: list of    :py:class:`PlatformSubcomponent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformSubcomponents.PlatformSubcomponent>`
+            	**type**\: list of  		 :py:class:`PlatformSubcomponent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformSubcomponents.PlatformSubcomponent>`
             
             
 
@@ -544,12 +544,12 @@ class Components(Entity):
                 .. attribute:: name  <key>
                 
                 	Subcomponent name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: parent_platform_component_cname_key
                 
                 	Name of the parent component
-                	**type**\:  str
+                	**type**\: str
                 
                 
 

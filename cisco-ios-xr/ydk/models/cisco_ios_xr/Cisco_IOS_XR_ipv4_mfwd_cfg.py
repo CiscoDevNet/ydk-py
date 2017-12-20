@@ -46,14 +46,14 @@ class Mfwd(Entity):
     .. attribute:: default_context
     
     	Default Context
-    	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext>`
+    	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext>`
     
     	**presence node**\: True
     
     .. attribute:: vrfs
     
     	VRF Table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs>`
     
     
 
@@ -94,12 +94,12 @@ class Mfwd(Entity):
         .. attribute:: ipv6
         
         	IPV6 commands in the default context
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6>`
         
         .. attribute:: ipv4
         
         	IPV4 commands in the default context
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4>`
         
         
 
@@ -141,39 +141,39 @@ class Mfwd(Entity):
             .. attribute:: enable_on_all_interfaces
             
             	Configure all interfaces for multicast routing and forwarding
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: maximum_checking_disable
             
             	Disable state limit maximum checking
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rate_per_route
             
             	Enable per (S,G) rate calculation
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: interface_inheritance_disable
             
             	Disable interface inheritance configuration
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: static_rpf_rules
             
             	Configure a static RPF rule for a given prefix
-            	**type**\:   :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.StaticRpfRules>`
+            	**type**\:  :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.StaticRpfRules>`
             
             .. attribute:: mofrr_lockout_timer_config
             
             	Mofrr Lockout timer value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3600
             
             .. attribute:: forwarding_latency
             
             	Knob to delay traffic being forwarded on a route
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..500
             
@@ -182,29 +182,29 @@ class Mfwd(Entity):
             .. attribute:: mofrr_loss_detection_timer_config
             
             	Mofrr Loss Detection timer value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3600
             
             .. attribute:: interfaces
             
             	Interface\-level Configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.Interfaces>`
             
             .. attribute:: multicast_forwarding
             
             	Enable IP multicast routing and forwarding
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: log_traps
             
             	Enable logging trap event
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: accounting
             
             	Per\-prefix accounting mode
-            	**type**\:   :py:class:`AccountingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingMode>`
+            	**type**\:  :py:class:`AccountingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingMode>`
             
             
 
@@ -266,7 +266,7 @@ class Mfwd(Entity):
                 .. attribute:: static_rpf_rule
                 
                 	RPF prefix address and mask
-                	**type**\: list of    :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule>`
+                	**type**\: list of  		 :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule>`
                 
                 
 
@@ -300,44 +300,44 @@ class Mfwd(Entity):
                     .. attribute:: address  <key>
                     
                     	IP address of the RPF prefix
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: prefix_mask  <key>
                     
                     	Prefix mask of the RPF Prefix
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
                     .. attribute:: neighbor_address
                     
                     	Neighbor address of the RPF Prefix
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
+                    
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    		**type**\: str
+                    
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     	**mandatory**\: True
                     
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**mandatory**\: True
-                    
-                    
-                    ----
                     .. attribute:: interface_name
                     
                     	The name of the RPF interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     	**mandatory**\: True
                     
@@ -379,7 +379,7 @@ class Mfwd(Entity):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.Interfaces.Interface>`
                 
                 
 
@@ -413,24 +413,26 @@ class Mfwd(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: ttl_threshold
                     
                     	TTL threshold for multicast packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
                     .. attribute:: enable_on_interface
                     
                     	Enable or disable IP multicast on the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: boundary
                     
                     	Boundary for administratively scoped multicast addresses
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -472,44 +474,44 @@ class Mfwd(Entity):
             .. attribute:: out_of_memory_handling
             
             	Enable out\-of\-memory handling
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable_on_all_interfaces
             
             	Configure all interfaces for multicast routing and forwarding
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: maximum_checking_disable
             
             	Disable state limit maximum checking
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rate_per_route
             
             	Enable per (S,G) rate calculation
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: interface_inheritance_disable
             
             	Disable interface inheritance configuration
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: static_rpf_rules
             
             	Configure a static RPF rule for a given prefix
-            	**type**\:   :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.StaticRpfRules>`
+            	**type**\:  :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.StaticRpfRules>`
             
             .. attribute:: mofrr_lockout_timer_config
             
             	Mofrr Lockout timer value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3600
             
             .. attribute:: forwarding_latency
             
             	Knob to delay traffic being forwarded on a route
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..500
             
@@ -518,29 +520,29 @@ class Mfwd(Entity):
             .. attribute:: mofrr_loss_detection_timer_config
             
             	Mofrr Loss Detection timer value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3600
             
             .. attribute:: interfaces
             
             	Interface\-level Configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.Interfaces>`
             
             .. attribute:: multicast_forwarding
             
             	Enable IP multicast routing and forwarding
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: log_traps
             
             	Enable logging trap event
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: accounting
             
             	Per\-prefix accounting mode
-            	**type**\:   :py:class:`AccountingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingMode>`
+            	**type**\:  :py:class:`AccountingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingMode>`
             
             
 
@@ -604,7 +606,7 @@ class Mfwd(Entity):
                 .. attribute:: static_rpf_rule
                 
                 	RPF prefix address and mask
-                	**type**\: list of    :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule>`
+                	**type**\: list of  		 :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule>`
                 
                 
 
@@ -638,44 +640,44 @@ class Mfwd(Entity):
                     .. attribute:: address  <key>
                     
                     	IP address of the RPF prefix
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: prefix_mask  <key>
                     
                     	Prefix mask of the RPF Prefix
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
                     .. attribute:: neighbor_address
                     
                     	Neighbor address of the RPF Prefix
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
+                    
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    		**type**\: str
+                    
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     	**mandatory**\: True
                     
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**mandatory**\: True
-                    
-                    
-                    ----
                     .. attribute:: interface_name
                     
                     	The name of the RPF interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     	**mandatory**\: True
                     
@@ -717,7 +719,7 @@ class Mfwd(Entity):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.Interfaces.Interface>`
                 
                 
 
@@ -751,24 +753,26 @@ class Mfwd(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: ttl_threshold
                     
                     	TTL threshold for multicast packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
                     .. attribute:: enable_on_interface
                     
                     	Enable or disable IP multicast on the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: boundary
                     
                     	Boundary for administratively scoped multicast addresses
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -810,7 +814,7 @@ class Mfwd(Entity):
         .. attribute:: vrf
         
         	VRF table names
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf>`
         
         
 
@@ -844,19 +848,19 @@ class Mfwd(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: ipv6
             
             	VRF table for IPV6 commands
-            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6>`
+            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6>`
             
             .. attribute:: ipv4
             
             	VRF table for IPV4 commands
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4>`
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4>`
             
             
 
@@ -900,37 +904,37 @@ class Mfwd(Entity):
                 .. attribute:: enable_on_all_interfaces
                 
                 	Configure all interfaces for multicast routing and forwarding
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: rate_per_route
                 
                 	Enable per (S,G) rate calculation
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: static_rpf_rules
                 
                 	Configure a static RPF rule for a given prefix
-                	**type**\:   :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules>`
+                	**type**\:  :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules>`
                 
                 .. attribute:: interfaces
                 
                 	Interface\-level Configuration
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.Interfaces>`
                 
                 .. attribute:: multicast_forwarding
                 
                 	Enable IP multicast routing and forwarding
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: log_traps
                 
                 	Enable logging trap event
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: accounting
                 
                 	Per\-prefix accounting mode
-                	**type**\:   :py:class:`AccountingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingMode>`
+                	**type**\:  :py:class:`AccountingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingMode>`
                 
                 
 
@@ -981,7 +985,7 @@ class Mfwd(Entity):
                     .. attribute:: static_rpf_rule
                     
                     	RPF prefix address and mask
-                    	**type**\: list of    :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule>`
+                    	**type**\: list of  		 :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule>`
                     
                     
 
@@ -1014,44 +1018,44 @@ class Mfwd(Entity):
                         .. attribute:: address  <key>
                         
                         	IP address of the RPF prefix
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: prefix_mask  <key>
                         
                         	Prefix mask of the RPF Prefix
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..128
                         
                         .. attribute:: neighbor_address
                         
                         	Neighbor address of the RPF Prefix
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         	**mandatory**\: True
                         
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        
-                        ----
                         .. attribute:: interface_name
                         
                         	The name of the RPF interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         	**mandatory**\: True
                         
@@ -1092,7 +1096,7 @@ class Mfwd(Entity):
                     .. attribute:: interface
                     
                     	The name of the interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface>`
                     
                     
 
@@ -1125,24 +1129,26 @@ class Mfwd(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: ttl_threshold
                         
                         	TTL threshold for multicast packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
                         .. attribute:: enable_on_interface
                         
                         	Enable or disable IP multicast on the interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: boundary
                         
                         	Boundary for administratively scoped multicast addresses
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -1183,37 +1189,37 @@ class Mfwd(Entity):
                 .. attribute:: enable_on_all_interfaces
                 
                 	Configure all interfaces for multicast routing and forwarding
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: rate_per_route
                 
                 	Enable per (S,G) rate calculation
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: static_rpf_rules
                 
                 	Configure a static RPF rule for a given prefix
-                	**type**\:   :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules>`
+                	**type**\:  :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules>`
                 
                 .. attribute:: interfaces
                 
                 	Interface\-level Configuration
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.Interfaces>`
                 
                 .. attribute:: multicast_forwarding
                 
                 	Enable IP multicast routing and forwarding
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: log_traps
                 
                 	Enable logging trap event
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: accounting
                 
                 	Per\-prefix accounting mode
-                	**type**\:   :py:class:`AccountingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingMode>`
+                	**type**\:  :py:class:`AccountingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingMode>`
                 
                 
 
@@ -1264,7 +1270,7 @@ class Mfwd(Entity):
                     .. attribute:: static_rpf_rule
                     
                     	RPF prefix address and mask
-                    	**type**\: list of    :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule>`
+                    	**type**\: list of  		 :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule>`
                     
                     
 
@@ -1297,44 +1303,44 @@ class Mfwd(Entity):
                         .. attribute:: address  <key>
                         
                         	IP address of the RPF prefix
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: prefix_mask  <key>
                         
                         	Prefix mask of the RPF Prefix
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..128
                         
                         .. attribute:: neighbor_address
                         
                         	Neighbor address of the RPF Prefix
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         	**mandatory**\: True
                         
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        
-                        ----
                         .. attribute:: interface_name
                         
                         	The name of the RPF interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         	**mandatory**\: True
                         
@@ -1375,7 +1381,7 @@ class Mfwd(Entity):
                     .. attribute:: interface
                     
                     	The name of the interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface>`
                     
                     
 
@@ -1408,24 +1414,26 @@ class Mfwd(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: ttl_threshold
                         
                         	TTL threshold for multicast packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
                         .. attribute:: enable_on_interface
                         
                         	Enable or disable IP multicast on the interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: boundary
                         
                         	Boundary for administratively scoped multicast addresses
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         

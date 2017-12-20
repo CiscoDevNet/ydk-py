@@ -94,29 +94,29 @@ class FrequencySynchronization(Entity):
     .. attribute:: quality_level_option
     
     	Quality level option
-    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+    	**type**\:  :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
     
     	**default value**\: option-1
     
     .. attribute:: enable
     
     	Enable Frequency Synchronization
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: source_selection_logging
     
     	Source selection logging option
-    	**type**\:   :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSourceSelectionLogging>`
+    	**type**\:  :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSourceSelectionLogging>`
     
     .. attribute:: clock_interface_source_type
     
     	Clock interface source type
-    	**type**\:   :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncClockSource>`
+    	**type**\:  :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncClockSource>`
     
     .. attribute:: system_timing_mode
     
     	System timing mode
-    	**type**\:   :py:class:`FsyncSystemTimingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSystemTimingMode>`
+    	**type**\:  :py:class:`FsyncSystemTimingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSystemTimingMode>`
     
     
 

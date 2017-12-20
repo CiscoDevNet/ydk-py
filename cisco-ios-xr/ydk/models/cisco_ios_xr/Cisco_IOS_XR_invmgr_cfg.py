@@ -25,7 +25,7 @@ class InventoryConfigurations(Entity):
     .. attribute:: entity_
     
     	Entity name
-    	**type**\: list of    :py:class:`Entity_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_cfg.InventoryConfigurations.Entity_>`
+    	**type**\: list of  		 :py:class:`Entity_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_cfg.InventoryConfigurations.Entity_>`
     
     
 
@@ -59,12 +59,12 @@ class InventoryConfigurations(Entity):
         .. attribute:: name  <key>
         
         	Entity name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: name_xr
         
         	Entity name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         

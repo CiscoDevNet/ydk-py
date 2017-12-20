@@ -111,32 +111,32 @@ class CISCOENTITYQFPMIB(Entity):
     .. attribute:: ciscoentityqfp
     
     	
-    	**type**\:   :py:class:`Ciscoentityqfp <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp>`
+    	**type**\:  :py:class:`Ciscoentityqfp <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp>`
     
     .. attribute:: ciscoentityqfpnotif
     
     	
-    	**type**\:   :py:class:`Ciscoentityqfpnotif <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfpnotif>`
+    	**type**\:  :py:class:`Ciscoentityqfpnotif <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfpnotif>`
     
     .. attribute:: ceqfpsystemtable
     
     	This table maintains the QFP system information for each QFP physical entity.  An agent creates a conceptual row to this table corresponding to a QFP physical entity upon detection of a physical entity supporting the QFP system information.  An agent destroys a conceptual row from this table        corresponding to a QFP physical entity upon removal of the QFP host physical entity
-    	**type**\:   :py:class:`Ceqfpsystemtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable>`
+    	**type**\:  :py:class:`Ceqfpsystemtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable>`
     
     .. attribute:: ceqfputilizationtable
     
     	This table maintains the utilization statistics collected by each QFP physical entity at various time interval such as last 5 seconds, 1 minute, etc.  An agent creates a conceptual row to this table corresponding to a QFP physical entity for a time interval upon detection of a physical entity supporting the utilization statistics for a time interval.  The agent destroys a conceptual row from this table        corresponding to a QFP physical entity for a time interval upon removal of the QFP host physical entity or it does not receive the utilization statistics update for a certain time period. The time period to wait before deleting an entry from this table would be the discretion of the supporting device
-    	**type**\:   :py:class:`Ceqfputilizationtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfputilizationtable>`
+    	**type**\:  :py:class:`Ceqfputilizationtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfputilizationtable>`
     
     .. attribute:: ceqfpmemoryresourcetable
     
     	This table maintains the memory resources statistics for each QFP physical entity.  An agent creates a conceptual row to this table corresponding to a QFP physical entity and its supported memory resource type upon detection of a physical entity supporting the memory  resource statistics for a memory resource type.  An agent destroys a conceptual row from this table        corresponding to a QFP physical entity and its supported memory resource type upon removal of the QFP host physical entity or it does not receive memory resource statistics update for a certain time period. The time period to wait before deleting an entry from this table would be the discretion of the supporting device
-    	**type**\:   :py:class:`Ceqfpmemoryresourcetable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable>`
+    	**type**\:  :py:class:`Ceqfpmemoryresourcetable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable>`
     
     .. attribute:: ceqfpthroughputtable
     
     	This table maintains the throughput information for each QFP physical entity.          An agent creates a conceptual row to this table corresponding to a QFP physical entity upon detection of a physical entity supporting the QFP throughput information.          An agent destroys a conceptual row from this table       corresponding to a QFP physical entity upon removal of the QFP host physical entity
-    	**type**\:   :py:class:`Ceqfpthroughputtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable>`
+    	**type**\:  :py:class:`Ceqfpthroughputtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable>`
     
     
 
@@ -195,22 +195,22 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfpfivesecondutilalgo
         
         	This objects represents the method used to calculate 5 Second interval utilization data. The enumerated values are described below.  unknown       (1) \- The calculation method is unknown fiveSecSample (2) \- The value is calculated based on the last                     5 second sampling period of utilization                     data
-        	**type**\:   :py:class:`Ceqfpfivesecondutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpfivesecondutilalgo>`
+        	**type**\:  :py:class:`Ceqfpfivesecondutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpfivesecondutilalgo>`
         
         .. attribute:: ceqfponeminuteutilalgo
         
         	This objects represents the method used to calculate 1 Minute interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (2) \- The value is calculated using Simple Moving                    Average of last 12 five seconds utilization                  data
-        	**type**\:   :py:class:`Ceqfponeminuteutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfponeminuteutilalgo>`
+        	**type**\:  :py:class:`Ceqfponeminuteutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfponeminuteutilalgo>`
         
         .. attribute:: ceqfpfiveminutesutilalgo
         
         	This objects represents the method used to calculate 5 Minutes interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (2) \- The value is calculated using Simple Moving                    Average of last 60 five seconds utilization                  data
-        	**type**\:   :py:class:`Ceqfpfiveminutesutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpfiveminutesutilalgo>`
+        	**type**\:  :py:class:`Ceqfpfiveminutesutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpfiveminutesutilalgo>`
         
         .. attribute:: ceqfpsixtyminutesutilalgo
         
         	This objects represents the method used to calculate 60 Minutes interval utilization data. The enumerated values are described below.  unknown    (1) \- The calculation method is unknown fiveSecSMA (1) \- The value is calculated using Simple Moving                    Average of last 720 five seconds utilization                  data
-        	**type**\:   :py:class:`Ceqfpsixtyminutesutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpsixtyminutesutilalgo>`
+        	**type**\:  :py:class:`Ceqfpsixtyminutesutilalgo <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ciscoentityqfp.Ceqfpsixtyminutesutilalgo>`
         
         
 
@@ -366,12 +366,12 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfpmemoryresthreshnotifenabled
         
         	This object controls memory resource rising and falling threshold notification.  When this object contains a value 'true', then generation of memory resource threshold notification is enabled. If this object contains a value 'false', then generation of memory resource threshold notification is disabled
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ceqfpthroughputnotifenabled
         
         	This object controls throughput rate notification.  When this object contains a value 'true', then generation of ceqfpThroughputNotif is enabled. If this object contains a value 'false', then generation of ceqfpThroughputNotif is disabled
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2
         
@@ -418,7 +418,7 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfpsystementry
         
         	A conceptual row in the ceqfpSystemTable. There is an entry in this table for each QFP entity, as defined by a value of entPhysicalIndex
-        	**type**\: list of    :py:class:`Ceqfpsystementry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry>`
+        	**type**\: list of  		 :py:class:`Ceqfpsystementry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry>`
         
         
 
@@ -454,7 +454,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: entphysicalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -463,24 +463,24 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpsystemtrafficdirection
             
             	This object represents the traffic direction that this QFP is assigned to process. The enumerated values are described below.  none (1)    \- The QFP is not assigned to processes any traffic               yet ingress (2) \- The QFP processes inbound traffic egress (3)  \- The QFP processes outbound traffic both (4)    \- The QFP processes both inbound and outbound               traffic
-            	**type**\:   :py:class:`Ceqfpsystemtrafficdirection <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry.Ceqfpsystemtrafficdirection>`
+            	**type**\:  :py:class:`Ceqfpsystemtrafficdirection <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry.Ceqfpsystemtrafficdirection>`
             
             .. attribute:: ceqfpsystemstate
             
             	This object represents the current QFP state. The enumerated values are described below.  unknown (1)    \- The state of the QFP is unknown reset (2)      \- The QFP is reset init (3)       \- The QFP is being initialized active (4)     \- The QFP is active in a system with redundant                  QFP activeSolo (5) \- The QFP is active and there is no redundant                  QFP in the system standby (6)    \- The QFP is standby in a redundant system. hotStandby (7) \- The QFP is standby and synchronized with                  active, so that a switchover in this state                  will preserve state of the active. Stateful                   datapath features are synchronized between the                  active QFP and standby QFP
-            	**type**\:   :py:class:`Ceqfpsystemstate <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry.Ceqfpsystemstate>`
+            	**type**\:  :py:class:`Ceqfpsystemstate <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpsystemtable.Ceqfpsystementry.Ceqfpsystemstate>`
             
             .. attribute:: ceqfpnumbersystemloads
             
             	This object represents the number of times the QFP is loaded, since the QFP host is up
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ceqfpsystemlastloadtime
             
             	This object represents the QFP last load time
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -640,7 +640,7 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfputilizationentry
         
         	A conceptual row in the ceqfpUtilizationTable. There is an entry in this table for each QFP entity by a value of entPhysicalIndex and the supported time interval by a value  of ceqfpUtilTimeInterval.  The method of utilization data calculation for each interval period can be identified through the respective interval scalar objects. For example the utilizaiton data calculation method for 'fiveSecond' interval can be identified by ceqfpFiveSecondUtilAlgo
-        	**type**\: list of    :py:class:`Ceqfputilizationentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfputilizationtable.Ceqfputilizationentry>`
+        	**type**\: list of  		 :py:class:`Ceqfputilizationentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfputilizationtable.Ceqfputilizationentry>`
         
         
 
@@ -683,7 +683,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: entphysicalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -692,12 +692,12 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputiltimeinterval  <key>
             
             	This object identifies the time interval for which the utilization statistics being collected. The interval  values can be 5 second, 1 minute, etc. as specified in  the CiscoQfpTimeInterval
-            	**type**\:   :py:class:`CiscoQfpTimeInterval <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoQfpTimeInterval>`
+            	**type**\:  :py:class:`CiscoQfpTimeInterval <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoQfpTimeInterval>`
             
             .. attribute:: ceqfputilinputprioritypktrate
             
             	This object represents the QFP input channel priority packet rate during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -706,7 +706,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputilinputprioritybitrate
             
             	This object represents the QFP input channel priority bit rate during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -715,7 +715,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputilinputnonprioritypktrate
             
             	This object represents the QFP input channel non\-priority packet rate during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -724,7 +724,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputilinputnonprioritybitrate
             
             	This object represents the QFP input channel non\-priority bit rate during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -733,7 +733,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputilinputtotalpktrate
             
             	This object represents the QFP input channel total packet rate during this interval, which includes both priority and non\-priority input packet rate
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -742,7 +742,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputilinputtotalbitrate
             
             	This object represents the QFP input channel total bit rate during this interval, which includes both priority and non\-priority input bit rate
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -751,7 +751,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputiloutputprioritypktrate
             
             	This object represents the QFP output channel priority packet rate during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -760,7 +760,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputiloutputprioritybitrate
             
             	This object represents the QFP output channel priority bit rate during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -769,7 +769,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputiloutputnonprioritypktrate
             
             	This object represents the QFP output channel non\-priority packet rate during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -778,7 +778,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputiloutputnonprioritybitrate
             
             	This object represents the QFP output channel non\-priority bit rate during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -787,7 +787,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputiloutputtotalpktrate
             
             	This object represents the QFP output channel total packet rate during this interval, which includes both priority and non\-priority output packet rate
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -796,7 +796,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputiloutputtotalbitrate
             
             	This object represents the QFP output channel total bit rate during this interval, which includes both priority and non\-priority bit rate
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -805,7 +805,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfputilprocessingload
             
             	This object represents the QFP processing load during this interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -885,7 +885,7 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfpmemoryresourceentry
         
         	A conceptual row in the ceqfpMemoryResourceTable. There is an entry in this table for each QFP entity by a value  of entPhysicalIndex and the supported memory resource type  by a value of ceqfpMemoryResType
-        	**type**\: list of    :py:class:`Ceqfpmemoryresourceentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry>`
+        	**type**\: list of  		 :py:class:`Ceqfpmemoryresourceentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpmemoryresourcetable.Ceqfpmemoryresourceentry>`
         
         
 
@@ -922,7 +922,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: entphysicalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -931,12 +931,12 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryrestype  <key>
             
             	This object indicates the type of the memory resource used by the QFP. This object is one of the indices to uniquely identify the QFP memory resource type
-            	**type**\:   :py:class:`CiscoQfpMemoryResource <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoQfpMemoryResource>`
+            	**type**\:  :py:class:`CiscoQfpMemoryResource <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CiscoQfpMemoryResource>`
             
             .. attribute:: ceqfpmemoryrestotal
             
             	This object represents total memory available on this memory resource
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -945,7 +945,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryresinuse
             
             	This object represents the memory which is currently under use on this memory resource
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -954,7 +954,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryresfree
             
             	This object represents the memory which is currently free on this memory resource
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -963,7 +963,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryreslowfreewatermark
             
             	This object represents lowest free water mark on this memory resource
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -972,7 +972,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryresrisingthreshold
             
             	This object represents the rising threshold value for this memory resource. A value of zero means that the rising threshold is not supported for this memory resource.  The value of this object can not be set to lower than or equal to ceqfpMemoryResFallingThreshold.  A rising (ceqfpMemoryResRisingThreshNotif) notification will be generated, whenever the memory resource usage (ceqfpMemoryHCResInUse) is equal to or greater than this value.  After a rising notification is generated, another such  notification will not be generated until the  ceqfpMemoryResInUse falls below this value and reaches  the ceqfpMemoryResFallingThreshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -981,7 +981,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryresfallingthreshold
             
             	This object represents the falling threshold value for this memory resource. A value of zero means that the falling threshold is not supported for this memory resource.  The value of this object can not be set to higher than or equal to ceqfpMemoryResRisingThreshold.  A falling (ceqfpMemoryResRisingThreshNotif) notification  will be generated, whenever the memory resource usage (ceqfpMemoryHCResInUse) is equal to or lesser than this value.  After a falling notification is generated, another  such notification will not be generated until the  ceqfpMemoryResInUse rises above this value and reaches  the ceqfpMemoryResRisingThreshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -990,7 +990,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryrestotalovrflw
             
             	This object represents the upper 32\-bit of ceqfpMemoryResTotal. This object needs to be supported only when the value of ceqfpMemoryResTotal exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -999,7 +999,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryhcrestotal
             
             	This object is a 64\-bit version of ceqfpMemoryResTotal
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1008,7 +1008,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryresinuseovrflw
             
             	This object represents the upper 32\-bit of ceqfpMemoryResInUse. This object needs to be supported only when the value of ceqfpMemoryResInUse exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1017,7 +1017,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryhcresinuse
             
             	This object is a 64\-bit version of ceqfpMemoryInRes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1026,7 +1026,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryresfreeovrflw
             
             	This object represents the upper 32\-bit of ceqfpMemoryResFree. This object needs to be supported only when the value of ceqfpMemoryResFree exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1035,7 +1035,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryhcresfree
             
             	This object is a 64\-bit version of ceqfpMemoryResFree
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1044,7 +1044,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryreslowfreewatermarkovrflw
             
             	This object represents the upper 32\-bit of ceqfpMemoryResLowFreeWatermark. This object needs to be supported only when the value of ceqfpMemoryResLowFreeWatermark exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1053,7 +1053,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpmemoryhcreslowfreewatermark
             
             	This object is a 64\-bit version of ceqfpMemoryResLowFreeWatermark
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1131,7 +1131,7 @@ class CISCOENTITYQFPMIB(Entity):
         .. attribute:: ceqfpthroughputentry
         
         	A conceptual row in the ceqfpThroughputTable. There is an entry in this table for each QFP entity, as defined by a value of entPhysicalIndex
-        	**type**\: list of    :py:class:`Ceqfpthroughputentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry>`
+        	**type**\: list of  		 :py:class:`Ceqfpthroughputentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry>`
         
         
 
@@ -1167,7 +1167,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: entphysicalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1176,7 +1176,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpthroughputlicensedbw
             
             	This object represents the bandwidth for installed throughput license
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1185,12 +1185,12 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpthroughputlevel
             
             	This object represents the current throughput level for installed throughput license.                  normal  (1) \- Throughput usage is normal                 warning (2) \- Throughput usage has crossed the                               configured threshold limit                 exceed  (3) \- Throughput usage has exceeded the                               total licensed bandwidth
-            	**type**\:   :py:class:`Ceqfpthroughputlevel <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry.Ceqfpthroughputlevel>`
+            	**type**\:  :py:class:`Ceqfpthroughputlevel <ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB.CISCOENTITYQFPMIB.Ceqfpthroughputtable.Ceqfpthroughputentry.Ceqfpthroughputlevel>`
             
             .. attribute:: ceqfpthroughputinterval
             
             	The object represents the configured time interval at which the ceqfpThroughputLevel is checked
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10..86400
             
@@ -1199,7 +1199,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpthroughputthreshold
             
             	The object represents the configured throughput threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 75..95
             
@@ -1208,7 +1208,7 @@ class CISCOENTITYQFPMIB(Entity):
             .. attribute:: ceqfpthroughputavgrate
             
             	The object represents the average throughput rate in the interval ceqfpThroughputInterval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             

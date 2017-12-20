@@ -25,12 +25,12 @@ class Redundancy(Entity):
     .. attribute:: nodes
     
     	Location show information
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes>`
     
     .. attribute:: summary
     
     	Redundancy Summary of Nodes
-    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary>`
+    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary>`
     
     
 
@@ -69,7 +69,7 @@ class Redundancy(Entity):
         .. attribute:: node
         
         	Redundancy Node Information
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node>`
         
         
 
@@ -103,32 +103,34 @@ class Redundancy(Entity):
             .. attribute:: node_id  <key>
             
             	Node Location
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: redundancy
             
             	Row information
-            	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy>`
+            	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy>`
             
             .. attribute:: log
             
             	Reload and boot logs
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: active_reboot_reason
             
             	Active node reload
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: standby_reboot_reason
             
             	Standby node reload
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: err_log
             
             	Error Log
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -175,27 +177,27 @@ class Redundancy(Entity):
                 .. attribute:: active
                 
                 	Active node name R/S/I
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: standby
                 
                 	Standby node name R/S/I
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ha_state
                 
                 	High Availability state Ready/Not Ready
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: nsr_state
                 
                 	NSR state Configured/Not Configured
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: groupinfo
                 
                 	groupinfo
-                	**type**\: list of    :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy.Groupinfo>`
+                	**type**\: list of  		 :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy.Groupinfo>`
                 
                 
 
@@ -236,22 +238,22 @@ class Redundancy(Entity):
                     .. attribute:: active
                     
                     	Active
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: standby
                     
                     	Standby
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: ha_state
                     
                     	HAState
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: nsr_state
                     
                     	NSRState
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -290,12 +292,12 @@ class Redundancy(Entity):
         .. attribute:: err_log
         
         	Error Log
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: red_pair
         
         	Redundancy Pair
-        	**type**\: list of    :py:class:`RedPair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair>`
+        	**type**\: list of  		 :py:class:`RedPair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair>`
         
         
 
@@ -331,27 +333,27 @@ class Redundancy(Entity):
             .. attribute:: active
             
             	Active node name R/S/I
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: standby
             
             	Standby node name R/S/I
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ha_state
             
             	High Availability state Ready/Not Ready
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nsr_state
             
             	NSR state Configured/Not Configured
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: groupinfo
             
             	groupinfo
-            	**type**\: list of    :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
+            	**type**\: list of  		 :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
             
             
 
@@ -393,22 +395,22 @@ class Redundancy(Entity):
                 .. attribute:: active
                 
                 	Active
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: standby
                 
                 	Standby
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ha_state
                 
                 	HAState
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: nsr_state
                 
                 	NSRState
-                	**type**\:  str
+                	**type**\: str
                 
                 
 

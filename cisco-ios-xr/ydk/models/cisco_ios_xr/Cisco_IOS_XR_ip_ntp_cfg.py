@@ -125,58 +125,58 @@ class Ntp(Entity):
     .. attribute:: peer_vrfs
     
     	Configures NTP Peers or Servers
-    	**type**\:   :py:class:`PeerVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs>`
+    	**type**\:  :py:class:`PeerVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs>`
     
     .. attribute:: dscp_ipv4
     
     	 Set IP DSCP value for outgoing NTP IPV4 packets
-    	**type**\:   :py:class:`DscpIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.DscpIpv4>`
+    	**type**\:  :py:class:`DscpIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.DscpIpv4>`
     
     	**presence node**\: True
     
     .. attribute:: dscp_ipv6
     
     	 Set IP DSCP value for outgoing NTP IPV6 packets
-    	**type**\:   :py:class:`DscpIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.DscpIpv6>`
+    	**type**\:  :py:class:`DscpIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.DscpIpv6>`
     
     	**presence node**\: True
     
     .. attribute:: sources
     
     	Configure  NTP source interface
-    	**type**\:   :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources>`
+    	**type**\:  :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources>`
     
     .. attribute:: authentication
     
     	Configure NTP Authentication keys
-    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication>`
+    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication>`
     
     .. attribute:: passive
     
     	Configure NTP passive associations
-    	**type**\:   :py:class:`Passive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Passive>`
+    	**type**\:  :py:class:`Passive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Passive>`
     
     .. attribute:: interface_tables
     
     	NTP per interface configuration
-    	**type**\:   :py:class:`InterfaceTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables>`
+    	**type**\:  :py:class:`InterfaceTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables>`
     
     .. attribute:: access_group_tables
     
     	Control NTP access
-    	**type**\:   :py:class:`AccessGroupTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables>`
+    	**type**\:  :py:class:`AccessGroupTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables>`
     
     .. attribute:: max_associations
     
     	Set maximum number of associations
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** \-2147483648..2147483647
     
     .. attribute:: master
     
     	Act as NTP master clock
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..15
     
@@ -185,19 +185,19 @@ class Ntp(Entity):
     .. attribute:: broadcast_delay
     
     	Estimated round\-trip delay
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..999999
     
     .. attribute:: log_internal_sync
     
     	To enable logging internal sync conflicts
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: update_calendar
     
     	To enable calendar update with NTP time
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -280,7 +280,7 @@ class Ntp(Entity):
         .. attribute:: peer_vrf
         
         	Configures NTP Peers or Servers for a single VRF. The 'default' must also be specified for default VRF
-        	**type**\: list of    :py:class:`PeerVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf>`
+        	**type**\: list of  		 :py:class:`PeerVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf>`
         
         
 
@@ -316,17 +316,19 @@ class Ntp(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: peer_ipv4s
             
             	Configures IPv4 NTP Peers or Servers
-            	**type**\:   :py:class:`PeerIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S>`
+            	**type**\:  :py:class:`PeerIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S>`
             
             .. attribute:: peer_ipv6s
             
             	Configuration NTP Peers or Servers of IPV6
-            	**type**\:   :py:class:`PeerIpv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S>`
+            	**type**\:  :py:class:`PeerIpv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S>`
             
             
 
@@ -370,7 +372,7 @@ class Ntp(Entity):
                 .. attribute:: peer_ipv4
                 
                 	Configure an IPv4 NTP server or peer
-                	**type**\: list of    :py:class:`PeerIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4>`
+                	**type**\: list of  		 :py:class:`PeerIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4>`
                 
                 
 
@@ -403,12 +405,14 @@ class Ntp(Entity):
                     .. attribute:: address_ipv4  <key>
                     
                     	IPv4 Address of a peer
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: peer_type_ipv4
                     
                     	Configure an IPv4 NTP server or peer
-                    	**type**\: list of    :py:class:`PeerTypeIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4>`
+                    	**type**\: list of  		 :py:class:`PeerTypeIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4>`
                     
                     
 
@@ -443,55 +447,57 @@ class Ntp(Entity):
                         .. attribute:: peer_type  <key>
                         
                         	Peer or Server
-                        	**type**\:   :py:class:`NtpPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeer>`
+                        	**type**\:  :py:class:`NtpPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeer>`
                         
                         .. attribute:: ntp_version
                         
                         	NTP version
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 2..4
                         
                         .. attribute:: authentication_key
                         
                         	Authentication Key
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: min_poll
                         
                         	Minimum poll interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 4..17
                         
                         .. attribute:: max_poll
                         
                         	Maxinum poll interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 4..17
                         
                         .. attribute:: preferred_peer
                         
                         	Preferred peer
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: source_interface
                         
                         	Source interface of this peer
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: burst
                         
                         	Use burst mode
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: iburst
                         
                         	Use iburst mode
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -540,7 +546,7 @@ class Ntp(Entity):
                 .. attribute:: peer_ipv6
                 
                 	Configure a NTP server or peer
-                	**type**\: list of    :py:class:`PeerIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6>`
+                	**type**\: list of  		 :py:class:`PeerIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6>`
                 
                 
 
@@ -573,12 +579,14 @@ class Ntp(Entity):
                     .. attribute:: address_ipv6  <key>
                     
                     	Address of a peer
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: peer_type_ipv6
                     
                     	Configure a NTP server or peer
-                    	**type**\: list of    :py:class:`PeerTypeIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6>`
+                    	**type**\: list of  		 :py:class:`PeerTypeIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6>`
                     
                     
 
@@ -613,60 +621,64 @@ class Ntp(Entity):
                         .. attribute:: peer_type  <key>
                         
                         	Peer or Server
-                        	**type**\:   :py:class:`NtpPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeer>`
+                        	**type**\:  :py:class:`NtpPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeer>`
                         
                         .. attribute:: ntp_version
                         
                         	NTP version
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 2..4
                         
                         .. attribute:: authentication_key
                         
                         	Authentication Key
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: min_poll
                         
                         	Minimum poll interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 4..17
                         
                         .. attribute:: max_poll
                         
                         	Maxinum poll interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 4..17
                         
                         .. attribute:: preferred_peer
                         
                         	Preferred peer
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: source_interface
                         
                         	Source interface of this peer
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: burst
                         
                         	Use burst mode
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: iburst
                         
                         	Use iburst mode
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: address_ipv6
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -717,14 +729,14 @@ class Ntp(Entity):
         .. attribute:: mode
         
         	NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP value
-        	**type**\:   :py:class:`Ntpdscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntpdscp>`
+        	**type**\:  :py:class:`Ntpdscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntpdscp>`
         
         	**mandatory**\: True
         
         .. attribute:: dscp_or_precedence_value
         
         	If Mode is set to 'NTPPRECEDENCE(0)' specify Precedence value , if Mode is set to 'NTPDSCP(1)' specify DSCP
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..63
         
@@ -767,14 +779,14 @@ class Ntp(Entity):
         .. attribute:: mode
         
         	NTPPRECEDENCE(0) to specify Precedence value NTPDSCP(1) to specify DSCP value
-        	**type**\:   :py:class:`Ntpdscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntpdscp>`
+        	**type**\:  :py:class:`Ntpdscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntpdscp>`
         
         	**mandatory**\: True
         
         .. attribute:: dscp_or_precedence_value
         
         	If Mode is set to 'NTPPRECEDENCE(0)' specify Precedence value , if Mode is set to 'NTPDSCP(1)' specify DSCP
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..63
         
@@ -817,7 +829,7 @@ class Ntp(Entity):
         .. attribute:: source
         
         	Configure  NTP source interface
-        	**type**\: list of    :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources.Source>`
+        	**type**\: list of  		 :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources.Source>`
         
         
 
@@ -851,12 +863,16 @@ class Ntp(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: source_interface
             
             	Source Interface for NTP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             	**mandatory**\: True
             
@@ -894,17 +910,17 @@ class Ntp(Entity):
         .. attribute:: keies
         
         	Authentication Key Table
-        	**type**\:   :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies>`
+        	**type**\:  :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies>`
         
         .. attribute:: trusted_keies
         
         	Key numbers for trusted time sources
-        	**type**\:   :py:class:`TrustedKeies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies>`
+        	**type**\:  :py:class:`TrustedKeies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies>`
         
         .. attribute:: enable
         
         	Enable NTP authentication keys
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -948,7 +964,7 @@ class Ntp(Entity):
             .. attribute:: key
             
             	Authentication key for trusted time sources
-            	**type**\: list of    :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies.Key>`
+            	**type**\: list of  		 :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies.Key>`
             
             
 
@@ -982,14 +998,14 @@ class Ntp(Entity):
                 .. attribute:: key_number  <key>
                 
                 	Authentication Key number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: authentication_key
                 
                 	Authentication key \- maximum 32 characters
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1027,7 +1043,7 @@ class Ntp(Entity):
             .. attribute:: trusted_key
             
             	Configure NTP trusted key
-            	**type**\: list of    :py:class:`TrustedKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies.TrustedKey>`
+            	**type**\: list of  		 :py:class:`TrustedKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies.TrustedKey>`
             
             
 
@@ -1061,7 +1077,7 @@ class Ntp(Entity):
                 .. attribute:: key_number  <key>
                 
                 	Key number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
@@ -1097,7 +1113,7 @@ class Ntp(Entity):
         .. attribute:: enable
         
         	Enable NTP Passive associations
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -1131,7 +1147,7 @@ class Ntp(Entity):
         .. attribute:: interface_table
         
         	NTP per interface configuration
-        	**type**\: list of    :py:class:`InterfaceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable>`
+        	**type**\: list of  		 :py:class:`InterfaceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable>`
         
         
 
@@ -1165,12 +1181,14 @@ class Ntp(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: interface
             
             	Name of the interface
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface>`
             
             
 
@@ -1206,22 +1224,24 @@ class Ntp(Entity):
                 .. attribute:: interface  <key>
                 
                 	interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: interface_multicast
                 
                 	Configure NTP multicast service
-                	**type**\:   :py:class:`InterfaceMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast>`
+                	**type**\:  :py:class:`InterfaceMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast>`
                 
                 .. attribute:: interface_broadcast
                 
                 	Configure NTP broadcast service
-                	**type**\:   :py:class:`InterfaceBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast>`
+                	**type**\:  :py:class:`InterfaceBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast>`
                 
                 .. attribute:: disable
                 
                 	Disable NTP
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1266,12 +1286,12 @@ class Ntp(Entity):
                     .. attribute:: multicast_clients
                     
                     	Configures multicast client peers
-                    	**type**\:   :py:class:`MulticastClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients>`
+                    	**type**\:  :py:class:`MulticastClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients>`
                     
                     .. attribute:: multicast_servers
                     
                     	Configures multicast server peers
-                    	**type**\:   :py:class:`MulticastServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers>`
+                    	**type**\:  :py:class:`MulticastServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers>`
                     
                     
 
@@ -1309,7 +1329,7 @@ class Ntp(Entity):
                         .. attribute:: multicast_client
                         
                         	Listen to NTP multicasts
-                        	**type**\: list of    :py:class:`MulticastClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient>`
+                        	**type**\: list of  		 :py:class:`MulticastClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient>`
                         
                         
 
@@ -1342,16 +1362,16 @@ class Ntp(Entity):
                             .. attribute:: ip_address  <key>
                             
                             	IP address of a multicast group
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             
 
                             """
@@ -1383,7 +1403,7 @@ class Ntp(Entity):
                         .. attribute:: multicast_server
                         
                         	Configure NTP multicast group server peer
-                        	**type**\: list of    :py:class:`MulticastServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer>`
+                        	**type**\: list of  		 :py:class:`MulticastServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer>`
                         
                         
 
@@ -1416,34 +1436,34 @@ class Ntp(Entity):
                             .. attribute:: ip_address  <key>
                             
                             	IP address of a multicast group
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: authentication_key
                             
                             	Authentication key
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
                             .. attribute:: version
                             
                             	NTP version
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 2..4
                             
                             .. attribute:: ttl
                             
                             	TTL
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..255
                             
@@ -1484,12 +1504,12 @@ class Ntp(Entity):
                     .. attribute:: broadcast
                     
                     	Configure NTP broadcast
-                    	**type**\:   :py:class:`Broadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast>`
+                    	**type**\:  :py:class:`Broadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast>`
                     
                     .. attribute:: broadcast_client
                     
                     	Listen to NTP broadcasts
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1527,19 +1547,21 @@ class Ntp(Entity):
                         .. attribute:: address
                         
                         	Destination broadcast IPv4 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: authentication_key
                         
                         	Authentication key
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: ntp_version
                         
                         	NTP version
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 2..4
                         
@@ -1578,7 +1600,7 @@ class Ntp(Entity):
         .. attribute:: access_group_table
         
         	Control NTP access
-        	**type**\: list of    :py:class:`AccessGroupTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable>`
+        	**type**\: list of  		 :py:class:`AccessGroupTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable>`
         
         
 
@@ -1612,12 +1634,14 @@ class Ntp(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: access_group_af_table
             
             	Configure NTP access address family
-            	**type**\: list of    :py:class:`AccessGroupAfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable>`
+            	**type**\: list of  		 :py:class:`AccessGroupAfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable>`
             
             
 
@@ -1653,12 +1677,12 @@ class Ntp(Entity):
                 .. attribute:: af  <key>
                 
                 	Address family
-                	**type**\:   :py:class:`NtpAccessAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpAccessAf>`
+                	**type**\:  :py:class:`NtpAccessAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpAccessAf>`
                 
                 .. attribute:: access_group
                 
                 	Configure NTP access group
-                	**type**\: list of    :py:class:`AccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup>`
+                	**type**\: list of  		 :py:class:`AccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup>`
                 
                 
 
@@ -1693,12 +1717,12 @@ class Ntp(Entity):
                     .. attribute:: access_group_type  <key>
                     
                     	Access group type
-                    	**type**\:   :py:class:`NtpAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpAccess>`
+                    	**type**\:  :py:class:`NtpAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpAccess>`
                     
                     .. attribute:: access_list_name
                     
                     	Access list name \- maximum 32 characters
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     

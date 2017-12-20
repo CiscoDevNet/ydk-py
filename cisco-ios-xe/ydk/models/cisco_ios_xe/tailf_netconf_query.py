@@ -31,12 +31,12 @@ class StartQuery(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_query.StartQuery.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_query.StartQuery.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.tailf_netconf_query.StartQuery.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.tailf_netconf_query.StartQuery.Output>`
     
     
 
@@ -75,35 +75,44 @@ class StartQuery(Entity):
         .. attribute:: foreach
         
         	An XPath 1.0 expression that returns a node set.  For each node in this node set, a 'result' entry is constructed.  For each such node all 'select/expression's are evaluated, and stored in 'result/select'.  The resulting entries are returned from the 'fetch\-query\-result' function.  When this XPath expression is evaluated, the context node is the root node of the requested data store
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: select
         
         	A list of expressions that define what to return from each node in the node set returned by the 'foreach' expression
-        	**type**\: list of    :py:class:`Select <ydk.models.cisco_ios_xe.tailf_netconf_query.StartQuery.Input.Select>`
+        	**type**\: list of  		 :py:class:`Select <ydk.models.cisco_ios_xe.tailf_netconf_query.StartQuery.Input.Select>`
         
         .. attribute:: sort_by
         
         	It is possible to sort the result using an ordered list of XPath expressions.  For each node in the node set returned by 'foreach', all 'sort\-by' expressions are evaluated, in order, with the node from the 'foreach' evaluation as context node, and the result is stored in a tuple.  Thus, this tuple has as many elements as entries in the 'sort\-by' leaf list.  Each expression should return a node set where the first node should be a leaf.  The value of this leaf is used in the tuple.  If the expression returns something else, the value in the tuple is undefined.  When the 'result' list is fetched, is is sorted according to the associated tuple
-        	**type**\:  list of str
+        	**type**\: list of str
         
         .. attribute:: limit
         
         	The maximum number of 'result' entries to return in each call to 'fetch\-query\-result'.  If this parameter is not given, all entries are returned
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4294967295
         
         .. attribute:: offset
         
         	
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4294967295
         
         	**default value**\: 1
+        
+        .. attribute:: timeout
+        
+        	The maximum time (in seconds) before a query times out. Resets every new request, i.e. subsequent function calls starts a new timeout timer
+        	**type**\: int
+        
+        	**range:** 1..4294967295
+        
+        	**default value**\: 600
         
         
 
@@ -130,12 +139,14 @@ class StartQuery(Entity):
 
             self.offset = YLeaf(YType.uint32, "offset")
 
+            self.timeout = YLeaf(YType.uint32, "timeout")
+
             self.select = YList(self)
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "tailf-netconf-query:start-query/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(StartQuery.Input, ['foreach', 'sort_by', 'limit', 'offset'], name, value)
+            self._perform_setattr(StartQuery.Input, ['foreach', 'sort_by', 'limit', 'offset', 'timeout'], name, value)
 
 
         class Select(Entity):
@@ -146,19 +157,19 @@ class StartQuery(Entity):
             .. attribute:: label
             
             	Optional label which is copied as is to the 'result' list; can be used for easy labeling of the returned node(s)
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: expression
             
             	Declare what node(s) you want to retrieve.  This XPath expression is evaluated once for every node in the node set returned by the 'foreach' expression.  That node is the inital context node when this expression is evaluated
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: result_type
             
             	Controls how the result of the select expression is returned in 'fetch\-query\-result'
-            	**type**\:  list of   :py:class:`ResultType <ydk.models.cisco_ios_xe.tailf_netconf_query.StartQuery.Input.Select.ResultType>`
+            	**type**\: list of   :py:class:`ResultType <ydk.models.cisco_ios_xe.tailf_netconf_query.StartQuery.Input.Select.ResultType>`
             
             
 
@@ -245,7 +256,7 @@ class StartQuery(Entity):
         .. attribute:: query_handle
         
         	
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -284,12 +295,12 @@ class FetchQueryResult(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Output>`
     
     
 
@@ -328,7 +339,7 @@ class FetchQueryResult(Entity):
         .. attribute:: query_handle
         
         	
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -364,7 +375,7 @@ class FetchQueryResult(Entity):
         .. attribute:: query_result
         
         	
-        	**type**\:   :py:class:`QueryResult <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Output.QueryResult>`
+        	**type**\:  :py:class:`QueryResult <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Output.QueryResult>`
         
         
 
@@ -398,7 +409,7 @@ class FetchQueryResult(Entity):
             .. attribute:: result
             
             	There will be one result for each node in the node set produced by evaluating the 'foreach' expression
-            	**type**\: list of    :py:class:`Result <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Output.QueryResult.Result>`
+            	**type**\: list of  		 :py:class:`Result <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Output.QueryResult.Result>`
             
             
 
@@ -433,7 +444,7 @@ class FetchQueryResult(Entity):
                 .. attribute:: select
                 
                 	
-                	**type**\: list of    :py:class:`Select <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Output.QueryResult.Result.Select>`
+                	**type**\: list of  		 :py:class:`Select <ydk.models.cisco_ios_xe.tailf_netconf_query.FetchQueryResult.Output.QueryResult.Result.Select>`
                 
                 
 
@@ -467,22 +478,22 @@ class FetchQueryResult(Entity):
                     .. attribute:: label
                     
                     	Present if the label was given in the input select entry
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: path
                     
                     	
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: value
                     
                     	
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: data
                     
                     	A deep structure of XML (or other API dependent format, e.g., JSON)
-                    	**type**\:  anyxml
+                    	**type**\: anyxml
                     
                     
 
@@ -525,7 +536,7 @@ class ResetQuery(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_query.ResetQuery.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_query.ResetQuery.Input>`
     
     
 
@@ -559,18 +570,27 @@ class ResetQuery(Entity):
         .. attribute:: query_handle
         
         	
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: offset
         
         	
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4294967295
         
         	**default value**\: 1
+        
+        .. attribute:: timeout
+        
+        	The maximum time (in seconds) before a query times out. Resets every new request, i.e. subsequent function calls starts a new timeout timer
+        	**type**\: int
+        
+        	**range:** 1..4294967295
+        
+        	**default value**\: 600
         
         
 
@@ -592,11 +612,13 @@ class ResetQuery(Entity):
             self.query_handle = YLeaf(YType.uint32, "query-handle")
 
             self.offset = YLeaf(YType.uint32, "offset")
+
+            self.timeout = YLeaf(YType.uint32, "timeout")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "tailf-netconf-query:reset-query/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ResetQuery.Input, ['query_handle', 'offset'], name, value)
+            self._perform_setattr(ResetQuery.Input, ['query_handle', 'offset', 'timeout'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ResetQuery()
@@ -609,7 +631,7 @@ class StopQuery(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_query.StopQuery.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_query.StopQuery.Input>`
     
     
 
@@ -643,7 +665,7 @@ class StopQuery(Entity):
         .. attribute:: query_handle
         
         	
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         

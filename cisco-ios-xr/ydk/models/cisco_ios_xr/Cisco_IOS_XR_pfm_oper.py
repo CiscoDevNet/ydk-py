@@ -25,12 +25,12 @@ class PlatformFaultManager(Entity):
     .. attribute:: exclude
     
     	Exclude specic hw fault 
-    	**type**\:   :py:class:`Exclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude>`
+    	**type**\:  :py:class:`Exclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude>`
     
     .. attribute:: racks
     
     	Table of racks
-    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks>`
+    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks>`
     
     
 
@@ -69,7 +69,7 @@ class PlatformFaultManager(Entity):
         .. attribute:: fault_type1s
         
         	Table of Hardware Failure Device
-        	**type**\:   :py:class:`FaultType1S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S>`
+        	**type**\:  :py:class:`FaultType1S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S>`
         
         
 
@@ -103,7 +103,7 @@ class PlatformFaultManager(Entity):
             .. attribute:: fault_type1
             
             	Table of Hardware Failure Device
-            	**type**\: list of    :py:class:`FaultType1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1>`
+            	**type**\: list of  		 :py:class:`FaultType1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1>`
             
             
 
@@ -137,17 +137,19 @@ class PlatformFaultManager(Entity):
                 .. attribute:: hw_fault_type1  <key>
                 
                 	hw fault 1
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: fault_type2s
                 
                 	Table of Hardware Failure Device
-                	**type**\:   :py:class:`FaultType2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S>`
+                	**type**\:  :py:class:`FaultType2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S>`
                 
                 .. attribute:: racks
                 
                 	Table of racks
-                	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks>`
+                	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks>`
                 
                 
 
@@ -191,7 +193,7 @@ class PlatformFaultManager(Entity):
                     .. attribute:: fault_type2
                     
                     	Table of Hardware Failure Device
-                    	**type**\: list of    :py:class:`FaultType2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2>`
+                    	**type**\: list of  		 :py:class:`FaultType2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2>`
                     
                     
 
@@ -224,17 +226,19 @@ class PlatformFaultManager(Entity):
                         .. attribute:: hw_fault_type2  <key>
                         
                         	hw fault 2
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: fault_type3s
                         
                         	Table of Hardware Failure Device
-                        	**type**\:   :py:class:`FaultType3S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S>`
+                        	**type**\:  :py:class:`FaultType3S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S>`
                         
                         .. attribute:: racks
                         
                         	Table of racks
-                        	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks>`
+                        	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks>`
                         
                         
 
@@ -277,7 +281,7 @@ class PlatformFaultManager(Entity):
                             .. attribute:: fault_type3
                             
                             	Table of Hardware Failure Device
-                            	**type**\: list of    :py:class:`FaultType3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3>`
+                            	**type**\: list of  		 :py:class:`FaultType3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3>`
                             
                             
 
@@ -310,12 +314,14 @@ class PlatformFaultManager(Entity):
                                 .. attribute:: hw_fault_type3  <key>
                                 
                                 	hw fault 3
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: racks
                                 
                                 	Table of racks
-                                	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks>`
+                                	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks>`
                                 
                                 
 
@@ -353,7 +359,7 @@ class PlatformFaultManager(Entity):
                                     .. attribute:: rack
                                     
                                     	Number
-                                    	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack>`
+                                    	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack>`
                                     
                                     
 
@@ -386,14 +392,14 @@ class PlatformFaultManager(Entity):
                                         .. attribute:: rack  <key>
                                         
                                         	Rack number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: slots
                                         
                                         	Table of slots
-                                        	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots>`
+                                        	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots>`
                                         
                                         
 
@@ -431,7 +437,7 @@ class PlatformFaultManager(Entity):
                                             .. attribute:: slot
                                             
                                             	Name
-                                            	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot>`
+                                            	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot>`
                                             
                                             
 
@@ -464,17 +470,19 @@ class PlatformFaultManager(Entity):
                                                 .. attribute:: slot  <key>
                                                 
                                                 	Slot name
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                 
                                                 .. attribute:: fault_summary
                                                 
                                                 	Table of Hardware Summary
-                                                	**type**\:   :py:class:`FaultSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary>`
+                                                	**type**\:  :py:class:`FaultSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary>`
                                                 
                                                 .. attribute:: hardware_fault_devices
                                                 
                                                 	Table of Hardware Failure
-                                                	**type**\:   :py:class:`HardwareFaultDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices>`
+                                                	**type**\:  :py:class:`HardwareFaultDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices>`
                                                 
                                                 
 
@@ -517,28 +525,28 @@ class PlatformFaultManager(Entity):
                                                     .. attribute:: severity_critical_count
                                                     
                                                     	Fault Severity Critical count
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
                                                     .. attribute:: severity_emergency_or_alert_count
                                                     
                                                     	Fault Severity Emergency count
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
                                                     .. attribute:: total
                                                     
                                                     	Faulty Hardware total count
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
                                                     .. attribute:: severity_error_count
                                                     
                                                     	Fault Severity Error count
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
@@ -579,7 +587,7 @@ class PlatformFaultManager(Entity):
                                                     .. attribute:: hardware_fault_device
                                                     
                                                     	Table of Hardware Failure Device
-                                                    	**type**\: list of    :py:class:`HardwareFaultDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice>`
+                                                    	**type**\: list of  		 :py:class:`HardwareFaultDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice>`
                                                     
                                                     
 
@@ -612,12 +620,14 @@ class PlatformFaultManager(Entity):
                                                         .. attribute:: hw_fault_device  <key>
                                                         
                                                         	hw fault device list
-                                                        	**type**\:  str
+                                                        	**type**\: str
+                                                        
+                                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                         
                                                         .. attribute:: hardware_fault_type
                                                         
                                                         	Table of Hardware Failure Type
-                                                        	**type**\: list of    :py:class:`HardwareFaultType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType>`
+                                                        	**type**\: list of  		 :py:class:`HardwareFaultType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType>`
                                                         
                                                         
 
@@ -652,51 +662,53 @@ class PlatformFaultManager(Entity):
                                                             .. attribute:: hw_fault_type  <key>
                                                             
                                                             	hw fault type list
-                                                            	**type**\:  str
+                                                            	**type**\: str
+                                                            
+                                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                             
                                                             .. attribute:: condition_description
                                                             
                                                             	Faulty Hardware Condition Description
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             .. attribute:: condition_name
                                                             
                                                             	Faulty Hardware Condition Name
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             .. attribute:: device_key
                                                             
                                                             	Faulty Hardware Device Key
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             .. attribute:: device_version
                                                             
                                                             	Faulty Hardware Device Version
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
                                                             .. attribute:: condition_raised_timestamp
                                                             
                                                             	Fault Raised Timestamp
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             .. attribute:: process_id
                                                             
                                                             	Faulty Hardware Process ID
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
                                                             .. attribute:: device_description
                                                             
                                                             	Faulty Hardware Device Description
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             .. attribute:: condition_severity
                                                             
                                                             	Faulty Hardware Condition Severity
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             
 
@@ -745,7 +757,7 @@ class PlatformFaultManager(Entity):
                             .. attribute:: rack
                             
                             	Number
-                            	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack>`
+                            	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack>`
                             
                             
 
@@ -778,14 +790,14 @@ class PlatformFaultManager(Entity):
                                 .. attribute:: rack  <key>
                                 
                                 	Rack number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: slots
                                 
                                 	Table of slots
-                                	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots>`
+                                	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots>`
                                 
                                 
 
@@ -823,7 +835,7 @@ class PlatformFaultManager(Entity):
                                     .. attribute:: slot
                                     
                                     	Name
-                                    	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot>`
+                                    	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot>`
                                     
                                     
 
@@ -856,17 +868,19 @@ class PlatformFaultManager(Entity):
                                         .. attribute:: slot  <key>
                                         
                                         	Slot name
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                         
                                         .. attribute:: fault_summary
                                         
                                         	Table of Hardware Summary
-                                        	**type**\:   :py:class:`FaultSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary>`
+                                        	**type**\:  :py:class:`FaultSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary>`
                                         
                                         .. attribute:: hardware_fault_devices
                                         
                                         	Table of Hardware Failure
-                                        	**type**\:   :py:class:`HardwareFaultDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices>`
+                                        	**type**\:  :py:class:`HardwareFaultDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices>`
                                         
                                         
 
@@ -909,28 +923,28 @@ class PlatformFaultManager(Entity):
                                             .. attribute:: severity_critical_count
                                             
                                             	Fault Severity Critical count
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: severity_emergency_or_alert_count
                                             
                                             	Fault Severity Emergency count
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: total
                                             
                                             	Faulty Hardware total count
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: severity_error_count
                                             
                                             	Fault Severity Error count
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
@@ -971,7 +985,7 @@ class PlatformFaultManager(Entity):
                                             .. attribute:: hardware_fault_device
                                             
                                             	Table of Hardware Failure Device
-                                            	**type**\: list of    :py:class:`HardwareFaultDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice>`
+                                            	**type**\: list of  		 :py:class:`HardwareFaultDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice>`
                                             
                                             
 
@@ -1004,12 +1018,14 @@ class PlatformFaultManager(Entity):
                                                 .. attribute:: hw_fault_device  <key>
                                                 
                                                 	hw fault device list
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                 
                                                 .. attribute:: hardware_fault_type
                                                 
                                                 	Table of Hardware Failure Type
-                                                	**type**\: list of    :py:class:`HardwareFaultType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType>`
+                                                	**type**\: list of  		 :py:class:`HardwareFaultType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType>`
                                                 
                                                 
 
@@ -1044,51 +1060,53 @@ class PlatformFaultManager(Entity):
                                                     .. attribute:: hw_fault_type  <key>
                                                     
                                                     	hw fault type list
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                     
                                                     .. attribute:: condition_description
                                                     
                                                     	Faulty Hardware Condition Description
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: condition_name
                                                     
                                                     	Faulty Hardware Condition Name
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: device_key
                                                     
                                                     	Faulty Hardware Device Key
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: device_version
                                                     
                                                     	Faulty Hardware Device Version
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
                                                     .. attribute:: condition_raised_timestamp
                                                     
                                                     	Fault Raised Timestamp
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: process_id
                                                     
                                                     	Faulty Hardware Process ID
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
                                                     .. attribute:: device_description
                                                     
                                                     	Faulty Hardware Device Description
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: condition_severity
                                                     
                                                     	Faulty Hardware Condition Severity
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     
 
@@ -1137,7 +1155,7 @@ class PlatformFaultManager(Entity):
                     .. attribute:: rack
                     
                     	Number
-                    	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack>`
+                    	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack>`
                     
                     
 
@@ -1170,14 +1188,14 @@ class PlatformFaultManager(Entity):
                         .. attribute:: rack  <key>
                         
                         	Rack number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: slots
                         
                         	Table of slots
-                        	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots>`
+                        	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots>`
                         
                         
 
@@ -1215,7 +1233,7 @@ class PlatformFaultManager(Entity):
                             .. attribute:: slot
                             
                             	Name
-                            	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot>`
+                            	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot>`
                             
                             
 
@@ -1248,17 +1266,19 @@ class PlatformFaultManager(Entity):
                                 .. attribute:: slot  <key>
                                 
                                 	Slot name
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: fault_summary
                                 
                                 	Table of Hardware Summary
-                                	**type**\:   :py:class:`FaultSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary>`
+                                	**type**\:  :py:class:`FaultSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary>`
                                 
                                 .. attribute:: hardware_fault_devices
                                 
                                 	Table of Hardware Failure
-                                	**type**\:   :py:class:`HardwareFaultDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices>`
+                                	**type**\:  :py:class:`HardwareFaultDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices>`
                                 
                                 
 
@@ -1301,28 +1321,28 @@ class PlatformFaultManager(Entity):
                                     .. attribute:: severity_critical_count
                                     
                                     	Fault Severity Critical count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: severity_emergency_or_alert_count
                                     
                                     	Fault Severity Emergency count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: total
                                     
                                     	Faulty Hardware total count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: severity_error_count
                                     
                                     	Fault Severity Error count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -1363,7 +1383,7 @@ class PlatformFaultManager(Entity):
                                     .. attribute:: hardware_fault_device
                                     
                                     	Table of Hardware Failure Device
-                                    	**type**\: list of    :py:class:`HardwareFaultDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice>`
+                                    	**type**\: list of  		 :py:class:`HardwareFaultDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice>`
                                     
                                     
 
@@ -1396,12 +1416,14 @@ class PlatformFaultManager(Entity):
                                         .. attribute:: hw_fault_device  <key>
                                         
                                         	hw fault device list
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                         
                                         .. attribute:: hardware_fault_type
                                         
                                         	Table of Hardware Failure Type
-                                        	**type**\: list of    :py:class:`HardwareFaultType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType>`
+                                        	**type**\: list of  		 :py:class:`HardwareFaultType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType>`
                                         
                                         
 
@@ -1436,51 +1458,53 @@ class PlatformFaultManager(Entity):
                                             .. attribute:: hw_fault_type  <key>
                                             
                                             	hw fault type list
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
                                             .. attribute:: condition_description
                                             
                                             	Faulty Hardware Condition Description
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: condition_name
                                             
                                             	Faulty Hardware Condition Name
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: device_key
                                             
                                             	Faulty Hardware Device Key
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: device_version
                                             
                                             	Faulty Hardware Device Version
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: condition_raised_timestamp
                                             
                                             	Fault Raised Timestamp
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: process_id
                                             
                                             	Faulty Hardware Process ID
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: device_description
                                             
                                             	Faulty Hardware Device Description
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: condition_severity
                                             
                                             	Faulty Hardware Condition Severity
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -1529,7 +1553,7 @@ class PlatformFaultManager(Entity):
         .. attribute:: rack
         
         	Number
-        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack>`
+        	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack>`
         
         
 
@@ -1563,14 +1587,14 @@ class PlatformFaultManager(Entity):
             .. attribute:: rack  <key>
             
             	Rack number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: slots
             
             	Table of slots
-            	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots>`
+            	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots>`
             
             
 
@@ -1609,7 +1633,7 @@ class PlatformFaultManager(Entity):
                 .. attribute:: slot
                 
                 	Name
-                	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot>`
+                	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot>`
                 
                 
 
@@ -1642,17 +1666,19 @@ class PlatformFaultManager(Entity):
                     .. attribute:: slot  <key>
                     
                     	Slot name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: fault_summary
                     
                     	Table of Hardware Summary
-                    	**type**\:   :py:class:`FaultSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary>`
+                    	**type**\:  :py:class:`FaultSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary>`
                     
                     .. attribute:: hardware_fault_devices
                     
                     	Table of Hardware Failure
-                    	**type**\:   :py:class:`HardwareFaultDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices>`
+                    	**type**\:  :py:class:`HardwareFaultDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices>`
                     
                     
 
@@ -1695,28 +1721,28 @@ class PlatformFaultManager(Entity):
                         .. attribute:: severity_critical_count
                         
                         	Fault Severity Critical count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: severity_emergency_or_alert_count
                         
                         	Fault Severity Emergency count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: total
                         
                         	Faulty Hardware total count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: severity_error_count
                         
                         	Fault Severity Error count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -1757,7 +1783,7 @@ class PlatformFaultManager(Entity):
                         .. attribute:: hardware_fault_device
                         
                         	Table of Hardware Failure Device
-                        	**type**\: list of    :py:class:`HardwareFaultDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice>`
+                        	**type**\: list of  		 :py:class:`HardwareFaultDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice>`
                         
                         
 
@@ -1790,12 +1816,14 @@ class PlatformFaultManager(Entity):
                             .. attribute:: hw_fault_device  <key>
                             
                             	hw fault device list
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: hardware_fault_type
                             
                             	Table of Hardware Failure Type
-                            	**type**\: list of    :py:class:`HardwareFaultType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType>`
+                            	**type**\: list of  		 :py:class:`HardwareFaultType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper.PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType>`
                             
                             
 
@@ -1830,51 +1858,53 @@ class PlatformFaultManager(Entity):
                                 .. attribute:: hw_fault_type  <key>
                                 
                                 	hw fault type list
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: condition_description
                                 
                                 	Faulty Hardware Condition Description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: condition_name
                                 
                                 	Faulty Hardware Condition Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: device_key
                                 
                                 	Faulty Hardware Device Key
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: device_version
                                 
                                 	Faulty Hardware Device Version
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: condition_raised_timestamp
                                 
                                 	Fault Raised Timestamp
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: process_id
                                 
                                 	Faulty Hardware Process ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: device_description
                                 
                                 	Faulty Hardware Device Description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: condition_severity
                                 
                                 	Faulty Hardware Condition Severity
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 

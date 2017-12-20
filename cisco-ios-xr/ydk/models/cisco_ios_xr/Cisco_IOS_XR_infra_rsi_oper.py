@@ -123,7 +123,7 @@ class VrfGroup(Entity):
     .. attribute:: nodes
     
     	Node operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes>`
     
     
 
@@ -157,7 +157,7 @@ class VrfGroup(Entity):
         .. attribute:: node
         
         	Node details
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node>`
         
         
 
@@ -191,12 +191,14 @@ class VrfGroup(Entity):
             .. attribute:: node_name  <key>
             
             	Node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: groups
             
             	Group operational data
-            	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups>`
+            	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups>`
             
             
 
@@ -235,7 +237,7 @@ class VrfGroup(Entity):
                 .. attribute:: group
                 
                 	Group details
-                	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups.Group>`
+                	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups.Group>`
                 
                 
 
@@ -268,26 +270,26 @@ class VrfGroup(Entity):
                     .. attribute:: group_name  <key>
                     
                     	Group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: vr_fs
                     
                     	Number of VRFs in this VRF group
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: forward_reference
                     
                     	VRF group not present but used
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: vrf
                     
                     	VRF group's VRF
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups.Group.Vrf>`
+                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups.Group.Vrf>`
                     
                     
 
@@ -326,7 +328,7 @@ class VrfGroup(Entity):
                         .. attribute:: vrf_name
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -362,17 +364,17 @@ class Srlg(Entity):
     .. attribute:: srlg_maps
     
     	Set of SRLG name, value maps configured
-    	**type**\:   :py:class:`SrlgMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgMaps>`
+    	**type**\:  :py:class:`SrlgMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgMaps>`
     
     .. attribute:: nodes
     
     	RSI SRLG operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes>`
     
     .. attribute:: interface_srlg_names
     
     	Set of SRLG names configured
-    	**type**\:   :py:class:`InterfaceSrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames>`
+    	**type**\:  :py:class:`InterfaceSrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames>`
     
     
 
@@ -416,7 +418,7 @@ class Srlg(Entity):
         .. attribute:: srlg_map
         
         	Configured SRLG name details 
-        	**type**\: list of    :py:class:`SrlgMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgMaps.SrlgMap>`
+        	**type**\: list of  		 :py:class:`SrlgMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgMaps.SrlgMap>`
         
         
 
@@ -450,21 +452,21 @@ class Srlg(Entity):
             .. attribute:: srlg_name  <key>
             
             	SRLG name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: srlg_value
             
             	SRLG value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: srlg_name_xr
             
             	SRLG name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -502,7 +504,7 @@ class Srlg(Entity):
         .. attribute:: node
         
         	RSI SRLG operational data
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node>`
         
         
 
@@ -536,42 +538,44 @@ class Srlg(Entity):
             .. attribute:: node_name  <key>
             
             	Node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: srlg_maps
             
             	Set of SRLG name, value maps configured
-            	**type**\:   :py:class:`SrlgMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgMaps>`
+            	**type**\:  :py:class:`SrlgMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgMaps>`
             
             .. attribute:: groups
             
             	Set of Groups configured for SRLG
-            	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups>`
+            	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups>`
             
             .. attribute:: inherit_nodes
             
             	Set of inherit locations configured for SRLG
-            	**type**\:   :py:class:`InheritNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes>`
+            	**type**\:  :py:class:`InheritNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes>`
             
             .. attribute:: interfaces
             
             	Set of interfaces configured for SRLG
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Interfaces>`
             
             .. attribute:: interface_details
             
             	Set of interfaces configured for SRLG
-            	**type**\:   :py:class:`InterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails>`
+            	**type**\:  :py:class:`InterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails>`
             
             .. attribute:: srlg_values
             
             	Set of SRLG values configured
-            	**type**\:   :py:class:`SrlgValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgValues>`
+            	**type**\:  :py:class:`SrlgValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgValues>`
             
             .. attribute:: interface_srlg_names
             
             	Set of SRLG names configured
-            	**type**\:   :py:class:`InterfaceSrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames>`
+            	**type**\:  :py:class:`InterfaceSrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames>`
             
             
 
@@ -640,7 +644,7 @@ class Srlg(Entity):
                 .. attribute:: srlg_map
                 
                 	Configured SRLG name details 
-                	**type**\: list of    :py:class:`SrlgMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgMaps.SrlgMap>`
+                	**type**\: list of  		 :py:class:`SrlgMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgMaps.SrlgMap>`
                 
                 
 
@@ -673,21 +677,21 @@ class Srlg(Entity):
                     .. attribute:: srlg_name  <key>
                     
                     	SRLG name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: srlg_value
                     
                     	SRLG value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: srlg_name_xr
                     
                     	SRLG name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -724,7 +728,7 @@ class Srlg(Entity):
                 .. attribute:: group
                 
                 	SRLG group details
-                	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups.Group>`
+                	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups.Group>`
                 
                 
 
@@ -757,24 +761,26 @@ class Srlg(Entity):
                     .. attribute:: group_name  <key>
                     
                     	Group name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: group_name_xr
                     
                     	Group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_values
                     
                     	Group values
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: srlg_attribute
                     
                     	SRLG attribute
-                    	**type**\: list of    :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups.Group.SrlgAttribute>`
+                    	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups.Group.SrlgAttribute>`
                     
                     
 
@@ -813,19 +819,19 @@ class Srlg(Entity):
                         .. attribute:: srlg_value
                         
                         	SRLG value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                        	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
                         
                         .. attribute:: srlg_index
                         
                         	Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -864,7 +870,7 @@ class Srlg(Entity):
                 .. attribute:: inherit_node
                 
                 	SRLG inherit location details
-                	**type**\: list of    :py:class:`InheritNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes.InheritNode>`
+                	**type**\: list of  		 :py:class:`InheritNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes.InheritNode>`
                 
                 
 
@@ -897,24 +903,26 @@ class Srlg(Entity):
                     .. attribute:: inherit_node_name  <key>
                     
                     	Inherit node
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))/){2}(([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))
                     
                     .. attribute:: node_name
                     
                     	Inherit node name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: node_values
                     
                     	Node values
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: srlg_attribute
                     
                     	SRLG attribute
-                    	**type**\: list of    :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute>`
+                    	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute>`
                     
                     
 
@@ -953,19 +961,19 @@ class Srlg(Entity):
                         .. attribute:: srlg_value
                         
                         	SRLG value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                        	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
                         
                         .. attribute:: srlg_index
                         
                         	Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -1004,7 +1012,7 @@ class Srlg(Entity):
                 .. attribute:: interface
                 
                 	SRLG interface summary
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -1037,31 +1045,33 @@ class Srlg(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: interface_name_xr
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: value_count
                     
                     	Values
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: registrations
                     
                     	Registrations
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: srlg_value
                     
                     	SRLG values
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
@@ -1104,7 +1114,7 @@ class Srlg(Entity):
                 .. attribute:: interface_detail
                 
                 	SRLG interface details
-                	**type**\: list of    :py:class:`InterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail>`
+                	**type**\: list of  		 :py:class:`InterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail>`
                 
                 
 
@@ -1137,26 +1147,28 @@ class Srlg(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: groups
                     
                     	Groups
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: nodes
                     
                     	Nodes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: srlg_attribute
                     
                     	SRLG attributes
-                    	**type**\: list of    :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute>`
+                    	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute>`
                     
                     
 
@@ -1195,29 +1207,29 @@ class Srlg(Entity):
                         .. attribute:: srlg_value
                         
                         	SRLG value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                        	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
                         
                         .. attribute:: source
                         
                         	Source
-                        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Source>`
+                        	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Source>`
                         
                         .. attribute:: source_name
                         
                         	Source name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: srlg_index
                         
                         	Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -1260,7 +1272,7 @@ class Srlg(Entity):
                 .. attribute:: srlg_value
                 
                 	Configured SRLG value details 
-                	**type**\: list of    :py:class:`SrlgValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgValues.SrlgValue>`
+                	**type**\: list of  		 :py:class:`SrlgValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgValues.SrlgValue>`
                 
                 
 
@@ -1293,14 +1305,14 @@ class Srlg(Entity):
                     .. attribute:: value  <key>
                     
                     	SRLG value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  list of str
+                    	**type**\: list of str
                     
                     
 
@@ -1335,7 +1347,7 @@ class Srlg(Entity):
                 .. attribute:: interface_srlg_name
                 
                 	Configured SRLG name details 
-                	**type**\: list of    :py:class:`InterfaceSrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName>`
+                	**type**\: list of  		 :py:class:`InterfaceSrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName>`
                 
                 
 
@@ -1368,24 +1380,24 @@ class Srlg(Entity):
                     .. attribute:: srlg_name  <key>
                     
                     	SRLG name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: interfaces
                     
                     	Interfaces information
-                    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces>`
+                    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces>`
                     
                     .. attribute:: srlg_name_xr
                     
                     	SRLG name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: srlg_value
                     
                     	SRLG value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1429,7 +1441,7 @@ class Srlg(Entity):
                         .. attribute:: interface_name
                         
                         	Interface name
-                        	**type**\:  list of str
+                        	**type**\: list of str
                         
                         
 
@@ -1462,7 +1474,7 @@ class Srlg(Entity):
         .. attribute:: interface_srlg_name
         
         	Configured SRLG name details 
-        	**type**\: list of    :py:class:`InterfaceSrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames.InterfaceSrlgName>`
+        	**type**\: list of  		 :py:class:`InterfaceSrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames.InterfaceSrlgName>`
         
         
 
@@ -1496,24 +1508,24 @@ class Srlg(Entity):
             .. attribute:: srlg_name  <key>
             
             	SRLG name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: interfaces
             
             	Interfaces information
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces>`
             
             .. attribute:: srlg_name_xr
             
             	SRLG name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: srlg_value
             
             	SRLG value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1558,7 +1570,7 @@ class Srlg(Entity):
                 .. attribute:: interface_name
                 
                 	Interface name
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -1594,7 +1606,7 @@ class SelectiveVrfDownload(Entity):
     .. attribute:: state
     
     	Selective VRF Download feature state details
-    	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.SelectiveVrfDownload.State>`
+    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.SelectiveVrfDownload.State>`
     
     
 
@@ -1628,12 +1640,12 @@ class SelectiveVrfDownload(Entity):
         .. attribute:: is_svd_enabled
         
         	Is SVD Enabled Operational
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: is_svd_enabled_cfg
         
         	Is SVD Enabled Config
-        	**type**\:  bool
+        	**type**\: bool
         
         
 

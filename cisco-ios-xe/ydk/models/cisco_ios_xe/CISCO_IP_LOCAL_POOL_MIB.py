@@ -43,32 +43,32 @@ class CISCOIPLOCALPOOLMIB(Entity):
     .. attribute:: ciplocalpoolconfig
     
     	
-    	**type**\:   :py:class:`Ciplocalpoolconfig <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig>`
+    	**type**\:  :py:class:`Ciplocalpoolconfig <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig>`
     
     .. attribute:: ciplocalpoolconfigtable
     
     	This table manages the creation, modification, and deletion of IP local pools using the RowStatus textual convention.  An entry in this table defines an IP address range that is associated with an IP local pool.  A conceptual row in this table can not be modified while cIpLocalPoolRowStatus is set to 'active'.  Since IP local pool names are unique even when they belong to different groups, and addresses within a group can not overlap, a row in this table is uniquely indexed by the pool name, and by the low address of the IP local pool together with its address type
-    	**type**\:   :py:class:`Ciplocalpoolconfigtable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable>`
+    	**type**\:  :py:class:`Ciplocalpoolconfigtable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable>`
     
     .. attribute:: ciplocalpoolgroupcontainstable
     
     	A table which exposes the container/'containee' relationships between local IP pools and IP pool groups.  Entries in this table are created or deleted as a by\-product of creating or deleting entries in the cIpLocalPoolConfigTable.  When an entry is created and activated in the cIpLocalPoolConfigTable table, an entry in this table will come into existence if it does not already exist.  When an entry is deleted in the cIpLocalPoolConfigTable table, if there is no other entry existing in that table with the same cIpLocalPoolGroupContainedIn and cIpLocalPoolName, the entry in this table with the respective cIpLocalPoolGroupName and cIpLocalPoolName indices will be removed
-    	**type**\:   :py:class:`Ciplocalpoolgroupcontainstable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable>`
+    	**type**\:  :py:class:`Ciplocalpoolgroupcontainstable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable>`
     
     .. attribute:: ciplocalpoolgrouptable
     
     	This table provides statistics for configured IP pool groups.  Entries in this table are created as the result of adding a new IP pool group to the cIpLocalPoolConfigTable.  Entries in this table are deleted as the result of removing all IP local pools that are contained in an IP pool group in the cIpLocalPoolConfigTable.  An entry in this table is uniquely indexed by IP pool group name
-    	**type**\:   :py:class:`Ciplocalpoolgrouptable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable>`
+    	**type**\:  :py:class:`Ciplocalpoolgrouptable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable>`
     
     .. attribute:: ciplocalpoolstatstable
     
     	A table providing statistics for each IP local pool.  Entries in this table are created as the result of adding a new IP local pool to the cIpLocalPoolConfigTable.  Entries in this table are deleted as the result of removing all the address ranges that are contained in an IP local pool in the cIpLocalPoolConfigTable.  Entries in this table are uniquely indexed by the name of the IP local pool
-    	**type**\:   :py:class:`Ciplocalpoolstatstable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable>`
+    	**type**\:  :py:class:`Ciplocalpoolstatstable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable>`
     
     .. attribute:: ciplocalpoolalloctable
     
     	This table lists all addresses that have been allocated out of an IP local pool.  Entries in this table are created when a remote peer allocates an address from one of the IP local pools in the cIpLocalPoolConfigTable.  Entries in this table are deleted when a remote peer deallocates an address from one of the IP local pool in the cIpLocalPoolConfigTable.  Entries in this table are uniquely indexed by the name of the IP local pool, and the allocated address, together with its address type
-    	**type**\:   :py:class:`Ciplocalpoolalloctable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable>`
+    	**type**\:  :py:class:`Ciplocalpoolalloctable <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable>`
     
     
 
@@ -127,7 +127,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolnotificationsenable
         
         	An indication of whether the notifications defined by the ciscoIpLocalPoolNotifGroup are enabled
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -173,7 +173,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolconfigentry
         
         	Each entry provides information about a particular IP local pool, including the number of free and used addresses and its priority
-        	**type**\: list of    :py:class:`Ciplocalpoolconfigentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry>`
+        	**type**\: list of  		 :py:class:`Ciplocalpoolconfigentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry>`
         
         
 
@@ -208,59 +208,59 @@ class CISCOIPLOCALPOOLMIB(Entity):
             .. attribute:: ciplocalpoolname  <key>
             
             	An arbitrary non\-empty string that uniquely identifies the IP local pool.  This name must be unique among all the local IP pools even when they belong to different pool groups
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..48
             
             .. attribute:: ciplocalpooladdrtype  <key>
             
             	This object specifies the address type of cIpLocalPoolAddressLo and cIpLocalPoolAddressHi
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: ciplocalpooladdresslo  <key>
             
             	This object specifies the first IP address of the range of IP addresses contained by this pool entry.  The address type of this object is described by cIpLocalPoolAddrType.  This address must be less than or equal to the address in cIpLocalPoolAddressHi
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: ciplocalpooladdresshi
             
             	This object specifies the last IP address of the range of IP addresses mapped by this pool entry.  The address type of this object is described by cIpLocalPoolAddrType.  If only a single address is being mapped, the value of this object is equal to the value of cIpLocalPoolAddressLo
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: ciplocalpoolfreeaddrs
             
             	The number of IP addresses available for use in the range of IP addresses
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciplocalpoolinuseaddrs
             
             	The number of IP addresses being used in the range of IP addresses
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciplocalpoolgroupcontainedin
             
             	This object relates an IP local pool to its IP pool group.  A null string indicates this IP local pool is not contained in a named IP pool group, but that it is contained in the base IP pool group.  An IP local pool can only belong to one IP pool group
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..48
             
             .. attribute:: ciplocalpoolrowstatus
             
             	This object facilitates the creation, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ciplocalpoolpriority
             
             	This object specifies priority of the IP local pool, where smaller value indicates the lower priority. The priority value is used in assigning IP Address  from local pools
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
@@ -326,7 +326,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolgroupcontainsentry
         
         	Each entry describes single container/'containee' relationship.  Pool names can only be associated with one group.  Pools carry implicit group identifiers because pool names can only be associated with one group.  An entry in this table describes such an association
-        	**type**\: list of    :py:class:`Ciplocalpoolgroupcontainsentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry>`
+        	**type**\: list of  		 :py:class:`Ciplocalpoolgroupcontainsentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry>`
         
         
 
@@ -366,14 +366,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
             .. attribute:: ciplocalpoolgroupname  <key>
             
             	A unique group name that identifies the IP pool group.  The null string represents the base IP pool group
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..48
             
             .. attribute:: ciplocalpoolchildindex  <key>
             
             	The value of cIpLocalPoolName for the contained IP local pool
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..48
             
@@ -421,7 +421,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolgroupentry
         
         	Each entry provides information about a particular IP pool group and the number of free and used addresses in an IP pool group
-        	**type**\: list of    :py:class:`Ciplocalpoolgroupentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry>`
+        	**type**\: list of  		 :py:class:`Ciplocalpoolgroupentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry>`
         
         
 
@@ -457,7 +457,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             .. attribute:: ciplocalpoolgroupname  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..48
             
@@ -466,14 +466,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
             .. attribute:: ciplocalpoolgroupfreeaddrs
             
             	The number of IP addresses available for use in the IP pool group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciplocalpoolgroupinuseaddrs
             
             	The number of IP addresses that have been allocated from the IP pool group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -523,7 +523,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolstatsentry
         
         	Each entry provides statistical information about a particular IP local pool, and the total number of free and used addresses of all the ranges in an IP local pool
-        	**type**\: list of    :py:class:`Ciplocalpoolstatsentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable.Ciplocalpoolstatsentry>`
+        	**type**\: list of  		 :py:class:`Ciplocalpoolstatsentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable.Ciplocalpoolstatsentry>`
         
         
 
@@ -559,7 +559,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             .. attribute:: ciplocalpoolname  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..48
             
@@ -568,49 +568,49 @@ class CISCOIPLOCALPOOLMIB(Entity):
             .. attribute:: ciplocalpoolstatfreeaddrs
             
             	The number of IP addresses available for use in this IP local pool
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciplocalpoolstatinuseaddrs
             
             	The number of IP addresses being used in this IP local pool
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciplocalpoolstathiwaterusedaddrs
             
             	This object contains the high water mark of used addresses in an IP local pool since pool creation, since the system was restarted, or since this object was reset, whichever occurred last.  This object can only be set to zero, and by doing so, it is reset to the value of cIpLocalPoolStatInUseAddrs.  Since the number of addresses in a pool can be reduced (e.g. by deleting one of its ranges), the value of this object may be greater than the sum of cIpLocalPoolStatFreeAddrs and cIpLocalPoolStatInUseAddrs
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciplocalpoolstatinuseaddrthldlo
             
             	When the number of used addresses in an IP local pool falls below this threshold value, the ciscoIpLocalPoolInUseAddrNoti notification will be rearmed.  The value of this object should never be greater than the value of cIpLocalPoolStatInUseAddrThldHi
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciplocalpoolstatinuseaddrthldhi
             
             	When the number of used addresses in an IP local pool is equal or exceeds this threshold value, a ciscoIpLocalPoolInUseAddrNoti notification will be generated. Once this notification is generated, it will be disarmed and it will not be generated again until the number of used address falls below the value indicated by cIpLocalPoolStatInUseAddrThldLo.  The value of this object should never be smaller than the value of cIpLocalPoolStatInUseAddrThldLo
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciplocalpoolpercentaddrthldlo
             
             	When the percentage of used addresses in an IP local pool falls below this threshold value, a cilpPercentAddrUsedLoNotif notification will be generated.  Once the notification is generated, it will be disarmed and it will not be generated again until the number of used addresses equals or exceeds the value indicated by cIpLocalPoolPercentAddrThldHi.  The value of this object should never be greater than the value of cIpLocalPoolPercentAddrThldHi
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
             .. attribute:: ciplocalpoolpercentaddrthldhi
             
             	When the percentage of used addresses in an IP local pool is equal or exceeds this threshold value, a cilpPercentAddrUsedHiNotif notification will be generated. Once the notification is generated, it will be disarmed and it will not be generated again until the number of used addresses falls below the value indicated by cIpLocalPoolPercentAddrThldLo.  The value of this object should never be smaller than the value of cIpLocalPoolPercentAddrThldLo
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -673,7 +673,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         .. attribute:: ciplocalpoolallocentry
         
         	Each entry refers to conceptual row that associates an IP addresses with the interface where the request was received, and the user that requested the address
-        	**type**\: list of    :py:class:`Ciplocalpoolallocentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable.Ciplocalpoolallocentry>`
+        	**type**\: list of  		 :py:class:`Ciplocalpoolallocentry <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable.Ciplocalpoolallocentry>`
         
         
 
@@ -709,7 +709,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             .. attribute:: ciplocalpoolname  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..48
             
@@ -718,26 +718,26 @@ class CISCOIPLOCALPOOLMIB(Entity):
             .. attribute:: ciplocalpoolallocaddrtype  <key>
             
             	This object specifies the address type of cIpLocalPoolAllocAddr
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: ciplocalpoolallocaddr  <key>
             
             	This object specifies the allocated IP address.  The address type of this object is described by cIpLocalPoolAllocAddrType
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: ciplocalpoolallocifindex
             
             	This object indicates the interface from which the allocation message was sent.  In the case that the interface can not be determined, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ciplocalpoolallocuser
             
             	This object indicates the user name of the person from whom the allocation message was sent.  In the case that the user name can not be determined, the value of this object will the null string
-            	**type**\:  str
+            	**type**\: str
             
             
 

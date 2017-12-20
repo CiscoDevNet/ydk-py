@@ -31,12 +31,12 @@ class RestconfState(Entity):
     .. attribute:: capabilities
     
     	Contains a list of protocol capability URIs
-    	**type**\:   :py:class:`Capabilities <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Capabilities>`
+    	**type**\:  :py:class:`Capabilities <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Capabilities>`
     
     .. attribute:: streams
     
     	Container representing the notification event streams supported by the server
-    	**type**\:   :py:class:`Streams <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Streams>`
+    	**type**\:  :py:class:`Streams <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Streams>`
     
     
 
@@ -75,7 +75,7 @@ class RestconfState(Entity):
         .. attribute:: capability
         
         	A RESTCONF protocol capability URI
-        	**type**\:  list of str
+        	**type**\: list of str
         
         
 
@@ -110,7 +110,7 @@ class RestconfState(Entity):
         .. attribute:: stream
         
         	Each entry describes an event stream supported by the server
-        	**type**\: list of    :py:class:`Stream <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Streams.Stream>`
+        	**type**\: list of  		 :py:class:`Stream <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Streams.Stream>`
         
         
 
@@ -145,29 +145,31 @@ class RestconfState(Entity):
             .. attribute:: name  <key>
             
             	The stream name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: description
             
             	Description of stream content
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: replay_support
             
             	Indicates if replay buffer supported for this stream. If 'true', then the server MUST support the 'start\-time' and 'stop\-time' query parameters for this stream
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: replay_log_creation_time
             
             	Indicates the time the replay log for this stream was created
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
             .. attribute:: access
             
             	The server will create an entry in this list for each encoding format that is supported for this stream. The media type 'text/event\-stream' is expected for all event streams. This list identifies the sub\-types supported for this stream
-            	**type**\: list of    :py:class:`Access <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Streams.Stream.Access>`
+            	**type**\: list of  		 :py:class:`Access <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Streams.Stream.Access>`
             
             
 
@@ -213,12 +215,12 @@ class RestconfState(Entity):
                 .. attribute:: encoding  <key>
                 
                 	This is the secondary encoding format within the 'text/event\-stream' encoding used by all streams. The type 'xml' is supported for XML encoding.  The type 'json' is supported for JSON encoding
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: location
                 
                 	Contains a URL that represents the entry point for establishing notification delivery via server sent events
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 

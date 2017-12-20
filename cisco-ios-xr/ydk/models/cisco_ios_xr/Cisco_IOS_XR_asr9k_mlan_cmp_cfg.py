@@ -25,7 +25,7 @@ class MlanDisableCmp(Entity):
     .. attribute:: nodes
     
     	Fully qualified RSP4/RSP4s/RP2 card specification
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_mlan_cmp_cfg.MlanDisableCmp.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_mlan_cmp_cfg.MlanDisableCmp.Nodes>`
     
     
 
@@ -60,7 +60,7 @@ class MlanDisableCmp(Entity):
         .. attribute:: node
         
         	A node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_mlan_cmp_cfg.MlanDisableCmp.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_mlan_cmp_cfg.MlanDisableCmp.Nodes.Node>`
         
         
 
@@ -94,12 +94,14 @@ class MlanDisableCmp(Entity):
             .. attribute:: node_name  <key>
             
             	NodeName
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: disable
             
             	Disable CMP
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 

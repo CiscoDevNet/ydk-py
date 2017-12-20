@@ -25,7 +25,7 @@ class IpDomain(Entity):
     .. attribute:: vrfs
     
     	VRF table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs>`
     
     
 
@@ -59,7 +59,7 @@ class IpDomain(Entity):
         .. attribute:: vrf
         
         	VRF specific data
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf>`
         
         
 
@@ -93,47 +93,51 @@ class IpDomain(Entity):
             .. attribute:: vrf_name  <key>
             
             	Name of the VRF instance
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: ipv6_hosts
             
             	IPv6 host
-            	**type**\:   :py:class:`Ipv6Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts>`
+            	**type**\:  :py:class:`Ipv6Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts>`
             
             .. attribute:: servers
             
             	Name server addresses
-            	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers>`
+            	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers>`
             
             .. attribute:: lists
             
             	Domain names to complete unqualified host names
-            	**type**\:   :py:class:`Lists <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists>`
+            	**type**\:  :py:class:`Lists <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists>`
             
             .. attribute:: ipv4_hosts
             
             	IPv4 host
-            	**type**\:   :py:class:`Ipv4Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts>`
+            	**type**\:  :py:class:`Ipv4Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts>`
             
             .. attribute:: lookup
             
             	Disable Domain Name System hostname translation
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: multicast_domain
             
             	Default multicast domain name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: source_interface
             
             	Specify interface for source address in connections
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: name
             
             	Default domain name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -195,7 +199,7 @@ class IpDomain(Entity):
                 .. attribute:: ipv6_host
                 
                 	Host name and up to 4 host IPv6 addresses
-                	**type**\: list of    :py:class:`Ipv6Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host>`
+                	**type**\: list of  		 :py:class:`Ipv6Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host>`
                 
                 
 
@@ -228,12 +232,14 @@ class IpDomain(Entity):
                     .. attribute:: host_name  <key>
                     
                     	A hostname
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: address
                     
                     	Host IPv6 addresses
-                    	**type**\:  list of str
+                    	**type**\: list of str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -268,7 +274,7 @@ class IpDomain(Entity):
                 .. attribute:: server
                 
                 	Name server address
-                	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers.Server>`
+                	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers.Server>`
                 
                 
 
@@ -301,23 +307,23 @@ class IpDomain(Entity):
                     .. attribute:: order  <key>
                     
                     	This is used to sort the servers in the order of precedence
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: server_address  <key>
                     
                     	A name server address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     
 
                     """
@@ -352,7 +358,7 @@ class IpDomain(Entity):
                 .. attribute:: list
                 
                 	Domain name to complete unqualified host names
-                	**type**\: list of    :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists.List>`
+                	**type**\: list of  		 :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists.List>`
                 
                 
 
@@ -386,14 +392,16 @@ class IpDomain(Entity):
                     .. attribute:: order  <key>
                     
                     	This is used to sort the names in the order of precedence
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: list_name  <key>
                     
                     	A domain name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -428,7 +436,7 @@ class IpDomain(Entity):
                 .. attribute:: ipv4_host
                 
                 	Host name and up to 8 host IPv4 addresses
-                	**type**\: list of    :py:class:`Ipv4Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host>`
+                	**type**\: list of  		 :py:class:`Ipv4Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host>`
                 
                 
 
@@ -461,12 +469,14 @@ class IpDomain(Entity):
                     .. attribute:: host_name  <key>
                     
                     	A hostname
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: address
                     
                     	Host IPv4 addresses
-                    	**type**\:  list of str
+                    	**type**\: list of str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 

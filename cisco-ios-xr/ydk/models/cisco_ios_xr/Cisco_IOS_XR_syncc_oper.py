@@ -373,7 +373,7 @@ class TimingController(Entity):
     .. attribute:: nodes
     
     	List of nodes applicable to timing controller
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes>`
     
     
 
@@ -407,7 +407,7 @@ class TimingController(Entity):
         .. attribute:: node
         
         	Syncc operational data for a single node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node>`
         
         
 
@@ -441,22 +441,24 @@ class TimingController(Entity):
             .. attribute:: node_name  <key>
             
             	Node Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: state
             
             	Syncc state for a node
-            	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.State>`
+            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.State>`
             
             .. attribute:: clock
             
             	Syncc clock information for a node
-            	**type**\:   :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock>`
+            	**type**\:  :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock>`
             
             .. attribute:: timing_source
             
             	Syncc timing information for a node
-            	**type**\:   :py:class:`TimingSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource>`
+            	**type**\:  :py:class:`TimingSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource>`
             
             
 
@@ -505,7 +507,7 @@ class TimingController(Entity):
                 .. attribute:: syncc_instance
                 
                 	List of syncc states
-                	**type**\: list of    :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.State.SynccInstance>`
+                	**type**\: list of  		 :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.State.SynccInstance>`
                 
                 
 
@@ -538,115 +540,115 @@ class TimingController(Entity):
                     .. attribute:: controller_state
                     
                     	Syncc controller state
-                    	**type**\:   :py:class:`SynccStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SynccStates>`
+                    	**type**\:  :py:class:`SynccStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SynccStates>`
                     
                     .. attribute:: syncc_node_state
                     
                     	Status of syncc node mode
-                    	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.NodeState>`
+                    	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.NodeState>`
                     
                     .. attribute:: verbose_level
                     
                     	Verbose level number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: initial_count
                     
                     	Initial count number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: shutdown_count
                     
                     	Shutdown count number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: set_input_count
                     
                     	Set the value of input count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: set_capability_count
                     
                     	Set the value of display count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: get_clock_count
                     
                     	Clock count number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: set_clock_out_count
                     
                     	Set clock count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sync_enable_count
                     
                     	Sync enable count number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sync_disable_count
                     
                     	Sync disable count number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: capability_count
                     
                     	Interface capability count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: set_quality_level_count
                     
                     	Value of quality level count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_notification
                     
                     	Selects proper input result notification
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: capability_notification
                     
                     	Value of interface capability notification
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: status_notification
                     
                     	Notification of source status
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resync_notification
                     
                     	Value of resync notification
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -713,7 +715,7 @@ class TimingController(Entity):
                 .. attribute:: syncc_instance
                 
                 	List of syncc clock information 
-                	**type**\: list of    :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock.SynccInstance>`
+                	**type**\: list of  		 :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock.SynccInstance>`
                 
                 
 
@@ -746,7 +748,7 @@ class TimingController(Entity):
                     .. attribute:: clock
                     
                     	Clock table for an RP
-                    	**type**\: list of    :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock.SynccInstance.Clock>`
+                    	**type**\: list of  		 :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock.SynccInstance.Clock>`
                     
                     
 
@@ -779,282 +781,282 @@ class TimingController(Entity):
                         .. attribute:: is_configured_port0
                         
                         	True if clock is configured for port 0
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_configured_port1
                         
                         	True if clock is configured for port 1
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_configured_port2
                         
                         	True if clock is configured for port 2
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_configured_port3
                         
                         	True if clock is configured for port 3
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mode_port0
                         
                         	Clock setting mode for port 0
-                        	**type**\:   :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
+                        	**type**\:  :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
                         
                         .. attribute:: mode_port1
                         
                         	Clock setting mode for port 1
-                        	**type**\:   :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
+                        	**type**\:  :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
                         
                         .. attribute:: mode_port2
                         
                         	Clock setting mode for port 2
-                        	**type**\:   :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
+                        	**type**\:  :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
                         
                         .. attribute:: mode_port3
                         
                         	Clock setting mode for port 3
-                        	**type**\:   :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
+                        	**type**\:  :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
                         
                         .. attribute:: submode1_port0
                         
                         	First submode for port 0
-                        	**type**\:   :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
+                        	**type**\:  :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
                         
                         .. attribute:: submode1_port1
                         
                         	First submode for port 1
-                        	**type**\:   :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
+                        	**type**\:  :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
                         
                         .. attribute:: submode1_port2
                         
                         	First submode for port 2
-                        	**type**\:   :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
+                        	**type**\:  :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
                         
                         .. attribute:: submode1_port3
                         
                         	First submode for port 3
-                        	**type**\:   :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
+                        	**type**\:  :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
                         
                         .. attribute:: submode2_port0
                         
                         	Second submode for port 0
-                        	**type**\:   :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
+                        	**type**\:  :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
                         
                         .. attribute:: submode2_port1
                         
                         	Second submode for port 1
-                        	**type**\:   :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
+                        	**type**\:  :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
                         
                         .. attribute:: submode2_port2
                         
                         	Second submode for port 2
-                        	**type**\:   :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
+                        	**type**\:  :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
                         
                         .. attribute:: submode2_port3
                         
                         	Second submode for port 3
-                        	**type**\:   :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
+                        	**type**\:  :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
                         
                         .. attribute:: submode3_port0
                         
                         	Third submode for port 0
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: submode3_port1
                         
                         	Third submode for port 1
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: submode3_port2
                         
                         	Third submode for port 2
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: submode3_port3
                         
                         	Third submode for port 3
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: shutdown_port0
                         
                         	Configure disable value for port 0
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: shutdown_port1
                         
                         	Configure disable value for port 1
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: shutdown_port2
                         
                         	Configure disable value for port 2
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: shutdown_port3
                         
                         	Configure disable value for port 3
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: direction_port0
                         
                         	Direction of interface for port 0
-                        	**type**\:   :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
+                        	**type**\:  :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
                         
                         .. attribute:: direction_port1
                         
                         	Direction of interface for port 1
-                        	**type**\:   :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
+                        	**type**\:  :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
                         
                         .. attribute:: direction_port2
                         
                         	Direction of interface for port 2
-                        	**type**\:   :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
+                        	**type**\:  :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
                         
                         .. attribute:: direction_port3
                         
                         	Direction of interface for port 3
-                        	**type**\:   :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
+                        	**type**\:  :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
                         
                         .. attribute:: baudrate_port0
                         
                         	Baudrate for port 0
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: baudrate_port1
                         
                         	Baudrate for port 1
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: baudrate_port2
                         
                         	Baudrate for port 2
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: baudrate_port3
                         
                         	Baudrate for port 3
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: quality_option_port0
                         
                         	Quality Level option of port 0
-                        	**type**\:   :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
+                        	**type**\:  :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
                         
                         .. attribute:: quality_option_port1
                         
                         	Quality Level option of the port 1
-                        	**type**\:   :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
+                        	**type**\:  :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
                         
                         .. attribute:: quality_option_port2
                         
                         	Quality Level option of the port 2
-                        	**type**\:   :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
+                        	**type**\:  :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
                         
                         .. attribute:: quality_option_port3
                         
                         	Quality Level option of the port 3
-                        	**type**\:   :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
+                        	**type**\:  :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
                         
                         .. attribute:: transmit_ssm_port0
                         
                         	Transmit SSM for port 0
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: transmit_ssm_port1
                         
                         	Transmit SSM for port 1
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: transmit_ssm_port2
                         
                         	Transmit SSM for port 2
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: transmit_ssm_port3
                         
                         	Transmit SSM for port 3
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: recieve_ssm_port0
                         
                         	Receive SSM for port 0
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: recieve_ssm_port1
                         
                         	Receive SSM for port 1
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: recieve_ssm_port2
                         
                         	Receive SSM for port 2
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: recieve_ssm_port3
                         
                         	Receive SSM for port 3
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: interface_state_port0
                         
                         	Interface state for port 0
-                        	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
+                        	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
                         
                         .. attribute:: interface_state_port1
                         
                         	Interface state for port 1
-                        	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
+                        	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
                         
                         .. attribute:: interface_state_port2
                         
                         	Interface state for port 2
-                        	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
+                        	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
                         
                         .. attribute:: interface_state_port3
                         
                         	Interface state for port 3
-                        	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
+                        	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
                         
                         
 
@@ -1181,7 +1183,7 @@ class TimingController(Entity):
                 .. attribute:: syncc_instance
                 
                 	List of syncc timing table information
-                	**type**\: list of    :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance>`
+                	**type**\: list of  		 :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance>`
                 
                 
 
@@ -1214,17 +1216,17 @@ class TimingController(Entity):
                     .. attribute:: timing_status_t0
                     
                     	Scheduling PLL T0 
-                    	**type**\: list of    :py:class:`TimingStatusT0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT0>`
+                    	**type**\: list of  		 :py:class:`TimingStatusT0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT0>`
                     
                     .. attribute:: timing_status_t4
                     
                     	Scheduling PLL T4 
-                    	**type**\: list of    :py:class:`TimingStatusT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT4>`
+                    	**type**\: list of  		 :py:class:`TimingStatusT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT4>`
                     
                     .. attribute:: timing_status1588
                     
                     	Scheduling PLL 1588 
-                    	**type**\: list of    :py:class:`TimingStatus1588 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatus1588>`
+                    	**type**\: list of  		 :py:class:`TimingStatus1588 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatus1588>`
                     
                     
 
@@ -1259,66 +1261,66 @@ class TimingController(Entity):
                         .. attribute:: input
                         
                         	Input number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: slot
                         
                         	Slot number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: port
                         
                         	Port number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: clock_source
                         
                         	Status of syncc source type
-                        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
+                        	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
                         
                         .. attribute:: rank
                         
                         	Rank of sync timing source table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: quality_level_option
                         
                         	Quality level option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: quality_level_value
                         
                         	Quality level value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: user_priority
                         
                         	User priority of sync timing source table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: clock_state
                         
                         	Status of clock state
-                        	**type**\:   :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
+                        	**type**\:  :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
                         
                         .. attribute:: is_select
                         
                         	True if selected
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1369,66 +1371,66 @@ class TimingController(Entity):
                         .. attribute:: input
                         
                         	Input number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: slot
                         
                         	Slot number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: port
                         
                         	Port number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: clock_source
                         
                         	Status of syncc source type
-                        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
+                        	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
                         
                         .. attribute:: rank
                         
                         	Rank of sync timing source table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: quality_level_option
                         
                         	Quality level option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: quality_level_value
                         
                         	Quality level value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: user_priority
                         
                         	User priority of sync timing source table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: clock_state
                         
                         	Status of clock state
-                        	**type**\:   :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
+                        	**type**\:  :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
                         
                         .. attribute:: is_select
                         
                         	True if selected
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1479,66 +1481,66 @@ class TimingController(Entity):
                         .. attribute:: input
                         
                         	Input number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: slot
                         
                         	Slot number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: port
                         
                         	Port number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: clock_source
                         
                         	Status of syncc source type
-                        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
+                        	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
                         
                         .. attribute:: rank
                         
                         	Rank of sync timing source table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: quality_level_option
                         
                         	Quality level option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: quality_level_value
                         
                         	Quality level value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: user_priority
                         
                         	User priority of sync timing source table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: clock_state
                         
                         	Status of clock state
-                        	**type**\:   :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
+                        	**type**\:  :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
                         
                         .. attribute:: is_select
                         
                         	True if selected
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 

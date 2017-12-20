@@ -25,7 +25,7 @@ class Oor(Entity):
     .. attribute:: nodes
     
     	OOR data for available nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class Oor(Entity):
         .. attribute:: node
         
         	DPA operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node>`
         
         
 
@@ -93,17 +93,19 @@ class Oor(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: summary
             
             	Summary
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.Summary>`
             
             .. attribute:: interface_names
             
             	OOR Interface Information
-            	**type**\:   :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames>`
+            	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames>`
             
             
 
@@ -147,21 +149,21 @@ class Oor(Entity):
                 .. attribute:: red
                 
                 	interfaces in red state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: green
                 
                 	interfaces in green state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: yel_low
                 
                 	interfaces in yellow state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -200,7 +202,7 @@ class Oor(Entity):
                 .. attribute:: interface_name
                 
                 	OOR Data for particular interface
-                	**type**\: list of    :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames.InterfaceName>`
+                	**type**\: list of  		 :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames.InterfaceName>`
                 
                 
 
@@ -233,12 +235,14 @@ class Oor(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	The name of the interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: interface
                     
                     	Interface details
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface>`
                     
                     
 
@@ -273,27 +277,27 @@ class Oor(Entity):
                         .. attribute:: interface_name
                         
                         	Name of the interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: interface_status
                         
                         	The current state of the interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: time_stamp
                         
                         	Timestamp
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: npu_id
                         
                         	Npuid of the interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: hardware_resource
                         
                         	Type of harware resoruce
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 

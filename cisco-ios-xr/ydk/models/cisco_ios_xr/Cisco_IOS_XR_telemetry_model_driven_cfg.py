@@ -214,22 +214,22 @@ class TelemetryModelDriven(Entity):
     .. attribute:: sensor_groups
     
     	Sensor group configuration
-    	**type**\:   :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups>`
+    	**type**\:  :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups>`
     
     .. attribute:: subscriptions
     
     	Streaming Telemetry Subscription
-    	**type**\:   :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions>`
+    	**type**\:  :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions>`
     
     .. attribute:: destination_groups
     
     	Destination Group configuration
-    	**type**\:   :py:class:`DestinationGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups>`
+    	**type**\:  :py:class:`DestinationGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups>`
     
     .. attribute:: enable
     
     	Enable Model Driven Telemetry
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -278,7 +278,7 @@ class TelemetryModelDriven(Entity):
         .. attribute:: sensor_group
         
         	Sensor group configuration
-        	**type**\: list of    :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup>`
+        	**type**\: list of  		 :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup>`
         
         
 
@@ -312,12 +312,14 @@ class TelemetryModelDriven(Entity):
             .. attribute:: sensor_group_identifier  <key>
             
             	The identifier for this group
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: sensor_paths
             
             	Sensor path configuration
-            	**type**\:   :py:class:`SensorPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths>`
+            	**type**\:  :py:class:`SensorPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths>`
             
             
 
@@ -356,7 +358,7 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: sensor_path
                 
                 	Sensor path configuration
-                	**type**\: list of    :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath>`
+                	**type**\: list of  		 :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath>`
                 
                 
 
@@ -389,7 +391,7 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: telemetry_sensor_path  <key>
                     
                     	Sensor Path
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -422,7 +424,7 @@ class TelemetryModelDriven(Entity):
         .. attribute:: subscription
         
         	Streaming Telemetry Subscription
-        	**type**\: list of    :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription>`
+        	**type**\: list of  		 :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription>`
         
         
 
@@ -456,27 +458,31 @@ class TelemetryModelDriven(Entity):
             .. attribute:: subscription_identifier  <key>
             
             	Subscription identifier string
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: sensor_profiles
             
             	Associate Sensor Groups with Subscription
-            	**type**\:   :py:class:`SensorProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles>`
+            	**type**\:  :py:class:`SensorProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles>`
             
             .. attribute:: destination_profiles
             
             	Associate Destination Groups with Subscription
-            	**type**\:   :py:class:`DestinationProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles>`
+            	**type**\:  :py:class:`DestinationProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles>`
             
             .. attribute:: source_qos_marking
             
             	Outgoing DSCP value
-            	**type**\:   :py:class:`MdtDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.MdtDscpValue>`
+            	**type**\:  :py:class:`MdtDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.MdtDscpValue>`
             
             .. attribute:: source_interface
             
             	Source address to use for streaming telemetry information
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 
@@ -524,7 +530,7 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: sensor_profile
                 
                 	Associate Sensor Group with Subscription
-                	**type**\: list of    :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile>`
+                	**type**\: list of  		 :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile>`
                 
                 
 
@@ -557,17 +563,19 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: sensorgroupid  <key>
                     
                     	Reference to the telemetry sensor group name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: strict_timer
                     
                     	use strict timer
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: sample_interval
                     
                     	Sample interval in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -608,7 +616,7 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: destination_profile
                 
                 	Associate Destination Group with Subscription
-                	**type**\: list of    :py:class:`DestinationProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile>`
+                	**type**\: list of  		 :py:class:`DestinationProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile>`
                 
                 
 
@@ -641,7 +649,9 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: destination_id  <key>
                     
                     	Destination Id to associate with Subscription
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -674,7 +684,7 @@ class TelemetryModelDriven(Entity):
         .. attribute:: destination_group
         
         	Destination Group
-        	**type**\: list of    :py:class:`DestinationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup>`
+        	**type**\: list of  		 :py:class:`DestinationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup>`
         
         
 
@@ -708,22 +718,24 @@ class TelemetryModelDriven(Entity):
             .. attribute:: destination_id  <key>
             
             	destination group id string
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: ipv6_destinations
             
             	Destination address configuration
-            	**type**\:   :py:class:`Ipv6Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations>`
+            	**type**\:  :py:class:`Ipv6Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations>`
             
             .. attribute:: ipv4_destinations
             
             	Destination address configuration
-            	**type**\:   :py:class:`Ipv4Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations>`
+            	**type**\:  :py:class:`Ipv4Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations>`
             
             .. attribute:: vrf
             
             	Vrf for the destination group
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
@@ -771,7 +783,7 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: ipv6_destination
                 
                 	destination IP address
-                	**type**\: list of    :py:class:`Ipv6Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination>`
+                	**type**\: list of  		 :py:class:`Ipv6Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination>`
                 
                 
 
@@ -804,24 +816,26 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: ipv6_address  <key>
                     
                     	Destination IPv6 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: destination_port  <key>
                     
                     	destination port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: encoding
                     
                     	Encoding used to transmit telemetry data to the collector
-                    	**type**\:   :py:class:`EncodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeType>`
+                    	**type**\:  :py:class:`EncodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeType>`
                     
                     .. attribute:: protocol
                     
                     	Transport Protocol used to transmit telemetry data to the collector
-                    	**type**\:   :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol>`
+                    	**type**\:  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol>`
                     
                     	**presence node**\: True
                     
@@ -865,19 +879,19 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: protocol
                         
                         	protocol
-                        	**type**\:   :py:class:`ProtoType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoType>`
+                        	**type**\:  :py:class:`ProtoType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoType>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: tls_hostname
                         
                         	tls hostname
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: no_tls
                         
                         	no tls
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -886,7 +900,7 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: packetsize
                         
                         	udp packetsize
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 484..65507
                         
@@ -932,7 +946,7 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: ipv4_destination
                 
                 	destination IP address
-                	**type**\: list of    :py:class:`Ipv4Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination>`
+                	**type**\: list of  		 :py:class:`Ipv4Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination>`
                 
                 
 
@@ -965,24 +979,26 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: ipv4_address  <key>
                     
                     	Destination IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: destination_port  <key>
                     
                     	destination port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: encoding
                     
                     	Encoding used to transmit telemetry data to the collector
-                    	**type**\:   :py:class:`EncodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeType>`
+                    	**type**\:  :py:class:`EncodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeType>`
                     
                     .. attribute:: protocol
                     
                     	Transport Protocol used to transmit telemetry data to the collector
-                    	**type**\:   :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol>`
+                    	**type**\:  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol>`
                     
                     	**presence node**\: True
                     
@@ -1026,19 +1042,19 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: protocol
                         
                         	protocol
-                        	**type**\:   :py:class:`ProtoType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoType>`
+                        	**type**\:  :py:class:`ProtoType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoType>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: tls_hostname
                         
                         	tls hostname
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: no_tls
                         
                         	no tls
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -1047,7 +1063,7 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: packetsize
                         
                         	udp packetsize
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 484..65507
                         

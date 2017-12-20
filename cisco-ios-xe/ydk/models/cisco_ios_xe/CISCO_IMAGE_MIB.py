@@ -18,7 +18,7 @@ class CISCOIMAGEMIB(Entity):
     .. attribute:: ciscoimagetable
     
     	A table provides content information describing the executing IOS image
-    	**type**\:   :py:class:`Ciscoimagetable <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.Ciscoimagetable>`
+    	**type**\:  :py:class:`Ciscoimagetable <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.Ciscoimagetable>`
     
     
 
@@ -53,7 +53,7 @@ class CISCOIMAGEMIB(Entity):
         .. attribute:: ciscoimageentry
         
         	A image characteristic string entry
-        	**type**\: list of    :py:class:`Ciscoimageentry <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.Ciscoimagetable.Ciscoimageentry>`
+        	**type**\: list of  		 :py:class:`Ciscoimageentry <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.Ciscoimagetable.Ciscoimageentry>`
         
         
 
@@ -87,14 +87,14 @@ class CISCOIMAGEMIB(Entity):
             .. attribute:: ciscoimageindex  <key>
             
             	A sequence number for each string stored in the IOS image
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ciscoimagestring
             
             	The string of this entry
-            	**type**\:  str
+            	**type**\: str
             
             
 

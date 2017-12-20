@@ -115,12 +115,12 @@ class AlarmLogger(Entity):
     .. attribute:: buffer_status
     
     	Describes buffer utilization and parameters configured
-    	**type**\:   :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.BufferStatus>`
+    	**type**\:  :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.BufferStatus>`
     
     .. attribute:: alarms
     
     	Table that contains the database of logged alarms
-    	**type**\:   :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms>`
+    	**type**\:  :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms>`
     
     
 
@@ -160,7 +160,7 @@ class AlarmLogger(Entity):
         .. attribute:: log_buffer_size
         
         	Current Logging Buffer Size (Bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -169,7 +169,7 @@ class AlarmLogger(Entity):
         .. attribute:: max_log_buffer_size
         
         	Maximum Logging Buffer Size (Bytes) 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -178,14 +178,14 @@ class AlarmLogger(Entity):
         .. attribute:: record_count
         
         	Number of Records in the Buffer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: capacity_threshold
         
         	Percentage of the buffer utilization which, when exceeded, triggers the  generation of a notification for the clients of the XML agent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -194,7 +194,7 @@ class AlarmLogger(Entity):
         .. attribute:: severity_filter
         
         	Severity Filter
-        	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
+        	**type**\:  :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
         
         
 
@@ -237,7 +237,7 @@ class AlarmLogger(Entity):
         .. attribute:: alarm
         
         	One of the logged alarms
-        	**type**\: list of    :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms.Alarm>`
+        	**type**\: list of  		 :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms.Alarm>`
         
         
 
@@ -271,19 +271,19 @@ class AlarmLogger(Entity):
             .. attribute:: event_id  <key>
             
             	Event ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: source_id
             
             	Source Identifier(Location).Indicates the node in which the alarm was generated
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: timestamp
             
             	Time when the alarm was generated. It is expressed in number of milliseconds since 00\:00 \:00 UTC, January 1, 1970
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -292,44 +292,44 @@ class AlarmLogger(Entity):
             .. attribute:: category
             
             	Category of the alarm
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: group
             
             	Group of messages to which this alarm belongs to
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: code
             
             	Alarm code which further qualifies the alarm within a message group
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: severity
             
             	Severity of the alarm
-            	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
+            	**type**\:  :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
             
             .. attribute:: state
             
             	State of the alarm (bistate alarms only)
-            	**type**\:   :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistate>`
+            	**type**\:  :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistate>`
             
             .. attribute:: correlation_id
             
             	Correlation Identifier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: is_admin
             
             	Indicates the event id admin\-level
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: additional_text
             
             	Full text of the Alarm
-            	**type**\:  str
+            	**type**\: str
             
             
 

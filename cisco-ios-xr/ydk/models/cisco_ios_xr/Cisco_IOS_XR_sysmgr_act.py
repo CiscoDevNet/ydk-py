@@ -21,7 +21,7 @@ class SysmgrProcessRestart(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysmgr_act.SysmgrProcessRestart.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysmgr_act.SysmgrProcessRestart.Input>`
     
     
 
@@ -55,14 +55,14 @@ class SysmgrProcessRestart(Entity):
         .. attribute:: process_name
         
         	XR process name or Job Id e.g. bgp, ospf
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: location
         
         	XR node identifier e.g. 0/RP0/CPU0, 0/0/CPU0
-        	**type**\:  str
+        	**type**\: str
         
         
 

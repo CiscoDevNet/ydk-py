@@ -25,7 +25,7 @@ class LawfulIntercept(Entity):
     .. attribute:: disable
     
     	Disable lawful intercept feature
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 

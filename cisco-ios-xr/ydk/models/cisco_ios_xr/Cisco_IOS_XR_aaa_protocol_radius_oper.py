@@ -29,7 +29,7 @@ class Radius(Entity):
     .. attribute:: nodes
     
     	Contains all the nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes>`
     
     
 
@@ -63,7 +63,7 @@ class Radius(Entity):
         .. attribute:: node
         
         	RADIUS operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node>`
         
         
 
@@ -97,37 +97,39 @@ class Radius(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: client
             
             	RADIUS client data
-            	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Client>`
+            	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Client>`
             
             .. attribute:: dead_criteria
             
             	RADIUS dead criteria information
-            	**type**\:   :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria>`
+            	**type**\:  :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria>`
             
             .. attribute:: authentication
             
             	RADIUS authentication data
-            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication>`
+            	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication>`
             
             .. attribute:: accounting
             
             	RADIUS accounting data
-            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting>`
+            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting>`
             
             .. attribute:: server_groups
             
             	RADIUS server group table
-            	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups>`
+            	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups>`
             
             .. attribute:: dynamic_authorization
             
             	Dynamic authorization data
-            	**type**\:   :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorization>`
+            	**type**\:  :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorization>`
             
             
 
@@ -191,19 +193,19 @@ class Radius(Entity):
                 .. attribute:: unknown_authentication_responses
                 
                 	Number of RADIUS access responses packets received from unknown addresses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authentication_nas_id
                 
                 	NAS\-Identifier of the RADIUS authentication client
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: unknown_accounting_responses
                 
                 	Number of RADIUS accounting responses packets received from unknown addresses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -242,7 +244,7 @@ class Radius(Entity):
                 .. attribute:: hosts
                 
                 	RADIUS server dead criteria host table
-                	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts>`
+                	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts>`
                 
                 
 
@@ -275,7 +277,7 @@ class Radius(Entity):
                     .. attribute:: host
                     
                     	RADIUS Server
-                    	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host>`
+                    	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host>`
                     
                     
 
@@ -308,39 +310,39 @@ class Radius(Entity):
                         .. attribute:: ip_address
                         
                         	IP address of RADIUS server
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: auth_port_number
                         
                         	Authentication Port number (standard port 1645)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: acct_port_number
                         
                         	Accounting Port number (standard port 1646)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: time
                         
                         	Time in seconds
-                        	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time>`
+                        	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time>`
                         
                         .. attribute:: tries
                         
                         	Number of tries
-                        	**type**\:   :py:class:`Tries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries>`
+                        	**type**\:  :py:class:`Tries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries>`
                         
                         
 
@@ -387,14 +389,14 @@ class Radius(Entity):
                             .. attribute:: value
                             
                             	Value for time or tries
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: is_computed
                             
                             	True if computed; false if not
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -429,14 +431,14 @@ class Radius(Entity):
                             .. attribute:: value
                             
                             	Value for time or tries
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: is_computed
                             
                             	True if computed; false if not
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -471,7 +473,7 @@ class Radius(Entity):
                 .. attribute:: authentication_group
                 
                 	List of authentication groups
-                	**type**\: list of    :py:class:`AuthenticationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup>`
+                	**type**\: list of  		 :py:class:`AuthenticationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup>`
                 
                 
 
@@ -504,29 +506,31 @@ class Radius(Entity):
                     .. attribute:: authentication
                     
                     	Authentication data
-                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication>`
+                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication>`
                     
                     .. attribute:: server_address
                     
                     	IP address of RADIUS server
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: port
                     
                     	Authentication port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ip_address
                     
                     	IP address buffer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: family
                     
                     	IP address Family
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -570,84 +574,84 @@ class Radius(Entity):
                         .. attribute:: access_requests
                         
                         	Number of access requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: pending_access_requests
                         
                         	Number of pending access requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: access_request_retransmits
                         
                         	Number of retransmitted access requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: access_accepts
                         
                         	Number of access accepts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: access_rejects
                         
                         	Number of access rejects
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: access_challenges
                         
                         	Number of access challenges
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: access_timeouts
                         
                         	Number of access packets timed out
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_access_responses
                         
                         	Number of bad access responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_access_authenticators
                         
                         	Number of bad access authenticators
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_access_types
                         
                         	Number of packets received with unknown type from authentication server
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_access_responses
                         
                         	Number of access responses dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rtt
                         
                         	Round trip time for authentication in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -656,42 +660,42 @@ class Radius(Entity):
                         .. attribute:: authen_response_time
                         
                         	Average response time for authentication requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: authen_transaction_successess
                         
                         	Number of succeeded authentication transactions
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: authen_transaction_failure
                         
                         	Number of failed authentication transactions
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: authen_unexpected_responses
                         
                         	Number of unexpected authentication responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: authen_server_error_responses
                         
                         	Number of server error authentication responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: authen_incorrect_responses
                         
                         	Number of incorrect authentication responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -760,7 +764,7 @@ class Radius(Entity):
                 .. attribute:: accounting_group
                 
                 	List of accounting groups
-                	**type**\: list of    :py:class:`AccountingGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup>`
+                	**type**\: list of  		 :py:class:`AccountingGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup>`
                 
                 
 
@@ -793,29 +797,31 @@ class Radius(Entity):
                     .. attribute:: accounting
                     
                     	Accounting data
-                    	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup.Accounting>`
+                    	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup.Accounting>`
                     
                     .. attribute:: server_address
                     
                     	IP address of RADIUS server
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: port
                     
                     	Accounting port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ip_address
                     
                     	IP address buffer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: family
                     
                     	IP address Family
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -859,70 +865,70 @@ class Radius(Entity):
                         .. attribute:: requests
                         
                         	Number of accounting requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: pending_requests
                         
                         	Number of pending accounting requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: retransmits
                         
                         	Number of retransmitted accounting requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: responses
                         
                         	Number of accounting responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: timeouts
                         
                         	Number of accounting packets timed\-out
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_responses
                         
                         	Number of bad accounting responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_authenticators
                         
                         	Number of bad accounting authenticators
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_packet_types
                         
                         	Number of packets received with unknown type from accounting server
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_responses
                         
                         	Number of accounting responses dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rtt
                         
                         	Round trip time for accounting in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -931,42 +937,42 @@ class Radius(Entity):
                         .. attribute:: acct_unexpected_responses
                         
                         	Number of unexpected accounting responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acct_server_error_responses
                         
                         	Number of server error accounting responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acct_incorrect_responses
                         
                         	Number of incorrect accounting responses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acct_response_time
                         
                         	Average response time for authentication requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acct_transaction_successess
                         
                         	Number of succeeded authentication transactions
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acct_transaction_failure
                         
                         	Number of failed authentication transactions
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1031,7 +1037,7 @@ class Radius(Entity):
                 .. attribute:: server_group
                 
                 	RADIUS server group data
-                	**type**\: list of    :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup>`
+                	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup>`
                 
                 
 
@@ -1064,24 +1070,26 @@ class Radius(Entity):
                     .. attribute:: server_group_name  <key>
                     
                     	Group name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: groups
                     
                     	Number of groups
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vrf_name
                     
                     	VRF name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: dead_time
                     
                     	Dead time in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1090,14 +1098,14 @@ class Radius(Entity):
                     .. attribute:: servers
                     
                     	Number of servers
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: server_group
                     
                     	Server groups
-                    	**type**\: list of    :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup>`
+                    	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup>`
                     
                     
 
@@ -1140,51 +1148,53 @@ class Radius(Entity):
                         .. attribute:: accounting
                         
                         	Accounting data
-                        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting>`
+                        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting>`
                         
                         .. attribute:: authentication
                         
                         	Authentication data
-                        	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication>`
+                        	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication>`
                         
                         .. attribute:: authorization
                         
                         	Authorization data
-                        	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization>`
+                        	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization>`
                         
                         .. attribute:: server_address
                         
                         	Server address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: authentication_port
                         
                         	Authentication port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: accounting_port
                         
                         	Accounting port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_private
                         
                         	True if private
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: ip_address
                         
                         	IP address buffer
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: family
                         
                         	IP address Family
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -1242,70 +1252,70 @@ class Radius(Entity):
                             .. attribute:: requests
                             
                             	Number of accounting requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pending_requests
                             
                             	Number of pending accounting requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: retransmits
                             
                             	Number of retransmitted accounting requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: responses
                             
                             	Number of accounting responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: timeouts
                             
                             	Number of accounting packets timed\-out
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bad_responses
                             
                             	Number of bad accounting responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bad_authenticators
                             
                             	Number of bad accounting authenticators
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unknown_packet_types
                             
                             	Number of packets received with unknown type from accounting server
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: dropped_responses
                             
                             	Number of accounting responses dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rtt
                             
                             	Round trip time for accounting in milliseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1314,42 +1324,42 @@ class Radius(Entity):
                             .. attribute:: acct_unexpected_responses
                             
                             	Number of unexpected accounting responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acct_server_error_responses
                             
                             	Number of server error accounting responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acct_incorrect_responses
                             
                             	Number of incorrect accounting responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acct_response_time
                             
                             	Average response time for authentication requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acct_transaction_successess
                             
                             	Number of succeeded authentication transactions
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acct_transaction_failure
                             
                             	Number of failed authentication transactions
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1414,84 +1424,84 @@ class Radius(Entity):
                             .. attribute:: access_requests
                             
                             	Number of access requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pending_access_requests
                             
                             	Number of pending access requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: access_request_retransmits
                             
                             	Number of retransmitted access requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: access_accepts
                             
                             	Number of access accepts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: access_rejects
                             
                             	Number of access rejects
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: access_challenges
                             
                             	Number of access challenges
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: access_timeouts
                             
                             	Number of access packets timed out
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bad_access_responses
                             
                             	Number of bad access responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bad_access_authenticators
                             
                             	Number of bad access authenticators
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unknown_access_types
                             
                             	Number of packets received with unknown type from authentication server
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: dropped_access_responses
                             
                             	Number of access responses dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rtt
                             
                             	Round trip time for authentication in milliseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1500,42 +1510,42 @@ class Radius(Entity):
                             .. attribute:: authen_response_time
                             
                             	Average response time for authentication requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: authen_transaction_successess
                             
                             	Number of succeeded authentication transactions
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: authen_transaction_failure
                             
                             	Number of failed authentication transactions
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: authen_unexpected_responses
                             
                             	Number of unexpected authentication responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: authen_server_error_responses
                             
                             	Number of server error authentication responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: authen_incorrect_responses
                             
                             	Number of incorrect authentication responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1604,56 +1614,56 @@ class Radius(Entity):
                             .. attribute:: author_requests
                             
                             	Number of access requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: author_request_timeouts
                             
                             	Number of access packets timed out
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: author_unexpected_responses
                             
                             	Number of unexpected authorization responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: author_server_error_responses
                             
                             	Number of server error authorization responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: author_incorrect_responses
                             
                             	Number of incorrect authorization responses
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: author_response_time
                             
                             	Average response time for authorization requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: author_transaction_successess
                             
                             	Number of succeeded authorization transactions
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: author_transaction_failure
                             
                             	Number of failed authorization transactions
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1702,14 +1712,14 @@ class Radius(Entity):
                 .. attribute:: disconnected_invalid_requests
                 
                 	Invalid disconnected requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: invalid_coa_requests
                 
                 	Invalid change of authorization requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 

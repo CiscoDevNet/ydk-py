@@ -56,32 +56,32 @@ class MplsLsd(Entity):
     .. attribute:: ipv6
     
     	Configure IPv6 parameters
-    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv6>`
+    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv6>`
     
     .. attribute:: ipv4
     
     	Configure IPv4 parameters
-    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv4>`
+    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv4>`
     
     .. attribute:: label_databases
     
     	Table of label databases
-    	**type**\:   :py:class:`LabelDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases>`
+    	**type**\:  :py:class:`LabelDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases>`
     
     .. attribute:: app_reg_delay_disable
     
     	Disable LSD application reg delay
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: mpls_entropy_label
     
     	Enable MPLS Entropy Label
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: mpls_ip_ttl_propagate_disable
     
     	Disable Propagation of IP TTL onto the label stack
-    	**type**\:   :py:class:`MplsIpTtlPropagateDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsIpTtlPropagateDisable>`
+    	**type**\:  :py:class:`MplsIpTtlPropagateDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsIpTtlPropagateDisable>`
     
     
 
@@ -134,7 +134,7 @@ class MplsLsd(Entity):
         .. attribute:: ttl_expiration_pop
         
         	Number of labels to pop upon MPLS IP TTL expiry
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..10
         
@@ -170,7 +170,7 @@ class MplsLsd(Entity):
         .. attribute:: ttl_expiration_pop
         
         	Number of labels to pop upon MPLS IP TTL expiry
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..10
         
@@ -206,7 +206,7 @@ class MplsLsd(Entity):
         .. attribute:: label_database
         
         	A label database
-        	**type**\: list of    :py:class:`LabelDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase>`
+        	**type**\: list of  		 :py:class:`LabelDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase>`
         
         
 
@@ -240,14 +240,14 @@ class MplsLsd(Entity):
             .. attribute:: label_database_id  <key>
             
             	Label database identifier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: label_range
             
             	Label range
-            	**type**\:   :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase.LabelRange>`
+            	**type**\:  :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase.LabelRange>`
             
             
 
@@ -286,28 +286,28 @@ class MplsLsd(Entity):
                 .. attribute:: minvalue
                 
                 	Minimum label value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 16000..1048575
                 
                 .. attribute:: max_value
                 
                 	Maximum label value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 16000..1048575
                 
                 .. attribute:: min_static_value
                 
                 	Minimum static label value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1048575
                 
                 .. attribute:: max_static_value
                 
                 	Maximum static label value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1048575
                 

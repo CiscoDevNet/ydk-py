@@ -25,7 +25,7 @@ class RebootHistory(Entity):
     .. attribute:: node
     
     	Node ID
-    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node>`
+    	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node>`
     
     
 
@@ -59,12 +59,14 @@ class RebootHistory(Entity):
         .. attribute:: node_name  <key>
         
         	Node name
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
         .. attribute:: reboot_history
         
         	Last Reboots
-        	**type**\: list of    :py:class:`RebootHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node.RebootHistory>`
+        	**type**\: list of  		 :py:class:`RebootHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node.RebootHistory>`
         
         
 
@@ -100,26 +102,26 @@ class RebootHistory(Entity):
             .. attribute:: no
             
             	Number count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: time
             
             	Time of reboot
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cause_code
             
             	Cause code for reboot
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: reason
             
             	Reason for reboot
-            	**type**\:  str
+            	**type**\: str
             
             
 

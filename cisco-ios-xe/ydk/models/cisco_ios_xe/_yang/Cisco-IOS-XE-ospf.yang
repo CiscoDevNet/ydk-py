@@ -41,6 +41,16 @@ module Cisco-IOS-XE-ospf {
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-18 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
+  revision 2017-08-15 {
+    description
+      "add full nsf support and ospf support for BDI interfaces";
+  }
   revision 2017-04-28 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -2693,6 +2703,15 @@ module Cisco-IOS-XE-ospf {
           description
             "Cisco Non-stop forwarding";
           presence "true";
+          container enforce {
+            description
+              "Cancel NSF restart when non-NSF-aware neighbors detected";
+            leaf global {
+              description
+                "For the whole OSPF process";
+              type empty;
+            }
+          }
           container helper {
             description
               "helper support";
@@ -2707,6 +2726,7 @@ module Cisco-IOS-XE-ospf {
         container ietf {
           description
             "IETF graceful restart";
+          presence "true";
           container helper {
             description
               "helper support";
@@ -2720,6 +2740,13 @@ module Cisco-IOS-XE-ospf {
               description
                 "enable helper strict LSA checking";
               type empty;
+            }
+          }
+          leaf restart-interval {
+            description
+              "Graceful restart interval";
+            type uint16 {
+              range "1..1800";
             }
           }
         }
@@ -2822,6 +2849,14 @@ module Cisco-IOS-XE-ospf {
     uses config-interface-ip-ospf-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-ospf-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Port-channel/ios:ip" {
     uses config-interface-ip-ospf-grouping;
   }
@@ -2831,6 +2866,10 @@ module Cisco-IOS-XE-ospf {
   }
 
   augment "/ios:native/ios:interface/ios:Tunnel/ios:ip" {
+    uses config-interface-ip-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:BDI/ios:ip" {
     uses config-interface-ip-ospf-grouping;
   }
 
@@ -2846,6 +2885,14 @@ module Cisco-IOS-XE-ospf {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6" {
     uses config-interface-ipv6-ospf-grouping;
   }
 

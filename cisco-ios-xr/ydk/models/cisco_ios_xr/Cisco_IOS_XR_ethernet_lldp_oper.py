@@ -46,12 +46,12 @@ class Lldp(Entity):
     .. attribute:: global_lldp
     
     	Global LLDP data
-    	**type**\:   :py:class:`GlobalLldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.GlobalLldp>`
+    	**type**\:  :py:class:`GlobalLldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.GlobalLldp>`
     
     .. attribute:: nodes
     
     	Per node LLDP operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes>`
     
     
 
@@ -90,7 +90,7 @@ class Lldp(Entity):
         .. attribute:: lldp_info
         
         	The LLDP Global Information of this box
-        	**type**\:   :py:class:`LldpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.GlobalLldp.LldpInfo>`
+        	**type**\:  :py:class:`LldpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.GlobalLldp.LldpInfo>`
         
         
 
@@ -124,38 +124,38 @@ class Lldp(Entity):
             .. attribute:: chassis_id
             
             	Chassis identifier
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: chassis_id_sub_type
             
             	Chassis ID sub type
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: system_name
             
             	System Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: timer
             
             	Rate at which LLDP packets re sent (in sec)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: hold_time
             
             	Length  of time  (in sec)that receiver must keep thispacket
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: re_init
             
             	Delay (in sec) for LLDPinitialization on anyinterface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -201,7 +201,7 @@ class Lldp(Entity):
         .. attribute:: node
         
         	The LLDP operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node>`
         
         
 
@@ -235,22 +235,24 @@ class Lldp(Entity):
             .. attribute:: node_name  <key>
             
             	The identifier for the node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: neighbors
             
             	The LLDP neighbor tables on this node
-            	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors>`
+            	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors>`
             
             .. attribute:: interfaces
             
             	The table of interfaces on which LLDP is running on this node
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces>`
             
             .. attribute:: statistics
             
             	The LLDP traffic statistics for this node
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Statistics>`
             
             
 
@@ -299,17 +301,17 @@ class Lldp(Entity):
                 .. attribute:: devices
                 
                 	The detailed LLDP neighbor table on this device
-                	**type**\:   :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices>`
+                	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices>`
                 
                 .. attribute:: details
                 
                 	The detailed LLDP neighbor table
-                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details>`
+                	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details>`
                 
                 .. attribute:: summaries
                 
                 	The LLDP neighbor summary table
-                	**type**\:   :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries>`
+                	**type**\:  :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries>`
                 
                 
 
@@ -353,7 +355,7 @@ class Lldp(Entity):
                     .. attribute:: device
                     
                     	Detailed information about a LLDP neighbor entry
-                    	**type**\: list of    :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device>`
+                    	**type**\: list of  		 :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device>`
                     
                     
 
@@ -387,17 +389,19 @@ class Lldp(Entity):
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: interface_name
                         
                         	The interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: lldp_neighbor
                         
                         	lldp neighbor
-                        	**type**\: list of    :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor>`
+                        	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor>`
                         
                         
 
@@ -434,61 +438,65 @@ class Lldp(Entity):
                             .. attribute:: detail
                             
                             	Detailed neighbor info
-                            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail>`
+                            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail>`
                             
                             .. attribute:: mib
                             
                             	MIB nieghbor info
-                            	**type**\:   :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib>`
+                            	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib>`
                             
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: device_id
                             
                             	Device identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: chassis_id
                             
                             	Chassis id
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: port_id_detail
                             
                             	Outgoing port identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: header_version
                             
                             	Version number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: hold_time
                             
                             	Remaining hold time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: enabled_capabilities
                             
                             	Enabled Capabilities
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: platform
                             
                             	Platform type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -547,66 +555,68 @@ class Lldp(Entity):
                                 .. attribute:: network_addresses
                                 
                                 	Management Addresses
-                                	**type**\:   :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses>`
+                                	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses>`
                                 
                                 .. attribute:: peer_mac_address
                                 
                                 	Peer Mac Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
                                 .. attribute:: port_description
                                 
                                 	Port Description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: system_name
                                 
                                 	System Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: system_description
                                 
                                 	System Description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: time_remaining
                                 
                                 	Time remaining
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: system_capabilities
                                 
                                 	System Capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: enabled_capabilities
                                 
                                 	Enabled Capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: physical_media_capabilities
                                 
                                 	Physical media capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: media_attachment_unit_type
                                 
                                 	Media Attachment Unit type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -666,7 +676,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_addr_entry
                                     
                                     	lldp addr entry
-                                    	**type**\: list of    :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
                                     
                                     
 
@@ -699,19 +709,19 @@ class Lldp(Entity):
                                         .. attribute:: address
                                         
                                         	Network layer address
-                                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
+                                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
                                         .. attribute:: ma_subtype
                                         
                                         	MA sub type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: if_num
                                         
                                         	Interface num
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -753,17 +763,21 @@ class Lldp(Entity):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\:   :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
+                                            	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -800,66 +814,66 @@ class Lldp(Entity):
                                 .. attribute:: unknown_tlv_list
                                 
                                 	Unknown TLV list
-                                	**type**\:   :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList>`
+                                	**type**\:  :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList>`
                                 
                                 .. attribute:: org_def_tlv_list
                                 
                                 	Org Def TLV list
-                                	**type**\:   :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList>`
+                                	**type**\:  :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList>`
                                 
                                 .. attribute:: rem_time_mark
                                 
                                 	TimeFilter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: rem_local_port_num
                                 
                                 	LldpPortNumber
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: rem_index
                                 
                                 	lldpRemIndex
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: chassis_id_sub_type
                                 
                                 	Chassis ID sub type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: chassis_id_len
                                 
                                 	Chassis ID length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: port_id_sub_type
                                 
                                 	Port ID sub type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: port_id_len
                                 
                                 	Port ID length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: combined_capabilities
                                 
                                 	Supported and combined cpabilities
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -918,7 +932,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_unknown_tlv_entry
                                     
                                     	lldp unknown tlv entry
-                                    	**type**\: list of    :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
                                     
                                     
 
@@ -951,14 +965,16 @@ class Lldp(Entity):
                                         .. attribute:: tlv_type
                                         
                                         	Unknown TLV type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tlv_value
                                         
                                         	Unknown TLV payload
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -993,7 +1009,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_org_def_tlv_entry
                                     
                                     	lldp org def tlv entry
-                                    	**type**\: list of    :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
                                     
                                     
 
@@ -1026,28 +1042,30 @@ class Lldp(Entity):
                                         .. attribute:: oui
                                         
                                         	Organizationally Unique Identifier
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: tlv_subtype
                                         
                                         	Org Def TLV subtype
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tlv_info_indes
                                         
                                         	lldpRemOrgDefInfoIndex
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: tlv_value
                                         
                                         	Org Def TLV payload
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -1086,7 +1104,7 @@ class Lldp(Entity):
                     .. attribute:: detail
                     
                     	Detailed information about a LLDP neighbor entry
-                    	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail>`
+                    	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail>`
                     
                     
 
@@ -1120,17 +1138,19 @@ class Lldp(Entity):
                         .. attribute:: interface_name
                         
                         	The interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: lldp_neighbor
                         
                         	lldp neighbor
-                        	**type**\: list of    :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor>`
+                        	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor>`
                         
                         
 
@@ -1167,61 +1187,65 @@ class Lldp(Entity):
                             .. attribute:: detail
                             
                             	Detailed neighbor info
-                            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail>`
+                            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail>`
                             
                             .. attribute:: mib
                             
                             	MIB nieghbor info
-                            	**type**\:   :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib>`
+                            	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib>`
                             
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: device_id
                             
                             	Device identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: chassis_id
                             
                             	Chassis id
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: port_id_detail
                             
                             	Outgoing port identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: header_version
                             
                             	Version number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: hold_time
                             
                             	Remaining hold time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: enabled_capabilities
                             
                             	Enabled Capabilities
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: platform
                             
                             	Platform type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1280,66 +1304,68 @@ class Lldp(Entity):
                                 .. attribute:: network_addresses
                                 
                                 	Management Addresses
-                                	**type**\:   :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses>`
+                                	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses>`
                                 
                                 .. attribute:: peer_mac_address
                                 
                                 	Peer Mac Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
                                 .. attribute:: port_description
                                 
                                 	Port Description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: system_name
                                 
                                 	System Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: system_description
                                 
                                 	System Description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: time_remaining
                                 
                                 	Time remaining
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: system_capabilities
                                 
                                 	System Capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: enabled_capabilities
                                 
                                 	Enabled Capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: physical_media_capabilities
                                 
                                 	Physical media capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: media_attachment_unit_type
                                 
                                 	Media Attachment Unit type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1399,7 +1425,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_addr_entry
                                     
                                     	lldp addr entry
-                                    	**type**\: list of    :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
                                     
                                     
 
@@ -1432,19 +1458,19 @@ class Lldp(Entity):
                                         .. attribute:: address
                                         
                                         	Network layer address
-                                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
+                                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
                                         .. attribute:: ma_subtype
                                         
                                         	MA sub type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: if_num
                                         
                                         	Interface num
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1486,17 +1512,21 @@ class Lldp(Entity):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\:   :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
+                                            	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -1533,66 +1563,66 @@ class Lldp(Entity):
                                 .. attribute:: unknown_tlv_list
                                 
                                 	Unknown TLV list
-                                	**type**\:   :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList>`
+                                	**type**\:  :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList>`
                                 
                                 .. attribute:: org_def_tlv_list
                                 
                                 	Org Def TLV list
-                                	**type**\:   :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList>`
+                                	**type**\:  :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList>`
                                 
                                 .. attribute:: rem_time_mark
                                 
                                 	TimeFilter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: rem_local_port_num
                                 
                                 	LldpPortNumber
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: rem_index
                                 
                                 	lldpRemIndex
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: chassis_id_sub_type
                                 
                                 	Chassis ID sub type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: chassis_id_len
                                 
                                 	Chassis ID length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: port_id_sub_type
                                 
                                 	Port ID sub type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: port_id_len
                                 
                                 	Port ID length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: combined_capabilities
                                 
                                 	Supported and combined cpabilities
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1651,7 +1681,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_unknown_tlv_entry
                                     
                                     	lldp unknown tlv entry
-                                    	**type**\: list of    :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
                                     
                                     
 
@@ -1684,14 +1714,16 @@ class Lldp(Entity):
                                         .. attribute:: tlv_type
                                         
                                         	Unknown TLV type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tlv_value
                                         
                                         	Unknown TLV payload
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -1726,7 +1758,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_org_def_tlv_entry
                                     
                                     	lldp org def tlv entry
-                                    	**type**\: list of    :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
                                     
                                     
 
@@ -1759,28 +1791,30 @@ class Lldp(Entity):
                                         .. attribute:: oui
                                         
                                         	Organizationally Unique Identifier
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: tlv_subtype
                                         
                                         	Org Def TLV subtype
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tlv_info_indes
                                         
                                         	lldpRemOrgDefInfoIndex
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: tlv_value
                                         
                                         	Org Def TLV payload
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -1819,7 +1853,7 @@ class Lldp(Entity):
                     .. attribute:: summary
                     
                     	Brief information about a LLDP neighbor entry
-                    	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary>`
+                    	**type**\: list of  		 :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary>`
                     
                     
 
@@ -1853,17 +1887,19 @@ class Lldp(Entity):
                         .. attribute:: interface_name
                         
                         	The interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: lldp_neighbor
                         
                         	lldp neighbor
-                        	**type**\: list of    :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor>`
+                        	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor>`
                         
                         
 
@@ -1900,61 +1936,65 @@ class Lldp(Entity):
                             .. attribute:: detail
                             
                             	Detailed neighbor info
-                            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail>`
+                            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail>`
                             
                             .. attribute:: mib
                             
                             	MIB nieghbor info
-                            	**type**\:   :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib>`
+                            	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib>`
                             
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: device_id
                             
                             	Device identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: chassis_id
                             
                             	Chassis id
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: port_id_detail
                             
                             	Outgoing port identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: header_version
                             
                             	Version number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: hold_time
                             
                             	Remaining hold time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: enabled_capabilities
                             
                             	Enabled Capabilities
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: platform
                             
                             	Platform type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2013,66 +2053,68 @@ class Lldp(Entity):
                                 .. attribute:: network_addresses
                                 
                                 	Management Addresses
-                                	**type**\:   :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses>`
+                                	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses>`
                                 
                                 .. attribute:: peer_mac_address
                                 
                                 	Peer Mac Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
                                 .. attribute:: port_description
                                 
                                 	Port Description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: system_name
                                 
                                 	System Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: system_description
                                 
                                 	System Description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: time_remaining
                                 
                                 	Time remaining
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: system_capabilities
                                 
                                 	System Capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: enabled_capabilities
                                 
                                 	Enabled Capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: physical_media_capabilities
                                 
                                 	Physical media capabilities
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: media_attachment_unit_type
                                 
                                 	Media Attachment Unit type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2132,7 +2174,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_addr_entry
                                     
                                     	lldp addr entry
-                                    	**type**\: list of    :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
                                     
                                     
 
@@ -2165,19 +2207,19 @@ class Lldp(Entity):
                                         .. attribute:: address
                                         
                                         	Network layer address
-                                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
+                                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
                                         .. attribute:: ma_subtype
                                         
                                         	MA sub type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: if_num
                                         
                                         	Interface num
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2219,17 +2261,21 @@ class Lldp(Entity):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\:   :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
+                                            	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -2266,66 +2312,66 @@ class Lldp(Entity):
                                 .. attribute:: unknown_tlv_list
                                 
                                 	Unknown TLV list
-                                	**type**\:   :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList>`
+                                	**type**\:  :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList>`
                                 
                                 .. attribute:: org_def_tlv_list
                                 
                                 	Org Def TLV list
-                                	**type**\:   :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList>`
+                                	**type**\:  :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList>`
                                 
                                 .. attribute:: rem_time_mark
                                 
                                 	TimeFilter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: rem_local_port_num
                                 
                                 	LldpPortNumber
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: rem_index
                                 
                                 	lldpRemIndex
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: chassis_id_sub_type
                                 
                                 	Chassis ID sub type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: chassis_id_len
                                 
                                 	Chassis ID length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: port_id_sub_type
                                 
                                 	Port ID sub type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: port_id_len
                                 
                                 	Port ID length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: combined_capabilities
                                 
                                 	Supported and combined cpabilities
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2384,7 +2430,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_unknown_tlv_entry
                                     
                                     	lldp unknown tlv entry
-                                    	**type**\: list of    :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
                                     
                                     
 
@@ -2417,14 +2463,16 @@ class Lldp(Entity):
                                         .. attribute:: tlv_type
                                         
                                         	Unknown TLV type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tlv_value
                                         
                                         	Unknown TLV payload
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -2459,7 +2507,7 @@ class Lldp(Entity):
                                     .. attribute:: lldp_org_def_tlv_entry
                                     
                                     	lldp org def tlv entry
-                                    	**type**\: list of    :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
                                     
                                     
 
@@ -2492,28 +2540,30 @@ class Lldp(Entity):
                                         .. attribute:: oui
                                         
                                         	Organizationally Unique Identifier
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: tlv_subtype
                                         
                                         	Org Def TLV subtype
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tlv_info_indes
                                         
                                         	lldpRemOrgDefInfoIndex
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: tlv_value
                                         
                                         	Org Def TLV payload
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -2553,7 +2603,7 @@ class Lldp(Entity):
                 .. attribute:: interface
                 
                 	Operational data for an interface on which LLDP is running
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -2587,65 +2637,69 @@ class Lldp(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	The interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: local_network_addresses
                     
                     	Local Management Addresses
-                    	**type**\:   :py:class:`LocalNetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses>`
+                    	**type**\:  :py:class:`LocalNetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses>`
                     
                     .. attribute:: interface_name_xr
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: tx_enabled
                     
                     	TX Enabled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rx_enabled
                     
                     	RX Enabled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: tx_state
                     
                     	TX State
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: rx_state
                     
                     	RX State
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: if_index
                     
                     	ifIndex
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: port_id
                     
                     	Outgoing port identifier
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: port_id_sub_type
                     
                     	Port ID sub type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: port_description
                     
                     	Port Description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -2701,7 +2755,7 @@ class Lldp(Entity):
                         .. attribute:: lldp_addr_entry
                         
                         	lldp addr entry
-                        	**type**\: list of    :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry>`
+                        	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry>`
                         
                         
 
@@ -2734,19 +2788,19 @@ class Lldp(Entity):
                             .. attribute:: address
                             
                             	Network layer address
-                            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address>`
+                            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address>`
                             
                             .. attribute:: ma_subtype
                             
                             	MA sub type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: if_num
                             
                             	Interface num
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2788,17 +2842,21 @@ class Lldp(Entity):
                                 .. attribute:: address_type
                                 
                                 	AddressType
-                                	**type**\:   :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
+                                	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
                                 
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: ipv6_address
                                 
                                 	IPv6 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -2835,77 +2893,77 @@ class Lldp(Entity):
                 .. attribute:: transmitted_packets
                 
                 	Transmitted packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: aged_out_entries
                 
                 	Aged out entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: discarded_packets
                 
                 	Discarded packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_packets
                 
                 	Bad packet received and dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: received_packets
                 
                 	Received packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: discarded_tl_vs
                 
                 	Discarded TLVs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: unrecognized_tl_vs
                 
                 	Unrecognized TLVs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_of_memory_errors
                 
                 	Out\-of\-memory conditions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: encapsulation_errors
                 
                 	Transmission errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: queue_overflow_errors
                 
                 	Queue overflows
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: table_overflow_errors
                 
                 	Table overflows
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 

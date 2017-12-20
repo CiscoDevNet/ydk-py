@@ -79,12 +79,12 @@ class Ipv4Network(Entity):
     .. attribute:: nodes
     
     	Node\-specific IPv4 network operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes>`
     
     .. attribute:: interfaces
     
     	IPv4 network operational interface data
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces>`
     
     
 
@@ -101,7 +101,7 @@ class Ipv4Network(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-io-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Ipv4Network.Nodes), "interfaces" : ("interfaces", Ipv4Network.Interfaces)}
+        self._child_container_classes = {"nodes" : ("nodes", Ipv4Network.Nodes), "Cisco-IOS-XR-ipv4-ma-oper:interfaces" : ("interfaces", Ipv4Network.Interfaces)}
         self._child_list_classes = {}
 
         self.nodes = Ipv4Network.Nodes()
@@ -123,7 +123,7 @@ class Ipv4Network(Entity):
         .. attribute:: node
         
         	IPv4 network operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node>`
         
         
 
@@ -158,17 +158,19 @@ class Ipv4Network(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: interface_data
             
             	IPv4 network operational interface data
-            	**type**\:   :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData>`
+            	**type**\:  :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData>`
             
             .. attribute:: statistics
             
             	Statistical IPv4 network operational data for a node
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics>`
             
             
 
@@ -212,12 +214,12 @@ class Ipv4Network(Entity):
                 .. attribute:: vrfs
                 
                 	VRF specific IPv4 network operational interface data
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs>`
+                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs>`
                 
                 .. attribute:: summary
                 
                 	Summary of IPv4 network operational interface data on a node
-                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary>`
+                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary>`
                 
                 
 
@@ -256,7 +258,7 @@ class Ipv4Network(Entity):
                     .. attribute:: vrf
                     
                     	VRF name of an interface belong to
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf>`
+                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf>`
                     
                     
 
@@ -289,17 +291,19 @@ class Ipv4Network(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	The VRF name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: briefs
                         
                         	Brief interface IPv4 network operational data for a node
-                        	**type**\:   :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
+                        	**type**\:  :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
                         
                         .. attribute:: details
                         
                         	Detail interface IPv4 network operational data for a node
-                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
+                        	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
                         
                         
 
@@ -343,7 +347,7 @@ class Ipv4Network(Entity):
                             .. attribute:: brief
                             
                             	Brief interface IPv4 network operational data for an interface
-                            	**type**\: list of    :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief>`
+                            	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief>`
                             
                             
 
@@ -377,29 +381,33 @@ class Ipv4Network(Entity):
                                 .. attribute:: interface_name  <key>
                                 
                                 	The name of the interface
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: primary_address
                                 
                                 	Primary address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: vrf_id
                                 
                                 	VRF ID of the interface
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: vrf_name
                                 
                                 	VRF name of the interface
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: line_state
                                 
                                 	Line state of the interface
-                                	**type**\:   :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
                                 
                                 
 
@@ -441,7 +449,7 @@ class Ipv4Network(Entity):
                             .. attribute:: detail
                             
                             	Detail interface IPv4 network operational data for an interface
-                            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
+                            	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
                             
                             
 
@@ -475,155 +483,159 @@ class Ipv4Network(Entity):
                                 .. attribute:: interface_name  <key>
                                 
                                 	The name of the interface
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: acl
                                 
                                 	ACLs configured on the interface
-                                	**type**\:   :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl>`
+                                	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl>`
                                 
                                 .. attribute:: multi_acl
                                 
                                 	Multi ACLs configured on the interface
-                                	**type**\:   :py:class:`MultiAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl>`
+                                	**type**\:  :py:class:`MultiAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl>`
                                 
                                 .. attribute:: helper_address
                                 
                                 	Helper Addresses configured on the interface
-                                	**type**\:   :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress>`
+                                	**type**\:  :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress>`
                                 
                                 .. attribute:: rpf
                                 
                                 	RPF config on the interface
-                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
+                                	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
                                 
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
-                                	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
+                                	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
                                 
                                 .. attribute:: pub_utime
                                 
                                 	Address Publish Time
-                                	**type**\:   :py:class:`PubUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime>`
+                                	**type**\:  :py:class:`PubUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime>`
                                 
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
-                                	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
+                                	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
-                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
+                                	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
                                 
                                 .. attribute:: fwd_en_utime
                                 
                                 	FWD ENABLE Time
-                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
+                                	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
                                 
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
-                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
+                                	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
                                 
                                 .. attribute:: primary_address
                                 
                                 	Primary address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: vrf_id
                                 
                                 	VRF ID of the interface
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: line_state
                                 
                                 	Line state of the interface
-                                	**type**\:   :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
                                 
                                 .. attribute:: prefix_length
                                 
                                 	Prefix length of primary address
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: route_tag
                                 
                                 	Route tag associated with the primary address (0 = no tag)
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: mtu
                                 
                                 	IP MTU of the interface
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: unreachable
                                 
                                 	Are ICMP unreachables sent on the interface?
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: redirect
                                 
                                 	Are ICMP redirects sent on the interface?
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: direct_broadcast
                                 
                                 	Are direct broadcasts sent on the interface?
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: mask_reply
                                 
                                 	Are mask replies sent on the interface?
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: rg_id_exists
                                 
                                 	Does ICCP RG ID exist on the interface?
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: mlacp_active
                                 
                                 	Is mLACP state Active (valid if RG ID exists)
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: unnumbered_interface_name
                                 
                                 	Name of referenced interface (valid if unnumbered)
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: proxy_arp_disabled
                                 
                                 	Is Proxy ARP disabled on the interface?
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: flow_tag_src
                                 
                                 	Is BGP Flow Tag Source is enable
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: flow_tag_dst
                                 
                                 	Is BGP Flow Tag Destination is enable
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: multicast_group
                                 
                                 	Multicast groups joined on the interface
-                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
+                                	**type**\: list of  		 :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
                                 
                                 .. attribute:: secondary_address
                                 
                                 	Secondary addresses on the interface
-                                	**type**\: list of    :py:class:`SecondaryAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress>`
+                                	**type**\: list of  		 :py:class:`SecondaryAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress>`
                                 
                                 
 
@@ -741,22 +753,22 @@ class Ipv4Network(Entity):
                                     .. attribute:: inbound
                                     
                                     	ACL applied to incoming packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: outbound
                                     
                                     	ACL applied to outgoing packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: common_in_bound
                                     
                                     	Common ACL applied to incoming packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: common_out_bound
                                     
                                     	Common ACL applied to outgoing packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -795,17 +807,17 @@ class Ipv4Network(Entity):
                                     .. attribute:: inbound
                                     
                                     	Inbound ACLs
-                                    	**type**\: list of    :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound>`
+                                    	**type**\: list of  		 :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound>`
                                     
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
-                                    	**type**\: list of    :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound>`
+                                    	**type**\: list of  		 :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound>`
                                     
                                     .. attribute:: common
                                     
                                     	Common ACLs
-                                    	**type**\: list of    :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common>`
+                                    	**type**\: list of  		 :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common>`
                                     
                                     
 
@@ -840,7 +852,7 @@ class Ipv4Network(Entity):
                                         .. attribute:: entry
                                         
                                         	
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -873,7 +885,7 @@ class Ipv4Network(Entity):
                                         .. attribute:: entry
                                         
                                         	
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -906,7 +918,7 @@ class Ipv4Network(Entity):
                                         .. attribute:: entry
                                         
                                         	
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -939,7 +951,7 @@ class Ipv4Network(Entity):
                                     .. attribute:: address_array
                                     
                                     	Helper address
-                                    	**type**\: list of    :py:class:`AddressArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray>`
+                                    	**type**\: list of  		 :py:class:`AddressArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray>`
                                     
                                     
 
@@ -972,7 +984,9 @@ class Ipv4Network(Entity):
                                         .. attribute:: entry
                                         
                                         	
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         
 
@@ -1005,22 +1019,22 @@ class Ipv4Network(Entity):
                                     .. attribute:: enable
                                     
                                     	Enable RPF config
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: mode
                                     
                                     	RPF Mode (loose/strict)
-                                    	**type**\:   :py:class:`RpfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.RpfMode>`
+                                    	**type**\:  :py:class:`RpfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.RpfMode>`
                                     
                                     
 
@@ -1059,12 +1073,12 @@ class Ipv4Network(Entity):
                                     .. attribute:: input
                                     
                                     	BGP PA input config
-                                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
+                                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
                                     
                                     .. attribute:: output
                                     
                                     	BGP PA output config
-                                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
+                                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
                                     
                                     
 
@@ -1102,17 +1116,17 @@ class Ipv4Network(Entity):
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: source
                                         
                                         	Enable source accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -1149,17 +1163,17 @@ class Ipv4Network(Entity):
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: source
                                         
                                         	Enable source accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -1311,7 +1325,9 @@ class Ipv4Network(Entity):
                                     .. attribute:: group_address
                                     
                                     	Address of multicast group
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -1344,19 +1360,21 @@ class Ipv4Network(Entity):
                                     .. attribute:: address
                                     
                                     	Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix length of address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route Tag associated with this address (0 = no tag)
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1396,27 +1414,27 @@ class Ipv4Network(Entity):
                     .. attribute:: if_up_up
                     
                     	Number of interfaces (up,up)
-                    	**type**\:   :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
+                    	**type**\:  :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
                     
                     .. attribute:: if_up_down
                     
                     	Number of interfaces (up,down)
-                    	**type**\:   :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
+                    	**type**\:  :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
                     
                     .. attribute:: if_down_down
                     
                     	Number of interfaces (down,down)
-                    	**type**\:   :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
+                    	**type**\:  :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
                     
                     .. attribute:: if_shutdown_down
                     
                     	Number of interfaces (shutdown,down)
-                    	**type**\:   :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
+                    	**type**\:  :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
                     
                     .. attribute:: if_up_down_basecaps_up
                     
                     	Number of interfaces (up,down) with basecaps up
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1471,21 +1489,21 @@ class Ipv4Network(Entity):
                         .. attribute:: ip_assigned
                         
                         	Number of interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1524,21 +1542,21 @@ class Ipv4Network(Entity):
                         .. attribute:: ip_assigned
                         
                         	Number of interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1577,21 +1595,21 @@ class Ipv4Network(Entity):
                         .. attribute:: ip_assigned
                         
                         	Number of interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1630,21 +1648,21 @@ class Ipv4Network(Entity):
                         .. attribute:: ip_assigned
                         
                         	Number of interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1684,7 +1702,7 @@ class Ipv4Network(Entity):
                 .. attribute:: traffic
                 
                 	Traffic statistics for a node
-                	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic>`
+                	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic>`
                 
                 
 
@@ -1717,12 +1735,12 @@ class Ipv4Network(Entity):
                     .. attribute:: ipv4_stats
                     
                     	IPv4 Network Stats
-                    	**type**\:   :py:class:`Ipv4Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats>`
+                    	**type**\:  :py:class:`Ipv4Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats>`
                     
                     .. attribute:: icmp_stats
                     
                     	ICMP Stats
-                    	**type**\:   :py:class:`IcmpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats>`
+                    	**type**\:  :py:class:`IcmpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats>`
                     
                     
 
@@ -1760,315 +1778,315 @@ class Ipv4Network(Entity):
                         .. attribute:: input_packets
                         
                         	Input Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_packets
                         
                         	Received Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: format_errors
                         
                         	Format Errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hop_count
                         
                         	Bad Hop Count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_source_address
                         
                         	Bad Source Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_header
                         
                         	Bad Header
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_protocol
                         
                         	No Protocol
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_gateway
                         
                         	No Gateway
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassemble_input
                         
                         	RaInput
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassembled
                         
                         	Reassembled
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassemble_timeout
                         
                         	Reassembly Timeout
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassemble_max_drop
                         
                         	Reassembly Max Drop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassemble_failed
                         
                         	Reassembly Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: options_present
                         
                         	IP Options Present
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_option
                         
                         	Bad Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_option
                         
                         	Unknown Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_security_option
                         
                         	Bad Security Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: basic_security_option
                         
                         	Basic Security Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: extended_security_option
                         
                         	Extended Security Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: cipso_option
                         
                         	Cipso Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: strict_source_route_option
                         
                         	Strict Source Route Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: loose_source_route_option
                         
                         	Loose Source Route Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: record_route_option
                         
                         	Record Route Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sid_option
                         
                         	SID Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: timestamp_option
                         
                         	Timestamp Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: router_alert_option
                         
                         	Router Alert Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: noop_option
                         
                         	Noop Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: end_option
                         
                         	End Option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: packets_output
                         
                         	Packets Output
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: packets_forwarded
                         
                         	Packets Forwarded
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: packets_fragmented
                         
                         	Packets Fragmented
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: fragment_count
                         
                         	Fragment Count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: encapsulation_failed
                         
                         	Encapsulation Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_router
                         
                         	No Router
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: packet_too_big
                         
                         	Packet Too Big
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: multicast_in
                         
                         	Multicast In
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: multicast_out
                         
                         	Multicast Out
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: broadcast_in
                         
                         	Broadcast In
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: broadcast_out
                         
                         	Broadcast Out
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_v4_encap
                         
                         	Lisp IPv4 encapped packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_v4_decap
                         
                         	Lisp IPv4 decapped packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_v6_encap
                         
                         	Lisp IPv6 encapped packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_v6_decap
                         
                         	Lisp IPv6 decapped packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_encap_error
                         
                         	Lisp encap errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_decap_error
                         
                         	Lisp decap errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2191,259 +2209,259 @@ class Ipv4Network(Entity):
                         .. attribute:: received
                         
                         	ICMP Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: checksum_error
                         
                         	ICMP Checksum Errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown
                         
                         	ICMP Unknown
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: output
                         
                         	ICMP Transmitted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: admin_unreachable_sent
                         
                         	ICMP Admin Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: network_unreachable_sent
                         
                         	ICMP Network Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: host_unreachable_sent
                         
                         	ICMP Host Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: protocol_unreachable_sent
                         
                         	ICMP Protocol Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: port_unreachable_sent
                         
                         	ICMP Port Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: fragment_unreachable_sent
                         
                         	ICMP Fragment Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: admin_unreachable_received
                         
                         	ICMP Admin Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: network_unreachable_received
                         
                         	ICMP Network Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: host_unreachable_received
                         
                         	ICMP Host Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: protocol_unreachable_received
                         
                         	ICMP Protocol Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: port_unreachable_received
                         
                         	ICMP Port Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: fragment_unreachable_received
                         
                         	ICMP Fragment Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hopcount_sent
                         
                         	ICMP Hopcount Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassembly_sent
                         
                         	ICMP Reassembly Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hopcount_received
                         
                         	ICMP Hopcount Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassebly_received
                         
                         	ICMP Reassembly Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: param_error_received
                         
                         	ICMP Parameter Error Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: param_error_send
                         
                         	ICMP Parameter Error Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: echo_request_sent
                         
                         	ICMP Echo Request Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: echo_request_received
                         
                         	ICMP Echo Request Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: echo_reply_sent
                         
                         	ICMP Echo Reply Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: echo_reply_received
                         
                         	ICMP Echo Reply Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mask_request_sent
                         
                         	ICMP Mask Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mask_request_received
                         
                         	ICMP Mask Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mask_reply_sent
                         
                         	ICMP Mask Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mask_reply_received
                         
                         	ICMP Mask Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: source_quench_received
                         
                         	ICMP Source Quench
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: redirect_received
                         
                         	ICMP Redirect Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: redirect_send
                         
                         	ICMP Redirect Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: timestamp_received
                         
                         	ICMP Timestamp Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: timestamp_reply_received
                         
                         	ICMP Timestamp Reply Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: router_advert_received
                         
                         	ICMP Router Advertisement Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: router_solicit_received
                         
                         	ICMP Router Solicited Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2550,7 +2568,7 @@ class Ipv4Network(Entity):
         .. attribute:: interface
         
         	Interface names with VRF
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface>`
         
         
 
@@ -2584,12 +2602,14 @@ class Ipv4Network(Entity):
             .. attribute:: interface_name  <key>
             
             	The name of the interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: vrfs
             
             	List of VRF on the interface
-            	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs>`
+            	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs>`
             
             
 
@@ -2628,7 +2648,7 @@ class Ipv4Network(Entity):
                 .. attribute:: vrf
                 
                 	VRF information on the interface
-                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf>`
+                	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf>`
                 
                 
 
@@ -2661,17 +2681,19 @@ class Ipv4Network(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	The VRF name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: detail
                     
                     	Detail IPv4 network operational data for an interface
-                    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail>`
+                    	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail>`
                     
                     .. attribute:: brief
                     
                     	Brief IPv4 network operational data for an interface
-                    	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief>`
+                    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief>`
                     
                     
 
@@ -2715,150 +2737,152 @@ class Ipv4Network(Entity):
                         .. attribute:: acl
                         
                         	ACLs configured on the interface
-                        	**type**\:   :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl>`
+                        	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl>`
                         
                         .. attribute:: multi_acl
                         
                         	Multi ACLs configured on the interface
-                        	**type**\:   :py:class:`MultiAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl>`
+                        	**type**\:  :py:class:`MultiAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl>`
                         
                         .. attribute:: helper_address
                         
                         	Helper Addresses configured on the interface
-                        	**type**\:   :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress>`
+                        	**type**\:  :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress>`
                         
                         .. attribute:: rpf
                         
                         	RPF config on the interface
-                        	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf>`
+                        	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf>`
                         
                         .. attribute:: bgp_pa
                         
                         	BGP PA config on the interface
-                        	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa>`
+                        	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa>`
                         
                         .. attribute:: pub_utime
                         
                         	Address Publish Time
-                        	**type**\:   :py:class:`PubUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime>`
+                        	**type**\:  :py:class:`PubUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime>`
                         
                         .. attribute:: idb_utime
                         
                         	IDB Create Time
-                        	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime>`
+                        	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime>`
                         
                         .. attribute:: caps_utime
                         
                         	CAPS Add Time
-                        	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime>`
+                        	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime>`
                         
                         .. attribute:: fwd_en_utime
                         
                         	FWD ENABLE Time
-                        	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime>`
+                        	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime>`
                         
                         .. attribute:: fwd_dis_utime
                         
                         	FWD DISABLE Time
-                        	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime>`
+                        	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime>`
                         
                         .. attribute:: primary_address
                         
                         	Primary address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf_id
                         
                         	VRF ID of the interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: line_state
                         
                         	Line state of the interface
-                        	**type**\:   :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
                         
                         .. attribute:: prefix_length
                         
                         	Prefix length of primary address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: route_tag
                         
                         	Route tag associated with the primary address (0 = no tag)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mtu
                         
                         	IP MTU of the interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unreachable
                         
                         	Are ICMP unreachables sent on the interface?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: redirect
                         
                         	Are ICMP redirects sent on the interface?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: direct_broadcast
                         
                         	Are direct broadcasts sent on the interface?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mask_reply
                         
                         	Are mask replies sent on the interface?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: rg_id_exists
                         
                         	Does ICCP RG ID exist on the interface?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mlacp_active
                         
                         	Is mLACP state Active (valid if RG ID exists)
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: unnumbered_interface_name
                         
                         	Name of referenced interface (valid if unnumbered)
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: proxy_arp_disabled
                         
                         	Is Proxy ARP disabled on the interface?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: flow_tag_src
                         
                         	Is BGP Flow Tag Source is enable
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: flow_tag_dst
                         
                         	Is BGP Flow Tag Destination is enable
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: multicast_group
                         
                         	Multicast groups joined on the interface
-                        	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup>`
+                        	**type**\: list of  		 :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup>`
                         
                         .. attribute:: secondary_address
                         
                         	Secondary addresses on the interface
-                        	**type**\: list of    :py:class:`SecondaryAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress>`
+                        	**type**\: list of  		 :py:class:`SecondaryAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress>`
                         
                         
 
@@ -2974,22 +2998,22 @@ class Ipv4Network(Entity):
                             .. attribute:: inbound
                             
                             	ACL applied to incoming packets
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: outbound
                             
                             	ACL applied to outgoing packets
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: common_in_bound
                             
                             	Common ACL applied to incoming packets
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: common_out_bound
                             
                             	Common ACL applied to outgoing packets
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -3028,17 +3052,17 @@ class Ipv4Network(Entity):
                             .. attribute:: inbound
                             
                             	Inbound ACLs
-                            	**type**\:  list of str
+                            	**type**\: list of str
                             
                             .. attribute:: outbound
                             
                             	Outbound ACLs
-                            	**type**\:  list of str
+                            	**type**\: list of str
                             
                             .. attribute:: common
                             
                             	Common ACLs
-                            	**type**\:  list of str
+                            	**type**\: list of str
                             
                             
 
@@ -3075,7 +3099,9 @@ class Ipv4Network(Entity):
                             .. attribute:: address_array
                             
                             	Helper address
-                            	**type**\:  list of str
+                            	**type**\: list of str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -3108,22 +3134,22 @@ class Ipv4Network(Entity):
                             .. attribute:: enable
                             
                             	Enable RPF config
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: allow_default_route
                             
                             	Allow Default Route
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: allow_self_ping
                             
                             	Allow Self Ping
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: mode
                             
                             	RPF Mode (loose/strict)
-                            	**type**\:   :py:class:`RpfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.RpfMode>`
+                            	**type**\:  :py:class:`RpfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.RpfMode>`
                             
                             
 
@@ -3162,12 +3188,12 @@ class Ipv4Network(Entity):
                             .. attribute:: input
                             
                             	BGP PA input config
-                            	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input>`
+                            	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input>`
                             
                             .. attribute:: output
                             
                             	BGP PA output config
-                            	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output>`
+                            	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output>`
                             
                             
 
@@ -3205,17 +3231,17 @@ class Ipv4Network(Entity):
                                 .. attribute:: enable
                                 
                                 	Enable BGP PA for ingress/egress
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: source
                                 
                                 	Enable source accouting
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: destination
                                 
                                 	Enable destination accouting
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -3252,17 +3278,17 @@ class Ipv4Network(Entity):
                                 .. attribute:: enable
                                 
                                 	Enable BGP PA for ingress/egress
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: source
                                 
                                 	Enable source accouting
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: destination
                                 
                                 	Enable destination accouting
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -3414,7 +3440,9 @@ class Ipv4Network(Entity):
                             .. attribute:: group_address
                             
                             	Address of multicast group
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -3447,19 +3475,21 @@ class Ipv4Network(Entity):
                             .. attribute:: address
                             
                             	Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: prefix_length
                             
                             	Prefix length of address
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: route_tag
                             
                             	Route Tag associated with this address (0 = no tag)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3499,24 +3529,26 @@ class Ipv4Network(Entity):
                         .. attribute:: primary_address
                         
                         	Primary address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf_id
                         
                         	VRF ID of the interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: vrf_name
                         
                         	VRF name of the interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: line_state
                         
                         	Line state of the interface
-                        	**type**\:   :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
                         
                         
 

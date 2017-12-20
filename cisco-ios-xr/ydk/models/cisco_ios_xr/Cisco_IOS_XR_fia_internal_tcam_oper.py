@@ -25,7 +25,7 @@ class Controller(Entity):
     .. attribute:: dpa
     
     	Controller DPA operational data
-    	**type**\:   :py:class:`Dpa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa>`
+    	**type**\:  :py:class:`Dpa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa>`
     
     
 
@@ -59,7 +59,7 @@ class Controller(Entity):
         .. attribute:: nodes
         
         	DPA data for available nodes
-        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes>`
+        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes>`
         
         
 
@@ -93,7 +93,7 @@ class Controller(Entity):
             .. attribute:: node
             
             	DPA operational data for a particular node
-            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node>`
+            	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node>`
             
             
 
@@ -127,17 +127,19 @@ class Controller(Entity):
                 .. attribute:: node_name  <key>
                 
                 	Node ID
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: external_tcam_resources
                 
                 	External TCAM Resource Information
-                	**type**\:   :py:class:`ExternalTcamResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources>`
+                	**type**\:  :py:class:`ExternalTcamResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources>`
                 
                 .. attribute:: internal_tcam_resources
                 
                 	Internal TCAM Resource Information
-                	**type**\:   :py:class:`InternalTcamResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources>`
+                	**type**\:  :py:class:`InternalTcamResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources>`
                 
                 
 
@@ -181,7 +183,7 @@ class Controller(Entity):
                     .. attribute:: npu_tcam
                     
                     	npu tcam
-                    	**type**\: list of    :py:class:`NpuTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam>`
+                    	**type**\: list of  		 :py:class:`NpuTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam>`
                     
                     
 
@@ -214,14 +216,14 @@ class Controller(Entity):
                         .. attribute:: npu_id
                         
                         	npu id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tcam_bank
                         
                         	tcam bank
-                        	**type**\: list of    :py:class:`TcamBank <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank>`
+                        	**type**\: list of  		 :py:class:`TcamBank <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank>`
                         
                         
 
@@ -256,43 +258,43 @@ class Controller(Entity):
                             .. attribute:: bank_id
                             
                             	bank id
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: bank_key_size
                             
                             	bank key size
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: bank_free_entries
                             
                             	bank free entries
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bank_inuse_entries
                             
                             	bank inuse entries
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: owner
                             
                             	owner
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nof_dbs
                             
                             	nof dbs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bank_db
                             
                             	bank db
-                            	**type**\: list of    :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb>`
+                            	**type**\: list of  		 :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb>`
                             
                             
 
@@ -337,21 +339,21 @@ class Controller(Entity):
                                 .. attribute:: db_id
                                 
                                 	db id
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: db_inuse_entries
                                 
                                 	db inuse entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: db_prefix
                                 
                                 	db prefix
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -388,7 +390,7 @@ class Controller(Entity):
                     .. attribute:: npu_tcam
                     
                     	npu tcam
-                    	**type**\: list of    :py:class:`NpuTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam>`
+                    	**type**\: list of  		 :py:class:`NpuTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam>`
                     
                     
 
@@ -421,14 +423,14 @@ class Controller(Entity):
                         .. attribute:: npu_id
                         
                         	npu id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tcam_bank
                         
                         	tcam bank
-                        	**type**\: list of    :py:class:`TcamBank <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank>`
+                        	**type**\: list of  		 :py:class:`TcamBank <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank>`
                         
                         
 
@@ -463,43 +465,43 @@ class Controller(Entity):
                             .. attribute:: bank_id
                             
                             	bank id
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: bank_key_size
                             
                             	bank key size
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: bank_free_entries
                             
                             	bank free entries
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bank_inuse_entries
                             
                             	bank inuse entries
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: owner
                             
                             	owner
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nof_dbs
                             
                             	nof dbs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bank_db
                             
                             	bank db
-                            	**type**\: list of    :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb>`
+                            	**type**\: list of  		 :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb>`
                             
                             
 
@@ -544,21 +546,21 @@ class Controller(Entity):
                                 .. attribute:: db_id
                                 
                                 	db id
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: db_inuse_entries
                                 
                                 	db inuse entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: db_prefix
                                 
                                 	db prefix
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 

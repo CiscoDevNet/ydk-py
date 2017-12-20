@@ -25,12 +25,12 @@ class Accounting(Entity):
     .. attribute:: interfaces
     
     	Interfaces configuration
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_accounting_cfg.Accounting.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_accounting_cfg.Accounting.Interfaces>`
     
     .. attribute:: enable
     
     	Enable Accounting
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -69,17 +69,17 @@ class Accounting(Entity):
         .. attribute:: mpls
         
         	Interfaces MPLS configuration
-        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_accounting_cfg.Accounting.Interfaces.Mpls>`
+        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_accounting_cfg.Accounting.Interfaces.Mpls>`
         
         .. attribute:: segment_routing
         
         	Interfaces Segment Routing configuration
-        	**type**\:   :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_accounting_cfg.Accounting.Interfaces.SegmentRouting>`
+        	**type**\:  :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_accounting_cfg.Accounting.Interfaces.SegmentRouting>`
         
         .. attribute:: enable
         
         	Enable accounting on Interfaces
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -123,12 +123,12 @@ class Accounting(Entity):
             .. attribute:: enable
             
             	Enable accounting on MPLS
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable_v4rsvpte
             
             	Enable accounting on MPLS IPv4 RSVP TE
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -164,17 +164,17 @@ class Accounting(Entity):
             .. attribute:: enable
             
             	Enable accounting on Segment Routing
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable_mplsv4
             
             	Enable accounting on Segment Routing MPLS IPv4
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable_mplsv6
             
             	Enable accounting on Segment Routing MPLS IPv6
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 

@@ -31,12 +31,18 @@ module Cisco-IOS-XE-ezpm {
 
   description
     "Cisco XE Native Easy Performance Monitor (ezPM) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-12 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -516,6 +522,18 @@ module Cisco-IOS-XE-ezpm {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-ezpm-grouping {
+      if-feature ios-features:ezpm;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-ezpm-grouping {
+      if-feature ios-features:ezpm;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     uses config-interface-ezpm-grouping {
       if-feature ios-features:ezpm;
     }

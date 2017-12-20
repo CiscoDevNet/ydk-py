@@ -103,7 +103,7 @@ class Keychain(Entity):
     .. attribute:: keies
     
     	List of configured key names
-    	**type**\:   :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies>`
+    	**type**\:  :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies>`
     
     
 
@@ -137,7 +137,7 @@ class Keychain(Entity):
         .. attribute:: key
         
         	Configured key name
-        	**type**\: list of    :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key>`
+        	**type**\: list of  		 :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key>`
         
         
 
@@ -171,17 +171,19 @@ class Keychain(Entity):
             .. attribute:: key_name  <key>
             
             	Key name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: key
             
             	Key properties
-            	**type**\:   :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key>`
+            	**type**\:  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key>`
             
             .. attribute:: accept_tolerance
             
             	Accept tolerance is infinite if value is 0xffffffff
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -222,7 +224,7 @@ class Keychain(Entity):
                 .. attribute:: key_id
                 
                 	key id
-                	**type**\: list of    :py:class:`KeyId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId>`
+                	**type**\: list of  		 :py:class:`KeyId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId>`
                 
                 
 
@@ -255,39 +257,39 @@ class Keychain(Entity):
                     .. attribute:: macsec
                     
                     	To check if it's a macsec key
-                    	**type**\:   :py:class:`Macsec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.Macsec>`
+                    	**type**\:  :py:class:`Macsec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.Macsec>`
                     
                     .. attribute:: send_lifetime
                     
                     	Lifetime of the key
-                    	**type**\:   :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.SendLifetime>`
+                    	**type**\:  :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.SendLifetime>`
                     
                     .. attribute:: accept_lifetime
                     
                     	Accept Lifetime of the key
-                    	**type**\:   :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.AcceptLifetime>`
+                    	**type**\:  :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.AcceptLifetime>`
                     
                     .. attribute:: key_string
                     
                     	Key string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: type
                     
                     	Type of key encryption
-                    	**type**\:   :py:class:`Enc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Enc>`
+                    	**type**\:  :py:class:`Enc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Enc>`
                     
                     .. attribute:: key_id
                     
                     	Key ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: cryptographic_algorithm
                     
                     	Cryptographic algorithm
-                    	**type**\:   :py:class:`CrytoAlgo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.CrytoAlgo>`
+                    	**type**\:  :py:class:`CrytoAlgo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.CrytoAlgo>`
                     
                     
 
@@ -341,7 +343,7 @@ class Keychain(Entity):
                         .. attribute:: is_macsec_key
                         
                         	To check if it's a macsec key
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -374,29 +376,29 @@ class Keychain(Entity):
                         .. attribute:: start
                         
                         	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: end
                         
                         	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: duration
                         
                         	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**units**\: second
                         
                         .. attribute:: is_always_valid
                         
                         	Is TRUE if duration is 0xffffffff 
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_valid_now
                         
                         	Is TRUE if current time is betweenstart and end lifetime , else FALSE
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -437,29 +439,29 @@ class Keychain(Entity):
                         .. attribute:: start
                         
                         	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: end
                         
                         	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: duration
                         
                         	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**units**\: second
                         
                         .. attribute:: is_always_valid
                         
                         	Is TRUE if duration is 0xffffffff 
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_valid_now
                         
                         	Is TRUE if current time is betweenstart and end lifetime , else FALSE
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 

@@ -25,7 +25,7 @@ class VrfPolicy(Entity):
     .. attribute:: vrf
     
     	VRF Name
-    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vrf_policy_cfg.VrfPolicy.Vrf>`
+    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vrf_policy_cfg.VrfPolicy.Vrf>`
     
     
 
@@ -59,12 +59,14 @@ class VrfPolicy(Entity):
         .. attribute:: vrf_name  <key>
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: afi
         
         	address family
-        	**type**\: list of    :py:class:`Afi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vrf_policy_cfg.VrfPolicy.Vrf.Afi>`
+        	**type**\: list of  		 :py:class:`Afi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vrf_policy_cfg.VrfPolicy.Vrf.Afi>`
         
         
 
@@ -100,12 +102,14 @@ class VrfPolicy(Entity):
             .. attribute:: afi_type  <key>
             
             	AFI name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (ipv4)
             
             .. attribute:: service_policy_in
             
             	Policy map name
-            	**type**\:  str
+            	**type**\: str
             
             
 

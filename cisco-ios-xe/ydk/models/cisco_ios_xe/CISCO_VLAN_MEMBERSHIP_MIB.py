@@ -22,47 +22,47 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
     .. attribute:: vmvmps
     
     	
-    	**type**\:   :py:class:`Vmvmps <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps>`
+    	**type**\:  :py:class:`Vmvmps <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps>`
     
     .. attribute:: vmmembership
     
     	
-    	**type**\:   :py:class:`Vmmembership <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembership>`
+    	**type**\:  :py:class:`Vmmembership <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembership>`
     
     .. attribute:: vmstatistics
     
     	
-    	**type**\:   :py:class:`Vmstatistics <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmstatistics>`
+    	**type**\:  :py:class:`Vmstatistics <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmstatistics>`
     
     .. attribute:: vmstatus
     
     	
-    	**type**\:   :py:class:`Vmstatus <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmstatus>`
+    	**type**\:  :py:class:`Vmstatus <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmstatus>`
     
     .. attribute:: vmvmpstable
     
     	A table of VMPS to use. The device will use the the primary VMPS by default. If the device is unable to reach the primary server after vmVmpsRetries retries, it uses the first secondary server in the table until it runs out of secondary servers, in which case it will return to using the primary server. Entries in this table may be created and deleted via this MIB or the management console on a device
-    	**type**\:   :py:class:`Vmvmpstable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmpstable>`
+    	**type**\:  :py:class:`Vmvmpstable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmpstable>`
     
     .. attribute:: vmmembershipsummarytable
     
     	A summary of VLAN membership of non\-trunk bridge ports. This is a convenience table for retrieving VLAN membership information.  A row is created for a VLAN if\: a) the VLAN exists, or b) a port is assigned to a non\-existent VLAN.  VLAN membership can only be modified via the vmMembershipTable
-    	**type**\:   :py:class:`Vmmembershipsummarytable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable>`
+    	**type**\:  :py:class:`Vmmembershipsummarytable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable>`
     
     .. attribute:: vmmembershiptable
     
     	A table for configuring VLAN port membership. There is one row for each bridge port that is assigned to a static or dynamic access port. Trunk ports are not  represented in this table.  An entry may be created and deleted when ports are created or deleted via SNMP or the management console on a  device
-    	**type**\:   :py:class:`Vmmembershiptable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable>`
+    	**type**\:  :py:class:`Vmmembershiptable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable>`
     
     .. attribute:: vmmembershipsummaryexttable
     
     	A summary of VLAN membership of non\-trunk bridge ports. This table is used for  retrieving VLAN membership information for the device which supports dot1dBasePort  with value greater than 2048.  A row is created for a VLAN and a particular bridge port range, where at least one port  in the range is assigned to this VLAN.  VLAN membership can only be modified via the vmMembershipTable
-    	**type**\:   :py:class:`Vmmembershipsummaryexttable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable>`
+    	**type**\:  :py:class:`Vmmembershipsummaryexttable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable>`
     
     .. attribute:: vmvoicevlantable
     
     	A table for configuring the Voice VLAN\-ID for the ports. An entry will exist for each interface which supports Voice Vlan feature
-    	**type**\:   :py:class:`Vmvoicevlantable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable>`
+    	**type**\:  :py:class:`Vmvoicevlantable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable>`
     
     
 
@@ -136,21 +136,21 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvmpsvqpversion
         
         	The VLAN Query Protocol (VQP) version supported on the device. VQP is the protocol used to query VLAN Membership Policy Server (VMPS) for VLAN membership assignments of dynamic VLAN ports. A VMPS provides VLAN membership policy assignments based on the content of the packets received on a port
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: vmvmpsretries
         
         	The number of retries for VQP requests to a VMPS before using the next available VMPS
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..10
         
         .. attribute:: vmvmpsreconfirminterval
         
         	The switch will reconfirm membership of addresses on each port with VMPS periodically. This object specifies the interval to perform reconfirmation. If the value is set to 0, the switch does not reconfirm membership with VMPS
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..120
         
@@ -159,17 +159,19 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvmpsreconfirm
         
         	Setting this object to execute(2) causes the switch to reconfirm membership of every dynamic port. Reading this object always return ready(1)
-        	**type**\:   :py:class:`Vmvmpsreconfirm <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps.Vmvmpsreconfirm>`
+        	**type**\:  :py:class:`Vmvmpsreconfirm <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps.Vmvmpsreconfirm>`
         
         .. attribute:: vmvmpsreconfirmresult
         
         	This object returns the result of the last request that sets vmVmpsReconfirm to execute(2). The semantics of the possible results are as follows\:       other(1)           \- none of following      inProgress(2)      \- reconfirm in progress      success(3)         \- reconfirm completed successfully      noResponse(4)      \- reconfirm failed because no                           VMPS responded      noVmps(5)          \- No VMPS configured      noDynamicPort(6)   \- No dynamic ports configured      noHostConnected(7) \- No hosts on dynamic ports
-        	**type**\:   :py:class:`Vmvmpsreconfirmresult <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps.Vmvmpsreconfirmresult>`
+        	**type**\:  :py:class:`Vmvmpsreconfirmresult <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps.Vmvmpsreconfirmresult>`
         
         .. attribute:: vmvmpscurrent
         
         	This is the IpAddress of the current VMPS used
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         
 
@@ -291,7 +293,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvlancreationmode
         
         	This object is used to determine whether or not a non\-existing VLAN will be created automatically by the system after assigned to a port.  automatic(1)\:  a non\-existing VLAN will be created                automatically by the system after                assigned to a port.  manual(2)\:     a non\-existing VLAN will not be created                automatically by the system and need to be                manually created by the users after assigned                to a port
-        	**type**\:   :py:class:`Vmvlancreationmode <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembership.Vmvlancreationmode>`
+        	**type**\:  :py:class:`Vmvlancreationmode <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembership.Vmvlancreationmode>`
         
         
 
@@ -360,56 +362,56 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvqpqueries
         
         	The total number of VQP requests sent by this device to all VMPS since last system re\-initialization
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vmvqpresponses
         
         	The number of VQP responses received by this device from all VMPS since last system re\-initialization
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vmvmpschanges
         
         	The number of times, since last system re\-initialization, the current VMPS was changed. The current VMPS is changed whenever the VMPS fails to  response after vmVmpsRetries of a VQP request
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vmvqpshutdown
         
         	The number of times, since last system re\-initialization, a VQP response indicates  'shutdown'. A 'shutdown' response is a result of  the membership policy configured at a VMPS by the administrator
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vmvqpdenied
         
         	The number of times, since last system re\-initialization, a VQP response indicates  'denied'. A 'denied' response is a result of  the membership policy configured at a VMPS by the administrator
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vmvqpwrongdomain
         
         	The number of times, since last system re\-initialization, a VQP response indicates wrong  management domain. A wrong management domain  response indicates that the VMPS used serves a  management domain that is different from the device's management domain
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vmvqpwrongversion
         
         	The number of times, since last system re\-initialization, a VQP response indicates wrong  VQP version. A wrong VQP version response  indicates that the VMPS used supports a VQP  version that is different from the device's  VQP version
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vminsufficientresources
         
         	The number of times, since last system re\-initialization, a VQP response indicates  insufficient resources. An insufficient resources  response indicates that the VMPS used does not  have the required resources to verify the membership assignment requested
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -459,7 +461,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmnotificationsenabled
         
         	An indication of whether the notifications/traps defined in this MIB are enabled
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -501,7 +503,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvmpsentry
         
         	An entry (conceptual row) in the vmVmpsTable
-        	**type**\: list of    :py:class:`Vmvmpsentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmpstable.Vmvmpsentry>`
+        	**type**\: list of  		 :py:class:`Vmvmpsentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmpstable.Vmvmpsentry>`
         
         
 
@@ -535,17 +537,19 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: vmvmpsipaddress  <key>
             
             	The Ip Address of the VMPS
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: vmvmpsprimary
             
             	The status of the VMPS. Setting this value to true will make this VMPS the primary server and make the switch use this as the current server. Setting this entry to true causes other rows to transition to false. Attempting to write a value of false after creation will result in a return of bad value. Deleting an entry whose value is true will result in the first entry in the table being set to true
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vmvmpsrowstatus
             
             	The status of this conceptual row
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -592,7 +596,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmmembershipsummaryentry
         
         	An entry (conceptual row) in the vmMembershipSummaryTable
-        	**type**\: list of    :py:class:`Vmmembershipsummaryentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry>`
+        	**type**\: list of  		 :py:class:`Vmmembershipsummaryentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry>`
         
         
 
@@ -627,14 +631,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: vmmembershipsummaryvlanindex  <key>
             
             	The VLAN id of the VLAN
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
             .. attribute:: vmmembershipsummarymemberports
             
             	The set of the device's member ports that belong to the VLAN.  Each octet within the value of this object specifies a set of eight ports, with the first octet specifying ports 1 through 8, the second octet specifying ports 9 through 16, etc.   Within each octet, the most significant bit represents the lowest numbered port, and the least significant bit represents the highest numbered port.  Thus, each port of the VLAN is represented by a single bit within the value of this object.  If that bit has a value of '1' then that port is included in the set of ports; the port is not included if its bit has a value of '0'.  A port number is the value of dot1dBasePort for the port in the BRIDGE\-MIB (RFC 1493)
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
@@ -643,7 +647,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: vmmembershipsummarymember2kports
             
             	The set of the device's member ports that belong to the VLAN. It has the VLAN membership information of up to 2048 ports with the port number from 1 to  2048.  Each octet within the value of this object specifies a set of eight ports, with the first octet specifying  ports 1 through 8, the second octet specifying ports 9 through 16, etc.   Within each octet, the most significant bit represents the lowest numbered port, and the least significant bit represents the highest numbered port.  Thus, each port of the VLAN is represented by a single bit within the value of this object.  If that bit has a value of '1' then that port is included in the set of ports; the port is not included if its bit has a value of '0'.  A port number is the value of dot1dBasePort for the port in the BRIDGE\-MIB (RFC 1493)
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
@@ -689,7 +693,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmmembershipentry
         
         	An entry (conceptual row) in the vmMembershipTable
-        	**type**\: list of    :py:class:`Vmmembershipentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry>`
+        	**type**\: list of  		 :py:class:`Vmmembershipentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry>`
         
         
 
@@ -723,7 +727,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -732,45 +736,45 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: vmvlantype
             
             	The type of VLAN membership assigned to this port. A port with static vlan membership is assigned to a single VLAN directly. A port with dynamic membership is assigned a single VLAN based on content of packets received on the port and via VQP queries to VMPS. A port with multiVlan membership may be assigned to one or more VLANs directly.  A static or dynamic port membership is specified by the value of vmVlan. A multiVlan port membership is specified by the value of vmVlans
-            	**type**\:   :py:class:`Vmvlantype <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry.Vmvlantype>`
+            	**type**\:  :py:class:`Vmvlantype <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry.Vmvlantype>`
             
             .. attribute:: vmvlan
             
             	The VLAN id of the VLAN the port is assigned to when vmVlanType is set to static or dynamic. This object is not instantiated if not applicable.  The value may be 0 if the port is not assigned to a VLAN.  If vmVlanType is static, the port is always assigned to a VLAN and the object may not be set to 0.  If vmVlanType is dynamic the object's value is 0 if the port is currently not assigned to a VLAN. In addition, the object may be set to 0 only
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
             .. attribute:: vmportstatus
             
             	An indication of the current VLAN status of the port. A status of inactive(1) indicates that a dynamic port does not yet have a VLAN assigned, or a port is  assigned to a VLAN that is currently not active. A  status of active(2) indicates that the currently  assigned VLAN is active. A status of shutdown(3)  indicates that the port has been disabled as a result of VQP shutdown response
-            	**type**\:   :py:class:`Vmportstatus <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry.Vmportstatus>`
+            	**type**\:  :py:class:`Vmportstatus <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry.Vmportstatus>`
             
             .. attribute:: vmvlans
             
             	The VLAN(s) the port is assigned to when the port's vmVlanType is set to multiVlan. This object is not instantiated if not applicable.  The port is always assigned to one or more VLANs and the object may not be set so that there are no vlans assigned.  Each octet within the value of this object specifies a set of eight VLANs, with the first octet specifying VLAN id 1 through 8, the second octet specifying VLAN ids 9 through 16, etc.   Within each octet, the most significant bit represents the lowest numbered VLAN id, and the least significant bit represents the highest numbered VLAN id.  Thus, each VLAN of the port is represented by a single bit within the value of this object.  If that bit has a value of '1' then that VLAN is included in the set of VLANs; the VLAN is not included if its bit has a value of '0'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: vmvlans2k
             
             	The VLAN(s) the port is assigned to when the port's vmVlanType is set to multiVlan. This object is not instantiated if not applicable.  The port is always assigned to one or more VLANs and the object may not be set so that there are no vlans assigned.  Each octet within the value of this object specifies a set of eight VLANs, with the first octet specifying VLAN id 1024 through 1031, the second octet specifying  VLAN ids 1032 through 1039, etc.  Within each octet,  the most significant bit represents the lowest  numbered VLAN id, and the least significant bit  represents the highest numbered VLAN id.  Thus, each  VLAN of the port is represented by a single bit within the value of this object.  If that bit has a value of '1' then that VLAN is included in the set of VLANs; the VLAN is not included if its bit has a value of '0'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: vmvlans3k
             
             	The VLAN(s) the port is assigned to when the port's vmVlanType is set to multiVlan. This object is not instantiated if not applicable.  The port is always assigned to one or more VLANs and the object may not be set so that there are no vlans assigned.  Each octet within the value of this object specifies a set of eight VLANs, with the first octet specifying VLAN id 2048 through 2055, the second octet specifying  VLAN ids 2056 through 2063, etc.   Within each octet,  the most significant bit represents the lowest  numbered VLAN id, and the least significant bit  represents the highest numbered VLAN id.  Thus, each VLAN of the port is represented by a single bit within the value of this object.  If that bit has a value of '1' then that VLAN is included in the set of VLANs; the VLAN is not included if its bit has a value of '0'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: vmvlans4k
             
             	The VLAN(s) the port is assigned to when the port's vmVlanType is set to multiVlan. This object is not instantiated if not applicable.  The port is always assigned to one or more VLANs and the object may not be set so that there are no vlans assigned.  Each octet within the value of this object specifies a set of eight VLANs, with the first octet specifying VLAN id 3072 through 3079, the second octet specifying  VLAN ids 3040 through 3047, etc.   Within each octet,  the most significant bit represents the lowest  numbered VLAN id, and the least significant bit  represents the highest numbered VLAN id.  Thus, each VLAN of the port is represented by a single bit within the value of this object.  If that bit has a value of '1' then that VLAN is included in the set of VLANs; the VLAN is not included if its bit has a value of '0'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
@@ -905,7 +909,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmmembershipsummaryextentry
         
         	An entry (conceptual row) in the vmMembershipSummaryExtTable
-        	**type**\: list of    :py:class:`Vmmembershipsummaryextentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable.Vmmembershipsummaryextentry>`
+        	**type**\: list of  		 :py:class:`Vmmembershipsummaryextentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable.Vmmembershipsummaryextentry>`
         
         
 
@@ -940,7 +944,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: vmmembershipsummaryvlanindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
@@ -949,12 +953,12 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: vmmembershipportrangeindex  <key>
             
             	The bridge port range index of this row
-            	**type**\:   :py:class:`CiscoPortListRange <ydk.models.cisco_ios_xe.CISCO_TC.CiscoPortListRange>`
+            	**type**\:  :py:class:`CiscoPortListRange <ydk.models.cisco_ios_xe.CISCO_TC.CiscoPortListRange>`
             
             .. attribute:: vmmembershipsummaryextports
             
             	The set of the device's member ports that belong to the VLAN. It has the VLAN membership information of up to 2k ports with the port number starting from the information indicated in vmMembershipPortRangeIndex object of the same row. For example, if the value of vmMembershipPortRangeIndex is 'twoKto4K', the port number indicated in this object starting from 2049 and ending to 4096.   A port number is the value of dot1dBasePort for the port in the BRIDGE\-MIB (RFC 1493)
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
@@ -996,7 +1000,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvoicevlanentry
         
         	An entry (conceptual row) in the vmVoiceVlanTable. Only interfaces which support Voice Vlan feature are shown
-        	**type**\: list of    :py:class:`Vmvoicevlanentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable.Vmvoicevlanentry>`
+        	**type**\: list of  		 :py:class:`Vmvoicevlanentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable.Vmvoicevlanentry>`
         
         
 
@@ -1032,7 +1036,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1041,14 +1045,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: vmvoicevlanid
             
             	The Voice Vlan ID (VVID) to which this port belongs to.  0    \-    The CDP packets transmitting            through this port would contain           Appliance VLAN\-ID TLV with value            of 0. VoIP and related packets            are expected to be sent and            received with VLAN\-id=0 and an            802.1p priority.   1..4094 \- The CDP packets transmitting           through this port would contain           Appliance VLAN\-ID TLV with N.           VoIP and related packets are           expected to be sent and received           with VLAN\-id=N and an 802.1p           priority.  4095  \-   The CDP packets transmitting           through this port would contain           Appliance VLAN\-ID TLV with value           of 4095. VoIP and related packets           are expected to be sent and            received untagged without an            802.1p priority.  4096  \-   The CDP packets transmitting            through this port would not            include Appliance VLAN\-ID TLV;            or, if the VVID is not supported            on the port, this MIB object will           not be configurable and will            return 4096
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4096
             
             .. attribute:: vmvoicevlancdpverifyenable
             
             	Enable or Disable the feature of CDP message verification of voice VLANs.  true   \- The voice VLAN vmVoiceVlan is enabled           only after CDP messages are received           from the IP phone.  false \-  The voice VLAN vmVoiceVlan is enabled          as soon as the IP phone interface is          up. There is no verification needed           from CDP messages from the IP phone
-            	**type**\:  bool
+            	**type**\: bool
             
             
 

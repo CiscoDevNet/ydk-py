@@ -19,7 +19,7 @@ class Vlans(Entity):
     .. attribute:: vlan
     
     	Configured VLANs keyed by id
-    	**type**\: list of    :py:class:`Vlan <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan>`
+    	**type**\: list of  		 :py:class:`Vlan <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan>`
     
     
 
@@ -53,7 +53,7 @@ class Vlans(Entity):
         .. attribute:: vlan_id  <key>
         
         	references the configured vlan\-id
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4094
         
@@ -62,17 +62,17 @@ class Vlans(Entity):
         .. attribute:: config
         
         	Configuration parameters for VLANs
-        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config>`
+        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config>`
         
         .. attribute:: state
         
         	State variables for VLANs
-        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State>`
+        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State>`
         
         .. attribute:: members
         
         	Enclosing container for list of member interfaces
-        	**type**\:   :py:class:`Members <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members>`
+        	**type**\:  :py:class:`Members <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members>`
         
         
 
@@ -121,26 +121,26 @@ class Vlans(Entity):
             .. attribute:: vlan_id
             
             	Interface VLAN id
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4094
             
             .. attribute:: name
             
             	Interface VLAN name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: status
             
             	Admin state of the VLAN
-            	**type**\:   :py:class:`Status <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config.Status>`
+            	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config.Status>`
             
             	**default value**\: ACTIVE
             
             .. attribute:: tpid
             
             	Optionally set the tag protocol identifier field (TPID) that is accepted on the VLAN
-            	**type**\:   :py:class:`TPIDTYPES <ydk.models.openconfig.openconfig_vlan_types.TPIDTYPES>`
+            	**type**\:  :py:class:`TPIDTYPES <ydk.models.openconfig.openconfig_vlan_types.TPIDTYPES>`
             
             	**default value**\: oc-vlan-types:TPID_0x8100
             
@@ -202,26 +202,26 @@ class Vlans(Entity):
             .. attribute:: vlan_id
             
             	Interface VLAN id
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4094
             
             .. attribute:: name
             
             	Interface VLAN name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: status
             
             	Admin state of the VLAN
-            	**type**\:   :py:class:`Status <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.Status>`
+            	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.Status>`
             
             	**default value**\: ACTIVE
             
             .. attribute:: tpid
             
             	Optionally set the tag protocol identifier field (TPID) that is accepted on the VLAN
-            	**type**\:   :py:class:`TPIDTYPES <ydk.models.openconfig.openconfig_vlan_types.TPIDTYPES>`
+            	**type**\:  :py:class:`TPIDTYPES <ydk.models.openconfig.openconfig_vlan_types.TPIDTYPES>`
             
             	**default value**\: oc-vlan-types:TPID_0x8100
             
@@ -283,7 +283,7 @@ class Vlans(Entity):
             .. attribute:: member
             
             	List of references to interfaces / subinterfaces associated with the VLAN
-            	**type**\: list of    :py:class:`Member <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member>`
+            	**type**\: list of  		 :py:class:`Member <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member>`
             
             
 
@@ -317,7 +317,7 @@ class Vlans(Entity):
                 .. attribute:: interface_ref
                 
                 	Reference to an interface or subinterface
-                	**type**\:   :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member.InterfaceRef>`
+                	**type**\:  :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member.InterfaceRef>`
                 
                 
 
@@ -350,7 +350,7 @@ class Vlans(Entity):
                     .. attribute:: state
                     
                     	Operational state for interface\-ref
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member.InterfaceRef.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member.InterfaceRef.State>`
                     
                     
 
@@ -383,14 +383,14 @@ class Vlans(Entity):
                         .. attribute:: interface
                         
                         	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                         
                         .. attribute:: subinterface
                         
                         	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         

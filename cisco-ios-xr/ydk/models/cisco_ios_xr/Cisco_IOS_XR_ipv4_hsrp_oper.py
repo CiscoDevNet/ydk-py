@@ -334,27 +334,27 @@ class Hsrp(Entity):
     .. attribute:: ipv4
     
     	IPv4 HSRP information
-    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4>`
+    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4>`
     
     .. attribute:: mgo_sessions
     
     	HSRP MGO session table
-    	**type**\:   :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions>`
+    	**type**\:  :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions>`
     
     .. attribute:: ipv6
     
     	IPv6 HSRP information
-    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6>`
+    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6>`
     
     .. attribute:: bfd_sessions
     
     	The table of HSRP BFD Sessions
-    	**type**\:   :py:class:`BfdSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions>`
+    	**type**\:  :py:class:`BfdSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions>`
     
     .. attribute:: summary
     
     	HSRP summary statistics
-    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Summary>`
+    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Summary>`
     
     
 
@@ -408,17 +408,17 @@ class Hsrp(Entity):
         .. attribute:: groups
         
         	The HSRP standby group table
-        	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups>`
+        	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups>`
         
         .. attribute:: tracked_interfaces
         
         	The HSRP tracked interfaces table
-        	**type**\:   :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces>`
+        	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces>`
         
         .. attribute:: interfaces
         
         	The HSRP interface information table
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces>`
         
         
 
@@ -462,7 +462,7 @@ class Hsrp(Entity):
             .. attribute:: group
             
             	An HSRP standby group
-            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group>`
+            	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group>`
             
             
 
@@ -496,108 +496,112 @@ class Hsrp(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	The interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: group_number  <key>
                 
                 	The HSRP group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
-                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignSentTime>`
+                	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignSentTime>`
                 
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
-                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignReceivedTime>`
+                	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignReceivedTime>`
                 
                 .. attribute:: coup_sent_time
                 
                 	Time last coup was sent
-                	**type**\:   :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupSentTime>`
+                	**type**\:  :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupSentTime>`
                 
                 .. attribute:: coup_received_time
                 
                 	Time last coup was received
-                	**type**\:   :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupReceivedTime>`
+                	**type**\:  :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupReceivedTime>`
                 
                 .. attribute:: statistics
                 
                 	HSRP Group statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.Statistics>`
                 
                 .. attribute:: authentication_string
                 
                 	Authentication string
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..9
                 
                 .. attribute:: virtual_mac_address
                 
                 	Virtual mac address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: hsrp_group_number
                 
                 	HSRP Group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:   :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
+                	**type**\:  :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
                 
                 .. attribute:: version
                 
                 	HSRP Protocol Version
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: session_name
                 
                 	Session Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..16
                 
                 .. attribute:: slaves
                 
                 	Number of slaves following state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_slave
                 
                 	Group is a slave group
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: followed_session_name
                 
                 	Followed Session Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..16
                 
                 .. attribute:: configured_priority
                 
                 	Configured priority
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: preempt_delay
                 
                 	Preempt delay time in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -606,7 +610,7 @@ class Hsrp(Entity):
                 .. attribute:: preempt_timer_secs
                 
                 	Preempt time remaining in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -615,7 +619,7 @@ class Hsrp(Entity):
                 .. attribute:: hello_time
                 
                 	Hellotime in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -624,7 +628,7 @@ class Hsrp(Entity):
                 .. attribute:: hold_time
                 
                 	Holdtime in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -633,7 +637,7 @@ class Hsrp(Entity):
                 .. attribute:: learned_hello_time
                 
                 	Learned hellotime in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -642,7 +646,7 @@ class Hsrp(Entity):
                 .. attribute:: learned_hold_time
                 
                 	Learned holdtime in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -651,7 +655,7 @@ class Hsrp(Entity):
                 .. attribute:: min_delay_time
                 
                 	Minimum delay time in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -660,7 +664,7 @@ class Hsrp(Entity):
                 .. attribute:: reload_delay_time
                 
                 	Reload delay time in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -669,83 +673,101 @@ class Hsrp(Entity):
                 .. attribute:: virtual_ip_address
                 
                 	Configured Virtual IPv4 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: virtual_linklocal_ipv6_address
                 
                 	Virtual linklocal IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: active_ip_address
                 
                 	Active router's IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: active_ipv6_address
                 
                 	Active router's IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: active_mac_address
                 
                 	Active router's interface MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: standby_ip_address
                 
                 	Standby router's IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: standby_ipv6_address
                 
                 	Standby router's IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: standby_mac_address
                 
                 	Standby router's interface MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: hsrp_router_state
                 
                 	HSRP router state
-                	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                 
                 .. attribute:: interface_name_xr
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
                 .. attribute:: interface
                 
                 	IM Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: router_priority
                 
                 	Priority of the router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: active_priority
                 
                 	Priority of the Active router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: active_timer_flag
                 
                 	Active timer running flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: active_timer_secs
                 
                 	Active timer running time secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -754,7 +776,7 @@ class Hsrp(Entity):
                 .. attribute:: active_timer_msecs
                 
                 	Active timer running time msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -763,12 +785,12 @@ class Hsrp(Entity):
                 .. attribute:: standby_timer_flag
                 
                 	Standby timer running flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: standby_timer_secs
                 
                 	Standby timer running time secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -777,7 +799,7 @@ class Hsrp(Entity):
                 .. attribute:: standby_timer_msecs
                 
                 	Standby timer running time msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -786,12 +808,12 @@ class Hsrp(Entity):
                 .. attribute:: hello_timer_flag
                 
                 	Hello timer running flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: hello_timer_secs
                 
                 	Hello timer running time secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -800,7 +822,7 @@ class Hsrp(Entity):
                 .. attribute:: hello_timer_msecs
                 
                 	Hello timer running time msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -809,12 +831,12 @@ class Hsrp(Entity):
                 .. attribute:: delay_timer_flag
                 
                 	Delay timer running flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -823,7 +845,7 @@ class Hsrp(Entity):
                 .. attribute:: delay_timer_msecs
                 
                 	Delay timer running time msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -832,7 +854,7 @@ class Hsrp(Entity):
                 .. attribute:: current_state_timer_secs
                 
                 	Time in current state secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -841,117 +863,125 @@ class Hsrp(Entity):
                 .. attribute:: state_change_count
                 
                 	Number of state changes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tracked_interface_count
                 
                 	Number of tracked interfaces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tracked_interface_up_count
                 
                 	Number of tracked interfaces up
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: preempt_enabled
                 
                 	Preempt enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: use_configured_timers
                 
                 	Use configured timers
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: use_configured_virtual_ip
                 
                 	Use configured virtual IP
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: use_bia_configured
                 
                 	Use burnt in MAC address configured
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: configured_timers
                 
                 	Non\-default timers are configured
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: configured_mac_address
                 
                 	MAC address configured
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: redirects_disabled
                 
                 	HSRP redirects disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: bfd_enabled
                 
                 	HSRP BFD fast failover
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: bfd_interface
                 
                 	BFD Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: bfd_peer_ip_address
                 
                 	BFD Peer IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: bfd_peer_ipv6_address
                 
                 	BFD Peer IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
-                	**type**\:   :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
+                	**type**\:  :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
                 
                 .. attribute:: bfd_interval
                 
                 	BFD packet send interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bfd_multiplier
                 
                 	BFD multiplier
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
-                	**type**\:   :py:class:`HsrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacState>`
+                	**type**\:  :py:class:`HsrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacState>`
                 
                 .. attribute:: secondary_address
                 
                 	Secondary virtual IP addresses
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: global_address
                 
                 	Global virtual IPv6 addresses
-                	**type**\: list of    :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.GlobalAddress>`
+                	**type**\: list of  		 :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.GlobalAddress>`
                 
                 .. attribute:: state_change_history
                 
                 	State change history
-                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory>`
+                	**type**\: list of  		 :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory>`
                 
                 
 
@@ -1141,7 +1171,7 @@ class Hsrp(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1150,7 +1180,7 @@ class Hsrp(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1189,7 +1219,7 @@ class Hsrp(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1198,7 +1228,7 @@ class Hsrp(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1237,7 +1267,7 @@ class Hsrp(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1246,7 +1276,7 @@ class Hsrp(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1285,7 +1315,7 @@ class Hsrp(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1294,7 +1324,7 @@ class Hsrp(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1333,105 +1363,105 @@ class Hsrp(Entity):
                     .. attribute:: active_transitions
                     
                     	Number of transitions to Active State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: standby_transitions
                     
                     	Number of transitions to Standby State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: speak_transitions
                     
                     	Number of transitions to Speak State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: listen_transitions
                     
                     	Number of transitions to Listen State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: learn_transitions
                     
                     	Number of transitions to Learn State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: init_transitions
                     
                     	Number of transitions to Init State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hello_packets_sent
                     
                     	Number of Hello Packets sent (NB\: Bundles only)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resign_packets_sent
                     
                     	Number of Resign Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: coup_packets_sent
                     
                     	Number of Coup Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hello_packets_received
                     
                     	Number of Hello Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resign_packets_received
                     
                     	Number of Resign Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: coup_packets_received
                     
                     	Number of Coup Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: auth_fail_received
                     
                     	Number of Packets received that failed authentication
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_timer_received
                     
                     	Number of packets received with invalid Hello Time value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mismatch_virtual_ip_address_received
                     
                     	Number of packets received with mismatching virtual IP address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1494,7 +1524,9 @@ class Hsrp(Entity):
                     .. attribute:: ipv6_address
                     
                     	IPV6Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -1527,22 +1559,22 @@ class Hsrp(Entity):
                     .. attribute:: time
                     
                     	Time of state change
-                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time>`
+                    	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time>`
                     
                     .. attribute:: old_state
                     
                     	Old State
-                    	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                    	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
                     .. attribute:: new_state
                     
                     	New State
-                    	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                    	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
                     .. attribute:: reason
                     
                     	Reason for state change
-                    	**type**\:   :py:class:`HsrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReason>`
+                    	**type**\:  :py:class:`HsrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReason>`
                     
                     
 
@@ -1584,7 +1616,7 @@ class Hsrp(Entity):
                         .. attribute:: seconds
                         
                         	Seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1593,7 +1625,7 @@ class Hsrp(Entity):
                         .. attribute:: nanoseconds
                         
                         	Nanoseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1632,7 +1664,7 @@ class Hsrp(Entity):
             .. attribute:: tracked_interface
             
             	An HSRP tracked interface entry
-            	**type**\: list of    :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces.TrackedInterface>`
+            	**type**\: list of  		 :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces.TrackedInterface>`
             
             
 
@@ -1666,55 +1698,61 @@ class Hsrp(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	The interface name of the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: group_number  <key>
                 
                 	The HSRP group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tracked_interface_name  <key>
                 
                 	The interface name of the interface being tracked
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: interface
                 
                 	IM Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: hsrp_group_number
                 
                 	HSRP Group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: priority_decrement
                 
                 	Priority weighting
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: interface_up_flag
                 
                 	Interface up flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: tracked_interface_name_xr
                 
                 	Tracked Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
                 .. attribute:: is_object
                 
                 	Tracked Object Flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1764,7 +1802,7 @@ class Hsrp(Entity):
             .. attribute:: interface
             
             	A HSRP interface entry
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface>`
             
             
 
@@ -1798,22 +1836,26 @@ class Hsrp(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	The interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: statistics
                 
                 	HSRP Interface Statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface.Statistics>`
                 
                 .. attribute:: interface
                 
                 	IM Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: use_bia_flag
                 
                 	Use burnt in mac address flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1856,63 +1898,63 @@ class Hsrp(Entity):
                     .. attribute:: advert_packets_sent
                     
                     	Number of advertisement packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: advert_packets_received
                     
                     	Number of advertisement packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: long_packets_received
                     
                     	Number of packets received that were too Long
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: short_packets_received
                     
                     	Number of packets received that were too short
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_version_received
                     
                     	Number of packets received with invalid version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_operation_code_received
                     
                     	Number of packets received with invalid operation code
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_group_received
                     
                     	Number of packets received for an unknown group id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: inoperational_group_received
                     
                     	Number of packets received for an inoperational group
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: conflict_source_ip_address_received
                     
                     	Number of packets received from a conflicting Source IP address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1963,7 +2005,7 @@ class Hsrp(Entity):
         .. attribute:: mgo_session
         
         	HSRP MGO session
-        	**type**\: list of    :py:class:`MgoSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession>`
+        	**type**\: list of  		 :py:class:`MgoSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession>`
         
         
 
@@ -1997,41 +2039,45 @@ class Hsrp(Entity):
             .. attribute:: session_name  <key>
             
             	HSRP MGO session name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: primary_session_name
             
             	Session Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: primary_session_interface
             
             	Interface of primary session
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: primary_af_name
             
             	Address family of primary session
-            	**type**\:   :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
+            	**type**\:  :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
             
             .. attribute:: primary_session_number
             
             	Group number of primary session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: primary_session_state
             
             	State of primary session
-            	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+            	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
             
             .. attribute:: slave
             
             	List of slaves following this primary session
-            	**type**\: list of    :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession.Slave>`
+            	**type**\: list of  		 :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession.Slave>`
             
             
 
@@ -2077,14 +2123,14 @@ class Hsrp(Entity):
                 .. attribute:: slave_group_interface
                 
                 	Interface of slave group
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
                 .. attribute:: slave_group_number
                 
                 	Group number of slave group
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2121,17 +2167,17 @@ class Hsrp(Entity):
         .. attribute:: tracked_interfaces
         
         	The HSRP tracked interfaces table
-        	**type**\:   :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces>`
+        	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces>`
         
         .. attribute:: groups
         
         	The HSRP standby group table
-        	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups>`
+        	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups>`
         
         .. attribute:: interfaces
         
         	The HSRP interface information table
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces>`
         
         
 
@@ -2175,7 +2221,7 @@ class Hsrp(Entity):
             .. attribute:: tracked_interface
             
             	An HSRP tracked interface entry
-            	**type**\: list of    :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces.TrackedInterface>`
+            	**type**\: list of  		 :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces.TrackedInterface>`
             
             
 
@@ -2209,55 +2255,61 @@ class Hsrp(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	The interface name of the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: group_number  <key>
                 
                 	The HSRP group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tracked_interface_name  <key>
                 
                 	The interface name of the interface being tracked
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: interface
                 
                 	IM Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: hsrp_group_number
                 
                 	HSRP Group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: priority_decrement
                 
                 	Priority weighting
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: interface_up_flag
                 
                 	Interface up flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: tracked_interface_name_xr
                 
                 	Tracked Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
                 .. attribute:: is_object
                 
                 	Tracked Object Flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -2307,7 +2359,7 @@ class Hsrp(Entity):
             .. attribute:: group
             
             	An HSRP standby group
-            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group>`
+            	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group>`
             
             
 
@@ -2341,108 +2393,112 @@ class Hsrp(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	The interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: group_number  <key>
                 
                 	The HSRP group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
-                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignSentTime>`
+                	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignSentTime>`
                 
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
-                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignReceivedTime>`
+                	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignReceivedTime>`
                 
                 .. attribute:: coup_sent_time
                 
                 	Time last coup was sent
-                	**type**\:   :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupSentTime>`
+                	**type**\:  :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupSentTime>`
                 
                 .. attribute:: coup_received_time
                 
                 	Time last coup was received
-                	**type**\:   :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupReceivedTime>`
+                	**type**\:  :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupReceivedTime>`
                 
                 .. attribute:: statistics
                 
                 	HSRP Group statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.Statistics>`
                 
                 .. attribute:: authentication_string
                 
                 	Authentication string
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..9
                 
                 .. attribute:: virtual_mac_address
                 
                 	Virtual mac address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: hsrp_group_number
                 
                 	HSRP Group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:   :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
+                	**type**\:  :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
                 
                 .. attribute:: version
                 
                 	HSRP Protocol Version
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: session_name
                 
                 	Session Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..16
                 
                 .. attribute:: slaves
                 
                 	Number of slaves following state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_slave
                 
                 	Group is a slave group
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: followed_session_name
                 
                 	Followed Session Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..16
                 
                 .. attribute:: configured_priority
                 
                 	Configured priority
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: preempt_delay
                 
                 	Preempt delay time in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2451,7 +2507,7 @@ class Hsrp(Entity):
                 .. attribute:: preempt_timer_secs
                 
                 	Preempt time remaining in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2460,7 +2516,7 @@ class Hsrp(Entity):
                 .. attribute:: hello_time
                 
                 	Hellotime in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2469,7 +2525,7 @@ class Hsrp(Entity):
                 .. attribute:: hold_time
                 
                 	Holdtime in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2478,7 +2534,7 @@ class Hsrp(Entity):
                 .. attribute:: learned_hello_time
                 
                 	Learned hellotime in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2487,7 +2543,7 @@ class Hsrp(Entity):
                 .. attribute:: learned_hold_time
                 
                 	Learned holdtime in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2496,7 +2552,7 @@ class Hsrp(Entity):
                 .. attribute:: min_delay_time
                 
                 	Minimum delay time in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2505,7 +2561,7 @@ class Hsrp(Entity):
                 .. attribute:: reload_delay_time
                 
                 	Reload delay time in msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2514,83 +2570,101 @@ class Hsrp(Entity):
                 .. attribute:: virtual_ip_address
                 
                 	Configured Virtual IPv4 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: virtual_linklocal_ipv6_address
                 
                 	Virtual linklocal IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: active_ip_address
                 
                 	Active router's IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: active_ipv6_address
                 
                 	Active router's IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: active_mac_address
                 
                 	Active router's interface MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: standby_ip_address
                 
                 	Standby router's IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: standby_ipv6_address
                 
                 	Standby router's IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: standby_mac_address
                 
                 	Standby router's interface MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: hsrp_router_state
                 
                 	HSRP router state
-                	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                 
                 .. attribute:: interface_name_xr
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
                 .. attribute:: interface
                 
                 	IM Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: router_priority
                 
                 	Priority of the router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: active_priority
                 
                 	Priority of the Active router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: active_timer_flag
                 
                 	Active timer running flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: active_timer_secs
                 
                 	Active timer running time secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2599,7 +2673,7 @@ class Hsrp(Entity):
                 .. attribute:: active_timer_msecs
                 
                 	Active timer running time msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2608,12 +2682,12 @@ class Hsrp(Entity):
                 .. attribute:: standby_timer_flag
                 
                 	Standby timer running flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: standby_timer_secs
                 
                 	Standby timer running time secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2622,7 +2696,7 @@ class Hsrp(Entity):
                 .. attribute:: standby_timer_msecs
                 
                 	Standby timer running time msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2631,12 +2705,12 @@ class Hsrp(Entity):
                 .. attribute:: hello_timer_flag
                 
                 	Hello timer running flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: hello_timer_secs
                 
                 	Hello timer running time secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2645,7 +2719,7 @@ class Hsrp(Entity):
                 .. attribute:: hello_timer_msecs
                 
                 	Hello timer running time msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2654,12 +2728,12 @@ class Hsrp(Entity):
                 .. attribute:: delay_timer_flag
                 
                 	Delay timer running flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2668,7 +2742,7 @@ class Hsrp(Entity):
                 .. attribute:: delay_timer_msecs
                 
                 	Delay timer running time msecs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2677,7 +2751,7 @@ class Hsrp(Entity):
                 .. attribute:: current_state_timer_secs
                 
                 	Time in current state secs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2686,117 +2760,125 @@ class Hsrp(Entity):
                 .. attribute:: state_change_count
                 
                 	Number of state changes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tracked_interface_count
                 
                 	Number of tracked interfaces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tracked_interface_up_count
                 
                 	Number of tracked interfaces up
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: preempt_enabled
                 
                 	Preempt enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: use_configured_timers
                 
                 	Use configured timers
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: use_configured_virtual_ip
                 
                 	Use configured virtual IP
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: use_bia_configured
                 
                 	Use burnt in MAC address configured
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: configured_timers
                 
                 	Non\-default timers are configured
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: configured_mac_address
                 
                 	MAC address configured
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: redirects_disabled
                 
                 	HSRP redirects disabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: bfd_enabled
                 
                 	HSRP BFD fast failover
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: bfd_interface
                 
                 	BFD Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: bfd_peer_ip_address
                 
                 	BFD Peer IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: bfd_peer_ipv6_address
                 
                 	BFD Peer IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
-                	**type**\:   :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
+                	**type**\:  :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
                 
                 .. attribute:: bfd_interval
                 
                 	BFD packet send interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bfd_multiplier
                 
                 	BFD multiplier
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
-                	**type**\:   :py:class:`HsrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacState>`
+                	**type**\:  :py:class:`HsrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacState>`
                 
                 .. attribute:: secondary_address
                 
                 	Secondary virtual IP addresses
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: global_address
                 
                 	Global virtual IPv6 addresses
-                	**type**\: list of    :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.GlobalAddress>`
+                	**type**\: list of  		 :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.GlobalAddress>`
                 
                 .. attribute:: state_change_history
                 
                 	State change history
-                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory>`
+                	**type**\: list of  		 :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory>`
                 
                 
 
@@ -2986,7 +3068,7 @@ class Hsrp(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2995,7 +3077,7 @@ class Hsrp(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3034,7 +3116,7 @@ class Hsrp(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3043,7 +3125,7 @@ class Hsrp(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3082,7 +3164,7 @@ class Hsrp(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3091,7 +3173,7 @@ class Hsrp(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3130,7 +3212,7 @@ class Hsrp(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3139,7 +3221,7 @@ class Hsrp(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3178,105 +3260,105 @@ class Hsrp(Entity):
                     .. attribute:: active_transitions
                     
                     	Number of transitions to Active State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: standby_transitions
                     
                     	Number of transitions to Standby State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: speak_transitions
                     
                     	Number of transitions to Speak State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: listen_transitions
                     
                     	Number of transitions to Listen State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: learn_transitions
                     
                     	Number of transitions to Learn State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: init_transitions
                     
                     	Number of transitions to Init State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hello_packets_sent
                     
                     	Number of Hello Packets sent (NB\: Bundles only)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resign_packets_sent
                     
                     	Number of Resign Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: coup_packets_sent
                     
                     	Number of Coup Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hello_packets_received
                     
                     	Number of Hello Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resign_packets_received
                     
                     	Number of Resign Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: coup_packets_received
                     
                     	Number of Coup Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: auth_fail_received
                     
                     	Number of Packets received that failed authentication
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_timer_received
                     
                     	Number of packets received with invalid Hello Time value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mismatch_virtual_ip_address_received
                     
                     	Number of packets received with mismatching virtual IP address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3339,7 +3421,9 @@ class Hsrp(Entity):
                     .. attribute:: ipv6_address
                     
                     	IPV6Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -3372,22 +3456,22 @@ class Hsrp(Entity):
                     .. attribute:: time
                     
                     	Time of state change
-                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time>`
+                    	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time>`
                     
                     .. attribute:: old_state
                     
                     	Old State
-                    	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                    	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
                     .. attribute:: new_state
                     
                     	New State
-                    	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                    	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
                     .. attribute:: reason
                     
                     	Reason for state change
-                    	**type**\:   :py:class:`HsrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReason>`
+                    	**type**\:  :py:class:`HsrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReason>`
                     
                     
 
@@ -3429,7 +3513,7 @@ class Hsrp(Entity):
                         .. attribute:: seconds
                         
                         	Seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3438,7 +3522,7 @@ class Hsrp(Entity):
                         .. attribute:: nanoseconds
                         
                         	Nanoseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3477,7 +3561,7 @@ class Hsrp(Entity):
             .. attribute:: interface
             
             	A HSRP interface entry
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface>`
             
             
 
@@ -3511,22 +3595,26 @@ class Hsrp(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	The interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: statistics
                 
                 	HSRP Interface Statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface.Statistics>`
                 
                 .. attribute:: interface
                 
                 	IM Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: use_bia_flag
                 
                 	Use burnt in mac address flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -3569,63 +3657,63 @@ class Hsrp(Entity):
                     .. attribute:: advert_packets_sent
                     
                     	Number of advertisement packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: advert_packets_received
                     
                     	Number of advertisement packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: long_packets_received
                     
                     	Number of packets received that were too Long
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: short_packets_received
                     
                     	Number of packets received that were too short
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_version_received
                     
                     	Number of packets received with invalid version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_operation_code_received
                     
                     	Number of packets received with invalid operation code
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_group_received
                     
                     	Number of packets received for an unknown group id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: inoperational_group_received
                     
                     	Number of packets received for an inoperational group
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: conflict_source_ip_address_received
                     
                     	Number of packets received from a conflicting Source IP address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3676,7 +3764,7 @@ class Hsrp(Entity):
         .. attribute:: bfd_session
         
         	An HSRP BFD Session
-        	**type**\: list of    :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession>`
+        	**type**\: list of  		 :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession>`
         
         
 
@@ -3710,66 +3798,72 @@ class Hsrp(Entity):
             .. attribute:: interface_name  <key>
             
             	The interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: ip_address  <key>
             
             	Destination IP Address of BFD Session
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            ----
             .. attribute:: bfd_interface_name
             
             	BFD Interface Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: session_address_family
             
             	Session Address family
-            	**type**\:   :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
+            	**type**\:  :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
             
             .. attribute:: destination_address
             
             	BFD destination address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: destination_ipv6_address
             
             	BFD IPv6 destination address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: bfd_session_state
             
             	BFD session state
-            	**type**\:   :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
+            	**type**\:  :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
             
             .. attribute:: bfd_interval
             
             	BFD packet send interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bfd_multiplier
             
             	BFD multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: group
             
             	HSRP Groups tracking the BFD session
-            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession.Group>`
+            	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession.Group>`
             
             
 
@@ -3821,14 +3915,14 @@ class Hsrp(Entity):
                 .. attribute:: interface_name
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
                 .. attribute:: hsrp_group_number
                 
                 	HSRP Group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3865,427 +3959,427 @@ class Hsrp(Entity):
         .. attribute:: ipv4_sessions_active
         
         	Number of IPv4 sessions in ACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_sessions_standby
         
         	Number of IPv4 sessions in STANDBY state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_sessions_speak
         
         	Number of IPv4 sessions in SPEAK state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_sessions_listen
         
         	Number of IPv4 sessions in LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_sessions_learn
         
         	Number of IPv4 sessions in LEARN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_sessions_init
         
         	Number of IPv4 sessions in INIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_slaves_active
         
         	Number of IPv4 slaves in ACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_slaves_standby
         
         	Number of IPv4 slaves in STANDBY state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_slaves_speak
         
         	Number of IPv4 slaves in SPEAK state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_slaves_listen
         
         	Number of IPv4 slaves in LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_slaves_learn
         
         	Number of IPv4 slaves in LEARN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_slaves_init
         
         	Number of IPv4 slaves in INIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_active_up
         
         	Number of UP IPv4 Virtual IP Addresses on groups in ACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_active_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in ACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_standby_up
         
         	Number of UP IPv4 Virtual IP Addresses on groups in STANDBY state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_standby_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in STANDBY state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_speak_up
         
         	Number of UP IPv4 Virtual IP Addresses on groups in SPEAK state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_speak_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in SPEAK state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_listen_up
         
         	Number of UP IPv4 Virtual IP Addresses on groups in LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_listen_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_learn_up
         
         	Number of UP IPv4 Virtual IP Addresses on groups in LEARN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_learn_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in LEARN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_init_up
         
         	Number of UP IPv4 Virtual IP Addresses on groups in INIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv4_virtual_ip_addresses_init_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in INIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_sessions_active
         
         	Number of IPv6 sessions in ACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_sessions_standby
         
         	Number of IPv6 sessions in STANDBY state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_sessions_speak
         
         	Number of IPv6 sessions in SPEAK state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_sessions_listen
         
         	Number of IPv6 sessions in LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_sessions_learn
         
         	Number of IPv6 sessions in LEARN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_sessions_init
         
         	Number of IPv6 sessions in INIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_slaves_active
         
         	Number of IPv6 slaves in ACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_slaves_standby
         
         	Number of IPv6 slaves in STANDBY state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_slaves_speak
         
         	Number of IPv6 slaves in SPEAK state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_slaves_listen
         
         	Number of IPv6 slaves in LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_slaves_learn
         
         	Number of IPv6 slaves in LEARN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_slaves_init
         
         	Number of IPv6 slaves in INIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_active_up
         
         	Number of UP IPv6 Virtual IP Addresses on groups in ACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_active_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in ACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_standby_up
         
         	Number of UP IPv6 Virtual IP Addresses on groups in STANDBY state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_standby_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in STANDBY state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_speak_up
         
         	Number of UP IPv6 Virtual IP Addresses on groups in SPEAK state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_speak_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in SPEAK state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_listen_up
         
         	Number of UP IPv6 Virtual IP Addresses on groups in LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_listen_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_learn_up
         
         	Number of UP IPv6 Virtual IP Addresses on groups in LEARN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_learn_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in LEARN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_init_up
         
         	Number of UP IPv6 Virtual IP Addresses on groups in INIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipv6_virtual_ip_addresses_init_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in INIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: interfaces_ipv4_state_up
         
         	Number of HSRP interfaces with IPv4 caps in UP state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: interfaces_ipv4_state_down
         
         	Number of HSRP interfaces with IPv4 caps in DOWN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tracked_interfaces_ipv4_state_up
         
         	Number of tracked interfaces with IPv4 caps in UP state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tracked_interfaces_ipv4_state_down
         
         	Number of tracked interfaces with IPv4 caps in DOWN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tracked_objects_up
         
         	Number of tracked objects in UP state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tracked_objects_down
         
         	Number of tracked objects in DOWN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: interfaces_ipv6_state_up
         
         	Number of HSRP interfaces with IPv6 caps in UP state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: interfaces_ipv6_state_down
         
         	Number of HSRP interfaces with IPv6 caps in DOWN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tracked_interfaces_ipv6_state_up
         
         	Number of tracked interfaces with IPv6 caps in UP state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tracked_interfaces_ipv6_state_down
         
         	Number of tracked interfaces with IPv6 caps in DOWN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: bfd_sessions_up
         
         	Number of HSRP BFD sessions in UP state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: bfd_sessions_down
         
         	Number of HSRP BFD sessions in DOWN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: bfd_session_inactive
         
         	Number of HSRP BFD sessions in INACTIVE state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         

@@ -49,7 +49,49 @@ module Cisco-IOS-XE-native {
   // =========================================================================
   // REVISION
   // =========================================================================
-  revision 2017-05-30 {
+  revision 2017-10-25 {
+    description
+      "Add diff-dependency on VirtualPortGroup for virtual-service";
+  }
+  revision 2017-08-30 {
+    description
+      "Add 'umbrella' to parameter-map enum";
+  }
+  revision 2017-08-14 {
+    description
+      "Model for monitor event-trace";
+  }
+  revision 2017-07-13 {
+    description
+      "Support for AVC";
+  } 
+
+  revision 2017-07-08 {
+    description
+      "Model for identity policy additional support";
+  }
+
+  revision 2017-06-26 {
+    description
+      "Model for identity policy";
+  }
+
+  revision 2017-06-23 {
+    description
+      "add options under monitor session type erspan-src";
+  }  
+
+  revision 2017-06-21 {
+    description
+      "add some model in domain";
+  }
+
+  revision 2017-06-15 {
+    description
+      "Removed native/access-list";
+  }
+
+  revision 2017-06-01 {
     description
       "add default crypto ikev2 policy and proposal";
   }
@@ -67,6 +109,25 @@ module Cisco-IOS-XE-native {
 
   /////////////////////////////////////////////////////////
   // TYPEDEF
+  typedef monitor-event-type {
+    type enumeration {
+      enum "error";
+      enum "detail";
+      enum "major";
+//    enum "bfd";
+//    enum "event";
+//    enum "exact-match";
+//    enum "ffd";
+//    enum "fsm";
+//    enum "ha";
+//    enum "ldp";
+//    enum "pwoam";
+//    enum "rf";
+//    enum "status";
+//    enum "switching-point";
+//    enum "vccv";
+    }
+  }
   /////////////////////////////////////////////////////////
 
 
@@ -118,6 +179,17 @@ module Cisco-IOS-XE-native {
       description "Version";
       type string {
       }
+    }
+
+    /////////////////////////////////////////////////////////
+    // native / stackwise-virtual
+    /////////////////////////////////////////////////////////
+
+    container stackwise-virtual{
+      description
+        "Enter stackwise-virtual configuration mode";
+      presence true;
+      // @mount Cisco-IOS-XE-stackwise-virtual.yang
     }
 
     /////////////////////////////////////////////////////////
@@ -392,6 +464,18 @@ module Cisco-IOS-XE-native {
         container border {
           description
             "Enter border router configuration submode";
+          container advanced {
+            description
+              "Enter border router advanced configuration submode";
+            leaf monitor-cache-percent {
+              description
+                "cache usage (%), border instance will AUTOMATICALLY go through" +
+                " SHUT/NO SHUT any ACTIVE traffic on this border will be affected";
+              type uint8 {
+                range "1..100";
+              }
+            }
+          }
           container source-interface {
             description
               "Source Interface for border";
@@ -447,7 +531,9 @@ module Cisco-IOS-XE-native {
               leaf transit {
                 description
                   "Set master type as transit";
-                type empty;
+                type uint8 {
+                  range "1..64";
+                }
               }
             }
           }
@@ -589,10 +675,10 @@ module Cisco-IOS-XE-native {
             description
               "load balance non-policy traffic";
             presence "true";
-            leaf advanced {
+            container advanced {
               description
                 "Load balancing configuration mode";
-              type empty;
+              uses domain-vrf-master-hub-class-grouping;
             }
           }
           container password {
@@ -638,51 +724,202 @@ module Cisco-IOS-XE-native {
                 "Set the Sequence for the class";
               type uint16;
             }
-            container match {
-              description
-                "Specify the applications the policy applies to";
-              list dscp {
-                description
-                  "specify DSCP";
-                key "value";
-                leaf value {
-                  type ios-types:dscp-type;
-                }
-                leaf policy {
-                  description
-                    "Specify the policy (user defined/predefined)";
-                  type enumeration {
-                    enum "best-effort";
-                    enum "bulk-data";
-                    enum "custom";
-                    enum "low-latency-data";
-                    enum "real-time-video";
-                    enum "scavenger";
-                    enum "voice";
-                  }
-                }
-              }
-            }
-            container path-preference {
-              description
-                "Specify the preferred provider";
-              leaf-list primary {
-                description
-                  "Primary service provider";
-                ordered-by user;
-                type string;
-              }
-              leaf-list fallback {
-                description
-                  "Specify the fallback provider";
-                ordered-by user;
-                type string;
-              }
-            }
+            uses domain-vrf-master-hub-class-grouping;
           }
           leaf hub-ip {
             type inet:ipv4-address;
           }
+        }
+      }
+    }
+
+    grouping domain-vrf-master-hub-class-grouping { 
+      container match {
+        description
+          "Specify the applications the policy applies to";
+        list dscp {
+          description
+            "specify DSCP";
+          key "value";
+          leaf value {
+            type ios-types:dscp-type;
+          }
+          leaf policy {
+            description
+              "Specify the policy (user defined/predefined)";
+            type enumeration {
+              enum "best-effort";
+              enum "bulk-data";
+              enum "custom";
+              enum "low-latency-data";
+              enum "real-time-video";
+              enum "scavenger";
+              enum "voice";
+            }
+          }
+        }
+      }
+      container path-preference {
+        description
+          "Specify the preferred provider";
+        leaf primary {
+          description
+            "Primary service provider";
+          type string;
+        }
+        leaf primary2 {
+          description
+            "Primary service provider";
+          type string;
+        }
+        leaf primary3 {
+          description
+            "Primary service provider";
+          type string;
+        }
+        leaf fallback {
+          description
+            "Specify the fallback provider";
+          type union {
+            type enumeration {
+              enum "routing";
+              enum "blackhole";
+            }
+            type string;
+          }
+        }
+        leaf fallback2 {
+          description
+            "Fallback service provider";
+          type string;
+        }
+        leaf fallback3 {
+          description
+            "Fallback service provider";
+          type string;
+        }
+      }
+      leaf path-last-resort {
+        description
+          "Specify path of last resort provider";
+        type string;
+      }
+    }
+
+    grouping identity-policy-grouping {
+      leaf absolute-timer {
+        description
+          "Absolute timeout value in seconds";
+        type uint16 {
+          range "1..65535";
+        }
+      }
+      leaf access-group {
+        description
+          "Access list to be applied";
+        type string;
+      }
+      leaf description {
+        description
+          "Enter a description";
+        type string;
+
+      }
+      leaf inactivity-timer {
+        description
+          "Inactivity timeout value in seconds";
+        type uint16 {
+          range "0..65535";
+        }
+      }
+      leaf interface-template {
+        description
+          "Interface template to be applied";
+        type string;
+      }
+      container linksec {
+        description
+          "Configure link security parameters";
+        leaf policy {
+          description
+            "Set the link security policy";
+          type enumeration {
+            enum "must-not-secure";
+            enum "must-secure";
+            enum "should-secure";
+          }
+        }
+      }
+      container redirect {
+        description
+          "Redirect clients to a particular location";
+        leaf url {
+          description
+            "URL where clients should be redirected";
+          type string;
+        }
+      }
+      container service-policy {
+        description
+          "Configure service policy";
+        list qos {
+          description
+            "Configure qos policies for client";
+          key "direction";
+          leaf direction {
+            type enumeration {
+              enum "input";
+              enum "output";
+            } 
+          }
+          leaf name {
+            type string;
+          }
+        }
+      }
+      leaf sgt {
+        description
+          "SGT tag";
+        type uint16 {
+          range "2..65519";
+        }
+      }
+      leaf tag {
+        description
+          "tag name";
+        type string;
+      }
+      container tunnel {
+        description
+          "tunnel for wired client access";
+        container type {
+          description
+            "tunnel type";
+          container capwap {
+            description
+              "capwap tunnel type";
+            leaf name {
+              description
+                "tunnel profile name";
+              type string;
+            }
+          }
+        }
+      }
+      leaf vlan {
+        description
+          "Enter a VlanId";
+        type uint16 {
+          range "1..4094";
+        }
+      }
+      container voice {
+        description
+          "Voice feature";
+        leaf vlan {
+          description
+            "Critical voice vlan";
+          type empty;
         }
       }
     }
@@ -1617,6 +1854,14 @@ module Cisco-IOS-XE-native {
     }
 
     /////////////////////////////////////////////////////////
+    // native / avc
+    /////////////////////////////////////////////////////////
+    container avc {
+      description "Application visibility and control";
+      // @mount Cisco-IOS-XE-nbar
+    }
+
+    /////////////////////////////////////////////////////////
     // native / policy *
     // Note: /policy must be before /interface
     /////////////////////////////////////////////////////////
@@ -2381,6 +2626,7 @@ module Cisco-IOS-XE-native {
           enum "inspect-zone";
           enum "regex";
           enum "authbypass";
+          enum "umbrella";
         }
       }
       leaf parameter-map-type {
@@ -3015,6 +3261,21 @@ module Cisco-IOS-XE-native {
     /////////////////////////////////////////////////////////
     container identity { 
       description "Identity Configuration Commands";
+      list policy {
+        description
+          "Create an Identity policy";
+        key "name";
+        leaf name {
+          description "Specify a policy name";
+          type string;
+        }
+        container no {
+          description
+            "Negate a command or set its defaults";
+          uses identity-policy-grouping;
+        }
+        uses identity-policy-grouping;
+      }
       container profile {
         description "Create an Identity profile";
         leaf dot1x {
@@ -3031,12 +3292,63 @@ module Cisco-IOS-XE-native {
     /////////////////////////////////////////////////////////
     // native / monitor
     /////////////////////////////////////////////////////////
+    grouping monitor-event-trace-enable-disable-grouping {
+      leaf enable {
+        type empty;
+      }
+      leaf disable {
+        type empty;
+      }
+    }
+
     container monitor { 
       description
         "Monitoring different system events";
       container event-trace {
         description
           "Tracing of system events";
+        container atom {
+          description
+            "AToM traces";
+          container error {
+            description
+              "This buffer stores only error logs by default.";
+            uses monitor-event-trace-enable-disable-grouping;
+            leaf-list include {
+              description
+                "Include a subset of debug types";
+              type monitor-event-type;
+            }
+          }
+          container event {
+            description
+              "This buffer stores all logs by default.";
+            uses monitor-event-trace-enable-disable-grouping;
+            leaf size {
+               type uint32;
+            }
+            leaf-list exclude {
+              description
+                "Include a subset of debug types";
+              type monitor-event-type;
+            }
+          }
+          container major {
+            description
+              "This buffer stores only major logs and error logs by default.";
+            uses monitor-event-trace-enable-disable-grouping;
+            leaf-list include {
+              description
+                "Include a subset of debug types";
+              type monitor-event-type;
+            }
+          }
+        }
+        leaf sequence-number {
+          description
+           "Display event trace entries with sequence number";
+          type empty;
+        }
       }
       // monitor session *
       list session {
@@ -3187,6 +3499,126 @@ module Cisco-IOS-XE-native {
             }
           } // remote
         }
+        container type {
+          description
+            "Type of monitor session";
+          container erspan-source {
+            description
+              "Encapsulated RSPAN Source Session";				
+            presence "true";
+            leaf description {
+              description
+                "Description for this session";
+              type string;
+            }
+            container source {
+              description
+                "SPAN source interface, VLAN ";
+              list interface {
+                description
+                  "SPAN source interface";
+                key "name";
+                leaf name {
+                  description
+                    "Interface Name";
+                  type string;
+                }
+                leaf direction {
+                  type enumeration {
+                    enum "both";
+                    enum "rx";
+                    enum "tx";
+                  }
+                }
+              }
+              list vlan {
+                description
+                  "SPAN source VLAN";
+                key "vlan1";
+                leaf vlan1 {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                }
+                leaf direction {
+                  type enumeration {
+                    enum "both";
+                    enum "rx";
+                    enum "tx";
+                  }
+                }
+              }
+            }
+            container filter {
+              description
+                "SPAN filter VLAN";
+              list vlan {
+                key "vlan1";
+                leaf vlan1 {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                }
+              }
+              container ip {
+                description "Specify IP Access control rules";
+                container access-group {
+                  description "Specify access control group";
+                  leaf acl-name {
+                    description "Access-list name";
+                    type string;
+                  }
+                }
+              }
+            }
+            leaf shutdown {
+              description
+                "Take the Service Instance out of Service";
+              type empty;
+            }
+            container destination {
+              description
+                "Specify Destination and their properties";				  
+              presence "true";
+              container ip {
+                description
+                  "IP Properties";
+                leaf address {
+                  description
+                    "Enter IP Address";
+                  type inet:ipv4-address;
+                }				  
+                leaf ttl {
+                  description
+                    "IP TTL";
+                  type uint16 {
+                    range "2..255";
+                  }
+                }
+              }  				
+              leaf erspan-id {
+                description
+                  "Enter ERSPAN Identifier";
+                type uint16 {
+                  range "1..1023";
+                }
+              }  				
+              container origin {
+                description
+                  "Origin IP Properties";
+                container ip {
+                  description
+                    "origin IP Properties";
+                  leaf address {
+                    description
+                      "Enter IP Address";
+                    type inet:ipv4-address;
+                  }
+                }
+              }				
+            }
+          }
+        }
       }
     }
 
@@ -3275,15 +3707,6 @@ module Cisco-IOS-XE-native {
       description
         "Ethernet configuration";
       // @mount Cisco-IOS-XE-ethernet
-    }
-
-    /////////////////////////////////////////////////////////
-    // native / access-list *
-    /////////////////////////////////////////////////////////
-    container access-list { 
-      description
-        "Add an access list entry";
-      // @mount Cisco-IOS-XE-acl
     }
 
     /////////////////////////////////////////////////////////

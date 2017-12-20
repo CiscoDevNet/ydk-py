@@ -121,7 +121,7 @@ class HardwareModule(Entity):
     .. attribute:: node
     
     	Node
-    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.HardwareModule.Node>`
+    	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.HardwareModule.Node>`
     
     
 
@@ -155,12 +155,14 @@ class HardwareModule(Entity):
         .. attribute:: location  <key>
         
         	Fully qualified line card specification
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: slot
         
         	Slot Id
-        	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.HardwareModule.Node.Slot>`
+        	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.HardwareModule.Node.Slot>`
         
         
 
@@ -196,19 +198,19 @@ class HardwareModule(Entity):
             .. attribute:: slot_id  <key>
             
             	Set Slot
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3
             
             .. attribute:: amplifier
             
             	Amplifier Configs
-            	**type**\:   :py:class:`Amplifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.HardwareModule.Node.Slot.Amplifier>`
+            	**type**\:  :py:class:`Amplifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.HardwareModule.Node.Slot.Amplifier>`
             
             .. attribute:: psm
             
             	PSM Configs
-            	**type**\:   :py:class:`Psm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.HardwareModule.Node.Slot.Psm>`
+            	**type**\:  :py:class:`Psm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.HardwareModule.Node.Slot.Psm>`
             
             
 
@@ -251,17 +253,17 @@ class HardwareModule(Entity):
                 .. attribute:: node_type
                 
                 	Define the type of node in which the amplifier is set to work
-                	**type**\:   :py:class:`OtsAmplifierNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsAmplifierNode>`
+                	**type**\:  :py:class:`OtsAmplifierNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsAmplifierNode>`
                 
                 .. attribute:: grid_mode
                 
                 	Define the working mode for the optical module
-                	**type**\:   :py:class:`OtsAmplifierGridMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsAmplifierGridMode>`
+                	**type**\:  :py:class:`OtsAmplifierGridMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsAmplifierGridMode>`
                 
                 .. attribute:: udc_vlan
                 
                 	Define the VLAN ID in range <2\-4080>
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 2..4080
                 
@@ -300,32 +302,32 @@ class HardwareModule(Entity):
                 .. attribute:: mono_dir
                 
                 	Psm Uni directional configuration
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: auto_threshold
                 
                 	Psm Automatic Threshold Setting
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: path_protection
                 
                 	Psm path protection configuration
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: section_protection
                 
                 	Psm section protection configuration
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: lockout_from
                 
                 	Exclude selected port from protection
-                	**type**\:   :py:class:`OtsPsmLockoutFrom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmLockoutFrom>`
+                	**type**\:  :py:class:`OtsPsmLockoutFrom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmLockoutFrom>`
                 
                 .. attribute:: manual_switch_to
                 
                 	Switch active path on selected port
-                	**type**\:   :py:class:`OtsPsmManualSwitch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmManualSwitch>`
+                	**type**\:  :py:class:`OtsPsmManualSwitch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmManualSwitch>`
                 
                 
 

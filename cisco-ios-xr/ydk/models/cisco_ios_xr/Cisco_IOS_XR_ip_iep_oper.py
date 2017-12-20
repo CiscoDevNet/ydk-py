@@ -94,12 +94,12 @@ class ExplicitPaths(Entity):
     .. attribute:: identifiers
     
     	List of configured IP explicit path identifiers, this corresponds to mplsTunnelHopTable in TE MIB
-    	**type**\:   :py:class:`Identifiers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers>`
+    	**type**\:  :py:class:`Identifiers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers>`
     
     .. attribute:: names
     
     	List of configured IP explicit path names, this corresponds to mplsTunnelHopTable in TE MIB
-    	**type**\:   :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names>`
+    	**type**\:  :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names>`
     
     
 
@@ -139,7 +139,7 @@ class ExplicitPaths(Entity):
         .. attribute:: identifier
         
         	IP explicit path configured for a particular identifier
-        	**type**\: list of    :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier>`
+        	**type**\: list of  		 :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier>`
         
         
 
@@ -174,19 +174,19 @@ class ExplicitPaths(Entity):
             .. attribute:: identifier_id  <key>
             
             	Identifier ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: status
             
             	Status of the path
-            	**type**\:   :py:class:`IepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepStatus>`
+            	**type**\:  :py:class:`IepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepStatus>`
             
             .. attribute:: address
             
             	List of IP addresses configured in the explicit path
-            	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier.Address>`
+            	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier.Address>`
             
             
 
@@ -225,36 +225,38 @@ class ExplicitPaths(Entity):
                 .. attribute:: index
                 
                 	Index number at which the path entry is inserted or modified
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: if_index
                 
                 	Interface Index of the path
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: address_type
                 
                 	Specifies the address type
-                	**type**\:   :py:class:`IepAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepAddress>`
+                	**type**\:  :py:class:`IepAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepAddress>`
                 
                 .. attribute:: hop_type
                 
                 	Specifies the next unicast address in the path as a strict or loose hop
-                	**type**\:   :py:class:`IepHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepHop>`
+                	**type**\:  :py:class:`IepHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepHop>`
                 
                 .. attribute:: address
                 
                 	IPv4 unicast address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: mpls_label
                 
                 	MPLS label
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -300,7 +302,7 @@ class ExplicitPaths(Entity):
         .. attribute:: name
         
         	IP explicit path configured for a particular path name
-        	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name>`
+        	**type**\: list of  		 :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name>`
         
         
 
@@ -335,17 +337,19 @@ class ExplicitPaths(Entity):
             .. attribute:: path_name  <key>
             
             	Path name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: status
             
             	Status of the path
-            	**type**\:   :py:class:`IepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepStatus>`
+            	**type**\:  :py:class:`IepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepStatus>`
             
             .. attribute:: address
             
             	List of IP addresses configured in the explicit path
-            	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name.Address>`
+            	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name.Address>`
             
             
 
@@ -384,36 +388,38 @@ class ExplicitPaths(Entity):
                 .. attribute:: index
                 
                 	Index number at which the path entry is inserted or modified
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: if_index
                 
                 	Interface Index of the path
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: address_type
                 
                 	Specifies the address type
-                	**type**\:   :py:class:`IepAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepAddress>`
+                	**type**\:  :py:class:`IepAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepAddress>`
                 
                 .. attribute:: hop_type
                 
                 	Specifies the next unicast address in the path as a strict or loose hop
-                	**type**\:   :py:class:`IepHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepHop>`
+                	**type**\:  :py:class:`IepHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepHop>`
                 
                 .. attribute:: address
                 
                 	IPv4 unicast address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: mpls_label
                 
                 	MPLS label
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 

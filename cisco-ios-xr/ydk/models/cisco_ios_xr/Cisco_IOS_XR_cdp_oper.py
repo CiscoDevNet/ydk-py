@@ -73,7 +73,7 @@ class Cdp(Entity):
     .. attribute:: nodes
     
     	Per node CDP operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes>`
     
     
 
@@ -107,7 +107,7 @@ class Cdp(Entity):
         .. attribute:: node
         
         	The CDP operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node>`
         
         
 
@@ -141,22 +141,24 @@ class Cdp(Entity):
             .. attribute:: node_name  <key>
             
             	The identifier for the node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: neighbors
             
             	The CDP neighbor tables on this node
-            	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors>`
+            	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors>`
             
             .. attribute:: statistics
             
             	The CDP traffic statistics for this node
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Statistics>`
             
             .. attribute:: interfaces
             
             	The table of interfaces on which CDP is running on this node
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces>`
             
             
 
@@ -205,17 +207,17 @@ class Cdp(Entity):
                 .. attribute:: details
                 
                 	The detailed CDP neighbor table
-                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details>`
+                	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details>`
                 
                 .. attribute:: devices
                 
                 	The detailed CDP neighbor table
-                	**type**\:   :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices>`
+                	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices>`
                 
                 .. attribute:: summaries
                 
                 	The CDP neighbor summary table
-                	**type**\:   :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries>`
+                	**type**\:  :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries>`
                 
                 
 
@@ -258,7 +260,7 @@ class Cdp(Entity):
                     .. attribute:: detail
                     
                     	Detailed information about a CDP neighbor entry
-                    	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail>`
+                    	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail>`
                     
                     
 
@@ -292,17 +294,19 @@ class Cdp(Entity):
                         .. attribute:: interface_name
                         
                         	The interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: cdp_neighbor
                         
                         	cdp neighbor
-                        	**type**\: list of    :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor>`
+                        	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor>`
                         
                         
 
@@ -339,46 +343,48 @@ class Cdp(Entity):
                             .. attribute:: detail
                             
                             	Detailed neighbor info
-                            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail>`
+                            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail>`
                             
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: device_id
                             
                             	Device identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: port_id
                             
                             	Outgoing port identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: header_version
                             
                             	Version number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: hold_time
                             
                             	Remaining hold time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: capabilities
                             
                             	Capabilities
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: platform
                             
                             	Platform type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -428,39 +434,39 @@ class Cdp(Entity):
                                 .. attribute:: network_addresses
                                 
                                 	List of network addresses 
-                                	**type**\:   :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses>`
+                                	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses>`
                                 
                                 .. attribute:: protocol_hello_list
                                 
                                 	List of protocol hello entries
-                                	**type**\:   :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList>`
+                                	**type**\:  :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
                                 .. attribute:: version
                                 
                                 	Version TLV
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: native_vlan
                                 
                                 	Native VLAN
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
-                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
+                                	**type**\:  :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
                                 
                                 .. attribute:: system_name
                                 
                                 	SysName
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -511,7 +517,7 @@ class Cdp(Entity):
                                     .. attribute:: cdp_addr_entry
                                     
                                     	cdp addr entry
-                                    	**type**\: list of    :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
+                                    	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
                                     
                                     
 
@@ -544,7 +550,7 @@ class Cdp(Entity):
                                         .. attribute:: address
                                         
                                         	Network layer address
-                                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address>`
+                                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address>`
                                         
                                         
 
@@ -577,17 +583,21 @@ class Cdp(Entity):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\:   :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
+                                            	**type**\:  :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -624,7 +634,7 @@ class Cdp(Entity):
                                     .. attribute:: cdp_prot_hello_entry
                                     
                                     	cdp prot hello entry
-                                    	**type**\: list of    :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
+                                    	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
                                     
                                     
 
@@ -657,7 +667,9 @@ class Cdp(Entity):
                                         .. attribute:: hello_message
                                         
                                         	Protocol Hello msg
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -690,7 +702,7 @@ class Cdp(Entity):
                     .. attribute:: device
                     
                     	Detailed information about a CDP neighbor entry
-                    	**type**\: list of    :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device>`
+                    	**type**\: list of  		 :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device>`
                     
                     
 
@@ -724,12 +736,12 @@ class Cdp(Entity):
                         .. attribute:: device_id  <key>
                         
                         	The neighboring device identifier
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: cdp_neighbor
                         
                         	cdp neighbor
-                        	**type**\: list of    :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor>`
+                        	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor>`
                         
                         
 
@@ -764,46 +776,48 @@ class Cdp(Entity):
                             .. attribute:: detail
                             
                             	Detailed neighbor info
-                            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail>`
+                            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail>`
                             
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: device_id
                             
                             	Device identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: port_id
                             
                             	Outgoing port identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: header_version
                             
                             	Version number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: hold_time
                             
                             	Remaining hold time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: capabilities
                             
                             	Capabilities
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: platform
                             
                             	Platform type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -853,39 +867,39 @@ class Cdp(Entity):
                                 .. attribute:: network_addresses
                                 
                                 	List of network addresses 
-                                	**type**\:   :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses>`
+                                	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses>`
                                 
                                 .. attribute:: protocol_hello_list
                                 
                                 	List of protocol hello entries
-                                	**type**\:   :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList>`
+                                	**type**\:  :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
                                 .. attribute:: version
                                 
                                 	Version TLV
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: native_vlan
                                 
                                 	Native VLAN
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
-                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
+                                	**type**\:  :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
                                 
                                 .. attribute:: system_name
                                 
                                 	SysName
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -936,7 +950,7 @@ class Cdp(Entity):
                                     .. attribute:: cdp_addr_entry
                                     
                                     	cdp addr entry
-                                    	**type**\: list of    :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
+                                    	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
                                     
                                     
 
@@ -969,7 +983,7 @@ class Cdp(Entity):
                                         .. attribute:: address
                                         
                                         	Network layer address
-                                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address>`
+                                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address>`
                                         
                                         
 
@@ -1002,17 +1016,21 @@ class Cdp(Entity):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\:   :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
+                                            	**type**\:  :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -1049,7 +1067,7 @@ class Cdp(Entity):
                                     .. attribute:: cdp_prot_hello_entry
                                     
                                     	cdp prot hello entry
-                                    	**type**\: list of    :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
+                                    	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
                                     
                                     
 
@@ -1082,7 +1100,9 @@ class Cdp(Entity):
                                         .. attribute:: hello_message
                                         
                                         	Protocol Hello msg
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -1115,7 +1135,7 @@ class Cdp(Entity):
                     .. attribute:: summary
                     
                     	Brief information about a CDP neighbor entry
-                    	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary>`
+                    	**type**\: list of  		 :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary>`
                     
                     
 
@@ -1148,17 +1168,19 @@ class Cdp(Entity):
                         .. attribute:: interface_name
                         
                         	The interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: cdp_neighbor
                         
                         	cdp neighbor
-                        	**type**\: list of    :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor>`
+                        	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor>`
                         
                         
 
@@ -1195,46 +1217,48 @@ class Cdp(Entity):
                             .. attribute:: detail
                             
                             	Detailed neighbor info
-                            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail>`
+                            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail>`
                             
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: device_id
                             
                             	Device identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: port_id
                             
                             	Outgoing port identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: header_version
                             
                             	Version number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: hold_time
                             
                             	Remaining hold time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: capabilities
                             
                             	Capabilities
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: platform
                             
                             	Platform type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1284,39 +1308,39 @@ class Cdp(Entity):
                                 .. attribute:: network_addresses
                                 
                                 	List of network addresses 
-                                	**type**\:   :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses>`
+                                	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses>`
                                 
                                 .. attribute:: protocol_hello_list
                                 
                                 	List of protocol hello entries
-                                	**type**\:   :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList>`
+                                	**type**\:  :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
                                 .. attribute:: version
                                 
                                 	Version TLV
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: native_vlan
                                 
                                 	Native VLAN
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
-                                	**type**\:   :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
+                                	**type**\:  :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
                                 
                                 .. attribute:: system_name
                                 
                                 	SysName
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -1367,7 +1391,7 @@ class Cdp(Entity):
                                     .. attribute:: cdp_addr_entry
                                     
                                     	cdp addr entry
-                                    	**type**\: list of    :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
+                                    	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
                                     
                                     
 
@@ -1400,7 +1424,7 @@ class Cdp(Entity):
                                         .. attribute:: address
                                         
                                         	Network layer address
-                                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address>`
+                                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address>`
                                         
                                         
 
@@ -1433,17 +1457,21 @@ class Cdp(Entity):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\:   :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
+                                            	**type**\:  :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -1480,7 +1508,7 @@ class Cdp(Entity):
                                     .. attribute:: cdp_prot_hello_entry
                                     
                                     	cdp prot hello entry
-                                    	**type**\: list of    :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
+                                    	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
                                     
                                     
 
@@ -1513,7 +1541,9 @@ class Cdp(Entity):
                                         .. attribute:: hello_message
                                         
                                         	Protocol Hello msg
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         
 
@@ -1546,98 +1576,98 @@ class Cdp(Entity):
                 .. attribute:: received_packets
                 
                 	Received packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: received_packets_v1
                 
                 	Received v1 packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: received_packets_v2
                 
                 	Received v2 packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: transmitted_packets
                 
                 	Transmitted packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: transmitted_packets_v1
                 
                 	Transmitted v1 packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: transmitted_packets_v2
                 
                 	Transmitted v2 packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: header_errors
                 
                 	Header syntax errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: checksum_errors
                 
                 	Checksum errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: encapsulation_errors
                 
                 	Transmission errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_packet_errors
                 
                 	Bad packet received and dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_of_memory_errors
                 
                 	Out\-of\-memory conditions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: truncated_packet_errors
                 
                 	Truncated messages
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: header_version_errors
                 
                 	Can't handle receive version
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: open_file_errors
                 
                 	Cannot open file
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1699,7 +1729,7 @@ class Cdp(Entity):
                 .. attribute:: interface
                 
                 	Operational data for an interface on which CDP is running
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -1733,31 +1763,35 @@ class Cdp(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	The interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: interface_handle
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: basecaps_state
                     
                     	Interface basecaps state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cdp_protocol_state
                     
                     	CDP protocol state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_encaps
                     
                     	Interface encapsulation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

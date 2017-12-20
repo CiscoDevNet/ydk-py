@@ -697,12 +697,12 @@ class MplsLdp(Entity):
     .. attribute:: mpls_ldp_state
     
     	MPLS LDP operational data
-    	**type**\:   :py:class:`MplsLdpState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState>`
+    	**type**\:  :py:class:`MplsLdpState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState>`
     
     .. attribute:: mpls_ldp_config
     
     	MPLS LDP Configuration
-    	**type**\:   :py:class:`MplsLdpConfig <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig>`
+    	**type**\:  :py:class:`MplsLdpConfig <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig>`
     
     
 
@@ -741,77 +741,77 @@ class MplsLdp(Entity):
         .. attribute:: oper_summary
         
         	LDP operational data summary
-        	**type**\:   :py:class:`OperSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.OperSummary>`
+        	**type**\:  :py:class:`OperSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.OperSummary>`
         
         .. attribute:: forwarding_summary
         
         	Summary information regarding LDP forwarding setup
-        	**type**\:   :py:class:`ForwardingSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary>`
+        	**type**\:  :py:class:`ForwardingSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary>`
         
         .. attribute:: bindings_summary
         
         	Aggregate counters for the MPLS LDP LIB
-        	**type**\:   :py:class:`BindingsSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.BindingsSummary>`
+        	**type**\:  :py:class:`BindingsSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.BindingsSummary>`
         
         .. attribute:: nsr_summary_all
         
         	This is the LDP NSR summary for the device
-        	**type**\:   :py:class:`NsrSummaryAll <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.NsrSummaryAll>`
+        	**type**\:  :py:class:`NsrSummaryAll <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.NsrSummaryAll>`
         
         .. attribute:: icpm_summary_all
         
         	Summary info for LDP ICPM/ICCP
-        	**type**\:   :py:class:`IcpmSummaryAll <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll>`
+        	**type**\:  :py:class:`IcpmSummaryAll <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll>`
         
         .. attribute:: parameters
         
         	MPLS LDP Global Parameters
-        	**type**\:   :py:class:`Parameters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Parameters>`
+        	**type**\:  :py:class:`Parameters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Parameters>`
         
         .. attribute:: capabilities
         
         	LDP capability database information
-        	**type**\:   :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Capabilities>`
+        	**type**\:  :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Capabilities>`
         
         .. attribute:: backoff_parameters
         
         	MPLS LDP Session Backoff Information
-        	**type**\:   :py:class:`BackoffParameters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.BackoffParameters>`
+        	**type**\:  :py:class:`BackoffParameters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.BackoffParameters>`
         
         .. attribute:: graceful_restart
         
         	MPLS LDP Graceful Restart Information
-        	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.GracefulRestart>`
+        	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.GracefulRestart>`
         
         .. attribute:: vrfs
         
         	MPLS LDP per\-VRF operational data
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs>`
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs>`
         
         .. attribute:: discovery
         
         	The LDP Discovery operational state
-        	**type**\:   :py:class:`Discovery <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery>`
+        	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery>`
         
         .. attribute:: forwarding
         
         	Summary information regarding LDP forwarding setup and detailed LDP Forwarding rewrites
-        	**type**\:   :py:class:`Forwarding <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding>`
+        	**type**\:  :py:class:`Forwarding <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding>`
         
         .. attribute:: bindings
         
         	The detailed LDP Bindings
-        	**type**\:   :py:class:`Bindings <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings>`
+        	**type**\:  :py:class:`Bindings <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings>`
         
         .. attribute:: neighbors
         
         	The LDP Neighbors Information
-        	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors>`
+        	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors>`
         
         .. attribute:: label_ranges
         
         	This contaions holds all the label ranges in use by this LDP instance
-        	**type**\:   :py:class:`LabelRanges <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.LabelRanges>`
+        	**type**\:  :py:class:`LabelRanges <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.LabelRanges>`
         
         
 
@@ -915,54 +915,54 @@ class MplsLdp(Entity):
             .. attribute:: common
             
             	Common Summary information
-            	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.OperSummary.Common>`
+            	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.OperSummary.Common>`
             
             .. attribute:: number_of_vrf
             
             	Number of configured VRFs (including default)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: number_of_vrf_oper
             
             	Number of configured operational VRFs (including default)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: number_of_interfaces
             
             	Number of known interfaces
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: number_of_fwd_ref_interfaces
             
             	Number of Forward Reference interfaces
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: number_of_autocfg_interfaces
             
             	Number of auto\-configured interfaces
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: no_of_ipv4_rib_tbl
             
             	Total number of ipv4 RIB tables
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: no_of_ipv4_rib_tbl_reg
             
             	Number of ipv4 RIB tables registered
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1015,61 +1015,61 @@ class MplsLdp(Entity):
                 .. attribute:: address_families
                 
                 	Address Families enabled
-                	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                 
                 .. attribute:: number_of_neighbors
                 
                 	Number of neighbor
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_graceful_restart_neighbors
                 
                 	Number of Graceful Restart neighbor
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_downstream_on_demand_neighbors
                 
                 	Number of Downstream\-On\-Demand neighbor
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: numberof_ipv4_hello_adj
                 
                 	Number of LDP discovery IPv4 hello adjacencies
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_ipv4_routes
                 
                 	Number of resolved IPv4 routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_ipv4_local_addresses
                 
                 	Number of IPv4 local addresses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_ldp_interfaces
                 
                 	Number of LDP configured interfaces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_ipv4ldp_interfaces
                 
                 	Number of LDP IPv4 configured interfaces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1122,24 +1122,24 @@ class MplsLdp(Entity):
             .. attribute:: pfxs
             
             	MPLS LDP forwarding prefix rewrite summary
-            	**type**\:   :py:class:`Pfxs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Pfxs>`
+            	**type**\:  :py:class:`Pfxs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Pfxs>`
             
             .. attribute:: nhs
             
             	MPLS LDP forwarding rewrite next\-hop/path summary
-            	**type**\:   :py:class:`Nhs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Nhs>`
+            	**type**\:  :py:class:`Nhs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Nhs>`
             
             .. attribute:: intfs_fwd_count
             
             	MPLS forwarding enabled interface count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: local_lbls
             
             	Local label allocated count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -1187,36 +1187,36 @@ class MplsLdp(Entity):
                 .. attribute:: labeled_pfxs_aggr
                 
                 	Labeled prefix count for all paths
-                	**type**\:   :py:class:`LabeledPfxsAggr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsAggr>`
+                	**type**\:  :py:class:`LabeledPfxsAggr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsAggr>`
                 
                 .. attribute:: labeled_pfxs_primary
                 
                 	Labeled prefix count related to primary paths only
-                	**type**\:   :py:class:`LabeledPfxsPrimary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsPrimary>`
+                	**type**\:  :py:class:`LabeledPfxsPrimary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsPrimary>`
                 
                 .. attribute:: labeled_pfxs_backup
                 
                 	Labeled prefix count related to backup paths only
-                	**type**\:   :py:class:`LabeledPfxsBackup <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsBackup>`
+                	**type**\:  :py:class:`LabeledPfxsBackup <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.ForwardingSummary.Pfxs.LabeledPfxsBackup>`
                 
                 .. attribute:: total_pfxs
                 
                 	Total Prefix count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: ecmp_pfxs
                 
                 	Count of prefixes with ECMP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: protected_pfxs
                 
                 	Count of FRR protected prefixes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1271,21 +1271,21 @@ class MplsLdp(Entity):
                     .. attribute:: labeled_pfxs
                     
                     	Count of labeled prefixes with 1 or more paths labeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: labeled_pfxs_partial
                     
                     	Count of labeled prefixes with some (but not ALL) paths labeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: unlabeled_pfxs
                     
                     	Count of labeled prefixes with ALL paths unlabeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -1326,21 +1326,21 @@ class MplsLdp(Entity):
                     .. attribute:: labeled_pfxs
                     
                     	Count of labeled prefixes with 1 or more paths labeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: labeled_pfxs_partial
                     
                     	Count of labeled prefixes with some (but not ALL) paths labeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: unlabeled_pfxs
                     
                     	Count of labeled prefixes with ALL paths unlabeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -1381,21 +1381,21 @@ class MplsLdp(Entity):
                     .. attribute:: labeled_pfxs
                     
                     	Count of labeled prefixes with 1 or more paths labeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: labeled_pfxs_partial
                     
                     	Count of labeled prefixes with some (but not ALL) paths labeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: unlabeled_pfxs
                     
                     	Count of labeled prefixes with ALL paths unlabeled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -1435,42 +1435,42 @@ class MplsLdp(Entity):
                 .. attribute:: total_paths
                 
                 	Total path count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: protected_paths
                 
                 	Count of FRR protected paths
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: backup_paths
                 
                 	Count of non\-primary backup paths
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: remote_backup_paths
                 
                 	Count of non\-primary remote backup paths
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: labeled_paths
                 
                 	Count of all labeled paths
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: labeled_backup_paths
                 
                 	Count of labeled backup paths
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1516,84 +1516,84 @@ class MplsLdp(Entity):
             .. attribute:: binding_total
             
             	Total bindings
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_no_route
             
             	Bindings with no route
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_local_no_route
             
             	Local bindings with no route
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_local
             
             	Number of local bindings
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_local_null
             
             	Number of local null bindings
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_local_implicit_null
             
             	Number of local implicit null bindings
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_local_explicit_null
             
             	Number of local explicit null bindings
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_local_non_null
             
             	Number of local non\-null bindings
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_local_oor
             
             	This is the number of local bindings needing label but which hit the Out\-Of\-Resource condition
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: lowest_allocated_label
             
             	Lowest allocated label
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: highest_allocated_label
             
             	Highest allocated label
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: binding_remote
             
             	Number of remote bindings
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1651,42 +1651,42 @@ class MplsLdp(Entity):
             .. attribute:: nsr_sum_in_label_reqs_created
             
             	In label Request Records created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nsr_sum_in_label_reqs_freed
             
             	In label Request Records freed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nsr_sum_in_label_withdraw_created
             
             	In label Withdraw Records created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nsr_sum_in_label_withdraw_freed
             
             	In label Withdraw Records freed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nsr_sum_lcl_addr_withdraw_set
             
             	Local Address Withdraw set
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nsr_sum_lcl_addr_withdraw_cleared
             
             	Local Address Withdraw cleared
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1732,40 +1732,40 @@ class MplsLdp(Entity):
             .. attribute:: iccp_rg_conn_count
             
             	ICCP RG Connect count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: iccp_rg_disconn_count
             
             	ICCP RG Disconnect count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: iccp_rg_notif_count
             
             	ICCP RG Notif count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: iccp_rg_app_data_count
             
             	ICCP RG App Data count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: icpm_rgid_table_info
             
             	This defines the ICPM RGID Table
-            	**type**\:   :py:class:`IcpmRgidTableInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo>`
+            	**type**\:  :py:class:`IcpmRgidTableInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo>`
             
             .. attribute:: icpm_session_table
             
             	This is a list of ICPM sessions
-            	**type**\:   :py:class:`IcpmSessionTable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable>`
+            	**type**\:  :py:class:`IcpmSessionTable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable>`
             
             
 
@@ -1815,7 +1815,7 @@ class MplsLdp(Entity):
                 .. attribute:: red_group
                 
                 	This is the data for an individual ICPM Rredundandy Group,
-                	**type**\: list of    :py:class:`RedGroup <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup>`
+                	**type**\: list of  		 :py:class:`RedGroup <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup>`
                 
                 
 
@@ -1850,14 +1850,14 @@ class MplsLdp(Entity):
                     .. attribute:: rg_id  <key>
                     
                     	This is the ICPM RG identifier
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: icpm_protocols
                     
                     	This list contains all active icpm protocols
-                    	**type**\: list of    :py:class:`IcpmProtocols <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols>`
+                    	**type**\: list of  		 :py:class:`IcpmProtocols <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols>`
                     
                     
 
@@ -1893,12 +1893,12 @@ class MplsLdp(Entity):
                         .. attribute:: icpm_type  <key>
                         
                         	ICPM Type
-                        	**type**\:   :py:class:`IcpmType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IcpmType>`
+                        	**type**\:  :py:class:`IcpmType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IcpmType>`
                         
                         .. attribute:: redun_groups
                         
                         	List of Redundancy Groups
-                        	**type**\: list of    :py:class:`RedunGroups <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols.RedunGroups>`
+                        	**type**\: list of  		 :py:class:`RedunGroups <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols.RedunGroups>`
                         
                         
 
@@ -1933,39 +1933,39 @@ class MplsLdp(Entity):
                             .. attribute:: rg_id  <key>
                             
                             	Redundancy Group Identifier
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: peer_id
                             
                             	LSR identifier
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: client_id
                             
                             	Client Identifier
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: state
                             
                             	ICCP State
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: iccp_apps
                             
                             	List of apps
-                            	**type**\: list of    :py:class:`IccpApps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols.RedunGroups.IccpApps>`
+                            	**type**\: list of  		 :py:class:`IccpApps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmRgidTableInfo.RedGroup.IcpmProtocols.RedunGroups.IccpApps>`
                             
                             
 
@@ -2006,17 +2006,17 @@ class MplsLdp(Entity):
                                 .. attribute:: iccp_app  <key>
                                 
                                 	ICCP App Type
-                                	**type**\:   :py:class:`IccpType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IccpType>`
+                                	**type**\:  :py:class:`IccpType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IccpType>`
                                 
                                 .. attribute:: app_state
                                 
                                 	App State
-                                	**type**\:   :py:class:`IccpState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IccpState>`
+                                	**type**\:  :py:class:`IccpState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IccpState>`
                                 
                                 .. attribute:: ptcl_ver
                                 
                                 	ICCP App Protocol Version
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2055,7 +2055,7 @@ class MplsLdp(Entity):
                 .. attribute:: session_table
                 
                 	ICPM LDP Session Table
-                	**type**\: list of    :py:class:`SessionTable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable>`
+                	**type**\: list of  		 :py:class:`SessionTable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable>`
                 
                 
 
@@ -2089,14 +2089,14 @@ class MplsLdp(Entity):
                     .. attribute:: session_id  <key>
                     
                     	This is the ICPM sesion identifier
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: icpm_protocols
                     
                     	This list contains all active icpm protocols
-                    	**type**\: list of    :py:class:`IcpmProtocols <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols>`
+                    	**type**\: list of  		 :py:class:`IcpmProtocols <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols>`
                     
                     
 
@@ -2132,12 +2132,12 @@ class MplsLdp(Entity):
                         .. attribute:: icpm_type  <key>
                         
                         	ICPM Type
-                        	**type**\:   :py:class:`IcpmType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IcpmType>`
+                        	**type**\:  :py:class:`IcpmType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IcpmType>`
                         
                         .. attribute:: redun_groups
                         
                         	List of Redundancy Groups
-                        	**type**\: list of    :py:class:`RedunGroups <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols.RedunGroups>`
+                        	**type**\: list of  		 :py:class:`RedunGroups <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols.RedunGroups>`
                         
                         
 
@@ -2172,39 +2172,39 @@ class MplsLdp(Entity):
                             .. attribute:: rg_id  <key>
                             
                             	Redundancy Group Identifier
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: peer_id
                             
                             	LSR identifier
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: client_id
                             
                             	Client Identifier
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: state
                             
                             	ICCP State
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: iccp_apps
                             
                             	List of apps
-                            	**type**\: list of    :py:class:`IccpApps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols.RedunGroups.IccpApps>`
+                            	**type**\: list of  		 :py:class:`IccpApps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.IcpmSummaryAll.IcpmSessionTable.SessionTable.IcpmProtocols.RedunGroups.IccpApps>`
                             
                             
 
@@ -2245,17 +2245,17 @@ class MplsLdp(Entity):
                                 .. attribute:: iccp_app  <key>
                                 
                                 	ICCP App Type
-                                	**type**\:   :py:class:`IccpType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IccpType>`
+                                	**type**\:  :py:class:`IccpType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IccpType>`
                                 
                                 .. attribute:: app_state
                                 
                                 	App State
-                                	**type**\:   :py:class:`IccpState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IccpState>`
+                                	**type**\:  :py:class:`IccpState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IccpState>`
                                 
                                 .. attribute:: ptcl_ver
                                 
                                 	ICCP App Protocol Version
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2294,19 +2294,19 @@ class MplsLdp(Entity):
             .. attribute:: global_md5_password_enabled
             
             	Global MD5 password enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: protocol_version
             
             	Protocol version
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: keepalive_interval
             
             	Keepalive interval in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2315,7 +2315,7 @@ class MplsLdp(Entity):
             .. attribute:: session_hold_time
             
             	Session hold time in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2324,7 +2324,7 @@ class MplsLdp(Entity):
             .. attribute:: le_no_route_timeout
             
             	LIB entry no route timeout in second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2333,7 +2333,7 @@ class MplsLdp(Entity):
             .. attribute:: af_binding_withdraw_delay
             
             	Delay (sec) in Binding Withdrawal for an Address Family
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2342,57 +2342,57 @@ class MplsLdp(Entity):
             .. attribute:: max_intf_attached
             
             	Maximum number of LDP enabled attached interfaces
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: max_intf_te
             
             	Maximum number of LDP enabled TE interfaces
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: max_peer
             
             	Maximum number of LDP peers
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: out_of_mem_state
             
             	This is a counter of the number of times LDP attempted to create a label or binding and failed due a memory allocation failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: discovery_quick_start_disabled_on_interfaces
             
             	Discovery quick\-start disabled on some enabled interfaces
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: address_family_parameter
             
             	Per AF parameters
-            	**type**\: list of    :py:class:`AddressFamilyParameter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Parameters.AddressFamilyParameter>`
+            	**type**\: list of  		 :py:class:`AddressFamilyParameter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Parameters.AddressFamilyParameter>`
             
             .. attribute:: dod_max_hop
             
             	Maximum number of hops for Downstream\-on\-Demand
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: feature
             
             	This entry describes an LDP feature available on the device. This does not indicate whether the feature is enabled, just the raw ability to support the feature. The features may include, but are not limited to\: 'Auto\-Configuration', 'Basic', 'ICPM', 'IP\-over\-MPLS', 'IGP\-Sync', 'LLAF', 'TCP\-MD5\-Rollover', 'TDP', and 'NSR'
-            	**type**\:  list of str
+            	**type**\: list of str
             
             .. attribute:: loop_detection
             
             	A indication of whether this LSR has enabled loop detection. Since Loop Detection is determined during Session Initialization, an individual session may not be running with loop detection.  This object simply gives an indication of whether or not the LSR has the ability enabled to support Loop Detection and which types
-            	**type**\:   :py:class:`LoopDetectionType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.LoopDetectionType>`
+            	**type**\:  :py:class:`LoopDetectionType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.LoopDetectionType>`
             
             
 
@@ -2454,30 +2454,30 @@ class MplsLdp(Entity):
                 .. attribute:: address_family  <key>
                 
                 	Address Family
-                	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                 
                 .. attribute:: discovery_transport_address
                 
                 	This is the Discovery transport address
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: is_accepting_targeted_hellos
                 
                 	Accepting targeted Hellos
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: targeted_hello_filter
                 
                 	This contains the filter name for targeted hellos. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -2517,7 +2517,7 @@ class MplsLdp(Entity):
             .. attribute:: capability
             
             	Information on LDP capability
-            	**type**\: list of    :py:class:`Capability <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Capabilities.Capability>`
+            	**type**\: list of  		 :py:class:`Capability <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Capabilities.Capability>`
             
             
 
@@ -2551,33 +2551,33 @@ class MplsLdp(Entity):
                 .. attribute:: cap_type  <key>
                 
                 	Capability type (IANA assigned)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: capability_owner
                 
                 	Capability owner
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: cap_des
                 
                 	Capability description
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..80
                 
                 .. attribute:: capability_data_length
                 
                 	Capability data length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: capability_data
                 
                 	Capability data
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -2619,7 +2619,7 @@ class MplsLdp(Entity):
             .. attribute:: initial_seconds
             
             	Initial backoff value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2628,7 +2628,7 @@ class MplsLdp(Entity):
             .. attribute:: maximum_seconds
             
             	Maximum backoff value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2637,7 +2637,7 @@ class MplsLdp(Entity):
             .. attribute:: backoff_seconds
             
             	Current backoff seconds count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2646,7 +2646,7 @@ class MplsLdp(Entity):
             .. attribute:: waiting_seconds
             
             	Current backoff waiting seconds count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2690,12 +2690,12 @@ class MplsLdp(Entity):
             .. attribute:: is_graceful_restart_configured
             
             	Is graceful restart configured
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: graceful_restart_reconnect_timeout
             
             	Reconnect timeout value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2704,7 +2704,7 @@ class MplsLdp(Entity):
             .. attribute:: graceful_restart_forwarding_state_hold_time
             
             	Graceful restart forward state hold time in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2713,12 +2713,12 @@ class MplsLdp(Entity):
             .. attribute:: is_forwarding_state_hold_timer_running
             
             	Is graceful restart forwarding state hold timer running
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: forwarding_state_hold_timer_remaining_seconds
             
             	Forwarding state hold timer remaining time in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2764,7 +2764,7 @@ class MplsLdp(Entity):
             .. attribute:: vrf
             
             	MPLS LDP Operational data for a given VRF
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf>`
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf>`
             
             
 
@@ -2798,17 +2798,17 @@ class MplsLdp(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: vrf_summary
                 
                 	MPLS LDP per VRF summarized Information
-                	**type**\:   :py:class:`VrfSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.VrfSummary>`
+                	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.VrfSummary>`
                 
                 .. attribute:: afs
                 
                 	Address Family specific operational data
-                	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs>`
+                	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs>`
                 
                 
 
@@ -2852,61 +2852,61 @@ class MplsLdp(Entity):
                     .. attribute:: address_families
                     
                     	Address Families enabled
-                    	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                    	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                     
                     .. attribute:: number_of_neighbors
                     
                     	Number of neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_graceful_restart_neighbors
                     
                     	Number of Graceful Restart neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_downstream_on_demand_neighbors
                     
                     	Number of Downstream\-On\-Demand neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: numberof_ipv4_hello_adj
                     
                     	Number of LDP discovery IPv4 hello adjacencies
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_ipv4_routes
                     
                     	Number of resolved IPv4 routes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_ipv4_local_addresses
                     
                     	Number of IPv4 local addresses
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_ldp_interfaces
                     
                     	Number of LDP configured interfaces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_ipv4ldp_interfaces
                     
                     	Number of LDP IPv4 configured interfaces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2957,7 +2957,7 @@ class MplsLdp(Entity):
                     .. attribute:: af
                     
                     	MPLS LDP Operational data for this Address Family
-                    	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af>`
+                    	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af>`
                     
                     
 
@@ -2990,17 +2990,17 @@ class MplsLdp(Entity):
                         .. attribute:: af_name  <key>
                         
                         	Address Family name
-                        	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                        	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                         
                         .. attribute:: interface_summary
                         
                         	This container holds a summary of information across all interfaces in this AF,
-                        	**type**\:   :py:class:`InterfaceSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.InterfaceSummary>`
+                        	**type**\:  :py:class:`InterfaceSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.InterfaceSummary>`
                         
                         .. attribute:: igp
                         
                         	LDP IGP Synchronization related information
-                        	**type**\:   :py:class:`Igp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp>`
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp>`
                         
                         
 
@@ -3044,56 +3044,56 @@ class MplsLdp(Entity):
                             .. attribute:: known_ip_interface_count
                             
                             	Number of known IP Interfaces
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: known_ip_interface_ldp_enabled
                             
                             	Number of known IP Interfaces with LDP Enabled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: configured_attached_interface
                             
                             	Number of attached interfaces configured in LDP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: configured_te_interface
                             
                             	Number of TE tunnel interfaces configured in LDP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: forward_references
                             
                             	Number of forward referenced interfaces
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: auto_config_disabled
                             
                             	Autoconfigure disabled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: auto_config
                             
                             	Auto\-configured interfaces
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: auto_config_forward_reference_interfaces
                             
                             	Auto\-configured forward references
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3142,7 +3142,7 @@ class MplsLdp(Entity):
                             .. attribute:: sync
                             
                             	LDP\-IGP Synchronization related information for an interface
-                            	**type**\: list of    :py:class:`Sync <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp.Sync>`
+                            	**type**\: list of  		 :py:class:`Sync <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp.Sync>`
                             
                             
 
@@ -3176,24 +3176,24 @@ class MplsLdp(Entity):
                                 .. attribute:: interface  <key>
                                 
                                 	This leaf contains the interface name for the IGP Synchronization information
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                                 
                                 .. attribute:: igp_sync_state
                                 
                                 	IGP Sync state
-                                	**type**\:   :py:class:`IgpSyncState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IgpSyncState>`
+                                	**type**\:  :py:class:`IgpSyncState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IgpSyncState>`
                                 
                                 .. attribute:: is_delay_timer_running
                                 
                                 	This is set when the sync delay timer running
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: delay_timer_remaining
                                 
                                 	Remaining timer (seconds) until expiry of sync delay timer
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -3202,12 +3202,12 @@ class MplsLdp(Entity):
                                 .. attribute:: igp_sync_down_reason
                                 
                                 	Reason IGP Sync Not Achieved
-                                	**type**\:   :py:class:`IgpSyncDownReason <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IgpSyncDownReason>`
+                                	**type**\:  :py:class:`IgpSyncDownReason <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.IgpSyncDownReason>`
                                 
                                 .. attribute:: peers
                                 
                                 	MPLS LDP IGP Sync Interface Peer Information
-                                	**type**\: list of    :py:class:`Peers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp.Sync.Peers>`
+                                	**type**\: list of  		 :py:class:`Peers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Vrfs.Vrf.Afs.Af.Igp.Sync.Peers>`
                                 
                                 
 
@@ -3250,17 +3250,17 @@ class MplsLdp(Entity):
                                     .. attribute:: peer_id
                                     
                                     	Peer Identifier
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: is_gr_enabled
                                     
                                     	Is GR enabled session
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: is_chkpt_created
                                     
                                     	This is set if this peer was created due to check\-pointing
-                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -3297,17 +3297,17 @@ class MplsLdp(Entity):
             .. attribute:: discovery_stats
             
             	MPLS LDP Discovery Summary Information
-            	**type**\:   :py:class:`DiscoveryStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.DiscoveryStats>`
+            	**type**\:  :py:class:`DiscoveryStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.DiscoveryStats>`
             
             .. attribute:: link_hello_state
             
             	This container holds information for LDP Discovery using non\-targeted Hellos. These are interface\-based hellos which form one or more adjacencies for each interface and also form adjacencies on multiple intefrfaces. Link Hellos can therefore form multiple adjacencies with the same peer
-            	**type**\:   :py:class:`LinkHelloState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.LinkHelloState>`
+            	**type**\:  :py:class:`LinkHelloState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.LinkHelloState>`
             
             .. attribute:: targeted_hellos
             
             	The LDP Discovery Targeted Hello state
-            	**type**\:   :py:class:`TargetedHellos <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.TargetedHellos>`
+            	**type**\:  :py:class:`TargetedHellos <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.TargetedHellos>`
             
             
 
@@ -3351,42 +3351,42 @@ class MplsLdp(Entity):
                 .. attribute:: num_of_ldp_interfaces
                 
                 	Total Number of LDP configured interfaces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: num_of_active_ldp_interfaces
                 
                 	Number of active LDP enabled interfaces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: num_of_lnk_disc_xmit
                 
                 	Number of link hello discoveries in xmit state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: num_of_tgt_disc_xmit
                 
                 	Number of targeted hello discoveries in xmit state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: num_of_lnk_disc_recv
                 
                 	Number of link hello discoveries in recv state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: num_of_tgt_disc_recv
                 
                 	Number of targeted hello discoveries in recv state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3437,7 +3437,7 @@ class MplsLdp(Entity):
                 .. attribute:: link_hellos
                 
                 	Each entry represents a single LDP Hello Adjacency. An LDP Session can have one or more Hello Adjacencies
-                	**type**\: list of    :py:class:`LinkHellos <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.LinkHelloState.LinkHellos>`
+                	**type**\: list of  		 :py:class:`LinkHellos <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.LinkHelloState.LinkHellos>`
                 
                 
 
@@ -3473,27 +3473,27 @@ class MplsLdp(Entity):
                     .. attribute:: interface  <key>
                     
                     	The Discovery Interface
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: nbr_transport_addr  <key>
                     
                     	This is the MPLS LDP Hello Neighbor transport address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: hello_interval
                     
                     	Hello interval in seconds. This is the value used to send hello messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3502,63 +3502,63 @@ class MplsLdp(Entity):
                     .. attribute:: local_src_addr
                     
                     	MPLS LDP Discovery Local source address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: local_transport_addr
                     
                     	MPLS LDP Discovery Local transport address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: nbr_src_addr
                     
                     	This is the MPLS LDP Hello Neighbor source address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: nbr_ldp_id
                     
                     	Neighbor LDP Identifier
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: session_up
                     
                     	Set when the session is up for this adjacency
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: nbr_hold_time
                     
                     	The Hello hold time which is negotiated between the Entity and the Peer.  The entity associated with this Hello Adjacency issues a proposed Hello Hold Time value in the EntityHelloHoldTimer object.  The peer also proposes a value and this object represents the negotiated value.  A value of 0 means the default, which is 15 seconds for Link Hellos and 45 seconds for Targeted Hellos. A value of 65535 indicates an infinite hold time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: next_hello
                     
                     	Next hello due time in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3567,7 +3567,7 @@ class MplsLdp(Entity):
                     .. attribute:: hold_time_remaining
                     
                     	This is the MPLS LDP Hello Discovery expiry time in seconds. If the value of this object is 65535, this means that the hold time is infinite (i.e., wait forever).  Otherwise, the time remaining for this Hello Adjacency to receive its next Hello Message.  This interval will change when the 'next' Hello Message which corresponds to this Hello Adjacency is received unless it is infinite
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -3625,7 +3625,7 @@ class MplsLdp(Entity):
                 .. attribute:: targeted_hello_interval
                 
                 	Local Targeted Hello interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3634,7 +3634,7 @@ class MplsLdp(Entity):
                 .. attribute:: targeted_hello_hold_time
                 
                 	Local Targeted hold time in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3643,7 +3643,7 @@ class MplsLdp(Entity):
                 .. attribute:: targeted_hello
                 
                 	The LDP targeted discovery information for a specific target. Targetted discovery creates a single adjacency between two addresses and not indiviual adjacencies across physical interfaces
-                	**type**\: list of    :py:class:`TargetedHello <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.TargetedHellos.TargetedHello>`
+                	**type**\: list of  		 :py:class:`TargetedHello <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Discovery.TargetedHellos.TargetedHello>`
                 
                 
 
@@ -3684,55 +3684,55 @@ class MplsLdp(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	This contains the VRF Name, where 'default' is used for the default vrf
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: target_address  <key>
                     
                     	The target IP Address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: local_address
                     
                     	Local IP Address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: neighbor_ldp_identifier
                     
                     	Neighbor LDP Identifier
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: state
                     
                     	This is the MPLS LDP Targeted Hello state
-                    	**type**\:   :py:class:`DhcState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.DhcState>`
+                    	**type**\:  :py:class:`DhcState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.DhcState>`
                     
                     .. attribute:: nbr_hold_time
                     
                     	The Hello hold time which is negotiated between the Entity and the Peer.  The entity associated with this Hello Adjacency issues a proposed Hello Hold Time value in the EntityHelloHoldTimer object.  The peer also proposes a value and this object represents the negotiated value.  A value of 0 means the default, which is 15 seconds for Link Hellos and 45 seconds for Targeted Hellos. A value of 65535 indicates an infinite hold time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: next_hello
                     
                     	Next hello due time in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3741,7 +3741,7 @@ class MplsLdp(Entity):
                     .. attribute:: hold_time_remaining
                     
                     	This is the MPLS LDP Hello Discovery expiry time in seconds. If the value of this object is 65535, this means that the hold time is infinite (i.e., wait forever).  Otherwise, the time remaining for this Hello Adjacency to receive its next Hello Message.  This interval will change when the 'next' Hello Message which corresponds to this Hello Adjacency is received unless it is infinite
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -3794,12 +3794,12 @@ class MplsLdp(Entity):
             .. attribute:: forwarding_vrf_summs
             
             	Summary of forwarding info for this VRF
-            	**type**\:   :py:class:`ForwardingVrfSumms <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms>`
+            	**type**\:  :py:class:`ForwardingVrfSumms <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms>`
             
             .. attribute:: forwarding_detail
             
             	This leaf contain the individual LDP forwarding rewrite for a single prefix
-            	**type**\: list of    :py:class:`ForwardingDetail <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail>`
+            	**type**\: list of  		 :py:class:`ForwardingDetail <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail>`
             
             
 
@@ -3838,7 +3838,7 @@ class MplsLdp(Entity):
                 .. attribute:: forwarding_vrf_summ
                 
                 	Summary of forwarding info for this VRF
-                	**type**\: list of    :py:class:`ForwardingVrfSumm <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm>`
+                	**type**\: list of  		 :py:class:`ForwardingVrfSumm <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm>`
                 
                 
 
@@ -3872,29 +3872,29 @@ class MplsLdp(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	This contains the VRF Name, where 'default' is used for the default vrf
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: pfxs
                     
                     	MPLS LDP forwarding prefix rewrite summary
-                    	**type**\:   :py:class:`Pfxs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs>`
+                    	**type**\:  :py:class:`Pfxs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs>`
                     
                     .. attribute:: nhs
                     
                     	MPLS LDP forwarding rewrite next\-hop/path summary
-                    	**type**\:   :py:class:`Nhs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Nhs>`
+                    	**type**\:  :py:class:`Nhs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Nhs>`
                     
                     .. attribute:: intfs_fwd_count
                     
                     	MPLS forwarding enabled interface count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: local_lbls
                     
                     	Local label allocated count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -3944,36 +3944,36 @@ class MplsLdp(Entity):
                         .. attribute:: labeled_pfxs_aggr
                         
                         	Labeled prefix count for all paths
-                        	**type**\:   :py:class:`LabeledPfxsAggr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsAggr>`
+                        	**type**\:  :py:class:`LabeledPfxsAggr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsAggr>`
                         
                         .. attribute:: labeled_pfxs_primary
                         
                         	Labeled prefix count related to primary paths only
-                        	**type**\:   :py:class:`LabeledPfxsPrimary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsPrimary>`
+                        	**type**\:  :py:class:`LabeledPfxsPrimary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsPrimary>`
                         
                         .. attribute:: labeled_pfxs_backup
                         
                         	Labeled prefix count related to backup paths only
-                        	**type**\:   :py:class:`LabeledPfxsBackup <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsBackup>`
+                        	**type**\:  :py:class:`LabeledPfxsBackup <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingVrfSumms.ForwardingVrfSumm.Pfxs.LabeledPfxsBackup>`
                         
                         .. attribute:: total_pfxs
                         
                         	Total Prefix count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: ecmp_pfxs
                         
                         	Count of prefixes with ECMP
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: protected_pfxs
                         
                         	Count of FRR protected prefixes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -4027,21 +4027,21 @@ class MplsLdp(Entity):
                             .. attribute:: labeled_pfxs
                             
                             	Count of labeled prefixes with 1 or more paths labeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: labeled_pfxs_partial
                             
                             	Count of labeled prefixes with some (but not ALL) paths labeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: unlabeled_pfxs
                             
                             	Count of labeled prefixes with ALL paths unlabeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -4081,21 +4081,21 @@ class MplsLdp(Entity):
                             .. attribute:: labeled_pfxs
                             
                             	Count of labeled prefixes with 1 or more paths labeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: labeled_pfxs_partial
                             
                             	Count of labeled prefixes with some (but not ALL) paths labeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: unlabeled_pfxs
                             
                             	Count of labeled prefixes with ALL paths unlabeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -4135,21 +4135,21 @@ class MplsLdp(Entity):
                             .. attribute:: labeled_pfxs
                             
                             	Count of labeled prefixes with 1 or more paths labeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: labeled_pfxs_partial
                             
                             	Count of labeled prefixes with some (but not ALL) paths labeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: unlabeled_pfxs
                             
                             	Count of labeled prefixes with ALL paths unlabeled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -4188,42 +4188,42 @@ class MplsLdp(Entity):
                         .. attribute:: total_paths
                         
                         	Total path count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: protected_paths
                         
                         	Count of FRR protected paths
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: backup_paths
                         
                         	Count of non\-primary backup paths
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: remote_backup_paths
                         
                         	Count of non\-primary remote backup paths
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: labeled_paths
                         
                         	Count of all labeled paths
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: labeled_backup_paths
                         
                         	Count of labeled backup paths
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4269,57 +4269,57 @@ class MplsLdp(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: prefix  <key>
                 
                 	The IP Prefix
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 .. attribute:: fwd_prefix
                 
                 	This is the MPLS LDP Forward IP Prefix
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: route
                 
                 	MPLS LDP Forwarding Route information
-                	**type**\:   :py:class:`Route <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Route>`
+                	**type**\:  :py:class:`Route <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Route>`
                 
                 .. attribute:: table_id
                 
                 	Table ID associated with IP prefix
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: prefix_length
                 
                 	Prefix length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: paths
                 
                 	MPLS LDP Forwarding Path info
-                	**type**\: list of    :py:class:`Paths <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths>`
+                	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths>`
                 
                 
 
@@ -4368,54 +4368,54 @@ class MplsLdp(Entity):
                     .. attribute:: version
                     
                     	Route RIB version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: priority
                     
                     	Route priority
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: source
                     
                     	Route source protocol Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: type
                     
                     	Route type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: metric
                     
                     	Route metric
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_local_vrf_leaked
                     
                     	Is this route leaked across local VRFs?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: routing_update_count
                     
                     	Number of routing updates
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: routing_update_timestamp
                     
                     	Last Routing update nanosec timestamp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4424,7 +4424,7 @@ class MplsLdp(Entity):
                     .. attribute:: routing_update_age
                     
                     	Last Routing update nanosec age
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4433,21 +4433,21 @@ class MplsLdp(Entity):
                     .. attribute:: local_label
                     
                     	Local label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: forwarding_update_count
                     
                     	Number of forwarding updates
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: forwarding_update_timestamp
                     
                     	Last Forwarding update nanosec timestamp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4456,7 +4456,7 @@ class MplsLdp(Entity):
                     .. attribute:: forwarding_update_age
                     
                     	Last Forwarding update nanosec age
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4517,12 +4517,12 @@ class MplsLdp(Entity):
                     .. attribute:: routing
                     
                     	MPLS LDP Forwarding Path IP Routing information
-                    	**type**\:   :py:class:`Routing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Routing>`
+                    	**type**\:  :py:class:`Routing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Routing>`
                     
                     .. attribute:: mpls
                     
                     	MPLS LDP Forwarding Path MPLS information
-                    	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls>`
+                    	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls>`
                     
                     
 
@@ -4560,85 +4560,85 @@ class MplsLdp(Entity):
                         .. attribute:: next_hop
                         
                         	This is the Next Hop address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: remote_node_id
                         
                         	This is the Remote/PQ node address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: has_remote_lfa_bkup
                         
                         	This is true if the path has a remote LFA backup
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: interface
                         
                         	This is the interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                         
                         .. attribute:: nh_is_overriden
                         
                         	This is set when the nexthop is overriden by LDP
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: nexthop_id
                         
                         	Nexthop Identifier
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: next_hop_table_id
                         
                         	Table ID for nexthop address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: load_metric
                         
                         	Path's load metric for load balancing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: path_id
                         
                         	path Id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: bkup_path_id
                         
                         	Backup path Id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: path_type
                         
                         	Routing path type
-                        	**type**\:   :py:class:`RoutePathType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RoutePathType>`
+                        	**type**\:  :py:class:`RoutePathType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RoutePathType>`
                         
                         
 
@@ -4691,12 +4691,12 @@ class MplsLdp(Entity):
                         .. attribute:: mpls_outgoing_info
                         
                         	MPLS nexthop info
-                        	**type**\:   :py:class:`MplsOutgoingInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo>`
+                        	**type**\:  :py:class:`MplsOutgoingInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo>`
                         
                         .. attribute:: remote_lfa
                         
                         	MPLS LDP Forwarding Path Remote LFA\-FRR backup MPLS info
-                        	**type**\:   :py:class:`RemoteLfa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa>`
+                        	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa>`
                         
                         
 
@@ -4734,34 +4734,34 @@ class MplsLdp(Entity):
                             .. attribute:: nexthop_peer_ldp_ident
                             
                             	Nexthop LDP peer
-                            	**type**\:   :py:class:`NexthopPeerLdpIdent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo.NexthopPeerLdpIdent>`
+                            	**type**\:  :py:class:`NexthopPeerLdpIdent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.MplsOutgoingInfo.NexthopPeerLdpIdent>`
                             
                             .. attribute:: out_label
                             
                             	Outgoing label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_label_type
                             
                             	Outgoing Label Type
-                            	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.LabelType>`
+                            	**type**\:  :py:class:`LabelType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.LabelType>`
                             
                             .. attribute:: out_label_owner
                             
                             	Outgoing label owner
-                            	**type**\:   :py:class:`RoutePathLblOwner <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RoutePathLblOwner>`
+                            	**type**\:  :py:class:`RoutePathLblOwner <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RoutePathLblOwner>`
                             
                             .. attribute:: is_from_graceful_restartable_neighbor
                             
                             	Is from a GR neighbor
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_stale
                             
                             	Is the entry stale? This may happen during a graceful restart
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4807,20 +4807,20 @@ class MplsLdp(Entity):
                                 .. attribute:: lsr_id
                                 
                                 	LSR identifier
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
                                 .. attribute:: label_space_id
                                 
                                 	Label space identifier
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -4858,12 +4858,12 @@ class MplsLdp(Entity):
                             .. attribute:: mpls_outgoing_info
                             
                             	Remote LFA MPLS nexthop info
-                            	**type**\:   :py:class:`MplsOutgoingInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo>`
+                            	**type**\:  :py:class:`MplsOutgoingInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo>`
                             
                             .. attribute:: has_remote_lfa_bkup
                             
                             	Whether path has remote LFA backup
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4901,34 +4901,34 @@ class MplsLdp(Entity):
                                 .. attribute:: nexthop_peer_ldp_ident
                                 
                                 	Nexthop LDP peer
-                                	**type**\:   :py:class:`NexthopPeerLdpIdent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo.NexthopPeerLdpIdent>`
+                                	**type**\:  :py:class:`NexthopPeerLdpIdent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Forwarding.ForwardingDetail.Paths.Mpls.RemoteLfa.MplsOutgoingInfo.NexthopPeerLdpIdent>`
                                 
                                 .. attribute:: out_label
                                 
                                 	Outgoing label
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: out_label_type
                                 
                                 	Outgoing Label Type
-                                	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.LabelType>`
+                                	**type**\:  :py:class:`LabelType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.LabelType>`
                                 
                                 .. attribute:: out_label_owner
                                 
                                 	Outgoing label owner
-                                	**type**\:   :py:class:`RoutePathLblOwner <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RoutePathLblOwner>`
+                                	**type**\:  :py:class:`RoutePathLblOwner <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RoutePathLblOwner>`
                                 
                                 .. attribute:: is_from_graceful_restartable_neighbor
                                 
                                 	Is from a GR neighbor
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_stale
                                 
                                 	Is the entry stale? This may happen during a graceful restart
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -4974,20 +4974,20 @@ class MplsLdp(Entity):
                                     .. attribute:: lsr_id
                                     
                                     	LSR identifier
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: label_space_id
                                     
                                     	Label space identifier
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -5024,12 +5024,12 @@ class MplsLdp(Entity):
             .. attribute:: bindings_sum_afs
             
             	This container holds the bindings specific to this VRF and AF
-            	**type**\:   :py:class:`BindingsSumAfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.BindingsSumAfs>`
+            	**type**\:  :py:class:`BindingsSumAfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.BindingsSumAfs>`
             
             .. attribute:: binding
             
             	This list contains the MPLS LDP Label Bindings for each IP Prefix. Label bindings provide the local MPLS Label, a list of remote labels, any filters affecting advertisment of that filter, and a list of neighbors to which the label has been advertised
-            	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.Binding>`
+            	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.Binding>`
             
             
 
@@ -5069,7 +5069,7 @@ class MplsLdp(Entity):
                 .. attribute:: binding_sum_af
                 
                 	Counters for the LDP Label Information Base for this VRF/AF
-                	**type**\: list of    :py:class:`BindingSumAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.BindingsSumAfs.BindingSumAf>`
+                	**type**\: list of  		 :py:class:`BindingSumAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.BindingsSumAfs.BindingSumAf>`
                 
                 
 
@@ -5104,94 +5104,94 @@ class MplsLdp(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	This contains the VRF Name, where 'default' is used for the default vrf
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: af_name  <key>
                     
                     	Address Family name
-                    	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                    	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                     
                     .. attribute:: binding_total
                     
                     	Total bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_no_route
                     
                     	Bindings with no route
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_local_no_route
                     
                     	Local bindings with no route
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_local
                     
                     	Number of local bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_local_null
                     
                     	Number of local null bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_local_implicit_null
                     
                     	Number of local implicit null bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_local_explicit_null
                     
                     	Number of local explicit null bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_local_non_null
                     
                     	Number of local non\-null bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_local_oor
                     
                     	This is the number of local bindings needing label but which hit the Out\-Of\-Resource condition
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: lowest_allocated_label
                     
                     	Lowest allocated label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: highest_allocated_label
                     
                     	Highest allocated label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: binding_remote
                     
                     	Number of remote bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5257,94 +5257,94 @@ class MplsLdp(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: prefix  <key>
                 
                 	This leaf contains the IP Prefix being bound
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 .. attribute:: fwd_prefix
                 
                 	This is the MPLS LDP Binding IP Prefix
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: prefix_length
                 
                 	This is the MPLS LDP Binding Prefix Length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: local_label
                 
                 	This is the MPLS LDP Binding Local label
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: le_local_binding_revision
                 
                 	This is the MPLS LDP Binding Local Binding revision
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: le_local_label_state
                 
                 	This is the MPLS LDP Binding Local label state
-                	**type**\:   :py:class:`LocalLabelState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.LocalLabelState>`
+                	**type**\:  :py:class:`LocalLabelState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.LocalLabelState>`
                 
                 .. attribute:: is_no_route
                 
                 	This is true if the MPLS LDP Binding has no route
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: label_oor
                 
                 	This is true if the MPLS LDP Binding Label space is depleted, Out Of Resource. No new labels can be allocated
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: advertise_prefix_filter
                 
                 	This contains the filter name for this binding's prefix. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: advertise_lsr_filter
                 
                 	This contains the filter name for this binding's Advertise LSR. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: config_enforced_local_label_value
                 
                 	Config/User enforced local label value
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: remote_binding
                 
                 	MPLS LDP Remote Binding Information
-                	**type**\: list of    :py:class:`RemoteBinding <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding>`
+                	**type**\: list of  		 :py:class:`RemoteBinding <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding>`
                 
                 .. attribute:: peers_advertised_to
                 
                 	Peers to which this entry is advertised
-                	**type**\: list of    :py:class:`PeersAdvertisedTo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.Binding.PeersAdvertisedTo>`
+                	**type**\: list of  		 :py:class:`PeersAdvertisedTo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.Binding.PeersAdvertisedTo>`
                 
                 
 
@@ -5403,19 +5403,19 @@ class MplsLdp(Entity):
                     .. attribute:: assigning_peer_ldp_ident
                     
                     	Assigning peer
-                    	**type**\:   :py:class:`AssigningPeerLdpIdent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding.AssigningPeerLdpIdent>`
+                    	**type**\:  :py:class:`AssigningPeerLdpIdent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Bindings.Binding.RemoteBinding.AssigningPeerLdpIdent>`
                     
                     .. attribute:: remote_label
                     
                     	This is the remote Label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_stale
                     
                     	Is the entry stale
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -5455,20 +5455,20 @@ class MplsLdp(Entity):
                         .. attribute:: lsr_id
                         
                         	LSR identifier
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: label_space_id
                         
                         	Label space identifier
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -5505,20 +5505,20 @@ class MplsLdp(Entity):
                     .. attribute:: lsr_id
                     
                     	LSR identifier
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: label_space_id
                     
                     	Label space identifier
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -5555,27 +5555,27 @@ class MplsLdp(Entity):
             .. attribute:: neighbor
             
             	Information on a particular LDP neighbor
-            	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor>`
+            	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor>`
             
             .. attribute:: nbr_adjs
             
             	For this Neighbor, this is the list of adjacencies between the neighbor and the local node
-            	**type**\: list of    :py:class:`NbrAdjs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.NbrAdjs>`
+            	**type**\: list of  		 :py:class:`NbrAdjs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.NbrAdjs>`
             
             .. attribute:: stats_info
             
             	MPLS LDP Statistics Information
-            	**type**\:   :py:class:`StatsInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.StatsInfo>`
+            	**type**\:  :py:class:`StatsInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.StatsInfo>`
             
             .. attribute:: backoffs
             
             	LDP Backoff Information
-            	**type**\:   :py:class:`Backoffs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Backoffs>`
+            	**type**\:  :py:class:`Backoffs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Backoffs>`
             
             .. attribute:: nsr_nbr_detail
             
             	This is the LDP NSR state for this neighbor
-            	**type**\:   :py:class:`NsrNbrDetail <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail>`
+            	**type**\:  :py:class:`NsrNbrDetail <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail>`
             
             
 
@@ -5625,44 +5625,44 @@ class MplsLdp(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: lsr_id  <key>
                 
                 	LSR ID of neighbor
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: label_space_id
                 
                 	Label space ID of neighbor
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: session_role
                 
                 	During session establishment the LSR/LER takes either the active role or the passive role based on address comparisons.  This object indicates whether this LSR/LER was behaving in an active role or passive role during this session's establishment.  The value of unknown(1), indicates that the role is not able to be determined at the present time
-                	**type**\:   :py:class:`SessionRole <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.SessionRole>`
+                	**type**\:  :py:class:`SessionRole <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.SessionRole>`
                 
                 .. attribute:: session_prot_ver
                 
                 	The version of the LDP Protocol which this session is using.  This is the version of the LDP protocol which has been negotiated during session initialization
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: up_time_seconds
                 
                 	Up time in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5671,39 +5671,39 @@ class MplsLdp(Entity):
                 .. attribute:: nbr_path_vector_limit
                 
                 	If the value of this object is 0 (zero) then Loop Dection for Path Vectors for this neighor is disabled.  Otherwise, if this object has a value greater than zero, then Loop Dection for Path  Vectors for this neighbor is enabled and the Path Vector Limit is this value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: nbr_stats
                 
                 	Neighbor Statistics
-                	**type**\:   :py:class:`NbrStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.NbrStats>`
+                	**type**\:  :py:class:`NbrStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.NbrStats>`
                 
                 .. attribute:: graceful_restart_adjacency
                 
                 	This container holds the graceful restart information for this adjacency
-                	**type**\:   :py:class:`GracefulRestartAdjacency <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.GracefulRestartAdjacency>`
+                	**type**\:  :py:class:`GracefulRestartAdjacency <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.GracefulRestartAdjacency>`
                 
                 .. attribute:: downstream_on_demand
                 
                 	Is Label advertisement mode in Downstream On Demand mode or not?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: tcp_information
                 
                 	MPLS LDP Neighbor TCP Information
-                	**type**\:   :py:class:`TcpInformation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.TcpInformation>`
+                	**type**\:  :py:class:`TcpInformation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.TcpInformation>`
                 
                 .. attribute:: capabilities
                 
                 	Capabilities sent to and received from neighbor
-                	**type**\:   :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities>`
+                	**type**\:  :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities>`
                 
                 .. attribute:: peer_hold_time
                 
                 	Session holdtime value in seconds from the peer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5712,7 +5712,7 @@ class MplsLdp(Entity):
                 .. attribute:: peer_keep_alive_interval
                 
                 	Session keepalive interval in seconds from the peer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5721,64 +5721,64 @@ class MplsLdp(Entity):
                 .. attribute:: peer_state
                 
                 	LDP adjacency peer state
-                	**type**\:   :py:class:`AdjState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.AdjState>`
+                	**type**\:  :py:class:`AdjState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.AdjState>`
                 
                 .. attribute:: inbound_ipv4
                 
                 	This contains the IPv4 Inbound accept filter name. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..80
                 
                 .. attribute:: inbound_ipv6_filter
                 
                 	This contains the IPv6 Inbound accept filter name. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..80
                 
                 .. attribute:: outbound_ipv4_filter
                 
                 	This contains the IPv4 Outbound advertise filter name. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..80
                 
                 .. attribute:: outbound_ipv6_filter
                 
                 	This contains the IPv6 Outbound advertise filter name. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..80
                 
                 .. attribute:: has_sp
                 
                 	Session Protection enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: sp_state
                 
                 	Session Protection state
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..80
                 
                 .. attribute:: sp_filter
                 
                 	This contains the Session Protection filter name. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..80
                 
                 .. attribute:: sp_has_duration
                 
                 	Session Protection has non\-default duration
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: sp_duration
                 
                 	Session protection holdup time duration in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5787,12 +5787,12 @@ class MplsLdp(Entity):
                 .. attribute:: spht_running
                 
                 	Session Protection holdup timer is running
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: spht_remaining
                 
                 	Session Protection holdup time remaining value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5801,44 +5801,44 @@ class MplsLdp(Entity):
                 .. attribute:: bgp_advertisement_state
                 
                 	BGP labeled prefixes advertisement state
-                	**type**\:   :py:class:`NbrBgpAdvtState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NbrBgpAdvtState>`
+                	**type**\:  :py:class:`NbrBgpAdvtState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NbrBgpAdvtState>`
                 
                 .. attribute:: advertise_bgp_prefixes
                 
                 	True if BGP labeled prefixes are advertised to the neighbor
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: client
                 
                 	Targeted Session clients
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 .. attribute:: duplicate_address
                 
                 	Duplicate IPv4/IPv6 address bound to this peer
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  list of str
+                		**type**\: list of str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  list of str
+                		**type**\: list of str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: nbr_bound_address
                 
                 	This is the MPLS LDP Neighbor Bound IPv4/IPv6 Address
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  list of str
+                		**type**\: list of str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  list of str
+                		**type**\: list of str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 
 
                 """
@@ -5982,56 +5982,56 @@ class MplsLdp(Entity):
                     .. attribute:: ta_pies_sent
                     
                     	Number of MPLS LDP messages sent to this neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ta_pies_rcvd
                     
                     	Number of MPLS LDP messages received from this neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_of_nbr_ipv4_discovery
                     
                     	Number of neighbor IPv4 discovery sources
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_of_nbr_ipv6_discovery
                     
                     	Number of neighbor IPv6 discovery sources
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_of_nbr_ipv4_addresses
                     
                     	Number of IPv4 addresses for which the neighbor is advertising labels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_of_nbr_ipv6_addresses
                     
                     	Number of IPv6 addresses for which the neighbor is advertising labels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_of_nbr_ipv4_lbl
                     
                     	Number of IPv4 labels the neighbor is advertising
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_of_nbr_ipv6_lbl
                     
                     	Number of IPv6 labels the neighbor is advertising
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6081,12 +6081,12 @@ class MplsLdp(Entity):
                     .. attribute:: is_graceful_restartable
                     
                     	Is this neighbor graceful restartable?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: reconnect_timeout
                     
                     	This leaf is the reconnect timeout in microseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6095,7 +6095,7 @@ class MplsLdp(Entity):
                     .. attribute:: recovery_time
                     
                     	This leaf is the recovery time in microseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6104,12 +6104,12 @@ class MplsLdp(Entity):
                     .. attribute:: is_liveness_timer_running
                     
                     	This is set if the liveness timer is running
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: liveness_timer_remaining_seconds
                     
                     	Remaining time from liveness timer in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6118,12 +6118,12 @@ class MplsLdp(Entity):
                     .. attribute:: is_recovery_timer_running
                     
                     	This is set if the recovery timer is running
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: recovery_timer_remaining_seconds
                     
                     	Recovery timer remaining time in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6132,14 +6132,14 @@ class MplsLdp(Entity):
                     .. attribute:: down_nbr_flap_count
                     
                     	This is the current count of back\-to\-back flaps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: down_nbr_down_reason
                     
                     	This identity provides the reason that the LDP Session with this neighbor is down. The reason does not persist if the session was down but is now recovered
-                    	**type**\:   :py:class:`DownNbrReason <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.DownNbrReason>`
+                    	**type**\:  :py:class:`DownNbrReason <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.DownNbrReason>`
                     
                     
 
@@ -6188,52 +6188,52 @@ class MplsLdp(Entity):
                     .. attribute:: foreign_host
                     
                     	This is the foreign host address used by TCP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: local_host
                     
                     	This is the local host address used by TCP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: foreign_port
                     
                     	Foreign port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: local_port
                     
                     	Local port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: is_md5_on
                     
                     	Is MD5 Digest on
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: up_time
                     
                     	up time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -6276,12 +6276,12 @@ class MplsLdp(Entity):
                     .. attribute:: sent_caps
                     
                     	List of sent capabilities
-                    	**type**\: list of    :py:class:`SentCaps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities.SentCaps>`
+                    	**type**\: list of  		 :py:class:`SentCaps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities.SentCaps>`
                     
                     .. attribute:: received_caps
                     
                     	List of received capabilities
-                    	**type**\: list of    :py:class:`ReceivedCaps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities.ReceivedCaps>`
+                    	**type**\: list of  		 :py:class:`ReceivedCaps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.Neighbor.Capabilities.ReceivedCaps>`
                     
                     
 
@@ -6315,28 +6315,28 @@ class MplsLdp(Entity):
                         .. attribute:: cap_type  <key>
                         
                         	Capability type (IANA assigned)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: cap_des
                         
                         	Capability description
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..80
                         
                         .. attribute:: capability_data_length
                         
                         	Capability data length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: capability_data
                         
                         	Capability data
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -6375,28 +6375,28 @@ class MplsLdp(Entity):
                         .. attribute:: cap_type  <key>
                         
                         	Capability type (IANA assigned)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: cap_des
                         
                         	Capability description
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..80
                         
                         .. attribute:: capability_data_length
                         
                         	Capability data length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: capability_data
                         
                         	Capability data
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -6436,40 +6436,40 @@ class MplsLdp(Entity):
                 .. attribute:: interface
                 
                 	This is the interface used by MPLS LDP Link Hello
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: local_address
                 
                 	This is the local address used to send the Targeted Hello
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: target_address
                 
                 	This is the destination address used to send the Targeted Hello
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: target_state
                 
                 	This is the state of this Targeted Hello instance
-                	**type**\:   :py:class:`DhcState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.DhcState>`
+                	**type**\:  :py:class:`DhcState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.DhcState>`
                 
                 
 
@@ -6509,108 +6509,108 @@ class MplsLdp(Entity):
                 .. attribute:: message_out
                 
                 	MPLS LDP message sent counters to this neighbor
-                	**type**\:   :py:class:`MessageOut <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageOut>`
+                	**type**\:  :py:class:`MessageOut <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageOut>`
                 
                 .. attribute:: message_in
                 
                 	MPLS LDP message received counters from this neighbor
-                	**type**\:   :py:class:`MessageIn <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageIn>`
+                	**type**\:  :py:class:`MessageIn <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.StatsInfo.MessageIn>`
                 
                 .. attribute:: discon_time
                 
                 	The value of sysUpTime on the most recent occasion at which any one or more of this entity's counters suffered a discontinuity.  The relevant counters are the specific instances associated with this entity of any counter32 object contained in the 'EntityStatsTable'.  If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this object contains a zero value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: session_attempts
                 
                 	A count of the Session Initialization messages which were sent or received by this LDP Entity and were NAK'd.   In other words, this counter counts the number of session initializations that failed.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sess_reject_no_hello
                 
                 	A count of the Session Rejected/No Hello Error Notification Messages sent or received by this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sess_rej_ad
                 
                 	A count of the Session Rejected/Parameters Advertisement Mode Error Notification Messages sent or received by this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sess_rej_max_pdu
                 
                 	A count of the Session Rejected/Parameters  Max Pdu Length Error Notification Messages sent or received by this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sess_rej_lr
                 
                 	A count of the Session Rejected/Parameters Label Range Notification Messages sent or received by this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_ldpid
                 
                 	This object counts the number of Bad LDP Identifier Fatal Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_pdu_len
                 
                 	This object counts the number of Bad PDU Length Fatal Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_msg_len
                 
                 	This object counts the number of Bad Message Length Fatal Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_tlv_len
                 
                 	This object counts the number of Bad TLV Length Fatal Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: malformed_tlv_val
                 
                 	This object counts the number of Malformed TLV Value Fatal Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: keep_alive_exp
                 
                 	This object counts the number of Session Keep Alive Timer Expired Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: shutdown_notif_rec
                 
                 	This object counts the number of Shutdown Notifications received related to session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: shutdow_notif_sent
                 
                 	This object counts the number of Shutdown Notfications sent related to session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of  discon\-time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -6682,105 +6682,105 @@ class MplsLdp(Entity):
                     .. attribute:: total_count
                     
                     	Total count of all messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: init_count
                     
                     	Init message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: address_count
                     
                     	Address message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: address_withdraw_count
                     
                     	Address withdraw count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_map_count
                     
                     	Label map count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_withdraw_count
                     
                     	Label withdraw count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_release_count
                     
                     	Label release count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_request_count
                     
                     	Label request count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_abort_request_count
                     
                     	Label abort request count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: notification_count
                     
                     	Notification count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keep_alive_count
                     
                     	Keepalive count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iccp_rg_conn_count
                     
                     	ICCP RG Connect count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iccp_rg_disconn_count
                     
                     	ICCP RG Disconnect count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iccp_rg_notif_count
                     
                     	ICCP RG Notify count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iccp_rg_app_data_count
                     
                     	ICCP RG App Data count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6845,105 +6845,105 @@ class MplsLdp(Entity):
                     .. attribute:: total_count
                     
                     	Total count of all messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: init_count
                     
                     	Init message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: address_count
                     
                     	Address message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: address_withdraw_count
                     
                     	Address withdraw count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_map_count
                     
                     	Label map count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_withdraw_count
                     
                     	Label withdraw count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_release_count
                     
                     	Label release count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_request_count
                     
                     	Label request count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: label_abort_request_count
                     
                     	Label abort request count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: notification_count
                     
                     	Notification count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keep_alive_count
                     
                     	Keepalive count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iccp_rg_conn_count
                     
                     	ICCP RG Connect count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iccp_rg_disconn_count
                     
                     	ICCP RG Disconnect count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iccp_rg_notif_count
                     
                     	ICCP RG Notify count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iccp_rg_app_data_count
                     
                     	ICCP RG App Data count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -7007,7 +7007,7 @@ class MplsLdp(Entity):
                 .. attribute:: backoff_seconds
                 
                 	Current neighbor backoff count in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -7016,7 +7016,7 @@ class MplsLdp(Entity):
                 .. attribute:: waiting_seconds
                 
                 	Current neighbor backoff waiting count in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -7056,109 +7056,109 @@ class MplsLdp(Entity):
                 .. attribute:: nsr_state
                 
                 	Non\-Stop Routing State
-                	**type**\:   :py:class:`NsrStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NsrStatus>`
+                	**type**\:  :py:class:`NsrStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NsrStatus>`
                 
                 .. attribute:: nsr_nbr_sync_state
                 
                 	NSR Sync State
-                	**type**\:   :py:class:`NsrPeerSyncState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NsrPeerSyncState>`
+                	**type**\:  :py:class:`NsrPeerSyncState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NsrPeerSyncState>`
                 
                 .. attribute:: nsr_nbr_last_sync_error
                 
                 	This is the last NSR sync error recieved. It indicates the last reason the sync failed even if the sync has now succeeded. This allows this information to be viewed when the state is flapping, even if the syncronization is successful at the time of the query
-                	**type**\:   :py:class:`NsrPeerSyncErr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NsrPeerSyncErr>`
+                	**type**\:  :py:class:`NsrPeerSyncErr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NsrPeerSyncErr>`
                 
                 .. attribute:: nsr_nbr_last_sync_nack_reason
                 
                 	Last NSR sync NACK reason
-                	**type**\:   :py:class:`NsrSyncNackRsn <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NsrSyncNackRsn>`
+                	**type**\:  :py:class:`NsrSyncNackRsn <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.NsrSyncNackRsn>`
                 
                 .. attribute:: nsr_nbr_pend_label_req_resps
                 
                 	Pending Label\-Request responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_pend_label_withdraw_resps
                 
                 	Pending Label\-Withdraw responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_pend_lcl_addr_withdraw_acks
                 
                 	Pending Local Address Withdraw Acks\:
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_in_label_reqs_created
                 
                 	In label Request Records created
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_in_label_reqs_freed
                 
                 	In label Request Records freed
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_in_label_withdraw_created
                 
                 	In label Withdraw Records created
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_in_label_withdraw_freed
                 
                 	In label Withdraw Records freed
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_lcl_addr_withdraw_set
                 
                 	Local Address Withdraw set
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_lcl_addr_withdraw_cleared
                 
                 	Local Address Withdraw cleared
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_xmit_ctxt_enq
                 
                 	Transmit contexts enqueued
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nsr_nbr_xmit_ctxt_deq
                 
                 	Transmit contexts dequeued
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nbr_sess
                 
                 	This container holds session information about the sessions between these two neighbors
-                	**type**\:   :py:class:`NbrSess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail.NbrSess>`
+                	**type**\:  :py:class:`NbrSess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail.NbrSess>`
                 
                 .. attribute:: path_vector_limit
                 
                 	If the value of this object is 0 (zero) then Loop Dection for Path Vectors for this Peer is disabled.  Otherwise, if this object has a value greater than zero, then Loop Dection for Path  Vectors for this Peer is enabled and the Path Vector Limit is this value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
@@ -7230,19 +7230,19 @@ class MplsLdp(Entity):
                     .. attribute:: last_stat_change
                     
                     	The value of sysUpTime at the time this Session entered its current state as denoted by the SessionState object
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: state
                     
                     	The current state of the session, all of the states 1 to 5 are based on the state machine for session negotiation behavior
-                    	**type**\:   :py:class:`State <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail.NbrSess.State>`
+                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.Neighbors.NsrNbrDetail.NbrSess.State>`
                     
                     .. attribute:: keep_alive_remain
                     
                     	The keep alive hold time remaining for this session in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -7251,7 +7251,7 @@ class MplsLdp(Entity):
                     .. attribute:: keep_alive_time
                     
                     	The negotiated KeepAlive Time which represents the amount of seconds between keep alive messages.  The EntityKeepAliveHoldTimer related to this Session is the value that was proposed as the KeepAlive Time for this session.  This value is negotiated during session initialization between the entity's proposed value (i.e., the value configured in EntityKeepAliveHoldTimer) and the peer's proposed KeepAlive Hold Timer value. This value is the smaller of the two proposed values
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -7260,7 +7260,7 @@ class MplsLdp(Entity):
                     .. attribute:: max_pdu
                     
                     	The value of maximum allowable length for LDP PDUs this session.  This value may have been negotiated for during the Session Initialization.  This object is related to the EntityMaxPduLength object.  The EntityMaxPduLength object specifies the requested LDP PDU length, and this object reflects the negotiated LDP PDU length between the Entity and the Peer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -7269,21 +7269,21 @@ class MplsLdp(Entity):
                     .. attribute:: discon_time
                     
                     	The value of sysUpTime on the most recent occasion at which any one or more of this session's counters suffered a discontinuity.  The relevant counters are the specific instances associated with this session of any counter32 object contained in the session\-stats table.  The initial value of this object is the value of sysUpTime when the entry was created in this table.  Also, a command generator can distinguish when a session between a given Entity and Peer goes away and a new session is established.  This value would change and thus indicate to the command generator that this is a different session
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_mess_err
                     
                     	This object counts the number of Unknown Message Type Errors detected by this LSR/LER during this session.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_tlv
                     
                     	This object counts the number of Unknown TLV Errors detected by this LSR/LER during this session.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discon\-time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -7377,7 +7377,7 @@ class MplsLdp(Entity):
             .. attribute:: label_range
             
             	This entry contains a single range of labels represented by the configured Upper and Lower Bounds pairs.  NOTE\: there is NO corresponding LDP message which relates to the information in this table, however, this table does provide a way for a user to 'reserve' a generic label range.  NOTE\:  The ranges for a specific LDP Entity are UNIQUE and non\-overlapping
-            	**type**\: list of    :py:class:`LabelRange <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.LabelRanges.LabelRange>`
+            	**type**\: list of  		 :py:class:`LabelRange <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpState.LabelRanges.LabelRange>`
             
             
 
@@ -7420,14 +7420,14 @@ class MplsLdp(Entity):
                 .. attribute:: lr_min  <key>
                 
                 	The minimum label configured for this range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1048575
                 
                 .. attribute:: lr_max  <key>
                 
                 	The maximum label configured for this range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1048575
                 
@@ -7465,57 +7465,57 @@ class MplsLdp(Entity):
         .. attribute:: global_cfg
         
         	This contains hold all MPLS LDP Configuration with Global scope. These values affect the entire LSR unless overiddden by a parameter with a more localized scope
-        	**type**\:   :py:class:`GlobalCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg>`
+        	**type**\:  :py:class:`GlobalCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg>`
         
         .. attribute:: nbr_table
         
         	This container holds the list of neighbor configuration parameters
-        	**type**\:   :py:class:`NbrTable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.NbrTable>`
+        	**type**\:  :py:class:`NbrTable <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.NbrTable>`
         
         .. attribute:: passwords
         
         	This holds the MPLS LDP password configuration for use with LDP neighbors
-        	**type**\:   :py:class:`Passwords <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Passwords>`
+        	**type**\:  :py:class:`Passwords <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Passwords>`
         
         .. attribute:: session
         
         	Configure session parameters
-        	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Session>`
+        	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Session>`
         
         .. attribute:: label_cfg
         
         	This container holds the label allocation and advertisement configuration for the LDP Label Information Base. These control what prefixes may be allocated and advertised to peers
-        	**type**\:   :py:class:`LabelCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.LabelCfg>`
+        	**type**\:  :py:class:`LabelCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.LabelCfg>`
         
         .. attribute:: discovery
         
         	LDP discovery
-        	**type**\:   :py:class:`Discovery <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery>`
+        	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery>`
         
         .. attribute:: graceful_restart
         
         	Configure LDP Graceful Restart
-        	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GracefulRestart>`
+        	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GracefulRestart>`
         
         .. attribute:: logging
         
         	Enable LDP logging
-        	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Logging>`
+        	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Logging>`
         
         .. attribute:: interfaces
         
         	MPLS LDP Interface configuration commands
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces>`
         
         .. attribute:: routing
         
         	This containter provides the MPLS LDP config for routing protocols from which it can obtain addresses to associate with labels
-        	**type**\:   :py:class:`Routing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Routing>`
+        	**type**\:  :py:class:`Routing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Routing>`
         
         .. attribute:: dual_stack
         
         	This container holds the configuration of dual IPv4 and IPv6 stack peers
-        	**type**\:   :py:class:`DualStack <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.DualStack>`
+        	**type**\:  :py:class:`DualStack <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.DualStack>`
         
         
 
@@ -7601,44 +7601,44 @@ class MplsLdp(Entity):
             .. attribute:: shutdown
             
             	Writing this leaf tears down all LDP sessions, withdraws all outgoing labels from the forwarding plane, and frees all local labels that have been allocated
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable_nsr
             
             	This leaf controls whether Non\-Stop\-Routing should be enabled to include MPLS LDP
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: disable_quick_start
             
             	When set to true, disable LDP discovery's quick start mode for this LSR
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: loop_detection
             
             	This leaf enables or disables Loop Detection globally for the LSR
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: admin_status
             
             	This leaf controls the administrative status of LDP for this LSR. If set to disable, then all LDP activity will be disabled and all LDP sessions with peers will terminate. The LDP configuration will remain intact.  When the admin status is set back to 'enable', then LDP will resume operations and attempt to establish new sessions with the peers
-            	**type**\:   :py:class:`AdminStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.AdminStatus>`
+            	**type**\:  :py:class:`AdminStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.AdminStatus>`
             
             .. attribute:: dcsp_val
             
             	This sets the 6\-bit Differentiated Services Code Point (DSCP) value in the TCP packets for LDP messages being sent from the LSR
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..63
             
             .. attribute:: high_priority
             
             	This sets the priority within the LSR for TCP packets for LDP messages being sent from the LSR. They are given a higher transmission priorty and will avoid being queued behind lower priority messages
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: seconds
             
             	Time in seconds to delay IGP sync after session comes up
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..300
             
@@ -7647,12 +7647,12 @@ class MplsLdp(Entity):
             .. attribute:: disable_delay
             
             	This choice causes IGP sync up immediately upon session up
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: seconds_delay_proc
             
             	Time in seconds to delay IGP sync after session comes up
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..300
             
@@ -7661,32 +7661,32 @@ class MplsLdp(Entity):
             .. attribute:: disable_delay_proc
             
             	This choice causes IGP sync up immediately upon session up
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: router_id
             
             	Configuration for LDP Router ID (LDP ID)
-            	**type**\: list of    :py:class:`RouterId <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.RouterId>`
+            	**type**\: list of  		 :py:class:`RouterId <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.RouterId>`
             
             .. attribute:: session
             
             	Configure session parameters. Session parameters effect the session between LDP peers once the session has been established
-            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.Session>`
+            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.Session>`
             
             .. attribute:: per_af
             
             	This container holds the global per address family configuration
-            	**type**\:   :py:class:`PerAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.PerAf>`
+            	**type**\:  :py:class:`PerAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.PerAf>`
             
             .. attribute:: protocol
             
             	This leaf defines the protocol to be used. The default is LDP
-            	**type**\:   :py:class:`Protocol <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.Protocol>`
+            	**type**\:  :py:class:`Protocol <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.Protocol>`
             
             .. attribute:: init_sess_thresh
             
             	When attempting to establish a session with a given Peer, the given LDP Entity should send out the YANG notification, 'init\-sess\-thresh\-ex', when the number of Session Initialization messages sent exceeds this threshold.  The notification is used to notify an operator when this Entity and its Peer are possibly engaged in an endless sequence of messages as each NAKs the other's  Initialization messages with Error Notification messages.  Setting this threshold which triggers the notification is one way to notify the operator.  The notification should be generated each time this threshold is exceeded and for every subsequent Initialization message which is NAK'd with an Error Notification message after this threshold is exceeded.  A value of 0 (zero) for this object indicates that the threshold is infinity, thus the YANG notification will never be generated
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -7822,32 +7822,32 @@ class MplsLdp(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: lsr_id_if
                 
                 	This defines the interface to use for the LDP LSR identifier address for all sessions. The IP address of this interface will be used as the identifier
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: lsr_id_ip
                 
                 	This is the IP address to be used as the LDP LSR ID for all sessions
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: force
                 
                 	Force the router to use the specified identifier as the router ID more quickly
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -7889,12 +7889,12 @@ class MplsLdp(Entity):
                 .. attribute:: downstream_on_demand
                 
                 	This container holds config for Downstream on Demand. For it to be enabled, the Downstream on demand feature has to be configured on both peers of the session. If only one peer in the session has downstream\-on\-demand feature configured, then the session does not use downstream\-on\-demand mode. If, after, a label request is sent, and no remote label is received from the peer, the router will periodically resend the label request. After the peer advertises a label after receiving the label request, it will automatically readvertise the label if any label attribute changes subsequently
-                	**type**\: list of    :py:class:`DownstreamOnDemand <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.Session.DownstreamOnDemand>`
+                	**type**\: list of  		 :py:class:`DownstreamOnDemand <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.Session.DownstreamOnDemand>`
                 
                 .. attribute:: backoff_init
                 
                 	Initial session backoff time (seconds). The LDP backoff mechanism prevents two incompatibly configured label switch routers (LSRs) from engaging in an unthrottled sequence of session setup failures.  For example, an incompatibility arises when two neighboring routers attempt to perform LC\-ATM (label\-controlled ATM) but the two are using different ranges of VPI/VCI values for labels.  If a session setup attempt fails due to an incompatibility, each LSR delays its next attempt (that is, backs off), increasing the delay exponentially with each successive failure until the maximum backoff delay is reached.  The default settings correspond to the lowest settings for initial and maximum backoff values defined by the LDP protocol specification. You should change the settings from the default values only if such settings result in undesirable behavior
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -7905,7 +7905,7 @@ class MplsLdp(Entity):
                 .. attribute:: backoff_max
                 
                 	The maximum session backoff time (seconds) The LDP backoff mechanism prevents two incompatibly configured label switch routers (LSRs) from engaging in an unthrottled sequence of session setup failures.  For example, an incompatibility arises when two neighboring routers attempt to perform LC\-ATM (label\-controlled ATM) but the two are using different ranges of VPI/VCI values for labels.  If a session setup attempt fails due to an incompatibility, each LSR delays its next attempt (that is, backs off), increasing the delay exponentially with each successive failure until the maximum backoff delay is reached.  The default settings correspond to the lowest settings for initial and maximum backoff values defined by the LDP protocol specification. You should change the settings from the default values only if such settings result in undesirable behavior
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -7916,19 +7916,19 @@ class MplsLdp(Entity):
                 .. attribute:: seconds
                 
                 	Number from 15 to 2147483, that defines the time, in seconds, an LDP session is maintained in the absence of LDP messages from the session peer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: infinite
                 
                 	If set to true, the session is held indefinitely in the absence of LDP messages from the peer
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: protection
                 
                 	Configure Session Protection parameters
-                	**type**\:   :py:class:`Protection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.Session.Protection>`
+                	**type**\:  :py:class:`Protection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.Session.Protection>`
                 
                 
 
@@ -7986,17 +7986,17 @@ class MplsLdp(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	This contains the VRF Name, where 'default' is used for the default vrf
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: enabled
                     
                     	Enable Downstream on Demand for this LSR. In this mode a label is not advertised to a peer, unless the peer explicitly requests it. At the same time, since the peer does not automatically advertise labels, the label request is sent whenever the next\-hop points out to a peer that no remote label has been assigned
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: filter
                     
                     	This filter contains a list of peer IDs that are configured for downstream\-on\-demand mode. When the filter is changed or configured, the list of established neighbors is traversed. If a session's downstream\-on\-demand configuration has changed, the session is reset in order that the new down\-stream\-on\-demand mode can be configured. The reason for resetting the session is to ensure that the labels are properly advertised between the peers. When a new session is established, the ACL is verified to determine whether the session should negotiate for downstream\-on\-demand mode. If the filter string is configured and the corresponding filter does not exist or is empty, then downstream\-on\-demand mode is not configured for any neighbor. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -8034,24 +8034,24 @@ class MplsLdp(Entity):
                     .. attribute:: enable_prot
                     
                     	This is set true to enable session protection
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: peer_filter
                     
                     	This is an optional filter to restrict session protection. If the string is null or unconfigured then session protection applied to all peers. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: seconds
                     
                     	This is the sessiom holdup duration in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 30..2147483
                     
                     .. attribute:: inf
                     
                     	This sessiom holdup duration is infinite
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -8092,7 +8092,7 @@ class MplsLdp(Entity):
                 .. attribute:: af_cfg
                 
                 	This container holds the global per address family configuration
-                	**type**\: list of    :py:class:`AfCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.PerAf.AfCfg>`
+                	**type**\: list of  		 :py:class:`AfCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GlobalCfg.PerAf.AfCfg>`
                 
                 
 
@@ -8127,42 +8127,42 @@ class MplsLdp(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	This contains the VRF Name, where 'default' is used for the default vrf
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: af_name  <key>
                     
                     	Address Family name
-                    	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                    	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                     
                     .. attribute:: default_route
                     
                     	When set true, this enables MPLS forwarding for the ip default route
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ipaddr
                     
                     	Advertise this address as the explicit address in LDP discovery hello messages and use it for LDP transport
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: interface
                     
                     	Advertise this interface's address as the explicit address in LDP discovery hello messages and use it for LDP transport
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: implicit
                     
                     	Do not advertise an explicit address in LDP discovery hello messages or advertise a default address. Use the default address for LDP transport
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -8207,7 +8207,7 @@ class MplsLdp(Entity):
             .. attribute:: nbr_cfg
             
             	This entry holds the configuration of a single neighbor identified by the IP address of that neighbor
-            	**type**\: list of    :py:class:`NbrCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.NbrTable.NbrCfg>`
+            	**type**\: list of  		 :py:class:`NbrCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.NbrTable.NbrCfg>`
             
             
 
@@ -8242,50 +8242,50 @@ class MplsLdp(Entity):
                 .. attribute:: nbr_vrf  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: nbr_ip  <key>
                 
                 	The IP address for the LDP neighbor. This may be IPv4 or IPv6
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: admin_status
                 
                 	The administrative status of this neighbor. If this object is changed from 'enable' to 'disable' and this entity has already attempted to establish contact with a neighbor, a 'tear\-down' for that session is issued and the session and all information related to that session ceases to exist).  When the admin status is set back to 'enable', then this Entity will attempt to establish a new session with the neighbor
-                	**type**\:   :py:class:`AdminStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.NbrTable.NbrCfg.AdminStatus>`
+                	**type**\:  :py:class:`AdminStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.NbrTable.NbrCfg.AdminStatus>`
                 
                 .. attribute:: implicit_withdraw
                 
                 	Enable LDP implicit withdraw label for this peer
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: targeted
                 
                 	Establish or delete a targeted session
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: label_protocol
                 
                 	This leaf defines the protocol to be used. The default is LDP
-                	**type**\:   :py:class:`LabelProtocol <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.NbrTable.NbrCfg.LabelProtocol>`
+                	**type**\:  :py:class:`LabelProtocol <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.NbrTable.NbrCfg.LabelProtocol>`
                 
                 .. attribute:: label_binding_filter
                 
                 	Accept only labels matching this filter. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: password
                 
                 	Enables password authentication and stores the password using a cryptographic hash
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -8398,7 +8398,7 @@ class MplsLdp(Entity):
             .. attribute:: password
             
             	This holds the MPLS LDP password configuration for use with a single LDP neighbor or group of LDP neighbors
-            	**type**\: list of    :py:class:`Password <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Passwords.Password>`
+            	**type**\: list of  		 :py:class:`Password <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Passwords.Password>`
             
             
 
@@ -8433,53 +8433,49 @@ class MplsLdp(Entity):
                 .. attribute:: nbr_vrf  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: nbr_id  <key>
                 
                 	This leaf holds the neighbor id for this password. This id may be an lsr\-id, an ip\-address, or a filter describing a group of neighbors
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
+                		**type**\: str
                 
-                ----
-                	**type**\:  str
-                
-                
-                ----
                 .. attribute:: password_num  <key>
                 
                 	This is a user\-assigned unique number identifying a password for this neighbor or group of neighbors. Multiple passwords may be assigned to a neighbor. If that is the case, each password is tried starting with the lowest number to the highest until a passsword matches or the list is exhausted
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: pass_required
                 
                 	This leaf is set true if the password is required and false if the password is not required
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: clear_pass
                 
                 	This is a clear\-text (non\-encrypted password to be used with the neighbor
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: encrypt_pass
                 
                 	This is an encrypted password to be used with the neighbor
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: keychain_pass
                 
                 	This is a keychain identifier, which identifies an separately configured keychain to be used with the neighbor neighbor
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -8525,7 +8521,7 @@ class MplsLdp(Entity):
             .. attribute:: backoff
             
             	Initial session backoff time (seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -8534,14 +8530,14 @@ class MplsLdp(Entity):
             .. attribute:: seconds
             
             	Session holdtime in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: infinite
             
             	Ignore LDP session holdtime
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -8582,7 +8578,7 @@ class MplsLdp(Entity):
             .. attribute:: label_af_cfg
             
             	This is an allocation filter and advertisement filters for LDP labels in this address family
-            	**type**\: list of    :py:class:`LabelAfCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.LabelCfg.LabelAfCfg>`
+            	**type**\: list of  		 :py:class:`LabelAfCfg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.LabelCfg.LabelAfCfg>`
             
             
 
@@ -8617,29 +8613,29 @@ class MplsLdp(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: af_name  <key>
                 
                 	Address Family name
-                	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                 
                 .. attribute:: prefix_filter
                 
                 	This contains the filter name for this label's prefix. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
                 .. attribute:: host_route_enable
                 
                 	True if this LSR should allocate host\-routes only
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: advt_filter
                 
                 	MPLS LDP Label advertisement filter restrictions
-                	**type**\: list of    :py:class:`AdvtFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.LabelCfg.LabelAfCfg.AdvtFilter>`
+                	**type**\: list of  		 :py:class:`AdvtFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.LabelCfg.LabelAfCfg.AdvtFilter>`
                 
                 
 
@@ -8681,28 +8677,28 @@ class MplsLdp(Entity):
                     .. attribute:: prefix_filter  <key>
                     
                     	This contains the filter name for this label's prefix.  The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: peer_filter  <key>
                     
                     	This contains the filter name for this label's Peer. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: interface  <key>
                     
                     	This is an optional interface that may be used to restrict the scope of the label advertisement
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: adv_label_cfg
                     
                     	This leaf controls what type of label is advertised for matching prefixes to the matching peers
-                    	**type**\:   :py:class:`AdvLabelType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.AdvLabelType>`
+                    	**type**\:  :py:class:`AdvLabelType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.AdvLabelType>`
                     
                     
 
@@ -8741,22 +8737,22 @@ class MplsLdp(Entity):
             .. attribute:: link_hello
             
             	This container holds the parameters for the non\-targeted link hello
-            	**type**\:   :py:class:`LinkHello <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.LinkHello>`
+            	**type**\:  :py:class:`LinkHello <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.LinkHello>`
             
             .. attribute:: targeted_hello
             
             	This container holds the parameters for the targeted link hello
-            	**type**\:   :py:class:`TargetedHello <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.TargetedHello>`
+            	**type**\:  :py:class:`TargetedHello <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.TargetedHello>`
             
             .. attribute:: instance_tlv
             
             	Set this leaf to true to disable transmit and receive processing for Type\-Length\-Value (TLV) in the discovery messages
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: int_trans_addrs
             
             	This list contains the per\-interface transport addresses, which overide the global and default values
-            	**type**\:   :py:class:`IntTransAddrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs>`
+            	**type**\:  :py:class:`IntTransAddrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs>`
             
             
 
@@ -8806,14 +8802,14 @@ class MplsLdp(Entity):
                 .. attribute:: holdtime
                 
                 	LDP discovery link hello holdtime in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: interval
                 
                 	LDP discovery link hello interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -8852,26 +8848,26 @@ class MplsLdp(Entity):
                 .. attribute:: holdtime
                 
                 	LDP discovery targeted hello holdtime in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: interval
                 
                 	LDP discovery targeted hello interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: enable
                 
                 	Set to true if targeted hello messages may be accepted
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: accept
                 
                 	Enables router to respond to requests for targeted hello messages
-                	**type**\:   :py:class:`Accept <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.TargetedHello.Accept>`
+                	**type**\:  :py:class:`Accept <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.TargetedHello.Accept>`
                 
                 
 
@@ -8915,12 +8911,12 @@ class MplsLdp(Entity):
                     .. attribute:: enable
                     
                     	Set to true if targeted hello messages may be accepted
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: src_filter
                     
                     	Only respond to requests for targeted hello messages from sources matching this filter. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -8958,7 +8954,7 @@ class MplsLdp(Entity):
                 .. attribute:: int_trans_addr
                 
                 	This entry contains the per\-interface transport addresses, which overide the global and default values
-                	**type**\: list of    :py:class:`IntTransAddr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs.IntTransAddr>`
+                	**type**\: list of  		 :py:class:`IntTransAddr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Discovery.IntTransAddrs.IntTransAddr>`
                 
                 
 
@@ -8994,32 +8990,32 @@ class MplsLdp(Entity):
                     .. attribute:: af_name  <key>
                     
                     	Address Family name
-                    	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                    	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                     
                     .. attribute:: int_name  <key>
                     
                     	The Interface Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: trans_ip
                     
                     	Advertise this address as the address in LDP discovery hello messages and use it for LDP transport
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: trans_int
                     
                     	Advertise this interface's address as the address in LDP discovery hello messages and use it for LDP transport
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                     
@@ -9061,12 +9057,12 @@ class MplsLdp(Entity):
             .. attribute:: is_graceful_restartable
             
             	Enable graceful restartable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: forwarding_holding
             
             	Specifies the amount of time the MPLS LDP forwarding state must be preserved after the control plane restarts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..300
             
@@ -9075,7 +9071,7 @@ class MplsLdp(Entity):
             .. attribute:: max_recovery
             
             	Amount of time (in seconds) that the router should hold stale label\-FEC bindings after an LDP session has been reestablished
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..300
             
@@ -9084,7 +9080,7 @@ class MplsLdp(Entity):
             .. attribute:: nbr_liveness
             
             	Amount of time (in seconds) that the router must wait for an LDP session to be reestablished
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..300
             
@@ -9093,7 +9089,7 @@ class MplsLdp(Entity):
             .. attribute:: helper
             
             	This contains the filter name for peers for which this LSR will act as a graceful\-restart helper
-            	**type**\: list of    :py:class:`Helper <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GracefulRestart.Helper>`
+            	**type**\: list of  		 :py:class:`Helper <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.GracefulRestart.Helper>`
             
             
 
@@ -9136,12 +9132,12 @@ class MplsLdp(Entity):
                 .. attribute:: helper_vrf  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: helper_filter  <key>
                 
                 	This contains the filter name for peers for which this LSR will act as a graceful\-restart helper. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
@@ -9179,32 +9175,32 @@ class MplsLdp(Entity):
             .. attribute:: graceful_restart
             
             	Enable logging of graceful\-restart messages
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: neighbor
             
             	Enable logging of neighbor messages
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: nsr
             
             	Enable logging of nsr messages
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: adjacency
             
             	Enable logging of adjacency messages
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: session_protection
             
             	Enable logging of session\-protection messages
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: password
             
             	Enable logging of password messages
-            	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Logging.Password>`
+            	**type**\:  :py:class:`Password <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Logging.Password>`
             
             
 
@@ -9251,12 +9247,12 @@ class MplsLdp(Entity):
                 .. attribute:: config_msg
                 
                 	Log MPLS LDP password configuration changes
-                	**type**\:   :py:class:`ConfigMsg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Logging.Password.ConfigMsg>`
+                	**type**\:  :py:class:`ConfigMsg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Logging.Password.ConfigMsg>`
                 
                 .. attribute:: rollover_msg
                 
                 	Log MPLS LDP password rollover messages
-                	**type**\:   :py:class:`RolloverMsg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Logging.Password.RolloverMsg>`
+                	**type**\:  :py:class:`RolloverMsg <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Logging.Password.RolloverMsg>`
                 
                 
 
@@ -9295,12 +9291,12 @@ class MplsLdp(Entity):
                     .. attribute:: enable
                     
                     	Log MPLS LDP password configuration changes
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: rate_limit
                     
                     	This is the number of messages per minute to limit the logging. A value of 0 indicates no limits on the number of logged messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -9338,12 +9334,12 @@ class MplsLdp(Entity):
                     .. attribute:: enable
                     
                     	Log MPLS LDP password rollover messages
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: rate_limit
                     
                     	This is the number of messages per minute to limit the logging. A value of 0 indicates no limits on the number of logged messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -9381,7 +9377,7 @@ class MplsLdp(Entity):
             .. attribute:: interface
             
             	MPLS LDP Interface configuration commands. Where a corresponding global configuration command exists, the interface level command will take precedence when configured
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces.Interface>`
             
             
 
@@ -9418,19 +9414,19 @@ class MplsLdp(Entity):
                 .. attribute:: vrf  <key>
                 
                 	This contains the VRF Name, where 'default' is used for the default vrf
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: interface  <key>
                 
                 	The Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: link_hello_int
                 
                 	LDP discovery link hello interval in seconds for this interface. This value overides the global setting
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9441,7 +9437,7 @@ class MplsLdp(Entity):
                 .. attribute:: link_hello_hold
                 
                 	LDP discovery link hello holdtime in seconds for this interface. This value overides the global setting
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9452,12 +9448,12 @@ class MplsLdp(Entity):
                 .. attribute:: disable_quick_start_int
                 
                 	When set to true, disable LDP discovery's quick start mode for this interface
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: seconds
                 
                 	Time in seconds to delay IGP sync after session comes up
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..300
                 
@@ -9466,12 +9462,12 @@ class MplsLdp(Entity):
                 .. attribute:: disable_delay
                 
                 	This choice causes IGP sync up immediately upon session up
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: afs
                 
                 	Address Family specific operational data
-                	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs>`
+                	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs>`
                 
                 
 
@@ -9522,7 +9518,7 @@ class MplsLdp(Entity):
                     .. attribute:: af
                     
                     	MPLS LDP Operational data for this Address Family
-                    	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af>`
+                    	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af>`
                     
                     
 
@@ -9555,22 +9551,22 @@ class MplsLdp(Entity):
                         .. attribute:: af_name  <key>
                         
                         	Address Family name
-                        	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
+                        	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.Af>`
                         
                         .. attribute:: enable
                         
                         	This is set true to enable LDP on this interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: bgp_redist
                         
                         	MPLS LDP configuration for protocol redistribution. By default, redistribution of BGP routes is disabled. It can be enabled for all BGP routes or for a specific AS. Also it can be redistributed to all LDP peers or to a filtered group of peers
-                        	**type**\:   :py:class:`BgpRedist <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af.BgpRedist>`
+                        	**type**\:  :py:class:`BgpRedist <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Interfaces.Interface.Afs.Af.BgpRedist>`
                         
                         .. attribute:: autoconfig_disable
                         
                         	True if LDP autoconfig is explicitly disabled on this interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -9617,26 +9613,26 @@ class MplsLdp(Entity):
                             .. attribute:: as_xx
                             
                             	First half of BGP AS number in XX.YY format.  Mandatory Must be a non\-zero value if second half is zero
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: as_yy
                             
                             	Second half of BGP AS number in XX.YY format. Mandatory Must be a non\-zero value if first half is zero
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: advertise_to
                             
                             	Filter of neighbors to receive BGP route redistributions from LDP. If the list is empty or unset, all LDP neighbors will receive redistributions
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: enable
                             
                             	This is set true to allow LDP to redistribute BGP routes
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -9677,7 +9673,7 @@ class MplsLdp(Entity):
             .. attribute:: routing_inst
             
             	This entry provides the MPLS LDP config for this routing instance
-            	**type**\: list of    :py:class:`RoutingInst <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Routing.RoutingInst>`
+            	**type**\: list of  		 :py:class:`RoutingInst <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Routing.RoutingInst>`
             
             
 
@@ -9712,29 +9708,29 @@ class MplsLdp(Entity):
                 .. attribute:: routing_inst_name  <key>
                 
                 	Name of the routing instance for which this MPLS LDP configuration applies
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: autoconfig_enable
                 
                 	This leaf enables or disables LDP for all interfaces covered by this routing instance subject to the autoconfig\-scope
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: area_id
                 
                 	This leaf restricts the LDP Autoconfiguration feature to enable LDP on interfaces belonging to an OSPF process for a specific area. If no area is specified, then this applies to all interfaces associated with the. If an area ID is specified, then only interfaces associated with that OSPF area are automatically enabled with LDP. Any interface\-specific ldp configuration will overide this setting for that interface
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: level_id
                 
                 	This leaf restricts the LDP Autoconfiguration feature to enable LDP on interfaces belonging to an ISIS process for a specific level. If no level is specified, then this applies to all interfaces associated with the. If a level is specified, then only interfaces associated with that ISIS level are automatically enabled with LDP. Any interface\-specific ldp configuration will overide this setting for that interface
-                	**type**\:   :py:class:`LevelId <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Routing.RoutingInst.LevelId>`
+                	**type**\:  :py:class:`LevelId <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.MplsLdp.MplsLdpConfig.Routing.RoutingInst.LevelId>`
                 
                 .. attribute:: sync
                 
                 	When set to true this enables LDP IGP synchronization. Without syncrhonization, packet loss can occur because the actions of the IGP and LDP are not synchronized
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -9844,14 +9840,14 @@ class MplsLdp(Entity):
             .. attribute:: max_wait
             
             	Wait time in seconds (0 indicates no preference)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..60
             
             .. attribute:: prefer_ipv4_peers
             
             	This contains the filter name for peers where IPv4 connections are preferred over IPv6 connections. The filter type is device specific and could be an ACL, a prefix list, or other mechanism
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -9891,12 +9887,12 @@ class ClearMsgCounters(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.ClearMsgCounters.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.ClearMsgCounters.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.ClearMsgCounters.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.ClearMsgCounters.Output>`
     
     
 
@@ -9935,25 +9931,25 @@ class ClearMsgCounters(Entity):
         .. attribute:: vrf_name
         
         	This contains the VRF Name, where 'default' is used for the default vrf
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: nbr_ip
         
         	LSR ID of the neighbor
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
-        ----
         .. attribute:: all
         
         	Clear information for all neighbors
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -9991,7 +9987,7 @@ class ClearMsgCounters(Entity):
         .. attribute:: status
         
         	Return status will be 'OK' on success or an explanation string on failure
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -10030,12 +10026,12 @@ class RestartNeighbor(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RestartNeighbor.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RestartNeighbor.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RestartNeighbor.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.RestartNeighbor.Output>`
     
     
 
@@ -10074,25 +10070,25 @@ class RestartNeighbor(Entity):
         .. attribute:: vrf_name
         
         	This contains the VRF Name, where 'default' is used for the default vrf
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: nbr_ip
         
         	LSR ID of the neighbor
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
-        ----
         .. attribute:: all
         
         	Restart sessions for all neighbors
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -10130,7 +10126,7 @@ class RestartNeighbor(Entity):
         .. attribute:: status
         
         	Return status will be 'OK' on success or an explanation string on failure
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -10170,12 +10166,12 @@ class ClearForwarding(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.ClearForwarding.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.ClearForwarding.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.ClearForwarding.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_ldp.ClearForwarding.Output>`
     
     
 
@@ -10214,25 +10210,25 @@ class ClearForwarding(Entity):
         .. attribute:: vrf_name
         
         	This contains the VRF Name, where 'default' is used for the default vrf
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: prefix_ip
         
         	This case provides the IP prefix for the forwarding entry whose data should be cleared
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
-        ----
         .. attribute:: all
         
         	This case is used to clear the forwarding entries for all prefixes
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -10270,7 +10266,7 @@ class ClearForwarding(Entity):
         .. attribute:: status
         
         	Return status will be 'OK' on success or an explanatory string on failure
-        	**type**\:  str
+        	**type**\: str
         
         
 

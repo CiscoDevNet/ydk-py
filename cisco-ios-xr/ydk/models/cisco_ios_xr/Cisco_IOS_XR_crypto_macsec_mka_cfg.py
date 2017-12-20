@@ -121,7 +121,7 @@ class Macsec(Entity):
     .. attribute:: policy
     
     	MACSec Policy
-    	**type**\: list of    :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.Macsec.Policy>`
+    	**type**\: list of  		 :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.Macsec.Policy>`
     
     
 
@@ -155,36 +155,36 @@ class Macsec(Entity):
         .. attribute:: name  <key>
         
         	Name of the Policy of maximum length 16
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..16
         
         .. attribute:: delay_protection
         
         	TRUE enables data delay protection
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: security_policy
         
         	Security\-Policy of Policy
-        	**type**\:   :py:class:`MacsecMkaSecurityPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaSecurityPolicy>`
+        	**type**\:  :py:class:`MacsecMkaSecurityPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaSecurityPolicy>`
         
         .. attribute:: key_server_priority
         
         	Key\-Server\-Priority of Policy
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: conf_offset
         
         	Conf\-Offset of Policy
-        	**type**\:   :py:class:`MacsecMkaConfOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaConfOffset>`
+        	**type**\:  :py:class:`MacsecMkaConfOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaConfOffset>`
         
         .. attribute:: sak_rekey_interval
         
         	Interval after which key\-server generates new SAK for a Secured Session
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..43200
         
@@ -193,29 +193,29 @@ class Macsec(Entity):
         .. attribute:: policy_exception
         
         	Macsec policy exception for packets to be in clear
-        	**type**\:   :py:class:`MacsecMkaPolicyException <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaPolicyException>`
+        	**type**\:  :py:class:`MacsecMkaPolicyException <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaPolicyException>`
         
         .. attribute:: window_size
         
         	Window\-Size of Policy
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..1024
         
         .. attribute:: cipher_suite
         
         	Cipher\-suite of Policy
-        	**type**\:   :py:class:`MacsecMkaCipherSuite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaCipherSuite>`
+        	**type**\:  :py:class:`MacsecMkaCipherSuite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaCipherSuite>`
         
         .. attribute:: include_icv_indicator
         
         	TRUE enables Include ICV Indicator paramset in MKPDU
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: vlan_tags_in_clear
         
         	VLAN\-Tags\-In\-Clear of Policy
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2
         

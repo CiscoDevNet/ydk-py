@@ -33,7 +33,7 @@ class DiffservInterfacesState(Entity):
     .. attribute:: diffserv_interface
     
     	The list of configured interfaces on the device
-    	**type**\: list of    :py:class:`DiffservInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface>`
+    	**type**\: list of  		 :py:class:`DiffservInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface>`
     
     
 
@@ -67,12 +67,12 @@ class DiffservInterfacesState(Entity):
         .. attribute:: name  <key>
         
         	The name of the interface
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: diffserv_target_entry
         
         	policy target for inbound or outbound direction
-        	**type**\: list of    :py:class:`DiffservTargetEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry>`
+        	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry>`
         
         
 
@@ -108,17 +108,17 @@ class DiffservInterfacesState(Entity):
             .. attribute:: direction  <key>
             
             	Direction fo the traffic flow either inbound or outbound
-            	**type**\:   :py:class:`Direction <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.Direction>`
+            	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.Direction>`
             
             .. attribute:: policy_name  <key>
             
             	Policy entry name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: diffserv_target_classifier_statistics
             
             	Statistics for each Classifier Entry in a Policy
-            	**type**\: list of    :py:class:`DiffservTargetClassifierStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics>`
+            	**type**\: list of  		 :py:class:`DiffservTargetClassifierStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics>`
             
             
 
@@ -155,27 +155,27 @@ class DiffservInterfacesState(Entity):
                 .. attribute:: classifier_entry_name  <key>
                 
                 	Classifier Entry Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: parent_path  <key>
                 
                 	Path of the Classifier Entry in a hierarchial policy 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: classifier_entry_statistics
                 
                 	 This group defines the classifier filter statistics of  each classifier entry         
-                	**type**\:   :py:class:`ClassifierEntryStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics>`
+                	**type**\:  :py:class:`ClassifierEntryStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics>`
                 
                 .. attribute:: meter_statistics
                 
                 	Meter statistics
-                	**type**\: list of    :py:class:`MeterStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics>`
+                	**type**\: list of  		 :py:class:`MeterStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics>`
                 
                 .. attribute:: queuing_statistics
                 
                 	queue related statistics 
-                	**type**\:   :py:class:`QueuingStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics>`
+                	**type**\:  :py:class:`QueuingStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics>`
                 
                 
 
@@ -226,21 +226,21 @@ class DiffservInterfacesState(Entity):
                     .. attribute:: classified_pkts
                     
                     	 Number of total packets which filtered  to the classifier\-entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: classified_bytes
                     
                     	 Number of total bytes which filtered   to the classifier\-entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: classified_rate
                     
                     	 Rate of average data flow through the   classifier\-entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -281,35 +281,35 @@ class DiffservInterfacesState(Entity):
                     .. attribute:: meter_id  <key>
                     
                     	Meter Identifier
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: meter_succeed_pkts
                     
                     	Number of packets which succeed the meter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: meter_succeed_bytes
                     
                     	Bytes of packets which succeed the meter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: meter_failed_pkts
                     
                     	Number of packets which failed the meter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: meter_failed_bytes
                     
                     	Bytes of packets which failed the meter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -352,49 +352,49 @@ class DiffservInterfacesState(Entity):
                     .. attribute:: output_pkts
                     
                     	Number of packets transmitted from queue 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_bytes
                     
                     	Number of bytes transmitted from queue 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: queue_size_pkts
                     
                     	Number of packets currently buffered 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: queue_size_bytes
                     
                     	Number of bytes currently buffered 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: drop_pkts
                     
                     	Total number of packets dropped 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: drop_bytes
                     
                     	Total number of bytes dropped 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: wred_stats
                     
                     	Container for WRED statistics
-                    	**type**\:   :py:class:`WredStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats>`
+                    	**type**\:  :py:class:`WredStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats>`
                     
                     
 
@@ -442,14 +442,14 @@ class DiffservInterfacesState(Entity):
                         .. attribute:: early_drop_pkts
                         
                         	Early drop packets 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: early_drop_bytes
                         
                         	Early drop bytes 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         

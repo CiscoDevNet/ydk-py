@@ -25,7 +25,7 @@ class Exception(Entity):
     .. attribute:: file
     
     	Container for the order of preference
-    	**type**\:   :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_corehelper_cfg.Exception.File>`
+    	**type**\:  :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_corehelper_cfg.Exception.File>`
     
     
 
@@ -59,17 +59,17 @@ class Exception(Entity):
         .. attribute:: choice2
         
         	Preference of the dump location
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: choice1
         
         	Preference of the dump location
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: choice3
         
         	Preference of the dump location
-        	**type**\:  str
+        	**type**\: str
         
         
 

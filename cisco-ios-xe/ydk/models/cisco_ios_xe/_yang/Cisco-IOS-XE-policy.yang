@@ -45,9 +45,41 @@ module Cisco-IOS-XE-policy {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-26 {
+    description
+     "Add parameter-map regex";
+  }
+  revision 2017-08-24 {
+    description
+     "Add sequence optional for random-detect precedence";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-07-31 {
+    description
+     "Changes to match protocol and attribute";
+  }
+  revision 2017-07-21 {
+    description
+     "add class-map match service";
+  }
+  revision 2017-07-16 {
+    description
+     "add random-detect cos options";
+  }
+  revision 2017-07-13 {
+    description 
+     "Changed protocol-name as a string to support dynamically updated protocol-pack";
+  }
   revision 2017-06-07 {
     description
      "add dependency match group-object security source";
+  }
+  revision 2017-05-08 {
+    description
+     "add more protocol support in match protocol";
   }
   revision 2017-03-31 {
     description
@@ -119,6 +151,14 @@ module Cisco-IOS-XE-policy {
     type enumeration {
       enum "packets";
       enum "bytes";
+    }
+  }
+
+  typedef bytes-ms-us-type {
+    type enumeration {
+      enum "bytes";
+      enum "ms";
+      enum "us";
     }
   }
 
@@ -699,17 +739,33 @@ module Cisco-IOS-XE-policy {
 
   grouping random-detect-grouping {
     leaf min-threshold {
-      type uint16 {
-        range "1..4096";
+      description 
+        "minimum threshold (in packet by default)";
+      type uint32 {
+        range "1..512000000";
       }
+    }
+    leaf min-threshold-unit {
+      description
+        "bytes supported on ASR platform only, ms on ASR100x only, us on ASR9xx only";
+      type bytes-ms-us-type;
     }
     leaf max-threshold {
-      type uint16 {
-        range "1..4096";
+      description 
+        "maximum threshold (in packet by default)";
+      type uint32 {
+        range "1..512000000";
       }
     }
+    leaf max-threshold-unit {
+      description
+        "bytes supported on ASR platform only, ms on ASR100x only, us on ASR9xx only";
+      type bytes-ms-us-type;
+    }
     leaf denominator {
-      type uint32 {
+      description 
+        "mark probability denominator";
+      type uint16 {
         range "1..65535";
       }
     }
@@ -759,6 +815,7 @@ module Cisco-IOS-XE-policy {
         description
           "The event type this control class-map triggers upon";
         key "event-type";
+        ordered-by user;
         leaf event-type {
           type enumeration {
             enum "aaa-available";
@@ -844,6 +901,11 @@ module Cisco-IOS-XE-policy {
                 type empty;
               }
             }
+            leaf replace {
+              description
+                "clear existing session and create session for violating host";
+              type empty;
+            }
             leaf clear-session {
               description
                 "clears an active session";
@@ -927,6 +989,11 @@ module Cisco-IOS-XE-policy {
                     range "1..254";
                   }
                 }
+                leaf parameter-map {
+                  description
+                    "Specify parameter map name";
+                  type string; 
+                }
               }
             }
           }
@@ -937,6 +1004,7 @@ module Cisco-IOS-XE-policy {
         description
           "policy criteria";
         key "name";
+        ordered-by user;
         leaf name {
           type class-name-type;
         }
@@ -1242,6 +1310,11 @@ module Cisco-IOS-XE-policy {
               }
             }
           }
+        }
+        // Note: "random-detect" can co-exist with "random-detect precedence ..."
+        // so a stand-alone model is needed.
+        leaf random-detect {
+          type empty;
         }
         list action-list {
           key "action-type";
@@ -1987,10 +2060,15 @@ module Cisco-IOS-XE-policy {
                     }
                   }
                 }
-                container discard-class {
+                leaf cos-based {
                   description
-                    "parameters for each discard-class value";
-                  leaf dclass {
+                    "Enable cos-class-based WRED as drop policy, supported on ASR9xx platform only";
+                  type empty;
+                }
+                container cos {
+                  description
+                    "parameters for each cos value, supported on ASR9xx platform only";
+                  leaf cos-val {
                     type uint16 {
                       range "0..7";
                     }
@@ -2001,6 +2079,16 @@ module Cisco-IOS-XE-policy {
                   description
                     "Enable discard-class-based WRED as drop policy";
                   type empty;
+                }
+                container discard-class {
+                  description
+                    "parameters for each discard-class value";
+                  leaf dclass {
+                    type uint16 {
+                      range "0..7";
+                    }
+                  }
+                  uses random-detect-grouping;
                 }
                 leaf dscp-based {
                   description
@@ -2028,7 +2116,10 @@ module Cisco-IOS-XE-policy {
                     range "1..16";
                   }
                 }
-                leaf prec-based {
+                // Note: "random-detect precedence-based" in show running is "random-detect".
+                // Full sync on "random-detect precedence-based".
+                // Caveat: "no random-detect precedence-based" cannot be supported".
+                leaf precedence-based {
                   description
                     "Enable precedence-based WRED as drop policy";
                   type empty;
@@ -2718,731 +2809,70 @@ module Cisco-IOS-XE-policy {
     container protocol {
       description
         "Protocol";
-      leaf protocols {
-        type enumeration {
-          enum "x802-11-iapp";
-          enum "ace-svr";
-          enum "aol";
-          enum "appleqtc";
-          enum "biff";
-          enum "bittorrent";
-          enum "bootpc";
-          enum "bootps";
-          enum "cddbp";
-          enum "cifs";
-          enum "cisco-fna";
-          enum "cisco-net-mgmt";
-          enum "cisco-svcs";
-          enum "cisco-sys";
-          enum "cisco-tdp";
-          enum "cisco-tna";
-          enum "citriximaclient";
-          enum "clp";
-          enum "creativepartnr";
-          enum "creativeserver";
-          enum "daytime";
-          enum "dbase";
-          enum "dbcontrol_agent";
-          enum "ddns-v3";
-          enum "dhcp-failover";
-          enum "directconnect";
-          enum "discard";
-          enum "dnsix";
-          enum "echo";
-          enum "entrust-svc-hdlr";
-          enum "entrust-svcs";
-          enum "exec";
-          enum "fcip-port";
-          enum "ftps";
-          enum "gdoi";
-          enum "giop";
-          enum "gtpv0";
-          enum "gtpv1";
-          enum "h225ras";
-          enum "h323callsigalt";
-          enum "hp-alarm-mgr";
-          enum "hp-collector";
-          enum "hp-managed-node";
-          enum "hsrp";
-          enum "https";
-          enum "ica";
-          enum "icabrowser";
-          enum "ident";
-          enum "igmpv3lite";
-          enum "imap3";
-          enum "imaps";
-          enum "ipass";
-          enum "ipsec-msft";
-          enum "irc-serv";
-          enum "ircs";
-          enum "ircu";
-          enum "isakmp";
-          enum "iscsi";
-          enum "iscsi-target";
-          enum "kermit";
-          enum "ldap-admin";
-          enum "ldaps";
-          enum "login";
-          enum "lotusmtap";
-          enum "lotusnote";
-          // AppNav match protocol
-          enum "mapi";
-          enum "ms-ad-rep";
-          enum "ms-exch-nspi";
-          enum "ms-frs";
-          enum "ms-frsapi";
-          enum "ms-rfr";
-          //ms-sql         MS-SQL
-          enum "msn-messenger";
-          enum "netlogon";
-          enum "microsoft-ds";
-          enum "ms-cluster-net";
-          enum "ms-dotnetster";
-          enum "ms-sna";
-          enum "ms-sql";
-          enum "ms-sql-m";
-          enum "msexch-routing";
-          enum "msnmsgr";
-          enum "msrpc";
-          enum "mysql";
-          enum "n2h2server";
-          enum "ncp";
-          enum "net8-cman";
-          enum "netbios-dgm";
-          enum "netbios-ns";
-          enum "netbios-ssn";
-          enum "netstat";
-          enum "oem-agent";
-          enum "oracle";
-          enum "oracle-em-vp";
-          enum "oraclenames";
-          enum "orasrv";
-          enum "pcanywheredata";
-          enum "pcanywherestat";
-          enum "pop3s";
-          enum "pwdgen";
-          enum "qmtp";
-          enum "r-winsock";
-          enum "radius";
-          enum "rdb-dbs-disp";
-          enum "realmedia";
-          enum "realsecure";
-          enum "router";
-          enum "rsvp-encap";
-          enum "rsvp_tunnel";
-          enum "rtc-pm-port";
-          enum "rtelnet";
-          enum "send";
-          enum "shell";
-          enum "sip-tls";
-          enum "sms";
-          enum "smtp";
-          enum "snmptrap";
-          enum "sql-net";
-          enum "sqlserv";
-          enum "sqlsrv";
-          enum "sshell";
-          enum "ssp";
-          enum "syslog-conn";
-          enum "tacacs";
-          enum "tacacs-ds";
-          enum "tarantella";
-          enum "tcp";
-          enum "telnets";
-          enum "time";
-          enum "timed";
-          enum "tr-rsrb";
-          enum "ttc";
-          enum "udp";
-          enum "uucp";
-          enum "vqp";
-          enum "webster";
-          enum "who";
-          enum "wins";
-          enum "x11";
-          enum "xdmcp";
-          enum "ymsgr";
-          enum "aarp";
-          enum "appletalk";
-          enum "arp";
-          enum "bgp";
-          enum "bridge";
-          enum "bstun";
-          enum "cdp";
-        }
-      }
-      container citrix {
-        description
-          "Citrix Systems ICA protocol";
-        presence "enable citrix system protocol matching";
-        leaf ica-tag {
-          description
-            "Citrix ICA tag 0-high 1-medium 2-low 3-background";
+      list protocols-list {
+        key "protocols";
+        leaf protocols {
           type string;
         }
-      }
-      leaf clns {
-        description
-          "ISO CLNS";
-        type empty;
-      }
-      leaf clns_es {
-        description
-          "ISO CLNS End System";
-        type empty;
-      }
-      leaf clns_is {
-        description
-          "ISO CLNS Intermediate System";
-        type empty;
-      }
-      leaf cmns {
-        description
-          "ISO CMNS";
-        type empty;
-      }
-      leaf compressedtcp {
-        description
-          "Compressed TCP (VJ";
-        type empty;
-      }
-      leaf cuseeme {
-        description
-          "CU-SeeMe desktop video conference";
-        type empty;
-      }
-      leaf decnet {
-        description
-          "DECnet";
-        type empty;
-      }
-      leaf decnet_node {
-        description
-          "DECnet Node";
-        type empty;
-      }
-      leaf decnet_router-l1 {
-        description
-          "DECnet Router L1";
-        type empty;
-      }
-      leaf decnet_router-l2 {
-        description
-          "DECnet Router L2";
-        type empty;
-      }
-      leaf dhcp {
-        description
-          "Dynamic Host Configuration";
-        type empty;
-      }
-      leaf dlsw {
-        type empty;
-      }
-      leaf dns {
-        type empty;
-      }
-      leaf edonkey {
-        type empty;
-      }
-      leaf egp {
-        type empty;
-      }
-      leaf eigrp {
-        type empty;
-      }
-      leaf exchange {
-        type empty;
-      }
-      container fasttrack {
-        description
-          "FastTrack Traffic - KaZaA, Morpheus, Grokster";
-        presence "enable fasttrack matching";
-        leaf file-transfer {
-          description
-            "File transfer stream";
-          type string;
-        }
-      }
-      leaf finger {
-        type empty;
-      }
-      leaf ftp {
-        type empty;
-      }
-      container gnutella {
-        description
-          "Gnutella Version2 Traffic - BearShare, Shareeza, Morpheus";
-        presence "enable gnutella matching";
-        leaf file-transfer {
-          description
-            "File transfer stream";
-          type string;
-        }
-      }
-      leaf gopher {
-        type empty;
-      }
-      leaf gre {
-        type empty;
-      }
-      leaf h323 {
-        type empty;
-      }
-      container http {
-        description
-          "World Wide Web traffic";
-        presence "enable http traffic matching";
-        leaf c-header-field {
-          description
-            "Client general Header Field";
-          type string;
-        }
-        leaf host {
-          description
-            "Server Host Name";
-          type string;
-        }
-        leaf mime {
-          description
-            "Match MIME Type";
-          type string;
-        }
-        leaf s-header-field {
-          description
-            "Server general Header Field";
-          type string;
-        }
-        leaf url {
-          description
-            "Match URL String";
-          type string;
-        }
-      }
-      leaf icmp {
-        description
-          "Internet Control Message";
-        type empty;
-      }
-      leaf imap {
-        description
-          "Internet Message Access Protocol";
-        type empty;
-      }
-      leaf ip {
-        description
-          "IP";
-        type empty;
-      }
-      leaf ipinip {
-        description
-          "IP in IP (encapsulation";
-        type empty;
-      }
-      leaf ipsec {
-        description
-          "IP Security Protocol (ESP/AH";
-        type empty;
-      }
-      leaf ipv6 {
-        description
-          "IPV6";
-        type empty;
-      }
-      leaf ipx {
-        description
-          "Novell IPX";
-        type empty;
-      }
-      leaf irc {
-        type empty;
-        description
-          "Internet Relay Chat";
-      }
-      container kazaa2 {
-        description
-          "Kazaa Version 2";
-        presence "enable kazaa version 2 matching";
-        leaf file-transfer {
-          description
-            "File transfer stream";
-          type string;
-        }
-      }
-      leaf kerberos {
-        description
-          "Kerberos";
-        type empty;
-      }
-      leaf l2tp {
-        description
-          "L2F/L2TP tunnel";
-        type empty;
-      }
-      leaf ldap {
-        description
-          "Lightweight Directory Access Protocol";
-        type empty;
-      }
-      leaf llc2 {
-        description
-          "llc2";
-        type empty;
-      }
-      leaf mgcp {
-        description
-          "Media Gateway Control Protocol";
-        type empty;
-      }
-      container napster {
-        description
-          "Napster Traffic";
-        presence "enable napster matching";
-        leaf non-std {
-          description
-            "Non-standard port advertizements";
-          type empty;
-        }
-      }
-      leaf netbios {
-        description
-          "NetBIOS";
-        type empty;
-      }
-      leaf netshow {
-        description
-          "Microsoft Netshow";
-        type empty;
-      }
-      leaf nfs {
-        description
-          "Network File System";
-        type empty;
-      }
-      leaf nntp {
-        description
-          "Network News Transfer Protocol";
-        type empty;
-      }
-      leaf notes {
-        description
-          "Lotus Notes(R";
-        type empty;
-      }
-      leaf novadigm {
-        description
-          "Novadigm EDM";
-        type empty;
-      }
-      leaf ntp {
-        description
-          "Network Time Protocol";
-        type empty;
-      }
-      leaf ospf {
-        description
-          "Open Shortest Path First";
-        type empty;
-      }
-      leaf pad {
-        description
-          "PAD links";
-        type empty;
-      }
-      leaf pcanywhere {
-        description
-          "Symantec pcANYWHERE";
-        type empty;
-      }
-      leaf pop3 {
-        description
-          "Post Office Protocol";
-        type empty;
-      }
-      leaf pppoe {
-        description
-          "PPP over Ethernet";
-        type empty;
-      }
-      leaf pptp {
-        description
-          "Point-to-Point Tunneling Protocol";
-        type empty;
-      }
-      leaf printer {
-        description
-          "print spooler/lpd";
-        type empty;
-      }
-      leaf qllc {
-        description
-          "qllc protocol";
-        type empty;
-      }
-      leaf rcmd {
-        description
-          "BSD r-commands (rsh, rlogin, rexec";
-        type empty;
-      }
-      leaf rip {
-        description
-          "Routing Information Protocol";
-        type empty;
-      }
-      leaf rsrb {
-        description
-          "Remote Source-Route Bridging";
-        type empty;
-      }
-      leaf rsvp {
-        description
-          "Resource Reservation Protocol";
-        type empty;
-      }
-      leaf rtcp {
-        description
-          "Real Time Control Protocol";
-        type empty;
-      }
-      container rtp {
-        description
-          "Real Time Protocol";
-        presence "enable rtp matching";
-        leaf audio {
-          description
-            "Match voice packets";
-          type empty;
-        }
-        leaf payload-type {
-          description
-            "Match an explicit PT";
-          type string;
-        }
-        leaf video {
-          description
-            "Match video packets";
-          type empty;
-        }
-      }
-      leaf rtsp {
-        description
-          "Real Time Streaming Protocol";
-        type empty;
-      }
-      leaf secure-ftp {
-        description
-          "FTP over TLS/SSL";
-        type empty;
-      }
-      leaf secure-http {
-        description
-          "Secured HTTP";
-        type empty;
-      }
-      leaf secure-imap {
-        description
-          "Internet Message Access Protocol over TLS/SSL";
-        type empty;
-      }
-      leaf secure-irc {
-        description
-          "Internet Relay Chat over TLS/SSL";
-        type empty;
-      }
-      leaf secure-ldap {
-        description
-          "Lightweight Directory Access Protocol over TLS/SSL";
-        type empty;
-      }
-      leaf secure-nntp {
-        description
-          "Network News Transfer Protocol over TLS/SSL";
-        type empty;
-      }
-      leaf secure-pop3 {
-        description
-          "Post Office Protocol over TLS/SSL";
-        type empty;
-      }
-      leaf secure-telnet {
-        description
-          "Telnet over TLS/SSL";
-        type empty;
-      }
-      leaf sip {
-        description
-          "Session Initiation Protocol";
-        type empty;
-      }
-      leaf skinny {
-        description
-          "Skinny Protocol";
-        type empty;
-      }
-      container smtp {
-        description
-          "Simple Mail Transfer Protocol";
-        presence true;
-        leaf extended {
-          type empty;
-        }
-      }
-      leaf snapshot {
-        description
-          "Snapshot routing support";
-        type empty;
-      }
-      leaf snmp {
-        description
-          "Simple Network Management Protocol";
-        type empty;
-      }
-      leaf socks {
-        description
-          "SOCKS";
-        type empty;
-      }
-      leaf sqlnet {
-        description
-          "SQL*NET for Oracle";
-        type empty;
-      }
-      leaf sqlserver {
-        description
-          "MS SQL Server";
-        type empty;
-      }
-      leaf ssh {
-        description
-          "Secured Shell";
-        type empty;
-      }
-      leaf streamwork {
-        description
-          "Xing Technology StreamWorks player";
-        type empty;
-      }
-      leaf stun {
-        description
-          "Serial Tunnel";
-        type empty;
-      }
-      leaf sunrpc {
-        description
-          "Sun RPC";
-        type empty;
-      }
-      leaf syslog {
-        description
-          "System Logging Utility";
-        type empty;
-      }
-      leaf telnet {
-        description
-          "Telnet";
-        type empty;
-      }
-      leaf tftp {
-        description
-          "Trivial File Transfer Protocol";
-        type empty;
-      }
-      leaf vdolive {
-        description
-          "VDOLive streaming video";
-        type empty;
-      }
-      leaf vofr {
-        description
-          "voice over Frame Relay packets";
-        type empty;
-      }
-      leaf winmx {
-        description
-          "WinMx file-sharing application";
-        type empty;
-      }
-      leaf xwindows {
-        description
-          "X-Windows remote access";
-        type empty;
       }
       container attribute {
-        description
-          "Attribute based protocol match";
-        container business-relevance {
-          description
-            "Application business-relevance";
-          leaf business-irrelevant {
-            description
-              "Undesirable business traffic";
-            type empty;
-          }
-          leaf business-relevant {
-            description
-              "Business critical applications";
-              type empty;
-          }
-          leaf default {
-            description
-              "Related business applications";
-            type empty;
+        description  "Attribute based protocol match";
+        list application-group {
+          description "Application-group attribute";
+          key "name";
+          leaf name {
+            type string;
           }
         }
-        container traffic-class {
-          description
-            "SRND class";
-          leaf broadcast-video {
-            description
-              "Broadcast TV, live events, video surveillance";
-            type empty;
-          }
-          leaf bulk-data {
-            description
-              "Non-interactive data applications";
-            type empty;
-          }
-          leaf multimedia-conferencing {
-            description
-              "Desktop software multimedia collaboration applications";
-            type empty;
-          }
-          leaf multimedia-streaming {
-            description
-              "Video-on-Demand (VoD) streaming video";
-            type empty;
-          }
-          leaf network-control {
-            description
-              "Network control plane traffic";
-            type empty;
-          }
-          leaf ops-admin-mgmt {
-            description
-              "Network operations, administration, and management traffic";
-            type empty;
-          }
-          leaf real-time-interactive {
-            description
-              "High-definition interactive video applications";
-            type empty;
-          }
-          leaf signaling {
-            description
-              "Signaling traffic that supports IP voice and video telephony";
-            type empty;
-          }
-          leaf transactional-data {
-            description
-              "Interactive data applications";
-            type empty;
-          }
-          leaf voip-telephony {
-            description
-              "VoIP telephony (bearer-only) traffic";
-            type empty;
+        list application-set {
+          description "Application-set attribute";
+          key "name";
+          leaf name {
+            type string;
           }
         }
+        list business-relevance {
+          description "Application business-relevance";
+          key "name";
+          leaf name {
+            type string;
+          }
+        }
+        list category {
+          description "Category attribute";
+          key "name";
+          leaf name { 
+            type string;
+          }
+        }
+        list encrypted {
+          description "Encrypted applications";
+          key "name";
+          leaf name {
+            type string;
+          }
+        }
+        list sub-category {
+          description "Sub-category attribute";
+          key "name";
+          leaf name {
+            type string;
+          }
+        }
+        list traffic-class {
+          description "SRND class";
+          key "name";
+          leaf name {
+            type string;
+          }
+        }
+        list tunnel {
+          description "Tunnelled applications";
+          key "name";
+          leaf name {
+            type string;
+          }
+        } 
       }
     }
     // class-map * / qos-group
@@ -3474,6 +2904,27 @@ module Cisco-IOS-XE-policy {
             "Security group tag";
           type uint16;
         }
+      }
+    }
+    // class-map * / service
+    list service {
+      description
+        "Service Instance to match";
+      key efp;
+      leaf efp {
+        type uint16 {
+          range "1..4000";
+        }
+      }
+      leaf instance {
+        description
+          "Service Instance to match";
+        type empty;
+      }
+      leaf ethernet {
+        description
+          "Service Instance to match";
+        type empty;
       }
     }
     // class-map * / source-address
@@ -3609,6 +3060,17 @@ module Cisco-IOS-XE-policy {
   }
 
   grouping config-parameter-map-grouping {
+    container regex {
+      when "/ios:native/ios:parameter-map/ios:type = 'regex'";
+      list pattern {
+        description
+          "Configure pattern to match";
+        key regexp;
+        leaf regexp {
+          type string;
+        }
+      }
+    }
     container timeout {
       description
         "timeout for the webauth session";
@@ -4335,6 +3797,14 @@ module Cisco-IOS-XE-policy {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-service-policy-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-service-policy-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     uses config-interface-service-policy-grouping;
   }
 

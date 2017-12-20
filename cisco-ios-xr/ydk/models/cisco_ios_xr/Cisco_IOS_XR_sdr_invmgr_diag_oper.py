@@ -25,7 +25,7 @@ class Diag(Entity):
     .. attribute:: racks
     
     	Table of racks
-    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks>`
+    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks>`
     
     
 
@@ -59,7 +59,7 @@ class Diag(Entity):
         .. attribute:: rack
         
         	Rack name
-        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack>`
+        	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack>`
         
         
 
@@ -93,27 +93,29 @@ class Diag(Entity):
             .. attribute:: rack_name  <key>
             
             	Rack name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: power_shelfs
             
             	Table for rack power shelf 
-            	**type**\:   :py:class:`PowerShelfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs>`
+            	**type**\:  :py:class:`PowerShelfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs>`
             
             .. attribute:: fan_traies
             
             	Table for rack fan trays
-            	**type**\:   :py:class:`FanTraies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies>`
+            	**type**\:  :py:class:`FanTraies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies>`
             
             .. attribute:: slots
             
             	Table of slots
-            	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots>`
+            	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots>`
             
             .. attribute:: chassis
             
             	Chassis information
-            	**type**\:   :py:class:`Chassis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis>`
+            	**type**\:  :py:class:`Chassis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis>`
             
             
 
@@ -167,7 +169,7 @@ class Diag(Entity):
                 .. attribute:: power_shelf
                 
                 	Power shelf name
-                	**type**\: list of    :py:class:`PowerShelf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf>`
+                	**type**\: list of  		 :py:class:`PowerShelf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf>`
                 
                 
 
@@ -200,12 +202,14 @@ class Diag(Entity):
                     .. attribute:: power_shelf_name  <key>
                     
                     	Power Shelf name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: power_supplies
                     
                     	Table for rack power supply 
-                    	**type**\:   :py:class:`PowerSupplies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies>`
+                    	**type**\:  :py:class:`PowerSupplies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies>`
                     
                     
 
@@ -243,7 +247,7 @@ class Diag(Entity):
                         .. attribute:: power_supply
                         
                         	Power Supply name
-                        	**type**\: list of    :py:class:`PowerSupply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply>`
+                        	**type**\: list of  		 :py:class:`PowerSupply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply>`
                         
                         
 
@@ -276,12 +280,14 @@ class Diag(Entity):
                             .. attribute:: power_supply_name  <key>
                             
                             	Power Supply name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: information
                             
                             	Basic information
-                            	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information>`
+                            	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information>`
                             
                             
 
@@ -319,397 +325,397 @@ class Diag(Entity):
                                 .. attribute:: rma
                                 
                                 	RMA Data
-                                	**type**\:   :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma>`
+                                	**type**\:  :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma>`
                                 
                                 .. attribute:: description
                                 
                                 	A textual description of physical entity
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: idprom_format_rev
                                 
                                 	IDPROM Format Revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: controller_family
                                 
                                 	Controller family
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: controller_type
                                 
                                 	Controller type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: vid
                                 
                                 	Version ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: hwid
                                 
                                 	Hardware Revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: pid
                                 
                                 	Product ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: udi_description
                                 
                                 	UDI description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: udi_name
                                 
                                 	UDI name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: clei
                                 
                                 	Common Language Equipment Identifier (CLEI) code
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: eci
                                 
                                 	Equipment Catalog Item (ECI) number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: top_assem_part_num
                                 
                                 	Top assembly part number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: top_assem_vid
                                 
                                 	Top assembly revision number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: pca_num
                                 
                                 	PCA number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: pcavid
                                 
                                 	PCA revision ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: chassis_sid
                                 
                                 	Chassis serial number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num1
                                 
                                 	Deviation Number # 1
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num2
                                 
                                 	Deviation Number # 2
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num3
                                 
                                 	Deviation Number # 3
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num4
                                 
                                 	Deviation Number # 4
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num5
                                 
                                 	Deviation Number # 5
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num6
                                 
                                 	Deviation Number # 6
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num7
                                 
                                 	Deviation Number # 7
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: manu_test_data
                                 
                                 	Manufacturing Test Data
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: asset_id
                                 
                                 	Asset ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: asset_alias
                                 
                                 	Asset Alias
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: base_mac_address1
                                 
                                 	Base Mac Address #1
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mac_add_blk_size1
                                 
                                 	Mac Address Block Size #1
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: base_mac_address2
                                 
                                 	Base Mac Address #2
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mac_add_blk_size2
                                 
                                 	Mac Address Block Size #2
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: base_mac_address3
                                 
                                 	Base Mac Address #3
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mac_add_blk_size3
                                 
                                 	Mac Address Block Size #3
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: base_mac_address4
                                 
                                 	Base Mac Address #4
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mac_add_blk_size4
                                 
                                 	Mac Address Block Size #4
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: pcb_serial_num
                                 
                                 	PCB Serial Number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: power_supply_type
                                 
                                 	Power Supply Type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: power_consumption
                                 
                                 	Power Consumption
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_signature
                                 
                                 	Block Signature
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_version
                                 
                                 	Block Version
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_length
                                 
                                 	Block Length
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_checksum
                                 
                                 	Block Checksum
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: eeprom_size
                                 
                                 	EEPROM Size
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_count
                                 
                                 	Block Count
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: fru_major_type
                                 
                                 	FRU Major Type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: fru_minor_type
                                 
                                 	FRU Minor Type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: oem_string
                                 
                                 	OEM String
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: product_id
                                 
                                 	Product ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: serial_number
                                 
                                 	Serial Number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: part_number
                                 
                                 	Part Number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: part_revision
                                 
                                 	Part Revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mfg_deviation
                                 
                                 	MFG Deviation
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: hw_version
                                 
                                 	Hardware Version
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mfg_bits
                                 
                                 	MFG Bits
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: engineer_use
                                 
                                 	Engineer Use
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: snmpoid
                                 
                                 	SNMP OID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: rma_code
                                 
                                 	RMA Code
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
@@ -859,21 +865,21 @@ class Diag(Entity):
                                     .. attribute:: test_history
                                     
                                     	Test history
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: rma_number
                                     
                                     	RMA tracking number format is N\-N\-N
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: rma_history
                                     
                                     	RMA history
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
@@ -912,7 +918,7 @@ class Diag(Entity):
                 .. attribute:: fan_tray
                 
                 	Fan tray name
-                	**type**\: list of    :py:class:`FanTray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray>`
+                	**type**\: list of  		 :py:class:`FanTray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray>`
                 
                 
 
@@ -945,12 +951,14 @@ class Diag(Entity):
                     .. attribute:: fan_tray_name  <key>
                     
                     	Fan tray name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: fanses
                     
                     	Table for rack fans 
-                    	**type**\:   :py:class:`Fanses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses>`
+                    	**type**\:  :py:class:`Fanses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses>`
                     
                     
 
@@ -988,7 +996,7 @@ class Diag(Entity):
                         .. attribute:: fans
                         
                         	Fan name
-                        	**type**\: list of    :py:class:`Fans <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans>`
+                        	**type**\: list of  		 :py:class:`Fans <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans>`
                         
                         
 
@@ -1021,12 +1029,14 @@ class Diag(Entity):
                             .. attribute:: fans_name  <key>
                             
                             	Fans name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: information
                             
                             	Basic information
-                            	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information>`
+                            	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information>`
                             
                             
 
@@ -1064,397 +1074,397 @@ class Diag(Entity):
                                 .. attribute:: rma
                                 
                                 	RMA Data
-                                	**type**\:   :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma>`
+                                	**type**\:  :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma>`
                                 
                                 .. attribute:: description
                                 
                                 	A textual description of physical entity
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: idprom_format_rev
                                 
                                 	IDPROM Format Revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: controller_family
                                 
                                 	Controller family
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: controller_type
                                 
                                 	Controller type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: vid
                                 
                                 	Version ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: hwid
                                 
                                 	Hardware Revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: pid
                                 
                                 	Product ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: udi_description
                                 
                                 	UDI description
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: udi_name
                                 
                                 	UDI name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: clei
                                 
                                 	Common Language Equipment Identifier (CLEI) code
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: eci
                                 
                                 	Equipment Catalog Item (ECI) number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: top_assem_part_num
                                 
                                 	Top assembly part number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: top_assem_vid
                                 
                                 	Top assembly revision number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: pca_num
                                 
                                 	PCA number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: pcavid
                                 
                                 	PCA revision ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: chassis_sid
                                 
                                 	Chassis serial number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num1
                                 
                                 	Deviation Number # 1
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num2
                                 
                                 	Deviation Number # 2
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num3
                                 
                                 	Deviation Number # 3
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num4
                                 
                                 	Deviation Number # 4
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num5
                                 
                                 	Deviation Number # 5
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num6
                                 
                                 	Deviation Number # 6
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: dev_num7
                                 
                                 	Deviation Number # 7
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: manu_test_data
                                 
                                 	Manufacturing Test Data
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: asset_id
                                 
                                 	Asset ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: asset_alias
                                 
                                 	Asset Alias
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: base_mac_address1
                                 
                                 	Base Mac Address #1
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mac_add_blk_size1
                                 
                                 	Mac Address Block Size #1
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: base_mac_address2
                                 
                                 	Base Mac Address #2
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mac_add_blk_size2
                                 
                                 	Mac Address Block Size #2
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: base_mac_address3
                                 
                                 	Base Mac Address #3
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mac_add_blk_size3
                                 
                                 	Mac Address Block Size #3
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: base_mac_address4
                                 
                                 	Base Mac Address #4
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mac_add_blk_size4
                                 
                                 	Mac Address Block Size #4
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: pcb_serial_num
                                 
                                 	PCB Serial Number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: power_supply_type
                                 
                                 	Power Supply Type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: power_consumption
                                 
                                 	Power Consumption
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_signature
                                 
                                 	Block Signature
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_version
                                 
                                 	Block Version
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_length
                                 
                                 	Block Length
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_checksum
                                 
                                 	Block Checksum
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: eeprom_size
                                 
                                 	EEPROM Size
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: block_count
                                 
                                 	Block Count
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: fru_major_type
                                 
                                 	FRU Major Type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: fru_minor_type
                                 
                                 	FRU Minor Type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: oem_string
                                 
                                 	OEM String
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: product_id
                                 
                                 	Product ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: serial_number
                                 
                                 	Serial Number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: part_number
                                 
                                 	Part Number
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: part_revision
                                 
                                 	Part Revision
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mfg_deviation
                                 
                                 	MFG Deviation
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: hw_version
                                 
                                 	Hardware Version
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: mfg_bits
                                 
                                 	MFG Bits
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: engineer_use
                                 
                                 	Engineer Use
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: snmpoid
                                 
                                 	SNMP OID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
                                 .. attribute:: rma_code
                                 
                                 	RMA Code
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
@@ -1604,21 +1614,21 @@ class Diag(Entity):
                                     .. attribute:: test_history
                                     
                                     	Test history
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: rma_number
                                     
                                     	RMA tracking number format is N\-N\-N
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: rma_history
                                     
                                     	RMA history
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
@@ -1657,7 +1667,7 @@ class Diag(Entity):
                 .. attribute:: slot
                 
                 	Slot name
-                	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot>`
+                	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot>`
                 
                 
 
@@ -1690,12 +1700,14 @@ class Diag(Entity):
                     .. attribute:: slot_name  <key>
                     
                     	Slot name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: instances
                     
                     	Table of instances
-                    	**type**\:   :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances>`
+                    	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances>`
                     
                     
 
@@ -1733,7 +1745,7 @@ class Diag(Entity):
                         .. attribute:: instance
                         
                         	instance number
-                        	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance>`
+                        	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance>`
                         
                         
 
@@ -1766,12 +1778,14 @@ class Diag(Entity):
                             .. attribute:: name  <key>
                             
                             	Instance name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: detail
                             
                             	Detail information
-                            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail>`
+                            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail>`
                             
                             
 
@@ -1809,12 +1823,12 @@ class Diag(Entity):
                                 .. attribute:: card_instance
                                 
                                 	Card instance
-                                	**type**\:   :py:class:`CardInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance>`
+                                	**type**\:  :py:class:`CardInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance>`
                                 
                                 .. attribute:: node_operational_state
                                 
                                 	Node operational state 
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..255
                                 
@@ -1854,397 +1868,397 @@ class Diag(Entity):
                                     .. attribute:: rma
                                     
                                     	RMA Data
-                                    	**type**\:   :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma>`
+                                    	**type**\:  :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma>`
                                     
                                     .. attribute:: description
                                     
                                     	A textual description of physical entity
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: idprom_format_rev
                                     
                                     	IDPROM Format Revision
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: controller_family
                                     
                                     	Controller family
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: controller_type
                                     
                                     	Controller type
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: vid
                                     
                                     	Version ID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: hwid
                                     
                                     	Hardware Revision
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: pid
                                     
                                     	Product ID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: udi_description
                                     
                                     	UDI description
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: udi_name
                                     
                                     	UDI name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: clei
                                     
                                     	Common Language Equipment Identifier (CLEI) code
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: eci
                                     
                                     	Equipment Catalog Item (ECI) number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: top_assem_part_num
                                     
                                     	Top assembly part number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: top_assem_vid
                                     
                                     	Top assembly revision number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: pca_num
                                     
                                     	PCA number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: pcavid
                                     
                                     	PCA revision ID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: chassis_sid
                                     
                                     	Chassis serial number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: dev_num1
                                     
                                     	Deviation Number # 1
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: dev_num2
                                     
                                     	Deviation Number # 2
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: dev_num3
                                     
                                     	Deviation Number # 3
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: dev_num4
                                     
                                     	Deviation Number # 4
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: dev_num5
                                     
                                     	Deviation Number # 5
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: dev_num6
                                     
                                     	Deviation Number # 6
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: dev_num7
                                     
                                     	Deviation Number # 7
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: manu_test_data
                                     
                                     	Manufacturing Test Data
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: asset_id
                                     
                                     	Asset ID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: asset_alias
                                     
                                     	Asset Alias
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: base_mac_address1
                                     
                                     	Base Mac Address #1
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: mac_add_blk_size1
                                     
                                     	Mac Address Block Size #1
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: base_mac_address2
                                     
                                     	Base Mac Address #2
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: mac_add_blk_size2
                                     
                                     	Mac Address Block Size #2
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: base_mac_address3
                                     
                                     	Base Mac Address #3
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: mac_add_blk_size3
                                     
                                     	Mac Address Block Size #3
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: base_mac_address4
                                     
                                     	Base Mac Address #4
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: mac_add_blk_size4
                                     
                                     	Mac Address Block Size #4
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: pcb_serial_num
                                     
                                     	PCB Serial Number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: power_supply_type
                                     
                                     	Power Supply Type
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: power_consumption
                                     
                                     	Power Consumption
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: block_signature
                                     
                                     	Block Signature
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: block_version
                                     
                                     	Block Version
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: block_length
                                     
                                     	Block Length
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: block_checksum
                                     
                                     	Block Checksum
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: eeprom_size
                                     
                                     	EEPROM Size
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: block_count
                                     
                                     	Block Count
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: fru_major_type
                                     
                                     	FRU Major Type
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: fru_minor_type
                                     
                                     	FRU Minor Type
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: oem_string
                                     
                                     	OEM String
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: product_id
                                     
                                     	Product ID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: serial_number
                                     
                                     	Serial Number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: part_number
                                     
                                     	Part Number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: part_revision
                                     
                                     	Part Revision
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: mfg_deviation
                                     
                                     	MFG Deviation
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: hw_version
                                     
                                     	Hardware Version
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: mfg_bits
                                     
                                     	MFG Bits
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: engineer_use
                                     
                                     	Engineer Use
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: snmpoid
                                     
                                     	SNMP OID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: rma_code
                                     
                                     	RMA Code
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
@@ -2394,21 +2408,21 @@ class Diag(Entity):
                                         .. attribute:: test_history
                                         
                                         	Test history
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: rma_number
                                         
                                         	RMA tracking number format is N\-N\-N
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: rma_history
                                         
                                         	RMA history
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
@@ -2447,397 +2461,397 @@ class Diag(Entity):
                 .. attribute:: rma
                 
                 	RMA Data
-                	**type**\:   :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis.Rma>`
+                	**type**\:  :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis.Rma>`
                 
                 .. attribute:: description
                 
                 	A textual description of physical entity
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: idprom_format_rev
                 
                 	IDPROM Format Revision
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: controller_family
                 
                 	Controller family
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: controller_type
                 
                 	Controller type
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: vid
                 
                 	Version ID
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: hwid
                 
                 	Hardware Revision
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: pid
                 
                 	Product ID
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: udi_description
                 
                 	UDI description
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: udi_name
                 
                 	UDI name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: clei
                 
                 	Common Language Equipment Identifier (CLEI) code
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: eci
                 
                 	Equipment Catalog Item (ECI) number
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: top_assem_part_num
                 
                 	Top assembly part number
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: top_assem_vid
                 
                 	Top assembly revision number
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: pca_num
                 
                 	PCA number
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: pcavid
                 
                 	PCA revision ID
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: chassis_sid
                 
                 	Chassis serial number
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: dev_num1
                 
                 	Deviation Number # 1
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: dev_num2
                 
                 	Deviation Number # 2
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: dev_num3
                 
                 	Deviation Number # 3
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: dev_num4
                 
                 	Deviation Number # 4
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: dev_num5
                 
                 	Deviation Number # 5
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: dev_num6
                 
                 	Deviation Number # 6
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: dev_num7
                 
                 	Deviation Number # 7
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: manu_test_data
                 
                 	Manufacturing Test Data
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: asset_id
                 
                 	Asset ID
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: asset_alias
                 
                 	Asset Alias
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: base_mac_address1
                 
                 	Base Mac Address #1
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: mac_add_blk_size1
                 
                 	Mac Address Block Size #1
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: base_mac_address2
                 
                 	Base Mac Address #2
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: mac_add_blk_size2
                 
                 	Mac Address Block Size #2
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: base_mac_address3
                 
                 	Base Mac Address #3
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: mac_add_blk_size3
                 
                 	Mac Address Block Size #3
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: base_mac_address4
                 
                 	Base Mac Address #4
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: mac_add_blk_size4
                 
                 	Mac Address Block Size #4
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: pcb_serial_num
                 
                 	PCB Serial Number
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: power_supply_type
                 
                 	Power Supply Type
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: power_consumption
                 
                 	Power Consumption
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: block_signature
                 
                 	Block Signature
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: block_version
                 
                 	Block Version
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: block_length
                 
                 	Block Length
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: block_checksum
                 
                 	Block Checksum
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: eeprom_size
                 
                 	EEPROM Size
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: block_count
                 
                 	Block Count
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: fru_major_type
                 
                 	FRU Major Type
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: fru_minor_type
                 
                 	FRU Minor Type
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: oem_string
                 
                 	OEM String
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: product_id
                 
                 	Product ID
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: serial_number
                 
                 	Serial Number
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: part_number
                 
                 	Part Number
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: part_revision
                 
                 	Part Revision
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: mfg_deviation
                 
                 	MFG Deviation
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: hw_version
                 
                 	Hardware Version
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: mfg_bits
                 
                 	MFG Bits
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: engineer_use
                 
                 	Engineer Use
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: snmpoid
                 
                 	SNMP OID
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
                 .. attribute:: rma_code
                 
                 	RMA Code
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..255
                 
@@ -2987,21 +3001,21 @@ class Diag(Entity):
                     .. attribute:: test_history
                     
                     	Test history
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: rma_number
                     
                     	RMA tracking number format is N\-N\-N
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: rma_history
                     
                     	RMA history
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     

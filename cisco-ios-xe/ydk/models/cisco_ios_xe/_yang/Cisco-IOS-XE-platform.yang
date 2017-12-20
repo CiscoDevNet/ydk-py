@@ -33,6 +33,10 @@ module Cisco-IOS-XE-platform {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-06-02 {
+    description
+      "Add dependency between qos match-statistics per-filter and per-ace";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";

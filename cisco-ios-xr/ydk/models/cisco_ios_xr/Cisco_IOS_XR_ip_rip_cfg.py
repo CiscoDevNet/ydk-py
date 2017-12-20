@@ -169,12 +169,12 @@ class Rip(Entity):
     .. attribute:: default_vrf
     
     	RIP configuration for Default VRF
-    	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf>`
+    	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf>`
     
     .. attribute:: vrfs
     
     	VRF related RIP configuration
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs>`
     
     
 
@@ -213,17 +213,17 @@ class Rip(Entity):
         .. attribute:: enable
         
         	Starts RIP configuration for Default VRF
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: broadcast_for_v2
         
         	Send RIP v2 output packets to broadcast address
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: distance
         
         	Administrative distance
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -232,21 +232,21 @@ class Rip(Entity):
         .. attribute:: default_information
         
         	Controls default information origination
-        	**type**\:   :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.DefaultInformation>`
+        	**type**\:  :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.DefaultInformation>`
         
         	**presence node**\: True
         
         .. attribute:: default_metric
         
         	Default metric of redistributed routes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..16
         
         .. attribute:: output_delay
         
         	Inter\-packet delay for RIP updates
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 8..50
         
@@ -255,42 +255,42 @@ class Rip(Entity):
         .. attribute:: auto_summary
         
         	Enable automatic network number summarization
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: redistribution
         
         	Redistribute information from another routing protocol
-        	**type**\:   :py:class:`Redistribution <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution>`
+        	**type**\:  :py:class:`Redistribution <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution>`
         
         .. attribute:: ip_distances
         
         	Table of IP specific administrative distances
-        	**type**\:   :py:class:`IpDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.IpDistances>`
+        	**type**\:  :py:class:`IpDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.IpDistances>`
         
         .. attribute:: policy_out
         
         	Route Policy for outbound routing updates
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: interfaces
         
         	Table of RIP interfaces
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces>`
         
         .. attribute:: neighbors
         
         	Configure RIP Neighbors
-        	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Neighbors>`
+        	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Neighbors>`
         
         .. attribute:: validate_source_disable
         
         	Disable validation of source address of routing updates
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: maximum_paths
         
         	Maximum number of paths allowed per route
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..128
         
@@ -299,17 +299,17 @@ class Rip(Entity):
         .. attribute:: nsf
         
         	Enable Cisco Non Stop Forwarding
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: policy_in
         
         	Route Policy for inbbound routing updates
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: timers
         
         	Various routing timers
-        	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Timers>`
+        	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Timers>`
         
         	**presence node**\: True
         
@@ -393,12 +393,12 @@ class Rip(Entity):
             .. attribute:: route_policy_name
             
             	Route policy name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: option
             
             	Origination option
-            	**type**\:   :py:class:`DefaultInformationOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultInformationOption>`
+            	**type**\:  :py:class:`DefaultInformationOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultInformationOption>`
             
             	**mandatory**\: True
             
@@ -440,36 +440,36 @@ class Rip(Entity):
             .. attribute:: connected
             
             	Redistribute connected routes
-            	**type**\:   :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Connected>`
+            	**type**\:  :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Connected>`
             
             	**presence node**\: True
             
             .. attribute:: bgps
             
             	Redistribute BGP routes
-            	**type**\:   :py:class:`Bgps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Bgps>`
+            	**type**\:  :py:class:`Bgps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Bgps>`
             
             .. attribute:: isises
             
             	Redistribute IS\-IS routes
-            	**type**\:   :py:class:`Isises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Isises>`
+            	**type**\:  :py:class:`Isises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Isises>`
             
             .. attribute:: eigrp_s
             
             	Redistribute EIGRP routes
-            	**type**\:   :py:class:`EigrpS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.EigrpS>`
+            	**type**\:  :py:class:`EigrpS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.EigrpS>`
             
             .. attribute:: static
             
             	Redistribute static routes
-            	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Static>`
+            	**type**\:  :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Static>`
             
             	**presence node**\: True
             
             .. attribute:: ospfs
             
             	Redistribute OSPF routes
-            	**type**\:   :py:class:`Ospfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Ospfs>`
+            	**type**\:  :py:class:`Ospfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Ospfs>`
             
             
 
@@ -526,12 +526,12 @@ class Rip(Entity):
                 .. attribute:: route_policy_name
                 
                 	Route Policy name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: route_type
                 
                 	Route type
-                	**type**\:   :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
+                	**type**\:  :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
                 
                 
 
@@ -570,7 +570,7 @@ class Rip(Entity):
                 .. attribute:: bgp
                 
                 	Autonomous system number
-                	**type**\: list of    :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Bgps.Bgp>`
+                	**type**\: list of  		 :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Bgps.Bgp>`
                 
                 
 
@@ -604,26 +604,26 @@ class Rip(Entity):
                     .. attribute:: asnxx  <key>
                     
                     	Higher 16 bits of 4\-byte BGP AS number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: asnyy  <key>
                     
                     	2\-byte or 4\-byte BGP AS number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: policy
                     
                     	Route Policy name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: type
                     
                     	Route type
-                    	**type**\:   :py:class:`BgpRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.BgpRedistRoute>`
+                    	**type**\:  :py:class:`BgpRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.BgpRedistRoute>`
                     
                     
 
@@ -663,7 +663,7 @@ class Rip(Entity):
                 .. attribute:: isis
                 
                 	Redistribute IS\-IS routes
-                	**type**\: list of    :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Isises.Isis>`
+                	**type**\: list of  		 :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Isises.Isis>`
                 
                 
 
@@ -697,17 +697,19 @@ class Rip(Entity):
                     .. attribute:: isis_name  <key>
                     
                     	IS\-IS instance name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: route_policy_name
                     
                     	Route Policy name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: route_type
                     
                     	Route type
-                    	**type**\:   :py:class:`IsisRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.IsisRedistRoute>`
+                    	**type**\:  :py:class:`IsisRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.IsisRedistRoute>`
                     
                     
 
@@ -745,7 +747,7 @@ class Rip(Entity):
                 .. attribute:: eigrp
                 
                 	Redistribute EIGRP routes
-                	**type**\: list of    :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.EigrpS.Eigrp>`
+                	**type**\: list of  		 :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.EigrpS.Eigrp>`
                 
                 
 
@@ -779,19 +781,19 @@ class Rip(Entity):
                     .. attribute:: as_  <key>
                     
                     	Autonomous system number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: route_policy_name
                     
                     	Route Policy name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: route_type
                     
                     	Route type
-                    	**type**\:   :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
+                    	**type**\:  :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
                     
                     
 
@@ -829,12 +831,12 @@ class Rip(Entity):
                 .. attribute:: route_policy_name
                 
                 	Route Policy name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: route_type
                 
                 	Route type
-                	**type**\:   :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
+                	**type**\:  :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
                 
                 
 
@@ -873,7 +875,7 @@ class Rip(Entity):
                 .. attribute:: ospf
                 
                 	Redistribute OSPF routes
-                	**type**\: list of    :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Ospfs.Ospf>`
+                	**type**\: list of  		 :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Redistribution.Ospfs.Ospf>`
                 
                 
 
@@ -907,39 +909,41 @@ class Rip(Entity):
                     .. attribute:: ospf_name  <key>
                     
                     	Process ID for the OSPF instance
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: route_policy_name
                     
                     	Route Policy name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: internal
                     
                     	Internal routes
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: external
                     
                     	External routes
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: external_type
                     
                     	External route type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..2
                     
                     .. attribute:: nssa_external
                     
                     	NSSA External routes
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: nssa_external_type
                     
                     	NSSA External route type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..2
                     
@@ -987,7 +991,7 @@ class Rip(Entity):
             .. attribute:: ip_distance
             
             	IP specific administrative distance
-            	**type**\: list of    :py:class:`IpDistance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.IpDistances.IpDistance>`
+            	**type**\: list of  		 :py:class:`IpDistance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.IpDistances.IpDistance>`
             
             
 
@@ -1021,17 +1025,21 @@ class Rip(Entity):
                 .. attribute:: address  <key>
                 
                 	IP Source address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: netmask  <key>
                 
                 	IP address mask
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: distance
                 
                 	Administrative distance
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
@@ -1073,7 +1081,7 @@ class Rip(Entity):
             .. attribute:: interface
             
             	RIP interface name
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface>`
             
             
 
@@ -1107,69 +1115,71 @@ class Rip(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: authentication
                 
                 	Authentication keychain and mode
-                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface.Authentication>`
+                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface.Authentication>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: site_of_origin
                 
                 	SOO community for prefixes learned over this interface
-                	**type**\:   :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin>`
+                	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin>`
                 
                 .. attribute:: receive_version
                 
                 	RIP versions supported for receiving advertisements
-                	**type**\:   :py:class:`ReceiveVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion>`
+                	**type**\:  :py:class:`ReceiveVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion>`
                 
                 .. attribute:: send_version
                 
                 	RIP versions supported for sending advertisements
-                	**type**\:   :py:class:`SendVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface.SendVersion>`
+                	**type**\:  :py:class:`SendVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Interfaces.Interface.SendVersion>`
                 
                 .. attribute:: broadcast_for_v2
                 
                 	Send RIP v2 output packets to broadcast address
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: poison_reverse
                 
                 	Enable poison reverse
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: passive
                 
                 	Suppress routing updates on this interface
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: enable
                 
                 	Starts RIP interface configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: policy_out
                 
                 	Route Policy for outbound routing updates
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: accept_metric_zero
                 
                 	Accept RIP updates with metric 0
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: policy_in
                 
                 	Route Policy for inbound routing updates
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: split_horizon_disable
                 
                 	Disable split horizon
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1238,14 +1248,14 @@ class Rip(Entity):
                     .. attribute:: keychain
                     
                     	Name of keychain
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: mode
                     
                     	Authentication mode
-                    	**type**\:   :py:class:`RipAuthMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.RipAuthMode>`
+                    	**type**\:  :py:class:`RipAuthMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.RipAuthMode>`
                     
                     	**mandatory**\: True
                     
@@ -1286,38 +1296,40 @@ class Rip(Entity):
                     .. attribute:: type
                     
                     	Extended community type
-                    	**type**\:   :py:class:`RipExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.RipExtCommunity>`
+                    	**type**\:  :py:class:`RipExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.RipExtCommunity>`
                     
                     .. attribute:: as_xx
                     
                     	AS Number for AS\:nn format
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: as_yy
                     
                     	32 bit value for AS\:nn format
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: as_index
                     
                     	AS Number Index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: address
                     
                     	IPV4 address for IPV4Address\:nn format
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: address_index
                     
                     	16bit value for IPV4Address\:nn format
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -1363,12 +1375,12 @@ class Rip(Entity):
                     .. attribute:: version1
                     
                     	Support RIP version 1
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: version2
                     
                     	Support RIP version 2
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: true
                     
@@ -1406,12 +1418,12 @@ class Rip(Entity):
                     .. attribute:: version1
                     
                     	Support RIP version 1
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: version2
                     
                     	Support RIP version 2
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: true
                     
@@ -1448,7 +1460,7 @@ class Rip(Entity):
             .. attribute:: neighbor
             
             	Neighbor address
-            	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Neighbors.Neighbor>`
+            	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.DefaultVrf.Neighbors.Neighbor>`
             
             
 
@@ -1482,7 +1494,9 @@ class Rip(Entity):
                 .. attribute:: neighbor_address  <key>
                 
                 	IPv4 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -1516,7 +1530,7 @@ class Rip(Entity):
             .. attribute:: update_timer
             
             	Interval between updates
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..50000
             
@@ -1525,7 +1539,7 @@ class Rip(Entity):
             .. attribute:: invalid_timer
             
             	Invalid
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 15..200000
             
@@ -1534,7 +1548,7 @@ class Rip(Entity):
             .. attribute:: holddown_timer
             
             	Holddown
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 15..200000
             
@@ -1543,7 +1557,7 @@ class Rip(Entity):
             .. attribute:: flush_timer
             
             	Flush
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 16..250000
             
@@ -1590,7 +1604,7 @@ class Rip(Entity):
         .. attribute:: vrf
         
         	RIP configuration for a particular VRF
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf>`
         
         
 
@@ -1624,22 +1638,24 @@ class Rip(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: enable
             
             	Starts RIP configuration for a particular VRF
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: broadcast_for_v2
             
             	Send RIP v2 output packets to broadcast address
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: distance
             
             	Administrative distance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -1648,21 +1664,21 @@ class Rip(Entity):
             .. attribute:: default_information
             
             	Controls default information origination
-            	**type**\:   :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.DefaultInformation>`
+            	**type**\:  :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.DefaultInformation>`
             
             	**presence node**\: True
             
             .. attribute:: default_metric
             
             	Default metric of redistributed routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..16
             
             .. attribute:: output_delay
             
             	Inter\-packet delay for RIP updates
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 8..50
             
@@ -1671,42 +1687,42 @@ class Rip(Entity):
             .. attribute:: auto_summary
             
             	Enable automatic network number summarization
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redistribution
             
             	Redistribute information from another routing protocol
-            	**type**\:   :py:class:`Redistribution <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution>`
+            	**type**\:  :py:class:`Redistribution <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution>`
             
             .. attribute:: ip_distances
             
             	Table of IP specific administrative distances
-            	**type**\:   :py:class:`IpDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.IpDistances>`
+            	**type**\:  :py:class:`IpDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.IpDistances>`
             
             .. attribute:: policy_out
             
             	Route Policy for outbound routing updates
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: interfaces
             
             	Table of RIP interfaces
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces>`
             
             .. attribute:: neighbors
             
             	Configure RIP Neighbors
-            	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Neighbors>`
+            	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Neighbors>`
             
             .. attribute:: validate_source_disable
             
             	Disable validation of source address of routing updates
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: maximum_paths
             
             	Maximum number of paths allowed per route
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..128
             
@@ -1715,17 +1731,17 @@ class Rip(Entity):
             .. attribute:: nsf
             
             	Enable Cisco Non Stop Forwarding
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: policy_in
             
             	Route Policy for inbbound routing updates
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: timers
             
             	Various routing timers
-            	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Timers>`
+            	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Timers>`
             
             	**presence node**\: True
             
@@ -1811,12 +1827,12 @@ class Rip(Entity):
                 .. attribute:: route_policy_name
                 
                 	Route policy name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: option
                 
                 	Origination option
-                	**type**\:   :py:class:`DefaultInformationOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultInformationOption>`
+                	**type**\:  :py:class:`DefaultInformationOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultInformationOption>`
                 
                 	**mandatory**\: True
                 
@@ -1857,36 +1873,36 @@ class Rip(Entity):
                 .. attribute:: connected
                 
                 	Redistribute connected routes
-                	**type**\:   :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Connected>`
+                	**type**\:  :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Connected>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: bgps
                 
                 	Redistribute BGP routes
-                	**type**\:   :py:class:`Bgps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Bgps>`
+                	**type**\:  :py:class:`Bgps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Bgps>`
                 
                 .. attribute:: isises
                 
                 	Redistribute IS\-IS routes
-                	**type**\:   :py:class:`Isises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Isises>`
+                	**type**\:  :py:class:`Isises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Isises>`
                 
                 .. attribute:: eigrp_s
                 
                 	Redistribute EIGRP routes
-                	**type**\:   :py:class:`EigrpS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.EigrpS>`
+                	**type**\:  :py:class:`EigrpS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.EigrpS>`
                 
                 .. attribute:: static
                 
                 	Redistribute static routes
-                	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Static>`
+                	**type**\:  :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Static>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: ospfs
                 
                 	Redistribute OSPF routes
-                	**type**\:   :py:class:`Ospfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Ospfs>`
+                	**type**\:  :py:class:`Ospfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Ospfs>`
                 
                 
 
@@ -1942,12 +1958,12 @@ class Rip(Entity):
                     .. attribute:: route_policy_name
                     
                     	Route Policy name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: route_type
                     
                     	Route type
-                    	**type**\:   :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
+                    	**type**\:  :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
                     
                     
 
@@ -1985,7 +2001,7 @@ class Rip(Entity):
                     .. attribute:: bgp
                     
                     	Autonomous system number
-                    	**type**\: list of    :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Bgps.Bgp>`
+                    	**type**\: list of  		 :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Bgps.Bgp>`
                     
                     
 
@@ -2018,26 +2034,26 @@ class Rip(Entity):
                         .. attribute:: asnxx  <key>
                         
                         	Higher 16 bits of 4\-byte BGP AS number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: asnyy  <key>
                         
                         	2\-byte or 4\-byte BGP AS number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: policy
                         
                         	Route Policy name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: type
                         
                         	Route type
-                        	**type**\:   :py:class:`BgpRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.BgpRedistRoute>`
+                        	**type**\:  :py:class:`BgpRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.BgpRedistRoute>`
                         
                         
 
@@ -2076,7 +2092,7 @@ class Rip(Entity):
                     .. attribute:: isis
                     
                     	Redistribute IS\-IS routes
-                    	**type**\: list of    :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Isises.Isis>`
+                    	**type**\: list of  		 :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Isises.Isis>`
                     
                     
 
@@ -2109,17 +2125,19 @@ class Rip(Entity):
                         .. attribute:: isis_name  <key>
                         
                         	IS\-IS instance name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: route_policy_name
                         
                         	Route Policy name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: route_type
                         
                         	Route type
-                        	**type**\:   :py:class:`IsisRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.IsisRedistRoute>`
+                        	**type**\:  :py:class:`IsisRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.IsisRedistRoute>`
                         
                         
 
@@ -2156,7 +2174,7 @@ class Rip(Entity):
                     .. attribute:: eigrp
                     
                     	Redistribute EIGRP routes
-                    	**type**\: list of    :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.EigrpS.Eigrp>`
+                    	**type**\: list of  		 :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.EigrpS.Eigrp>`
                     
                     
 
@@ -2189,19 +2207,19 @@ class Rip(Entity):
                         .. attribute:: as_  <key>
                         
                         	Autonomous system number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: route_policy_name
                         
                         	Route Policy name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: route_type
                         
                         	Route type
-                        	**type**\:   :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
+                        	**type**\:  :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
                         
                         
 
@@ -2238,12 +2256,12 @@ class Rip(Entity):
                     .. attribute:: route_policy_name
                     
                     	Route Policy name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: route_type
                     
                     	Route type
-                    	**type**\:   :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
+                    	**type**\:  :py:class:`DefaultRedistRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.DefaultRedistRoute>`
                     
                     
 
@@ -2281,7 +2299,7 @@ class Rip(Entity):
                     .. attribute:: ospf
                     
                     	Redistribute OSPF routes
-                    	**type**\: list of    :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Ospfs.Ospf>`
+                    	**type**\: list of  		 :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Redistribution.Ospfs.Ospf>`
                     
                     
 
@@ -2314,39 +2332,41 @@ class Rip(Entity):
                         .. attribute:: ospf_name  <key>
                         
                         	Process ID for the OSPF instance
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: route_policy_name
                         
                         	Route Policy name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: internal
                         
                         	Internal routes
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: external
                         
                         	External routes
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: external_type
                         
                         	External route type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..2
                         
                         .. attribute:: nssa_external
                         
                         	NSSA External routes
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: nssa_external_type
                         
                         	NSSA External route type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..2
                         
@@ -2393,7 +2413,7 @@ class Rip(Entity):
                 .. attribute:: ip_distance
                 
                 	IP specific administrative distance
-                	**type**\: list of    :py:class:`IpDistance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.IpDistances.IpDistance>`
+                	**type**\: list of  		 :py:class:`IpDistance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.IpDistances.IpDistance>`
                 
                 
 
@@ -2426,17 +2446,21 @@ class Rip(Entity):
                     .. attribute:: address  <key>
                     
                     	IP Source address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: netmask  <key>
                     
                     	IP address mask
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: distance
                     
                     	Administrative distance
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -2477,7 +2501,7 @@ class Rip(Entity):
                 .. attribute:: interface
                 
                 	RIP interface name
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface>`
                 
                 
 
@@ -2510,69 +2534,71 @@ class Rip(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: authentication
                     
                     	Authentication keychain and mode
-                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface.Authentication>`
+                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface.Authentication>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: site_of_origin
                     
                     	SOO community for prefixes learned over this interface
-                    	**type**\:   :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin>`
+                    	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin>`
                     
                     .. attribute:: receive_version
                     
                     	RIP versions supported for receiving advertisements
-                    	**type**\:   :py:class:`ReceiveVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion>`
+                    	**type**\:  :py:class:`ReceiveVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion>`
                     
                     .. attribute:: send_version
                     
                     	RIP versions supported for sending advertisements
-                    	**type**\:   :py:class:`SendVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion>`
+                    	**type**\:  :py:class:`SendVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion>`
                     
                     .. attribute:: broadcast_for_v2
                     
                     	Send RIP v2 output packets to broadcast address
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: poison_reverse
                     
                     	Enable poison reverse
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: passive
                     
                     	Suppress routing updates on this interface
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: enable
                     
                     	Starts RIP interface configuration
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: policy_out
                     
                     	Route Policy for outbound routing updates
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: accept_metric_zero
                     
                     	Accept RIP updates with metric 0
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: policy_in
                     
                     	Route Policy for inbound routing updates
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: split_horizon_disable
                     
                     	Disable split horizon
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -2640,14 +2666,14 @@ class Rip(Entity):
                         .. attribute:: keychain
                         
                         	Name of keychain
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: mode
                         
                         	Authentication mode
-                        	**type**\:   :py:class:`RipAuthMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.RipAuthMode>`
+                        	**type**\:  :py:class:`RipAuthMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.RipAuthMode>`
                         
                         	**mandatory**\: True
                         
@@ -2688,38 +2714,40 @@ class Rip(Entity):
                         .. attribute:: type
                         
                         	Extended community type
-                        	**type**\:   :py:class:`RipExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.RipExtCommunity>`
+                        	**type**\:  :py:class:`RipExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.RipExtCommunity>`
                         
                         .. attribute:: as_xx
                         
                         	AS Number for AS\:nn format
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: as_yy
                         
                         	32 bit value for AS\:nn format
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: as_index
                         
                         	AS Number Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: address
                         
                         	IPV4 address for IPV4Address\:nn format
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: address_index
                         
                         	16bit value for IPV4Address\:nn format
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -2765,12 +2793,12 @@ class Rip(Entity):
                         .. attribute:: version1
                         
                         	Support RIP version 1
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: version2
                         
                         	Support RIP version 2
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
@@ -2808,12 +2836,12 @@ class Rip(Entity):
                         .. attribute:: version1
                         
                         	Support RIP version 1
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: version2
                         
                         	Support RIP version 2
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
@@ -2850,7 +2878,7 @@ class Rip(Entity):
                 .. attribute:: neighbor
                 
                 	Neighbor address
-                	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Neighbors.Neighbor>`
+                	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg.Rip.Vrfs.Vrf.Neighbors.Neighbor>`
                 
                 
 
@@ -2883,7 +2911,9 @@ class Rip(Entity):
                     .. attribute:: neighbor_address  <key>
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -2916,7 +2946,7 @@ class Rip(Entity):
                 .. attribute:: update_timer
                 
                 	Interval between updates
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..50000
                 
@@ -2925,7 +2955,7 @@ class Rip(Entity):
                 .. attribute:: invalid_timer
                 
                 	Invalid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 15..200000
                 
@@ -2934,7 +2964,7 @@ class Rip(Entity):
                 .. attribute:: holddown_timer
                 
                 	Holddown
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 15..200000
                 
@@ -2943,7 +2973,7 @@ class Rip(Entity):
                 .. attribute:: flush_timer
                 
                 	Flush
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 16..250000
                 

@@ -25,12 +25,12 @@ class Ipv6Virtual(Entity):
     .. attribute:: vrfs
     
     	VRFs for the virtual IPv6 addresses
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs>`
     
     .. attribute:: use_as_source_address
     
     	Enable use as default source address on sourced packets
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -69,7 +69,7 @@ class Ipv6Virtual(Entity):
         .. attribute:: vrf
         
         	A VRF for a virtual IPv6 address.  Specify 'default' for VRF default
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs.Vrf>`
         
         
 
@@ -104,12 +104,14 @@ class Ipv6Virtual(Entity):
             .. attribute:: vrf_name  <key>
             
             	Name of VRF
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: address
             
             	IPv6 address and mask
-            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs.Vrf.Address>`
+            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs.Vrf.Address>`
             
             	**presence node**\: True
             
@@ -149,14 +151,16 @@ class Ipv6Virtual(Entity):
                 .. attribute:: address
                 
                 	IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 	**mandatory**\: True
                 
                 .. attribute:: prefix_length
                 
                 	IPv6 address prefix length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..128
                 

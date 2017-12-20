@@ -67,7 +67,7 @@ class Wanphy(Entity):
     .. attribute:: controllers
     
     	All WANPHY controller operational data
-    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers>`
+    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers>`
     
     
 
@@ -101,7 +101,7 @@ class Wanphy(Entity):
         .. attribute:: controller
         
         	WANPHY controller operational data
-        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller>`
+        	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller>`
         
         
 
@@ -135,12 +135,14 @@ class Wanphy(Entity):
             .. attribute:: controller_name  <key>
             
             	Controller name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: info
             
             	WANPHY controller operational data
-            	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller.Info>`
+            	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller.Info>`
             
             
 
@@ -179,305 +181,305 @@ class Wanphy(Entity):
                 .. attribute:: admin_mode
                 
                 	Configuration Mode
-                	**type**\:   :py:class:`WanphyModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfo>`
+                	**type**\:  :py:class:`WanphyModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfo>`
                 
                 .. attribute:: port_state
                 
                 	Port State
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: section_lof
                 
                 	Section LOF
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: section_los
                 
                 	Section LOS
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: section_bip
                 
                 	Section BIP(B1)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: line_ais
                 
                 	Line AIS
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: line_rdi
                 
                 	Line RDI
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: line_febe
                 
                 	Line FEBE
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: line_bip
                 
                 	Line BIP(B2) 
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: path_ais
                 
                 	Path AIS
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: path_rdi
                 
                 	Path RDI
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: path_febe
                 
                 	Path FEBE
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: path_bip
                 
                 	Path BIP(B3)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: path_lop
                 
                 	Path LOP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: path_newptr
                 
                 	Path NEWPTR
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: path_pse
                 
                 	Path PSE
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: path_nse
                 
                 	Path NSE
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: wis_alarms_ser
                 
                 	WIS Alarms SER
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: wis_alarms_felcdp
                 
                 	WIS Alarms FELCDP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: wis_alarms_feaisp
                 
                 	WIS Alarms FEAISP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: wis_alarms_wlos
                 
                 	WIS Alarms WLOS
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: wis_alarms_plcd
                 
                 	WIS Alarms PLCD
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: wis_alarms_lfebip
                 
                 	WIS Alarms LFEBIP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: wis_alarms_pbec
                 
                 	WIS Alarms PBEC
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: wis_alarms_plmp
                 
                 	WIS Alarms PLMP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sf_ber_threshold
                 
                 	BER thresholds\: SF. Value 'd' in 10e\-%d
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sd_ber_threshold
                 
                 	BER thresholds\: SD. Value 'd' in 10e\-%d
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sf_ber_report
                 
                 	SF\_BER Report
-                	**type**\:   :py:class:`WanphyAlarmRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatus>`
+                	**type**\:  :py:class:`WanphyAlarmRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatus>`
                 
                 .. attribute:: sd_ber_report
                 
                 	SD\_BER Report
-                	**type**\:   :py:class:`WanphyAlarmRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatus>`
+                	**type**\:  :py:class:`WanphyAlarmRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatus>`
                 
                 .. attribute:: operational_mode
                 
                 	Operational Mode
-                	**type**\:   :py:class:`WanphyModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfo>`
+                	**type**\:  :py:class:`WanphyModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfo>`
                 
                 .. attribute:: remote_ip
                 
                 	Remote IP Address
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: register_p_febe
                 
                 	Register P\_FEBE
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_l_fe_bip
                 
                 	Register L\_FE\_BIP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_l_bip
                 
                 	Register L\_BIP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_p_bec
                 
                 	Register P\_BEC
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_s_bip
                 
                 	Register S\_BIP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_j1_rx0
                 
                 	Register J1\-Rx0
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_j1_rx1
                 
                 	Register J1\-Rx1
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_j1_rx2
                 
                 	Register J1\-Rx2
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_j1_rx3
                 
                 	Register J1\-Rx3
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_j1_rx4
                 
                 	Register J1\-Rx4
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_j1_rx5
                 
                 	Register J1\-Rx5
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_j1_rx6
                 
                 	Register J1\-Rx6
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: register_j1_rx7
                 
                 	Register J1\-Rx7
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: wanphy_poll_timer
                 
                 	wanphy poll timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 

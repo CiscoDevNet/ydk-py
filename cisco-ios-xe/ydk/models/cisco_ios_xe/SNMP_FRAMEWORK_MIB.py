@@ -97,7 +97,7 @@ class SNMPFRAMEWORKMIB(Entity):
     .. attribute:: snmpengine
     
     	
-    	**type**\:   :py:class:`Snmpengine <ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB.SNMPFRAMEWORKMIB.Snmpengine>`
+    	**type**\:  :py:class:`Snmpengine <ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB.SNMPFRAMEWORKMIB.Snmpengine>`
     
     
 
@@ -131,21 +131,21 @@ class SNMPFRAMEWORKMIB(Entity):
         .. attribute:: snmpengineid
         
         	An SNMP engine's administratively\-unique identifier.  This information SHOULD be stored in non\-volatile storage so that it remains constant across re\-initializations of the SNMP engine
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 5..32
         
         .. attribute:: snmpengineboots
         
         	The number of times that the SNMP engine has (re\-)initialized itself since snmpEngineID was last configured
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
         .. attribute:: snmpenginetime
         
         	The number of seconds since the value of the snmpEngineBoots object last changed. When incrementing this object's value would cause it to exceed its maximum, snmpEngineBoots is incremented as if a re\-initialization had occurred, and this object's value consequently reverts to zero
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -154,7 +154,7 @@ class SNMPFRAMEWORKMIB(Entity):
         .. attribute:: snmpenginemaxmessagesize
         
         	The maximum length in octets of an SNMP message which this SNMP engine can send or receive and process, determined as the minimum of the maximum message size values supported among all of the transports available to and supported by the engine
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 484..2147483647
         

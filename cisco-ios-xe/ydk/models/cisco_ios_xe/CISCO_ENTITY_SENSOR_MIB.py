@@ -326,17 +326,17 @@ class CISCOENTITYSENSORMIB(Entity):
     .. attribute:: entsensorglobalobjects
     
     	
-    	**type**\:   :py:class:`Entsensorglobalobjects <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorglobalobjects>`
+    	**type**\:  :py:class:`Entsensorglobalobjects <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorglobalobjects>`
     
     .. attribute:: entsensorvaluetable
     
     	This table lists the type, scale, and present value of a sensor listed in the Entity\-MIB entPhysicalTable
-    	**type**\:   :py:class:`Entsensorvaluetable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorvaluetable>`
+    	**type**\:  :py:class:`Entsensorvaluetable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorvaluetable>`
     
     .. attribute:: entsensorthresholdtable
     
     	This table lists the threshold severity, relation, and comparison value, for a sensor listed in the Entity\-MIB  entPhysicalTable
-    	**type**\:   :py:class:`Entsensorthresholdtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorthresholdtable>`
+    	**type**\:  :py:class:`Entsensorthresholdtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorthresholdtable>`
     
     
 
@@ -380,7 +380,7 @@ class CISCOENTITYSENSORMIB(Entity):
         .. attribute:: entsensorthreshnotifglobalenable
         
         	This variable enables the generation of entSensorThresholdNotification globally on the device. If this object value is 'false', then no entSensorThresholdNotification will be generated on this device. If this object value is 'true', then whether a  entSensorThresholdNotification for a threshold will be generated or not depends on the instance value of entSensorThresholdNotificationEnable for that threshold
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -415,7 +415,7 @@ class CISCOENTITYSENSORMIB(Entity):
         .. attribute:: entsensorvalueentry
         
         	An entSensorValueTable entry describes the present reading of a sensor, the measurement units and scale, and sensor operational status
-        	**type**\: list of    :py:class:`Entsensorvalueentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorvaluetable.Entsensorvalueentry>`
+        	**type**\: list of  		 :py:class:`Entsensorvalueentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorvaluetable.Entsensorvalueentry>`
         
         
 
@@ -451,7 +451,7 @@ class CISCOENTITYSENSORMIB(Entity):
             .. attribute:: entphysicalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -460,43 +460,43 @@ class CISCOENTITYSENSORMIB(Entity):
             .. attribute:: entsensortype
             
             	This variable indicates the type of data reported by the entSensorValue.  This variable is set by the agent at start\-up and the value does not change during operation
-            	**type**\:   :py:class:`SensorDataType <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorDataType>`
+            	**type**\:  :py:class:`SensorDataType <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorDataType>`
             
             .. attribute:: entsensorscale
             
             	This variable indicates the exponent to apply to sensor values reported by entSensorValue.  This variable is set by the agent at start\-up and the value does not change during operation
-            	**type**\:   :py:class:`SensorDataScale <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorDataScale>`
+            	**type**\:  :py:class:`SensorDataScale <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorDataScale>`
             
             .. attribute:: entsensorprecision
             
             	This variable indicates the number of decimal places of precision in fixed\-point sensor values reported by entSensorValue.  This variable is set to 0 when entSensorType is not a fixed\-point type\: e.g.'percentRH(9)',  'rpm(10)', 'cmm(11)', or 'truthvalue(12)'.  This variable is set by the agent at start\-up and the value does not change during operation
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-8..9
             
             .. attribute:: entsensorvalue
             
             	This variable reports the most recent measurement seen by the sensor.  To correctly display or interpret this variable's value,  you must also know entSensorType, entSensorScale, and  entSensorPrecision.  However, you can compare entSensorValue with the threshold values given in entSensorThresholdTable without any semantic knowledge
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1000000000..1073741823
             
             .. attribute:: entsensorstatus
             
             	This variable indicates the present operational status of the sensor
-            	**type**\:   :py:class:`SensorStatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorStatus>`
+            	**type**\:  :py:class:`SensorStatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorStatus>`
             
             .. attribute:: entsensorvaluetimestamp
             
             	This variable indicates the age of the value reported by entSensorValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: entsensorvalueupdaterate
             
             	This variable indicates the rate that the agent updates entSensorValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..999999999
             
@@ -505,7 +505,7 @@ class CISCOENTITYSENSORMIB(Entity):
             .. attribute:: entsensormeasuredentity
             
             	This object identifies the physical entity for which the sensor is taking measurements.  For example, for a sensor measuring the voltage output of a power\-supply, this object would be the entPhysicalIndex of that power\-supply; for a sensor measuring the temperature inside one chassis of a multi\-chassis system, this object would be the enPhysicalIndex of that chassis.  This object has a value of zero when the physical entity for which the sensor is taking measurements can not be represented by any one row in the entPhysicalTable, or that there is no such physical entity
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -559,7 +559,7 @@ class CISCOENTITYSENSORMIB(Entity):
         .. attribute:: entsensorthresholdentry
         
         	An entSensorThresholdTable entry describes the thresholds for a sensor\: the threshold severity, the threshold value, the relation, and the  evaluation of the threshold.  Only entities of type sensor(8) are listed in this table. Only pre\-configured thresholds are listed in this table.  Users can create sensor\-value monitoring instruments in different ways, such as RMON alarms, Expression\-MIB, etc.  Entries are created by the agent at system startup and FRU insertion.  Entries are deleted by the agent at FRU removal
-        	**type**\: list of    :py:class:`Entsensorthresholdentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorthresholdtable.Entsensorthresholdentry>`
+        	**type**\: list of  		 :py:class:`Entsensorthresholdentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.Entsensorthresholdtable.Entsensorthresholdentry>`
         
         
 
@@ -606,7 +606,7 @@ class CISCOENTITYSENSORMIB(Entity):
             .. attribute:: entphysicalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -615,36 +615,36 @@ class CISCOENTITYSENSORMIB(Entity):
             .. attribute:: entsensorthresholdindex  <key>
             
             	An index that uniquely identifies an entry in the entSensorThresholdTable. This index permits the same sensor to have several  different thresholds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..99999999
             
             .. attribute:: entsensorthresholdseverity
             
             	This variable indicates the severity of this threshold
-            	**type**\:   :py:class:`SensorThresholdSeverity <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorThresholdSeverity>`
+            	**type**\:  :py:class:`SensorThresholdSeverity <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorThresholdSeverity>`
             
             .. attribute:: entsensorthresholdrelation
             
             	This variable indicates the relation between sensor value (entSensorValue) and threshold value (entSensorThresholdValue),  required to trigger the alarm.  when evaluating the relation,  entSensorValue is on the left of entSensorThresholdRelation,  entSensorThresholdValue is on the right.   in pseudo\-code, the evaluation\-alarm mechanism is\:  ... if (entSensorStatus == ok) then     if (evaluate(entSensorValue, entSensorThresholdRelation,           entSensorThresholdValue))      then         if (entSensorThresholdNotificationEnable == true))          then             raise\_alarm(sensor's entPhysicalIndex);         endif     endif endif ..
-            	**type**\:   :py:class:`SensorThresholdRelation <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorThresholdRelation>`
+            	**type**\:  :py:class:`SensorThresholdRelation <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorThresholdRelation>`
             
             .. attribute:: entsensorthresholdvalue
             
             	This variable indicates the value of the threshold.  To correctly display or interpret this variable's value,  you must also know entSensorType, entSensorScale, and  entSensorPrecision.  However, you can directly compare entSensorValue  with the threshold values given in entSensorThresholdTable  without any semantic knowledge
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1000000000..1073741823
             
             .. attribute:: entsensorthresholdevaluation
             
             	This variable indicates the result of the most recent evaluation of the threshold.  If the threshold condition is true, entSensorThresholdEvaluation  is true(1).  If the threshold condition is false,  entSensorThresholdEvaluation is false(2).  Thresholds are evaluated at the rate indicated by  entSensorValueUpdateRate
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: entsensorthresholdnotificationenable
             
             	This variable controls generation of entSensorThresholdNotification for this threshold.  When this variable is 'true', generation of  entSensorThresholdNotification is enabled for this threshold. When this variable is 'false',  generation of entSensorThresholdNotification is disabled for this threshold
-            	**type**\:  bool
+            	**type**\: bool
             
             
 

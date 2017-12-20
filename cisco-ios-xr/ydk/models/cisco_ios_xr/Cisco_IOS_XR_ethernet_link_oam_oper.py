@@ -330,32 +330,32 @@ class EtherLinkOam(Entity):
     .. attribute:: discovery_info_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Discovery Info container
-    	**type**\:   :py:class:`DiscoveryInfoInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces>`
+    	**type**\:  :py:class:`DiscoveryInfoInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces>`
     
     .. attribute:: interface_state_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Interface State container
-    	**type**\:   :py:class:`InterfaceStateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces>`
+    	**type**\:  :py:class:`InterfaceStateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces>`
     
     .. attribute:: running_config_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Running Config container
-    	**type**\:   :py:class:`RunningConfigInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces>`
+    	**type**\:  :py:class:`RunningConfigInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces>`
     
     .. attribute:: nodes
     
     	Node table for node\-specific operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes>`
     
     .. attribute:: event_log_entry_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Event Log Entry container
-    	**type**\:   :py:class:`EventLogEntryInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces>`
+    	**type**\:  :py:class:`EventLogEntryInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces>`
     
     .. attribute:: stats_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Stats container
-    	**type**\:   :py:class:`StatsInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.StatsInterfaces>`
+    	**type**\:  :py:class:`StatsInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.StatsInterfaces>`
     
     
 
@@ -415,7 +415,7 @@ class EtherLinkOam(Entity):
         .. attribute:: discovery_info_interface
         
         	Ethernet Link OAM interface to get Discovery Info for
-        	**type**\: list of    :py:class:`DiscoveryInfoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface>`
+        	**type**\: list of  		 :py:class:`DiscoveryInfoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface>`
         
         
 
@@ -450,261 +450,267 @@ class EtherLinkOam(Entity):
             .. attribute:: member_interface  <key>
             
             	Member Interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: name
             
             	Interface Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: operational_status
             
             	Operational status
-            	**type**\:   :py:class:`OperationalState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.OperationalState>`
+            	**type**\:  :py:class:`OperationalState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.OperationalState>`
             
             .. attribute:: loopback_mode
             
             	The loopback mode the interface is in
-            	**type**\:   :py:class:`LoopbackStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LoopbackStatus>`
+            	**type**\:  :py:class:`LoopbackStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LoopbackStatus>`
             
             .. attribute:: local_mode
             
             	Local Mode (passive/active)
-            	**type**\:   :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Mode>`
+            	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Mode>`
             
             .. attribute:: miswired
             
             	Has the interface mis\-wired?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_mwd_key
             
             	Local Mis\-wiring Detection key
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_function_unidirectional
             
             	Local Unidirectional support
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_function_loopback
             
             	Local loopback support
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_function_event
             
             	Local event support
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_functionvariable
             
             	Local variable retreival support
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_revision
             
             	Local revision
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_mtu
             
             	Local MTU
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_operational
             
             	Is the local OAM session operational?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_evaluating
             
             	Is the local OAM session evaluating?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_mode
             
             	Remote Mode (passive/active)
-            	**type**\:   :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Mode>`
+            	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Mode>`
             
             .. attribute:: remote_unidirectional
             
             	Remote unidirectional support
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_loopback
             
             	Remote loopback support
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_event
             
             	Remote event support
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_variable
             
             	Remote variable retreival support
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_mtu
             
             	Remote MTU
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_mac_address
             
             	Remote MAC address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: remote_vendor_oui
             
             	Remote vendor OUI
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
             
             .. attribute:: remote_revision
             
             	Remote revision
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: remote_vendor_info
             
             	Remote vendor info
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_mwd_key
             
             	Remote Mis\-wiring Detection key
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: operational_status_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: loopback_mode_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_mode_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: miswired_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_mwd_key_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_function_unidirectional_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_function_loopback_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_function_event_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_functionvariable_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_revisionvalid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_mtu_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_mode_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_unidirectional_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_loopback_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_event_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_variable_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_mtu_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_mac_address_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_vendor_oui_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_revisionvalid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_vendor_info_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_mwd_key_valid
             
             	Has this value been received successfully?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: received_at_risk_notification_timestamp
             
             	Timestamp of when the last At Risk notification was received (in seconds since the UNIX epoch), or 0 if the peer is not currently at risk
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -713,7 +719,7 @@ class EtherLinkOam(Entity):
             .. attribute:: received_at_risk_notification_time_remaining
             
             	Number of seconds remaining that the peer has indicated it will be At Risk
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -850,7 +856,7 @@ class EtherLinkOam(Entity):
         .. attribute:: interface_state_interface
         
         	Ethernet Link OAM interface to get Interface State for
-        	**type**\: list of    :py:class:`InterfaceStateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface>`
+        	**type**\: list of  		 :py:class:`InterfaceStateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface>`
         
         
 
@@ -885,44 +891,46 @@ class EtherLinkOam(Entity):
             .. attribute:: member_interface  <key>
             
             	Member Interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: errors
             
             	The errors that have occurred on this interface
-            	**type**\:   :py:class:`Errors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors>`
+            	**type**\:  :py:class:`Errors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors>`
             
             .. attribute:: efd_triggers
             
             	Any present EFD triggers
-            	**type**\:   :py:class:`EfdTriggers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers>`
+            	**type**\:  :py:class:`EfdTriggers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers>`
             
             .. attribute:: protocol_code
             
             	The state the protocol is in
-            	**type**\:   :py:class:`ProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ProtocolState>`
+            	**type**\:  :py:class:`ProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ProtocolState>`
             
             .. attribute:: rx_fault
             
             	Has a uni\-directional link\-fault been detected?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_mwd_key
             
             	The local MWD key
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_mwd_key_present
             
             	Does the remote side have an MWD key?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_mwd_key
             
             	The remote MWD key
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -978,60 +986,60 @@ class EtherLinkOam(Entity):
                 .. attribute:: pfi_reason
                 
                 	Reason for the Interface Management error (if applicable)
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: pfi_error_code
                 
                 	The Interface Management error/success code
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: platform_reason
                 
                 	Reason for the platform error (if applicable)
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: platform_error_code
                 
                 	The platform error/success code
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: spio_reason
                 
                 	Reason for the Packet I/O error (if applicable)
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: spio_error_code
                 
                 	The Packet I/O error/success code
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: epi_reason
                 
                 	Reason for the Packet error (if applicable)
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: epi_error_code
                 
                 	The Packet error/success code
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: caps_add_reason
                 
                 	Reason for the caps add error (if applicable)
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: caps_add_error_code
                 
                 	The caps add error/success code
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1084,27 +1092,27 @@ class EtherLinkOam(Entity):
                 .. attribute:: link_fault_received
                 
                 	Link\-fault messages being received
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: discovery_timed_out
                 
                 	The discovery process has timed out
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: capabilities_conflict
                 
                 	A capabilities conflict has been detected
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: wiring_conflict
                 
                 	A wiring conflict has been detected
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: session_down
                 
                 	The 802.3 OAM session is down
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1146,7 +1154,7 @@ class EtherLinkOam(Entity):
         .. attribute:: running_config_interface
         
         	Ethernet Link OAM interface to get Running Config for
-        	**type**\: list of    :py:class:`RunningConfigInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface>`
+        	**type**\: list of  		 :py:class:`RunningConfigInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface>`
         
         
 
@@ -1181,196 +1189,198 @@ class EtherLinkOam(Entity):
             .. attribute:: member_interface  <key>
             
             	Member Interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: fast_hello_interval_enabled
             
             	Is 100ms hello interval time enabled?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: link_monitor_enabled
             
             	Is link monitoring enabled?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_loopback_enabled
             
             	Is remote loopback enabled?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: mib_retrieval_enabled
             
             	Is MIB retrieval enabled?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: udlf_enabled
             
             	Is uni\-directional link\-fault detection enabled?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: mode
             
             	Configured mode
-            	**type**\:   :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Mode>`
+            	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Mode>`
             
             .. attribute:: connection_timeout
             
             	Connection timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: symbol_period_window
             
             	Symbol period event window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: symbol_period_window_units
             
             	Symbol period event window units
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: symbol_period_window_multiplier
             
             	Symbol period event window multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: symbol_period_threshold_low
             
             	Symbol period event low threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: symbol_period_threshold_high
             
             	Symbol period event high threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: symbol_period_threshold_units
             
             	Symbol period event threshold units
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: symbol_period_threshold_low_multiplier
             
             	Symbol period event threshold low multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: symbol_period_threshold_high_multiplier
             
             	Symbol period event threshold high multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: frame_window
             
             	Frame event window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frame_threshold_low
             
             	Frame event low threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: frame_threshold_high
             
             	Frame event high threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: frame_threshold_low_multiplier
             
             	Frame period event threshold low multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: frame_threshold_high_multiplier
             
             	Frame event threshold high multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: frame_period_window
             
             	Frame period event window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frame_period_window_units
             
             	Frame period event window units
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: frame_period_window_multiplier
             
             	Frame period event window multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: frame_period_threshold_low
             
             	Frame period event low threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: frame_period_threshold_high
             
             	Frame period event high threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: frame_period_threshold_units
             
             	Frame period event threshold units
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: frame_period_threshold_low_multiplier
             
             	Frame period event threshold low multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: frame_period_threshold_high_multiplier
             
             	Frame period event threshold high multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: frame_seconds_window
             
             	Frame seconds event high threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1379,7 +1389,7 @@ class EtherLinkOam(Entity):
             .. attribute:: frame_seconds_threshold_low
             
             	Frame seconds event high threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1388,7 +1398,7 @@ class EtherLinkOam(Entity):
             .. attribute:: frame_seconds_threshold_high
             
             	Frame seconds event high threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1397,237 +1407,237 @@ class EtherLinkOam(Entity):
             .. attribute:: high_threshold_action
             
             	Action to perform when a high threshold is breached
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: link_fault_action
             
             	Action to perform when a link fault occurs
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: dying_gasp_action
             
             	Action to perform when a dying gasp occurs
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: critical_event_action
             
             	Action to perform when a critical event occurs
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: discovery_timeout_action
             
             	Action to perform when a discovery timeout occurs
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: capabilities_conflict_action
             
             	Action to perform when a capabilities conflict occurs
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: wiring_conflict_action
             
             	Action to perform when a wiring conflict occurs
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: session_up_action
             
             	Action to perform when a session comes up
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: session_down_action
             
             	Action to perform when a session comes down
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: remote_loopback_action
             
             	Action to perform when a session enters or exits remote loopback
-            	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+            	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
             
             .. attribute:: require_remote_mode
             
             	The mode that is required of the remote peer
-            	**type**\:   :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Mode>`
+            	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Mode>`
             
             .. attribute:: require_remote_mib_retrieval
             
             	Require the remote peer to support MIB retrieval
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: require_loopback
             
             	Require the remote peer to support loopback mode
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: require_link_monitoring
             
             	Require the remote peer to support link monitoring
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: fast_hello_interval_enabled_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: link_monitoring_enabled_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_loopback_enabled_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: mib_retrieval_enabled_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: udlf_enabled_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: mode_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: connection_timeout_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: symbol_period_window_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: symbol_period_threshold_low_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: symbol_period_threshold_high_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_window_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_threshold_low_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_threshold_high_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_period_window_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_period_threshold_low_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_period_threshold_high_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_seconds_window_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_seconds_threshold_low_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frame_seconds_threshold_high_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: high_threshold_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: link_fault_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: dying_gasp_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: critical_event_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: discovery_timeout_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: capabilities_conflict_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: wiring_conflict_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: session_down_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: session_up_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_loopback_action_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: require_mode_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: require_mib_retrieval_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: require_loopback_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: require_link_monitoring_overridden
             
             	Is this configuration information an interface override?
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -1817,7 +1827,7 @@ class EtherLinkOam(Entity):
         .. attribute:: node
         
         	Node\-specific data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node>`
         
         
 
@@ -1851,12 +1861,14 @@ class EtherLinkOam(Entity):
             .. attribute:: node_name  <key>
             
             	Node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: summary
             
             	Ethernet Link OAM Summary information for the entire node
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node.Summary>`
             
             
 
@@ -1896,154 +1908,154 @@ class EtherLinkOam(Entity):
                 .. attribute:: interfaces
                 
                 	The number of interfaces with 802.3 OAM configured
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_down
                 
                 	The number of interfaces in 'Port Down' state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: passive_wait
                 
                 	The number of interfaces in 'Passive Wait' state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: active_send
                 
                 	The number of interfaces in 'Active Send' state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: evaluating
                 
                 	The number of interfaces in 'Evaluating' state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: local_accept
                 
                 	The number of interfaces in 'Local Accept' state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: local_reject
                 
                 	The number of interfaces in 'Local Reject' state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: remote_reject
                 
                 	The number of interfaces in 'Remote Reject' state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: operational
                 
                 	The number of interfaces in 'Operational' state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: loopback_mode
                 
                 	The number of interfaces in loopback mode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: miswired_connections
                 
                 	The number of miswired connections
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: events
                 
                 	The number of events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: local_events
                 
                 	The number of local events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: local_symbol_period
                 
                 	The number of local symbol period events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: local_frame
                 
                 	The mumber of local frame error events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: local_frame_period
                 
                 	The number of local frame period events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: local_frame_seconds
                 
                 	The number of local frame second events recoded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: remote_events
                 
                 	The number of remote events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: remote_symbol_period
                 
                 	The number of remote symbol period events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: remote_frame
                 
                 	The mumber of remote frame error events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: remote_frame_period
                 
                 	The number of remote frame period events recorded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: remote_frame_seconds
                 
                 	The number of remote frame second events recoded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -2121,7 +2133,7 @@ class EtherLinkOam(Entity):
         .. attribute:: event_log_entry_interface
         
         	Ethernet Link OAM enabled interface to get Event Log Entry for
-        	**type**\: list of    :py:class:`EventLogEntryInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface>`
+        	**type**\: list of  		 :py:class:`EventLogEntryInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface>`
         
         
 
@@ -2156,12 +2168,14 @@ class EtherLinkOam(Entity):
             .. attribute:: member_interface  <key>
             
             	Member Interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: event_log_entry_indexes
             
             	Table of Ethernet Link OAM Event Log entries on the interface
-            	**type**\:   :py:class:`EventLogEntryIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes>`
+            	**type**\:  :py:class:`EventLogEntryIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes>`
             
             
 
@@ -2201,7 +2215,7 @@ class EtherLinkOam(Entity):
                 .. attribute:: event_log_entry_index
                 
                 	Ethernet Link OAM Event Log Entry Index to get data for
-                	**type**\: list of    :py:class:`EventLogEntryIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex>`
+                	**type**\: list of  		 :py:class:`EventLogEntryIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex>`
                 
                 
 
@@ -2235,128 +2249,134 @@ class EtherLinkOam(Entity):
                     .. attribute:: event_log_entry_index  <key>
                     
                     	Event Log Entry index
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: index
                     
                     	Index in the log entries table
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: handle
                     
                     	Interface handle for this log entry
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: oui
                     
                     	OUI for the log entry
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
                     .. attribute:: timestamp
                     
                     	Timestamp in hundredths of a second since unix epoch for when the event occurred
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: type
                     
                     	Type of event that this entry describes
-                    	**type**\:   :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Log>`
+                    	**type**\:  :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Log>`
                     
                     .. attribute:: location
                     
                     	Where the event occurred
-                    	**type**\:   :py:class:`LogLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LogLocation>`
+                    	**type**\:  :py:class:`LogLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LogLocation>`
                     
                     .. attribute:: event_total
                     
                     	Total number of times event has occurred
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: action_taken
                     
                     	Local action taken (If applicable)
-                    	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
+                    	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.Action>`
                     
                     .. attribute:: window
                     
                     	Size of the window (If applicable)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: threshold
                     
                     	Size of the threshold (If applicable)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: local_high_threshold
                     
                     	Size of the local high threshold (If applicable) . For remote threshold events this is scaled for comparison with the Breaching Value. This is to account for different local and remote window sizes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: value
                     
                     	Breaching value (If applicable)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: running_total
                     
                     	The running total number of errors seen since OAM was enabled on the interface(If applicable)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: window_config_units
                     
                     	The window in the units that are currently configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: window_units
                     
                     	The units in which the window size is configured 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: threshold_config_units
                     
                     	The threshold in the units that are currently configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: threshold_units
                     
                     	The units in which the threshold size is configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: local_high_threshold_config_units
                     
                     	The local high threshold in the units that are currently configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: value_config_units
                     
                     	The breaching value in the units that are currently configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2430,7 +2450,7 @@ class EtherLinkOam(Entity):
         .. attribute:: stats_interface
         
         	Ethernet Link OAM interface to get Stats for
-        	**type**\: list of    :py:class:`StatsInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.StatsInterfaces.StatsInterface>`
+        	**type**\: list of  		 :py:class:`StatsInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.StatsInterfaces.StatsInterface>`
         
         
 
@@ -2464,187 +2484,189 @@ class EtherLinkOam(Entity):
             .. attribute:: member_interface  <key>
             
             	Member Interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: information_tx
             
             	Number of information OAMPDUs transmitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: information_rx
             
             	Number of information OAMPDUs received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: unique_event_notification_tx
             
             	Number of unique event notification OAMPDUs transmitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: unique_event_notification_rx
             
             	Number of unique event notification OAMPDUs received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: duplicate_event_notification_tx
             
             	Number of duplicate event notification OAMPDUs transmitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: duplicate_event_notification_rx
             
             	Number of duplicate event notification OAMPDUs received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: loopback_control_tx
             
             	Number of loopback control OAMPDUs transmitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: loopback_control_rx
             
             	Number of loopback control OAMPDUs received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: variable_request_tx
             
             	Number of variable request OAMPDUs transmitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: variable_request_rx
             
             	Number of variable request OAMPDUs received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: variable_response_tx
             
             	Number of variable response OAMPDUs transmitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: variable_response_rx
             
             	Number of variable response OAMPDUs received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: org_specific_tx
             
             	Number of organization specific OAMPDUs transmitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: org_specific_rx
             
             	Number of organization specific OAMPDUs received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: unsupported_codes_tx
             
             	Number of OAMPDUs with unsupported codes transmitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: unsupported_codes_rx
             
             	Number of OAMPDUs with unsupported codes received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frames_lost_due_to_oam
             
             	Number of frames lost due to OAM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: fixed_frames_rx
             
             	Number of RX frames 'fixed' by OAM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_error_symbol_period_records
             
             	Number of local error symbol period records
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_error_frame_records
             
             	Number of local error frame records
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_error_frame_period_records
             
             	Number of local error frame period records
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_error_frame_second_records
             
             	Number of local error frame second records
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_error_symbol_period_records
             
             	Number of remote error symbol period records
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_error_frame_records
             
             	Number of remote error frame records
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_error_frame_period_records
             
             	Number of remote error frame period records
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_error_frame_second_records
             
             	Number of remote error frame second records
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

@@ -119,47 +119,47 @@ class Bfd(Entity):
     .. attribute:: flap_damp
     
     	Flapping class container
-    	**type**\:   :py:class:`FlapDamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp>`
+    	**type**\:  :py:class:`FlapDamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp>`
     
     .. attribute:: echo_latency
     
     	BFD echo latency feature class container
-    	**type**\:   :py:class:`EchoLatency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.EchoLatency>`
+    	**type**\:  :py:class:`EchoLatency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.EchoLatency>`
     
     .. attribute:: echo_startup
     
     	BFD echo startup feature class container
-    	**type**\:   :py:class:`EchoStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.EchoStartup>`
+    	**type**\:  :py:class:`EchoStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.EchoStartup>`
     
     .. attribute:: interfaces
     
     	Interface configuration
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Interfaces>`
     
     .. attribute:: multi_path_includes
     
     	Multipath Include configuration
-    	**type**\:   :py:class:`MultiPathIncludes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.MultiPathIncludes>`
+    	**type**\:  :py:class:`MultiPathIncludes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.MultiPathIncludes>`
     
     .. attribute:: bundle
     
     	Configuration related to BFD over Bundle
-    	**type**\:   :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Bundle>`
+    	**type**\:  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Bundle>`
     
     .. attribute:: global_echo_usage
     
     	Echo configuration
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: ipv6_checksum_disable
     
     	To disable IPv6 checksum configuration
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: global_echo_min_interval
     
     	Configure echo min\-interval for bundle interface
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 15..2000
     
@@ -170,28 +170,28 @@ class Bfd(Entity):
     .. attribute:: ttl_drop_threshold
     
     	Multihop TTL Drop Threshold
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..254
     
     .. attribute:: single_hop_trap
     
     	Single hop trap configuration
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: global_ipv4_echo_source
     
     	IPv4 echo source address configuration
-    	**type**\: one of the below types:
+    	**type**\: union of the below types:
     
-    	**type**\:  str
+    		**type**\: str
     
+    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
     
-    ----
-    	**type**\:  str
+    		**type**\: str
     
+    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
     
-    ----
     
 
     """
@@ -264,17 +264,17 @@ class Bfd(Entity):
         .. attribute:: bundle_member
         
         	Bundle per member feature class container
-        	**type**\:   :py:class:`BundleMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp.BundleMember>`
+        	**type**\:  :py:class:`BundleMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp.BundleMember>`
         
         .. attribute:: extensions
         
         	Extensions to the BFD dampening feature
-        	**type**\:   :py:class:`Extensions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp.Extensions>`
+        	**type**\:  :py:class:`Extensions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp.Extensions>`
         
         .. attribute:: threshold
         
         	Stability threshold to enable dampening
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 60000..3600000
         
@@ -285,7 +285,7 @@ class Bfd(Entity):
         .. attribute:: initial_delay
         
         	Initial delay before bringing up session
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..3600000
         
@@ -296,7 +296,7 @@ class Bfd(Entity):
         .. attribute:: maximum_delay
         
         	Maximum delay before bringing up session
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..3600000
         
@@ -307,12 +307,12 @@ class Bfd(Entity):
         .. attribute:: dampen_disable
         
         	Dampening Enable/Disable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: secondary_delay
         
         	Secondary delay before bringing up session
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..3600000
         
@@ -370,7 +370,7 @@ class Bfd(Entity):
             .. attribute:: initial_delay
             
             	Initial delay before bringing up session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..518400000
             
@@ -381,7 +381,7 @@ class Bfd(Entity):
             .. attribute:: maximum_delay
             
             	Maximum delay before bringing up session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..518400000
             
@@ -392,7 +392,7 @@ class Bfd(Entity):
             .. attribute:: secondary_delay
             
             	Secondary delay before bringing up session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..518400000
             
@@ -403,7 +403,7 @@ class Bfd(Entity):
             .. attribute:: l3_only_mode
             
             	Apply immediate dampening and only when failure is L3 specific
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -443,7 +443,7 @@ class Bfd(Entity):
             .. attribute:: down_monitor
             
             	If set, DOWN state monitoring mode is enabled
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -477,7 +477,7 @@ class Bfd(Entity):
         .. attribute:: detect
         
         	BFD echo latency detection
-        	**type**\:   :py:class:`Detect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.EchoLatency.Detect>`
+        	**type**\:  :py:class:`Detect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.EchoLatency.Detect>`
         
         
 
@@ -511,14 +511,14 @@ class Bfd(Entity):
             .. attribute:: latency_detect_enabled
             
             	If set, echo latency detect is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: latency_detect_percentage
             
             	Echo latency detect percentage
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 100..250
             
@@ -529,7 +529,7 @@ class Bfd(Entity):
             .. attribute:: latency_detect_count
             
             	Echo latency detect count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
@@ -571,7 +571,7 @@ class Bfd(Entity):
         .. attribute:: validate
         
         	BFD echo validation prior to session bringup
-        	**type**\:   :py:class:`BfdEchoStartupValidate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.BfdEchoStartupValidate>`
+        	**type**\:  :py:class:`BfdEchoStartupValidate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.BfdEchoStartupValidate>`
         
         	**default value**\: off
         
@@ -607,7 +607,7 @@ class Bfd(Entity):
         .. attribute:: interface
         
         	Single interface configuration
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Interfaces.Interface>`
         
         
 
@@ -641,35 +641,37 @@ class Bfd(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: interface_echo_usage
             
             	Echo usage for this interface
-            	**type**\:   :py:class:`BfdIfEchoUsage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.BfdIfEchoUsage>`
+            	**type**\:  :py:class:`BfdIfEchoUsage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.BfdIfEchoUsage>`
             
             	**default value**\: enable
             
             .. attribute:: ipv6_checksum
             
             	IPv6 checksum usage for this interface \- Interface config will always take precedence over global config
-            	**type**\:   :py:class:`BfdIfIpv6ChecksumUsage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.BfdIfIpv6ChecksumUsage>`
+            	**type**\:  :py:class:`BfdIfIpv6ChecksumUsage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.BfdIfIpv6ChecksumUsage>`
             
             	**default value**\: enable
             
             .. attribute:: interface_ipv4_echo_source
             
             	Interface IPv4 echo source address configuration
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            ----
             
 
             """
@@ -708,7 +710,7 @@ class Bfd(Entity):
         .. attribute:: multi_path_include
         
         	Location configuration
-        	**type**\: list of    :py:class:`MultiPathInclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.MultiPathIncludes.MultiPathInclude>`
+        	**type**\: list of  		 :py:class:`MultiPathInclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.MultiPathIncludes.MultiPathInclude>`
         
         
 
@@ -742,7 +744,9 @@ class Bfd(Entity):
             .. attribute:: location  <key>
             
             	Location
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             
 
@@ -776,7 +780,7 @@ class Bfd(Entity):
         .. attribute:: coexistence
         
         	Coexistence mode for BFD on bundle feature
-        	**type**\:   :py:class:`Coexistence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Bundle.Coexistence>`
+        	**type**\:  :py:class:`Coexistence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.Bundle.Coexistence>`
         
         
 
@@ -810,7 +814,7 @@ class Bfd(Entity):
             .. attribute:: bob_blb
             
             	Coexistence mode for BoB and BLB feature
-            	**type**\:   :py:class:`BfdBundleCoexistenceBobBlb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.BfdBundleCoexistenceBobBlb>`
+            	**type**\:  :py:class:`BfdBundleCoexistenceBobBlb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.BfdBundleCoexistenceBobBlb>`
             
             
 

@@ -26,7 +26,7 @@ class Ipv6Telnet(Entity):
     .. attribute:: client
     
     	Telnet client configuration
-    	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv6Telnet.Client>`
+    	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv6Telnet.Client>`
     
     
 
@@ -60,7 +60,9 @@ class Ipv6Telnet(Entity):
         .. attribute:: source_interface
         
         	Source interface for telnet sessions
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         
 
@@ -97,7 +99,7 @@ class Ipv4Telnet(Entity):
     .. attribute:: client
     
     	Telnet client configuration
-    	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv4Telnet.Client>`
+    	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv4Telnet.Client>`
     
     
 
@@ -131,7 +133,9 @@ class Ipv4Telnet(Entity):
         .. attribute:: source_interface
         
         	Source interface for telnet sessions
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         
 

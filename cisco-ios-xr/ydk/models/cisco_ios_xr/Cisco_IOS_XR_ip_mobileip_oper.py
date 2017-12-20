@@ -184,7 +184,7 @@ class Pmipv6(Entity):
     .. attribute:: lma
     
     	None
-    	**type**\:   :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma>`
+    	**type**\:  :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma>`
     
     
 
@@ -218,22 +218,22 @@ class Pmipv6(Entity):
         .. attribute:: statistics
         
         	None
-        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics>`
+        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics>`
         
         .. attribute:: bindings
         
         	Table of Binding
-        	**type**\:   :py:class:`Bindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings>`
+        	**type**\:  :py:class:`Bindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings>`
         
         .. attribute:: heartbeats
         
         	Table of Heartbeat
-        	**type**\:   :py:class:`Heartbeats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Heartbeats>`
+        	**type**\:  :py:class:`Heartbeats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Heartbeats>`
         
         .. attribute:: config_variables
         
         	Global Configuration Variables
-        	**type**\:   :py:class:`ConfigVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables>`
+        	**type**\:  :py:class:`ConfigVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables>`
         
         
 
@@ -282,22 +282,22 @@ class Pmipv6(Entity):
             .. attribute:: customer_statistics
             
             	Table of CustomerStatistics
-            	**type**\:   :py:class:`CustomerStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics>`
+            	**type**\:  :py:class:`CustomerStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics>`
             
             .. attribute:: license
             
             	LMA License Statistics
-            	**type**\:   :py:class:`License <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.License>`
+            	**type**\:  :py:class:`License <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.License>`
             
             .. attribute:: global_
             
             	Global Statistics
-            	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_>`
+            	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_>`
             
             .. attribute:: mag_statistics
             
             	Table of MAGStatistics
-            	**type**\:   :py:class:`MagStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics>`
+            	**type**\:  :py:class:`MagStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics>`
             
             
 
@@ -346,7 +346,7 @@ class Pmipv6(Entity):
                 .. attribute:: customer_statistic
                 
                 	Customer statistics
-                	**type**\: list of    :py:class:`CustomerStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic>`
+                	**type**\: list of  		 :py:class:`CustomerStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic>`
                 
                 
 
@@ -380,48 +380,50 @@ class Pmipv6(Entity):
                     .. attribute:: customer_name  <key>
                     
                     	Customer Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: protocol_statistics
                     
                     	LMA Protocol Statistics
-                    	**type**\:   :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics>`
+                    	**type**\:  :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics>`
                     
                     .. attribute:: accounting_statistics
                     
                     	LMA Accounting Statistics
-                    	**type**\:   :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics>`
+                    	**type**\:  :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics>`
                     
                     .. attribute:: lma_identifier
                     
                     	LMA Identifier
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: bce_count
                     
                     	Count of Bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: handoff_count
                     
                     	Count of Handoffs
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ipv4_mnp_count
                     
                     	Count of IPv4 Mobile Node Prefixes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ipv6_mnp_count
                     
                     	Count of IPv6 Mobile Node Prefixes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -477,32 +479,32 @@ class Pmipv6(Entity):
                         .. attribute:: pbu_receive_statistics
                         
                         	PBU Receive Statistics
-                        	**type**\:   :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics>`
+                        	**type**\:  :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics>`
                         
                         .. attribute:: pba_send_statistics
                         
                         	PBA Send Statistics
-                        	**type**\:   :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics>`
+                        	**type**\:  :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics>`
                         
                         .. attribute:: pbri_send_statistics
                         
                         	PBRI Send Statistics
-                        	**type**\:   :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics>`
+                        	**type**\:  :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics>`
                         
                         .. attribute:: pbri_receive_statistics
                         
                         	PBRI Receive Statistics
-                        	**type**\:   :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics>`
+                        	**type**\:  :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics>`
                         
                         .. attribute:: pbra_send_statistics
                         
                         	PBRA Send Statistics
-                        	**type**\:   :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics>`
+                        	**type**\:  :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics>`
                         
                         .. attribute:: pbra_receive_statistics
                         
                         	PBRA Receive Statistics
-                        	**type**\:   :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics>`
+                        	**type**\:  :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics>`
                         
                         
 
@@ -560,14 +562,14 @@ class Pmipv6(Entity):
                             .. attribute:: pbu_count
                             
                             	Count of PBUs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbu_drop_count
                             
                             	Count of PBUs Dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -604,196 +606,196 @@ class Pmipv6(Entity):
                             .. attribute:: pba_count
                             
                             	Count of PBAs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pba_drop_count
                             
                             	Count of PBAs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: accepted_count
                             
                             	Count of Status Code \- Binding Update accepted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unknown_count
                             
                             	Count of Status Code \- Last BA status code sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unspecified_failure_count
                             
                             	Count of Status Code \- Reason unspecified
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: admin_failure_count
                             
                             	Count of Status Code \- Administratively prohibited
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: resource_failure_count
                             
                             	Count of Status Code \- Insufficient resources
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: home_reg_failure_count
                             
                             	Count of Status Code \- Home registration not supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: home_subnet_failure_count
                             
                             	Count of Status Code \- Not home subnet
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bad_sequence_failure_count
                             
                             	Count of Status Code \- Sequence number out of window
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: reg_type_failure_count
                             
                             	Count of Status Code \- Registration type change
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: authen_failure_count
                             
                             	Count of Status Code \- Auth Fail
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: proxy_reg_not_enabled_count
                             
                             	Count of Status Code \- Proxy Registration not enabled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: not_lma_for_this_mn_count
                             
                             	Count of Status Code \- Not LMA for this Mobile Node
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_proxy_reg_count
                             
                             	Count of Status Code \- MAG not auth.for proxyreg
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_hnp_count
                             
                             	Count of Status Code \- Not authorized for HNP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: timestamp_mismatch_count
                             
                             	Count of Status Code \- Invalid timestamp value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: timestamp_lower_than_previous_accepted_count
                             
                             	Count of Status Code \- Timestamp lower than previous accepted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: missing_hnp_opt_count
                             
                             	Count of Status Code \- Missing Home Network Prefix option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: received_hnps_do_not_match_bce_hnps_count
                             
                             	Count of Status Code \- Recevied HNPs do not match with BCE
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: missing_mn_id_opt_count
                             
                             	Count of Status Code \- Missing MN identifier option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: missing_hi_opt_count
                             
                             	Count of Status Code \- Missing Handoff Indicator
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: missing_access_tech_type_opt_count
                             
                             	Count of Status Code \- Missing ATT option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_ipv4_mobility_count
                             
                             	Count of Status Code \- Not authorized for IPv4 mobility
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_ipv4_hoa_count
                             
                             	Count of Status Code \- Not authorized for IPv4 HoA
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_ipv6_mobility_count
                             
                             	Count of Status Code \- Not authorized for IPv6 mobility
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: multiple_ipv4_ho_a_not_supported_count
                             
                             	Count of Status Code \- Multiple IPv4 HoA not supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: gre_key_opt_required_count
                             
                             	Count of Status Code \- GRE Key option is required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -882,84 +884,84 @@ class Pmipv6(Entity):
                             .. attribute:: pbri_count
                             
                             	Count of PBRIs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbri_drop_count
                             
                             	Count of PBRIs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unspecified_count
                             
                             	Count of Revoc Trigger \- Unspecified
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: admin_reason_count
                             
                             	Count of Revoc Trigger \- Administrative Reason
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_same_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Same ATT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_different_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Different ATT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_unknown_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Unknown
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: user_session_termination_count
                             
                             	Count of Revoc Trigger \- User Init Session Terminatation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: network_session_termination_count
                             
                             	Count of Revoc Trigger \- Access Network Session Termination
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_of_sync_bce_state_count
                             
                             	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: per_peer_policy_count
                             
                             	Count of Revoc Trigger \- Per\-Peer Policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: revoking_mn_local_policy_count
                             
                             	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1016,84 +1018,84 @@ class Pmipv6(Entity):
                             .. attribute:: pbri_count
                             
                             	Count of PBRIs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbri_drop_count
                             
                             	Count of PBRIs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unspecified_count
                             
                             	Count of Revoc Trigger \- Unspecified
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: admin_reason_count
                             
                             	Count of Revoc Trigger \- Administrative Reason
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_same_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Same ATT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_different_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Different ATT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_unknown_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Unknown
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: user_session_termination_count
                             
                             	Count of Revoc Trigger \- User Init Session Terminatation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: network_session_termination_count
                             
                             	Count of Revoc Trigger \- Access Network Session Termination
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_of_sync_bce_state_count
                             
                             	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: per_peer_policy_count
                             
                             	Count of Revoc Trigger \- Per\-Peer Policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: revoking_mn_local_policy_count
                             
                             	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1150,84 +1152,84 @@ class Pmipv6(Entity):
                             .. attribute:: pbra_count
                             
                             	Count of PBRAs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbra_drop_count
                             
                             	Count of PBRAs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: success_count
                             
                             	Count of Revoc Status \- Success
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: partial_success_count
                             
                             	Count of Revoc Status \- Partial Success
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_binding_count
                             
                             	Count of Revoc Status \- Binding Does Not Exist
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hoa_required_count
                             
                             	Count of Revoc Status \- IPv4 Home Address Option Required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_global_revoc_count
                             
                             	Count of Revoc Status \- Global Revocation NOT Authorized
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mn_identity_required_count
                             
                             	Count of Revoc Status \- Revoked Mobile Node Identity Required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mn_attached_count
                             
                             	Count of Revoc Status \- Revocation Failed \- MN is Attached
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unknown_revoc_trigger_count
                             
                             	Count of Revoc Status \- Revocation Trigger NOT supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: revoc_function_not_supported_count
                             
                             	Count of Revoc Status \- Revocation Function NOT Supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pbr_not_supported_count
                             
                             	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1284,84 +1286,84 @@ class Pmipv6(Entity):
                             .. attribute:: pbra_count
                             
                             	Count of PBRAs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbra_drop_count
                             
                             	Count of PBRAs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: success_count
                             
                             	Count of Revoc Status \- Success
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: partial_success_count
                             
                             	Count of Revoc Status \- Partial Success
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_binding_count
                             
                             	Count of Revoc Status \- Binding Does Not Exist
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hoa_required_count
                             
                             	Count of Revoc Status \- IPv4 Home Address Option Required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_global_revoc_count
                             
                             	Count of Revoc Status \- Global Revocation NOT Authorized
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mn_identity_required_count
                             
                             	Count of Revoc Status \- Revoked Mobile Node Identity Required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mn_attached_count
                             
                             	Count of Revoc Status \- Revocation Failed \- MN is Attached
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unknown_revoc_trigger_count
                             
                             	Count of Revoc Status \- Revocation Trigger NOT supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: revoc_function_not_supported_count
                             
                             	Count of Revoc Status \- Revocation Function NOT Supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pbr_not_supported_count
                             
                             	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1418,21 +1420,21 @@ class Pmipv6(Entity):
                         .. attribute:: accounting_start_sent_count
                         
                         	Count of Accounting Start Records Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: accounting_update_sent_count
                         
                         	Count of Accounting Update Records Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: accounting_stop_sent_count
                         
                         	Count of Accounting Stop Records Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1471,26 +1473,26 @@ class Pmipv6(Entity):
                 .. attribute:: lma_identifier
                 
                 	LMA Identifier
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: bce_count
                 
                 	Instantaneous Count of Bindings
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peak_bce_count
                 
                 	Peak Count of Bindings
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peak_bce_count_reset_timestamp
                 
                 	Timestamp when the Peak Count of Bindings was reset
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1532,48 +1534,48 @@ class Pmipv6(Entity):
                 .. attribute:: packet_statistics
                 
                 	Packet Statistics
-                	**type**\:   :py:class:`PacketStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.PacketStatistics>`
+                	**type**\:  :py:class:`PacketStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.PacketStatistics>`
                 
                 .. attribute:: protocol_statistics
                 
                 	LMA Protocol Statistics
-                	**type**\:   :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics>`
+                	**type**\:  :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics>`
                 
                 .. attribute:: accounting_statistics
                 
                 	LMA Accounting Statistics
-                	**type**\:   :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.AccountingStatistics>`
+                	**type**\:  :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.AccountingStatistics>`
                 
                 .. attribute:: lma_identifier
                 
                 	LMA Identifier
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: bce_count
                 
                 	Count of Bindings
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: handoff_count
                 
                 	Count of Handoffs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: single_tenant_count
                 
                 	Count of Single Tenants
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: multi_tenant_count
                 
                 	Count of Multi Tenants
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1632,63 +1634,63 @@ class Pmipv6(Entity):
                     .. attribute:: checksum_errors
                     
                     	Checksumm errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: send_drops
                     
                     	Drop count of sent packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: receive_drops
                     
                     	Drop count of received packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_received
                     
                     	Count of received packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Count of sent packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: send_drops_ipv6
                     
                     	Drop count of IPv6 sent packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: receive_drops_ipv6
                     
                     	Drop count of IPv6 received packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_received_ipv6
                     
                     	Count of IPv6 received packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent_ipv6
                     
                     	Count of IPv6 sent packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1740,32 +1742,32 @@ class Pmipv6(Entity):
                     .. attribute:: pbu_receive_statistics
                     
                     	PBU Receive Statistics
-                    	**type**\:   :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbuReceiveStatistics>`
+                    	**type**\:  :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbuReceiveStatistics>`
                     
                     .. attribute:: pba_send_statistics
                     
                     	PBA Send Statistics
-                    	**type**\:   :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbaSendStatistics>`
+                    	**type**\:  :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbaSendStatistics>`
                     
                     .. attribute:: pbri_send_statistics
                     
                     	PBRI Send Statistics
-                    	**type**\:   :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriSendStatistics>`
+                    	**type**\:  :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriSendStatistics>`
                     
                     .. attribute:: pbri_receive_statistics
                     
                     	PBRI Receive Statistics
-                    	**type**\:   :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriReceiveStatistics>`
+                    	**type**\:  :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriReceiveStatistics>`
                     
                     .. attribute:: pbra_send_statistics
                     
                     	PBRA Send Statistics
-                    	**type**\:   :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraSendStatistics>`
+                    	**type**\:  :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraSendStatistics>`
                     
                     .. attribute:: pbra_receive_statistics
                     
                     	PBRA Receive Statistics
-                    	**type**\:   :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraReceiveStatistics>`
+                    	**type**\:  :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraReceiveStatistics>`
                     
                     
 
@@ -1824,14 +1826,14 @@ class Pmipv6(Entity):
                         .. attribute:: pbu_count
                         
                         	Count of PBUs
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pbu_drop_count
                         
                         	Count of PBUs Dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1869,196 +1871,196 @@ class Pmipv6(Entity):
                         .. attribute:: pba_count
                         
                         	Count of PBAs
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pba_drop_count
                         
                         	Count of PBAs dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: accepted_count
                         
                         	Count of Status Code \- Binding Update accepted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_count
                         
                         	Count of Status Code \- Last BA status code sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unspecified_failure_count
                         
                         	Count of Status Code \- Reason unspecified
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: admin_failure_count
                         
                         	Count of Status Code \- Administratively prohibited
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: resource_failure_count
                         
                         	Count of Status Code \- Insufficient resources
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: home_reg_failure_count
                         
                         	Count of Status Code \- Home registration not supported
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: home_subnet_failure_count
                         
                         	Count of Status Code \- Not home subnet
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_sequence_failure_count
                         
                         	Count of Status Code \- Sequence number out of window
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reg_type_failure_count
                         
                         	Count of Status Code \- Registration type change
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: authen_failure_count
                         
                         	Count of Status Code \- Auth Fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: proxy_reg_not_enabled_count
                         
                         	Count of Status Code \- Proxy Registration not enabled
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: not_lma_for_this_mn_count
                         
                         	Count of Status Code \- Not LMA for this Mobile Node
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_author_for_proxy_reg_count
                         
                         	Count of Status Code \- MAG not auth.for proxyreg
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_author_for_hnp_count
                         
                         	Count of Status Code \- Not authorized for HNP
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: timestamp_mismatch_count
                         
                         	Count of Status Code \- Invalid timestamp value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: timestamp_lower_than_previous_accepted_count
                         
                         	Count of Status Code \- Timestamp lower than previous accepted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing_hnp_opt_count
                         
                         	Count of Status Code \- Missing Home Network Prefix option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_hnps_do_not_match_bce_hnps_count
                         
                         	Count of Status Code \- Recevied HNPs do not match with BCE
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing_mn_id_opt_count
                         
                         	Count of Status Code \- Missing MN identifier option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing_hi_opt_count
                         
                         	Count of Status Code \- Missing Handoff Indicator
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing_access_tech_type_opt_count
                         
                         	Count of Status Code \- Missing ATT option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_author_for_ipv4_mobility_count
                         
                         	Count of Status Code \- Not authorized for IPv4 mobility
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_author_for_ipv4_hoa_count
                         
                         	Count of Status Code \- Not authorized for IPv4 HoA
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_author_for_ipv6_mobility_count
                         
                         	Count of Status Code \- Not authorized for IPv6 mobility
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: multiple_ipv4_ho_a_not_supported_count
                         
                         	Count of Status Code \- Multiple IPv4 HoA not supported
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: gre_key_opt_required_count
                         
                         	Count of Status Code \- GRE Key option is required
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2148,84 +2150,84 @@ class Pmipv6(Entity):
                         .. attribute:: pbri_count
                         
                         	Count of PBRIs
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pbri_drop_count
                         
                         	Count of PBRIs dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unspecified_count
                         
                         	Count of Revoc Trigger \- Unspecified
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: admin_reason_count
                         
                         	Count of Revoc Trigger \- Administrative Reason
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mag_handover_same_att_count
                         
                         	Count of Revoc Trigger \- Inter MAG Handover Same ATT
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mag_handover_different_att_count
                         
                         	Count of Revoc Trigger \- Inter MAG Handover Different ATT
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mag_handover_unknown_count
                         
                         	Count of Revoc Trigger \- Inter MAG Handover Unknown
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: user_session_termination_count
                         
                         	Count of Revoc Trigger \- User Init Session Terminatation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: network_session_termination_count
                         
                         	Count of Revoc Trigger \- Access Network Session Termination
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: out_of_sync_bce_state_count
                         
                         	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: per_peer_policy_count
                         
                         	Count of Revoc Trigger \- Per\-Peer Policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: revoking_mn_local_policy_count
                         
                         	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2283,84 +2285,84 @@ class Pmipv6(Entity):
                         .. attribute:: pbri_count
                         
                         	Count of PBRIs
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pbri_drop_count
                         
                         	Count of PBRIs dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unspecified_count
                         
                         	Count of Revoc Trigger \- Unspecified
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: admin_reason_count
                         
                         	Count of Revoc Trigger \- Administrative Reason
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mag_handover_same_att_count
                         
                         	Count of Revoc Trigger \- Inter MAG Handover Same ATT
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mag_handover_different_att_count
                         
                         	Count of Revoc Trigger \- Inter MAG Handover Different ATT
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mag_handover_unknown_count
                         
                         	Count of Revoc Trigger \- Inter MAG Handover Unknown
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: user_session_termination_count
                         
                         	Count of Revoc Trigger \- User Init Session Terminatation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: network_session_termination_count
                         
                         	Count of Revoc Trigger \- Access Network Session Termination
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: out_of_sync_bce_state_count
                         
                         	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: per_peer_policy_count
                         
                         	Count of Revoc Trigger \- Per\-Peer Policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: revoking_mn_local_policy_count
                         
                         	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2418,84 +2420,84 @@ class Pmipv6(Entity):
                         .. attribute:: pbra_count
                         
                         	Count of PBRAs
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pbra_drop_count
                         
                         	Count of PBRAs dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: success_count
                         
                         	Count of Revoc Status \- Success
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: partial_success_count
                         
                         	Count of Revoc Status \- Partial Success
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_binding_count
                         
                         	Count of Revoc Status \- Binding Does Not Exist
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hoa_required_count
                         
                         	Count of Revoc Status \- IPv4 Home Address Option Required
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_author_for_global_revoc_count
                         
                         	Count of Revoc Status \- Global Revocation NOT Authorized
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mn_identity_required_count
                         
                         	Count of Revoc Status \- Revoked Mobile Node Identity Required
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mn_attached_count
                         
                         	Count of Revoc Status \- Revocation Failed \- MN is Attached
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_revoc_trigger_count
                         
                         	Count of Revoc Status \- Revocation Trigger NOT supported
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: revoc_function_not_supported_count
                         
                         	Count of Revoc Status \- Revocation Function NOT Supported
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: pbr_not_supported_count
                         
                         	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2553,84 +2555,84 @@ class Pmipv6(Entity):
                         .. attribute:: pbra_count
                         
                         	Count of PBRAs
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pbra_drop_count
                         
                         	Count of PBRAs dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: success_count
                         
                         	Count of Revoc Status \- Success
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: partial_success_count
                         
                         	Count of Revoc Status \- Partial Success
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_binding_count
                         
                         	Count of Revoc Status \- Binding Does Not Exist
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hoa_required_count
                         
                         	Count of Revoc Status \- IPv4 Home Address Option Required
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_author_for_global_revoc_count
                         
                         	Count of Revoc Status \- Global Revocation NOT Authorized
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mn_identity_required_count
                         
                         	Count of Revoc Status \- Revoked Mobile Node Identity Required
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mn_attached_count
                         
                         	Count of Revoc Status \- Revocation Failed \- MN is Attached
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_revoc_trigger_count
                         
                         	Count of Revoc Status \- Revocation Trigger NOT supported
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: revoc_function_not_supported_count
                         
                         	Count of Revoc Status \- Revocation Function NOT Supported
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: pbr_not_supported_count
                         
                         	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2688,21 +2690,21 @@ class Pmipv6(Entity):
                     .. attribute:: accounting_start_sent_count
                     
                     	Count of Accounting Start Records Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: accounting_update_sent_count
                     
                     	Count of Accounting Update Records Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: accounting_stop_sent_count
                     
                     	Count of Accounting Stop Records Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2742,7 +2744,7 @@ class Pmipv6(Entity):
                 .. attribute:: mag_statistic
                 
                 	Peer MAG statistics
-                	**type**\: list of    :py:class:`MagStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic>`
+                	**type**\: list of  		 :py:class:`MagStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic>`
                 
                 
 
@@ -2776,17 +2778,19 @@ class Pmipv6(Entity):
                     .. attribute:: mag_name  <key>
                     
                     	Peer MAG Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: protocol_statistics
                     
                     	LMA Protocol Statistics
-                    	**type**\:   :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics>`
+                    	**type**\:  :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics>`
                     
                     .. attribute:: lma_identifier
                     
                     	LMA Identifier
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -2827,32 +2831,32 @@ class Pmipv6(Entity):
                         .. attribute:: pbu_receive_statistics
                         
                         	PBU Receive Statistics
-                        	**type**\:   :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics>`
+                        	**type**\:  :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics>`
                         
                         .. attribute:: pba_send_statistics
                         
                         	PBA Send Statistics
-                        	**type**\:   :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics>`
+                        	**type**\:  :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics>`
                         
                         .. attribute:: pbri_send_statistics
                         
                         	PBRI Send Statistics
-                        	**type**\:   :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics>`
+                        	**type**\:  :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics>`
                         
                         .. attribute:: pbri_receive_statistics
                         
                         	PBRI Receive Statistics
-                        	**type**\:   :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics>`
+                        	**type**\:  :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics>`
                         
                         .. attribute:: pbra_send_statistics
                         
                         	PBRA Send Statistics
-                        	**type**\:   :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics>`
+                        	**type**\:  :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics>`
                         
                         .. attribute:: pbra_receive_statistics
                         
                         	PBRA Receive Statistics
-                        	**type**\:   :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics>`
+                        	**type**\:  :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics>`
                         
                         
 
@@ -2910,14 +2914,14 @@ class Pmipv6(Entity):
                             .. attribute:: pbu_count
                             
                             	Count of PBUs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbu_drop_count
                             
                             	Count of PBUs Dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2954,196 +2958,196 @@ class Pmipv6(Entity):
                             .. attribute:: pba_count
                             
                             	Count of PBAs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pba_drop_count
                             
                             	Count of PBAs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: accepted_count
                             
                             	Count of Status Code \- Binding Update accepted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unknown_count
                             
                             	Count of Status Code \- Last BA status code sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unspecified_failure_count
                             
                             	Count of Status Code \- Reason unspecified
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: admin_failure_count
                             
                             	Count of Status Code \- Administratively prohibited
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: resource_failure_count
                             
                             	Count of Status Code \- Insufficient resources
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: home_reg_failure_count
                             
                             	Count of Status Code \- Home registration not supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: home_subnet_failure_count
                             
                             	Count of Status Code \- Not home subnet
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bad_sequence_failure_count
                             
                             	Count of Status Code \- Sequence number out of window
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: reg_type_failure_count
                             
                             	Count of Status Code \- Registration type change
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: authen_failure_count
                             
                             	Count of Status Code \- Auth Fail
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: proxy_reg_not_enabled_count
                             
                             	Count of Status Code \- Proxy Registration not enabled
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: not_lma_for_this_mn_count
                             
                             	Count of Status Code \- Not LMA for this Mobile Node
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_proxy_reg_count
                             
                             	Count of Status Code \- MAG not auth.for proxyreg
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_hnp_count
                             
                             	Count of Status Code \- Not authorized for HNP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: timestamp_mismatch_count
                             
                             	Count of Status Code \- Invalid timestamp value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: timestamp_lower_than_previous_accepted_count
                             
                             	Count of Status Code \- Timestamp lower than previous accepted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: missing_hnp_opt_count
                             
                             	Count of Status Code \- Missing Home Network Prefix option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: received_hnps_do_not_match_bce_hnps_count
                             
                             	Count of Status Code \- Recevied HNPs do not match with BCE
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: missing_mn_id_opt_count
                             
                             	Count of Status Code \- Missing MN identifier option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: missing_hi_opt_count
                             
                             	Count of Status Code \- Missing Handoff Indicator
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: missing_access_tech_type_opt_count
                             
                             	Count of Status Code \- Missing ATT option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_ipv4_mobility_count
                             
                             	Count of Status Code \- Not authorized for IPv4 mobility
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_ipv4_hoa_count
                             
                             	Count of Status Code \- Not authorized for IPv4 HoA
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_ipv6_mobility_count
                             
                             	Count of Status Code \- Not authorized for IPv6 mobility
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: multiple_ipv4_ho_a_not_supported_count
                             
                             	Count of Status Code \- Multiple IPv4 HoA not supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: gre_key_opt_required_count
                             
                             	Count of Status Code \- GRE Key option is required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3232,84 +3236,84 @@ class Pmipv6(Entity):
                             .. attribute:: pbri_count
                             
                             	Count of PBRIs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbri_drop_count
                             
                             	Count of PBRIs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unspecified_count
                             
                             	Count of Revoc Trigger \- Unspecified
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: admin_reason_count
                             
                             	Count of Revoc Trigger \- Administrative Reason
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_same_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Same ATT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_different_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Different ATT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_unknown_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Unknown
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: user_session_termination_count
                             
                             	Count of Revoc Trigger \- User Init Session Terminatation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: network_session_termination_count
                             
                             	Count of Revoc Trigger \- Access Network Session Termination
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_of_sync_bce_state_count
                             
                             	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: per_peer_policy_count
                             
                             	Count of Revoc Trigger \- Per\-Peer Policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: revoking_mn_local_policy_count
                             
                             	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3366,84 +3370,84 @@ class Pmipv6(Entity):
                             .. attribute:: pbri_count
                             
                             	Count of PBRIs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbri_drop_count
                             
                             	Count of PBRIs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unspecified_count
                             
                             	Count of Revoc Trigger \- Unspecified
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: admin_reason_count
                             
                             	Count of Revoc Trigger \- Administrative Reason
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_same_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Same ATT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_different_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Different ATT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mag_handover_unknown_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Unknown
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: user_session_termination_count
                             
                             	Count of Revoc Trigger \- User Init Session Terminatation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: network_session_termination_count
                             
                             	Count of Revoc Trigger \- Access Network Session Termination
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_of_sync_bce_state_count
                             
                             	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: per_peer_policy_count
                             
                             	Count of Revoc Trigger \- Per\-Peer Policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: revoking_mn_local_policy_count
                             
                             	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3500,84 +3504,84 @@ class Pmipv6(Entity):
                             .. attribute:: pbra_count
                             
                             	Count of PBRAs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbra_drop_count
                             
                             	Count of PBRAs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: success_count
                             
                             	Count of Revoc Status \- Success
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: partial_success_count
                             
                             	Count of Revoc Status \- Partial Success
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_binding_count
                             
                             	Count of Revoc Status \- Binding Does Not Exist
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hoa_required_count
                             
                             	Count of Revoc Status \- IPv4 Home Address Option Required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_global_revoc_count
                             
                             	Count of Revoc Status \- Global Revocation NOT Authorized
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mn_identity_required_count
                             
                             	Count of Revoc Status \- Revoked Mobile Node Identity Required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mn_attached_count
                             
                             	Count of Revoc Status \- Revocation Failed \- MN is Attached
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unknown_revoc_trigger_count
                             
                             	Count of Revoc Status \- Revocation Trigger NOT supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: revoc_function_not_supported_count
                             
                             	Count of Revoc Status \- Revocation Function NOT Supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pbr_not_supported_count
                             
                             	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3634,84 +3638,84 @@ class Pmipv6(Entity):
                             .. attribute:: pbra_count
                             
                             	Count of PBRAs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pbra_drop_count
                             
                             	Count of PBRAs dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: success_count
                             
                             	Count of Revoc Status \- Success
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: partial_success_count
                             
                             	Count of Revoc Status \- Partial Success
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_binding_count
                             
                             	Count of Revoc Status \- Binding Does Not Exist
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hoa_required_count
                             
                             	Count of Revoc Status \- IPv4 Home Address Option Required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: no_author_for_global_revoc_count
                             
                             	Count of Revoc Status \- Global Revocation NOT Authorized
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mn_identity_required_count
                             
                             	Count of Revoc Status \- Revoked Mobile Node Identity Required
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mn_attached_count
                             
                             	Count of Revoc Status \- Revocation Failed \- MN is Attached
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unknown_revoc_trigger_count
                             
                             	Count of Revoc Status \- Revocation Trigger NOT supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: revoc_function_not_supported_count
                             
                             	Count of Revoc Status \- Revocation Function NOT Supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pbr_not_supported_count
                             
                             	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3768,7 +3772,7 @@ class Pmipv6(Entity):
             .. attribute:: binding
             
             	Binding Parameters
-            	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding>`
+            	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding>`
             
             
 
@@ -3802,188 +3806,202 @@ class Pmipv6(Entity):
                 .. attribute:: mag_name
                 
                 	Peer MAG ID
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: nai_string
                 
                 	NAI String
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: imsi_string
                 
                 	IMSI String
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: customer_name
                 
                 	Customer String
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: mnnai
                 
                 	Mobile Node Identifier
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: customer_name_xr
                 
                 	Customer name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: llid
                 
                 	Link Layer Identifier
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: peer_id
                 
                 	Peer Identifier
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: phyintf
                 
                 	Access Interface
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: tunnel
                 
                 	Tunnel Interface
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: state
                 
                 	State Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: apn
                 
                 	Access Point Network
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: att
                 
                 	MN ATT
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: hoa
                 
                 	MN HOA
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: dflt
                 
                 	MN Default Router
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: lifetime
                 
                 	Life Time of Binding
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: liferem
                 
                 	Life Time Remaining
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: refresh
                 
                 	Refresh Time of Binding
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: refresh_rem
                 
                 	Refresh Time Remaining
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: prefix_len
                 
                 	Prefix Length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_hnps
                 
                 	HNP count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_coa
                 
                 	COA count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_dmnp_v4
                 
                 	IPv4 DMNP count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_dmnp_v6
                 
                 	IPv6 DMNP count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: hnps
                 
                 	MN Home Network Prefixes
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: ignore_home_address
                 
                 	Ignore HoA/HNP
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: up_stream_grekey
                 
                 	Upstream GRE Key
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: down_stream_grekey
                 
                 	DownStream GRE Key
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: vrfid
                 
                 	VRF ID of Access Interface
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: coa
                 
                 	COA entries
-                	**type**\: list of    :py:class:`Coa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.Coa>`
+                	**type**\: list of  		 :py:class:`Coa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.Coa>`
                 
                 .. attribute:: dmnp_v4
                 
                 	IPv4 DMNP prefixes
-                	**type**\: list of    :py:class:`DmnpV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.DmnpV4>`
+                	**type**\: list of  		 :py:class:`DmnpV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.DmnpV4>`
                 
                 .. attribute:: dmnp_v6
                 
                 	IPv6 DMNP prefixes
-                	**type**\: list of    :py:class:`DmnpV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.DmnpV6>`
+                	**type**\: list of  		 :py:class:`DmnpV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.DmnpV6>`
                 
                 
 
@@ -4077,121 +4095,125 @@ class Pmipv6(Entity):
                     .. attribute:: llid
                     
                     	Link Layer Identifier
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: peer_name
                     
                     	Peer Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: tunnel
                     
                     	Tunnel Interface
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: e_label
                     
                     	Egress Label
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: color
                     
                     	Label Color
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: roa_min_tf
                     
                     	Roaming Intf
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: pstate
                     
                     	COA STATE
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: msisdn
                     
                     	MSISDN
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: imsi
                     
                     	IMSI or IMSI NAI
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: cdma_nai
                     
                     	CDMA NAI
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: pgw_apn
                     
                     	Subscriber APN on PWG
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: pgw_trans_vrf
                     
                     	Subscriber Transport VRF on PGW
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: att
                     
                     	MN ATT
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: lifetime
                     
                     	Life Time of coa
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: lifetime_remaining
                     
                     	Life Time remain of coa
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: refresh
                     
                     	refresh Time of coa
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: refresh_rem
                     
                     	refresh Time remain of coa
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: dnkey
                     
                     	down key for coa tunnel
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: upkey
                     
                     	up key for coa tunnel
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: coa_v4
                     
                     	IPv4 CoA
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: coa_v6
                     
                     	IPv6 CoA
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -4265,14 +4287,16 @@ class Pmipv6(Entity):
                     .. attribute:: pfxlen
                     
                     	IPv4 prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: prefix
                     
                     	IPv4 prefix
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -4308,14 +4332,16 @@ class Pmipv6(Entity):
                     .. attribute:: pfxlen
                     
                     	IPv6 prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: prefix
                     
                     	IPv6 prefix
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -4351,7 +4377,7 @@ class Pmipv6(Entity):
             .. attribute:: heartbeat
             
             	Heartbeat information
-            	**type**\: list of    :py:class:`Heartbeat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Heartbeats.Heartbeat>`
+            	**type**\: list of  		 :py:class:`Heartbeat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Heartbeats.Heartbeat>`
             
             
 
@@ -4385,69 +4411,77 @@ class Pmipv6(Entity):
                 .. attribute:: peer_addr  <key>
                 
                 	IPv4 or IPv6 address
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: vrf
                 
                 	VRF Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: customer_name
                 
                 	Customer Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: source_port
                 
                 	Source Port
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: destination_port
                 
                 	Destination Port
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: source_ipv4_address
                 
                 	Source IPv4 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: destination_ipv4_address
                 
                 	Destination IPv4 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: source_ipv6_address
                 
                 	Source IPv6 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: destination_ipv6_address
                 
                 	Destination IPv6 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: status
                 
                 	Path Status
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ipv6_path
                 
                 	IPv6 Path
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -4501,12 +4535,12 @@ class Pmipv6(Entity):
             .. attribute:: customer_variables
             
             	Table of CustomerVariables
-            	**type**\:   :py:class:`CustomerVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables>`
+            	**type**\:  :py:class:`CustomerVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables>`
             
             .. attribute:: global_variables
             
             	Global Configuration Variables
-            	**type**\:   :py:class:`GlobalVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables>`
+            	**type**\:  :py:class:`GlobalVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables>`
             
             
 
@@ -4545,7 +4579,7 @@ class Pmipv6(Entity):
                 .. attribute:: customer_variable
                 
                 	Customer name string
-                	**type**\: list of    :py:class:`CustomerVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable>`
+                	**type**\: list of  		 :py:class:`CustomerVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable>`
                 
                 
 
@@ -4579,27 +4613,29 @@ class Pmipv6(Entity):
                     .. attribute:: customer_name  <key>
                     
                     	Customer name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: mll_service
                     
                     	MLL service parameters
-                    	**type**\:   :py:class:`MllService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService>`
+                    	**type**\:  :py:class:`MllService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService>`
                     
                     .. attribute:: cust_name
                     
                     	Customer Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vrf_name
                     
                     	VRF Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: auth_option
                     
                     	Authentication Option
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -4644,61 +4680,61 @@ class Pmipv6(Entity):
                         .. attribute:: ignore_hoa
                         
                         	Ignore Home Address
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mnp_ipv4_lmn_max
                         
                         	Max IPv4 prefixes per LMN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: mnp_ipv6_lmn_max
                         
                         	Max IPv6 prefixes per LMN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: mnp_lmn_max
                         
                         	Max prefixes per LMN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: mnp_ipv4_cust_max
                         
                         	Max IPv4 prefixes per Customer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mnp_ipv6_cust_max
                         
                         	Max IPv6 prefixes per Customer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mnp_cust_max
                         
                         	Max prefixes per Customer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mnp_ipv4_cust_cur
                         
                         	Current IPv4 prefixes per Customer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mnp_ipv6_cust_cur
                         
                         	Current IPv6 prefixes per Customer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4749,148 +4785,148 @@ class Pmipv6(Entity):
                 .. attribute:: parameters
                 
                 	Domain Parameters
-                	**type**\:   :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters>`
+                	**type**\:  :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters>`
                 
                 .. attribute:: mll_service
                 
                 	MLL service parameters
-                	**type**\:   :py:class:`MllService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService>`
+                	**type**\:  :py:class:`MllService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService>`
                 
                 .. attribute:: domain
                 
                 	Domain Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: selfid
                 
                 	Self ID
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: apn_name
                 
                 	APN Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: role
                 
                 	Role Type
-                	**type**\:   :py:class:`Pmipv6Role <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Role>`
+                	**type**\:  :py:class:`Pmipv6Role <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Role>`
                 
                 .. attribute:: count
                 
                 	Number of Networks/Intf
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peers
                 
                 	Number of Peers
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: customers
                 
                 	Number of Customers
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: num_network
                 
                 	Number of Networks
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: discover_mn
                 
                 	Discover MN Detachment
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: local_routing
                 
                 	Local Routing
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: aaa_accounting
                 
                 	AAA Accounting
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: default_mn
                 
                 	Default MN Enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: apn
                 
                 	APN Present
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: learn_mag
                 
                 	Learn MAG
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: session_mgr
                 
                 	Session Manager
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: service
                 
                 	Service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: profile
                 
                 	Default MN Profile Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ddp
                 
                 	Discover Detach Period
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: ddt
                 
                 	Discover Detach Timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: ddr
                 
                 	Discover Detach Retries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: intf
                 
                 	MAG Access List
-                	**type**\: list of    :py:class:`Intf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf>`
+                	**type**\: list of  		 :py:class:`Intf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf>`
                 
                 .. attribute:: peer
                 
                 	Peer Parameters
-                	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer>`
+                	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer>`
                 
                 .. attribute:: network
                 
                 	LMA Network Parameters
-                	**type**\: list of    :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Network>`
+                	**type**\: list of  		 :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Network>`
                 
                 .. attribute:: cust
                 
                 	Customer parameters
-                	**type**\: list of    :py:class:`Cust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust>`
+                	**type**\: list of  		 :py:class:`Cust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust>`
                 
                 
 
@@ -4977,118 +5013,118 @@ class Pmipv6(Entity):
                     .. attribute:: self_id
                     
                     	Self Identifier
-                    	**type**\:   :py:class:`SelfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId>`
+                    	**type**\:  :py:class:`SelfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId>`
                     
                     .. attribute:: timestamp
                     
                     	Timestamp method in use
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: window
                     
                     	Timestamp Validity Window
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: auth_option
                     
                     	Authentication Option
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: reg_time
                     
                     	BCE Registration Lifetime
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ref_time
                     
                     	BCE Refresh Time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: retx
                     
                     	Refresh Retransmit Init
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: ret_max
                     
                     	Refresh Retransmit Max
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: bri_init
                     
                     	BRI Init Delay time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: bri_retries
                     
                     	BRI Max Retries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: bri_max
                     
                     	BRI Max Delay time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: max_bindings
                     
                     	Allowed Max. Bindings
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hnp
                     
                     	Allowed HNPs per MN Intf
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: encap
                     
                     	Encapsulation Type
-                    	**type**\:   :py:class:`Pmipv6Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Encap>`
+                    	**type**\:  :py:class:`Pmipv6Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Encap>`
                     
                     .. attribute:: delete_time
                     
                     	BCE Delete Hold Timer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: create_time
                     
                     	BCE Create Wait Timer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: up_grekey
                     
                     	Upstream GRE Key
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: down_grekey
                     
                     	Downstream GRE Key
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5161,22 +5197,26 @@ class Pmipv6(Entity):
                         .. attribute:: entity_
                         
                         	Identifier of PMIP Node
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: addr_type
                         
                         	IPV4 or IPV6 or Both
-                        	**type**\:   :py:class:`Pmipv6Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Addr>`
+                        	**type**\:  :py:class:`Pmipv6Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Addr>`
                         
                         .. attribute:: address
                         
                         	IPV6 address of LMA/MAG
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv4_address
                         
                         	IPV4 addrress of LMA/MAG
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -5216,61 +5256,61 @@ class Pmipv6(Entity):
                     .. attribute:: ignore_hoa
                     
                     	Ignore Home Address
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: mnp_ipv4_lmn_max
                     
                     	Max IPv4 prefixes per LMN
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: mnp_ipv6_lmn_max
                     
                     	Max IPv6 prefixes per LMN
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: mnp_lmn_max
                     
                     	Max prefixes per LMN
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: mnp_ipv4_cust_max
                     
                     	Max IPv4 prefixes per Customer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mnp_ipv6_cust_max
                     
                     	Max IPv6 prefixes per Customer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mnp_cust_max
                     
                     	Max prefixes per Customer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mnp_ipv4_cust_cur
                     
                     	Current IPv4 prefixes per Customer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mnp_ipv6_cust_cur
                     
                     	Current IPv6 prefixes per Customer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5322,17 +5362,17 @@ class Pmipv6(Entity):
                     .. attribute:: apn
                     
                     	APN Present
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: interface
                     
                     	Access Interface Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: apn_name
                     
                     	APN Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -5370,37 +5410,37 @@ class Pmipv6(Entity):
                     .. attribute:: peer
                     
                     	Peer Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vrf_name
                     
                     	VRF Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface
                     
                     	Peer static tunnel intf
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: encap
                     
                     	Encapsulation Type
-                    	**type**\:   :py:class:`Pmipv6Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Encap>`
+                    	**type**\:  :py:class:`Pmipv6Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Encap>`
                     
                     .. attribute:: auth
                     
                     	Authentication Option
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: vrf
                     
                     	VRF Present
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: statictunnel
                     
                     	Static tunnel Present
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -5446,46 +5486,50 @@ class Pmipv6(Entity):
                     .. attribute:: v4pool
                     
                     	IPV4 pool Present
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: v6pool
                     
                     	IPV6 pool Present
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: network
                     
                     	Network Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: ipv4
                     
                     	IPv4 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv6
                     
                     	IPv6 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: v4pfx_len
                     
                     	v4 prefix len
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: v6pfx_len
                     
                     	v6 prefix len
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: mrnet
                     
                     	num of mrnet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -5535,49 +5579,49 @@ class Pmipv6(Entity):
                     .. attribute:: cust
                     
                     	Customer Present
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: vrf
                     
                     	Customer VRF Present
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: t_vrf
                     
                     	Transport VRF Present
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: auth_option
                     
                     	Authentication Option
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: heart_beat
                     
                     	HeartBeat Option
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: reg_time
                     
                     	BCE Registration Lifetime
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cust_name
                     
                     	CUSTOMER Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vrf_name
                     
                     	VRF Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: t_vrf_name
                     
                     	Transport VRF Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

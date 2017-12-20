@@ -84,29 +84,29 @@ class Dhcpv6(Entity):
     .. attribute:: database
     
     	Enable DHCP binding database storage to file system
-    	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Database>`
+    	**type**\:  :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Database>`
     
     .. attribute:: profiles
     
     	Table of Profile
-    	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles>`
+    	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles>`
     
     .. attribute:: interfaces
     
     	Table of Interface
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces>`
     
     .. attribute:: enable
     
     	Enable None. Deletion of this object also causes deletion of all associated objects under DHCPv6
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     	**mandatory**\: True
     
     .. attribute:: allow_duid_change
     
     	For BNG session, allow duid change for a client MAC
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -161,22 +161,22 @@ class Dhcpv6(Entity):
         .. attribute:: proxy
         
         	Enable DHCP proxy binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: server
         
         	Enable DHCP server binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: relay
         
         	Enable DHCP relay binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: full_write_interval
         
         	Full file write interval (default 10 minutes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1440
         
@@ -185,7 +185,7 @@ class Dhcpv6(Entity):
         .. attribute:: incremental_write_interval
         
         	Incremental file write interval (default 1 minutes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1440
         
@@ -231,7 +231,7 @@ class Dhcpv6(Entity):
         .. attribute:: profile
         
         	None
-        	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile>`
+        	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile>`
         
         
 
@@ -265,33 +265,35 @@ class Dhcpv6(Entity):
             .. attribute:: profile_name  <key>
             
             	Profile name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: relay
             
             	None
-            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay>`
+            	**type**\:  :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay>`
             
             	**presence node**\: True
             
             .. attribute:: base
             
             	None
-            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base>`
+            	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base>`
             
             	**presence node**\: True
             
             .. attribute:: proxy
             
             	None
-            	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy>`
+            	**type**\:  :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy>`
             
             	**presence node**\: True
             
             .. attribute:: server
             
             	None
-            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server>`
+            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server>`
             
             	**presence node**\: True
             
@@ -343,19 +345,19 @@ class Dhcpv6(Entity):
                 .. attribute:: helper_addresses
                 
                 	Table of HelperAddress
-                	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses>`
+                	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses>`
                 
                 .. attribute:: enable
                 
                 	Enable None. Deletion of this object also causes deletion of all associated objects under Relay
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: iana_route_add
                 
                 	Enable route addition for IANA
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -398,7 +400,7 @@ class Dhcpv6(Entity):
                     .. attribute:: helper_address
                     
                     	Specify the server helper address
-                    	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress>`
+                    	**type**\: list of  		 :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress>`
                     
                     
 
@@ -431,14 +433,16 @@ class Dhcpv6(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
                         .. attribute:: helper_address  <key>
                         
                         	Server Global unicast address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -473,17 +477,17 @@ class Dhcpv6(Entity):
                 .. attribute:: default
                 
                 	Default match option
-                	**type**\:   :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default>`
+                	**type**\:  :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default>`
                 
                 .. attribute:: match
                 
                 	Enter match option
-                	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match>`
+                	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match>`
                 
                 .. attribute:: enable
                 
                 	Enable None. Deletion of this object also causes deletion of all associated objects under Base
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
@@ -531,7 +535,7 @@ class Dhcpv6(Entity):
                     .. attribute:: profile
                     
                     	Enter proxy or server profile
-                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default.Profile>`
+                    	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default.Profile>`
                     
                     
 
@@ -564,19 +568,19 @@ class Dhcpv6(Entity):
                         .. attribute:: profile_name  <key>
                         
                         	Profile name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: server_mode
                         
                         	Specify mode\-class based Server option
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: proxy_mode
                         
                         	Specify mode\-class based Proxy Option
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -613,7 +617,7 @@ class Dhcpv6(Entity):
                     .. attribute:: mode_classes
                     
                     	Table of ModeClass
-                    	**type**\:   :py:class:`ModeClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match.ModeClasses>`
+                    	**type**\:  :py:class:`ModeClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match.ModeClasses>`
                     
                     
 
@@ -646,7 +650,7 @@ class Dhcpv6(Entity):
                         .. attribute:: mode_class
                         
                         	Specify PPP/IPoE class option
-                        	**type**\: list of    :py:class:`ModeClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass>`
+                        	**type**\: list of  		 :py:class:`ModeClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass>`
                         
                         
 
@@ -679,14 +683,14 @@ class Dhcpv6(Entity):
                             .. attribute:: class_name  <key>
                             
                             	Class name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..128
                             
                             .. attribute:: profile
                             
                             	Enter proxy or server profile
-                            	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile>`
+                            	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile>`
                             
                             
 
@@ -721,19 +725,19 @@ class Dhcpv6(Entity):
                                 .. attribute:: profile_name  <key>
                                 
                                 	Profile name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..64
                                 
                                 .. attribute:: server_mode
                                 
                                 	Specify mode\-class based Server option
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: proxy_mode
                                 
                                 	Specify mode\-class based Proxy Option
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -770,65 +774,67 @@ class Dhcpv6(Entity):
                 .. attribute:: interfaces
                 
                 	Table of Interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces>`
                 
                 .. attribute:: relay
                 
                 	Specify relay configuration
-                	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay>`
+                	**type**\:  :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay>`
                 
                 .. attribute:: vrfs
                 
                 	VRF related configuration
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs>`
+                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs>`
                 
                 .. attribute:: authentication
                 
                 	Authentication username format
-                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Authentication>`
+                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Authentication>`
                 
                 .. attribute:: classes
                 
                 	Table of Class
-                	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes>`
+                	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes>`
                 
                 .. attribute:: sessions
                 
                 	Change sessions configuration
-                	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions>`
+                	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions>`
                 
                 .. attribute:: linkaddress_from_ra_enable
                 
                 	Fill linkaddress in Relay fwd msg with Prefix from Router Advertisement for PPPoE sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: route_add_disable
                 
                 	RouteDisable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: link_address
                 
                 	IPv6 address to be filled in link\-address
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: src_intf_name
                 
                 	Create or enter proxy profile Source Interface Name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: enable
                 
                 	Enable None. Deletion of this object also causes deletion of all associated objects under Proxy
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
@@ -904,7 +910,7 @@ class Dhcpv6(Entity):
                     .. attribute:: interface
                     
                     	None
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface>`
                     
                     
 
@@ -937,12 +943,14 @@ class Dhcpv6(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface to configure
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: interface_id
                         
                         	Physical interface ID
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -977,7 +985,7 @@ class Dhcpv6(Entity):
                     .. attribute:: option
                     
                     	Specify relay option configuration
-                    	**type**\:   :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay.Option>`
+                    	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay.Option>`
                     
                     
 
@@ -1010,29 +1018,29 @@ class Dhcpv6(Entity):
                         .. attribute:: interface_id
                         
                         	Interface Id option
-                        	**type**\:   :py:class:`InterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId>`
+                        	**type**\:  :py:class:`InterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId>`
                         
                         .. attribute:: subscriber_id
                         
                         	Configure Received SubscriberID
-                        	**type**\:   :py:class:`SubscriberId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.SubscriberId>`
+                        	**type**\:  :py:class:`SubscriberId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.SubscriberId>`
                         
                         .. attribute:: link_layer_addr
                         
                         	Configure Received link\-layer\-Addr
-                        	**type**\:   :py:class:`LinkLayerAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.LinkLayerAddr>`
+                        	**type**\:  :py:class:`LinkLayerAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.LinkLayerAddr>`
                         
                         .. attribute:: remote_i_dreceived
                         
                         	Set remote\-id value from SADB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: remote_id
                         
                         	Enter remote\-id value
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..256
                         
@@ -1078,7 +1086,7 @@ class Dhcpv6(Entity):
                             .. attribute:: insert
                             
                             	Configure InterfaceID insert type
-                            	**type**\:   :py:class:`Insert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Insert>`
+                            	**type**\:  :py:class:`Insert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Insert>`
                             
                             
 
@@ -1111,7 +1119,7 @@ class Dhcpv6(Entity):
                     .. attribute:: vrf
                     
                     	IPv6 DHCP proxy VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf>`
+                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf>`
                     
                     
 
@@ -1144,12 +1152,14 @@ class Dhcpv6(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: helper_addresses
                         
                         	Table of HelperAddress
-                        	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses>`
+                        	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses>`
                         
                         
 
@@ -1187,7 +1197,7 @@ class Dhcpv6(Entity):
                             .. attribute:: helper_address
                             
                             	DHCPv6 Helper Address
-                            	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress>`
+                            	**type**\: list of  		 :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress>`
                             
                             
 
@@ -1220,17 +1230,21 @@ class Dhcpv6(Entity):
                                 .. attribute:: helper_address  <key>
                                 
                                 	DHCPv6 Helper Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: out_interface
                                 
                                 	DHCPv6 HelperAddress Specific Output Interface
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: any_out_interface
                                 
                                 	DHCPv6 HelperAddress Output Interface
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -1267,7 +1281,7 @@ class Dhcpv6(Entity):
                     .. attribute:: username
                     
                     	Set username as DUID
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1300,7 +1314,7 @@ class Dhcpv6(Entity):
                     .. attribute:: class_
                     
                     	None
-                    	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes.Class_>`
+                    	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes.Class_>`
                     
                     
 
@@ -1333,28 +1347,28 @@ class Dhcpv6(Entity):
                         .. attribute:: class_name  <key>
                         
                         	Class name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..128
                         
                         .. attribute:: helper_addresses
                         
                         	Table of HelperAddress
-                        	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses>`
+                        	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses>`
                         
                         .. attribute:: link_address
                         
                         	IPv6 address to be filled in link\-address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         
 
                         """
@@ -1393,7 +1407,7 @@ class Dhcpv6(Entity):
                             .. attribute:: helper_address
                             
                             	Specify the server helper address
-                            	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses.HelperAddress>`
+                            	**type**\: list of  		 :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses.HelperAddress>`
                             
                             
 
@@ -1426,14 +1440,16 @@ class Dhcpv6(Entity):
                                 .. attribute:: vrf_name  <key>
                                 
                                 	VRF name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..32
                                 
                                 .. attribute:: helper_address  <key>
                                 
                                 	Server address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -1468,7 +1484,7 @@ class Dhcpv6(Entity):
                     .. attribute:: mac
                     
                     	Throttle DHCP sessions based on MAC address
-                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac>`
+                    	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac>`
                     
                     
 
@@ -1501,7 +1517,7 @@ class Dhcpv6(Entity):
                         .. attribute:: throttle
                         
                         	Throttle DHCP sessions from any one MAC address
-                        	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac.Throttle>`
+                        	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac.Throttle>`
                         
                         
 
@@ -1535,14 +1551,14 @@ class Dhcpv6(Entity):
                             .. attribute:: limit
                             
                             	Number of solicits at which to throttle
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
                             .. attribute:: request
                             
                             	Throttle request period (in secs)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..100
                             
@@ -1551,7 +1567,7 @@ class Dhcpv6(Entity):
                             .. attribute:: block
                             
                             	Throttle blocking period (in secs)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..100
                             
@@ -1592,72 +1608,72 @@ class Dhcpv6(Entity):
                 .. attribute:: sessions
                 
                 	Change sessions configuration
-                	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions>`
+                	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions>`
                 
                 .. attribute:: dns_servers
                 
                 	DNS servers
-                	**type**\:   :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.DnsServers>`
+                	**type**\:  :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.DnsServers>`
                 
                 .. attribute:: classes
                 
                 	Table of Class
-                	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes>`
+                	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes>`
                 
                 .. attribute:: lease
                 
                 	lease
-                	**type**\:   :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Lease>`
+                	**type**\:  :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Lease>`
                 
                 .. attribute:: dhcpv6_options
                 
                 	DHCPv6 options
-                	**type**\:   :py:class:`Dhcpv6Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Dhcpv6Options>`
+                	**type**\:  :py:class:`Dhcpv6Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Dhcpv6Options>`
                 
                 .. attribute:: address_pool
                 
                 	Address pool name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: aftr_name
                 
                 	AFTR name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: domain_name
                 
                 	Domain name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: preference
                 
                 	DHCP Server Preference
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: rapid_commit
                 
                 	Allow RAPID Commit
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: enable
                 
                 	Enable None. Deletion of this object also causes deletion of all associated objects under Server
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: prefix_pool
                 
                 	Prefix pool name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -1732,7 +1748,7 @@ class Dhcpv6(Entity):
                     .. attribute:: mac
                     
                     	Throttle DHCP sessions based on MAC address
-                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions.Mac>`
+                    	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions.Mac>`
                     
                     
 
@@ -1765,7 +1781,7 @@ class Dhcpv6(Entity):
                         .. attribute:: throttle
                         
                         	Throttle DHCP sessions from any one MAC address
-                        	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle>`
+                        	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle>`
                         
                         
 
@@ -1799,14 +1815,14 @@ class Dhcpv6(Entity):
                             .. attribute:: limit
                             
                             	Number of solicits at which to throttle
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
                             .. attribute:: request
                             
                             	Throttle request period (in secs)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..100
                             
@@ -1815,7 +1831,7 @@ class Dhcpv6(Entity):
                             .. attribute:: block
                             
                             	Throttle blocking period (in secs)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..100
                             
@@ -1856,16 +1872,16 @@ class Dhcpv6(Entity):
                     .. attribute:: dns_server
                     
                     	Server's IPv6 address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  list of str
+                    		**type**\: list of str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  list of str
+                    		**type**\: list of str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     
 
                     """
@@ -1897,7 +1913,7 @@ class Dhcpv6(Entity):
                     .. attribute:: class_
                     
                     	None
-                    	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes.Class_>`
+                    	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes.Class_>`
                     
                     
 
@@ -1930,40 +1946,40 @@ class Dhcpv6(Entity):
                         .. attribute:: class_name  <key>
                         
                         	class name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..128
                         
                         .. attribute:: dns_servers
                         
                         	DNS servers
-                        	**type**\:   :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers>`
+                        	**type**\:  :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers>`
                         
                         .. attribute:: address_pool
                         
                         	Address pool name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: domain_name
                         
                         	Domain name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: preference
                         
                         	DHCP Server Preference
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
                         .. attribute:: prefix_pool
                         
                         	Prefix pool name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -2011,16 +2027,16 @@ class Dhcpv6(Entity):
                             .. attribute:: dns_server
                             
                             	Server's IPv6 address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  list of str
+                            		**type**\: list of str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  list of str
+                            		**type**\: list of str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             
 
                             """
@@ -2052,7 +2068,7 @@ class Dhcpv6(Entity):
                     .. attribute:: days
                     
                     	Days
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..365
                     
@@ -2061,7 +2077,7 @@ class Dhcpv6(Entity):
                     .. attribute:: hours
                     
                     	Hours
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..23
                     
@@ -2070,7 +2086,7 @@ class Dhcpv6(Entity):
                     .. attribute:: minutes
                     
                     	Minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..59
                     
@@ -2079,7 +2095,7 @@ class Dhcpv6(Entity):
                     .. attribute:: infinite
                     
                     	Set string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -2118,7 +2134,7 @@ class Dhcpv6(Entity):
                     .. attribute:: vendor_options
                     
                     	Vendor options
-                    	**type**\:   :py:class:`VendorOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions>`
+                    	**type**\:  :py:class:`VendorOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions>`
                     
                     
 
@@ -2151,12 +2167,12 @@ class Dhcpv6(Entity):
                         .. attribute:: type
                         
                         	Set string
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: vendor_options
                         
                         	Vendor options
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..512
                         
@@ -2193,7 +2209,7 @@ class Dhcpv6(Entity):
         .. attribute:: interface
         
         	None
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface>`
         
         
 
@@ -2227,32 +2243,34 @@ class Dhcpv6(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface to configure
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: pppoe
             
             	PPPoE subscriber interface
-            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Pppoe>`
+            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Pppoe>`
             
             .. attribute:: proxy
             
             	Assign a proxy profile to interface
-            	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Proxy>`
+            	**type**\:  :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Proxy>`
             
             .. attribute:: base
             
             	Assign a base profile to interface
-            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Base>`
+            	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Base>`
             
             .. attribute:: server
             
             	Assign a server profile to interface
-            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Server>`
+            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Server>`
             
             .. attribute:: relay
             
             	Assign a relay profile to interface
-            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Relay>`
+            	**type**\:  :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Relay>`
             
             
 
@@ -2311,7 +2329,7 @@ class Dhcpv6(Entity):
                 .. attribute:: profile
                 
                 	Enter profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -2346,7 +2364,7 @@ class Dhcpv6(Entity):
                 .. attribute:: profile
                 
                 	Enter profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -2381,7 +2399,7 @@ class Dhcpv6(Entity):
                 .. attribute:: profile
                 
                 	Enter profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -2416,7 +2434,7 @@ class Dhcpv6(Entity):
                 .. attribute:: profile
                 
                 	Enter profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -2451,7 +2469,7 @@ class Dhcpv6(Entity):
                 .. attribute:: profile
                 
                 	Enter profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 

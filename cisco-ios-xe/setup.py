@@ -24,11 +24,11 @@ from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
-INSTALL_REQUIREMENTS = ['ydk>=0.6.2']
+INSTALL_REQUIREMENTS = ['ydk>=0.6.3']
 
 NMSP_PKG_NAME = "ydk-models-cisco-ios-xe"
-NMSP_PKG_VERSION = "16.6.1-post1"
-NMSP_PKG_DEPENDENCIES = ['ydk-models-ietf>=0.1.3', 'ydk-models-openconfig>=0.1.3']
+NMSP_PKG_VERSION = "16.7.1"
+NMSP_PKG_DEPENDENCIES = ['ydk-models-ietf>=0.1.3']
 
 
 if NMSP_PKG_DEPENDENCIES != "$DEPENDENCY$":
@@ -40,7 +40,7 @@ YDK_PACKAGES = find_packages(exclude=['contrib', 'docs*', 'tests*',
 
 
 DESCRIPTION = "YDK bundle for Cisco IOS XE models"
-LONG_DESCRIPTION = "This YANG Development Kit (YDK) bundle provides APIs for Cisco IOS XE YANG models. YDK facilitates the use of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles.  This YDK bundle for Cisco IOS XE models uses the YDK core package and additional model bundles.  You can find the SDK documentation at http://ydk.cisco.com/py/docs"
+LONG_DESCRIPTION = "This YANG Development Kit (YDK) bundle provides APIs for Cisco IOS XE YANG models. YDK facilitates the use of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles.  This YDK bundle for Cisco IOS XE models uses the YDK core package and additional model bundles.  You can find the SDK documentation at http://ydk.cisco.com/py/docs  You can find more details on YDK at http://ydk.io"
 
 setup(
     name=NMSP_PKG_NAME,

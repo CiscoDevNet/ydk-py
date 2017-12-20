@@ -259,122 +259,122 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
     .. attribute:: cvgeneralconfiguration
     
     	
-    	**type**\:   :py:class:`Cvgeneralconfiguration <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration>`
+    	**type**\:  :py:class:`Cvgeneralconfiguration <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration>`
     
     .. attribute:: cvgatewaycallactive
     
     	
-    	**type**\:   :py:class:`Cvgatewaycallactive <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive>`
+    	**type**\:  :py:class:`Cvgatewaycallactive <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive>`
     
     .. attribute:: cvcallvolume
     
     	
-    	**type**\:   :py:class:`Cvcallvolume <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolume>`
+    	**type**\:  :py:class:`Cvcallvolume <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolume>`
     
     .. attribute:: cvcallratemonitor
     
     	
-    	**type**\:   :py:class:`Cvcallratemonitor <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor>`
+    	**type**\:  :py:class:`Cvcallratemonitor <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor>`
     
     .. attribute:: cvcallvolumestatshistory
     
     	
-    	**type**\:   :py:class:`Cvcallvolumestatshistory <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory>`
+    	**type**\:  :py:class:`Cvcallvolumestatshistory <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory>`
     
     .. attribute:: cvpeercfgtable
     
     	The table contains the Voice Generic Peer information that is used to create an ifIndexed row with an appropriate ifType that is associated with the cvPeerCfgType and cvPeerCfgPeerType objects
-    	**type**\:   :py:class:`Cvpeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable>`
+    	**type**\:  :py:class:`Cvpeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable>`
     
     .. attribute:: cvvoicepeercfgtable
     
     	The table contains the Voice over Telephony peer specific information that is required to accept voice calls or to which it will place them or perform various loopback tests via interface
-    	**type**\:   :py:class:`Cvvoicepeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable>`
+    	**type**\:  :py:class:`Cvvoicepeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable>`
     
     .. attribute:: cvvoippeercfgtable
     
     	The table contains the Voice over IP (VoIP) peer specific information that is required to accept voice calls or to which it will place them via IP backbone with the specified session protocol in cvVoIPPeerCfgSessionProtocol
-    	**type**\:   :py:class:`Cvvoippeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable>`
+    	**type**\:  :py:class:`Cvvoippeercfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable>`
     
     .. attribute:: cvpeercommoncfgtable
     
     	The table contains the Voice specific peer common configuration information that is required to accept voice calls or to which it will place them or process the incoming calls
-    	**type**\:   :py:class:`Cvpeercommoncfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable>`
+    	**type**\:  :py:class:`Cvpeercommoncfgtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable>`
     
     .. attribute:: cvcallactivetable
     
     	This table is the voice extension to the call active table of IETF Dial Control MIB. It contains voice encapsulation call leg information that is derived from the statistics of lower layer telephony interface
-    	**type**\:   :py:class:`Cvcallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallactivetable>`
+    	**type**\:  :py:class:`Cvcallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallactivetable>`
     
     .. attribute:: cvvoipcallactivetable
     
     	This table is the VoIP extension to the call active table of IETF Dial Control MIB. It contains VoIP call leg information about specific VoIP call destination and the selected QoS for the call leg
-    	**type**\:   :py:class:`Cvvoipcallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable>`
+    	**type**\:  :py:class:`Cvvoipcallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable>`
     
     .. attribute:: cvcallvolconntable
     
     	This table represents the number of active call connections for each call connection type in the voice gateway
-    	**type**\:   :py:class:`Cvcallvolconntable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable>`
+    	**type**\:  :py:class:`Cvcallvolconntable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable>`
     
     .. attribute:: cvcallvoliftable
     
     	This table represents the information about the usage of an IP interface in a voice gateway for voice media calls. This table has a sparse\-dependent relationship with   ifTable. There exists an entry in this table,  for each of the  entries in ifTable where ifType  is one of 'ethernetCsmacd' and 'softwareLoopback'
-    	**type**\:   :py:class:`Cvcallvoliftable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable>`
+    	**type**\:  :py:class:`Cvcallvoliftable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable>`
     
     .. attribute:: cvcallhistorytable
     
     	This table is the voice extension to the call history table of IETF Dial Control MIB. It contains voice encapsulation call leg information such as voice packet statistics, coder usage and end to end bandwidth of the call leg
-    	**type**\:   :py:class:`Cvcallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable>`
+    	**type**\:  :py:class:`Cvcallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable>`
     
     .. attribute:: cvvoipcallhistorytable
     
     	This table is the VoIP extension to the call history table of IETF Dial Control MIB. It contains VoIP call leg information about specific VoIP call destination and the selected QoS for the call leg
-    	**type**\:   :py:class:`Cvvoipcallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable>`
+    	**type**\:  :py:class:`Cvvoipcallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable>`
     
     .. attribute:: cvcallratestatstable
     
     	This table represents voice call rate measurement in various interval lengths defined by the  CvCallVolumeStatsIntvlType object.  Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:   :py:class:`Cvcallratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable>`
+    	**type**\:  :py:class:`Cvcallratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable>`
     
     .. attribute:: cvcalllegratestatstable
     
     	cvCallLegRateStatsTable table represents voice call leg rate measurement in various interval lengths defined by  the CvCallVolumeStatsIntvlType object. Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:   :py:class:`Cvcalllegratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable>`
+    	**type**\:  :py:class:`Cvcalllegratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable>`
     
     .. attribute:: cvactivecallstatstable
     
     	This table represents the active voice calls in various interval lengths defined by the  CvCallVolumeStatsIntvlType object.  Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:   :py:class:`Cvactivecallstatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable>`
+    	**type**\:  :py:class:`Cvactivecallstatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable>`
     
     .. attribute:: cvcalldurationstatstable
     
     	This table represents the number of calls below a specific duration in various interval length defined by  the CvCallVolumeStatsIntvlType object.    The specific duration is configurable value of   cvCallDurationStatsThreshold object.  Each interval may contain one or more entries to allow for  detailed measurement to be collected
-    	**type**\:   :py:class:`Cvcalldurationstatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable>`
+    	**type**\:  :py:class:`Cvcalldurationstatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable>`
     
     .. attribute:: cvsipmsgratestatstable
     
     	This table represents the SIP message rate measurement in various interval length defined by the  CvCallVolumeStatsIntvlType object.  Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:   :py:class:`Cvsipmsgratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable>`
+    	**type**\:  :py:class:`Cvsipmsgratestatstable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable>`
     
     .. attribute:: cvcallratewmtable
     
     	This table represents high watermarks achieved by call rate in various interval length defined  by CvCallVolumeWMIntvlType.   Each interval may contain one or more entries to allow for  detailed measurement to be collected
-    	**type**\:   :py:class:`Cvcallratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable>`
+    	**type**\:  :py:class:`Cvcallratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable>`
     
     .. attribute:: cvcalllegratewmtable
     
     	cvCallLegRateWMTable table represents high watermarks achieved by call\-leg rate in various interval length defined  by CvCallVolumeWMIntvlType.   Each interval may contain one or more entries to allow for  detailed measurement to be collected
-    	**type**\:   :py:class:`Cvcalllegratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable>`
+    	**type**\:  :py:class:`Cvcalllegratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable>`
     
     .. attribute:: cvactivecallwmtable
     
     	This table represents high watermarks achieved by active calls in various interval length defined  by CvCallVolumeWMIntvlType.   Each interval may contain one or more entries to allow  for detailed measurement to be collected
-    	**type**\:   :py:class:`Cvactivecallwmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable>`
+    	**type**\:  :py:class:`Cvactivecallwmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable>`
     
     .. attribute:: cvsipmsgratewmtable
     
     	This table represents of high watermarks achieved by SIP message rate in various interval length defined  by CvCallVolumeWMIntvlType.   Each interval may contain one or more entries to allow for detailed measurement to be collected
-    	**type**\:   :py:class:`Cvsipmsgratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable>`
+    	**type**\:  :py:class:`Cvsipmsgratewmtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable>`
     
     
 
@@ -523,22 +523,22 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvgeneralpoorqovnotificationenable
         
         	This object indicates whether cvdcPoorQoVNotification (or the newer cvdcPoorQoVNotificationRev1) traps should be generated for a poor quality of voice calls.  If the value of this object is 'true', cvdcPoorQoVNotification (or the newer cvdcPoorQoVNotificationRev1) traps will be generated for all voice over IP peers when a poor quality of voice call condition is detected after the voice gateway call disconnection.  If the value of this object is 'false', cvdcPoorQoVNotification (or the newer cvdcPoorQoVNotificationRev1) traps will be generated only for calls for which the cvVoIPPeerCfgPoorQoVNotificationEnable object of voice over IP peers having set to 'true'
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cvgeneralfallbacknotificationenable
         
         	This object indicates whether cvdcFallbackNotification traps should be generated for fallback. If the value of this object is 'true', cvdcFallbackNotification traps will be generated for all voice over IP peers
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cvgeneraldscppolicynotificationenable
         
         	This object indicates whether cvdcPolicyViolationNotification traps should be generated for a RPH to DSCP mapping violation for SIP voice calls.  If the value of this object is 'true', cvdcPolicyViolationNotification traps will be generated for SIP voice over IP peers when a RPH to DSCP violation condition is detected .  If the value of this object is 'false', cvdcPolicyViolationNotification traps will be generated only for calls for which the  cvVoIPPeerCfgDSCPPolicyNotificationEnable object of voice over IP peers having set to 'true'
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cvgeneralmediapolicynotificationenable
         
         	This object indicates whether cvdcPolicyViolationNotification traps should be generated for Media violation for SIP voice calls.  If the value of this object is 'true', cvdcPolicyViolationNotification traps will be generated for SIP voice over IP peers when media violation condition is detected .  If the value of this object is 'false', cvdcPolicyViolationNotification traps will be generated only for calls for which the  cvVoIPPeerCfgMediaPolicyNotificationEnable object of voice over IP peers having set to 'true'
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -578,7 +578,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallactiveds0s
         
         	The current number of DS0 interfaces used for the active calls
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -587,7 +587,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallactiveds0shighthreshold
         
         	A high threshold used to determine when to generate the cvdcActiveDS0sHighNotification. This object  represents the percentage of active DS0s in total number  of DS0s
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..100
         
@@ -596,7 +596,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallactiveds0slowthreshold
         
         	A low threshold used to determine when to generate the cvdcActiveDS0sLowNotification notification. This object  represents the percentage of active DS0s in total number  of DS0s
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..100
         
@@ -605,12 +605,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallactiveds0shighnotifyenable
         
         	Specifies whether or not cvdcActiveDS0sHighNotification should be generated.  'true' \: Indicates that the cvdcActiveDS0sHighNotification          generation is enabled.  'false'\: Indicates that cvdcActiveDS0sHighNotification          generation is disabled
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cvcallactiveds0slownotifyenable
         
         	Specifies whether or not cvdcActiveDS0sLowNotification should be generated.  'true' \: Indicates that the cvdcActiveDS0sLowNotification          generation is enabled.  'false'\: Indicates that cvdcActiveDS0sLowNotification          generation is disabled
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -652,14 +652,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallvolconntotalactiveconnections
         
         	This object represents the total number of active call legs in the voice gateway
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: cvcallvolconnmaxcallconnectionlicenese
         
         	This object represents the licensed call capacity for a voice gateway.  If the value is 0, no  licensing is done and the gateway can be  accomodate as many calls depending on its capability
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -697,12 +697,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallratemonitorenable
         
         	This object represents the state of call\-monitoring. A value of 'true' indicates that call\-monitoring  is enabled.  A value of 'false' indicates that  call\-monitoring is disabled
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cvcallratemonitortime
         
         	This object represents the interval for which the gateway monitors the call\-rate
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..12
         
@@ -711,14 +711,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallrate
         
         	This object represents the total number of calls handled by the gateway during the  monitored time
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: cvcallratehiwatermark
         
         	This object represents the high water mark for the number of calls handled by the  gateway in an unit interval of  cvCallRateMonitorTime, from the time  the call\-monitoring is enabled
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -760,7 +760,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcalldurationstatsthreshold
         
         	This Object specifies the thresold duration in seconds. cvCallDurationStatsTable will monitor all the calls below this  threshold.  Decresing the value of the threshold will reset this table
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..3600
         
@@ -769,7 +769,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallvolumewmtablesize
         
         	This Object specifies the number of entries the watermark table will maintain.  This value will decide the number of elements in cvCallRateWMTable, cvCallLegRateWMTable, cvActiveCallWMTable and cvSipMsgRateWMTable
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 3..10
         
@@ -810,7 +810,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvpeercfgentry
         
         	A single voice generic Peer. The creation of this entry will create an associated ifEntry with an ifType that is associated with cvPeerCfgType, i.e., for 'voiceEncap' encapsulation, an ifEntry will contain an ifType voiceEncap(103); for 'voiceOverIp' encapsulation, an ifEntry will contain an ifType voiceOverIp(104). The ifAdminStatus of the newly created ifEntry is set to 'up' and ifOperStatus is set to 'down'. In addition, an associated voiceEncap/voiceOverIp Peer configuration entry is created after the successful ifEntry creation. Then ifIndex of the newly created ifEntry must be used by the network manager to create a peer configuration entry of IETF Dial Control MIB (Refer to RFC 2128 section 2.2.3.1 and the description of dialCtlPeerCfgEntry for the detailed information). In summary, the voice dial peer creation steps are as follows\: [1] create this entry (voice/data generic peer entry). [2] read the cvPeerCfgIfIndex of this entry for the     ifIndex of newly created voice/data generic peer. [3] create the dialCtlPeerCfgEntry of RFC 2128 with the     indices of dialCtlPeerCfgId and the ifIndex of newly     created voice generic peer.  For each VoIP peer, it uses IP address and UDP port with RTP protocol to transfer voice packet. Therefore, it does not have its lower layer interface. The dialCtlPeerCfgIfType object of IETF Dial Control MIB must set to 'other' and the dialCtlPeerCfgLowerIf must set to '0'.  After the successful creation of peer configuration entry of IETF Dial Control MIB, the dial plan software in managed device will set the ifOperStatus of the newly created voiceEncap/voiceOverIp ifEntry to 'up' for enabling the peer function if the peer configuration is completed. When this entry is deleted, its associated ifEntry, voiceEncap/voiceOverIp specific peer entry and the peer entry of IETF Dial Control MIB are deleted
-        	**type**\: list of    :py:class:`Cvpeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry>`
+        	**type**\: list of  		 :py:class:`Cvpeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry>`
         
         
 
@@ -883,43 +883,43 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvpeercfgindex  <key>
             
             	An arbitrary index that uniquely identifies a generic voice peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: cvpeercfgifindex
             
             	The ifIndex of the peer associated ifEntry. The ifIndex appears after the associated ifEntry is created successfully. This ifIndex will be used to access the objects in the Voice over Telephony or Voice over IP peer specific table. In addition, the ifIndex is also used to access the associated peer configuration entry of the IETF Dial Control MIB. If the peer associated ifEntry had not been created, then this object has a value of zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: cvpeercfgtype
             
             	Specifies the type of voice related encapsulation. voice \- voice encapsulation (voiceEncap ifType) on the         telephony network. voip  \- VoIP encapsulation (voiceOverIp ifType) on the IP         network. mmail \- Media Mail over IP encapsulation (mediaMailOverIp         ifType) on the IP network. voatm \- VoATM encapsulation (voiceOverATM ifType) on the         ATM network. vofr  \- VoFR encapsulation (voiceOverFR ifType) on the         Frame Relay network
-            	**type**\:   :py:class:`Cvpeercfgtype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry.Cvpeercfgtype>`
+            	**type**\:  :py:class:`Cvpeercfgtype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry.Cvpeercfgtype>`
             
             .. attribute:: cvpeercfgrowstatus
             
             	This object is used to create a new row or modify or delete an existing row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: cvpeercfgpeertype
             
             	Specifies the type of a peer. voice \- peer in voice type to be defined in a voice         gateway for voice calls.  data  \- peer in data type to be defined in gateway         that supports universal ports for modem/data         calls and integrated ports for data calls
-            	**type**\:   :py:class:`Cvpeercfgpeertype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry.Cvpeercfgpeertype>`
+            	**type**\:  :py:class:`Cvpeercfgpeertype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry.Cvpeercfgpeertype>`
             
             .. attribute:: cvcallvolpeerincomingcalls
             
             	This object represents the total number of active calls that has selected the dialpeer as an incoming dialpeer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cvcallvolpeeroutgoingcalls
             
             	This object represents the total number of active calls that has selected the dialpeer as an outgoing dialpeer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -1046,7 +1046,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvvoicepeercfgentry
         
         	A single Voice specific Peer. One entry per voice encapsulation. The entry is created when its associated 'voiceEncap(103)' encapsulation ifEntry is created. This entry is deleted when its associated ifEntry is deleted
-        	**type**\: list of    :py:class:`Cvvoicepeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry>`
+        	**type**\: list of  		 :py:class:`Cvvoicepeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry>`
         
         
 
@@ -1085,7 +1085,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1094,45 +1094,45 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoicepeercfgsessiontarget
             
             	The object specifies the session target of the peer. Session Targets definitions\: The session target has the syntax used by the IETF service location protocol. The syntax is as follows\:  mapping\-type\:type\-specific\-syntax  the mapping\-type specifies a scheme for mapping the matching dial string to a session target.  The valid Mapping type definitions for the peer are as follows\: loopback \- Syntax\: loopback\:where    'where' string is defined as follows\:    compressed \- loopback is performed on compressed voice                 as close to the CODEC which processes the                 data as possible.    uncompressed \- loopback is performed on the PCM or                 analog voice as close to the telephony                 endpoint as possible.  Local loopback case\: uncompressed \- the PCM voice coming into the DSP is simply     turned around and sent back out, allowing testing of     the transmit\-\-> receive paths in the telephony     endpoint. compressed \- the compressed voice coming out of the CODEC is     turned around on the DSP module and fed back into the     decompressor through the jitter buffer. In addition to     the telephony endpoint, this tests both the encode and     decode paths without involving data paths or packet     handling on the host router.  Remote loopback case\: compressed \- RTP packets received from the network are     decapsulated and passed to the DSP board. Instead of     feeding these into the CODEC for decompression, they     are immediately sent back to the session application     as if they had originated locally and been compressed. uncompressed \- In addition to the above, the voice samples     are sent all the way through the CODEC and then turned     around instead of being sent to the telephony     endpoint
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: cvvoicepeercfgdialdigitsprefix
             
             	The object specifies the prefix of the dial digits for the peer. The dial digits prefix is sent to telephony interface before the real phone number when the system places the outgoing call to the voice encapsulation peer over telephony interface
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..32
             
             .. attribute:: cvvoicepeercfgdidcallenable
             
             	The object enables/disables the DID call treatment for incoming DNIS digits. true  \- treat the incoming DNIS digits as if the digits         are received from DID trunk. false \- Disable DID call treatment for incoming DNIS         digits
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoicepeercfgcasgroup
             
             	The object specifies the CAS group number of a CAS capable T1/E1  that is in the dialCtlPeerCfgLowerIf object of RFC2128. This object can be set to a valid CAS group number only if the dialCtlPeerCfgLowerIf contains a valid ifIndex for a CAS capable T1/E1. The object must set to \-1 before the value of the  dialCtlPeerCfgLowerIf object of RFC2128 can be changed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..30
             
             .. attribute:: cvvoicepeercfgregistere164
             
             	This object specifies that the E.164 number specified in the dialCtlPeerCfgOriginateAddress field of the associated dialCtlPeerCfgTable entry be registered as an extension  phone number of this gateway for H323 gatekeeper and/or  SIP registrar
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoicepeercfgforwarddigits
             
             	This object specifies the number of dialed digits to forward to the remote destination in the setup message. The object can take the value\:     0\-32 number of right justified digits to forward     \-1 default     \-2 forward extra digits i.e those over and above        those needed to match to the destination pattern     \-3 forward all digits
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-3..32
             
             .. attribute:: cvvoicepeercfgechocancellertest
             
             	This object specifies which, if any, test to run in the echo canceller when a call from the network is connected. echoCancellerTestNone    \- do not run a test. echoCancellerG168Test2A  \- run ITU\-T G.168 Test 2A. echoCancellerG168Test2B  \- run ITU\-T G.168 Test 2B. echoCancellerG168Test2Ca \- run ITU\-T G.168 Test 2C(a). echoCancellerG168Test2Cb \- run ITU\-T G.168 Test 2C(b). echoCancellerG168Test3A  \- run ITU\-T G.168 Test 3A. echoCancellerG168Test3B  \- run ITU\-T G.168 Test 3B. echoCancellerG168Test3C  \- run ITU\-T G.168 Test 3C. echoCancellerG168Test4   \- run ITU\-T G.168 Test 4. echoCancellerG168Test5   \- run ITU\-T G.168 Test 5. echoCancellerG168Test6   \- run ITU\-T G.168 Test 6. echoCancellerG168Test7   \- run ITU\-T G.168 Test 7. echoCancellerG168Test9   \- run ITU\-T G.168 Test 9
-            	**type**\:   :py:class:`Cvvoicepeercfgechocancellertest <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry.Cvvoicepeercfgechocancellertest>`
+            	**type**\:  :py:class:`Cvvoicepeercfgechocancellertest <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry.Cvvoicepeercfgechocancellertest>`
             
             
 
@@ -1272,7 +1272,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvvoippeercfgentry
         
         	A single VoIP specific Peer. One entry per VoIP encapsulation. The entry is created when its associated 'voiceOverIp(104)' encapsulation ifEntry is created. This entry is deleted when its associated ifEntry is deleted
-        	**type**\: list of    :py:class:`Cvvoippeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry>`
+        	**type**\: list of  		 :py:class:`Cvvoippeercfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry>`
         
         
 
@@ -1311,7 +1311,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1320,42 +1320,42 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfgsessionprotocol
             
             	The object specifies the session protocol to be used for Internet call between local and remote router via IP backbone
-            	**type**\:   :py:class:`CvSessionProtocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvSessionProtocol>`
+            	**type**\:  :py:class:`CvSessionProtocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvSessionProtocol>`
             
             .. attribute:: cvvoippeercfgdesiredqos
             
             	The object specifies the user requested Quality of Service for the call
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
             
             .. attribute:: cvvoippeercfgminacceptableqos
             
             	The object specifies the minimally acceptable Quality of Service for the call
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
             
             .. attribute:: cvvoippeercfgsessiontarget
             
             	The object specifies the session target of the peer. Session Targets definitions\: The session target has the syntax used by the IETF service location protocol. The syntax is as follows\:  mapping\-type\:type\-specific\-syntax  the mapping\-type specifies a scheme for mapping the matching dial string to a session target. The type\-specific\-syntax is exactly that, something that the particular mapping scheme can understand. For example, Session target           Meaning ipv4\:171.68.13.55\:1006   The session target is the IP                          version 4 address of 171.68.13.55                          and port 1006. dns\:pots.cisco.com\:1661  The session target is the IP host                          with dns name pots.cisco.com, and                          port 1661. ras                      The session target is the                          gatekeeper with RAS (Registration                          , Admission,  Status protocol). settlement               The session target is the                          settlement server. enum\:1                   The session target is the enum                           profile match table 1.  The valid Mapping type definitions for the peer are as follows\: ipv4       \- Syntax\: ipv4\:w.x.y.z\:port or  ipv4\:w.x.y.z dns        \- Syntax\: dns\:host.domain\:port or                      dns\:host.domain ras        \- Syntax\: ras settlement \- Syntax\: settlement enum       \- Syntax\: enum\:  loopback \- Syntax\: loopback\:where    'where' string is defined as follows\:    rtp \- loopback is performed at the transport protocol          level.  Local loopback case\: rtp \- the session application sets up an RTP stream to     itself (i.e. actually allocates a port pair and opens     the appropriate UDP sockets). It then does the full     RTP encapsulation, sends the packets to the loopback     IP address, receives the RTP packets, and hands the     compressed voice back to the CODEC. This tests the     entire local processing path, both transmit and     receive, in the router, as well as all of the above     paths.  Remote loopback case\: rtp\: RTP packets received from the network are decapsulated and      immediately re\-encapsulated in the outbound RTP      stream, using the same media clock (i.e. timestamp)      as the received packet. They are then sent back to      the remote source router as if the voice had      originated on a telephony port on the local router
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvvoippeercfgcoderrate
             
             	This object specifies the most desirable codec of speech for the VoIP peer
-            	**type**\:   :py:class:`CvcSpeechCoderRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcSpeechCoderRate>`
+            	**type**\:  :py:class:`CvcSpeechCoderRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcSpeechCoderRate>`
             
             .. attribute:: cvvoippeercfgfaxrate
             
             	This object specifies the default transmit rate of FAX the VoIP peer. If the value of this object is 'none', then the Fax relay feature is disabled; otherwise the Fax relay feature is enabled
-            	**type**\:   :py:class:`CvcFaxTransmitRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcFaxTransmitRate>`
+            	**type**\:  :py:class:`CvcFaxTransmitRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcFaxTransmitRate>`
             
             .. attribute:: cvvoippeercfgvadenable
             
             	This object specifies whether or not the VAD (Voice Activity Detection) voice data is continuously transmitted to IP backbone
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoippeercfgexpectfactor
             
             	This object specifies the user requested Expectation Factor of voice quality for the call via this peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..20
             
@@ -1364,7 +1364,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfgicpif
             
             	This object specifies the user requested Calculated Planning Impairment Factor (Icpif) for the call via this peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..55
             
@@ -1373,36 +1373,36 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfgpoorqovnotificationenable
             
             	This object specifies whether cvdcPoorQoVNotification (or the newer cvdcPoorQoVNotificationRev1) traps should be generated for the call that is associated with this peer
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoippeercfgudpchecksumenable
             
             	This object specifies whether the outgoing voice related UDP packet contains a valid checksum value. true  \- enable the checksum of outgoing voice UDP packets false \- disable the checksum of outgoing voice UDP packets
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoippeercfgipprecedence
             
             	This object specifies the value to be stored in the IP Precedence field of voice packets, with values ranging from 0 (normal precedence) through 7 (network control), allowing the managed system to set the importance of each voice packet for delivering them to the destination peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
             .. attribute:: cvvoippeercfgtechprefix
             
             	This object specifies the technology prefix of the peer, The technology prefix and the called party address are passed in Admission Request (ARQ) to gatekeeper for the called party address resolution during call setup
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cvvoippeercfgdigitrelay
             
             	This object specifies the methods to transmit dial digits (DTMF or MF digits) via IP network. rtpCisco       \- Enable capability to transmit dial digits                  with Cisco proprietary RTP payload type. h245Signal     \- Enable capability to transmit dtmf digits                  across the H.245 channel, via the signal                  field of the UserInputIndication message h245Alphanumeric \- Enable capability to transmit dtmf                  digit across the H.245 channel, via the                  string or alphanumeric fields of the                  UserInputIndication message rtpNte         \- Enable capability to transmit dial digits                  using Named Telephony Event per RFC 2833                  section 3. sipNotify      \- Enable capability to transmit dtmf                  digits using unsolicited SIP NOTIFY                  messages. This mechanism is only available                  for SIP dialpeers. sipKpml        \- Enable capability to transmit dtmf                  digits using KPML over SIP SUBSCRIBE                  and NOTIFY messages. This mechanism is                  only available for SIP dialpeers.   Modifying the value of cvVoIPPeerCfgSessionProtocol can reset the digit\-relay method associated bits value in this object if the modified session protocol does not support  these digit\-relay methods
-            	**type**\:   :py:class:`Cvvoippeercfgdigitrelay <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgdigitrelay>`
+            	**type**\:  :py:class:`Cvvoippeercfgdigitrelay <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgdigitrelay>`
             
             .. attribute:: cvvoippeercfgcoderbytes
             
             	This object specifies the size of the voice payload sample to be produced by the coder specified in cvVoIPPeerCfgCoderRate. Each coder sample produces 10 bytes of voice payload. The specified value will be rounded down to the nearest valid size.  A value of 0, specifies that the coder defined by cvVoIPPeerCfgCoderRate should produce its default payload size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..None \| 10..240
             
@@ -1411,7 +1411,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfgfaxbytes
             
             	This object specifies the payload size to be produced by the coder when it is generating fax data. A value of 0, specifies that the coder specified in cvVoIPCfgPeerCoderRate should produce its default fax payload size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..None \| 10..255
             
@@ -1420,74 +1420,74 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoippeercfginbandsignaling
             
             	This object specifies the type of in\-band signaling that will be used between the end points of the call. It is used by the router to determine how to interpret ABCD signaling bits sent as part of voice payload data
-            	**type**\:   :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
+            	**type**\:  :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
             
             .. attribute:: cvvoippeercfgmediasetting
             
             	This object specifies how the media is to be setup on an IP\-IP Gateway. Two choices are valid\: flow\-through and flow\-around. When in flow\-through mode, which is the default setting, the IP\-IP Gateway will terminate and  then re\-originate the media stream. When flow\-around is configured the Gateway will not be involved with the media, since it will flow\-around the Gateway and will be established directly between the endpoints
-            	**type**\:   :py:class:`Cvvoippeercfgmediasetting <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgmediasetting>`
+            	**type**\:  :py:class:`Cvvoippeercfgmediasetting <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgmediasetting>`
             
             .. attribute:: cvvoippeercfgdesiredqosvideo
             
             	The object specifies the user requested Quality of Service for the video portion of the call
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
             
             .. attribute:: cvvoippeercfgminacceptableqosvideo
             
             	The object specifies the minimally acceptable Quality of Service for the video portion of the call
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
             
             .. attribute:: cvvoippeercfgredirectip2ip
             
             	This object specifies the Inbound VoIP calls that match an outbound VoIP dialpeer will be responded with a SIP  redirect(for inbound SIP) or H.450.3 call\-forward(for  inbound H.323)
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoippeercfgoctetaligned
             
             	If the object has a value true(1) octet align operation is used, and if the value is false(2), bandwidth efficient operation is used. This object is not instantiated when the object cvVoIPPeerCfgCoderRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoippeercfgbitrates
             
             	This object indicates modes of Bit rates. One or more upto four modes can be configured at the same time as bit rates can be changed dynamically for AMR\-NB codec. This object is not instantiated when the object cvVoIPPeerCfgCoderRate is not equal to gsmAmrNb enum
-            	**type**\:   :py:class:`CvAmrNbBitRateMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbBitRateMode>`
+            	**type**\:  :py:class:`CvAmrNbBitRateMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbBitRateMode>`
             
             .. attribute:: cvvoippeercfgcrc
             
             	If the object has a value of true(1), frame CRC will be included in the payload and if the value is false(2), frame CRC will not be included in the payload. This object is applicable only when RTP frame type is octet aligned. This object is not instantiated when the object cvVoIPPeerCfgCoderRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoippeercfgcodermode
             
             	This object indicates the iLBC codec mode to be used. The value of this object is valid only if  cvVoIPPeerCfgCoderRate is equal to 'iLBC'
-            	**type**\:   :py:class:`CvIlbcFrameMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvIlbcFrameMode>`
+            	**type**\:  :py:class:`CvIlbcFrameMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvIlbcFrameMode>`
             
             .. attribute:: cvvoippeercfgcodingmode
             
             	This object specifies the coding mode to be used. The object is instantiated only if cvVoIPPeerCfgCoderRate is 'iSAC'. Following coding modes are supported\: adaptive    (1) \- adaptive mode where iSAC performs bandwidth                     estimation and adapts to the available channel                    bandwidth. independent (2) \- independent mode in which no bandwidth estimation                    is performed
-            	**type**\:   :py:class:`Cvvoippeercfgcodingmode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgcodingmode>`
+            	**type**\:  :py:class:`Cvvoippeercfgcodingmode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgcodingmode>`
             
             .. attribute:: cvvoippeercfgbitrate
             
             	This object specifies the target bit rate. The object is instantiated only if cvVoIPPeerCfgCoderRate is 'iSAC'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10000..32000
             
             .. attribute:: cvvoippeercfgframesize
             
             	This object specifies the frame size used. The object is instantiated only if cvVoIPPeerCfgCoderRate is 'iSAC'. The frame size can be 30 ms or 60 ms, and it can be fixed for all packets or vary depending on the configuration and bandwidth estimation. Thus it can have the following values\: frameSize30      \- initial frame size of 30 ms frameSize60      \- initial frame size of 60 ms frameSize30fixed \- fixed frame size 30 ms frameSize60fixed \- fixed frame size 60 ms
-            	**type**\:   :py:class:`Cvvoippeercfgframesize <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgframesize>`
+            	**type**\:  :py:class:`Cvvoippeercfgframesize <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgframesize>`
             
             .. attribute:: cvvoippeercfgdscppolicynotificationenable
             
             	This object specifies whether cvdcPolicyViolationNotification traps should be generated for the call that is associated with this peer for RPH to DSCP mapping and policing feature
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoippeercfgmediapolicynotificationenable
             
             	This object specifies whether cvdcPolicyViolationNotification traps should be generated for the call that is associated with this peer for Media policing feature.
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -1689,7 +1689,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvpeercommoncfgentry
         
         	A single Voice specific Peer. One entry per voice related encapsulation. The entry is created when a voice related encapsulation ifEntry is created. This entry is deleted when its associated ifEntry is deleted
-        	**type**\: list of    :py:class:`Cvpeercommoncfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable.Cvpeercommoncfgentry>`
+        	**type**\: list of  		 :py:class:`Cvpeercommoncfgentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable.Cvpeercommoncfgentry>`
         
         
 
@@ -1728,7 +1728,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1737,14 +1737,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvpeercommoncfgincomingdnisdigits
             
             	The object specifies the prefix of the incoming Dialed Number Identification Service (DNIS) digits for the peer. The DNIS digits prefix is used to match with the incoming DNIS number for incoming call discrimination. If the digits in this object are matched with incoming DNIS number, the  associated dialCtlPeerCfgInfoType in RFC 2128 will be used as a call discriminator for differentiating speech, data, fax, video or modem calls
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..32
             
             .. attribute:: cvpeercommoncfgmaxconnections
             
             	The object specifies the maximum allowed connection to/from the peer. A value of \-1 disables the limit of maximum connections
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..None \| 1..2147483647
             
@@ -1753,44 +1753,44 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvpeercommoncfgapplicationname
             
             	The object specifies the application to handle the incoming call after the peer is selected. If no application name is specified, then the default session application will take care of the incoming call
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvpeercommoncfgpreference
             
             	This object specifies the selection preference of a peer when multiple peers are matched to the selection criteria. The value of 0 has the lowest preference for peer selection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..10
             
             .. attribute:: cvpeercommoncfghuntstop
             
             	This object specifies whether dialpeer hunting should stop when this peer is reached
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvpeercommoncfgdnismappingname
             
             	The object specifies a Dialer Number Identification Service (DNIS) map name for the Voice specific peer entry specified in this row. A DNIS is a called party number and they can be grouped and identified by DNIS map
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvpeercommoncfgsourcecarrierid
             
             	The object specifies the Source Carrier Id for the peer. The Source Carrier Id is used to match with the Source Carrier Id of a call. If the Source Carrier Id in this object is matched with the Source Carrier Id of a call, then the associated peer will be used to handle the call.  Only alphanumeric characters, '\-' and '\_' are allowed in the string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvpeercommoncfgtargetcarrierid
             
             	The object specifies the Target Carrier Id for the peer. The Target Carrier Id is used to match with the Target Carrier Id of a call. If the Target Carrier Id in this object is matched with the Target Carrier Id of a call, then the associated peer will be used to handle the call. Only alphanumeric characters, '\-' and '\_' are allowed in the string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvpeercommoncfgsourcetrunkgrplabel
             
             	The object specifies the Source Trunk Group Label for the peer. The Source Trunk Group Label is used to match with the Source Trunk Group Label of a call. If the Source Trunk Group Label in this object is matched with the Source Trunk Group Label of a call, then the associated peer will be used to handle the call.  Only alphanumeric characters, '\-' and '\_' are allowed in the string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvpeercommoncfgtargettrunkgrplabel
             
             	The object specifies the Target Trunk Group Label for the peer. The Target Trunk Group Label is used to match with the Target Trunk Group Label of a call. If the Target Trunk Group Label in this object is matched with the Target Trunk Group Label of a call, then the associated peer will be used to handle the call. Only alphanumeric characters, '\-' and '\_' are allowed in the string
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1847,7 +1847,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallactiveentry
         
         	The information regarding a single voice encapsulation call leg. The call leg entry is identified by using the same index objects that are used by Call Active table of IETF Dial Control MIB to identify the call. An entry of this table is created when its associated call active entry in the IETF Dial Control MIB is created and call active entry contains the call establishment to a voice over telephony network peer. The entry is deleted when its associated call active entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of    :py:class:`Cvcallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallactivetable.Cvcallactiveentry>`
+        	**type**\: list of  		 :py:class:`Cvcallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallactivetable.Cvcallactiveentry>`
         
         
 
@@ -1891,7 +1891,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: callactivesetuptime  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1900,7 +1900,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: callactiveindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1909,14 +1909,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactiveconnectionid
             
             	The global connection identifier for the active telephony leg of the call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cvcallactivetxduration
             
             	Duration of Transmit path open from this peer to the voice gateway for the call leg. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1925,7 +1925,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactivevoicetxduration
             
             	Duration of voice transmitted from this peer to voice gateway for this call leg. The Voice Utilization Rate can be obtained by dividing this by cvCallActiveTXDuration object. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1934,7 +1934,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactivefaxtxduration
             
             	Duration of fax transmitted from this peer to voice gateway for this call leg. The FAX Utilization Rate can be obtained by dividing this by cvCallActiveTXDuration object. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1943,12 +1943,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactivecodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for the call
-            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
+            	**type**\:  :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             .. attribute:: cvcallactivenoiselevel
             
             	The object contains the active noise level for the call leg
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..8
             
@@ -1957,7 +1957,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactiveacomlevel
             
             	The object contains the sum of Echo Return Loss (ERL), cancellation loss (Echo Return Loss Enhancement) and nonlinear processing loss for the call leg. The value \-1 indicates the level can not be determined or level detection is disabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..127
             
@@ -1966,7 +1966,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactiveoutsignallevel
             
             	The object contains the active output signal level to telephony interface that is used by the call leg
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..8
             
@@ -1975,7 +1975,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactiveinsignallevel
             
             	The object contains the active input signal level from telephony interface that is used by the call leg
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..8
             
@@ -1984,7 +1984,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactiveerllevel
             
             	The object contains the current Echo Return Loss (ERL) level for the call leg. The value \-1 indicates the level can not be determined or level detection is disabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..45
             
@@ -1995,14 +1995,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactivesessiontarget
             
             	The object specifies the session target of the peer that is used for the call leg. This object is set with the information in the call associated cvVoicePeerCfgSessionTarget object when the call is connected
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: cvcallactiveimgpagecount
             
             	The number of FAX related image pages are received or transmitted via the peer for the call leg
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2011,31 +2011,31 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactivecallingname
             
             	The calling party name of the call. If the name is not available, then it will have a length of zero
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvcallactivecalleridblock
             
             	The object indicates whether or not the caller ID feature is blocked for this call
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvcallactiveecanreflectorlocation
             
             	The location in milliseconds of the largest amplitude reflector detected by the echo canceller for this call.  The value 0 indicates there is no reflector or the  information is not available
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: cvcallactiveaccountcode
             
             	The object indicates the account code input to the call. It could be used for call screen or by down stream server for billing purpose. The value of empty string indicates no account code input
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..50
             
             .. attribute:: cvcallactiveerllevelrev1
             
             	The object contains the current Echo Return Loss (ERL) level for the call leg. The value \-1 indicates the level can not be determined or level detection is disabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..200
             
@@ -2044,7 +2044,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallactivecallid
             
             	This object represents the call identifier for the active telephony leg of the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -2121,7 +2121,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvvoipcallactiveentry
         
         	The information regarding a single VoIP call leg. The call leg entry is identified by using the same index objects that are used by Call Active table of IETF Dial Control MIB to identify the call. An entry of this table is created when its associated call active entry in the IETF Dial Control MIB is created and the call active entry contains information for the call establishment to the peer on the IP backbone via a voice over  IP peer. The entry is deleted when its associated call active entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of    :py:class:`Cvvoipcallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable.Cvvoipcallactiveentry>`
+        	**type**\: list of  		 :py:class:`Cvvoipcallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable.Cvvoipcallactiveentry>`
         
         
 
@@ -2165,7 +2165,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: callactivesetuptime  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2174,7 +2174,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: callactiveindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -2183,21 +2183,23 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactiveconnectionid
             
             	The global connection identifier for the active VoIP leg of the call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cvvoipcallactiveremoteipaddress
             
             	Remote system IP address for the VoIP call
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: cvvoipcallactiveremoteudpport
             
             	Remote system UDP listener port to which to transmit voice packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -2206,7 +2208,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactiveroundtripdelay
             
             	The voice packet round trip delay between local and the remote system on the IP backbone during the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2215,22 +2217,22 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactiveselectedqos
             
             	The selected RSVP QoS for the voice call
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
             
             .. attribute:: cvvoipcallactivesessionprotocol
             
             	The object specifies the session protocol to be used for Internet call between local and remote router via IP backbone
-            	**type**\:   :py:class:`CvSessionProtocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvSessionProtocol>`
+            	**type**\:  :py:class:`CvSessionProtocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvSessionProtocol>`
             
             .. attribute:: cvvoipcallactivesessiontarget
             
             	The object specifies the session target of the peer that is used for the call. This object is set with the information in the call associated cvVoIPPeerCfgSessionTarget object when the voice over IP call is connected
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvvoipcallactiveontimervplayout
             
             	Duration of voice playout from data received on time for this call. This plus the durations for the GapFills in the following entries gives the Total Voice Playout Duration for Active Voice. This does not include duration for which no data was sent by the Transmit end as voice signal, e.g., silence suppression and fax signal. The On Time Playout Rate can be computed by dividing this entry by the Total Voice Playout Duration. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2239,7 +2241,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivegapfillwithsilence
             
             	Duration of voice signal replaced with signal played out during silence due to voice data not received on time (or lost) from voice gateway this call. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2248,7 +2250,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivegapfillwithprediction
             
             	Duration of voice signal played out with signal synthesized from parameters or samples of data preceding in time due to voice data not received on time (or lost) from voice gateway for this call. An example of such playout is frame\-erasure or frame\-concealment strategies in G.729 and G.723.1 compression algorithms. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2257,7 +2259,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivegapfillwithinterpolation
             
             	Duration of voice signal played out with signal synthesized from parameters or samples of data preceding and following in time due to voice data not received on time (or lost) from voice gateway for this call. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2266,7 +2268,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivegapfillwithredundancy
             
             	Duration of voice signal played out with signal synthesized from redundancy parameters available due to voice data not received on time (or lost) from voice gateway for this call. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2275,7 +2277,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivehiwaterplayoutdelay
             
             	The high water mark Voice Playout FIFO Delay during the voice call. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2284,7 +2286,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivelowaterplayoutdelay
             
             	The low water mark Voice Playout FIFO Delay during the voice call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2293,28 +2295,28 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivereceivedelay
             
             	The average Playout FIFO Delay plus the decoder delay during the voice call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cvvoipcallactivevadenable
             
             	The object indicates whether or not the VAD (Voice Activity Detection) was enabled for the voice call
-            	**type**\:  bool
+            	**type**\: bool
             
             	**status**\: deprecated
             
             .. attribute:: cvvoipcallactivecodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for the call. This rate is different from the configuration rate because of rate negotiation during the call
-            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
+            	**type**\:  :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             	**status**\: deprecated
             
             .. attribute:: cvvoipcallactivelostpackets
             
             	The number of lost voice packets during the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2323,7 +2325,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactiveearlypackets
             
             	The number of received voice packets that arrived too early to store in jitter buffer during the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2332,7 +2334,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivelatepackets
             
             	The number of received voice packets that arrived too late to playout with CODEC (Coder/Decoder) during the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2341,74 +2343,74 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactiveusername
             
             	The textual identifier of the calling party (user) of the call. If the username is not available, then the value of this object will have a length of zero
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cvvoipcallactiveprotocolcallid
             
             	The protocol\-specific call identifier for the VoIP call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cvvoipcallactiveremsigipaddrt
             
             	This object specifies the type of address contained in the associated instance of cvVoIPCallActiveRemSigIPAddr
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cvvoipcallactiveremsigipaddr
             
             	Remote signalling IP address for the VoIP call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cvvoipcallactiveremsigport
             
             	Remote signalling listener port to which to transmit voice packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cvvoipcallactiveremmediaipaddrt
             
             	This object specifies the type of address contained in the associated instance of cvVoIPCallActiveRemMediaIPAddr
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cvvoipcallactiveremmediaipaddr
             
             	Remote media end point IP address for the VoIP call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cvvoipcallactiveremmediaport
             
             	Remote media end point listener port to which to transmit voice packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cvvoipcallactivesrtpenable
             
             	The object indicates whether or not the SRTP (Secured RTP) was enabled for the voice call
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallactiveoctetaligned
             
             	If the object has a value true(1) octet align operation is used, and if the value is false(2), bandwidth efficient operation is used. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallactivebitrates
             
             	This object indicates modes of Bit rates. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:   :py:class:`CvAmrNbBitRateMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbBitRateMode>`
+            	**type**\:  :py:class:`CvAmrNbBitRateMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbBitRateMode>`
             
             .. attribute:: cvvoipcallactivemodechgperiod
             
             	The object indicates the interval (N frame\-blocks) at which codec mode changes are allowed. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
@@ -2417,12 +2419,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivemodechgneighbor
             
             	If the object has a value of true(1), mode changes will be made to only neighboring modes set to cvVoIPCallActiveBitRates object. If the value is false(2), mode changes will be allowed to any modes set to cvVoIPCallActiveBitRates object. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallactivemaxptime
             
             	The object indicates the maximum amount of media that can be encapsulated in a payload. Supported value is 20 msec. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 20..100
             
@@ -2431,22 +2433,22 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivecrc
             
             	If the object has a value of true(1), frame CRC will be included in the payload and if the value is false(2), frame CRC will not be included in the payload. This object is applicable only when RTP frame type is octet aligned. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallactiverobustsorting
             
             	If the object has a value of true(1), payload employs robust sorting and if the value is false(2), payload does not employ robust sorting. This object is applicable only when RTP frame type is octet aligned. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallactiveencap
             
             	The object indicates the RTP encapsulation type. Supported RTP encapsulation type is RFC3267. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:   :py:class:`CvAmrNbRtpEncap <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbRtpEncap>`
+            	**type**\:  :py:class:`CvAmrNbRtpEncap <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbRtpEncap>`
             
             .. attribute:: cvvoipcallactiveinterleaving
             
             	The object indicates the maximum number of frame\-blocks allowed in an interleaving group. It indicates that frame\-block level interleaving will be used for that session. If this object is not set, interleaving is not used. This object is applicable only when RTP frame type is octet aligned. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..50
             
@@ -2455,7 +2457,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactiveptime
             
             	The object indicates the length of the time in milliseconds represented by the media of the packet. Supported value is 20 milliseconds. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 20..100
             
@@ -2464,7 +2466,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivechannels
             
             	The object indicates the number of audio channels. Supported value is 1. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..6
             
@@ -2473,38 +2475,38 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallactivecodermode
             
             	The object indicates the iLBC codec mode. The value of this object is valid only if  cvVoIPCallActiveCoderTypeRate is equal to  'iLBC'
-            	**type**\:   :py:class:`CvIlbcFrameMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvIlbcFrameMode>`
+            	**type**\:  :py:class:`CvIlbcFrameMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvIlbcFrameMode>`
             
             	**units**\: milliseconds
             
             .. attribute:: cvvoipcallactivecallid
             
             	This object represents the call identifier for the active VoIP leg of the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: cvvoipcallactivecallreferenceid
             
             	The call reference ID associates the video call entry and voice call entry of the same endpoint.  An audio\-only call may or may not have a valid call reference ID (i.e. value greater than zero), but in both cases, there will not be a video call entry associated with it.    For a video call, the video\-specific information  is stored in a call entry in cVideoSessionActive of CISCO\-VIDEO\-SESSION\-MIB, in which the call reference ID is also identified
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccvoipcallactivepolicyname
             
             	This object holds the policy name. It could be media policy, DSCP policy etc
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvvoipcallactivereverseddirectionpeeraddress
             
             	This object store the reversed direction peer address  If the address is not available, then it will have a length of zero.  If the call is ingress then it contains called number and if the call is egress then it contains calling number
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvvoipcallactivesessionid
             
             	This object indicates the active session ID assigned by the call manager to identify call legs that belong to the same call session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2636,7 +2638,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallvolconnentry
         
         	An entry in the cvCallVolConnTable indicates number of active calls for a call connection type in the voice gateway
-        	**type**\: list of    :py:class:`Cvcallvolconnentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable.Cvcallvolconnentry>`
+        	**type**\: list of  		 :py:class:`Cvcallvolconnentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable.Cvcallvolconnentry>`
         
         
 
@@ -2672,12 +2674,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallvolconnindex  <key>
             
             	This object represents index to the cvCallVolConnTable
-            	**type**\:   :py:class:`CvCallConnectionType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallConnectionType>`
+            	**type**\:  :py:class:`CvCallConnectionType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallConnectionType>`
             
             .. attribute:: cvcallvolconnactiveconnection
             
             	This object represents the total number of active calls for a connection type  in the voice gateway
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -2721,7 +2723,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallvolifentry
         
         	Each entry represents a row in cvCallVolIfTable and corresponds to the information about an IP  interface in the voice gateway
-        	**type**\: list of    :py:class:`Cvcallvolifentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable.Cvcallvolifentry>`
+        	**type**\: list of  		 :py:class:`Cvcallvolifentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable.Cvcallvolifentry>`
         
         
 
@@ -2757,7 +2759,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -2766,14 +2768,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallvolmediaincomingcalls
             
             	This object represents the total number of inbound active media calls through this IP  interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cvcallvolmediaoutgoingcalls
             
             	This object represents the total number of outbound active media calls through the IP  interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -2816,7 +2818,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallhistoryentry
         
         	The information regarding a single voice encapsulation call leg. The call leg entry is identified by using the same index objects that are used by Call Active table of IETF Dial Control MIB to identify the call. An entry of this table is created when its associated call history entry in the IETF Dial Control MIB is created and the call history entry contains the call establishment to a voice encapsulation peer. The entry is deleted when its associated call active entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of    :py:class:`Cvcallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable.Cvcallhistoryentry>`
+        	**type**\: list of  		 :py:class:`Cvcallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable.Cvcallhistoryentry>`
         
         
 
@@ -2860,7 +2862,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: ccallhistoryindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -2869,14 +2871,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallhistoryconnectionid
             
             	The global connection identifier for the telephony leg, which was assigned to the call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cvcallhistorytxduration
             
             	Duration of Transmit path open from this peer to the voice gateway for the call leg. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2885,7 +2887,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallhistoryvoicetxduration
             
             	Duration for this call leg. The Voice Utilization Rate can be obtained by dividing this by cvCallHistoryTXDuration object. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2894,7 +2896,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallhistoryfaxtxduration
             
             	Duration of fax transmitted from this peer to voice gateway for this call leg. The FAX Utilization Rate can be obtained by dividing this by cvCallHistoryTXDuration object. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2903,12 +2905,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallhistorycodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for the call
-            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
+            	**type**\:  :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             .. attribute:: cvcallhistorynoiselevel
             
             	The object contains the average noise level for the call leg
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..8
             
@@ -2917,7 +2919,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallhistoryacomlevel
             
             	The object contains the average ACOM level for the call leg. The value \-1 indicates the level can not be determined or level detection is disabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..127
             
@@ -2926,14 +2928,14 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallhistorysessiontarget
             
             	The object specifies the session target of the peer that is used for the call leg via telephony interface
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: cvcallhistoryimgpagecount
             
             	The number of FAX related image pages are received or transmitted via the peer for the call leg
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2942,24 +2944,24 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallhistorycallingname
             
             	The calling party name of the call. If the name is not available, then it will have a length of zero
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvcallhistorycalleridblock
             
             	The object indicates whether or not the caller ID feature is blocked for this call
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvcallhistoryaccountcode
             
             	The object indicates the account code input to the call. It could be used by down stream billing server. The value of empty string indicates no account code input
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..50
             
             .. attribute:: cvcallhistorycallid
             
             	This object represents the call identifier for the telephony leg, which was assigned to the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -3024,7 +3026,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvvoipcallhistoryentry
         
         	The information regarding a single VoIP call leg. The call leg entry is identified by using the same index objects that are used by Call Active table of IETF Dial Control MIB to identify the call. An entry of this table is created when its associated call history entry in the IETF Dial Control MIB is created and the call history entry contains information for the call establishment to the peer on the IP backbone via a voice over IP peer. The entry is deleted when its associated call history entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of    :py:class:`Cvvoipcallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable.Cvvoipcallhistoryentry>`
+        	**type**\: list of  		 :py:class:`Cvvoipcallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable.Cvvoipcallhistoryentry>`
         
         
 
@@ -3068,7 +3070,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: ccallhistoryindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -3077,21 +3079,23 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistoryconnectionid
             
             	The global connection identifier for the VoIP leg, which was assigned to the call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cvvoipcallhistoryremoteipaddress
             
             	Remote system IP address for the call
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: cvvoipcallhistoryremoteudpport
             
             	Remote system UDP listener port to which to transmit voice packets for the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -3100,7 +3104,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistoryroundtripdelay
             
             	The voice packet round trip delay between local and the remote system on the IP backbone during the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3109,22 +3113,22 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistoryselectedqos
             
             	The selected RSVP QoS for the call
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosService>`
             
             .. attribute:: cvvoipcallhistorysessionprotocol
             
             	The object specifies the session protocol to be used for Internet call between local and remote router via IP backbone
-            	**type**\:   :py:class:`CvSessionProtocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvSessionProtocol>`
+            	**type**\:  :py:class:`CvSessionProtocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvSessionProtocol>`
             
             .. attribute:: cvvoipcallhistorysessiontarget
             
             	The object specifies the session target of the peer that is used for the Voice over IP call
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cvvoipcallhistoryontimervplayout
             
             	Duration of voice playout from data received on time for this call. This plus the durations for the GapFills in the following entries gives the Total Voice Playout Duration for Active Voice. This does not include duration for which no data was sent by the Transmit end as voice signal, e.g., silence suppression and fax signal. The On Time Playout Rate can be computed by dividing this entry by the Total Voice Playout Duration. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3133,7 +3137,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorygapfillwithsilence
             
             	Duration of voice signal replaced with signal played out during silence due to voice data not received on time (or lost) from voice gateway this call. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3142,7 +3146,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorygapfillwithprediction
             
             	Duration of voice signal played out with signal synthesized from parameters or samples of data preceding in time due to voice data not received on time (or lost) from voice gateway for this call. An example of such playout is frame\-erasure or  frame\-concealment strategies in G.729 and G.723.1 compression algorithms. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3151,7 +3155,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorygapfillwithinterpolation
             
             	Duration of voice signal played out with signal synthesized from parameters or samples of data preceding and following in time due to voice data not received on time (or lost) from voice gateway for this call. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3160,7 +3164,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorygapfillwithredundancy
             
             	Duration of voice signal played out with signal synthesized from redundancy parameters available due to voice data not received on time (or lost) from voice gateway for this call. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3169,7 +3173,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistoryhiwaterplayoutdelay
             
             	The high water mark Voice Playout FIFO Delay during the voice call. This counter object will lock at the maximum value which is approximately two days
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3178,7 +3182,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorylowaterplayoutdelay
             
             	The low water mark Voice Playout FIFO Delay during the voice call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3187,28 +3191,28 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistoryreceivedelay
             
             	The average Playout FIFO Delay plus the decoder delay during the voice call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cvvoipcallhistoryvadenable
             
             	The object indicates whether or not the VAD (Voice Activity Detection) was enabled for the voice call
-            	**type**\:  bool
+            	**type**\: bool
             
             	**status**\: deprecated
             
             .. attribute:: cvvoipcallhistorycodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for the call. This rate is different from the configuration rate because of rate negotiation during the call
-            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
+            	**type**\:  :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             	**status**\: deprecated
             
             .. attribute:: cvvoipcallhistoryicpif
             
             	The Calculated Planning Impairment Factor (Icpif) of the call  that is associated to this call leg. The value in this object is computed by the following equation. Icpif of the call = Itotal (total impairment value) of the call \- A (Expectation Factor) in the cvVoIPPeerCfgExpectFactor of the call leg associated peer. A value of \-1 implies that Icpif was not calculated and is meaningless for this call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..55
             
@@ -3217,7 +3221,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorylostpackets
             
             	The number of lost voice packets during the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3226,7 +3230,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistoryearlypackets
             
             	The number of received voice packets that are arrived too early to store in jitter buffer during the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3235,7 +3239,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorylatepackets
             
             	The number of received voice packets that are arrived too late to playout with CODEC (Coder/Decoder) during the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3244,95 +3248,95 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistoryusername
             
             	The textual identifier of the calling party (user) of the call. If the username is not available, then the value of this object will have a length of zero
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cvvoipcallhistoryprotocolcallid
             
             	The protocol\-specific call identifier for the VoIP call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cvvoipcallhistoryremsigipaddrt
             
             	This object specifies the type of address contained in the associated instance of cvVoIPCallHistoryRemSigIPAddr
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cvvoipcallhistoryremsigipaddr
             
             	Remote signalling IP address for the VoIP call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cvvoipcallhistoryremsigport
             
             	Remote signalling listener port to which to transmit voice packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cvvoipcallhistoryremmediaipaddrt
             
             	This object specifies the type of address contained in the associated instance of cvVoIPCallHistoryRemMediaIPAddr
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cvvoipcallhistoryremmediaipaddr
             
             	Remote media end point IP address for the VoIP call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cvvoipcallhistoryremmediaport
             
             	Remote media end point listener port to which to transmit voice packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cvvoipcallhistorysrtpenable
             
             	The object indicates whether or not the SRTP (Secured RTP) was enabled for the voice call
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallhistoryfallbackicpif
             
             	The Calculated Planning Impairment Factor (Icpif) of the call  that is associated to this call leg. The value in this object is computed by the following equation. Icpif of the fallback probe = Itotal (total impairment value)  \- configured fallback (Expectation Factor). A value of 0 implies that Icpif was not calculated and is meaningless for this attempt
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: cvvoipcallhistoryfallbackloss
             
             	FallbackLoss is the percentage of loss packets based on the total packets sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cvvoipcallhistoryfallbackdelay
             
             	The FallbackDelay is calculated as follows \- Take the sum of the round trips for all the probes,  divide by the number of probes,  and divide by two to get the one\-way delay.   Then add in jitter\_in or jiter\_out, which ever is higher
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cvvoipcallhistoryoctetaligned
             
             	If the object has a value true(1) octet align operation is used, and if the value is false(2), bandwidth efficient operation is used. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallhistorybitrates
             
             	This object indicates modes of Bit rates. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:   :py:class:`CvAmrNbBitRateMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbBitRateMode>`
+            	**type**\:  :py:class:`CvAmrNbBitRateMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbBitRateMode>`
             
             .. attribute:: cvvoipcallhistorymodechgperiod
             
             	The object indicates the interval (N frame\-blocks) at which codec mode changes are allowed. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
@@ -3341,12 +3345,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorymodechgneighbor
             
             	If the object has a value of true(1), mode changes will be made to only neighboring modes set to cvVoIPCallHistoryBitRates object. If the value is false(2), mode changes will be allowed to any modes set to cvVoIPCallHistoryBitRates object. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallhistorymaxptime
             
             	The object indicates the maximum amount of media that can be encapsulated in a payload. Supported value is 20 msec. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 20..100
             
@@ -3355,22 +3359,22 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorycrc
             
             	If the object has a value of true(1), frame CRC will be included in the payload and if the value is false(2), frame CRC will not be included in the payload. This object is applicable only when RTP frame type is octet aligned. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallhistoryrobustsorting
             
             	If the object has a value of true(1), payload employs robust sorting and if the value is false(2), payload does not employ robust sorting. This object is applicable only when RTP frame type is octet aligned. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvvoipcallhistoryencap
             
             	The object indicates the RTP encapsulation type. Supported RTP encapsulation type is RFC3267. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:   :py:class:`CvAmrNbRtpEncap <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbRtpEncap>`
+            	**type**\:  :py:class:`CvAmrNbRtpEncap <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvAmrNbRtpEncap>`
             
             .. attribute:: cvvoipcallhistoryinterleaving
             
             	The object indicates the maximum number of frame\-blocks allowed in an interleaving group. It indicates that frame\-block level interleaving will be used for that session. If this object is not set, interleaving is not used. This object is applicable only when RTP frame type is octet aligned. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..50
             
@@ -3379,7 +3383,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistoryptime
             
             	The object indicates the length of the time in milliseconds represented by the media of the packet. Supported value is 20 milliseconds. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 20..100
             
@@ -3388,7 +3392,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorychannels
             
             	The object indicates the number of audio channels. Supported value is 1. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..6
             
@@ -3397,28 +3401,28 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvvoipcallhistorycodermode
             
             	The object indicates the iLBC mode. The value of this object is valid only if  cvVoIPCallHistoryCoderTypeRate is equal to  'iLBC'
-            	**type**\:   :py:class:`CvIlbcFrameMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvIlbcFrameMode>`
+            	**type**\:  :py:class:`CvIlbcFrameMode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvIlbcFrameMode>`
             
             	**units**\: milliseconds
             
             .. attribute:: cvvoipcallhistorycallid
             
             	This object represents the call identifier for the VoIP leg, which was assigned to the call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: cvvoipcallhistorycallreferenceid
             
             	The call reference ID associates the video call entry and voice call entry of the same endpoint.  An audio\-only call may or may not have a valid call reference ID (i.e. value greater than zero), but in both cases, there will not be a video call entry associated with it.   For a video call, the video\-specific information  is stored in a call entry in cVideoSessionActive of CISCO\-VIDEO\-SESSION\-MIB, in which the call reference ID is also identified
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cvvoipcallhistorysessionid
             
             	This object indicates the session ID assigned by the call manager to identify call legs that belong to the same call session.  This session ID (history) represents a completed call session, whereas the active session ID (cvVoIPCallActiveSessionId) represents an ongoing session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3555,7 +3559,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallratestatsentry
         
         	This is a conceptual\-row in cvCallRateStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of    :py:class:`Cvcallratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable.Cvcallratestatsentry>`
+        	**type**\: list of  		 :py:class:`Cvcallratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable.Cvcallratestatsentry>`
         
         
 
@@ -3591,19 +3595,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallratestatsintvldurunits  <key>
             
             	The Object indexes in Call Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
             .. attribute:: cvcallratestatsintvldur  <key>
             
             	This is an index that references to the different past periods in given in interval of call rate table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..72
             
             .. attribute:: cvcallratestatsmaxval
             
             	This object indicates the maximum calls per second that occured for the given period for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3612,7 +3616,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallratestatsavgval
             
             	This object indicates the average calls per second that occured for the given period for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3660,7 +3664,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcalllegratestatsentry
         
         	This is a conceptual\-row in cvCallLegRateStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of    :py:class:`Cvcalllegratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable.Cvcalllegratestatsentry>`
+        	**type**\: list of  		 :py:class:`Cvcalllegratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable.Cvcalllegratestatsentry>`
         
         
 
@@ -3696,19 +3700,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcalllegratestatsintvldurunits  <key>
             
             	The Object indexes in Call Leg Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
             .. attribute:: cvcalllegratestatsintvldur  <key>
             
             	This is an index that references to the different past periods in given in interval of call rate table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..72
             
             .. attribute:: cvcalllegratestatsmaxval
             
             	This object indicates the maximum call\-legs per second that occured for the given period for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3717,7 +3721,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcalllegratestatsavgval
             
             	This object indicates the average call\-legs per second that occured for the given period for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3766,7 +3770,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvactivecallstatsentry
         
         	This is a conceptual\-row in cvActiveCallStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of    :py:class:`Cvactivecallstatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable.Cvactivecallstatsentry>`
+        	**type**\: list of  		 :py:class:`Cvactivecallstatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable.Cvactivecallstatsentry>`
         
         
 
@@ -3802,19 +3806,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvactivecallstatsintvldurunits  <key>
             
             	The Object indexes in Active Call Rate Table (con\-current calls table) to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
             .. attribute:: cvactivecallstatsintvldur  <key>
             
             	This is an index that references to the different past periods in given in interval of active call table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..72
             
             .. attribute:: cvactivecallstatsmaxval
             
             	This object indicates the maximum number of active call that occured for the given period for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3823,7 +3827,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvactivecallstatsavgval
             
             	This object indicates the average number of active calls that occured for the given period for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3875,7 +3879,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcalldurationstatsentry
         
         	This is a conceptual\-row in cvCallDurationStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of    :py:class:`Cvcalldurationstatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable.Cvcalldurationstatsentry>`
+        	**type**\: list of  		 :py:class:`Cvcalldurationstatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable.Cvcalldurationstatsentry>`
         
         
 
@@ -3911,19 +3915,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcalldurationstatsintvldurunits  <key>
             
             	The Object indexes in Call Duration Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
             .. attribute:: cvcalldurationstatsintvldur  <key>
             
             	This is an index that references to the different past periods in given in interval of call Duration table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..72
             
             .. attribute:: cvcalldurationstatsmaxval
             
             	This object indicates the maximum number of calls having a duration which is below the threshold for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3932,7 +3936,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcalldurationstatsavgval
             
             	This object indicates the average number of calls having a duration which is below the threshold for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3981,7 +3985,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvsipmsgratestatsentry
         
         	This is a conceptual\-row in cvSipMsgRateStatsTable This entry is created at the system initialization and is updated at every epoch based on CvCallVolumeStatsIntvlType
-        	**type**\: list of    :py:class:`Cvsipmsgratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable.Cvsipmsgratestatsentry>`
+        	**type**\: list of  		 :py:class:`Cvsipmsgratestatsentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable.Cvsipmsgratestatsentry>`
         
         
 
@@ -4017,19 +4021,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvsipmsgratestatsintvldurunits  <key>
             
             	The Object indexes in SIP Message Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
             .. attribute:: cvsipmsgratestatsintvldur  <key>
             
             	This is an index that references to the different past periods in given in interval of SIP message rate table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..72
             
             .. attribute:: cvsipmsgratestatsmaxval
             
             	This object indicates the maximum SIP messages  per second that is received for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -4038,7 +4042,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvsipmsgratestatsavgval
             
             	This object indicates the average SIP messages per second that is received for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -4087,7 +4091,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcallratewmentry
         
         	This is a conceptual\-row in cvCallRateWMTable This entry is created at the system initialization and is updated whenever  a) This entry is obsolete OR b) A new/higher entry is available. These entries are reinitialised/added/deleted  if cvCallVolumeWMTableSize is changed
-        	**type**\: list of    :py:class:`Cvcallratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable.Cvcallratewmentry>`
+        	**type**\: list of  		 :py:class:`Cvcallratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable.Cvcallratewmentry>`
         
         
 
@@ -4127,19 +4131,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallratewmintvldurunits  <key>
             
             	The Object indexes in call rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
-            	**type**\:   :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
             
             .. attribute:: cvcallratewmindex  <key>
             
             	This is an index that references to different peaks in past period in call rate watermark table.  The number of watermarks entries stored for each table are  based on cvCallVolumeWMTableSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
             .. attribute:: cvcallratewmvalue
             
             	This object indicates high watermark value achieved by the calls per second for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -4148,7 +4152,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcallratewmts
             
             	This object indicates date and Time when the high watermark is achieved for calls per second for the given interval
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -4193,7 +4197,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvcalllegratewmentry
         
         	This is a conceptual\-row in cvCallLegRateWMTable This entry is created at the system initialization and is updated whenever  a) This entry is obsolete OR b) A new/higher entry is available. These entries are reinitialised/added/deleted  if cvCallVolumeWMTableSize is changed
-        	**type**\: list of    :py:class:`Cvcalllegratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable.Cvcalllegratewmentry>`
+        	**type**\: list of  		 :py:class:`Cvcalllegratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable.Cvcalllegratewmentry>`
         
         
 
@@ -4233,19 +4237,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcalllegratewmintvldurunits  <key>
             
             	The Object indexes in call leg rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
-            	**type**\:   :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
             
             .. attribute:: cvcalllegratewmindex  <key>
             
             	This is an index that references to different peaks in past period in call leg rate watermark table.  The number of watermarks entries stored for each table are  based on cvCallVolumeWMTableSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
             .. attribute:: cvcalllegratewmvalue
             
             	This object indicates high watermark value achieved by the call legs per second for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -4254,7 +4258,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvcalllegratewmts
             
             	This object indicates date and time when the high watermark is achieved for call\-legs per second for the given interval
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -4299,7 +4303,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvactivecallwmentry
         
         	This is a conceptual\-row in cvActiveCallWMTable This entry is created at the system initialization and is updated whenever  a) This entry is obsolete OR b) A new/higher entry is available. These entries are reinitialised/added/deleted  if cvCallVolumeWMTableSize is changed
-        	**type**\: list of    :py:class:`Cvactivecallwmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable.Cvactivecallwmentry>`
+        	**type**\: list of  		 :py:class:`Cvactivecallwmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable.Cvactivecallwmentry>`
         
         
 
@@ -4339,19 +4343,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvactivecallwmintvldurunits  <key>
             
             	The Object indexes in active call Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
-            	**type**\:   :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
             
             .. attribute:: cvactivecallwmindex  <key>
             
             	This is an index that references to different peaks in past period in acive call watermark table.  The number of watermarks entries stored for each table are  based on cvCallVolumeWMTableSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
             .. attribute:: cvactivecallwmvalue
             
             	This object indicates high watermark value achieved by the active calls for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -4360,7 +4364,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvactivecallwmts
             
             	This object indicates date and time when the high watermark is achieved for active calls for the given interval
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -4405,7 +4409,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         .. attribute:: cvsipmsgratewmentry
         
         	This is a conceptual\-row in cvSipMsgRateWMTable. This entry is created at the system initialization and is updated whenever  a) This entry is obsolete OR b) A new/higher entry is available. These entries are reinitialised/added/deleted if cvCallVolumeWMTableSize is changed
-        	**type**\: list of    :py:class:`Cvsipmsgratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable.Cvsipmsgratewmentry>`
+        	**type**\: list of  		 :py:class:`Cvsipmsgratewmentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable.Cvsipmsgratewmentry>`
         
         
 
@@ -4445,19 +4449,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvsipmsgratewmintvldurunits  <key>
             
             	The Object indexes in SIP Message rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
-            	**type**\:   :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
+            	**type**\:  :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
             
             .. attribute:: cvsipmsgratewmindex  <key>
             
             	This is an index that references to different peaks in past period in sip message rate watermark table.  The number of watermarks entries stored for each table are  based on cvCallVolumeWMTableSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
             .. attribute:: cvsipmsgratewmvalue
             
             	This object indicates high watermark value achieved by the SIP messages per second for the given interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -4466,7 +4470,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             .. attribute:: cvsipmsgratewmts
             
             	This object indicates date and time when the high watermark is achieved for SIP messages per second for the given interval
-            	**type**\:  str
+            	**type**\: str
             
             
 

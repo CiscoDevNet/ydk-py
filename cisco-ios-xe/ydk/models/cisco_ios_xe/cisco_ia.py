@@ -214,12 +214,12 @@ class SyncFrom(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.cisco_ia.SyncFrom.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.cisco_ia.SyncFrom.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.SyncFrom.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.SyncFrom.Output>`
     
     
 
@@ -258,12 +258,12 @@ class SyncFrom(Entity):
         .. attribute:: sync_defaults
         
         	Sends the output of  "show running all" line by line to Confd
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: ignore_presrv_paths
         
         	Sync everything under /native. Ignore any preserve paths
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -299,7 +299,7 @@ class SyncFrom(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -338,7 +338,7 @@ class SaveConfig(Entity):
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.SaveConfig.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.SaveConfig.Output>`
     
     
 
@@ -372,7 +372,7 @@ class SaveConfig(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -411,7 +411,7 @@ class IsSyncing(Entity):
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.IsSyncing.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.IsSyncing.Output>`
     
     
 
@@ -445,7 +445,7 @@ class IsSyncing(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -483,7 +483,7 @@ class Checkpoint(Entity):
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.Checkpoint.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.Checkpoint.Output>`
     
     
 
@@ -517,7 +517,7 @@ class Checkpoint(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -556,12 +556,12 @@ class Revert(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.cisco_ia.Revert.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.cisco_ia.Revert.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.Revert.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.Revert.Output>`
     
     
 
@@ -600,19 +600,19 @@ class Revert(Entity):
         .. attribute:: now
         
         	To cancel the timed rollback and  trigger the rollback immediately
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: timer
         
         	Reset parameters for the timed rollback
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..120
         
         .. attribute:: idle
         
         	Maximum allowable time period of no activity before reverting to the saved configuration
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..120
         
@@ -652,7 +652,7 @@ class Revert(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -690,12 +690,12 @@ class Rollback(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.cisco_ia.Rollback.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.cisco_ia.Rollback.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.Rollback.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_ia.Rollback.Output>`
     
     
 
@@ -734,33 +734,33 @@ class Rollback(Entity):
         .. attribute:: target_url
         
         	Cisco IOS XE configuration file that is to  replace the current running configuration
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: verbose
         
         	Display a list of the command lines applied by  the Cisco IOS XE software parser during each pass  of the configuration replace operation. The total  number of passes performed is also displayed
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: nolock
         
         	Disables the locking of the running  configuration file that prevents other users from changing the running configuration  during a configuration replace operation
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: revert_on_error
         
         	Reverts to the original configuration upon error
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: revert_timer
         
         	Reverts to the original configuration if  specified time elapses
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..120
         
@@ -804,7 +804,7 @@ class Rollback(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 

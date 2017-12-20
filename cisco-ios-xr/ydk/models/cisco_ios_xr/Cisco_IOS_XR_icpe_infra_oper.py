@@ -1072,82 +1072,82 @@ class NvSatellite(Entity):
     .. attribute:: reload_op_statuses
     
     	Detailed breakdown of reload status table
-    	**type**\:   :py:class:`ReloadOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses>`
+    	**type**\:  :py:class:`ReloadOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses>`
     
     .. attribute:: sdacp_redundancies
     
     	nV Satellite Redundancy Protocol Information table
-    	**type**\:   :py:class:`SdacpRedundancies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies>`
+    	**type**\:  :py:class:`SdacpRedundancies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies>`
     
     .. attribute:: install_shows
     
     	Detailed breakdown of install status table
-    	**type**\:   :py:class:`InstallShows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallShows>`
+    	**type**\:  :py:class:`InstallShows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallShows>`
     
     .. attribute:: satellite_statuses
     
     	Satellite status information table
-    	**type**\:   :py:class:`SatelliteStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses>`
+    	**type**\:  :py:class:`SatelliteStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses>`
     
     .. attribute:: satellite_priorities
     
     	Satellite priority information table
-    	**type**\:   :py:class:`SatellitePriorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatellitePriorities>`
+    	**type**\:  :py:class:`SatellitePriorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatellitePriorities>`
     
     .. attribute:: satellite_versions
     
     	Satellite remote version information table
-    	**type**\:   :py:class:`SatelliteVersions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions>`
+    	**type**\:  :py:class:`SatelliteVersions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions>`
     
     .. attribute:: satellite_topologies
     
     	Satellite Topology Information table
-    	**type**\:   :py:class:`SatelliteTopologies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies>`
+    	**type**\:  :py:class:`SatelliteTopologies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies>`
     
     .. attribute:: install_reference_info
     
     	Satellite Install Reference Information
-    	**type**\:   :py:class:`InstallReferenceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallReferenceInfo>`
+    	**type**\:  :py:class:`InstallReferenceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallReferenceInfo>`
     
     .. attribute:: install_op_progresses
     
     	Current percentage of install table
-    	**type**\:   :py:class:`InstallOpProgresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpProgresses>`
+    	**type**\:  :py:class:`InstallOpProgresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpProgresses>`
     
     .. attribute:: reload_statuses
     
     	Detailed breakdown of reload status table
-    	**type**\:   :py:class:`ReloadStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses>`
+    	**type**\:  :py:class:`ReloadStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses>`
     
     .. attribute:: install
     
     	Satellite Install Information
-    	**type**\:   :py:class:`Install <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install>`
+    	**type**\:  :py:class:`Install <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install>`
     
     .. attribute:: install_op_statuses
     
     	Detailed breakdown of install status table
-    	**type**\:   :py:class:`InstallOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpStatuses>`
+    	**type**\:  :py:class:`InstallOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpStatuses>`
     
     .. attribute:: satellite_properties
     
     	ICPE GCO operational information
-    	**type**\:   :py:class:`SatelliteProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteProperties>`
+    	**type**\:  :py:class:`SatelliteProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteProperties>`
     
     .. attribute:: sdacp_discovery2s
     
     	ICPE Configured interface state information table
-    	**type**\:   :py:class:`SdacpDiscovery2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S>`
+    	**type**\:  :py:class:`SdacpDiscovery2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S>`
     
     .. attribute:: icpe_dpms
     
     	ICPE DPM operational information table
-    	**type**\:   :py:class:`IcpeDpms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.IcpeDpms>`
+    	**type**\:  :py:class:`IcpeDpms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.IcpeDpms>`
     
     .. attribute:: sdacp_controls
     
     	SDAC Protocol Discovery information table
-    	**type**\:   :py:class:`SdacpControls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls>`
+    	**type**\:  :py:class:`SdacpControls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls>`
     
     
 
@@ -1164,7 +1164,7 @@ class NvSatellite(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-icpe-infra-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"reload-op-statuses" : ("reload_op_statuses", NvSatellite.ReloadOpStatuses), "sdacp-redundancies" : ("sdacp_redundancies", NvSatellite.SdacpRedundancies), "install-shows" : ("install_shows", NvSatellite.InstallShows), "satellite-statuses" : ("satellite_statuses", NvSatellite.SatelliteStatuses), "satellite-priorities" : ("satellite_priorities", NvSatellite.SatellitePriorities), "satellite-versions" : ("satellite_versions", NvSatellite.SatelliteVersions), "satellite-topologies" : ("satellite_topologies", NvSatellite.SatelliteTopologies), "install-reference-info" : ("install_reference_info", NvSatellite.InstallReferenceInfo), "install-op-progresses" : ("install_op_progresses", NvSatellite.InstallOpProgresses), "reload-statuses" : ("reload_statuses", NvSatellite.ReloadStatuses), "install" : ("install", NvSatellite.Install), "install-op-statuses" : ("install_op_statuses", NvSatellite.InstallOpStatuses), "satellite-properties" : ("satellite_properties", NvSatellite.SatelliteProperties), "sdacp-discovery2s" : ("sdacp_discovery2s", NvSatellite.SdacpDiscovery2S), "icpe-dpms" : ("icpe_dpms", NvSatellite.IcpeDpms), "sdacp-controls" : ("sdacp_controls", NvSatellite.SdacpControls)}
+        self._child_container_classes = {"reload-op-statuses" : ("reload_op_statuses", NvSatellite.ReloadOpStatuses), "sdacp-redundancies" : ("sdacp_redundancies", NvSatellite.SdacpRedundancies), "install-shows" : ("install_shows", NvSatellite.InstallShows), "satellite-statuses" : ("satellite_statuses", NvSatellite.SatelliteStatuses), "satellite-priorities" : ("satellite_priorities", NvSatellite.SatellitePriorities), "satellite-versions" : ("satellite_versions", NvSatellite.SatelliteVersions), "satellite-topologies" : ("satellite_topologies", NvSatellite.SatelliteTopologies), "install-reference-info" : ("install_reference_info", NvSatellite.InstallReferenceInfo), "install-op-progresses" : ("install_op_progresses", NvSatellite.InstallOpProgresses), "reload-statuses" : ("reload_statuses", NvSatellite.ReloadStatuses), "install" : ("install", NvSatellite.Install), "install-op-statuses" : ("install_op_statuses", NvSatellite.InstallOpStatuses), "satellite-properties" : ("satellite_properties", NvSatellite.SatelliteProperties), "Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s" : ("sdacp_discovery2s", NvSatellite.SdacpDiscovery2S), "Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms" : ("icpe_dpms", NvSatellite.IcpeDpms), "Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls" : ("sdacp_controls", NvSatellite.SdacpControls)}
         self._child_list_classes = {}
 
         self.reload_op_statuses = NvSatellite.ReloadOpStatuses()
@@ -1256,7 +1256,7 @@ class NvSatellite(Entity):
         .. attribute:: reload_op_status
         
         	Detailed breakdown of reload status
-        	**type**\: list of    :py:class:`ReloadOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses.ReloadOpStatus>`
+        	**type**\: list of  		 :py:class:`ReloadOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses.ReloadOpStatus>`
         
         
 
@@ -1290,47 +1290,47 @@ class NvSatellite(Entity):
             .. attribute:: operation_id  <key>
             
             	Operation ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: operation_id_xr
             
             	Operation ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: satellite_range
             
             	Satellite range
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: sats_not_initiated
             
             	Sats not initiated
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_reloading
             
             	Sats reloading
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_reloaded
             
             	Sats reloaded
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_reload_failed
             
             	Sats reload failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
@@ -1379,7 +1379,7 @@ class NvSatellite(Entity):
         .. attribute:: sdacp_redundancy
         
         	nV Satellite Redundancy Protocol Information
-        	**type**\: list of    :py:class:`SdacpRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy>`
+        	**type**\: list of  		 :py:class:`SdacpRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy>`
         
         
 
@@ -1413,66 +1413,68 @@ class NvSatellite(Entity):
             .. attribute:: iccp_group  <key>
             
             	ICCP group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: protocol_state_timestamp
             
             	Timestamp
-            	**type**\:   :py:class:`ProtocolStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp>`
+            	**type**\:  :py:class:`ProtocolStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp>`
             
             .. attribute:: iccp_group_xr
             
             	ICCP group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: protocol_state
             
             	Protocol state
-            	**type**\:   :py:class:`IcpeOpmSessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSessState>`
+            	**type**\:  :py:class:`IcpeOpmSessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSessState>`
             
             .. attribute:: transport_state
             
             	Transport state
-            	**type**\:   :py:class:`IcpeOpmTransportState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmTransportState>`
+            	**type**\:  :py:class:`IcpeOpmTransportState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmTransportState>`
             
             .. attribute:: authentication_state
             
             	Authentication state
-            	**type**\:   :py:class:`IcpeOpmAuthFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmAuthFsmState>`
+            	**type**\:  :py:class:`IcpeOpmAuthFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmAuthFsmState>`
             
             .. attribute:: arbitration_state
             
             	Arbitration state
-            	**type**\:   :py:class:`IcpeOpmArbitrationFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmArbitrationFsmState>`
+            	**type**\:  :py:class:`IcpeOpmArbitrationFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmArbitrationFsmState>`
             
             .. attribute:: synchronization_state
             
             	Synchronization state
-            	**type**\:   :py:class:`IcpeOpmSyncFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSyncFsmState>`
+            	**type**\:  :py:class:`IcpeOpmSyncFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSyncFsmState>`
             
             .. attribute:: primacy
             
             	Primacy
-            	**type**\:   :py:class:`IcpeOpmController <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmController>`
+            	**type**\:  :py:class:`IcpeOpmController <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmController>`
             
             .. attribute:: system_mac
             
             	System MAC
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: isolated
             
             	Isolated
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: channel
             
             	Channels on this session table
-            	**type**\: list of    :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel>`
+            	**type**\: list of  		 :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel>`
             
             
 
@@ -1531,7 +1533,7 @@ class NvSatellite(Entity):
                 .. attribute:: seconds
                 
                 	Seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1540,7 +1542,7 @@ class NvSatellite(Entity):
                 .. attribute:: nanoseconds
                 
                 	Nanoseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1579,55 +1581,55 @@ class NvSatellite(Entity):
                 .. attribute:: channel_state_timestamp
                 
                 	Timestamp
-                	**type**\:   :py:class:`ChannelStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp>`
+                	**type**\:  :py:class:`ChannelStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp>`
                 
                 .. attribute:: resync_state_timestamp
                 
                 	Timestamp
-                	**type**\:   :py:class:`ResyncStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp>`
+                	**type**\:  :py:class:`ResyncStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp>`
                 
                 .. attribute:: channel_id
                 
                 	Channel ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: chan_state
                 
                 	Chan state
-                	**type**\:   :py:class:`IcpeOpmChanFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmChanFsmState>`
+                	**type**\:  :py:class:`IcpeOpmChanFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmChanFsmState>`
                 
                 .. attribute:: resync_state
                 
                 	Resync state
-                	**type**\:   :py:class:`IcpeOpmResyncFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmResyncFsmState>`
+                	**type**\:  :py:class:`IcpeOpmResyncFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmResyncFsmState>`
                 
                 .. attribute:: control_messages_sent
                 
                 	Control messages sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: normal_messages_sent
                 
                 	Normal messages sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: control_messages_received
                 
                 	Control messages received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: normal_messages_received
                 
                 	Normal messages received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1684,7 +1686,7 @@ class NvSatellite(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1693,7 +1695,7 @@ class NvSatellite(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1732,7 +1734,7 @@ class NvSatellite(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1741,7 +1743,7 @@ class NvSatellite(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1780,7 +1782,7 @@ class NvSatellite(Entity):
         .. attribute:: install_show
         
         	Detailed breakdown of install status
-        	**type**\: list of    :py:class:`InstallShow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallShows.InstallShow>`
+        	**type**\: list of  		 :py:class:`InstallShow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallShows.InstallShow>`
         
         
 
@@ -1814,33 +1816,33 @@ class NvSatellite(Entity):
             .. attribute:: operation_id  <key>
             
             	Operation ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: operation_id_xr
             
             	Operation ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: satellite_range
             
             	Satellite range
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: operation_type
             
             	Operation type
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: progress_percentage
             
             	Progress percentage
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -1849,157 +1851,157 @@ class NvSatellite(Entity):
             .. attribute:: start_time
             
             	Start time
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: end_time
             
             	End time
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ref_state
             
             	Ref state
-            	**type**\:   :py:class:`IcpeInstallSatState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallSatState>`
+            	**type**\:  :py:class:`IcpeInstallSatState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallSatState>`
             
             .. attribute:: sats_not_initiated
             
             	Sats not initiated
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_transferring
             
             	Sats transferring
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_activating
             
             	Sats activating
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_updating
             
             	Sats updating
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_deactivating
             
             	Sats deactivating
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_removing
             
             	Sats removing
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_transfer_failed
             
             	Sats transfer failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_activate_failed
             
             	Sats activate failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_update_failed
             
             	Sats update failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_deactivate_failed
             
             	Sats deactivate failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_remove_failed
             
             	Sats remove failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_transfer_aborted
             
             	Sats transfer aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_activate_aborted
             
             	Sats activate aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_update_aborted
             
             	Sats update aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_deactivate_aborted
             
             	Sats deactivate aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_remove_aborted
             
             	Sats remove aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_no_operation
             
             	Sats no operation
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_completed
             
             	Sats completed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: name_string
             
             	Name strings
-            	**type**\:  list of str
+            	**type**\: list of str
             
             .. attribute:: satellite
             
             	Breakdown per satellite table
-            	**type**\: list of    :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallShows.InstallShow.Satellite>`
+            	**type**\: list of  		 :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallShows.InstallShow.Satellite>`
             
             
 
@@ -2087,19 +2089,19 @@ class NvSatellite(Entity):
                 .. attribute:: satellite_id
                 
                 	Satellite ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:   :py:class:`IcpeInstallSatState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallSatState>`
+                	**type**\:  :py:class:`IcpeInstallSatState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallSatState>`
                 
                 .. attribute:: percentage
                 
                 	Percentage
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -2108,28 +2110,28 @@ class NvSatellite(Entity):
                 .. attribute:: retries
                 
                 	Retries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: start_time
                 
                 	Start time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: end_time
                 
                 	End time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: info
                 
                 	Info
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -2174,7 +2176,7 @@ class NvSatellite(Entity):
         .. attribute:: satellite_status
         
         	Satellite status information
-        	**type**\: list of    :py:class:`SatelliteStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus>`
+        	**type**\: list of  		 :py:class:`SatelliteStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus>`
         
         
 
@@ -2208,221 +2210,227 @@ class NvSatellite(Entity):
             .. attribute:: satellite_id  <key>
             
             	Satellite ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 100..65534
             
             .. attribute:: candidate_fabric_ports
             
             	Candidate Fabric Ports on this Satellite
-            	**type**\:   :py:class:`CandidateFabricPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts>`
+            	**type**\:  :py:class:`CandidateFabricPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts>`
             
             .. attribute:: optical_status
             
             	Optical Satellite Status
-            	**type**\:   :py:class:`OpticalStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus>`
+            	**type**\:  :py:class:`OpticalStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus>`
             
             .. attribute:: redundancy_out_of_sync_timestamp
             
             	Timestamp
-            	**type**\:   :py:class:`RedundancyOutOfSyncTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp>`
+            	**type**\:  :py:class:`RedundancyOutOfSyncTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp>`
             
             .. attribute:: satellite_id_xr
             
             	Satellite ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: version_check_state
             
             	Version check state
-            	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
+            	**type**\:  :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
             
             .. attribute:: remote_version_present
             
             	Remote version present
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: type
             
             	Type
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ethernet_fabric_supported
             
             	Ethernet fabric supported
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: optical_supported
             
             	Optical supported
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ip_address
             
             	IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ip_address_present
             
             	IP address present
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ip_address_auto
             
             	IP address auto
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ipv6_address
             
             	IPV6 address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ipv6_address_present
             
             	IPV6 address present
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrfid
             
             	VRFID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: description
             
             	Description
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: description_present
             
             	Description present
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: mac_address
             
             	MAC address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: mac_address_present
             
             	MAC address present
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: configured_serial_number
             
             	Configured serial number
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: configured_serial_number_present
             
             	Configured serial number present
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: received_serial_number
             
             	Received serial number
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: received_serial_number_present
             
             	Received serial number present
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: password
             
             	Password
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: password_error
             
             	Password error
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: received_host_name
             
             	Received hostname
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cfgd_timeout
             
             	Cfgd timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: timeout_warning
             
             	Timeout warning
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: conflict_reason
             
             	Conflict reason
-            	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
+            	**type**\:  :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
             
             .. attribute:: conflict_context
             
             	Conflict context
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: redundancy_iccp_group
             
             	Redundancy ICCP group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: recovery_delay_time_left
             
             	Recovery delay time left
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: host_treating_as_active
             
             	Host treating as active
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: satellite_treating_as_active
             
             	Satellite treating as active
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: sdacp_session_state
             
             	SDACP session state
-            	**type**\:   :py:class:`IcpeOperSdacpSessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessState>`
+            	**type**\:  :py:class:`IcpeOperSdacpSessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessState>`
             
             .. attribute:: sdacp_session_failure_reason
             
             	SDACP session failure reason
-            	**type**\:   :py:class:`IcpeGcoOperControlReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeGcoOperControlReason>`
+            	**type**\:  :py:class:`IcpeGcoOperControlReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeGcoOperControlReason>`
             
             .. attribute:: install_state
             
             	Install state
-            	**type**\:   :py:class:`IcpeOperInstallState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperInstallState>`
+            	**type**\:  :py:class:`IcpeOperInstallState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperInstallState>`
             
             .. attribute:: remote_version
             
             	Remote version
-            	**type**\:  list of str
+            	**type**\: list of str
             
             .. attribute:: configured_link
             
             	Configured Links on this Satellite table
-            	**type**\: list of    :py:class:`ConfiguredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink>`
+            	**type**\: list of  		 :py:class:`ConfiguredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink>`
             
             
 
@@ -2545,27 +2553,27 @@ class NvSatellite(Entity):
                 .. attribute:: channel_up
                 
                 	Channel up
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: out_of_sync
                 
                 	Out of sync
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: error_string
                 
                 	Error string
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: configured_port
                 
                 	Configured Candidate Fabric Ports table
-                	**type**\: list of    :py:class:`ConfiguredPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort>`
+                	**type**\: list of  		 :py:class:`ConfiguredPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort>`
                 
                 .. attribute:: current_port
                 
                 	Current Candidate Fabric Ports on this Satellite table
-                	**type**\: list of    :py:class:`CurrentPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort>`
+                	**type**\: list of  		 :py:class:`CurrentPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort>`
                 
                 
 
@@ -2605,33 +2613,33 @@ class NvSatellite(Entity):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:   :py:class:`IcpeOperFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPort>`
+                    	**type**\:  :py:class:`IcpeOperFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPort>`
                     
                     .. attribute:: slot
                     
                     	Slot
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: subslot
                     
                     	Subslot
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: port
                     
                     	Port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: valid
                     
                     	Valid
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -2673,38 +2681,38 @@ class NvSatellite(Entity):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:   :py:class:`IcpeOperFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPort>`
+                    	**type**\:  :py:class:`IcpeOperFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPort>`
                     
                     .. attribute:: slot
                     
                     	Slot
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: subslot
                     
                     	Subslot
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: port
                     
                     	Port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: permanent
                     
                     	Permanent
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: requested
                     
                     	Requested
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -2747,12 +2755,12 @@ class NvSatellite(Entity):
                 .. attribute:: chassis_sync_state
                 
                 	Chassis sync state
-                	**type**\:   :py:class:`IcpeOpticalSyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncState>`
+                	**type**\:  :py:class:`IcpeOpticalSyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncState>`
                 
                 .. attribute:: application
                 
                 	Application State table
-                	**type**\: list of    :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application>`
+                	**type**\: list of  		 :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application>`
                 
                 
 
@@ -2787,12 +2795,12 @@ class NvSatellite(Entity):
                     .. attribute:: name
                     
                     	Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: sync_state
                     
                     	Sync state
-                    	**type**\:   :py:class:`IcpeOpticalSyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncState>`
+                    	**type**\:  :py:class:`IcpeOpticalSyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncState>`
                     
                     
 
@@ -2827,7 +2835,7 @@ class NvSatellite(Entity):
                 .. attribute:: seconds
                 
                 	Seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2836,7 +2844,7 @@ class NvSatellite(Entity):
                 .. attribute:: nanoseconds
                 
                 	Nanoseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2875,80 +2883,84 @@ class NvSatellite(Entity):
                 .. attribute:: interface_handle
                 
                 	Interface handle
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: ip_address
                 
                 	IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: ip_address_auto
                 
                 	IP address auto
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: vrf_id_present
                 
                 	VRF ID present
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: vrf_id
                 
                 	VRF ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: minimum_preferred_links
                 
                 	Minimum preferred links
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_active_links
                 
                 	Number active links
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: min_links_satisfied
                 
                 	Min links satisfied
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: minimum_required_links
                 
                 	Minimum required links
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: required_min_links_satisfied
                 
                 	Required min links satisfied
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
+                	**type**\:  :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
                 
                 .. attribute:: conflict_context
                 
                 	Conflict context
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: port_range
                 
                 	Port ranges table
-                	**type**\: list of    :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange>`
+                	**type**\: list of  		 :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange>`
                 
                 .. attribute:: discovered_link
                 
                 	Discovered Links table
-                	**type**\: list of    :py:class:`DiscoveredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink>`
+                	**type**\: list of  		 :py:class:`DiscoveredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink>`
                 
                 
 
@@ -3006,45 +3018,45 @@ class NvSatellite(Entity):
                     .. attribute:: slot
                     
                     	Slot
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: subslot
                     
                     	Subslot
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: low_port
                     
                     	Low port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: high_port
                     
                     	High port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:   :py:class:`IcpeOperPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperPort>`
+                    	**type**\:  :py:class:`IcpeOperPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperPort>`
                     
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
+                    	**type**\:  :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
                     
                     .. attribute:: conflict_context
                     
                     	Conflict context
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -3089,22 +3101,24 @@ class NvSatellite(Entity):
                     .. attribute:: interface_handle
                     
                     	Interface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: state
                     
                     	State
-                    	**type**\:   :py:class:`IcpeOperDiscdLinkState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperDiscdLinkState>`
+                    	**type**\:  :py:class:`IcpeOperDiscdLinkState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperDiscdLinkState>`
                     
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
+                    	**type**\:  :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
                     
                     .. attribute:: conflict_context
                     
                     	Conflict context
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -3143,7 +3157,7 @@ class NvSatellite(Entity):
         .. attribute:: satellite_priority
         
         	Satellite priority information
-        	**type**\: list of    :py:class:`SatellitePriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatellitePriorities.SatellitePriority>`
+        	**type**\: list of  		 :py:class:`SatellitePriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatellitePriorities.SatellitePriority>`
         
         
 
@@ -3177,56 +3191,56 @@ class NvSatellite(Entity):
             .. attribute:: satellite_id  <key>
             
             	Satellite ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 100..65534
             
             .. attribute:: satellite_id_xr
             
             	Satellite ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: rgid
             
             	RG ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: best_path_hops
             
             	Best path hops
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: configured_priority
             
             	Configured priority
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: host_priority
             
             	Host priority
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: partner_priority
             
             	Partner priority
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: multichassis_redundancy
             
             	Multichassis redundancy
-            	**type**\:   :py:class:`IcpeOperMultichassisRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperMultichassisRedundancy>`
+            	**type**\:  :py:class:`IcpeOperMultichassisRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperMultichassisRedundancy>`
             
             
 
@@ -3274,7 +3288,7 @@ class NvSatellite(Entity):
         .. attribute:: satellite_version
         
         	Satellite remote version information
-        	**type**\: list of    :py:class:`SatelliteVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions.SatelliteVersion>`
+        	**type**\: list of  		 :py:class:`SatelliteVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions.SatelliteVersion>`
         
         
 
@@ -3308,46 +3322,46 @@ class NvSatellite(Entity):
             .. attribute:: satellite_id  <key>
             
             	Satellite ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 100..65534
             
             .. attribute:: active_version
             
             	Satellite active version information
-            	**type**\:   :py:class:`ActiveVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion>`
+            	**type**\:  :py:class:`ActiveVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion>`
             
             .. attribute:: transferred_version
             
             	Satellite transferred version information
-            	**type**\:   :py:class:`TransferredVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion>`
+            	**type**\:  :py:class:`TransferredVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion>`
             
             .. attribute:: committed_version
             
             	Satellite committed version information
-            	**type**\:   :py:class:`CommittedVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion>`
+            	**type**\:  :py:class:`CommittedVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion>`
             
             .. attribute:: satellite_id_xr
             
             	Satellite ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: version_check_state
             
             	Version check state
-            	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
+            	**type**\:  :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
             
             .. attribute:: remote_version_present
             
             	Remote version present
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_version
             
             	Remote version
-            	**type**\:  list of str
+            	**type**\: list of str
             
             
 
@@ -3404,17 +3418,17 @@ class NvSatellite(Entity):
                 .. attribute:: version_check_state
                 
                 	Version check state
-                	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
+                	**type**\:  :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
                 
                 .. attribute:: remote_version_present
                 
                 	Remote version present
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: remote_version
                 
                 	Remote version
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -3451,17 +3465,17 @@ class NvSatellite(Entity):
                 .. attribute:: version_check_state
                 
                 	Version check state
-                	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
+                	**type**\:  :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
                 
                 .. attribute:: remote_version_present
                 
                 	Remote version present
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: remote_version
                 
                 	Remote version
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -3498,17 +3512,17 @@ class NvSatellite(Entity):
                 .. attribute:: version_check_state
                 
                 	Version check state
-                	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
+                	**type**\:  :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
                 
                 .. attribute:: remote_version_present
                 
                 	Remote version present
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: remote_version
                 
                 	Remote version
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -3545,7 +3559,7 @@ class NvSatellite(Entity):
         .. attribute:: satellite_topology
         
         	Satellite Topology Information
-        	**type**\: list of    :py:class:`SatelliteTopology <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology>`
+        	**type**\: list of  		 :py:class:`SatelliteTopology <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology>`
         
         
 
@@ -3579,44 +3593,48 @@ class NvSatellite(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: interface_name_xr
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: interface_handle
             
             	Interface handle
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: redundancy_iccp_group
             
             	Redundancy ICCP group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: is_physical
             
             	Is physical
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ring_whole
             
             	Ring whole
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: discovered_link
             
             	Discovered Links table
-            	**type**\: list of    :py:class:`DiscoveredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink>`
+            	**type**\: list of  		 :py:class:`DiscoveredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink>`
             
             .. attribute:: satellite
             
             	Satellite table
-            	**type**\: list of    :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite>`
+            	**type**\: list of  		 :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite>`
             
             
 
@@ -3663,17 +3681,19 @@ class NvSatellite(Entity):
                 .. attribute:: interface_name
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: interface_handle
                 
                 	Interface handle
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: discovery_running
                 
                 	Discovery running
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -3710,68 +3730,70 @@ class NvSatellite(Entity):
                 .. attribute:: mac_address
                 
                 	MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: configured
                 
                 	Configured
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: num_hops
                 
                 	Num hops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: type
                 
                 	Type
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: satellite_id
                 
                 	Satellite ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: received_serial_number
                 
                 	Received serial number
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: received_serial_number_present
                 
                 	Received serial number present
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: vlan_id
                 
                 	VLAN ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: display_name
                 
                 	Display name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
+                	**type**\:  :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
                 
                 .. attribute:: conflict_context
                 
                 	Conflict context
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: fabric_link
                 
                 	Local Satellite Fabric Link table
-                	**type**\: list of    :py:class:`FabricLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink>`
+                	**type**\: list of  		 :py:class:`FabricLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink>`
                 
                 
 
@@ -3826,39 +3848,39 @@ class NvSatellite(Entity):
                     .. attribute:: icl_id
                     
                     	ICL ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_name
                     
                     	Display name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: redundant
                     
                     	Redundant
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: active
                     
                     	Active
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: obsolete
                     
                     	Obsolete
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: remote_device
                     
                     	Remote Device table
-                    	**type**\: list of    :py:class:`RemoteDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice>`
+                    	**type**\: list of  		 :py:class:`RemoteDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice>`
                     
                     
 
@@ -3903,39 +3925,43 @@ class NvSatellite(Entity):
                         .. attribute:: mac_address
                         
                         	MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: source
                         
                         	Source
-                        	**type**\:   :py:class:`IcpeOperTopoRemoteSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperTopoRemoteSource>`
+                        	**type**\:  :py:class:`IcpeOperTopoRemoteSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperTopoRemoteSource>`
                         
                         .. attribute:: remote_is_satellite
                         
                         	Remote is satellite
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: remote_is_local_host
                         
                         	Remote is local host
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: icl_id
                         
                         	ICL ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: interface_handle
                         
                         	Interface handle
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: interface_name
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -3980,7 +4006,7 @@ class NvSatellite(Entity):
         .. attribute:: references
         
         	Install Reference Information table
-        	**type**\:   :py:class:`References <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallReferenceInfo.References>`
+        	**type**\:  :py:class:`References <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallReferenceInfo.References>`
         
         
 
@@ -4014,7 +4040,7 @@ class NvSatellite(Entity):
             .. attribute:: reference
             
             	Install Reference Information
-            	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallReferenceInfo.References.Reference>`
+            	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallReferenceInfo.References.Reference>`
             
             
 
@@ -4048,17 +4074,19 @@ class NvSatellite(Entity):
                 .. attribute:: reference_name  <key>
                 
                 	Reference name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: reference_name_xr
                 
                 	Reference name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: reference_file
                 
                 	Reference files
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -4096,7 +4124,7 @@ class NvSatellite(Entity):
         .. attribute:: install_op_progress
         
         	Current percentage of install
-        	**type**\: list of    :py:class:`InstallOpProgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpProgresses.InstallOpProgress>`
+        	**type**\: list of  		 :py:class:`InstallOpProgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpProgresses.InstallOpProgress>`
         
         
 
@@ -4130,21 +4158,21 @@ class NvSatellite(Entity):
             .. attribute:: operation_id  <key>
             
             	Operation ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: operation_id_xr
             
             	Operation ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: progress_percentage
             
             	Progress percentage
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -4153,7 +4181,7 @@ class NvSatellite(Entity):
             .. attribute:: satellite_count
             
             	Satellite count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -4195,7 +4223,7 @@ class NvSatellite(Entity):
         .. attribute:: reload_status
         
         	Detailed breakdown of reload status
-        	**type**\: list of    :py:class:`ReloadStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses.ReloadStatus>`
+        	**type**\: list of  		 :py:class:`ReloadStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses.ReloadStatus>`
         
         
 
@@ -4229,38 +4257,40 @@ class NvSatellite(Entity):
             .. attribute:: satellite_range  <key>
             
             	Satellite range
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: satellite_range_xr
             
             	Satellite range
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: sats_not_initiated
             
             	Sats not initiated
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_reloading
             
             	Sats reloading
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_reloaded
             
             	Sats reloaded
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_reload_failed
             
             	Sats reload failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
@@ -4306,7 +4336,7 @@ class NvSatellite(Entity):
         .. attribute:: satellite_software_versions
         
         	Satellite Software Package Information table
-        	**type**\:   :py:class:`SatelliteSoftwareVersions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions>`
+        	**type**\:  :py:class:`SatelliteSoftwareVersions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions>`
         
         
 
@@ -4340,7 +4370,7 @@ class NvSatellite(Entity):
             .. attribute:: satellite_software_version
             
             	Satellite Software Package Information
-            	**type**\: list of    :py:class:`SatelliteSoftwareVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion>`
+            	**type**\: list of  		 :py:class:`SatelliteSoftwareVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion>`
             
             
 
@@ -4374,26 +4404,26 @@ class NvSatellite(Entity):
                 .. attribute:: satellite_id  <key>
                 
                 	Satellite ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 100..65534
                 
                 .. attribute:: install_package_info
                 
                 	Package Data on this Satellite
-                	**type**\:   :py:class:`InstallPackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo>`
+                	**type**\:  :py:class:`InstallPackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo>`
                 
                 .. attribute:: satellite_id_xr
                 
                 	Satellite ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: package_support
                 
                 	Package support
-                	**type**\:   :py:class:`IcpeInstallPkgSupp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallPkgSupp>`
+                	**type**\:  :py:class:`IcpeInstallPkgSupp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallPkgSupp>`
                 
                 
 
@@ -4436,17 +4466,17 @@ class NvSatellite(Entity):
                     .. attribute:: active_packages
                     
                     	Active Packages running on this Satellite
-                    	**type**\:   :py:class:`ActivePackages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages>`
+                    	**type**\:  :py:class:`ActivePackages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages>`
                     
                     .. attribute:: inactive_packages
                     
                     	Inactive Packages on this Satellite
-                    	**type**\:   :py:class:`InactivePackages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages>`
+                    	**type**\:  :py:class:`InactivePackages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages>`
                     
                     .. attribute:: committed_packages
                     
                     	Committed Packages running on this Satellite
-                    	**type**\:   :py:class:`CommittedPackages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages>`
+                    	**type**\:  :py:class:`CommittedPackages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages>`
                     
                     
 
@@ -4489,7 +4519,7 @@ class NvSatellite(Entity):
                         .. attribute:: package
                         
                         	A package on this Satellite table
-                        	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package>`
+                        	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package>`
                         
                         
 
@@ -4522,17 +4552,17 @@ class NvSatellite(Entity):
                             .. attribute:: name
                             
                             	Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: version
                             
                             	Version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: is_base_image
                             
                             	Is base image
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4569,7 +4599,7 @@ class NvSatellite(Entity):
                         .. attribute:: package
                         
                         	A package on this Satellite table
-                        	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package>`
+                        	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package>`
                         
                         
 
@@ -4602,17 +4632,17 @@ class NvSatellite(Entity):
                             .. attribute:: name
                             
                             	Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: version
                             
                             	Version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: is_base_image
                             
                             	Is base image
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4649,7 +4679,7 @@ class NvSatellite(Entity):
                         .. attribute:: package
                         
                         	A package on this Satellite table
-                        	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package>`
+                        	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package>`
                         
                         
 
@@ -4682,17 +4712,17 @@ class NvSatellite(Entity):
                             .. attribute:: name
                             
                             	Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: version
                             
                             	Version
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: is_base_image
                             
                             	Is base image
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4729,7 +4759,7 @@ class NvSatellite(Entity):
         .. attribute:: install_op_status
         
         	Detailed breakdown of install status
-        	**type**\: list of    :py:class:`InstallOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpStatuses.InstallOpStatus>`
+        	**type**\: list of  		 :py:class:`InstallOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpStatuses.InstallOpStatus>`
         
         
 
@@ -4763,145 +4793,145 @@ class NvSatellite(Entity):
             .. attribute:: operation_id  <key>
             
             	Operation ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: operation_id_xr
             
             	Operation ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: satellite_range
             
             	Satellite range
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: sats_not_initiated
             
             	Sats not initiated
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_transferring
             
             	Sats transferring
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_activating
             
             	Sats activating
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_updating
             
             	Sats updating
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_deactivating
             
             	Sats deactivating
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_removing
             
             	Sats removing
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_transfer_failed
             
             	Sats transfer failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_activate_failed
             
             	Sats activate failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_update_failed
             
             	Sats update failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_deactivate_failed
             
             	Sats deactivate failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_remove_failed
             
             	Sats remove failed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_transfer_aborted
             
             	Sats transfer aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_activate_aborted
             
             	Sats activate aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_update_aborted
             
             	Sats update aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_deactivate_aborted
             
             	Sats deactivate aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_remove_aborted
             
             	Sats remove aborted
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_no_operation
             
             	Sats no operation
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
             .. attribute:: sats_completed
             
             	Sats completed
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
@@ -4977,7 +5007,7 @@ class NvSatellite(Entity):
         .. attribute:: id_ranges
         
         	Satellite ID range table
-        	**type**\:   :py:class:`IdRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteProperties.IdRanges>`
+        	**type**\:  :py:class:`IdRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteProperties.IdRanges>`
         
         
 
@@ -5011,7 +5041,7 @@ class NvSatellite(Entity):
             .. attribute:: id_range
             
             	Satellite ID range
-            	**type**\: list of    :py:class:`IdRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteProperties.IdRanges.IdRange>`
+            	**type**\: list of  		 :py:class:`IdRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteProperties.IdRanges.IdRange>`
             
             
 
@@ -5045,19 +5075,21 @@ class NvSatellite(Entity):
                 .. attribute:: sat_id_range  <key>
                 
                 	Sat ID range
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: min
                 
                 	Min
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..2147483647
                 
                 .. attribute:: max
                 
                 	Max
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..2147483647
                 
@@ -5098,7 +5130,7 @@ class NvSatellite(Entity):
         .. attribute:: sdacp_discovery2
         
         	ICPE Configured interface state information
-        	**type**\: list of    :py:class:`SdacpDiscovery2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2>`
+        	**type**\: list of  		 :py:class:`SdacpDiscovery2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2>`
         
         
 
@@ -5132,22 +5164,24 @@ class NvSatellite(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: interface_name_xr
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: interface
             
             	ICPE Discovery interface state information table
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface>`
             
             .. attribute:: satellite
             
             	ICPE Satellite state information table
-            	**type**\: list of    :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite>`
+            	**type**\: list of  		 :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite>`
             
             
 
@@ -5186,12 +5220,12 @@ class NvSatellite(Entity):
                 .. attribute:: interface_name
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: interface_status
                 
                 	Interface status
-                	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
+                	**type**\:  :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
                 
                 
 
@@ -5226,36 +5260,40 @@ class NvSatellite(Entity):
                 .. attribute:: satellite_id
                 
                 	Satellite ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: satellite_status
                 
                 	Satellite status
-                	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
+                	**type**\:  :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
                 
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: satellite_ip_address
                 
                 	Satellite IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: host_ip_address
                 
                 	Host IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: interface
                 
                 	ICPE Discovered satellite state information table
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface>`
                 
                 
 
@@ -5299,51 +5337,57 @@ class NvSatellite(Entity):
                     .. attribute:: interface_handle
                     
                     	Interface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: satellite_status
                     
                     	Satellite status
-                    	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
+                    	**type**\:  :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
                     
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: satellite_chassis_vendor
                     
                     	Satellite chassis vendor
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: satellite_interface_id
                     
                     	Satellite interface ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: satellite_interface_mac
                     
                     	Satellite interface MAC
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: satellite_chassis_mac
                     
                     	Satellite chassis MAC
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: satellite_serial_id
                     
                     	Satellite serial id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: satellite_module_vendor
                     
                     	Satellite module vendor
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -5392,7 +5436,7 @@ class NvSatellite(Entity):
         .. attribute:: icpe_dpm
         
         	ICPE DPM operational information
-        	**type**\: list of    :py:class:`IcpeDpm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.IcpeDpms.IcpeDpm>`
+        	**type**\: list of  		 :py:class:`IcpeDpm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.IcpeDpms.IcpeDpm>`
         
         
 
@@ -5426,97 +5470,101 @@ class NvSatellite(Entity):
             .. attribute:: discovery_interface  <key>
             
             	Discovery interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: discovery_interface_xr
             
             	Discovery interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: discovery_interface_handle
             
             	Discovery interface handle
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: discovery_interface_status
             
             	Discovery interface status
-            	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
+            	**type**\:  :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
             
             .. attribute:: ident_packets_received
             
             	Ident packets received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: ready_packets_received
             
             	Ready packets received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: los_packets_received
             
             	Los packets received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: invalid_packets_received
             
             	Invalid packets received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: configuration_packets_sent
             
             	Configuration packets sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: ack_packets_sent
             
             	Ack packets sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: reject_packets_sent
             
             	Reject packets sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: probe_packets_sent
             
             	Probe packets sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: host_ack_packets_received
             
             	Host ack packets received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: host_ack_packets_sent
             
             	Host ack packets sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: secs_since_pkts_cleaned
             
             	Secs since pkts cleaned
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -5525,12 +5573,12 @@ class NvSatellite(Entity):
             .. attribute:: satellite
             
             	ICPE DPM satellite operational information table
-            	**type**\: list of    :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.IcpeDpms.IcpeDpm.Satellite>`
+            	**type**\: list of  		 :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.IcpeDpms.IcpeDpm.Satellite>`
             
             .. attribute:: remote_host
             
             	ICPE DPM remote host operational information table
-            	**type**\: list of    :py:class:`RemoteHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.IcpeDpms.IcpeDpm.RemoteHost>`
+            	**type**\: list of  		 :py:class:`RemoteHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.IcpeDpms.IcpeDpm.RemoteHost>`
             
             
 
@@ -5595,191 +5643,205 @@ class NvSatellite(Entity):
                 .. attribute:: satellite_id
                 
                 	Satellite ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: satellite_interface_id
                 
                 	Satellite interface ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: satellite_interface_mac
                 
                 	Satellite interface MAC
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: satellite_ip_address
                 
                 	Satellite IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: host_ip_address
                 
                 	Host IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: satellite_chassis_type
                 
                 	Satellite chassis type
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: satellite_chassis_vendor
                 
                 	Satellite chassis vendor
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: satellite_chassis_mac
                 
                 	Satellite chassis MAC
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: satellite_serial_id
                 
                 	Satellite serial id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: satellite_module_type
                 
                 	Satellite module type
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: satellite_module_vendor
                 
                 	Satellite module vendor
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: satellite_module_mac
                 
                 	Satellite module MAC
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: received_sys_mac
                 
                 	Received sys MAC
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: host_chassis_type
                 
                 	Host chassis type
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: host_chassis_vendor
                 
                 	Host chassis vendor
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: host_chassis_mac
                 
                 	Host chassis MAC
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: discovery_protocol_state
                 
                 	Discovery protocol state
-                	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
+                	**type**\:  :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
                 
                 .. attribute:: last_imdr_state
                 
                 	Last IMDR state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: current_timeout
                 
                 	Current timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_queued_for_efd
                 
                 	Is queued for EFD
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_queued_for_oc
                 
                 	Is queued for OC
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ifmgr_state
                 
                 	Ifmgr state
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: legacy
                 
                 	Legacy
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: deleting
                 
                 	Deleting
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ident_packets_received
                 
                 	Ident packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: ready_packets_received
                 
                 	Ready packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: los_packets_received
                 
                 	Los packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: invalid_packets_received
                 
                 	Invalid packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: configuration_packets_sent
                 
                 	Configuration packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: ack_packets_sent
                 
                 	Ack packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: reject_packets_sent
                 
                 	Reject packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: secs_since_pkts_cleaned
                 
                 	Secs since pkts cleaned
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -5881,50 +5943,54 @@ class NvSatellite(Entity):
                 .. attribute:: host_chassis_mac
                 
                 	Host chassis MAC
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: host_interface_mac
                 
                 	Host interface MAC
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: discovery_protocol_state
                 
                 	Discovery protocol state
-                	**type**\:   :py:class:`DpmProtoHostState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoHostState>`
+                	**type**\:  :py:class:`DpmProtoHostState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoHostState>`
                 
                 .. attribute:: route_length
                 
                 	Route length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: current_timeout
                 
                 	Current timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: host_ack_packets_received
                 
                 	Host ack packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: host_ack_packets_sent
                 
                 	Host ack packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: secs_since_pkts_cleaned
                 
                 	Secs since pkts cleaned
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -5975,7 +6041,7 @@ class NvSatellite(Entity):
         .. attribute:: sdacp_control
         
         	SDAC Protocol Discovery information
-        	**type**\: list of    :py:class:`SdacpControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl>`
+        	**type**\: list of  		 :py:class:`SdacpControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl>`
         
         
 
@@ -6009,58 +6075,60 @@ class NvSatellite(Entity):
             .. attribute:: satellite_id  <key>
             
             	Satellite ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 100..65534
             
             .. attribute:: protocol_state_timestamp
             
             	Timestamp
-            	**type**\:   :py:class:`ProtocolStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp>`
+            	**type**\:  :py:class:`ProtocolStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp>`
             
             .. attribute:: transport_error_timestamp
             
             	Timestamp
-            	**type**\:   :py:class:`TransportErrorTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp>`
+            	**type**\:  :py:class:`TransportErrorTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp>`
             
             .. attribute:: satellite_id_xr
             
             	Satellite ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: satellite_ip_address
             
             	Satellite IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ip_address_auto
             
             	IP address auto
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: control_protocol_state
             
             	Control protocol state
-            	**type**\:   :py:class:`IcpeCpmControlFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmControlFsmState>`
+            	**type**\:  :py:class:`IcpeCpmControlFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmControlFsmState>`
             
             .. attribute:: transport_error
             
             	Transport error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: channel
             
             	Channels on satellite table
-            	**type**\: list of    :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel>`
+            	**type**\: list of  		 :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel>`
             
             
 
@@ -6118,7 +6186,7 @@ class NvSatellite(Entity):
                 .. attribute:: seconds
                 
                 	Seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -6127,7 +6195,7 @@ class NvSatellite(Entity):
                 .. attribute:: nanoseconds
                 
                 	Nanoseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -6166,7 +6234,7 @@ class NvSatellite(Entity):
                 .. attribute:: seconds
                 
                 	Seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -6175,7 +6243,7 @@ class NvSatellite(Entity):
                 .. attribute:: nanoseconds
                 
                 	Nanoseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -6214,81 +6282,81 @@ class NvSatellite(Entity):
                 .. attribute:: capabilities
                 
                 	Capabilities
-                	**type**\:   :py:class:`Capabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities>`
+                	**type**\:  :py:class:`Capabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities>`
                 
                 .. attribute:: resync_state_timestamp
                 
                 	Timestamp
-                	**type**\:   :py:class:`ResyncStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp>`
+                	**type**\:  :py:class:`ResyncStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp>`
                 
                 .. attribute:: channel_state_timestamp
                 
                 	Timestamp
-                	**type**\:   :py:class:`ChannelStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp>`
+                	**type**\:  :py:class:`ChannelStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp>`
                 
                 .. attribute:: channel_id
                 
                 	Channel ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: resync_state
                 
                 	Resync state
-                	**type**\:   :py:class:`IcpeCpmChannelResyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmChannelResyncState>`
+                	**type**\:  :py:class:`IcpeCpmChannelResyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmChannelResyncState>`
                 
                 .. attribute:: channel_state
                 
                 	Channel state
-                	**type**\:   :py:class:`IcpeCpmChanFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmChanFsmState>`
+                	**type**\:  :py:class:`IcpeCpmChanFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmChanFsmState>`
                 
                 .. attribute:: control_messages_sent
                 
                 	Control messages sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: normal_messages_sent
                 
                 	Normal messages sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: control_messages_received
                 
                 	Control messages received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: normal_messages_received
                 
                 	Normal messages received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: control_messages_dropped
                 
                 	Control messages dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: normal_messages_dropped
                 
                 	Normal messages dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: secs_since_last_cleared
                 
                 	Secs since last cleared
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -6297,7 +6365,7 @@ class NvSatellite(Entity):
                 .. attribute:: version
                 
                 	Version
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -6367,7 +6435,7 @@ class NvSatellite(Entity):
                     .. attribute:: tl_vs
                     
                     	Capability TLVs table
-                    	**type**\: list of    :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs>`
+                    	**type**\: list of  		 :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs>`
                     
                     
 
@@ -6400,19 +6468,19 @@ class NvSatellite(Entity):
                         .. attribute:: type
                         
                         	Type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: debug
                         
                         	Debug
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: value
                         
                         	Value
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
@@ -6451,7 +6519,7 @@ class NvSatellite(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6460,7 +6528,7 @@ class NvSatellite(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6499,7 +6567,7 @@ class NvSatellite(Entity):
                     .. attribute:: seconds
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6508,7 +6576,7 @@ class NvSatellite(Entity):
                     .. attribute:: nanoseconds
                     
                     	Nanoseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     

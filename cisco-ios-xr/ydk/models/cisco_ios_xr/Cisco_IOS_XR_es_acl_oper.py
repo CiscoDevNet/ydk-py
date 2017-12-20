@@ -124,7 +124,7 @@ class EsAcl(Entity):
     .. attribute:: active
     
     	Out Of Resources, Limits to the resources allocatable
-    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active>`
+    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active>`
     
     
 
@@ -159,22 +159,22 @@ class EsAcl(Entity):
         .. attribute:: oor
         
         	Out Of Resources, Limits to the resources allocatable
-        	**type**\:   :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor>`
+        	**type**\:  :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor>`
         
         .. attribute:: list
         
         	List containing ACLs
-        	**type**\:   :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List>`
+        	**type**\:  :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List>`
         
         .. attribute:: oor_acls
         
         	Resource occupation details for ACLs
-        	**type**\:   :py:class:`OorAcls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls>`
+        	**type**\:  :py:class:`OorAcls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls>`
         
         .. attribute:: usages
         
         	Table of Usage statistics of ACLs at different nodes
-        	**type**\:   :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages>`
+        	**type**\:  :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages>`
         
         
 
@@ -224,7 +224,7 @@ class EsAcl(Entity):
             .. attribute:: acl_summary
             
             	Resource Limits pertaining to ACLs only
-            	**type**\:   :py:class:`AclSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary>`
+            	**type**\:  :py:class:`AclSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary>`
             
             
 
@@ -258,7 +258,7 @@ class EsAcl(Entity):
                 .. attribute:: details
                 
                 	Details containing the resource limits of the ACLs
-                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary.Details>`
+                	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary.Details>`
                 
                 
 
@@ -293,28 +293,28 @@ class EsAcl(Entity):
                     .. attribute:: current_configured_ac_ls
                     
                     	Current configured acls
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: current_configured_ac_es
                     
                     	Current configured aces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: maximum_configurable_ac_ls
                     
                     	max configurable acls
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: maximum_configurable_ac_es
                     
                     	max configurable aces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -356,7 +356,7 @@ class EsAcl(Entity):
             .. attribute:: acls
             
             	ACL class displaying Usage and Entries
-            	**type**\:   :py:class:`Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls>`
+            	**type**\:  :py:class:`Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls>`
             
             
 
@@ -390,7 +390,7 @@ class EsAcl(Entity):
                 .. attribute:: acl
                 
                 	Name of the Access List
-                	**type**\: list of    :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl>`
+                	**type**\: list of  		 :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl>`
                 
                 
 
@@ -424,14 +424,14 @@ class EsAcl(Entity):
                     .. attribute:: name  <key>
                     
                     	Name of the Access List
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..65
                     
                     .. attribute:: acl_sequence_numbers
                     
                     	Table of all the SequenceNumbers per ACL
-                    	**type**\:   :py:class:`AclSequenceNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers>`
+                    	**type**\:  :py:class:`AclSequenceNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers>`
                     
                     
 
@@ -470,7 +470,7 @@ class EsAcl(Entity):
                         .. attribute:: acl_sequence_number
                         
                         	Sequence Number of an ACL entry
-                        	**type**\: list of    :py:class:`AclSequenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber>`
+                        	**type**\: list of  		 :py:class:`AclSequenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber>`
                         
                         
 
@@ -503,143 +503,151 @@ class EsAcl(Entity):
                             .. attribute:: sequence_number  <key>
                             
                             	ACLEntry Sequence Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..2147483646
                             
                             .. attribute:: ace_type
                             
                             	ACE type (acl, remark)
-                            	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAce1>`
+                            	**type**\:  :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAce1>`
                             
                             .. attribute:: ace_sequence_number
                             
                             	ACE sequence number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hits
                             
                             	ACE hit number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: grant
                             
                             	Grant value permit/deny 
-                            	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAction>`
+                            	**type**\:  :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAction>`
                             
                             .. attribute:: source_address
                             
                             	Source MAC address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
                             
                             .. attribute:: source_wild_card_bits
                             
                             	Source wild card bits
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
                             
                             .. attribute:: destination_address
                             
                             	Destination MAC address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
                             
                             .. attribute:: destination_wild_card_bits
                             
                             	Destination wild card bits
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
                             
                             .. attribute:: ether_type_number
                             
                             	Ethernet type Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: vlan1
                             
                             	VLAN ID/range lower limit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: vlan2
                             
                             	VLAN ID range higher limit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: cos
                             
                             	COS value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: dei
                             
                             	DEI bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: inner_header_vlan1
                             
                             	Inner header VLAN ID/range lower limit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: inner_header_vlan2
                             
                             	Inner header VLAN ID range higher limit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: inner_header_cos
                             
                             	Inner header COS value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: inner_header_dei
                             
                             	Inner header DEI bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: capture
                             
                             	Capture option, TRUE if enabled
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: log_option
                             
                             	Log option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: remark
                             
                             	Remark string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: acl_name
                             
                             	Acl Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: sequence_string
                             
                             	Sequence Sring
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -716,7 +724,7 @@ class EsAcl(Entity):
             .. attribute:: oor_acl
             
             	Resource occupation details for a particular ACL
-            	**type**\: list of    :py:class:`OorAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls.OorAcl>`
+            	**type**\: list of  		 :py:class:`OorAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls.OorAcl>`
             
             
 
@@ -751,35 +759,35 @@ class EsAcl(Entity):
                 .. attribute:: name  <key>
                 
                 	Name of the Access List
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..65
                 
                 .. attribute:: current_configured_ac_ls
                 
                 	Current configured acls
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: current_configured_ac_es
                 
                 	Current configured aces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: maximum_configurable_ac_ls
                 
                 	max configurable acls
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: maximum_configurable_ac_es
                 
                 	max configurable aces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -824,7 +832,7 @@ class EsAcl(Entity):
             .. attribute:: usage
             
             	Usage statistics of an ACL at a node
-            	**type**\: list of    :py:class:`Usage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages.Usage>`
+            	**type**\: list of  		 :py:class:`Usage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages.Usage>`
             
             
 
@@ -858,24 +866,26 @@ class EsAcl(Entity):
                 .. attribute:: location
                 
                 	Node where ACL is applied
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: application_id
                 
                 	Application ID
-                	**type**\:   :py:class:`AclUsageAppIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum>`
+                	**type**\:  :py:class:`AclUsageAppIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum>`
                 
                 .. attribute:: name
                 
                 	Name of the ACL
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..65
                 
                 .. attribute:: usage_details
                 
                 	Usage Statistics Details
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 

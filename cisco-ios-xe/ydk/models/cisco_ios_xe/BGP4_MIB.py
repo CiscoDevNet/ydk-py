@@ -17,24 +17,24 @@ class BGP4MIB(Entity):
     .. attribute:: bgp
     
     	
-    	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp>`
+    	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp>`
     
     .. attribute:: bgppeertable
     
     	BGP peer table.  This table contains, one entry per BGP peer, information about the connections with BGP peers
-    	**type**\:   :py:class:`Bgppeertable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable>`
+    	**type**\:  :py:class:`Bgppeertable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable>`
     
     .. attribute:: bgprcvdpathattrtable
     
     	The BGP Received Path Attribute Table contains information about paths to destination networks received from all peers running BGP version 3 or less
-    	**type**\:   :py:class:`Bgprcvdpathattrtable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable>`
+    	**type**\:  :py:class:`Bgprcvdpathattrtable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable>`
     
     	**status**\: obsolete
     
     .. attribute:: bgp4pathattrtable
     
     	The BGP\-4 Received Path Attribute Table contains information about paths to destination networks received from all BGP4 peers
-    	**type**\:   :py:class:`Bgp4Pathattrtable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable>`
+    	**type**\:  :py:class:`Bgp4Pathattrtable <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable>`
     
     
 
@@ -83,21 +83,23 @@ class BGP4MIB(Entity):
         .. attribute:: bgpversion
         
         	Vector of supported BGP protocol version numbers.  Each peer negotiates the version from this vector.  Versions are identified via the string of bits contained within this object.  The first octet contains bits 0 to 7, the second octet contains bits 8 to 15, and so on, with the most significant bit referring to the lowest bit number in the octet (e.g., the MSB of the first octet refers to bit 0).  If a bit, i, is present and set, then the version (i+1) of the BGP is supported
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..255
         
         .. attribute:: bgplocalas
         
         	The local autonomous system number
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: bgpidentifier
         
         	The BGP Identifier of local system
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         
 
@@ -137,7 +139,7 @@ class BGP4MIB(Entity):
         .. attribute:: bgppeerentry
         
         	Entry containing information about the connection with a BGP peer
-        	**type**\: list of    :py:class:`Bgppeerentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
+        	**type**\: list of  		 :py:class:`Bgppeerentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
         
         
 
@@ -172,165 +174,171 @@ class BGP4MIB(Entity):
             .. attribute:: bgppeerremoteaddr  <key>
             
             	The remote IP address of this entry's BGP peer
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: bgppeeridentifier
             
             	The BGP Identifier of this entry's BGP peer
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: bgppeerstate
             
             	The BGP peer connection state
-            	**type**\:   :py:class:`Bgppeerstate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Bgppeerstate>`
+            	**type**\:  :py:class:`Bgppeerstate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Bgppeerstate>`
             
             .. attribute:: bgppeeradminstatus
             
             	The desired state of the BGP connection. A transition from 'stop' to 'start' will cause the BGP Start Event to be generated. A transition from 'start' to 'stop' will cause the BGP Stop Event to be generated. This parameter can be used to restart BGP peer connections.  Care should be used in providing write access to this object without adequate authentication
-            	**type**\:   :py:class:`Bgppeeradminstatus <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Bgppeeradminstatus>`
+            	**type**\:  :py:class:`Bgppeeradminstatus <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Bgppeeradminstatus>`
             
             .. attribute:: bgppeernegotiatedversion
             
             	The negotiated version of BGP running between the two peers
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: bgppeerlocaladdr
             
             	The local IP address of this entry's BGP connection
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: bgppeerlocalport
             
             	The local port for the TCP connection between the BGP peers
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: bgppeerremoteport
             
             	The remote port for the TCP connection between the BGP peers.  Note that the objects bgpPeerLocalAddr, bgpPeerLocalPort, bgpPeerRemoteAddr and bgpPeerRemotePort provide the appropriate reference to the standard MIB TCP connection table
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: bgppeerremoteas
             
             	The remote autonomous system number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: bgppeerinupdates
             
             	The number of BGP UPDATE messages received on this connection.  This object should be initialized to zero (0) when the connection is established
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bgppeeroutupdates
             
             	The number of BGP UPDATE messages transmitted on this connection.  This object should be initialized to zero (0) when the connection is established
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bgppeerintotalmessages
             
             	The total number of messages received from the remote peer on this connection. This object should be initialized to zero when the connection is established
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bgppeerouttotalmessages
             
             	The total number of messages transmitted to the remote peer on this connection.  This object should be initialized to zero when the connection is established
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bgppeerlasterror
             
             	The last error code and subcode seen by this peer on this connection.  If no error has occurred, this field is zero.  Otherwise, the first byte of this two byte OCTET STRING contains the error code, and the second byte contains the subcode
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2
             
             .. attribute:: bgppeerfsmestablishedtransitions
             
             	The total number of times the BGP FSM transitioned into the established state
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bgppeerfsmestablishedtime
             
             	This timer indicates how long (in seconds) this peer has been in the Established state or how long since this peer was last in the Established state.  It is set to zero when a new peer is configured or the router is booted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bgppeerconnectretryinterval
             
             	Time interval in seconds for the ConnectRetry timer.  The suggested value for this timer is 120 seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
             .. attribute:: bgppeerholdtime
             
             	Time interval in seconds for the Hold Timer established with the peer.  The value of this object is calculated by this BGP speaker by using the smaller of the value in bgpPeerHoldTimeConfigured and the Hold Time received in the OPEN message. This value must be at lease three seconds if it is not zero (0) in which case the Hold Timer has not been established with the peer, or, the value of bgpPeerHoldTimeConfigured is zero (0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..None \| 3..65535
             
             .. attribute:: bgppeerkeepalive
             
             	Time interval in seconds for the KeepAlive timer established with the peer.  The value of this object is calculated by this BGP speaker such that, when compared with bgpPeerHoldTime, it has the same proportion as what bgpPeerKeepAliveConfigured has when compared with bgpPeerHoldTimeConfigured. If the value of this object is zero (0), it indicates that the KeepAlive timer has not been established with the peer, or, the value of bgpPeerKeepAliveConfigured is zero (0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..21845
             
             .. attribute:: bgppeerholdtimeconfigured
             
             	Time interval in seconds for the Hold Time configured for this BGP speaker with this peer.  This value is placed in an OPEN message sent to this peer by this BGP speaker, and is compared with the Hold Time field in an OPEN message received from the peer when determining the Hold Time (bgpPeerHoldTime) with the peer. This value must not be less than three seconds if it is not zero (0) in which case the Hold Time is NOT to be established with the peer.  The suggested value for this timer is 90 seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..None \| 3..65535
             
             .. attribute:: bgppeerkeepaliveconfigured
             
             	Time interval in seconds for the KeepAlive timer configured for this BGP speaker with this peer.  The value of this object will only determine the KEEPALIVE messages' frequency relative to the value specified in bgpPeerHoldTimeConfigured; the actual time interval for the KEEPALIVE messages is indicated by bgpPeerKeepAlive.  A reasonable maximum value for this timer would be configured to be one third of that of bgpPeerHoldTimeConfigured. If the value of this object is zero (0), no periodical KEEPALIVE messages are sent to the peer after the BGP connection has been established.  The suggested value for this timer is 30 seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..21845
             
             .. attribute:: bgppeerminasoriginationinterval
             
             	Time interval in seconds for the MinASOriginationInterval timer. The suggested value for this timer is 15 seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
             .. attribute:: bgppeerminrouteadvertisementinterval
             
             	Time interval in seconds for the MinRouteAdvertisementInterval timer. The suggested value for this timer is 30 seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
             .. attribute:: bgppeerinupdateelapsedtime
             
             	Elapsed time in seconds since the last BGP UPDATE message was received from the peer. Each time bgpPeerInUpdates is incremented, the value of this object is set to zero (0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cbgppeerprefixaccepted
             
             	Number of Route prefixes received on this connnection, which are accepted after applying filters. Possible filters are route maps, prefix lists, distributed lists, etc
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -339,7 +347,7 @@ class BGP4MIB(Entity):
             .. attribute:: cbgppeerprefixdenied
             
             	Counter which gets incremented when a route prefix received on this connection is denied  or when a route prefix is denied during soft reset of this connection if 'soft\-reconfiguration' is on . This object is  initialized to zero when the peer is  configured or the router is rebooted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -348,7 +356,7 @@ class BGP4MIB(Entity):
             .. attribute:: cbgppeerprefixlimit
             
             	Max number of route prefixes accepted on this connection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -357,7 +365,7 @@ class BGP4MIB(Entity):
             .. attribute:: cbgppeerprefixadvertised
             
             	Counter which gets incremented when a route prefix is advertised on this connection. This object is initialized to zero when the peer is configured or  the router is rebooted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -366,7 +374,7 @@ class BGP4MIB(Entity):
             .. attribute:: cbgppeerprefixsuppressed
             
             	Counter which gets incremented when a route prefix is suppressed from being sent on this connection. This  object is initialized to zero when the peer is  configured or the router is rebooted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -375,7 +383,7 @@ class BGP4MIB(Entity):
             .. attribute:: cbgppeerprefixwithdrawn
             
             	Counter which gets incremented when a route prefix is withdrawn on this connection. This object is initialized to zero when the peer is configured or the router is rebooted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -384,12 +392,12 @@ class BGP4MIB(Entity):
             .. attribute:: cbgppeerlasterrortxt
             
             	Implementation specific error description for bgpPeerLastErrorReceived
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cbgppeerprevstate
             
             	The BGP peer connection previous state
-            	**type**\:   :py:class:`Cbgppeerprevstate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Cbgppeerprevstate>`
+            	**type**\:  :py:class:`Cbgppeerprevstate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry.Cbgppeerprevstate>`
             
             
 
@@ -591,7 +599,7 @@ class BGP4MIB(Entity):
         .. attribute:: bgppathattrentry
         
         	Information about a path to a network
-        	**type**\: list of    :py:class:`Bgppathattrentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry>`
+        	**type**\: list of  		 :py:class:`Bgppathattrentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry>`
         
         	**status**\: obsolete
         
@@ -627,28 +635,32 @@ class BGP4MIB(Entity):
             .. attribute:: bgppathattrdestnetwork  <key>
             
             	The address of the destination network
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: obsolete
             
             .. attribute:: bgppathattrpeer  <key>
             
             	The IP address of the peer where the path information was learned
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: obsolete
             
             .. attribute:: bgppathattrorigin
             
             	The ultimate origin of the path information
-            	**type**\:   :py:class:`Bgppathattrorigin <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry.Bgppathattrorigin>`
+            	**type**\:  :py:class:`Bgppathattrorigin <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgprcvdpathattrtable.Bgppathattrentry.Bgppathattrorigin>`
             
             	**status**\: obsolete
             
             .. attribute:: bgppathattraspath
             
             	The set of ASs that must be traversed to reach the network.  This object is probably best represented as SEQUENCE OF INTEGER.  For SMI compatibility, though, it is represented as OCTET STRING.  Each AS is represented as a pair of octets according to the following algorithm\:      first\-byte\-of\-pair = ASNumber / 256;     second\-byte\-of\-pair = ASNumber & 255;
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..255
             
@@ -657,14 +669,16 @@ class BGP4MIB(Entity):
             .. attribute:: bgppathattrnexthop
             
             	The address of the border router that should be used for the destination network
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: obsolete
             
             .. attribute:: bgppathattrinterasmetric
             
             	The optional inter\-AS metric.  If this attribute has not been provided for this route, the value for this object is 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -736,7 +750,7 @@ class BGP4MIB(Entity):
         .. attribute:: bgp4pathattrentry
         
         	Information about a path to a network
-        	**type**\: list of    :py:class:`Bgp4Pathattrentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry>`
+        	**type**\: list of  		 :py:class:`Bgp4Pathattrentry <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry>`
         
         
 
@@ -770,84 +784,92 @@ class BGP4MIB(Entity):
             .. attribute:: bgp4pathattripaddrprefix  <key>
             
             	An IP address prefix in the Network Layer Reachability Information field.  This object is an IP address containing the prefix with length specified by bgp4PathAttrIpAddrPrefixLen. Any bits beyond the length specified by bgp4PathAttrIpAddrPrefixLen are zeroed
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: bgp4pathattripaddrprefixlen  <key>
             
             	Length in bits of the IP address prefix in the Network Layer Reachability Information field
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..32
             
             .. attribute:: bgp4pathattrpeer  <key>
             
             	The IP address of the peer where the path information was learned
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: bgp4pathattrorigin
             
             	The ultimate origin of the path information
-            	**type**\:   :py:class:`Bgp4Pathattrorigin <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattrorigin>`
+            	**type**\:  :py:class:`Bgp4Pathattrorigin <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattrorigin>`
             
             .. attribute:: bgp4pathattraspathsegment
             
             	The sequence of AS path segments.  Each AS path segment is represented by a triple <type, length, value>.  The type is a 1\-octet field which has two possible values\:      1      AS\_SET\: unordered set of ASs a                  route in the UPDATE                  message has traversed      2      AS\_SEQUENCE\: ordered set of ASs                  a route in the UPDATE                  message has traversed.  The length is a 1\-octet field containing the number of ASs in the value field.  The value field contains one or more AS numbers, each AS is represented in the octet string as a pair of octets according to the following algorithm\:      first\-byte\-of\-pair = ASNumber / 256;     second\-byte\-of\-pair = ASNumber & 255;
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..255
             
             .. attribute:: bgp4pathattrnexthop
             
             	The address of the border router that should be used for the destination network
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: bgp4pathattrmultiexitdisc
             
             	This metric is used to discriminate between multiple exit points to an adjacent autonomous system.  A value of \-1 indicates the absence of this attribute
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..2147483647
             
             .. attribute:: bgp4pathattrlocalpref
             
             	The originating BGP4 speaker's degree of preference for an advertised route.  A value of \-1 indicates the absence of this attribute
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..2147483647
             
             .. attribute:: bgp4pathattratomicaggregate
             
             	Whether or not the local system has selected a less specific route without selecting a more specific route
-            	**type**\:   :py:class:`Bgp4Pathattratomicaggregate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattratomicaggregate>`
+            	**type**\:  :py:class:`Bgp4Pathattratomicaggregate <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattratomicaggregate>`
             
             .. attribute:: bgp4pathattraggregatoras
             
             	The AS number of the last BGP4 speaker that performed route aggregation.  A value of zero (0) indicates the absence of this attribute
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: bgp4pathattraggregatoraddr
             
             	The IP address of the last BGP4 speaker that performed route aggregation.  A value of 0.0.0.0 indicates the absence of this attribute
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: bgp4pathattrcalclocalpref
             
             	The degree of preference calculated by the receiving BGP4 speaker for an advertised route.  A value of \-1 indicates the absence of this attribute
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..2147483647
             
             .. attribute:: bgp4pathattrbest
             
             	An indication of whether or not this route was chosen as the best BGP4 route
-            	**type**\:   :py:class:`Bgp4Pathattrbest <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattrbest>`
+            	**type**\:  :py:class:`Bgp4Pathattrbest <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgp4Pathattrtable.Bgp4Pathattrentry.Bgp4Pathattrbest>`
             
             .. attribute:: bgp4pathattrunknown
             
             	One or more path attributes not understood by this BGP4 speaker.  Size zero (0) indicates the absence of such attribute(s).  Octets beyond the maximum size, if any, are not recorded by this object
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             

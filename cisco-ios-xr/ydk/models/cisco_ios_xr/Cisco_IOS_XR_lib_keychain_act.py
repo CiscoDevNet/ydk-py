@@ -21,7 +21,7 @@ class MasterKeyAdd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act.MasterKeyAdd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act.MasterKeyAdd.Input>`
     
     
 
@@ -55,7 +55,7 @@ class MasterKeyAdd(Entity):
         .. attribute:: new_key
         
         	New master key to be added
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -119,7 +119,7 @@ class MasterKeyUpdate(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act.MasterKeyUpdate.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act.MasterKeyUpdate.Input>`
     
     
 
@@ -153,14 +153,14 @@ class MasterKeyUpdate(Entity):
         .. attribute:: old_key
         
         	key already added/key to be replaced
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: new_key
         
         	New master key to be added 
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         

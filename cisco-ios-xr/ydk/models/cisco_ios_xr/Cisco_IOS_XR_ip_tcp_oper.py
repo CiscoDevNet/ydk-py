@@ -1378,7 +1378,7 @@ class TcpConnection(Entity):
     .. attribute:: nodes
     
     	Table of information about all nodes present on the system
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes>`
     
     
 
@@ -1413,7 +1413,7 @@ class TcpConnection(Entity):
         .. attribute:: node
         
         	Information about a single node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node>`
         
         
 
@@ -1447,27 +1447,29 @@ class TcpConnection(Entity):
             .. attribute:: id  <key>
             
             	Describing a location
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: statistics
             
             	Statistics of all TCP connections
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics>`
             
             .. attribute:: extended_information
             
             	Extended Filter related Information
-            	**type**\:   :py:class:`ExtendedInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation>`
+            	**type**\:  :py:class:`ExtendedInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation>`
             
             .. attribute:: detail_informations
             
             	Table listing TCP connections for which detailed information is provided
-            	**type**\:   :py:class:`DetailInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations>`
+            	**type**\:  :py:class:`DetailInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations>`
             
             .. attribute:: brief_informations
             
             	Table listing connections for which brief information is provided.Note that not all connections are listed in the brief table
-            	**type**\:   :py:class:`BriefInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations>`
+            	**type**\:  :py:class:`BriefInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations>`
             
             
 
@@ -1521,17 +1523,17 @@ class TcpConnection(Entity):
                 .. attribute:: clients
                 
                 	Table listing clients
-                	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Clients>`
+                	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Clients>`
                 
                 .. attribute:: pcbs
                 
                 	Table listing the TCP connections for which statistics are provided
-                	**type**\:   :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs>`
+                	**type**\:  :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs>`
                 
                 .. attribute:: summary
                 
                 	Summary statistics across all TCP connections
-                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Summary>`
+                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Summary>`
                 
                 
 
@@ -1574,7 +1576,7 @@ class TcpConnection(Entity):
                     .. attribute:: client
                     
                     	Describing Client ID
-                    	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Clients.Client>`
+                    	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Clients.Client>`
                     
                     
 
@@ -1607,49 +1609,49 @@ class TcpConnection(Entity):
                         .. attribute:: client_id  <key>
                         
                         	Displaying client's aggregated statistics
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: client_jid
                         
                         	Job ID of the transport client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: client_name
                         
                         	Transport client name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..21
                         
                         .. attribute:: ipv4_received_packets
                         
                         	Total IPv4 packets received from client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ipv4_sent_packets
                         
                         	Total IPv4 packets sent to client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ipv6_received_packets
                         
                         	Total IPv6 packets received from app
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ipv6_sent_packets
                         
                         	Total IPv6 packets sent to app
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1697,7 +1699,7 @@ class TcpConnection(Entity):
                     .. attribute:: pcb
                     
                     	Protocol Control Block ID
-                    	**type**\: list of    :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb>`
+                    	**type**\: list of  		 :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb>`
                     
                     
 
@@ -1730,132 +1732,132 @@ class TcpConnection(Entity):
                         .. attribute:: id  <key>
                         
                         	Displaying statistics associated with a particular PCB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: read_io_counts
                         
                         	Read  I/O counts
-                        	**type**\:   :py:class:`ReadIoCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts>`
+                        	**type**\:  :py:class:`ReadIoCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts>`
                         
                         .. attribute:: write_io_counts
                         
                         	Write I/O counts
-                        	**type**\:   :py:class:`WriteIoCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts>`
+                        	**type**\:  :py:class:`WriteIoCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts>`
                         
                         .. attribute:: async_session_stats
                         
                         	Statistics of Async TCP Sessions
-                        	**type**\:   :py:class:`AsyncSessionStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats>`
+                        	**type**\:  :py:class:`AsyncSessionStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats>`
                         
                         .. attribute:: pcb
                         
                         	PCB Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: vrf_id
                         
                         	VRF Id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: packets_sent
                         
                         	Packets received from application
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: xipc_pulse_received
                         
                         	XIPC pulses received from application
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: segment_instruction_received
                         
                         	Segment Instruction received from partner node
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: send_packets_queued
                         
                         	Packets queued to v4/v6 IO
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: send_packets_queued_net_io
                         
                         	Packets queued to NetIO
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: send_queue_failed
                         
                         	Packets failed to be queued to v4/v6 IO
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: send_queue_net_io_failed
                         
                         	Packets failed to be queued to NetIO
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: packets_received
                         
                         	Packets received from network
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: receive_queue_failed
                         
                         	Received packets failed to be queued to application
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_packets_queued
                         
                         	Received packets queued to application
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: send_window_shrink_ignored
                         
                         	No. of times send window shrinkage by peer was ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_paw_socket
                         
                         	PAW or non\-PAW socket?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: read_io_time
                         
                         	Time at which receive buffer was last read from
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: write_io_time
                         
                         	Time at which send buffer was last written to
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1937,28 +1939,28 @@ class TcpConnection(Entity):
                             .. attribute:: io_count
                             
                             	Number of I/O operations done by application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: arm_count
                             
                             	How many times socket was armed by application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unarm_count
                             
                             	How many times socket was unarmed by application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: autoarm_count
                             
                             	How many times socket was auto\-armed by TCP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1999,28 +2001,28 @@ class TcpConnection(Entity):
                             .. attribute:: io_count
                             
                             	Number of I/O operations done by application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: arm_count
                             
                             	How many times socket was armed by application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: unarm_count
                             
                             	How many times socket was unarmed by application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: autoarm_count
                             
                             	How many times socket was auto\-armed by TCP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2061,68 +2063,68 @@ class TcpConnection(Entity):
                             .. attribute:: async_session
                             
                             	Flag of async session
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: data_write_success_num
                             
                             	Number of successful data write to XIPC
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_read_success_num
                             
                             	Number of successful data read from XIPC
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_write_error_num
                             
                             	Number of failed data write to XIPC
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_read_error_num
                             
                             	Number of failed data read from XIPC
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: control_write_success_num
                             
                             	Number of successful control write to XIPC
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: control_read_success_num
                             
                             	Number of successful control read to XIPC
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: control_write_error_num
                             
                             	Number of failed control write to XIPC
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: control_read_error_num
                             
                             	Number of failed control read from XIPC
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_write_byte
                             
                             	Number of bytes data has been written
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2131,7 +2133,7 @@ class TcpConnection(Entity):
                             .. attribute:: data_read_byte
                             
                             	Number of bytes data has been read
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2188,49 +2190,49 @@ class TcpConnection(Entity):
                     .. attribute:: syn_cache_count
                     
                     	Current number of SYN cache entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_open_sockets
                     
                     	Number of Open sockets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_pakets_sent
                     
                     	Total packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_packets_dropped
                     
                     	Total transmit packets dropped due to general failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_auth_packets_dropped
                     
                     	Total transmit packets dropped due to authentication failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: data_pakets_sent
                     
                     	Data packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: data_bytes_sent
                     
                     	Data bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2239,14 +2241,14 @@ class TcpConnection(Entity):
                     .. attribute:: packets_retransmitted
                     
                     	Data packets retransmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bytes_retransmitted
                     
                     	Data bytes retransmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2255,98 +2257,98 @@ class TcpConnection(Entity):
                     .. attribute:: ack_only_packets_sent
                     
                     	Ack only packets sent (incl. delay)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_ack_packets_sent
                     
                     	Delay ack packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: urgent_only_packets_sent
                     
                     	Urgent only packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: window_probe_packets_sent
                     
                     	Window probe packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: window_update_packets_sent
                     
                     	Window update packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: control_packets_sent
                     
                     	Control (SYN\|FIN\|RST) packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rst_packets_sent
                     
                     	RST packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_packets_received
                     
                     	Total packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_packets_dropped
                     
                     	Received packets dropped due to general failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: synacl_match_pkts_dropped
                     
                     	Received packets dropped due to ACL DENY on SYN pkts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_packets_dropped_stale_c_hdr
                     
                     	Received packets dropped due to stale cached header
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_auth_packets_dropped
                     
                     	Received packets dropped due to authentication failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ack_packets_received
                     
                     	Ack packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ackbytes_received
                     
                     	Bytes acked by ack packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2355,28 +2357,28 @@ class TcpConnection(Entity):
                     .. attribute:: duplicated_ack_packets_received
                     
                     	Duplicate ack packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ack_packets_for_unsent_received
                     
                     	Ack packets for unsent data
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: data_packets_received_in_sequence
                     
                     	Data packets received in sequence
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: data_bytes_received_in_sequence
                     
                     	Data bytes received in sequence
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2385,14 +2387,14 @@ class TcpConnection(Entity):
                     .. attribute:: duplicate_packets_received
                     
                     	Duplicate packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: duplicate_bytes_received
                     
                     	Duplicate bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2401,14 +2403,14 @@ class TcpConnection(Entity):
                     .. attribute:: partial_duplicate_ack_received
                     
                     	Packets with partial dup data
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: partial_duplicate_bytes_received
                     
                     	Bytes with partial dup data
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2417,14 +2419,14 @@ class TcpConnection(Entity):
                     .. attribute:: out_of_order_packets_received
                     
                     	Out\-of\-order packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: out_of_order_bytes_received
                     
                     	Out\-of\-order bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2433,14 +2435,14 @@ class TcpConnection(Entity):
                     .. attribute:: after_window_packets_received
                     
                     	After\-window packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: after_window_bytes_received
                     
                     	After\-window bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2449,371 +2451,371 @@ class TcpConnection(Entity):
                     .. attribute:: window_probe_packets_received
                     
                     	Window probe packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: window_update_packets_received
                     
                     	Window update packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: packets_received_after_close_packet
                     
                     	Packets received after close
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bad_checksum_packets_received
                     
                     	Packets received with bad checksum
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: too_short_packets_received
                     
                     	Packets received with too short size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: malformed_packets_received
                     
                     	Packets received with malformed header
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: no_port_packets_received
                     
                     	Packets rcceived with no wild listener
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connections_requested
                     
                     	Connection requests sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connections_accepted
                     
                     	Connection requests accepted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connections_established
                     
                     	Connections established
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connections_forcibly_closed
                     
                     	Connections forcibly closed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connections_closed
                     
                     	connections closed (incl. drops)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connections_dropped
                     
                     	connections dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: embryonic_connection_dropped
                     
                     	Embryonic connections dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connections_failed
                     
                     	Connections failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: established_connections_reset
                     
                     	Established connections reset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: retransmit_timeouts
                     
                     	Retransmit timeouts (incl. data packets)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: retransmit_dropped
                     
                     	Connection drops during retransmit timeouts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keep_alive_timeouts
                     
                     	Keepalive timeouts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keep_alive_dropped
                     
                     	Connection drops due to keepalive timeouts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keep_alive_probes
                     
                     	Keepalive probes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: paws_dropped
                     
                     	Segments dropped due to PAWS
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: persist_dropped
                     
                     	Segments dropped due to window probe
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: try_lock_dropped
                     
                     	Segments dropped due to trylock fail
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connection_rate_limited
                     
                     	Connections rate\-limited
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_added
                     
                     	SYN Cache entries added
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_completed
                     
                     	SYN Cache connections completed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_timed_out
                     
                     	SYN Cache entries timed out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_overflow
                     
                     	SYN Cache entries dropped due to overflow
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_reset
                     
                     	SYN Cache entries dropped due to RST
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_unreach
                     
                     	SYN Cache entries dropped due to ICMP unreach
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_bucket_oflow
                     
                     	SYN Cache entries dropped due to bucket overflow
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_aborted
                     
                     	SYN Cache entries aborted (no mem)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_duplicate_sy_ns
                     
                     	SYN Cache duplicate SYNs received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_cache_dropped
                     
                     	SYN Cache entries dropped (no route/mem)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pulse_errors
                     
                     	Punt (down to ip) failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: socket_layer_packets
                     
                     	Packets owned by the socket layer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: reassembly_packets
                     
                     	Packets owned by TCP reassembly
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: recovered_packets
                     
                     	Packets freed after starvation
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: packet_failures
                     
                     	Packet allocation errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mss_up
                     
                     	Number of times MSS was increased
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mss_down
                     
                     	Number of times MSS was decreased
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: truncated_write_iov
                     
                     	Segments truncated due to insufficient Write I/O vectors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: no_throttle
                     
                     	Number of times throttle mode was off
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: low_water_mark_throttle
                     
                     	Number of times low water mark throttle was on
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: high_water_mark_throttle
                     
                     	Number of times high water mark throttle was on
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: stalled_timer_tickle_count
                     
                     	Number of times a stalled tcp timer was tickled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: stalled_timer_tickle_time
                     
                     	Last timestamp when a stalled tcp timer was tickled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iq_sock_writes
                     
                     	Number of write attempts from socket\-lib into an IQ
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iq_sock_retries
                     
                     	Number of retried write attempts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iq_sock_aborts
                     
                     	Number of aborted socket\-lib writes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: iq_ingress_drops
                     
                     	Number of total ingress dropped packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_i_qs
                     
                     	Number of TCP internal queues in use
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3022,7 +3024,7 @@ class TcpConnection(Entity):
                 .. attribute:: display_types
                 
                 	Table listing display types
-                	**type**\:   :py:class:`DisplayTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes>`
+                	**type**\:  :py:class:`DisplayTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes>`
                 
                 
 
@@ -3055,7 +3057,7 @@ class TcpConnection(Entity):
                     .. attribute:: display_type
                     
                     	Describing particular display type
-                    	**type**\: list of    :py:class:`DisplayType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType>`
+                    	**type**\: list of  		 :py:class:`DisplayType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType>`
                     
                     
 
@@ -3088,12 +3090,12 @@ class TcpConnection(Entity):
                         .. attribute:: disp_type  <key>
                         
                         	Specifying display type
-                        	**type**\:   :py:class:`Show <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Show>`
+                        	**type**\:  :py:class:`Show <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Show>`
                         
                         .. attribute:: connection_id
                         
                         	Describing connection ID
-                        	**type**\: list of    :py:class:`ConnectionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId>`
+                        	**type**\: list of  		 :py:class:`ConnectionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId>`
                         
                         
 
@@ -3128,43 +3130,43 @@ class TcpConnection(Entity):
                             .. attribute:: pcb_id  <key>
                             
                             	Displaying inforamtion based on selected display type associatedwith a particular PCB
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: local_address
                             
                             	Local IP address
-                            	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress>`
+                            	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress>`
                             
                             .. attribute:: foreign_address
                             
                             	Remote IP address
-                            	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress>`
+                            	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress>`
                             
                             .. attribute:: common
                             
                             	Common PCB information
-                            	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common>`
+                            	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common>`
                             
                             .. attribute:: l4_protocol
                             
                             	Layer 4 protocol
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: local_port
                             
                             	Local port
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: foreign_port
                             
                             	Remote port
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -3220,17 +3222,21 @@ class TcpConnection(Entity):
                                 .. attribute:: af_name
                                 
                                 	AFName
-                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                                	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                                 
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: ipv6_address
                                 
                                 	IPv6 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -3267,17 +3273,21 @@ class TcpConnection(Entity):
                                 .. attribute:: af_name
                                 
                                 	AFName
-                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                                	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                                 
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: ipv6_address
                                 
                                 	IPv6 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -3314,12 +3324,12 @@ class TcpConnection(Entity):
                                 .. attribute:: lpts_pcb
                                 
                                 	LPTS PCB information
-                                	**type**\:   :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb>`
+                                	**type**\:  :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb>`
                                 
                                 .. attribute:: af_name
                                 
                                 	Address Family
-                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                                	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                                 
                                 
 
@@ -3357,36 +3367,36 @@ class TcpConnection(Entity):
                                     .. attribute:: options
                                     
                                     	Receive options
-                                    	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options>`
+                                    	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options>`
                                     
                                     .. attribute:: lpts_flags
                                     
                                     	LPTS flags
-                                    	**type**\:   :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags>`
+                                    	**type**\:  :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags>`
                                     
                                     .. attribute:: accept_mask
                                     
                                     	AcceptMask
-                                    	**type**\:   :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask>`
+                                    	**type**\:  :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask>`
                                     
                                     .. attribute:: ttl
                                     
                                     	Minimum TTL
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: flow_types_info
                                     
                                     	flow information
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: filter
                                     
                                     	Interface Filters
-                                    	**type**\: list of    :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter>`
+                                    	**type**\: list of  		 :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter>`
                                     
                                     
 
@@ -3438,12 +3448,12 @@ class TcpConnection(Entity):
                                         .. attribute:: is_receive_filter
                                         
                                         	Receive filter enabled
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_ip_sla
                                         
                                         	IP SLA
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -3478,17 +3488,17 @@ class TcpConnection(Entity):
                                         .. attribute:: is_pcb_bound
                                         
                                         	PCB bound
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_local_address_ignore
                                         
                                         	Sent drop packets
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_ignore_vrf_filter
                                         
                                         	Ignore VRF Filter
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -3525,32 +3535,32 @@ class TcpConnection(Entity):
                                         .. attribute:: is_interface
                                         
                                         	Set interface
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_packet_type
                                         
                                         	Set packet type
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_remote_address
                                         
                                         	Set Remote address
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_remote_port
                                         
                                         	Set Remote Port
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_local_address
                                         
                                         	Set Local Address
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_local_port
                                         
                                         	Set Local Port
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -3593,69 +3603,71 @@ class TcpConnection(Entity):
                                         .. attribute:: packet_type
                                         
                                         	Protocol\-specific packet type
-                                        	**type**\:   :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType>`
+                                        	**type**\:  :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType>`
                                         
                                         .. attribute:: remote_address
                                         
                                         	Remote address
-                                        	**type**\:   :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress>`
+                                        	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress>`
                                         
                                         .. attribute:: local_address
                                         
                                         	Local address
-                                        	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress>`
+                                        	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress>`
                                         
                                         .. attribute:: interface_name
                                         
                                         	Interface name
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                                         
                                         .. attribute:: remote_length
                                         
                                         	Remote address length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: local_length
                                         
                                         	Local address length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: receive_remote_port
                                         
                                         	Receive Remote port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: receive_local_port
                                         
                                         	Receive Local port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: priority
                                         
                                         	Priority
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: ttl
                                         
                                         	Minimum TTL
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: flow_types_info
                                         
                                         	flow information
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3719,27 +3731,27 @@ class TcpConnection(Entity):
                                             .. attribute:: type
                                             
                                             	Type
-                                            	**type**\:   :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Packet>`
+                                            	**type**\:  :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Packet>`
                                             
                                             .. attribute:: icmp_message_type
                                             
                                             	ICMP message type
-                                            	**type**\:   :py:class:`MessageTypeIcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmp>`
+                                            	**type**\:  :py:class:`MessageTypeIcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmp>`
                                             
                                             .. attribute:: icm_pv6_message_type
                                             
                                             	ICMPv6 message type
-                                            	**type**\:   :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6>`
+                                            	**type**\:  :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6>`
                                             
                                             .. attribute:: igmp_message_type
                                             
                                             	IGMP message type
-                                            	**type**\:   :py:class:`MessageTypeIgmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIgmp>`
+                                            	**type**\:  :py:class:`MessageTypeIgmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIgmp>`
                                             
                                             .. attribute:: message_id
                                             
                                             	Message type in number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
@@ -3782,17 +3794,21 @@ class TcpConnection(Entity):
                                             .. attribute:: af_name
                                             
                                             	AFName
-                                            	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                                            	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -3829,17 +3845,21 @@ class TcpConnection(Entity):
                                             .. attribute:: af_name
                                             
                                             	AFName
-                                            	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                                            	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -3877,7 +3897,7 @@ class TcpConnection(Entity):
                 .. attribute:: detail_information
                 
                 	Protocol Control Block ID
-                	**type**\: list of    :py:class:`DetailInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation>`
+                	**type**\: list of  		 :py:class:`DetailInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation>`
                 
                 
 
@@ -3910,151 +3930,151 @@ class TcpConnection(Entity):
                     .. attribute:: pcb_id  <key>
                     
                     	Detail information about TCP connection, put null for all
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress>`
+                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress>`
+                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress>`
                     
                     .. attribute:: socket_option_flags
                     
                     	Socket option flags
-                    	**type**\:   :py:class:`SocketOptionFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags>`
+                    	**type**\:  :py:class:`SocketOptionFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags>`
                     
                     .. attribute:: socket_state_flags
                     
                     	Socket state flags
-                    	**type**\:   :py:class:`SocketStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags>`
+                    	**type**\:  :py:class:`SocketStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags>`
                     
                     .. attribute:: feature_flags
                     
                     	Connection feature flags
-                    	**type**\:   :py:class:`FeatureFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags>`
+                    	**type**\:  :py:class:`FeatureFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags>`
                     
                     .. attribute:: state_flags
                     
                     	Connection state flags
-                    	**type**\:   :py:class:`StateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags>`
+                    	**type**\:  :py:class:`StateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags>`
                     
                     .. attribute:: request_flags
                     
                     	Connection request flags
-                    	**type**\:   :py:class:`RequestFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags>`
+                    	**type**\:  :py:class:`RequestFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags>`
                     
                     .. attribute:: receive_buf_state_flags
                     
                     	Receive buffer state flags
-                    	**type**\:   :py:class:`ReceiveBufStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags>`
+                    	**type**\:  :py:class:`ReceiveBufStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags>`
                     
                     .. attribute:: send_buf_state_flags
                     
                     	Send buffer state flags
-                    	**type**\:   :py:class:`SendBufStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags>`
+                    	**type**\:  :py:class:`SendBufStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags>`
                     
                     .. attribute:: address_family
                     
                     	Address Family
-                    	**type**\:   :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
+                    	**type**\:  :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
                     
                     .. attribute:: pcb
                     
                     	PCB Address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: so
                     
                     	Socket Address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: tcpcb
                     
                     	TCPCB Address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: vrf_id
                     
                     	VRF Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connection_state
                     
                     	Connection state
-                    	**type**\:   :py:class:`TcpConnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnState>`
+                    	**type**\:  :py:class:`TcpConnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnState>`
                     
                     .. attribute:: established_time
                     
                     	Time at which connection is established
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_pid
                     
                     	Id of the local process
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_port
                     
                     	Local port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: foreign_port
                     
                     	Foreign port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: packet_priority
                     
                     	Priority given to packets on this socket
-                    	**type**\:   :py:class:`PakPrio <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.PakPrio>`
+                    	**type**\:  :py:class:`PakPrio <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.PakPrio>`
                     
                     .. attribute:: packet_tos
                     
                     	Type of Service value to be applied to transmistted packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: packet_ttl
                     
                     	TTL to be applied to transmited packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: hash_index
                     
                     	Index of the Hash Bucket
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: current_receive_queue_size
                     
                     	Current receive queue size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4063,7 +4083,7 @@ class TcpConnection(Entity):
                     .. attribute:: max_receive_queue_size
                     
                     	Max receive queue size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4072,7 +4092,7 @@ class TcpConnection(Entity):
                     .. attribute:: current_send_queue_size
                     
                     	Current send queue size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4081,7 +4101,7 @@ class TcpConnection(Entity):
                     .. attribute:: max_send_queue_size
                     
                     	Max send queue size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4090,21 +4110,21 @@ class TcpConnection(Entity):
                     .. attribute:: current_receive_queue_packet_size
                     
                     	Current receive queue size in packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max_receive_queue_packet_size
                     
                     	Max receive queue size in packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: save_queue_size
                     
                     	Save queue (out\-of seq data) size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4113,35 +4133,35 @@ class TcpConnection(Entity):
                     .. attribute:: send_initial_sequence_num
                     
                     	Initial send sequence number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_unack_sequence_num
                     
                     	Sequence number of unacked data
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_next_sequence_num
                     
                     	Sequence number of next data to be sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_max_sequence_num
                     
                     	Highest sequence number sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_window_size
                     
                     	Send window size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4150,7 +4170,7 @@ class TcpConnection(Entity):
                     .. attribute:: send_congestion_window_size
                     
                     	Send congestion window size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4159,21 +4179,21 @@ class TcpConnection(Entity):
                     .. attribute:: receive_initial_sequence_num
                     
                     	Initial receive sequence number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: receive_next_sequence_num
                     
                     	Next sequence number expected
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: receive_adv_window_size
                     
                     	Receive advertised window size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4182,7 +4202,7 @@ class TcpConnection(Entity):
                     .. attribute:: receive_window_size
                     
                     	Receive window size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4191,7 +4211,7 @@ class TcpConnection(Entity):
                     .. attribute:: mss
                     
                     	Max segment size calculated in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4200,7 +4220,7 @@ class TcpConnection(Entity):
                     .. attribute:: peer_mss
                     
                     	Max segment size offered by the peer in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4209,131 +4229,131 @@ class TcpConnection(Entity):
                     .. attribute:: srtt
                     
                     	Smoothed round trip time \* 8 (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rtto
                     
                     	Round trip timeout (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: krtt
                     
                     	Round trip time (karn algorithm) (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: srtv
                     
                     	Smoothed round trip time variance \* 4 (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: min_rtt
                     
                     	Min RTT (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max_rtt
                     
                     	Max RTT (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: retries
                     
                     	Number of retries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ack_hold_time
                     
                     	ACK hold time (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: giveup_time
                     
                     	Giveup time (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keep_alive_time
                     
                     	Keepalive time (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: syn_wait_time
                     
                     	SYN wait time (msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rxsy_naclname
                     
                     	RX Syn acl name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: soft_error
                     
                     	Error code from ICMP Notify
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: sock_error
                     
                     	Socket error code
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: is_retrans_forever
                     
                     	Retransimit forever?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: min_mss
                     
                     	Lowest MSS ever used
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max_mss
                     
                     	Highest MSS ever used
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connect_retries
                     
                     	Number of times connect will be retried?
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: connect_retry_interval
                     
                     	Connect retry interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -4342,192 +4362,192 @@ class TcpConnection(Entity):
                     .. attribute:: receive_window_scale
                     
                     	Window scaling for receive window
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_window_scale
                     
                     	Window scaling for send window
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: request_receive_window_scale
                     
                     	Requested receive window scale
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rqst_send_wnd_scale
                     
                     	Requested send window scale
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: time_stamp_recent
                     
                     	Timestamp from remote host
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: time_stamp_recent_age
                     
                     	Timestamp when last updated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_ack_sent
                     
                     	ACK number of a sent segment
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sendbuf_lowwat
                     
                     	Send buffer's low water mark
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: recvbuf_lowwat
                     
                     	Receive buffer's low water mark
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sendbuf_hiwat
                     
                     	Send buffer's high water mark
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: recvbuf_hiwat
                     
                     	Receive buffer's high water mark
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sendbuf_notify_thresh
                     
                     	Send buffer's notify threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: recvbuf_datasize
                     
                     	Receive buffer's data size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: queue_length
                     
                     	Incoming connection queue size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: queue_zero_length
                     
                     	Incoming half\-connection queue size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: queue_limit
                     
                     	Incoming connection queue limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: socket_error
                     
                     	Socket error status
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: auto_rearm
                     
                     	Socket auto rearm state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_pdu_count
                     
                     	# of PDU's in Send Buffer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_ifhandle
                     
                     	Cached Outgoing interface  handle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: fib_pd_ctx_size
                     
                     	Cached fib pd context size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_labels
                     
                     	Number of labels returned by fib lookup
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_app_instance
                     
                     	Instance number of the local process
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: fib_pd_ctx
                     
                     	Cached fib pd context
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: fib_label_output
                     
                     	Cached Label stack
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: timer
                     
                     	Timers
-                    	**type**\: list of    :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer>`
+                    	**type**\: list of  		 :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer>`
                     
                     .. attribute:: sack_blk
                     
                     	Seq nos. of sack blocks
-                    	**type**\: list of    :py:class:`SackBlk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk>`
+                    	**type**\: list of  		 :py:class:`SackBlk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk>`
                     
                     .. attribute:: send_sack_hole
                     
                     	Sorted list of sack holes
-                    	**type**\: list of    :py:class:`SendSackHole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole>`
+                    	**type**\: list of  		 :py:class:`SendSackHole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole>`
                     
                     
 
@@ -4763,17 +4783,21 @@ class TcpConnection(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
+                        	**type**\:  :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -4810,17 +4834,21 @@ class TcpConnection(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
+                        	**type**\:  :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -4857,57 +4885,57 @@ class TcpConnection(Entity):
                         .. attribute:: debug
                         
                         	Turn on debugging info recording
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: accept_connection
                         
                         	Socket has had listen()
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: reuse_address
                         
                         	Allow local address reuse
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: keep_alive
                         
                         	Keep connections alive
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: dont_route
                         
                         	Just use interface addresses
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: broadcast
                         
                         	Permit sending of broadcast msgs
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: use_loopback
                         
                         	Bypass hardware when possible
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: linger
                         
                         	Linger on close if data present
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: out_of_band_inline
                         
                         	Leave received Out\-of\-band data inline
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: reuse_port
                         
                         	Allow local address & port reuse
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: nonblocking_io
                         
                         	Nonblocking socket I/O operation
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -4960,77 +4988,77 @@ class TcpConnection(Entity):
                         .. attribute:: no_file_descriptor_reference
                         
                         	No file descriptor ref
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_connected
                         
                         	Socket is connected to peer
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_connecting
                         
                         	Connecting in progress
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_disconnecting
                         
                         	Disconnecting in progress
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: cant_send_more
                         
                         	Can't send more data to peer
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: cant_receive_more
                         
                         	Can't recv more data from peer
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: received_at_mark
                         
                         	At mark on input
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: privileged
                         
                         	Privileged for broadcast, raw..
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: block_close
                         
                         	Close is blocked (i.e. socket is a replicated socket on a standby node
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: async_io_notify
                         
                         	Async i/o notify
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_confirming
                         
                         	Deciding to accept connection req
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_solock
                         
                         	Mutex acquired by solock()
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detached
                         
                         	PCB and socket are detached
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: block_receive
                         
                         	Socket is blocked for receive \- while going through SSO initial sync
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: block_send
                         
                         	Socket is blocked for send (if it is a replicated socket on a standby node)
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5091,47 +5119,47 @@ class TcpConnection(Entity):
                         .. attribute:: selective_ack
                         
                         	Selective ack on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: md5
                         
                         	MD5 option on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: timestamps
                         
                         	Timestamps on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: window_scaling
                         
                         	Window\-scaling on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: nagle
                         
                         	Nagle algorithm on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: giveup_timer
                         
                         	Giveup timer is on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: connection_keep_alive_timer
                         
                         	Keepalive timer is on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: path_mtu_discovery
                         
                         	Path MTU Discovery feature is on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mss_cisco
                         
                         	tcp mss feature is on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5180,42 +5208,42 @@ class TcpConnection(Entity):
                         .. attribute:: nagle_wait
                         
                         	Nagle has delayed output
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: ack_needed
                         
                         	Send an ACK
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: fin_sent
                         
                         	FIN has been sent
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: probing
                         
                         	Probing a closed window
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: need_push
                         
                         	Need to push data out
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: pushed
                         
                         	A segment is pushed due to MSG\_PUSH
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: in_syn_cache
                         
                         	Connection is in SYN cache
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: path_mtu_ager
                         
                         	Path MTU aging timer is running
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5262,47 +5290,47 @@ class TcpConnection(Entity):
                         .. attribute:: selective_ack
                         
                         	Selective ack on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: md5
                         
                         	MD5 option on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: timestamps
                         
                         	Timestamps on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: window_scaling
                         
                         	Window\-scaling on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: nagle
                         
                         	Nagle algorithm on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: giveup_timer
                         
                         	Giveup timer is on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: connection_keep_alive_timer
                         
                         	Keepalive timer is on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: path_mtu_discovery
                         
                         	Path MTU Discovery feature is on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mss_cisco
                         
                         	tcp mss feature is on?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5351,62 +5379,62 @@ class TcpConnection(Entity):
                         .. attribute:: locked
                         
                         	Lock on data queue (so\_rcv only)
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: waiting_for_lock
                         
                         	Someone is waiting to lock
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: waiting_for_data
                         
                         	Someone is waiting for data/space
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: input_select
                         
                         	Buffer is selected for INPUT
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: async_io
                         
                         	Async I/O
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: not_interruptible
                         
                         	Not interruptible
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: io_timer_set
                         
                         	Read/write timer set
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: delayed_wakeup
                         
                         	Want delayed wakeups
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: wakeup
                         
                         	Read/write wakeup pending
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: connect_wakeup
                         
                         	Connect wakeup pending
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: output_select
                         
                         	Buffer is selected for OUTPUT
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: out_of_band_select
                         
                         	Buffer is selected for OBAND
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5461,62 +5489,62 @@ class TcpConnection(Entity):
                         .. attribute:: locked
                         
                         	Lock on data queue (so\_rcv only)
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: waiting_for_lock
                         
                         	Someone is waiting to lock
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: waiting_for_data
                         
                         	Someone is waiting for data/space
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: input_select
                         
                         	Buffer is selected for INPUT
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: async_io
                         
                         	Async I/O
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: not_interruptible
                         
                         	Not interruptible
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: io_timer_set
                         
                         	Read/write timer set
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: delayed_wakeup
                         
                         	Want delayed wakeups
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: wakeup
                         
                         	Read/write wakeup pending
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: connect_wakeup
                         
                         	Connect wakeup pending
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: output_select
                         
                         	Buffer is selected for OUTPUT
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: out_of_band_select
                         
                         	Buffer is selected for OBAND
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5571,26 +5599,26 @@ class TcpConnection(Entity):
                         .. attribute:: timer_type
                         
                         	Timer Type
-                        	**type**\:   :py:class:`TcpTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpTimer>`
+                        	**type**\:  :py:class:`TcpTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpTimer>`
                         
                         .. attribute:: timer_activations
                         
                         	Count of timer activations
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: timer_expirations
                         
                         	Count of timer expirations
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: timer_next_activation
                         
                         	Timer next activation (msec)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5631,14 +5659,14 @@ class TcpConnection(Entity):
                         .. attribute:: start
                         
                         	Start seq no. of sack block
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: end
                         
                         	End   seq no. of sack block
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5675,28 +5703,28 @@ class TcpConnection(Entity):
                         .. attribute:: start
                         
                         	Start seq no. of hole
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: end
                         
                         	End   seq no. of hole
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: duplicated_ack
                         
                         	Number of dup (s)acks for this hole
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: retransmitted
                         
                         	Next seq. no in hole to be retransmitted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5739,7 +5767,7 @@ class TcpConnection(Entity):
                 .. attribute:: brief_information
                 
                 	Brief information about a TCP connection
-                	**type**\: list of    :py:class:`BriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation>`
+                	**type**\: list of  		 :py:class:`BriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation>`
                 
                 
 
@@ -5772,62 +5800,62 @@ class TcpConnection(Entity):
                     .. attribute:: pcb_id  <key>
                     
                     	Protocol Control Block ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress>`
+                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress>`
+                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress>`
                     
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:   :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
+                    	**type**\:  :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
                     
                     .. attribute:: pcb
                     
                     	PCB Address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: connection_state
                     
                     	Connection state
-                    	**type**\:   :py:class:`TcpConnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnState>`
+                    	**type**\:  :py:class:`TcpConnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnState>`
                     
                     .. attribute:: local_pid
                     
                     	Id of the local process
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_port
                     
                     	Local port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: foreign_port
                     
                     	Foreign port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: current_receive_queue_size
                     
                     	Current receive queue size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5836,7 +5864,7 @@ class TcpConnection(Entity):
                     .. attribute:: current_send_queue_size
                     
                     	Current send queue size in bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5845,7 +5873,7 @@ class TcpConnection(Entity):
                     .. attribute:: vrf_id
                     
                     	VRF ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5908,17 +5936,21 @@ class TcpConnection(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
+                        	**type**\:  :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -5955,17 +5987,21 @@ class TcpConnection(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
+                        	**type**\:  :py:class:`TcpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -6005,7 +6041,7 @@ class Tcp(Entity):
     .. attribute:: nodes
     
     	Node\-specific TCP operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes>`
     
     
 
@@ -6039,7 +6075,7 @@ class Tcp(Entity):
         .. attribute:: node
         
         	TCP operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node>`
         
         
 
@@ -6073,12 +6109,14 @@ class Tcp(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: statistics
             
             	Statistical TCP operational data for a node
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics>`
             
             
 
@@ -6117,12 +6155,12 @@ class Tcp(Entity):
                 .. attribute:: ipv4_traffic
                 
                 	TCP Traffic statistics for IPv4
-                	**type**\:   :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics.Ipv4Traffic>`
+                	**type**\:  :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics.Ipv4Traffic>`
                 
                 .. attribute:: ipv6_traffic
                 
                 	TCP Traffic statistics for IPv6
-                	**type**\:   :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics.Ipv6Traffic>`
+                	**type**\:  :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics.Ipv6Traffic>`
                 
                 
 
@@ -6160,35 +6198,35 @@ class Tcp(Entity):
                     .. attribute:: tcp_input_packets
                     
                     	TCP packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tcp_checksum_error_packets
                     
                     	TCP packets with checksum errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tcp_dropped_packets
                     
                     	TCP packets dropped (no port)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tcp_output_packets
                     
                     	TCP packets transmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tcp_retransmitted_packets
                     
                     	TCP packets retransmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6231,35 +6269,35 @@ class Tcp(Entity):
                     .. attribute:: tcp_input_packets
                     
                     	TCP packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tcp_checksum_error_packets
                     
                     	TCP packets with checksum errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tcp_dropped_packets
                     
                     	TCP packets dropped (no port)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tcp_output_packets
                     
                     	TCP packets transmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tcp_retransmitted_packets
                     
                     	TCP packets retransmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6305,7 +6343,7 @@ class TcpNsr(Entity):
     .. attribute:: nodes
     
     	Table of information about all nodes present on the system
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes>`
     
     
 
@@ -6340,7 +6378,7 @@ class TcpNsr(Entity):
         .. attribute:: node
         
         	Information about a single node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node>`
         
         
 
@@ -6374,27 +6412,29 @@ class TcpNsr(Entity):
             .. attribute:: id  <key>
             
             	Describing a location
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: session
             
             	Information about TCP NSR Sessions
-            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session>`
+            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session>`
             
             .. attribute:: client
             
             	Information about TCP NSR Client
-            	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client>`
+            	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client>`
             
             .. attribute:: session_set
             
             	Information about TCP NSR Session Sets
-            	**type**\:   :py:class:`SessionSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet>`
+            	**type**\:  :py:class:`SessionSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet>`
             
             .. attribute:: statistics
             
             	Statis Information about TCP NSR connections
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics>`
             
             
 
@@ -6448,12 +6488,12 @@ class TcpNsr(Entity):
                 .. attribute:: brief_sessions
                 
                 	Information about TCP NSR Sessions
-                	**type**\:   :py:class:`BriefSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions>`
+                	**type**\:  :py:class:`BriefSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions>`
                 
                 .. attribute:: detail_sessions
                 
                 	Table about TCP NSR Sessions details
-                	**type**\:   :py:class:`DetailSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions>`
+                	**type**\:  :py:class:`DetailSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions>`
                 
                 
 
@@ -6491,7 +6531,7 @@ class TcpNsr(Entity):
                     .. attribute:: brief_session
                     
                     	Brief information about NSR Sessions
-                    	**type**\: list of    :py:class:`BriefSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession>`
+                    	**type**\: list of  		 :py:class:`BriefSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession>`
                     
                     
 
@@ -6524,77 +6564,83 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of NSR Sesison
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: address_family
                         
                         	Address family
-                        	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                        	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                         
                         .. attribute:: pcb
                         
                         	PCB Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: sscb
                         
                         	SSCB Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: local_port
                         
                         	Local port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: foreign_port
                         
                         	Foreign port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: vrf_id
                         
                         	VRF Id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_admin_configured_up
                         
                         	Is NSR administratively configured?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_us_operational_up
                         
                         	Is Upstream NSR operational?
-                        	**type**\:   :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatus>`
+                        	**type**\:  :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatus>`
                         
                         .. attribute:: is_ds_operational_up
                         
                         	Is Downstream NSR operational?
-                        	**type**\:   :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatus>`
+                        	**type**\:  :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatus>`
                         
                         .. attribute:: is_only_receive_path_replication
                         
                         	Is replication limited to receive\-path only
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: local_address
                         
                         	Local address
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: foreign_address
                         
                         	Foreign address
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -6651,7 +6697,7 @@ class TcpNsr(Entity):
                     .. attribute:: detail_session
                     
                     	showing detailed information of NSR Sessions
-                    	**type**\: list of    :py:class:`DetailSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession>`
+                    	**type**\: list of  		 :py:class:`DetailSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession>`
                     
                     
 
@@ -6684,147 +6730,149 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of NSR Sesison
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: set_information
                         
                         	Sesson\-set information
-                        	**type**\:   :py:class:`SetInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation>`
+                        	**type**\:  :py:class:`SetInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation>`
                         
                         .. attribute:: address_family
                         
                         	Address family
-                        	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                        	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                         
                         .. attribute:: pcb
                         
                         	PCB Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: sscb
                         
                         	SSCB Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: local_port
                         
                         	Local port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: foreign_port
                         
                         	Foreign port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: vrf_id
                         
                         	VRF Id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_admin_configured_up
                         
                         	Is NSR administratively configured?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_us_operational_up
                         
                         	Is Upstream NSR operational?
-                        	**type**\:   :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatus>`
+                        	**type**\:  :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatus>`
                         
                         .. attribute:: is_ds_operational_up
                         
                         	Is Downstream NSR operational?
-                        	**type**\:   :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatus>`
+                        	**type**\:  :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatus>`
                         
                         .. attribute:: is_only_receive_path_replication
                         
                         	Is replication limited to receive\-path only
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: cookie
                         
                         	Cookie provided by active APP
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: is_session_replicated
                         
                         	Has the session been replicated to standby?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_session_synced
                         
                         	Has the session completed initial\-sync?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: fist_standby_sequence_number
                         
                         	If initial sync is completed, then the FSSN \- First Standby Sequence Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: fssn_offset
                         
                         	Offset of FSSN in input stream
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: nsr_down_reason
                         
                         	If NSR is not up, the reason for it
-                        	**type**\:   :py:class:`NsrDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason>`
+                        	**type**\:  :py:class:`NsrDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason>`
                         
                         .. attribute:: nsr_down_time
                         
                         	Time at which NSR went down
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sequence_number_of_init_sync
                         
                         	ID of the Initial sync operation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_init_sync_in_progress
                         
                         	Is initial\-sync currently in progress?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_init_sync_second_phase
                         
                         	Is initial sync in the second phase?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: init_sync_error
                         
                         	Initial sync failure reason, if any
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: is_init_sync_error_local
                         
                         	Initial sync failed due to a local error or remote stack
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: init_sync_start_time
                         
                         	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6833,7 +6881,7 @@ class TcpNsr(Entity):
                         .. attribute:: init_sync_end_time
                         
                         	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6842,28 +6890,28 @@ class TcpNsr(Entity):
                         .. attribute:: init_sync_flags
                         
                         	Init Sync flags for the session
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sequence_number_of_init_sync_up_stream
                         
                         	ID of the Initial sync operation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: peer_endp_hdl_up_stream
                         
                         	Peer NCD endp handle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: init_sync_start_time_up_stream
                         
                         	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6872,7 +6920,7 @@ class TcpNsr(Entity):
                         .. attribute:: init_sync_end_time_up_stream
                         
                         	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6881,40 +6929,40 @@ class TcpNsr(Entity):
                         .. attribute:: fist_standby_sequence_number_up_stream
                         
                         	FSSN for the upstream partner
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: nsr_down_reason_up_stream
                         
                         	The reason NSR is not up towards the upstream partner
-                        	**type**\:   :py:class:`NsrDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason>`
+                        	**type**\:  :py:class:`NsrDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason>`
                         
                         .. attribute:: nsr_down_time_up_stream
                         
                         	Time at which NSR went down
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sequence_number_of_init_sync_down_stream
                         
                         	ID of the Initial sync operation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: peer_endp_hdl_down_stream
                         
                         	Peer NCD endp handle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: init_sync_start_time_down_stream
                         
                         	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6923,7 +6971,7 @@ class TcpNsr(Entity):
                         .. attribute:: init_sync_end_time_down_stream
                         
                         	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6932,69 +6980,73 @@ class TcpNsr(Entity):
                         .. attribute:: fist_standby_sequence_number_down_stream
                         
                         	FSSN for the upstream partner
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: nsr_down_reason_down_stream
                         
                         	The reason NSR is not up towards the upstream partner
-                        	**type**\:   :py:class:`NsrDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason>`
+                        	**type**\:  :py:class:`NsrDownReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason>`
                         
                         .. attribute:: nsr_down_time_down_stream
                         
                         	Time at which NSR went down
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: max_number_of_held_packet
                         
                         	Max number of incoming packets have been held
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: max_number_of_held_packet_reach_time
                         
                         	Max number of held incoming packets reaches at
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: max_number_of_held_internal_ack
                         
                         	Max number of internal acks have been held
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: max_number_of_held_internal_ack_reach_time
                         
                         	Max number of held internal acks reaches at
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_address
                         
                         	Local address
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: foreign_address
                         
                         	Foreign address
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: packet_hold_queue
                         
                         	Sequence Number and datalength of each node in hold\_pakqueue
-                        	**type**\: list of    :py:class:`PacketHoldQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue>`
+                        	**type**\: list of  		 :py:class:`PacketHoldQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue>`
                         
                         .. attribute:: internal_ack_hold_queue
                         
                         	Sequence Number and datalength of each node in hold\_iackqueue
-                        	**type**\: list of    :py:class:`InternalAckHoldQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue>`
+                        	**type**\: list of  		 :py:class:`InternalAckHoldQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue>`
                         
                         
 
@@ -7125,116 +7177,120 @@ class TcpNsr(Entity):
                             .. attribute:: sscb
                             
                             	Address of the Session Set Control Block
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pid
                             
                             	PID of the Client that owns this Session\-set
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: client_name
                             
                             	the name of Clinet that owns this Session\-set
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: client_instance
                             
                             	Instance of the Client that owns this Session\-set
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_id
                             
                             	ID of this Session\-set
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: sso_role
                             
                             	TCP role for this set?
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mode
                             
                             	Session\-set mode
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: address_family
                             
                             	Address Family of the sessions in this set
-                            	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                            	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                             
                             .. attribute:: well_known_port
                             
                             	Well Known Port of the client
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: local_node
                             
                             	Local node of this set
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: local_instance
                             
                             	Instance of the client application on the local node
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: protect_node
                             
                             	The node protecting this set
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: protect_instance
                             
                             	Instance of the client application on the protection node
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: number_of_sessions
                             
                             	Number of Sessions in the set
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: number_of_synced_sessions_up_stream
                             
                             	How many sessions are synced with upstream partner
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: number_of_synced_sessions_down_stream
                             
                             	How many sessions are synced with downstream partner
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: is_init_sync_in_progress
                             
                             	Is an initial sync in progress currently?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_sscb_init_sync_ready
                             
                             	Is the SSCB ready for another initial sync?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -7302,21 +7358,21 @@ class TcpNsr(Entity):
                             .. attribute:: sequence_number
                             
                             	Sequence Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_length
                             
                             	Data Length
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknoledgement_number
                             
                             	Ack Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -7356,21 +7412,21 @@ class TcpNsr(Entity):
                             .. attribute:: sequence_number
                             
                             	Sequence Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_length
                             
                             	Data Length
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknoledgement_number
                             
                             	Ack Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -7409,12 +7465,12 @@ class TcpNsr(Entity):
                 .. attribute:: detail_clients
                 
                 	Table about TCP NSR Client details
-                	**type**\:   :py:class:`DetailClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients>`
+                	**type**\:  :py:class:`DetailClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients>`
                 
                 .. attribute:: brief_clients
                 
                 	Information about TCP NSR Client
-                	**type**\:   :py:class:`BriefClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients>`
+                	**type**\:  :py:class:`BriefClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients>`
                 
                 
 
@@ -7452,7 +7508,7 @@ class TcpNsr(Entity):
                     .. attribute:: detail_client
                     
                     	showing detailed information of NSR Clients
-                    	**type**\: list of    :py:class:`DetailClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients.DetailClient>`
+                    	**type**\: list of  		 :py:class:`DetailClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients.DetailClient>`
                     
                     
 
@@ -7485,66 +7541,68 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of NSR client
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pid
                         
                         	PID of the Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: process_name
                         
                         	Proc name of Clinet
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: job_id
                         
                         	JOb ID of Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: instance
                         
                         	Instance of the Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: numberof_sets
                         
                         	Number of Sets owned by this client 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_sessions
                         
                         	Number of sessions owned by this client 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_up_sessions
                         
                         	Number of sessions with NSR up
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: connected_at
                         
                         	Time of connect (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7553,7 +7611,7 @@ class TcpNsr(Entity):
                         .. attribute:: is_notification_registered
                         
                         	Registered with TCP for notifications?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -7606,7 +7664,7 @@ class TcpNsr(Entity):
                     .. attribute:: brief_client
                     
                     	Brief information about NSR Client
-                    	**type**\: list of    :py:class:`BriefClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients.BriefClient>`
+                    	**type**\: list of  		 :py:class:`BriefClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients.BriefClient>`
                     
                     
 
@@ -7639,59 +7697,61 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of NSR client
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pid
                         
                         	PID of the Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: process_name
                         
                         	Proc name of Clinet
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: job_id
                         
                         	JOb ID of Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: instance
                         
                         	Instance of the Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: numberof_sets
                         
                         	Number of Sets owned by this client 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_sessions
                         
                         	Number of sessions owned by this client 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_up_sessions
                         
                         	Number of sessions with NSR up 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7742,12 +7802,12 @@ class TcpNsr(Entity):
                 .. attribute:: detail_sets
                 
                 	Table about TCP NSR Session Sets details
-                	**type**\:   :py:class:`DetailSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets>`
+                	**type**\:  :py:class:`DetailSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets>`
                 
                 .. attribute:: brief_sets
                 
                 	Information about TCP NSR Session Sets
-                	**type**\:   :py:class:`BriefSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets>`
+                	**type**\:  :py:class:`BriefSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets>`
                 
                 
 
@@ -7785,7 +7845,7 @@ class TcpNsr(Entity):
                     .. attribute:: detail_set
                     
                     	showing detailed information of NSR Session Sets
-                    	**type**\: list of    :py:class:`DetailSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet>`
+                    	**type**\: list of  		 :py:class:`DetailSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet>`
                     
                     
 
@@ -7819,159 +7879,165 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of NSR Sesison Set
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: sscb
                         
                         	Address of the Session Set Control Block
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pid
                         
                         	PID of the Client that owns this Session\-set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_id
                         
                         	ID of this Session\-set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sso_role
                         
                         	TCP role for this set?
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mode
                         
                         	Session\-set mode
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: address_family
                         
                         	Address Family of the sessions in this set
-                        	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                        	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                         
                         .. attribute:: well_known_port
                         
                         	Well Known Port of the client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: local_node
                         
                         	Local node of this set
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         .. attribute:: local_instance
                         
                         	Instance of the client application on the local node
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: protect_node
                         
                         	The node protecting this set
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         .. attribute:: protect_instance
                         
                         	Instance of the client application on the protection node
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_sessions
                         
                         	Number of Sessions in the set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_synced_sessions_up_stream
                         
                         	How many sessions are synced with upstream partner
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_synced_sessions_down_stream
                         
                         	How many sessions are synced with downstream partner
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_init_sync_in_progress
                         
                         	Is an initial sync in progress currently?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_init_sync_second_phase
                         
                         	Is initial sync in the second phase?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: sequence_number_of_init_sync
                         
                         	ID of the current or the last initial sync operation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: init_sync_timer
                         
                         	Time left on the initial sync timer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: total_number_of_init_sync_sessions
                         
                         	Number of sessions being synced as part of the current initial sync operation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_init_synced_sessions
                         
                         	Number of sessions that are synced as part of the current initial sync operation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_sessions_init_sync_failed
                         
                         	Number of sessions that failed to sync as part of the current initial sync operation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: init_sync_error
                         
                         	Initial sync failure reason, if any
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: is_init_sync_error_local
                         
                         	Initial sync failed due to a local error or remote stack
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: init_sync_start_time
                         
                         	Time at which last or current initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7980,7 +8046,7 @@ class TcpNsr(Entity):
                         .. attribute:: init_sync_end_time
                         
                         	Time at which the last initial sync operation was ended (in seconds since 1st Jan 1970 00\:00 \:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7989,12 +8055,12 @@ class TcpNsr(Entity):
                         .. attribute:: is_sscb_init_sync_ready
                         
                         	Is the SSCB ready for another initial sync?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: init_sync_ready_start_time
                         
                         	Time at which the session was ready for initial sync last (in seconds since 1st Jan 1970 00\:00 \:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -8003,7 +8069,7 @@ class TcpNsr(Entity):
                         .. attribute:: init_sync_ready_end_time
                         
                         	Time at which the session set last went not\-ready for initial sync (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -8012,7 +8078,7 @@ class TcpNsr(Entity):
                         .. attribute:: nsr_reset_time
                         
                         	Time at which NSR was last reset on the session set (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -8021,19 +8087,19 @@ class TcpNsr(Entity):
                         .. attribute:: is_audit_in_progress
                         
                         	Is an audit in progress currently?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: audit_seq_number
                         
                         	ID of the current or the last audit operation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: audit_start_time
                         
                         	Time at which last or current audit operation was started (in seconds since 1st Jan 1970 00\:00 \:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -8042,7 +8108,7 @@ class TcpNsr(Entity):
                         .. attribute:: audit_end_time
                         
                         	Time at which the last audit operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -8145,7 +8211,7 @@ class TcpNsr(Entity):
                     .. attribute:: brief_set
                     
                     	Brief information about NSR Session Sets
-                    	**type**\: list of    :py:class:`BriefSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet>`
+                    	**type**\: list of  		 :py:class:`BriefSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet>`
                     
                     
 
@@ -8178,121 +8244,127 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of NSR Session Set
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: sscb
                         
                         	Address of the Session Set Control Block
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pid
                         
                         	PID of the Client that owns this Session\-set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: client_name
                         
                         	the name of Clinet that owns this Session\-set
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: client_instance
                         
                         	Instance of the Client that owns this Session\-set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_id
                         
                         	ID of this Session\-set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sso_role
                         
                         	TCP role for this set?
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mode
                         
                         	Session\-set mode
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: address_family
                         
                         	Address Family of the sessions in this set
-                        	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
+                        	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamily>`
                         
                         .. attribute:: well_known_port
                         
                         	Well Known Port of the client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: local_node
                         
                         	Local node of this set
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         .. attribute:: local_instance
                         
                         	Instance of the client application on the local node
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: protect_node
                         
                         	The node protecting this set
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         .. attribute:: protect_instance
                         
                         	Instance of the client application on the protection node
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_sessions
                         
                         	Number of Sessions in the set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_synced_sessions_up_stream
                         
                         	How many sessions are synced with upstream partner
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_synced_sessions_down_stream
                         
                         	How many sessions are synced with downstream partner
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_init_sync_in_progress
                         
                         	Is an initial sync in progress currently?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_sscb_init_sync_ready
                         
                         	Is the SSCB ready for another initial sync?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -8361,22 +8433,22 @@ class TcpNsr(Entity):
                 .. attribute:: summary
                 
                 	Summary statistics across all NSR connections
-                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary>`
+                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary>`
                 
                 .. attribute:: statistic_clients
                 
                 	Table listing NSR connections for which statistic information is provided
-                	**type**\:   :py:class:`StatisticClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients>`
+                	**type**\:  :py:class:`StatisticClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients>`
                 
                 .. attribute:: statistic_sets
                 
                 	Table listing NSR connections for which statistic information is provided
-                	**type**\:   :py:class:`StatisticSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets>`
+                	**type**\:  :py:class:`StatisticSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets>`
                 
                 .. attribute:: statistic_sessions
                 
                 	Table listing NSR connections for which statistic information is provided
-                	**type**\:   :py:class:`StatisticSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions>`
+                	**type**\:  :py:class:`StatisticSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions>`
                 
                 
 
@@ -8424,17 +8496,17 @@ class TcpNsr(Entity):
                     .. attribute:: snd_counters
                     
                     	Aggregate Send path counters
-                    	**type**\:   :py:class:`SndCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters>`
+                    	**type**\:  :py:class:`SndCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters>`
                     
                     .. attribute:: audit_counters
                     
                     	Aggregate Audit counters
-                    	**type**\:   :py:class:`AuditCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters>`
+                    	**type**\:  :py:class:`AuditCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters>`
                     
                     .. attribute:: last_cleared_time
                     
                     	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8443,231 +8515,231 @@ class TcpNsr(Entity):
                     .. attribute:: number_of_connected_clients
                     
                     	Number of disconnected clients
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_disconnected_clients
                     
                     	Number of disconnected clients
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_current_clients
                     
                     	Number of current  clients
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_created_session_sets
                     
                     	Number of created session sets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_destroyed_session_sets
                     
                     	Number of destroyed session sets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_current_session_sets
                     
                     	Number of current session sets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_added_sessions
                     
                     	Number of added sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_deleted_sessions
                     
                     	Number of deleted sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_current_sessions
                     
                     	Number of current sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_partner_node
                     
                     	 Number of Parner Nodes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_attempted_init_sync
                     
                     	no. of initial\-sync attempts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_succeeded_init_sync
                     
                     	no. of initial\-sync successes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_failed_init_sync
                     
                     	no. of initial\-sync fails
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_held_packets
                     
                     	Number of Packets held by Active TCP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_held_but_dropped_packets
                     
                     	Number of held packets dropped by Active TCP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_held_internal_acks
                     
                     	Number of Internal Acks held by Active TCP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_held_but_dropped_internal_acks
                     
                     	Number of held Internal Acks dropped by Active TCP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_sent_internal_acks
                     
                     	Number of Internal Acks sent to Active TCP by Standby TCP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_received_internal_acks
                     
                     	Number of Internal Acks received by Active TCP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_qad_receive_messages_drops
                     
                     	Number of dropped messages from partner TCP stack(s)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_qad_receive_messages_unknowns
                     
                     	Number of unknown messages from partner TCP stack(s)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_qad_receive_messages_accepts
                     
                     	Number of messages accepted from partner TCP stack(s)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_qad_stale_receive_messages_drops
                     
                     	Number of dropped messages from partner TCP stack(s) because they were out\-of\-order
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_qad_transfer_message_sent
                     
                     	Number of messages sent to partner TCP stack(s)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_qad_transfer_message_drops
                     
                     	Number of messages failed to be sent to partner TCP stack(s)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_internal_ack_drops_no_pcb
                     
                     	Number of iACKs dropped because there is no PCB
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_internal_ack_drops_no_scbdp
                     
                     	Number of iACKs dropped because there is no datapath SCB
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: internal_ack_drops_not_replicated
                     
                     	Number of iACKs dropped because session is not replicated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: internal_ack_drops_initsync_first_phase
                     
                     	Number of iACKs dropped because init\-sync is in 1st phase
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: internal_ack_drops_stale
                     
                     	Number of stale iACKs dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: internal_ack_drops_immediate_match
                     
                     	Number of iACKs not held because of an immediate match
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: held_packet_drops
                     
                     	Number of held packets dropped because of errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: notification_statistic
                     
                     	Various types of notification stats
-                    	**type**\: list of    :py:class:`NotificationStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic>`
+                    	**type**\: list of  		 :py:class:`NotificationStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic>`
                     
                     
 
@@ -8776,12 +8848,12 @@ class TcpNsr(Entity):
                         .. attribute:: common
                         
                         	Common send path counters
-                        	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common>`
+                        	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common>`
                         
                         .. attribute:: aggr_only
                         
                         	Aggregate only send path counters
-                        	**type**\:   :py:class:`AggrOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly>`
+                        	**type**\:  :py:class:`AggrOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly>`
                         
                         
 
@@ -8819,175 +8891,175 @@ class TcpNsr(Entity):
                             .. attribute:: data_xfer_send
                             
                             	Number of successful DATA transfers
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_send_total
                             
                             	Amount of data transferred
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_xfer_send_drop
                             
                             	Number of failed DATA transfers
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_send_iov_alloc
                             
                             	Number of data transfer msgs., that required new IOV's to be allocated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv
                             
                             	Number of received DATA transfers
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv_success
                             
                             	Number of successfully received DATA transfers
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv_fail_buffer_trim
                             
                             	Number of received DATA transfers that had buffer trim failures
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv_fail_snd_una_out_of_sync
                             
                             	Number of received DATA transfers that had failures because the send path was out of sync
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_send
                             
                             	Number of successful Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_send_units
                             
                             	Number of segement units transferred via the successful Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_send_drop
                             
                             	Number of failed Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv
                             
                             	Number of received Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv_success
                             
                             	Number of successfully received Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv_fail_buffer_trim
                             
                             	Number of received Segmentation instructions that had buffer trim failures
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv_fail_tcp_process
                             
                             	Number of received Segmentation instructions that had failures during TCP processing
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_send
                             
                             	Number of successful NACK messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_send_drop
                             
                             	Number of failed NACK messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_rcv
                             
                             	Number of received NACK messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_rcv_success
                             
                             	Number of successfully received NACK messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_rcv_fail_data_send
                             
                             	Number of received NACK messages that had failures when sending data in response to the NACK
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_send
                             
                             	Number of successful Cleanup messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_send_drop
                             
                             	Number of failed Cleanup messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_rcv
                             
                             	Number of received Cleanup messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_rcv_success
                             
                             	Number of successfully received Cleanup messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_rcv_fail_buffer_trim
                             
                             	Number of Cleanup messages that had trim failures
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -9070,56 +9142,56 @@ class TcpNsr(Entity):
                             .. attribute:: data_xfer_rcv_drop_no_pcb
                             
                             	Number of Data transfer messages dropped because PCB wasn't found
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv_drop_no_scb_dp
                             
                             	Number of Data transfer messages dropped because SCB DP wasn't found
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv_drop_no_pcb
                             
                             	Number of Segmentation instruction messages dropped because PCB wasn't found
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv_drop_no_scb_dp
                             
                             	Number of Segmentation instruction messages dropped because SCB DP wasn't found
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_rcv_drop_no_pcb
                             
                             	Number of NACK messages dropped because PCB wasn't found
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_rcv_drop_no_scb_dp
                             
                             	Number of NACK messages dropped because SCB DP wasn't found
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_rcv_drop_no_pcb
                             
                             	Number of Cleanup messages dropped because PCB wasn't found
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_rcv_drop_no_scb_dp
                             
                             	Number of Cleanup messages dropped because SCB DP wasn't found
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -9168,12 +9240,12 @@ class TcpNsr(Entity):
                         .. attribute:: common
                         
                         	Common audit counters
-                        	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common>`
+                        	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common>`
                         
                         .. attribute:: aggr_only
                         
                         	Aggregate only audit counters
-                        	**type**\:   :py:class:`AggrOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly>`
+                        	**type**\:  :py:class:`AggrOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly>`
                         
                         
 
@@ -9211,175 +9283,175 @@ class TcpNsr(Entity):
                             .. attribute:: mark_session_set_send
                             
                             	Number of successful session\-set Mark's sent by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_send_drop
                             
                             	Number of failed session\-set Mark's
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_rcv
                             
                             	Number of successful session\-set Mark's received by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_rcv_drop
                             
                             	Number of session\-set Mark's dropped by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_send
                             
                             	Number of successful session audits sent by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_send_drop
                             
                             	Number of session audits that couldn't be sent by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_rcv
                             
                             	Number of session audits received by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_rcv_drop
                             
                             	Number of session audits dropped by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: sweep_session_set_send
                             
                             	Number of successful session\-set Sweep's sent by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: sweep_session_set_send_drop
                             
                             	Number of failed session\-set Sweep's
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: sweep_session_set_rcv
                             
                             	Number of successful session\-set Sweep's received by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: sweep_session_set_rcv_drop
                             
                             	Number of session\-set Sweep's dropped by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_set_response_send
                             
                             	Number of successful audit responses sent by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_set_response_send_drop
                             
                             	Number of audit responses that couldn't be sent by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_set_response_rcv
                             
                             	Number of audit responses received by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_set_response_rcv_drop
                             
                             	Number of audit responses dropped by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_ack_send
                             
                             	Number of successful audit mark acks sent by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_ack_send_drop
                             
                             	Number of audit mark acks that couldn't be sent by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_ack_rcv
                             
                             	Number of audit mark acks received by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_ack_rcv_drop
                             
                             	Number of audit mark acks dropped by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_nack_send
                             
                             	Number of successful audit mark nacks sent by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_nack_send_drop
                             
                             	Number of audit mark nacks that couldn't be sent by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_nack_rcv
                             
                             	Number of audit mark nacks received by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_nack_rcv_drop
                             
                             	Number of audit mark nacks dropped by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: abort
                             
                             	Number of times the active aborted an audit session
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -9462,42 +9534,42 @@ class TcpNsr(Entity):
                             .. attribute:: mark_session_set_rcv_drop_aggr
                             
                             	Number of session\-set Mark messages dropped by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_rcv_drop_aggr
                             
                             	Number of session audit messages dropped by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: sweep_session_set_rcv_drop_aggr
                             
                             	Number of session\-set Sweep messages dropped by standby
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_set_response_rcv_drop_aggr
                             
                             	Number of session\-set response messages dropped by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_ack_rcv_drop_aggr
                             
                             	Number of session\-set mark ack messages dropped by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mark_session_set_nack_rcv_drop_aggr
                             
                             	Number of session\-set mark nack messages dropped by active
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -9542,28 +9614,28 @@ class TcpNsr(Entity):
                         .. attribute:: queued_count
                         
                         	how many were queued
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed_count
                         
                         	Errors while queuing the notifs
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: delivered_count
                         
                         	How many were picked up by app?
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_count
                         
                         	How many were dropped because of timeout
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -9605,7 +9677,7 @@ class TcpNsr(Entity):
                     .. attribute:: statistic_client
                     
                     	showing statistic information of NSR Clients
-                    	**type**\: list of    :py:class:`StatisticClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient>`
+                    	**type**\: list of  		 :py:class:`StatisticClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient>`
                     
                     
 
@@ -9638,45 +9710,47 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of NSR Client
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pid
                         
                         	PID of the Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: process_name
                         
                         	Proc name of Clinet
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: job_id
                         
                         	JOb ID of Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: instance
                         
                         	Instance of the Client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: connected_at
                         
                         	Time of connect (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -9685,21 +9759,21 @@ class TcpNsr(Entity):
                         .. attribute:: number_of_created_sscb
                         
                         	Num of created session sets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_deleted_sscb
                         
                         	Num of deleted session sets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: last_cleared_time
                         
                         	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -9708,7 +9782,7 @@ class TcpNsr(Entity):
                         .. attribute:: notification_statistic
                         
                         	Various types of notification stats
-                        	**type**\: list of    :py:class:`NotificationStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic>`
+                        	**type**\: list of  		 :py:class:`NotificationStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic>`
                         
                         
 
@@ -9761,28 +9835,28 @@ class TcpNsr(Entity):
                             .. attribute:: queued_count
                             
                             	how many were queued
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: failed_count
                             
                             	Errors while queuing the notifs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: delivered_count
                             
                             	How many were picked up by app?
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: dropped_count
                             
                             	How many were dropped because of timeout
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -9824,7 +9898,7 @@ class TcpNsr(Entity):
                     .. attribute:: statistic_set
                     
                     	showing statistic information of NSR Session Set
-                    	**type**\: list of    :py:class:`StatisticSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet>`
+                    	**type**\: list of  		 :py:class:`StatisticSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet>`
                     
                     
 
@@ -9858,61 +9932,63 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of NSR Session Set
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: sscb
                         
                         	SSCB Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: set_id
                         
                         	ID of this Session\-set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_attempted_init_sync
                         
                         	no. of initial\-sync attempts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_succeeded_init_sync
                         
                         	no. of initial\-sync successes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_failed_init_sync
                         
                         	no. of initial\-sync failures
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_failover
                         
                         	Number of Switch\-overs
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_nsr_resets
                         
                         	Number of times NSR was reset for the session
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: last_cleared_time
                         
                         	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -9966,7 +10042,7 @@ class TcpNsr(Entity):
                     .. attribute:: statistic_session
                     
                     	showing statistic information of TCP connections
-                    	**type**\: list of    :py:class:`StatisticSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession>`
+                    	**type**\: list of  		 :py:class:`StatisticSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession>`
                     
                     
 
@@ -10000,80 +10076,82 @@ class TcpNsr(Entity):
                         .. attribute:: id  <key>
                         
                         	ID of TCP connection
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: snd_counters
                         
                         	Send path counters for the PCB
-                        	**type**\:   :py:class:`SndCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters>`
+                        	**type**\:  :py:class:`SndCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters>`
                         
                         .. attribute:: pcb
                         
                         	PCB Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: number_of_times_nsr_up
                         
                         	no. of times nsr went up
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_timers_nsr_down
                         
                         	no. of times nsr went down
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_times_nsr_disabled
                         
                         	no. of times nsr was disabled
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: number_of_times_nsr_fail_over
                         
                         	no. of times fail\-over occured
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: internal_ack_drops_not_replicated
                         
                         	Number of iACKs dropped because session is not replicated
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: internal_ack_drops_initsync_first_phase
                         
                         	Number of iACKs dropped because 1st phase of init\-sync is in progress
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: internal_ack_drops_stale
                         
                         	Number of stale iACKs dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: internal_ack_drops_immediate_match
                         
                         	Number of iACKs not held because of an immediate match
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: last_cleared_time
                         
                         	Time of last clear (in seconds since 1st Jan 1970 00\:00\:00)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -10135,175 +10213,175 @@ class TcpNsr(Entity):
                             .. attribute:: data_xfer_send
                             
                             	Number of successful DATA transfers
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_send_total
                             
                             	Amount of data transferred
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_xfer_send_drop
                             
                             	Number of failed DATA transfers
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_send_iov_alloc
                             
                             	Number of data transfer msgs., that required new IOV's to be allocated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv
                             
                             	Number of received DATA transfers
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv_success
                             
                             	Number of successfully received DATA transfers
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv_fail_buffer_trim
                             
                             	Number of received DATA transfers that had buffer trim failures
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_xfer_rcv_fail_snd_una_out_of_sync
                             
                             	Number of received DATA transfers that had failures because the send path was out of sync
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_send
                             
                             	Number of successful Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_send_units
                             
                             	Number of segement units transferred via the successful Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_send_drop
                             
                             	Number of failed Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv
                             
                             	Number of received Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv_success
                             
                             	Number of successfully received Segmentation instruction messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv_fail_buffer_trim
                             
                             	Number of received Segmentation instructions that had buffer trim failures
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: seg_instr_rcv_fail_tcp_process
                             
                             	Number of received Segmentation instructions that had failures during TCP processing
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_send
                             
                             	Number of successful NACK messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_send_drop
                             
                             	Number of failed NACK messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_rcv
                             
                             	Number of received NACK messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_rcv_success
                             
                             	Number of successfully received NACK messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: nack_rcv_fail_data_send
                             
                             	Number of received NACK messages that had failures when sending data in response to the NACK
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_send
                             
                             	Number of successful Cleanup messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_send_drop
                             
                             	Number of failed Cleanup messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_rcv
                             
                             	Number of received Cleanup messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_rcv_success
                             
                             	Number of successfully received Cleanup messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: cleanup_rcv_fail_buffer_trim
                             
                             	Number of Cleanup messages that had trim failures
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             

@@ -586,133 +586,135 @@ class Snmp(Entity):
     .. attribute:: encrypted_community_maps
     
     	Container class to hold clear/encrypted communitie maps
-    	**type**\:   :py:class:`EncryptedCommunityMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.EncryptedCommunityMaps>`
+    	**type**\:  :py:class:`EncryptedCommunityMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.EncryptedCommunityMaps>`
     
     .. attribute:: views
     
     	Class to configure a SNMPv2 MIB view
-    	**type**\:   :py:class:`Views <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Views>`
+    	**type**\:  :py:class:`Views <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Views>`
     
     .. attribute:: logging
     
     	SNMP logging
-    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Logging>`
+    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Logging>`
     
     .. attribute:: administration
     
     	Container class for SNMP administration
-    	**type**\:   :py:class:`Administration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration>`
+    	**type**\:  :py:class:`Administration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration>`
     
     .. attribute:: agent
     
     	The heirarchy point for SNMP Agent configurations
-    	**type**\:   :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent>`
+    	**type**\:  :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent>`
     
     .. attribute:: trap
     
     	Class to hold trap configurations
-    	**type**\:   :py:class:`Trap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Trap>`
+    	**type**\:  :py:class:`Trap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Trap>`
     
     .. attribute:: ipv6
     
     	SNMP TOS bit for outgoing packets
-    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv6>`
+    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv6>`
     
     .. attribute:: ipv4
     
     	SNMP TOS bit for outgoing packets
-    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv4>`
+    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv4>`
     
     .. attribute:: system
     
     	container to hold system information
-    	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.System>`
+    	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.System>`
     
     .. attribute:: target
     
     	SNMP target configurations
-    	**type**\:   :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target>`
+    	**type**\:  :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target>`
     
     .. attribute:: notification
     
     	Enable SNMP notifications
-    	**type**\:   :py:class:`Notification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification>`
+    	**type**\:  :py:class:`Notification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification>`
     
     .. attribute:: correlator
     
     	Configure properties of the trap correlator
-    	**type**\:   :py:class:`Correlator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator>`
+    	**type**\:  :py:class:`Correlator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator>`
     
     .. attribute:: bulk_stats
     
     	SNMP bulk stats configuration commands
-    	**type**\:   :py:class:`BulkStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats>`
+    	**type**\:  :py:class:`BulkStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats>`
     
     .. attribute:: default_community_maps
     
     	Container class to hold unencrpted community map
-    	**type**\:   :py:class:`DefaultCommunityMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.DefaultCommunityMaps>`
+    	**type**\:  :py:class:`DefaultCommunityMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.DefaultCommunityMaps>`
     
     .. attribute:: overload_control
     
     	Set overload control params for handling incoming messages
-    	**type**\:   :py:class:`OverloadControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.OverloadControl>`
+    	**type**\:  :py:class:`OverloadControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.OverloadControl>`
     
     	**presence node**\: True
     
     .. attribute:: timeouts
     
     	SNMP timeouts
-    	**type**\:   :py:class:`Timeouts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Timeouts>`
+    	**type**\:  :py:class:`Timeouts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Timeouts>`
     
     .. attribute:: users
     
     	Define a user who can access the SNMP engine
-    	**type**\:   :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Users>`
+    	**type**\:  :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Users>`
     
     .. attribute:: vrfs
     
     	SNMP VRF configuration commands
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs>`
     
     .. attribute:: groups
     
     	Define a User Security Model group
-    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Groups>`
+    	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Groups>`
     
     .. attribute:: inform_retries
     
     	Number of times to retry an Inform request (default 3)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..100
     
     .. attribute:: trap_port
     
     	Change the source port of all traps
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1024..65535
     
     .. attribute:: oid_poll_stats
     
     	Enable Poll OID statistics
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: trap_source
     
     	Assign an interface for the source address of all traps
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     .. attribute:: vrf_authentication_trap_disable
     
     	Disable authentication traps for packets on a vrf
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: inform_timeout
     
     	Timeout value in seconds for Inform request (default 15 sec)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..42949671
     
@@ -721,48 +723,52 @@ class Snmp(Entity):
     .. attribute:: trap_source_ipv6
     
     	Assign an interface for the source IPV6 address of all traps
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     .. attribute:: packet_size
     
     	Largest SNMP packet size
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 484..65500
     
     .. attribute:: throttle_time
     
     	Throttle time for incoming queue (default 0 msec)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 50..1000
     
     .. attribute:: trap_source_ipv4
     
     	Assign an interface for the source address of all traps
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     .. attribute:: inform_pending
     
     	Max nmber of informs to hold in queue, (default 25)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..4294967295
     
     .. attribute:: trap_hosts
     
     	Specify hosts to receive SNMP notifications
-    	**type**\:   :py:class:`TrapHosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts>`
+    	**type**\:  :py:class:`TrapHosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts>`
     
     .. attribute:: contexts
     
     	List of Context Names
-    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Contexts>`
+    	**type**\:  :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Contexts>`
     
     .. attribute:: context_mappings
     
     	List of context names
-    	**type**\:   :py:class:`ContextMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.ContextMappings>`
+    	**type**\:  :py:class:`ContextMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.ContextMappings>`
     
     
 
@@ -926,7 +932,7 @@ class Snmp(Entity):
         .. attribute:: encrypted_community_map
         
         	Clear/encrypted SNMP community map
-        	**type**\: list of    :py:class:`EncryptedCommunityMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.EncryptedCommunityMaps.EncryptedCommunityMap>`
+        	**type**\: list of  		 :py:class:`EncryptedCommunityMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.EncryptedCommunityMaps.EncryptedCommunityMap>`
         
         
 
@@ -960,22 +966,24 @@ class Snmp(Entity):
             .. attribute:: community_name  <key>
             
             	SNMP community map
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: context
             
             	SNMP Context Name 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: security
             
             	SNMP Security Name 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: target_list
             
             	target list name 
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1015,7 +1023,7 @@ class Snmp(Entity):
         .. attribute:: view
         
         	Name of the view
-        	**type**\: list of    :py:class:`View <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Views.View>`
+        	**type**\: list of  		 :py:class:`View <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Views.View>`
         
         
 
@@ -1049,17 +1057,19 @@ class Snmp(Entity):
             .. attribute:: view_name  <key>
             
             	Name of the view
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: family  <key>
             
             	MIB view family name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: view_inclusion
             
             	MIB view to be included or excluded
-            	**type**\:   :py:class:`SnmpMibViewInclusion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpMibViewInclusion>`
+            	**type**\:  :py:class:`SnmpMibViewInclusion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpMibViewInclusion>`
             
             	**mandatory**\: True
             
@@ -1099,7 +1109,7 @@ class Snmp(Entity):
         .. attribute:: threshold
         
         	SNMP logging threshold
-        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Logging.Threshold>`
+        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Logging.Threshold>`
         
         
 
@@ -1133,7 +1143,7 @@ class Snmp(Entity):
             .. attribute:: oid_processing
             
             	SNMP logging threshold for OID processing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..20000
             
@@ -1142,7 +1152,7 @@ class Snmp(Entity):
             .. attribute:: pdu_processing
             
             	SNMP logging threshold for PDU processing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..20000
             
@@ -1182,12 +1192,12 @@ class Snmp(Entity):
         .. attribute:: default_communities
         
         	Container class to hold unencrpted communities
-        	**type**\:   :py:class:`DefaultCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration.DefaultCommunities>`
+        	**type**\:  :py:class:`DefaultCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration.DefaultCommunities>`
         
         .. attribute:: encrypted_communities
         
         	Container class to hold clear/encrypted communities
-        	**type**\:   :py:class:`EncryptedCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration.EncryptedCommunities>`
+        	**type**\:  :py:class:`EncryptedCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration.EncryptedCommunities>`
         
         
 
@@ -1226,7 +1236,7 @@ class Snmp(Entity):
             .. attribute:: default_community
             
             	Unencrpted SNMP community string and access priviledges
-            	**type**\: list of    :py:class:`DefaultCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration.DefaultCommunities.DefaultCommunity>`
+            	**type**\: list of  		 :py:class:`DefaultCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration.DefaultCommunities.DefaultCommunity>`
             
             
 
@@ -1261,44 +1271,44 @@ class Snmp(Entity):
                 .. attribute:: community_name  <key>
                 
                 	SNMP community string
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..128
                 
                 .. attribute:: priviledge
                 
                 	Read/Write Access
-                	**type**\:   :py:class:`SnmpAccessLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevel>`
+                	**type**\:  :py:class:`SnmpAccessLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevel>`
                 
                 .. attribute:: view_name
                 
                 	MIB view to which the community has access
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: v4acl_type
                 
                 	Access\-list type
-                	**type**\:   :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
+                	**type**\:  :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
                 
                 .. attribute:: v4_access_list
                 
                 	Ipv4 Access\-list name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: v6acl_type
                 
                 	Access\-list type
-                	**type**\:   :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
+                	**type**\:  :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
                 
                 .. attribute:: v6_access_list
                 
                 	Ipv6 Access\-list name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: owner
                 
                 	Logical Router or System owner access
-                	**type**\:   :py:class:`SnmpOwnerAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess>`
+                	**type**\:  :py:class:`SnmpOwnerAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess>`
                 
                 
 
@@ -1347,7 +1357,7 @@ class Snmp(Entity):
             .. attribute:: encrypted_community
             
             	Clear/encrypted SNMP community string and access priviledges
-            	**type**\: list of    :py:class:`EncryptedCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration.EncryptedCommunities.EncryptedCommunity>`
+            	**type**\: list of  		 :py:class:`EncryptedCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Administration.EncryptedCommunities.EncryptedCommunity>`
             
             
 
@@ -1382,42 +1392,44 @@ class Snmp(Entity):
                 .. attribute:: community_name  <key>
                 
                 	SNMP community string
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: priviledge
                 
                 	Read/Write Access
-                	**type**\:   :py:class:`SnmpAccessLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevel>`
+                	**type**\:  :py:class:`SnmpAccessLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevel>`
                 
                 .. attribute:: view_name
                 
                 	MIB view to which the community has access
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: v4acl_type
                 
                 	Access\-list type
-                	**type**\:   :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
+                	**type**\:  :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
                 
                 .. attribute:: v4_access_list
                 
                 	Ipv4 Access\-list name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: v6acl_type
                 
                 	Access\-list type
-                	**type**\:   :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
+                	**type**\:  :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
                 
                 .. attribute:: v6_access_list
                 
                 	Ipv6 Access\-list name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: owner
                 
                 	Logical Router or System owner access
-                	**type**\:   :py:class:`SnmpOwnerAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess>`
+                	**type**\:  :py:class:`SnmpOwnerAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess>`
                 
                 
 
@@ -1466,7 +1478,7 @@ class Snmp(Entity):
         .. attribute:: engine_id
         
         	SNMPv3 engineID
-        	**type**\:   :py:class:`EngineId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent.EngineId>`
+        	**type**\:  :py:class:`EngineId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent.EngineId>`
         
         
 
@@ -1500,12 +1512,12 @@ class Snmp(Entity):
             .. attribute:: remotes
             
             	SNMPv3 remote SNMP Entity
-            	**type**\:   :py:class:`Remotes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent.EngineId.Remotes>`
+            	**type**\:  :py:class:`Remotes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent.EngineId.Remotes>`
             
             .. attribute:: local
             
             	engineID of the local agent
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1544,7 +1556,7 @@ class Snmp(Entity):
                 .. attribute:: remote
                 
                 	engineID of the remote agent
-                	**type**\: list of    :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent.EngineId.Remotes.Remote>`
+                	**type**\: list of  		 :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Agent.EngineId.Remotes.Remote>`
                 
                 
 
@@ -1578,25 +1590,25 @@ class Snmp(Entity):
                     .. attribute:: remote_address  <key>
                     
                     	IP address of remote SNMP entity
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: remote_engine_id
                     
                     	engine ID octet string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: port
                     
                     	UDP port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1636,14 +1648,14 @@ class Snmp(Entity):
         .. attribute:: timeout
         
         	Timeout for TRAP message retransmissions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1000
         
         .. attribute:: throttle_time
         
         	Set throttle time for handling traps
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 10..500
         
@@ -1652,7 +1664,7 @@ class Snmp(Entity):
         .. attribute:: queue_length
         
         	Message queue length for each TRAP host
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..5000
         
@@ -1692,7 +1704,7 @@ class Snmp(Entity):
         .. attribute:: tos
         
         	Type of TOS
-        	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv6.Tos>`
+        	**type**\:  :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv6.Tos>`
         
         
 
@@ -1726,38 +1738,30 @@ class Snmp(Entity):
             .. attribute:: type
             
             	SNMP TOS type DSCP or Precedence
-            	**type**\:   :py:class:`SnmpTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpTos>`
+            	**type**\:  :py:class:`SnmpTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpTos>`
             
             .. attribute:: precedence
             
             	SNMP Precedence value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`SnmpPrecedenceValue1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1>`
+            		**type**\:  :py:class:`SnmpPrecedenceValue1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..7
             
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: dscp
             
             	SNMP DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`SnmpDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpDscpValue>`
+            		**type**\:  :py:class:`SnmpDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             """
@@ -1794,7 +1798,7 @@ class Snmp(Entity):
         .. attribute:: tos
         
         	Type of TOS
-        	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv4.Tos>`
+        	**type**\:  :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Ipv4.Tos>`
         
         
 
@@ -1828,38 +1832,30 @@ class Snmp(Entity):
             .. attribute:: type
             
             	SNMP TOS type DSCP or Precedence
-            	**type**\:   :py:class:`SnmpTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpTos>`
+            	**type**\:  :py:class:`SnmpTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpTos>`
             
             .. attribute:: precedence
             
             	SNMP Precedence value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`SnmpPrecedenceValue1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1>`
+            		**type**\:  :py:class:`SnmpPrecedenceValue1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..7
             
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: dscp
             
             	SNMP DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`SnmpDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpDscpValue>`
+            		**type**\:  :py:class:`SnmpDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             """
@@ -1896,21 +1892,21 @@ class Snmp(Entity):
         .. attribute:: chassis_id
         
         	String to uniquely identify this chassis
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..255
         
         .. attribute:: location
         
         	The physical location of this node
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..255
         
         .. attribute:: contact
         
         	identification of the contact person for this managed node
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..255
         
@@ -1950,7 +1946,7 @@ class Snmp(Entity):
         .. attribute:: targets
         
         	List of targets
-        	**type**\:   :py:class:`Targets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets>`
+        	**type**\:  :py:class:`Targets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets>`
         
         
 
@@ -1984,7 +1980,7 @@ class Snmp(Entity):
             .. attribute:: target
             
             	Name of the target list
-            	**type**\: list of    :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target>`
+            	**type**\: list of  		 :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target>`
             
             
 
@@ -2018,17 +2014,19 @@ class Snmp(Entity):
                 .. attribute:: target_list_name  <key>
                 
                 	Name of the target list
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: vrf_names
                 
                 	List of VRF Name for a target list
-                	**type**\:   :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.VrfNames>`
+                	**type**\:  :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.VrfNames>`
                 
                 .. attribute:: target_addresses
                 
                 	SNMP Target address configurations
-                	**type**\:   :py:class:`TargetAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.TargetAddresses>`
+                	**type**\:  :py:class:`TargetAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.TargetAddresses>`
                 
                 
 
@@ -2072,7 +2070,7 @@ class Snmp(Entity):
                     .. attribute:: vrf_name
                     
                     	VRF name of the target
-                    	**type**\: list of    :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.VrfNames.VrfName>`
+                    	**type**\: list of  		 :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.VrfNames.VrfName>`
                     
                     
 
@@ -2105,7 +2103,9 @@ class Snmp(Entity):
                         .. attribute:: name  <key>
                         
                         	VRF Name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         
 
@@ -2138,7 +2138,7 @@ class Snmp(Entity):
                     .. attribute:: target_address
                     
                     	IP Address to be configured for the Target
-                    	**type**\: list of    :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.TargetAddresses.TargetAddress>`
+                    	**type**\: list of  		 :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Target.Targets.Target.TargetAddresses.TargetAddress>`
                     
                     
 
@@ -2171,16 +2171,16 @@ class Snmp(Entity):
                         .. attribute:: ip_address  <key>
                         
                         	IPv4/Ipv6 address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         
 
                         """
@@ -2212,212 +2212,212 @@ class Snmp(Entity):
         .. attribute:: snmp
         
         	SNMP notification configuration
-        	**type**\:   :py:class:`Snmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Snmp>`
+        	**type**\:  :py:class:`Snmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Snmp>`
         
         .. attribute:: diametermib
         
         	Enable SNMP diameter traps
-        	**type**\:   :py:class:`Diametermib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Diametermib>`
+        	**type**\:  :py:class:`Diametermib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Diametermib>`
         
         .. attribute:: vpls
         
         	CISCO\-IETF\-VPLS\-GENERIC\-MIB notification configuration
-        	**type**\:   :py:class:`Vpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vpls>`
+        	**type**\:  :py:class:`Vpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vpls>`
         
         .. attribute:: l2vpn
         
         	CISCO\-IETF\-PW\-MIB notification configuration
-        	**type**\:   :py:class:`L2Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2Vpn>`
+        	**type**\:  :py:class:`L2Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2Vpn>`
         
         .. attribute:: isis
         
         	Enable ISIS\-MIB notifications
-        	**type**\:   :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Isis>`
+        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Isis>`
         
         .. attribute:: config_man
         
         	CISCO\-CONFIG\-MAN\-MIB notification configurations
-        	**type**\:   :py:class:`ConfigMan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigMan>`
+        	**type**\:  :py:class:`ConfigMan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigMan>`
         
         .. attribute:: cfm
         
         	802.1ag Connectivity Fault Management MIB notification configuration
-        	**type**\:   :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Cfm>`
+        	**type**\:  :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Cfm>`
         
         .. attribute:: oam
         
         	802.3 OAM MIB notification configuration
-        	**type**\:   :py:class:`Oam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Oam>`
+        	**type**\:  :py:class:`Oam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Oam>`
         
         .. attribute:: fabric_crs
         
         	CISCO\-FABRIC\-HFR\-MIB notification configuration
-        	**type**\:   :py:class:`FabricCrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FabricCrs>`
+        	**type**\:  :py:class:`FabricCrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FabricCrs>`
         
         .. attribute:: flash
         
         	CISCO\-FLASH\-MIB notification configuration
-        	**type**\:   :py:class:`Flash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Flash>`
+        	**type**\:  :py:class:`Flash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Flash>`
         
         .. attribute:: cisco_ios_xr_freqsync_cfg_frequency_synchronization
         
         	Frequency Synchronization trap configuration
-        	**type**\:   :py:class:`CiscoIOSXRFreqsyncCfgFrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.CiscoIOSXRFreqsyncCfgFrequencySynchronization>`
+        	**type**\:  :py:class:`CiscoIOSXRFreqsyncCfgFrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.CiscoIOSXRFreqsyncCfgFrequencySynchronization>`
         
         .. attribute:: entity_redundancy
         
         	CISCO\-ENTITY\-REDUNDANCY\-MIB notification configuration
-        	**type**\:   :py:class:`EntityRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityRedundancy>`
+        	**type**\:  :py:class:`EntityRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityRedundancy>`
         
         .. attribute:: config_copy
         
         	CISCO\-CONFIG\-COPY\-MIB notification configuration
-        	**type**\:   :py:class:`ConfigCopy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigCopy>`
+        	**type**\:  :py:class:`ConfigCopy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigCopy>`
         
         .. attribute:: selective_vrf_download
         
         	CISCO\-SELECTIVE\-VRF\-DOWNLOAD\-MIB notification configuration
-        	**type**\:   :py:class:`SelectiveVrfDownload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SelectiveVrfDownload>`
+        	**type**\:  :py:class:`SelectiveVrfDownload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SelectiveVrfDownload>`
         
         .. attribute:: system
         
         	CISCO\-SYSTEM\-MIB notification configuration
-        	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.System>`
+        	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.System>`
         
         .. attribute:: bfd
         
         	CISCO\-IETF\-BFD\-MIB notification configuration
-        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bfd>`
+        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bfd>`
         
         .. attribute:: addresspool_mib
         
         	Enable SNMP daps traps
-        	**type**\:   :py:class:`AddresspoolMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.AddresspoolMib>`
+        	**type**\:  :py:class:`AddresspoolMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.AddresspoolMib>`
         
         .. attribute:: ntp
         
         	CISCO\-NTP\-MIB notification configuration
-        	**type**\:   :py:class:`Ntp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ntp>`
+        	**type**\:  :py:class:`Ntp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ntp>`
         
         .. attribute:: rsvp
         
         	Enable RSVP\-MIB notifications
-        	**type**\:   :py:class:`Rsvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rsvp>`
+        	**type**\:  :py:class:`Rsvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rsvp>`
         
         .. attribute:: bgp
         
         	BGP4\-MIB and CISCO\-BGP4\-MIB notification configuration
-        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp>`
+        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp>`
         
         .. attribute:: hsrp
         
         	CISCO\-HSRP\-MIB notification configuration
-        	**type**\:   :py:class:`Hsrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Hsrp>`
+        	**type**\:  :py:class:`Hsrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Hsrp>`
         
         .. attribute:: ospf
         
         	OSPF\-MIB notification configuration
-        	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf>`
+        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf>`
         
         .. attribute:: vrrp
         
         	VRRP\-MIB notification configuration
-        	**type**\:   :py:class:`Vrrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vrrp>`
+        	**type**\:  :py:class:`Vrrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vrrp>`
         
         .. attribute:: ospfv3
         
         	OSPFv3\-MIB notification configuration
-        	**type**\:   :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3>`
+        	**type**\:  :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3>`
         
         .. attribute:: mpls_ldp
         
         	MPLS\-LDP\-STD\-MIB notification configuration
-        	**type**\:   :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsLdp>`
+        	**type**\:  :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsLdp>`
         
         .. attribute:: mpls_te_p2mp
         
         	CISCO\-MPLS\-TE\-P2MP\-STD\-MIB notification configuration
-        	**type**\:   :py:class:`MplsTeP2Mp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTeP2Mp>`
+        	**type**\:  :py:class:`MplsTeP2Mp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTeP2Mp>`
         
         .. attribute:: mpls_te
         
         	MPLS\-TE\-STD\-MIB notification configuration
-        	**type**\:   :py:class:`MplsTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe>`
+        	**type**\:  :py:class:`MplsTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe>`
         
         .. attribute:: mpls_frr
         
         	CISCO\-IETF\-FRR\-MIB notification configuration
-        	**type**\:   :py:class:`MplsFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsFrr>`
+        	**type**\:  :py:class:`MplsFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsFrr>`
         
         .. attribute:: mpls_l3vpn
         
         	MPLS\-L3VPN\-STD\-MIB notification configuration
-        	**type**\:   :py:class:`MplsL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsL3Vpn>`
+        	**type**\:  :py:class:`MplsL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsL3Vpn>`
         
-        .. attribute:: cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization
+        .. attribute:: cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization_
         
         	Frequency Synchronization trap configuration
-        	**type**\:   :py:class:`CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization>`
+        	**type**\:  :py:class:`CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization>`
         
         .. attribute:: optical
         
         	CISCO\-OPTICAL\-MIB notification configuration
-        	**type**\:   :py:class:`Optical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Optical>`
+        	**type**\:  :py:class:`Optical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Optical>`
         
         .. attribute:: optical_ots
         
         	CISCO\-OPTICAL\-OTS\-MIB notification configuration
-        	**type**\:   :py:class:`OpticalOts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.OpticalOts>`
+        	**type**\:  :py:class:`OpticalOts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.OpticalOts>`
         
         .. attribute:: otn
         
         	CISCO\-OTN\-IF\-MIB notification configuration
-        	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Otn>`
+        	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Otn>`
         
         .. attribute:: bridge
         
         	BRIDGE\-MIB notification configuration
-        	**type**\:   :py:class:`Bridge <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bridge>`
+        	**type**\:  :py:class:`Bridge <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bridge>`
         
         .. attribute:: sensor
         
         	CISCO\-ENTITY\-SENSOR\-MIB notification configuration
-        	**type**\:   :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Sensor>`
+        	**type**\:  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Sensor>`
         
         .. attribute:: entity_
         
         	Enable ENTITY\-MIB notifications
-        	**type**\:   :py:class:`Entity_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Entity_>`
+        	**type**\:  :py:class:`Entity_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Entity_>`
         
         .. attribute:: entity_state
         
         	ENTITY\-STATE\-MIB notification configuration
-        	**type**\:   :py:class:`EntityState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityState>`
+        	**type**\:  :py:class:`EntityState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityState>`
         
         .. attribute:: fru_control
         
         	CISCO\-ENTITY\-FRU\-CONTROL\-MIB notification configuration
-        	**type**\:   :py:class:`FruControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FruControl>`
+        	**type**\:  :py:class:`FruControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FruControl>`
         
         .. attribute:: rf
         
         	CISCO\-RF\-MIB notification configuration
-        	**type**\:   :py:class:`Rf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rf>`
+        	**type**\:  :py:class:`Rf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rf>`
         
         .. attribute:: syslog
         
         	CISCO\-SYSLOG\-MIB notification configuration
-        	**type**\:   :py:class:`Syslog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Syslog>`
+        	**type**\:  :py:class:`Syslog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Syslog>`
         
         .. attribute:: subscriber_mib
         
         	Subscriber notification commands
-        	**type**\:   :py:class:`SubscriberMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SubscriberMib>`
+        	**type**\:  :py:class:`SubscriberMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SubscriberMib>`
         
         .. attribute:: l2tun
         
         	Enable SNMP l2tun traps
-        	**type**\:   :py:class:`L2Tun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2Tun>`
+        	**type**\:  :py:class:`L2Tun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2Tun>`
         
         
 
@@ -2433,7 +2433,7 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"snmp" : ("snmp", Snmp.Notification.Snmp), "diametermib" : ("diametermib", Snmp.Notification.Diametermib), "vpls" : ("vpls", Snmp.Notification.Vpls), "l2vpn" : ("l2vpn", Snmp.Notification.L2Vpn), "isis" : ("isis", Snmp.Notification.Isis), "config-man" : ("config_man", Snmp.Notification.ConfigMan), "cfm" : ("cfm", Snmp.Notification.Cfm), "oam" : ("oam", Snmp.Notification.Oam), "fabric-crs" : ("fabric_crs", Snmp.Notification.FabricCrs), "flash" : ("flash", Snmp.Notification.Flash), "Cisco-IOS-XR-freqsync-cfg_frequency-synchronization" : ("cisco_ios_xr_freqsync_cfg_frequency_synchronization", Snmp.Notification.CiscoIOSXRFreqsyncCfgFrequencySynchronization), "entity-redundancy" : ("entity_redundancy", Snmp.Notification.EntityRedundancy), "config-copy" : ("config_copy", Snmp.Notification.ConfigCopy), "selective-vrf-download" : ("selective_vrf_download", Snmp.Notification.SelectiveVrfDownload), "system" : ("system", Snmp.Notification.System), "bfd" : ("bfd", Snmp.Notification.Bfd), "addresspool-mib" : ("addresspool_mib", Snmp.Notification.AddresspoolMib), "ntp" : ("ntp", Snmp.Notification.Ntp), "rsvp" : ("rsvp", Snmp.Notification.Rsvp), "bgp" : ("bgp", Snmp.Notification.Bgp), "hsrp" : ("hsrp", Snmp.Notification.Hsrp), "ospf" : ("ospf", Snmp.Notification.Ospf), "vrrp" : ("vrrp", Snmp.Notification.Vrrp), "ospfv3" : ("ospfv3", Snmp.Notification.Ospfv3), "mpls-ldp" : ("mpls_ldp", Snmp.Notification.MplsLdp), "mpls-te-p2mp" : ("mpls_te_p2mp", Snmp.Notification.MplsTeP2Mp), "mpls-te" : ("mpls_te", Snmp.Notification.MplsTe), "mpls-frr" : ("mpls_frr", Snmp.Notification.MplsFrr), "mpls-l3vpn" : ("mpls_l3vpn", Snmp.Notification.MplsL3Vpn), "Cisco-IOS-XR-ncs4k-freqsync-cfg_frequency-synchronization" : ("cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization", Snmp.Notification.CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization), "optical" : ("optical", Snmp.Notification.Optical), "optical-ots" : ("optical_ots", Snmp.Notification.OpticalOts), "otn" : ("otn", Snmp.Notification.Otn), "bridge" : ("bridge", Snmp.Notification.Bridge), "sensor" : ("sensor", Snmp.Notification.Sensor), "entity" : ("entity_", Snmp.Notification.Entity_), "entity-state" : ("entity_state", Snmp.Notification.EntityState), "fru-control" : ("fru_control", Snmp.Notification.FruControl), "rf" : ("rf", Snmp.Notification.Rf), "syslog" : ("syslog", Snmp.Notification.Syslog), "subscriber-mib" : ("subscriber_mib", Snmp.Notification.SubscriberMib), "l2tun" : ("l2tun", Snmp.Notification.L2Tun)}
+            self._child_container_classes = {"snmp" : ("snmp", Snmp.Notification.Snmp), "Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib" : ("diametermib", Snmp.Notification.Diametermib), "Cisco-IOS-XR-l2vpn-cfg:vpls" : ("vpls", Snmp.Notification.Vpls), "Cisco-IOS-XR-l2vpn-cfg:l2vpn" : ("l2vpn", Snmp.Notification.L2Vpn), "Cisco-IOS-XR-clns-isis-cfg:isis" : ("isis", Snmp.Notification.Isis), "Cisco-IOS-XR-config-mibs-cfg:config-man" : ("config_man", Snmp.Notification.ConfigMan), "Cisco-IOS-XR-ethernet-cfm-cfg:cfm" : ("cfm", Snmp.Notification.Cfm), "Cisco-IOS-XR-ethernet-link-oam-cfg:oam" : ("oam", Snmp.Notification.Oam), "Cisco-IOS-XR-fabhfr-mib-cfg:fabric-crs" : ("fabric_crs", Snmp.Notification.FabricCrs), "Cisco-IOS-XR-flashmib-cfg:flash" : ("flash", Snmp.Notification.Flash), "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization" : ("cisco_ios_xr_freqsync_cfg_frequency_synchronization", Snmp.Notification.CiscoIOSXRFreqsyncCfgFrequencySynchronization), "Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy" : ("entity_redundancy", Snmp.Notification.EntityRedundancy), "Cisco-IOS-XR-infra-confcopymib-cfg:config-copy" : ("config_copy", Snmp.Notification.ConfigCopy), "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download" : ("selective_vrf_download", Snmp.Notification.SelectiveVrfDownload), "Cisco-IOS-XR-infra-systemmib-cfg:system" : ("system", Snmp.Notification.System), "Cisco-IOS-XR-ip-bfd-cfg:bfd" : ("bfd", Snmp.Notification.Bfd), "Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib" : ("addresspool_mib", Snmp.Notification.AddresspoolMib), "Cisco-IOS-XR-ip-ntp-cfg:ntp" : ("ntp", Snmp.Notification.Ntp), "Cisco-IOS-XR-ip-rsvp-cfg:rsvp" : ("rsvp", Snmp.Notification.Rsvp), "Cisco-IOS-XR-ipv4-bgp-cfg:bgp" : ("bgp", Snmp.Notification.Bgp), "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp" : ("hsrp", Snmp.Notification.Hsrp), "Cisco-IOS-XR-ipv4-ospf-cfg:ospf" : ("ospf", Snmp.Notification.Ospf), "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp" : ("vrrp", Snmp.Notification.Vrrp), "Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3" : ("ospfv3", Snmp.Notification.Ospfv3), "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp" : ("mpls_ldp", Snmp.Notification.MplsLdp), "Cisco-IOS-XR-mpls-te-cfg:mpls-te-p2mp" : ("mpls_te_p2mp", Snmp.Notification.MplsTeP2Mp), "Cisco-IOS-XR-mpls-te-cfg:mpls-te" : ("mpls_te", Snmp.Notification.MplsTe), "Cisco-IOS-XR-mpls-te-cfg:mpls-frr" : ("mpls_frr", Snmp.Notification.MplsFrr), "Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn" : ("mpls_l3vpn", Snmp.Notification.MplsL3Vpn), "Cisco-IOS-XR-ncs4k-freqsync-cfg:frequency-synchronization" : ("cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization_", Snmp.Notification.CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization), "Cisco-IOS-XR-opticalmib-cfg:optical" : ("optical", Snmp.Notification.Optical), "Cisco-IOS-XR-opticalotsmib-cfg:optical-ots" : ("optical_ots", Snmp.Notification.OpticalOts), "Cisco-IOS-XR-otnifmib-cfg:otn" : ("otn", Snmp.Notification.Otn), "Cisco-IOS-XR-snmp-bridgemib-cfg:bridge" : ("bridge", Snmp.Notification.Bridge), "Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor" : ("sensor", Snmp.Notification.Sensor), "Cisco-IOS-XR-snmp-entitymib-cfg:entity" : ("entity_", Snmp.Notification.Entity_), "Cisco-IOS-XR-snmp-entstatemib-cfg:entity-state" : ("entity_state", Snmp.Notification.EntityState), "Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control" : ("fru_control", Snmp.Notification.FruControl), "Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf" : ("rf", Snmp.Notification.Rf), "Cisco-IOS-XR-snmp-syslogmib-cfg:syslog" : ("syslog", Snmp.Notification.Syslog), "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib" : ("subscriber_mib", Snmp.Notification.SubscriberMib), "Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun" : ("l2tun", Snmp.Notification.L2Tun)}
             self._child_list_classes = {}
 
             self.snmp = Snmp.Notification.Snmp()
@@ -2488,8 +2488,8 @@ class Snmp(Entity):
 
             self.cisco_ios_xr_freqsync_cfg_frequency_synchronization = Snmp.Notification.CiscoIOSXRFreqsyncCfgFrequencySynchronization()
             self.cisco_ios_xr_freqsync_cfg_frequency_synchronization.parent = self
-            self._children_name_map["cisco_ios_xr_freqsync_cfg_frequency_synchronization"] = "Cisco-IOS-XR-freqsync-cfg_frequency-synchronization"
-            self._children_yang_names.add("Cisco-IOS-XR-freqsync-cfg_frequency-synchronization")
+            self._children_name_map["cisco_ios_xr_freqsync_cfg_frequency_synchronization"] = "frequency-synchronization"
+            self._children_yang_names.add("frequency-synchronization")
 
             self.entity_redundancy = Snmp.Notification.EntityRedundancy()
             self.entity_redundancy.parent = self
@@ -2581,10 +2581,10 @@ class Snmp(Entity):
             self._children_name_map["mpls_l3vpn"] = "mpls-l3vpn"
             self._children_yang_names.add("mpls-l3vpn")
 
-            self.cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization = Snmp.Notification.CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization()
-            self.cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization.parent = self
-            self._children_name_map["cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization"] = "Cisco-IOS-XR-ncs4k-freqsync-cfg_frequency-synchronization"
-            self._children_yang_names.add("Cisco-IOS-XR-ncs4k-freqsync-cfg_frequency-synchronization")
+            self.cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization_ = Snmp.Notification.CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization()
+            self.cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization_.parent = self
+            self._children_name_map["cisco_ios_xr_ncs4k_freqsync_cfg_frequency_synchronization_"] = "frequency-synchronization"
+            self._children_yang_names.add("frequency-synchronization")
 
             self.optical = Snmp.Notification.Optical()
             self.optical.parent = self
@@ -2656,32 +2656,32 @@ class Snmp(Entity):
             .. attribute:: authentication
             
             	Enable authentication notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: cold_start
             
             	Enable cold start notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: warm_start
             
             	Enable warm start notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable SNMP notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: link_down
             
             	Enable link down notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: link_up
             
             	Enable link up notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -2725,27 +2725,27 @@ class Snmp(Entity):
             .. attribute:: protocolerror
             
             	Enable SNMP diameter protocol error notification
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: permanentfail
             
             	Enable SNMP diameter permanent failure notification
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: peerdown
             
             	Enable SNMP diameter peer connection down notification
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: peerup
             
             	Enable SNMP diameter peer connection up notification
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: transientfail
             
             	Enable SNMP diameter transient failure notification
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -2788,22 +2788,22 @@ class Snmp(Entity):
             .. attribute:: full_clear
             
             	Enable cvplsFwdFullAlarmCleared notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: status
             
             	Enable cvplsStatusChanged notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable CISCO\-IETF\-VPLS\-GENERIC\-MIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: full_raise
             
             	Enable cvplsFwdFullAlarmRaised notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -2843,22 +2843,22 @@ class Snmp(Entity):
             .. attribute:: cisco
             
             	Enable Cisco format including extra varbinds
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable CISCO\-IETF\-PW\-MIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: vc_down
             
             	Enable cpwVcDown notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: vc_up
             
             	Enable cpwVcUp notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -2898,133 +2898,133 @@ class Snmp(Entity):
             .. attribute:: database_overflow
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibDatabaseOverFlowBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibDatabaseOverFlowBoolean>`
+            	**type**\:  :py:class:`IsisMibDatabaseOverFlowBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibDatabaseOverFlowBoolean>`
             
             	**default value**\: false
             
             .. attribute:: manual_address_drops
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibManualAddressDropsBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibManualAddressDropsBoolean>`
+            	**type**\:  :py:class:`IsisMibManualAddressDropsBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibManualAddressDropsBoolean>`
             
             	**default value**\: false
             
             .. attribute:: corrupted_lsp_detected
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibCorruptedLspDetectedBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibCorruptedLspDetectedBoolean>`
+            	**type**\:  :py:class:`IsisMibCorruptedLspDetectedBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibCorruptedLspDetectedBoolean>`
             
             	**default value**\: false
             
             .. attribute:: attempt_to_exceed_max_sequence
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibAttemptToExceedMaxSequenceBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAttemptToExceedMaxSequenceBoolean>`
+            	**type**\:  :py:class:`IsisMibAttemptToExceedMaxSequenceBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAttemptToExceedMaxSequenceBoolean>`
             
             	**default value**\: false
             
             .. attribute:: id_length_mismatch
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibIdLengthMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibIdLengthMismatchBoolean>`
+            	**type**\:  :py:class:`IsisMibIdLengthMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibIdLengthMismatchBoolean>`
             
             	**default value**\: false
             
             .. attribute:: max_area_address_mismatch
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibMaxAreaAddressMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibMaxAreaAddressMismatchBoolean>`
+            	**type**\:  :py:class:`IsisMibMaxAreaAddressMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibMaxAreaAddressMismatchBoolean>`
             
             	**default value**\: false
             
             .. attribute:: own_lsp_purge
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibOwnLspPurgeBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibOwnLspPurgeBoolean>`
+            	**type**\:  :py:class:`IsisMibOwnLspPurgeBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibOwnLspPurgeBoolean>`
             
             	**default value**\: false
             
             .. attribute:: sequence_number_skip
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibSequenceNumberSkipBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibSequenceNumberSkipBoolean>`
+            	**type**\:  :py:class:`IsisMibSequenceNumberSkipBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibSequenceNumberSkipBoolean>`
             
             	**default value**\: false
             
             .. attribute:: authentication_type_failure
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibAuthenticationTypeFailureBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationTypeFailureBoolean>`
+            	**type**\:  :py:class:`IsisMibAuthenticationTypeFailureBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationTypeFailureBoolean>`
             
             	**default value**\: false
             
             .. attribute:: authentication_failure
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibAuthenticationFailureBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationFailureBoolean>`
+            	**type**\:  :py:class:`IsisMibAuthenticationFailureBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationFailureBoolean>`
             
             	**default value**\: false
             
             .. attribute:: version_skew
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibVersionSkewBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibVersionSkewBoolean>`
+            	**type**\:  :py:class:`IsisMibVersionSkewBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibVersionSkewBoolean>`
             
             	**default value**\: false
             
             .. attribute:: area_mismatch
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibAreaMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAreaMismatchBoolean>`
+            	**type**\:  :py:class:`IsisMibAreaMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAreaMismatchBoolean>`
             
             	**default value**\: false
             
             .. attribute:: rejected_adjacency
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibRejectedAdjacencyBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibRejectedAdjacencyBoolean>`
+            	**type**\:  :py:class:`IsisMibRejectedAdjacencyBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibRejectedAdjacencyBoolean>`
             
             	**default value**\: false
             
             .. attribute:: lsp_too_large_to_propagate
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibLspTooLargeToPropagateBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspTooLargeToPropagateBoolean>`
+            	**type**\:  :py:class:`IsisMibLspTooLargeToPropagateBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspTooLargeToPropagateBoolean>`
             
             	**default value**\: false
             
             .. attribute:: originated_lsp_buffer_size_mismatch
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibOriginatedLspBufferSizeMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibOriginatedLspBufferSizeMismatchBoolean>`
+            	**type**\:  :py:class:`IsisMibOriginatedLspBufferSizeMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibOriginatedLspBufferSizeMismatchBoolean>`
             
             	**default value**\: false
             
             .. attribute:: protocols_supported_mismatch
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibProtocolsSupportedMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibProtocolsSupportedMismatchBoolean>`
+            	**type**\:  :py:class:`IsisMibProtocolsSupportedMismatchBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibProtocolsSupportedMismatchBoolean>`
             
             	**default value**\: false
             
             .. attribute:: adjacency_change
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibAdjacencyChangeBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAdjacencyChangeBoolean>`
+            	**type**\:  :py:class:`IsisMibAdjacencyChangeBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAdjacencyChangeBoolean>`
             
             	**default value**\: false
             
             .. attribute:: lsp_error_detected
             
             	Enable or disable
-            	**type**\:   :py:class:`IsisMibLspErrorDetectedBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspErrorDetectedBoolean>`
+            	**type**\:  :py:class:`IsisMibLspErrorDetectedBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspErrorDetectedBoolean>`
             
             	**default value**\: false
             
             .. attribute:: all
             
             	Enable all isisMIB notifications
-            	**type**\:   :py:class:`IsisMibAllBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAllBoolean>`
+            	**type**\:  :py:class:`IsisMibAllBoolean <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMibAllBoolean>`
             
             	**default value**\: false
             
@@ -3096,7 +3096,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable ciscoConfigManMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3131,7 +3131,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable 802.1ag Connectivity Fault Management MIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3165,7 +3165,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable 802.3 OAM MIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3199,17 +3199,17 @@ class Snmp(Entity):
             .. attribute:: bundle_state
             
             	Enable cfhBundleStateNotification notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: plane_state
             
             	Enable cfhPlaneStateNotification notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: bundle_downed_link
             
             	Enable cfhBundleDownedLinkNotification notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3247,12 +3247,12 @@ class Snmp(Entity):
             .. attribute:: insertion
             
             	Enable ciscoFlashDeviceInsertedNotif notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: removal
             
             	Enable ciscoFlashDeviceRemovedNotif notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3288,7 +3288,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable Frequency Synchronization traps
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3300,7 +3300,7 @@ class Snmp(Entity):
             def __init__(self):
                 super(Snmp.Notification.CiscoIOSXRFreqsyncCfgFrequencySynchronization, self).__init__()
 
-                self.yang_name = "Cisco-IOS-XR-freqsync-cfg_frequency-synchronization"
+                self.yang_name = "frequency-synchronization"
                 self.yang_parent_name = "notification"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
@@ -3308,7 +3308,7 @@ class Snmp(Entity):
                 self._child_list_classes = {}
 
                 self.enable = YLeaf(YType.empty, "enable")
-                self._segment_path = lambda: "Cisco-IOS-XR-freqsync-cfg:Cisco-IOS-XR-freqsync-cfg_frequency-synchronization"
+                self._segment_path = lambda: "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3323,17 +3323,17 @@ class Snmp(Entity):
             .. attribute:: switchover
             
             	Enable switchover notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable CISCO\-ENTITY\-REDUNDANCY\-MIB notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: status
             
             	Enable status change notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3371,7 +3371,7 @@ class Snmp(Entity):
             .. attribute:: completion
             
             	Enable ccCopyCompletion notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3406,7 +3406,7 @@ class Snmp(Entity):
             .. attribute:: role_change
             
             	Enable csvdEntityRoleChangeNotification notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3440,7 +3440,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable ciscoSystemMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3474,7 +3474,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable CISCO\-IETF\-BFD\-MIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3508,12 +3508,12 @@ class Snmp(Entity):
             .. attribute:: high
             
             	Enable SNMP Address Pool High Threshold trap
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: low
             
             	Enable SNMP Address Pool Low Threshold trap
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -3549,7 +3549,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable ciscoNtpMIB notification configuration
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3583,17 +3583,17 @@ class Snmp(Entity):
             .. attribute:: lost_flow
             
             	Enable lostFlow notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: new_flow
             
             	Enable newFlow notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable all RSVP notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3632,12 +3632,12 @@ class Snmp(Entity):
             .. attribute:: bgp4mib
             
             	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only notifications\: bgpEstablishedNotification, bgpBackwardTransNotification, cbgpFsmStateChange, cbgpBackwardTransition, cbgpPrefixThresholdExceeded, cbgpPrefixThresholdClear
-            	**type**\:   :py:class:`Bgp4Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.Bgp4Mib>`
+            	**type**\:  :py:class:`Bgp4Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.Bgp4Mib>`
             
             .. attribute:: cisco_bgp4mib
             
             	Enable CISCO\-BGP4\-MIB v2 notifications\: cbgpPeer2EstablishedNotification, cbgpPeer2BackwardTransNotification, cbgpPeer2FsmStateChange, cbgpPeer2BackwardTransition, cbgpPeer2PrefixThresholdExceeded, cbgpPeer2PrefixThresholdClear
-            	**type**\:   :py:class:`CiscoBgp4Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.CiscoBgp4Mib>`
+            	**type**\:  :py:class:`CiscoBgp4Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.CiscoBgp4Mib>`
             
             
 
@@ -3681,12 +3681,12 @@ class Snmp(Entity):
                 .. attribute:: enable
                 
                 	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only notifications
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: up_down
                 
                 	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only up/down notifications
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -3728,12 +3728,12 @@ class Snmp(Entity):
                 .. attribute:: enable
                 
                 	Enable CISCO\-BGP4\-MIB v2 notifications
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: up_down
                 
                 	Enable CISCO\-BGP4\-MIB v2 up/down notifications
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -3769,7 +3769,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable CISCO\-HSRP\-MIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -3803,22 +3803,22 @@ class Snmp(Entity):
             .. attribute:: lsa
             
             	SNMP notifications related to LSAs
-            	**type**\:   :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Lsa>`
+            	**type**\:  :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Lsa>`
             
             .. attribute:: state_change
             
             	SNMP notifications for OSPF state change
-            	**type**\:   :py:class:`StateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.StateChange>`
+            	**type**\:  :py:class:`StateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.StateChange>`
             
             .. attribute:: retransmit
             
             	SNMP notifications for packet retransmissions
-            	**type**\:   :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Retransmit>`
+            	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Retransmit>`
             
             .. attribute:: error
             
             	SNMP notifications for OSPF errors
-            	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Error>`
+            	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf.Error>`
             
             
 
@@ -3867,12 +3867,12 @@ class Snmp(Entity):
                 .. attribute:: max_age_lsa
                 
                 	Enable ospfMaxAgeLsa notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: originate_lsa
                 
                 	Enable ospfOriginateLsa notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -3908,22 +3908,22 @@ class Snmp(Entity):
                 .. attribute:: interface
                 
                 	Enable ospfIfStateChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_interface
                 
                 	Enable ospfVirtIfStateChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_neighbor
                 
                 	Enable ospfVirtNbrStateChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: neighbor
                 
                 	Enable ospfNbrStateChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -3963,12 +3963,12 @@ class Snmp(Entity):
                 .. attribute:: virtual_packet
                 
                 	Enable ospfVirtIfTxRetransmit notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: packet
                 
                 	Enable ospfTxRetransmit notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -4004,32 +4004,32 @@ class Snmp(Entity):
                 .. attribute:: config_error
                 
                 	Enable ospfIfConfigError notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: authentication_failure
                 
                 	Enable ospfIfAuthFailure notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_config_error
                 
                 	Enable ospfVirtIfConfigError notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_authentication_failure
                 
                 	Enable ospfVirtIfAuthFailure notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: bad_packet
                 
                 	Enable ospfIfRxBadPacket notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_bad_packet
                 
                 	Enable ospfVirtIfRxBadPacket notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -4073,7 +4073,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable VRRP\-MIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4107,12 +4107,12 @@ class Snmp(Entity):
             .. attribute:: error
             
             	SNMP notifications for OSPF errors
-            	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3.Error>`
+            	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3.Error>`
             
             .. attribute:: state_change
             
             	SNMP notifications for OSPF state change
-            	**type**\:   :py:class:`StateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3.StateChange>`
+            	**type**\:  :py:class:`StateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3.StateChange>`
             
             
 
@@ -4151,22 +4151,22 @@ class Snmp(Entity):
                 .. attribute:: config_error
                 
                 	Enable ospfv3IfConfigError notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: bad_packet
                 
                 	Enable ospfv3IfRxBadPacket notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_bad_packet
                 
                 	Enable ospfv3VirtIfRxBadPacket notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_config_error
                 
                 	Enable ospfv3VirtIfConfigError notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -4206,42 +4206,42 @@ class Snmp(Entity):
                 .. attribute:: restart_virtual_helper
                 
                 	Enable ospfv3VirtNbrRestartHelperStatusChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: nssa_translator
                 
                 	Enable ospfv3NssaTranslatorStatusChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: interface
                 
                 	Enable ospfv3IfStateChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: restart
                 
                 	Enable ospfv3RestartStatusChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: neighbor
                 
                 	Enable ospfv3NbrStateChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_interface
                 
                 	Enable ospfv3VirtIfStateChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: restart_helper
                 
                 	Enable ospfv3NbrRestartHelperStatusChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: virtual_neighbor
                 
                 	Enable ospfv3VirtNbrStateChange notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -4289,17 +4289,17 @@ class Snmp(Entity):
             .. attribute:: session_up
             
             	Enable mplsLdpSessionUp notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: init_session_threshold_exceeded
             
             	Enable mplsLdpInitSessionThresholdExceeded notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: session_down
             
             	Enable mplsLdpSessionDown notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4338,12 +4338,12 @@ class Snmp(Entity):
             .. attribute:: up
             
             	Enable cmplsTeP2mpTunnelDestUp notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: down
             
             	Enable cmplsTeP2mpTunnelDestDown notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4379,32 +4379,32 @@ class Snmp(Entity):
             .. attribute:: cisco_extension
             
             	CISCO\-MPLS\-TE\-STD\-EXT\-MIB notification configuration
-            	**type**\:   :py:class:`CiscoExtension <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe.CiscoExtension>`
+            	**type**\:  :py:class:`CiscoExtension <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe.CiscoExtension>`
             
             .. attribute:: cisco
             
             	Enable MPLS TE tunnel Cisco format (default IETF) notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: up
             
             	Enable mplsTunnelUp notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: reoptimize
             
             	Enable mplsTunnelReoptimized notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: reroute
             
             	Enable mplsTunnelRerouted notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: down
             
             	Enable mplsTunnelDown notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4452,27 +4452,27 @@ class Snmp(Entity):
                 .. attribute:: preempt
                 
                 	Enable cmplsTunnelPreempt notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: insufficient_bandwidth
                 
                 	Enable cmplsTunnelInsuffBW notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: re_route_pending_clear
                 
                 	Enable cmplsTunnelReRoutePendingClear notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: bringup_fail
                 
                 	Enable cmplsTunnelBringupFail notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: re_route_pending
                 
                 	Enable cmplsTunnelReRoutePending notification
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -4514,17 +4514,17 @@ class Snmp(Entity):
             .. attribute:: unprotected
             
             	Enable cmplsFrrUnProtected notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable cmplsFrrMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: protected
             
             	Enable cmplsFrrProtected notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4562,7 +4562,7 @@ class Snmp(Entity):
             .. attribute:: max_threshold_reissue_notification_time
             
             	Time interval (secs) for re\-issuing max\-threshold notification
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -4571,32 +4571,32 @@ class Snmp(Entity):
             .. attribute:: max_threshold_exceeded
             
             	Enable mplsL3VpnVrfNumVrfRouteMaxThreshExceeded notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: max_threshold_cleared
             
             	Enable mplsL3VpnNumVrfRouteMaxThreshCleared notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: mid_threshold_exceeded
             
             	Enable mplsL3VpnVrfRouteMidThreshExceeded notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable mplsL3VpnMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: vrf_down
             
             	Enable mplsL3VpnVrfDown notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: vrf_up
             
             	Enable mplsL3VpnVrfUp notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4642,7 +4642,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable Frequency Synchronization traps
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4654,7 +4654,7 @@ class Snmp(Entity):
             def __init__(self):
                 super(Snmp.Notification.CiscoIOSXRNcs4KFreqsyncCfgFrequencySynchronization, self).__init__()
 
-                self.yang_name = "Cisco-IOS-XR-ncs4k-freqsync-cfg_frequency-synchronization"
+                self.yang_name = "frequency-synchronization"
                 self.yang_parent_name = "notification"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
@@ -4662,7 +4662,7 @@ class Snmp(Entity):
                 self._child_list_classes = {}
 
                 self.enable = YLeaf(YType.empty, "enable")
-                self._segment_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-cfg:Cisco-IOS-XR-ncs4k-freqsync-cfg_frequency-synchronization"
+                self._segment_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-cfg:frequency-synchronization"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4676,7 +4676,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable Opticalmib notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4710,7 +4710,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable OpticalOtsmib notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4744,7 +4744,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable ciscoOtnIfMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4778,7 +4778,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable dot1dBridge notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4813,7 +4813,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable entitySensorMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4847,7 +4847,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable entityMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4881,12 +4881,12 @@ class Snmp(Entity):
             .. attribute:: switchover
             
             	Enable ceStateExtStandbySwitchover notification
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: oper_status
             
             	Enable entStateOperEnable and entStateOperDisable notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4923,7 +4923,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable ciscoEntityFRUControlMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4957,7 +4957,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable ciscoRFMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -4991,7 +4991,7 @@ class Snmp(Entity):
             .. attribute:: enable
             
             	Enable ciscoSyslogMIB notifications
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -5025,7 +5025,7 @@ class Snmp(Entity):
             .. attribute:: session_aggregate
             
             	Session aggregation
-            	**type**\:   :py:class:`SessionAggregate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SubscriberMib.SessionAggregate>`
+            	**type**\:  :py:class:`SessionAggregate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SubscriberMib.SessionAggregate>`
             
             
 
@@ -5059,12 +5059,12 @@ class Snmp(Entity):
                 .. attribute:: node
                 
                 	Subscriber notification at node level
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: access_interface
                 
                 	Subscriber notification at access interface level
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -5100,22 +5100,22 @@ class Snmp(Entity):
             .. attribute:: tunnel_up
             
             	Enable L2TUN tunnel UP traps
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: tunnel_down
             
             	Enable L2TUN tunnel DOWN traps
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: pseudowire_status
             
             	Enable traps for L2TPv3 PW status
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: sessions
             
             	Enable L2TUN sessions traps
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -5155,17 +5155,17 @@ class Snmp(Entity):
         .. attribute:: rules
         
         	Table of configured rules
-        	**type**\:   :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules>`
+        	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules>`
         
         .. attribute:: rule_sets
         
         	Table of configured rulesets
-        	**type**\:   :py:class:`RuleSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets>`
+        	**type**\:  :py:class:`RuleSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets>`
         
         .. attribute:: buffer_size
         
         	Configure size of the correlator buffer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1024..52428800
         
@@ -5211,7 +5211,7 @@ class Snmp(Entity):
             .. attribute:: rule
             
             	Rule name
-            	**type**\: list of    :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule>`
+            	**type**\: list of  		 :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule>`
             
             
 
@@ -5245,21 +5245,21 @@ class Snmp(Entity):
                 .. attribute:: name  <key>
                 
                 	Rule name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: non_stateful
                 
                 	The Non\-Stateful Rule Type
-                	**type**\:   :py:class:`NonStateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful>`
+                	**type**\:  :py:class:`NonStateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: applied_to
                 
                 	Applied to the Rule or Ruleset
-                	**type**\:   :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo>`
+                	**type**\:  :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo>`
                 
                 
 
@@ -5302,17 +5302,17 @@ class Snmp(Entity):
                     .. attribute:: root_causes
                     
                     	Table of configured rootcause (only one entry allowed)
-                    	**type**\:   :py:class:`RootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses>`
+                    	**type**\:  :py:class:`RootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses>`
                     
                     .. attribute:: non_root_causes
                     
                     	Table of configured non\-rootcause
-                    	**type**\:   :py:class:`NonRootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses>`
+                    	**type**\:  :py:class:`NonRootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses>`
                     
                     .. attribute:: timeout
                     
                     	Timeout (time to wait for active correlation) in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..600000
                     
@@ -5363,7 +5363,7 @@ class Snmp(Entity):
                         .. attribute:: root_cause
                         
                         	The rootcause \- maximum of one can be configured per rule
-                        	**type**\: list of    :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause>`
+                        	**type**\: list of  		 :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause>`
                         
                         
 
@@ -5397,17 +5397,17 @@ class Snmp(Entity):
                             .. attribute:: oid  <key>
                             
                             	OID of rootcause trap (dotted decimal)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: created
                             
                             	Create rootcause
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: var_binds
                             
                             	Varbinds to match
-                            	**type**\:   :py:class:`VarBinds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds>`
+                            	**type**\:  :py:class:`VarBinds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds>`
                             
                             
 
@@ -5447,7 +5447,7 @@ class Snmp(Entity):
                                 .. attribute:: var_bind
                                 
                                 	Varbind match conditions
-                                	**type**\: list of    :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds.VarBind>`
+                                	**type**\: list of  		 :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds.VarBind>`
                                 
                                 
 
@@ -5480,12 +5480,12 @@ class Snmp(Entity):
                                     .. attribute:: oid  <key>
                                     
                                     	OID of varbind (dotted decimal)
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: match
                                     
                                     	VarBind match conditions
-                                    	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds.VarBind.Match>`
+                                    	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds.VarBind.Match>`
                                     
                                     
 
@@ -5523,12 +5523,12 @@ class Snmp(Entity):
                                         .. attribute:: value
                                         
                                         	Regular Expression to match value
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: index
                                         
                                         	Regular Expression to match index
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -5563,7 +5563,7 @@ class Snmp(Entity):
                         .. attribute:: non_root_cause
                         
                         	A non\-rootcause
-                        	**type**\: list of    :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause>`
+                        	**type**\: list of  		 :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause>`
                         
                         
 
@@ -5596,17 +5596,17 @@ class Snmp(Entity):
                             .. attribute:: oid  <key>
                             
                             	OID of nonrootcause trap (dotted decimal)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: created
                             
                             	Create nonrootcause
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: var_binds
                             
                             	Varbinds to match
-                            	**type**\:   :py:class:`VarBinds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause.VarBinds>`
+                            	**type**\:  :py:class:`VarBinds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause.VarBinds>`
                             
                             
 
@@ -5646,7 +5646,7 @@ class Snmp(Entity):
                                 .. attribute:: var_bind
                                 
                                 	Varbind match conditions
-                                	**type**\: list of    :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause.VarBinds.VarBind>`
+                                	**type**\: list of  		 :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause.VarBinds.VarBind>`
                                 
                                 
 
@@ -5679,12 +5679,12 @@ class Snmp(Entity):
                                     .. attribute:: oid  <key>
                                     
                                     	OID of varbind (dotted decimal)
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: match
                                     
                                     	VarBind match conditions
-                                    	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause.VarBinds.VarBind.Match>`
+                                    	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause.VarBinds.VarBind.Match>`
                                     
                                     
 
@@ -5722,12 +5722,12 @@ class Snmp(Entity):
                                         .. attribute:: value
                                         
                                         	Regular Expression to match value
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: index
                                         
                                         	Regular Expression to match index
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -5762,12 +5762,12 @@ class Snmp(Entity):
                     .. attribute:: hosts
                     
                     	Table of configured hosts to apply rules to
-                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo.Hosts>`
+                    	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo.Hosts>`
                     
                     .. attribute:: all
                     
                     	Apply to all of the device
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -5805,7 +5805,7 @@ class Snmp(Entity):
                         .. attribute:: host
                         
                         	A destination host
-                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo.Hosts.Host>`
+                        	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.AppliedTo.Hosts.Host>`
                         
                         
 
@@ -5838,20 +5838,20 @@ class Snmp(Entity):
                             .. attribute:: ip_address  <key>
                             
                             	IP address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: port  <key>
                             
                             	Port (specify 162 for default)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
@@ -5888,7 +5888,7 @@ class Snmp(Entity):
             .. attribute:: rule_set
             
             	Ruleset name
-            	**type**\: list of    :py:class:`RuleSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet>`
+            	**type**\: list of  		 :py:class:`RuleSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet>`
             
             
 
@@ -5922,19 +5922,19 @@ class Snmp(Entity):
                 .. attribute:: name  <key>
                 
                 	Ruleset name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: rulenames
                 
                 	Table of configured rulenames
-                	**type**\:   :py:class:`Rulenames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.Rulenames>`
+                	**type**\:  :py:class:`Rulenames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.Rulenames>`
                 
                 .. attribute:: applied_to
                 
                 	Applied to the Rule or Ruleset
-                	**type**\:   :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo>`
+                	**type**\:  :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo>`
                 
                 
 
@@ -5978,7 +5978,7 @@ class Snmp(Entity):
                     .. attribute:: rulename
                     
                     	A rulename
-                    	**type**\: list of    :py:class:`Rulename <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.Rulenames.Rulename>`
+                    	**type**\: list of  		 :py:class:`Rulename <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.Rulenames.Rulename>`
                     
                     
 
@@ -6011,7 +6011,7 @@ class Snmp(Entity):
                         .. attribute:: rulename  <key>
                         
                         	Rule name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
@@ -6046,12 +6046,12 @@ class Snmp(Entity):
                     .. attribute:: hosts
                     
                     	Table of configured hosts to apply rules to
-                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts>`
+                    	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts>`
                     
                     .. attribute:: all
                     
                     	Apply to all of the device
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -6089,7 +6089,7 @@ class Snmp(Entity):
                         .. attribute:: host
                         
                         	A destination host
-                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts.Host>`
+                        	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts.Host>`
                         
                         
 
@@ -6122,20 +6122,20 @@ class Snmp(Entity):
                             .. attribute:: ip_address  <key>
                             
                             	IP address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: port  <key>
                             
                             	Port (specify 162 for default)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
@@ -6172,22 +6172,22 @@ class Snmp(Entity):
         .. attribute:: schemas
         
         	Configure schema definition
-        	**type**\:   :py:class:`Schemas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas>`
+        	**type**\:  :py:class:`Schemas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas>`
         
         .. attribute:: objects
         
         	Configure an Object List 
-        	**type**\:   :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects>`
+        	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects>`
         
         .. attribute:: transfers
         
         	Periodicity for the transfer of bulk data in minutes
-        	**type**\:   :py:class:`Transfers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers>`
+        	**type**\:  :py:class:`Transfers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers>`
         
         .. attribute:: memory
         
         	per process memory limit in kilo bytes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 100..200000
         
@@ -6240,7 +6240,7 @@ class Snmp(Entity):
             .. attribute:: schema
             
             	The name of the Schema
-            	**type**\: list of    :py:class:`Schema <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas.Schema>`
+            	**type**\: list of  		 :py:class:`Schema <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas.Schema>`
             
             
 
@@ -6274,33 +6274,33 @@ class Snmp(Entity):
                 .. attribute:: schema_name  <key>
                 
                 	The name of the schema
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: instance
                 
                 	Object instance information
-                	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas.Schema.Instance>`
+                	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Schemas.Schema.Instance>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: type
                 
                 	Configure schema name
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: schema_object_list
                 
                 	Name of an object List
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: poll_interval
                 
                 	Periodicity for polling of objects in this schema in minutes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..20000
                 
@@ -6348,33 +6348,35 @@ class Snmp(Entity):
                     .. attribute:: type
                     
                     	Type of the instance
-                    	**type**\:   :py:class:`SnmpBulkstatSchema <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatSchema>`
+                    	**type**\:  :py:class:`SnmpBulkstatSchema <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatSchema>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: instance
                     
                     	Instance of the schema
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: start
                     
                     	Start Instance OID for repetition
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: end
                     
                     	End Instance OID for repetition
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: max
                     
                     	Max value of Instance repetition
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -6383,7 +6385,7 @@ class Snmp(Entity):
                     .. attribute:: sub_interface
                     
                     	Include all the subinterface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**mandatory**\: True
                     
@@ -6431,7 +6433,7 @@ class Snmp(Entity):
             .. attribute:: object
             
             	Name of the object List
-            	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects.Object>`
+            	**type**\: list of  		 :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects.Object>`
             
             
 
@@ -6465,19 +6467,19 @@ class Snmp(Entity):
                 .. attribute:: object_list_name  <key>
                 
                 	Name of the object List
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: objects
                 
                 	Configure an object List
-                	**type**\:   :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects.Object.Objects>`
+                	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects.Object.Objects>`
                 
                 .. attribute:: type
                 
                 	Configure object list name
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -6518,7 +6520,7 @@ class Snmp(Entity):
                     .. attribute:: object
                     
                     	Object name or OID
-                    	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects.Object.Objects.Object>`
+                    	**type**\: list of  		 :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Objects.Object.Objects.Object>`
                     
                     
 
@@ -6551,7 +6553,7 @@ class Snmp(Entity):
                         .. attribute:: oid  <key>
                         
                         	Object name or OID 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -6585,7 +6587,7 @@ class Snmp(Entity):
             .. attribute:: transfer
             
             	Name of bulk transfer
-            	**type**\: list of    :py:class:`Transfer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers.Transfer>`
+            	**type**\: list of  		 :py:class:`Transfer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers.Transfer>`
             
             
 
@@ -6619,29 +6621,29 @@ class Snmp(Entity):
                 .. attribute:: transfer_name  <key>
                 
                 	Name of bulk transfer
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: transfer_schemas
                 
                 	Schema that contains objects to be collected
-                	**type**\:   :py:class:`TransferSchemas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers.Transfer.TransferSchemas>`
+                	**type**\:  :py:class:`TransferSchemas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers.Transfer.TransferSchemas>`
                 
                 .. attribute:: secondary
                 
                 	FTP or rcp or TFTP can be used for file transfer
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: type
                 
                 	Configure transfer list name
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: buffer_size
                 
                 	Bulkstat data file maximum size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1024..2147483647
                 
@@ -6650,7 +6652,7 @@ class Snmp(Entity):
                 .. attribute:: retain
                 
                 	Retention period in minutes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..20000
                 
@@ -6659,29 +6661,29 @@ class Snmp(Entity):
                 .. attribute:: format
                 
                 	Format of the bulk data file
-                	**type**\:   :py:class:`SnmpBulkstatFileFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatFileFormat>`
+                	**type**\:  :py:class:`SnmpBulkstatFileFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatFileFormat>`
                 
                 .. attribute:: retry
                 
                 	Number of transmission retries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..100
                 
                 .. attribute:: enable
                 
                 	Start Data Collection for this Configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: primary
                 
                 	FTP or rcp or TFTP can be used for file transfer
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: interval
                 
                 	Periodicity for the transfer of bulk data in minutes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -6742,7 +6744,7 @@ class Snmp(Entity):
                     .. attribute:: transfer_schema
                     
                     	Schema that contains objects to be collected
-                    	**type**\: list of    :py:class:`TransferSchema <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers.Transfer.TransferSchemas.TransferSchema>`
+                    	**type**\: list of  		 :py:class:`TransferSchema <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.BulkStats.Transfers.Transfer.TransferSchemas.TransferSchema>`
                     
                     
 
@@ -6775,7 +6777,7 @@ class Snmp(Entity):
                         .. attribute:: schema_name  <key>
                         
                         	Schema that contains objects to be collected
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
@@ -6810,7 +6812,7 @@ class Snmp(Entity):
         .. attribute:: default_community_map
         
         	Unencrpted SNMP community map name 
-        	**type**\: list of    :py:class:`DefaultCommunityMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.DefaultCommunityMaps.DefaultCommunityMap>`
+        	**type**\: list of  		 :py:class:`DefaultCommunityMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.DefaultCommunityMaps.DefaultCommunityMap>`
         
         
 
@@ -6844,24 +6846,24 @@ class Snmp(Entity):
             .. attribute:: community_name  <key>
             
             	SNMP community map
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..128
             
             .. attribute:: context
             
             	SNMP Context Name 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: security
             
             	SNMP Security Name 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: target_list
             
             	target list name 
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -6902,7 +6904,7 @@ class Snmp(Entity):
         .. attribute:: drop_time
         
         	Drop time in seconds for incoming queue (default 1 sec)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..300
         
@@ -6913,7 +6915,7 @@ class Snmp(Entity):
         .. attribute:: throttle_rate
         
         	Throttle time in milliseconds for incoming queue (default 500 msec)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..1000
         
@@ -6958,7 +6960,7 @@ class Snmp(Entity):
         .. attribute:: duplicates
         
         	Duplicate request feature timeout
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..20
         
@@ -6969,7 +6971,7 @@ class Snmp(Entity):
         .. attribute:: in_qdrop
         
         	incoming queue drop feature timeout
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..20
         
@@ -6980,7 +6982,7 @@ class Snmp(Entity):
         .. attribute:: subagent
         
         	Sub\-Agent Request timeout
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..20
         
@@ -6991,7 +6993,7 @@ class Snmp(Entity):
         .. attribute:: pdu_stats
         
         	SNMP pdu statistics timeout
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..10
         
@@ -7037,7 +7039,7 @@ class Snmp(Entity):
         .. attribute:: user
         
         	Name of the user
-        	**type**\: list of    :py:class:`User <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Users.User>`
+        	**type**\: list of  		 :py:class:`User <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Users.User>`
         
         
 
@@ -7071,94 +7073,98 @@ class Snmp(Entity):
             .. attribute:: user_name  <key>
             
             	Name of the user
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: group_name
             
             	Group to which the user belongs
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: version
             
             	SNMP version to be used. v1,v2c or v3
-            	**type**\:   :py:class:`UserSnmpVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.UserSnmpVersion>`
+            	**type**\:  :py:class:`UserSnmpVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.UserSnmpVersion>`
             
             	**mandatory**\: True
             
             .. attribute:: authentication_password_configured
             
             	Flag to indicate that authentication password is configred for version 3
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: algorithm
             
             	The algorithm used md5 or sha
-            	**type**\:   :py:class:`SnmpHashAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpHashAlgorithm>`
+            	**type**\:  :py:class:`SnmpHashAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpHashAlgorithm>`
             
             .. attribute:: authentication_password
             
             	The authentication password
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             .. attribute:: privacy_password_configured
             
             	Flag to indicate that the privacy password is configured for version 3
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: priv_algorithm
             
             	The algorithm used des56 or aes128 or aes192or aes256 or 3des
-            	**type**\:   :py:class:`SnmpPrivAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrivAlgorithm>`
+            	**type**\:  :py:class:`SnmpPrivAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrivAlgorithm>`
             
             .. attribute:: privacy_password
             
             	The privacy password
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             .. attribute:: v4acl_type
             
             	Access\-list type
-            	**type**\:   :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
+            	**type**\:  :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
             
             .. attribute:: v4_access_list
             
             	Ipv4 Access\-list name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: v6acl_type
             
             	Access\-list type
-            	**type**\:   :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
+            	**type**\:  :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
             
             .. attribute:: v6_access_list
             
             	Ipv6 Access\-list name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: owner
             
             	The system access either SDROwner or SystemOwner
-            	**type**\:   :py:class:`SnmpOwnerAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess>`
+            	**type**\:  :py:class:`SnmpOwnerAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess>`
             
             .. attribute:: remote_address
             
             	IP address of remote SNMP entity
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            ----
             .. attribute:: port
             
             	UDP port number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -7224,7 +7230,7 @@ class Snmp(Entity):
         .. attribute:: vrf
         
         	VRF name
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf>`
         
         
 
@@ -7258,22 +7264,24 @@ class Snmp(Entity):
             .. attribute:: name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: trap_hosts
             
             	Specify hosts to receive SNMP notifications
-            	**type**\:   :py:class:`TrapHosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts>`
+            	**type**\:  :py:class:`TrapHosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts>`
             
             .. attribute:: contexts
             
             	List of Context Names
-            	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.Contexts>`
+            	**type**\:  :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.Contexts>`
             
             .. attribute:: context_mappings
             
             	List of context names
-            	**type**\:   :py:class:`ContextMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.ContextMappings>`
+            	**type**\:  :py:class:`ContextMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.ContextMappings>`
             
             
 
@@ -7322,7 +7330,7 @@ class Snmp(Entity):
                 .. attribute:: trap_host
                 
                 	Specify hosts to receive SNMP notifications
-                	**type**\: list of    :py:class:`TrapHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost>`
+                	**type**\: list of  		 :py:class:`TrapHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost>`
                 
                 
 
@@ -7355,30 +7363,30 @@ class Snmp(Entity):
                     .. attribute:: ip_address  <key>
                     
                     	IP address of SNMP notification host
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: encrypted_user_communities
                     
                     	Container class for defining Clear/encrypt communities for a trap host
-                    	**type**\:   :py:class:`EncryptedUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities>`
+                    	**type**\:  :py:class:`EncryptedUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities>`
                     
                     .. attribute:: inform_host
                     
                     	Container class for defining notification type for a Inform host
-                    	**type**\:   :py:class:`InformHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost>`
+                    	**type**\:  :py:class:`InformHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost>`
                     
                     .. attribute:: default_user_communities
                     
                     	Container class for defining communities for a trap host
-                    	**type**\:   :py:class:`DefaultUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities>`
+                    	**type**\:  :py:class:`DefaultUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities>`
                     
                     
 
@@ -7427,7 +7435,7 @@ class Snmp(Entity):
                         .. attribute:: encrypted_user_community
                         
                         	Clear/Encrypt Community name associated with a trap host
-                        	**type**\: list of    :py:class:`EncryptedUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity>`
+                        	**type**\: list of  		 :py:class:`EncryptedUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity>`
                         
                         
 
@@ -7461,31 +7469,33 @@ class Snmp(Entity):
                             .. attribute:: community_name  <key>
                             
                             	SNMPv1/v2c community string or SNMPv3 user
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: port
                             
                             	UDP port number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
                             .. attribute:: version
                             
                             	SNMP Version to be used v1/v2c/v3
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
                             .. attribute:: security_level
                             
                             	Security level to be used noauth/auth/priv
-                            	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+                            	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
                             
                             .. attribute:: basic_trap_types
                             
                             	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -7494,7 +7504,7 @@ class Snmp(Entity):
                             .. attribute:: advanced_trap_types1
                             
                             	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -7503,7 +7513,7 @@ class Snmp(Entity):
                             .. attribute:: advanced_trap_types2
                             
                             	Number to signify the feature traps that needs to be setvalue should always to set as 0
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -7553,12 +7563,12 @@ class Snmp(Entity):
                         .. attribute:: inform_user_communities
                         
                         	Container class for defining communities for a inform host
-                        	**type**\:   :py:class:`InformUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities>`
+                        	**type**\:  :py:class:`InformUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities>`
                         
                         .. attribute:: inform_encrypted_user_communities
                         
                         	Container class for defining Clear/encrypt communities for a inform host
-                        	**type**\:   :py:class:`InformEncryptedUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities>`
+                        	**type**\:  :py:class:`InformEncryptedUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities>`
                         
                         
 
@@ -7597,7 +7607,7 @@ class Snmp(Entity):
                             .. attribute:: inform_user_community
                             
                             	Unencrpted Community name associated with a inform host
-                            	**type**\: list of    :py:class:`InformUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity>`
+                            	**type**\: list of  		 :py:class:`InformUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity>`
                             
                             
 
@@ -7631,33 +7641,33 @@ class Snmp(Entity):
                                 .. attribute:: community_name  <key>
                                 
                                 	SNMPv2c community string or SNMPv3 user
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..128
                                 
                                 .. attribute:: port
                                 
                                 	UDP port number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
                                 .. attribute:: version
                                 
                                 	SNMP Version to be used v2c/v3
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**mandatory**\: True
                                 
                                 .. attribute:: security_level
                                 
                                 	Security level to be used noauth/auth/priv
-                                	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+                                	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
                                 
                                 .. attribute:: basic_trap_types
                                 
                                 	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -7666,7 +7676,7 @@ class Snmp(Entity):
                                 .. attribute:: advanced_trap_types1
                                 
                                 	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -7675,7 +7685,7 @@ class Snmp(Entity):
                                 .. attribute:: advanced_trap_types2
                                 
                                 	Number to signify the feature traps that needs to be setvalue should always to set as 0
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -7725,7 +7735,7 @@ class Snmp(Entity):
                             .. attribute:: inform_encrypted_user_community
                             
                             	Clear/Encrypt Community name associated with a inform host
-                            	**type**\: list of    :py:class:`InformEncryptedUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity>`
+                            	**type**\: list of  		 :py:class:`InformEncryptedUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity>`
                             
                             
 
@@ -7759,31 +7769,33 @@ class Snmp(Entity):
                                 .. attribute:: community_name  <key>
                                 
                                 	SNMPv2c community string or SNMPv3 user
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: port
                                 
                                 	UDP port number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
                                 .. attribute:: version
                                 
                                 	SNMP Version to be used v2c/v3
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**mandatory**\: True
                                 
                                 .. attribute:: security_level
                                 
                                 	Security level to be used noauth/auth/priv
-                                	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+                                	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
                                 
                                 .. attribute:: basic_trap_types
                                 
                                 	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -7792,7 +7804,7 @@ class Snmp(Entity):
                                 .. attribute:: advanced_trap_types1
                                 
                                 	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -7801,7 +7813,7 @@ class Snmp(Entity):
                                 .. attribute:: advanced_trap_types2
                                 
                                 	Number to signify the feature traps that needs to be setvalue should always to set as 0
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -7851,7 +7863,7 @@ class Snmp(Entity):
                         .. attribute:: default_user_community
                         
                         	Unencrpted Community name associated with a trap host
-                        	**type**\: list of    :py:class:`DefaultUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity>`
+                        	**type**\: list of  		 :py:class:`DefaultUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity>`
                         
                         
 
@@ -7885,33 +7897,33 @@ class Snmp(Entity):
                             .. attribute:: community_name  <key>
                             
                             	SNMPv1/v2c community string or SNMPv3 user
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..128
                             
                             .. attribute:: port
                             
                             	UDP port number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
                             .. attribute:: version
                             
                             	SNMP Version to be used v1/v2c/v3
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
                             .. attribute:: security_level
                             
                             	Security level to be used noauth/auth/priv
-                            	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+                            	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
                             
                             .. attribute:: basic_trap_types
                             
                             	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -7920,7 +7932,7 @@ class Snmp(Entity):
                             .. attribute:: advanced_trap_types1
                             
                             	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -7929,7 +7941,7 @@ class Snmp(Entity):
                             .. attribute:: advanced_trap_types2
                             
                             	Number to signify the feature traps that needs to be setvalue should always to set as 0
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -7978,7 +7990,7 @@ class Snmp(Entity):
                 .. attribute:: context
                 
                 	Context Name
-                	**type**\: list of    :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.Contexts.Context>`
+                	**type**\: list of  		 :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.Contexts.Context>`
                 
                 
 
@@ -8011,7 +8023,9 @@ class Snmp(Entity):
                     .. attribute:: context_name  <key>
                     
                     	Context Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -8044,7 +8058,7 @@ class Snmp(Entity):
                 .. attribute:: context_mapping
                 
                 	Context mapping name
-                	**type**\: list of    :py:class:`ContextMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.ContextMappings.ContextMapping>`
+                	**type**\: list of  		 :py:class:`ContextMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Vrfs.Vrf.ContextMappings.ContextMapping>`
                 
                 
 
@@ -8077,27 +8091,29 @@ class Snmp(Entity):
                     .. attribute:: context_mapping_name  <key>
                     
                     	Context mapping name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: context
                     
                     	SNMP context feature type
-                    	**type**\:   :py:class:`SnmpContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpContext>`
+                    	**type**\:  :py:class:`SnmpContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpContext>`
                     
                     .. attribute:: instance_name
                     
                     	OSPF protocol instance
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vrf_name
                     
                     	VRF name associated with the context
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: topology_name
                     
                     	Topology name associated with the context
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -8138,7 +8154,7 @@ class Snmp(Entity):
         .. attribute:: group
         
         	Name of the group
-        	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Groups.Group>`
+        	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Groups.Group>`
         
         
 
@@ -8172,61 +8188,61 @@ class Snmp(Entity):
             .. attribute:: name  <key>
             
             	Name of the group
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..128
             
             .. attribute:: snmp_version
             
             	snmp version
-            	**type**\:   :py:class:`GroupSnmpVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.GroupSnmpVersion>`
+            	**type**\:  :py:class:`GroupSnmpVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.GroupSnmpVersion>`
             
             	**mandatory**\: True
             
             .. attribute:: security_model
             
             	security model like auth/noAuth/Priv applicable for v3
-            	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+            	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
             
             .. attribute:: notify_view
             
             	notify view name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: read_view
             
             	read view name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: write_view
             
             	write view name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: v4acl_type
             
             	Access\-list type
-            	**type**\:   :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
+            	**type**\:  :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
             
             .. attribute:: v4_access_list
             
             	Ipv4 Access\-list name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: v6acl_type
             
             	Access\-list type
-            	**type**\:   :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
+            	**type**\:  :py:class:`Snmpacl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl>`
             
             .. attribute:: v6_access_list
             
             	Ipv6 Access\-list name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: context_name
             
             	Context name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -8280,7 +8296,7 @@ class Snmp(Entity):
         .. attribute:: trap_host
         
         	Specify hosts to receive SNMP notifications
-        	**type**\: list of    :py:class:`TrapHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost>`
+        	**type**\: list of  		 :py:class:`TrapHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost>`
         
         
 
@@ -8314,30 +8330,30 @@ class Snmp(Entity):
             .. attribute:: ip_address  <key>
             
             	IP address of SNMP notification host
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            ----
             .. attribute:: encrypted_user_communities
             
             	Container class for defining Clear/encrypt communities for a trap host
-            	**type**\:   :py:class:`EncryptedUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.EncryptedUserCommunities>`
+            	**type**\:  :py:class:`EncryptedUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.EncryptedUserCommunities>`
             
             .. attribute:: inform_host
             
             	Container class for defining notification type for a Inform host
-            	**type**\:   :py:class:`InformHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost>`
+            	**type**\:  :py:class:`InformHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost>`
             
             .. attribute:: default_user_communities
             
             	Container class for defining communities for a trap host
-            	**type**\:   :py:class:`DefaultUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.DefaultUserCommunities>`
+            	**type**\:  :py:class:`DefaultUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.DefaultUserCommunities>`
             
             
 
@@ -8387,7 +8403,7 @@ class Snmp(Entity):
                 .. attribute:: encrypted_user_community
                 
                 	Clear/Encrypt Community name associated with a trap host
-                	**type**\: list of    :py:class:`EncryptedUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity>`
+                	**type**\: list of  		 :py:class:`EncryptedUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity>`
                 
                 
 
@@ -8421,31 +8437,33 @@ class Snmp(Entity):
                     .. attribute:: community_name  <key>
                     
                     	SNMPv1/v2c community string or SNMPv3 user
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: port
                     
                     	UDP port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: version
                     
                     	SNMP Version to be used v1/v2c/v3
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: security_level
                     
                     	Security level to be used noauth/auth/priv
-                    	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+                    	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
                     
                     .. attribute:: basic_trap_types
                     
                     	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -8454,7 +8472,7 @@ class Snmp(Entity):
                     .. attribute:: advanced_trap_types1
                     
                     	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -8463,7 +8481,7 @@ class Snmp(Entity):
                     .. attribute:: advanced_trap_types2
                     
                     	Number to signify the feature traps that needs to be setvalue should always to set as 0
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -8513,12 +8531,12 @@ class Snmp(Entity):
                 .. attribute:: inform_user_communities
                 
                 	Container class for defining communities for a inform host
-                	**type**\:   :py:class:`InformUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities>`
+                	**type**\:  :py:class:`InformUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities>`
                 
                 .. attribute:: inform_encrypted_user_communities
                 
                 	Container class for defining Clear/encrypt communities for a inform host
-                	**type**\:   :py:class:`InformEncryptedUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities>`
+                	**type**\:  :py:class:`InformEncryptedUserCommunities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities>`
                 
                 
 
@@ -8557,7 +8575,7 @@ class Snmp(Entity):
                     .. attribute:: inform_user_community
                     
                     	Unencrpted Community name associated with a inform host
-                    	**type**\: list of    :py:class:`InformUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity>`
+                    	**type**\: list of  		 :py:class:`InformUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity>`
                     
                     
 
@@ -8591,33 +8609,33 @@ class Snmp(Entity):
                         .. attribute:: community_name  <key>
                         
                         	SNMPv2c community string or SNMPv3 user
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..128
                         
                         .. attribute:: port
                         
                         	UDP port number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: version
                         
                         	SNMP Version to be used v2c/v3
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: security_level
                         
                         	Security level to be used noauth/auth/priv
-                        	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+                        	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
                         
                         .. attribute:: basic_trap_types
                         
                         	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -8626,7 +8644,7 @@ class Snmp(Entity):
                         .. attribute:: advanced_trap_types1
                         
                         	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -8635,7 +8653,7 @@ class Snmp(Entity):
                         .. attribute:: advanced_trap_types2
                         
                         	Number to signify the feature traps that needs to be setvalue should always to set as 0
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -8685,7 +8703,7 @@ class Snmp(Entity):
                     .. attribute:: inform_encrypted_user_community
                     
                     	Clear/Encrypt Community name associated with a inform host
-                    	**type**\: list of    :py:class:`InformEncryptedUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity>`
+                    	**type**\: list of  		 :py:class:`InformEncryptedUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity>`
                     
                     
 
@@ -8719,31 +8737,33 @@ class Snmp(Entity):
                         .. attribute:: community_name  <key>
                         
                         	SNMPv2c community string or SNMPv3 user
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: port
                         
                         	UDP port number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: version
                         
                         	SNMP Version to be used v2c/v3
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: security_level
                         
                         	Security level to be used noauth/auth/priv
-                        	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+                        	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
                         
                         .. attribute:: basic_trap_types
                         
                         	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072 ,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -8752,7 +8772,7 @@ class Snmp(Entity):
                         .. attribute:: advanced_trap_types1
                         
                         	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -8761,7 +8781,7 @@ class Snmp(Entity):
                         .. attribute:: advanced_trap_types2
                         
                         	Number to signify the feature traps that needs to be setvalue should always to set as 0
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -8811,7 +8831,7 @@ class Snmp(Entity):
                 .. attribute:: default_user_community
                 
                 	Unencrpted Community name associated with a trap host
-                	**type**\: list of    :py:class:`DefaultUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity>`
+                	**type**\: list of  		 :py:class:`DefaultUserCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity>`
                 
                 
 
@@ -8845,33 +8865,33 @@ class Snmp(Entity):
                     .. attribute:: community_name  <key>
                     
                     	SNMPv1/v2c community string or SNMPv3 user
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..128
                     
                     .. attribute:: port
                     
                     	UDP port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: version
                     
                     	SNMP Version to be used v1/v2c/v3
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: security_level
                     
                     	Security level to be used noauth/auth/priv
-                    	**type**\:   :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
+                    	**type**\:  :py:class:`SnmpSecurityModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel>`
                     
                     .. attribute:: basic_trap_types
                     
                     	Number to signify the feature traps that needs to be setBasicTrapTypes is used for all traps except copy\-completeSet this value to an integer corresponding to the trapBGP 8192, CONFIG 4096,SYSLOG 131072,SNMP\_TRAP 1COPY\_COMPLETE\_TRAP 64To provide a combination of trap Add the respective numbersValue must be set to 0 for all traps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -8880,7 +8900,7 @@ class Snmp(Entity):
                     .. attribute:: advanced_trap_types1
                     
                     	Number to signify the feature traps that needs to be setUse this for providing copy\-complete trapValue must be set to 0 if not used
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -8889,7 +8909,7 @@ class Snmp(Entity):
                     .. attribute:: advanced_trap_types2
                     
                     	Number to signify the feature traps that needs to be setvalue should always to set as 0
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -8938,7 +8958,7 @@ class Snmp(Entity):
         .. attribute:: context
         
         	Context Name
-        	**type**\: list of    :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Contexts.Context>`
+        	**type**\: list of  		 :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Contexts.Context>`
         
         
 
@@ -8972,7 +8992,9 @@ class Snmp(Entity):
             .. attribute:: context_name  <key>
             
             	Context Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             
 
@@ -9006,7 +9028,7 @@ class Snmp(Entity):
         .. attribute:: context_mapping
         
         	Context mapping name
-        	**type**\: list of    :py:class:`ContextMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.ContextMappings.ContextMapping>`
+        	**type**\: list of  		 :py:class:`ContextMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.ContextMappings.ContextMapping>`
         
         
 
@@ -9040,27 +9062,29 @@ class Snmp(Entity):
             .. attribute:: context_mapping_name  <key>
             
             	Context mapping name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: context
             
             	SNMP context feature type
-            	**type**\:   :py:class:`SnmpContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpContext>`
+            	**type**\:  :py:class:`SnmpContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.SnmpContext>`
             
             .. attribute:: instance_name
             
             	OSPF protocol instance
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_name
             
             	VRF name associated with the context
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: topology_name
             
             	Topology name associated with the context
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -9105,52 +9129,52 @@ class Mib(Entity):
     .. attribute:: mpls_te_mib
     
     	MPLS TE MIB configuration
-    	**type**\:   :py:class:`MplsTeMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeMib>`
+    	**type**\:  :py:class:`MplsTeMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeMib>`
     
     .. attribute:: mpls_p2mp_mib
     
     	MPLS P2MP MIB configuration
-    	**type**\:   :py:class:`MplsP2MpMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsP2MpMib>`
+    	**type**\:  :py:class:`MplsP2MpMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsP2MpMib>`
     
     .. attribute:: mpls_te_ext_std_mib
     
     	MPLS TE EXT STD MIB configuration
-    	**type**\:   :py:class:`MplsTeExtStdMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeExtStdMib>`
+    	**type**\:  :py:class:`MplsTeExtStdMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeExtStdMib>`
     
     .. attribute:: mpls_te_ext_mib
     
     	MPLS TE EXT MIB configuration
-    	**type**\:   :py:class:`MplsTeExtMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeExtMib>`
+    	**type**\:  :py:class:`MplsTeExtMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeExtMib>`
     
     .. attribute:: mpls_frr_mib
     
     	FRR MIB configuration
-    	**type**\:   :py:class:`MplsFrrMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsFrrMib>`
+    	**type**\:  :py:class:`MplsFrrMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsFrrMib>`
     
     .. attribute:: cb_qosmib
     
     	CBQoSMIB configuration
-    	**type**\:   :py:class:`CbQosmib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib>`
+    	**type**\:  :py:class:`CbQosmib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib>`
     
     .. attribute:: sensor_mib_cache
     
     	Get cached Sesnsor MIB statistics
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: entity_mib
     
     	Entity MIB
-    	**type**\:   :py:class:`EntityMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.EntityMib>`
+    	**type**\:  :py:class:`EntityMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.EntityMib>`
     
     .. attribute:: interface_mib
     
     	Interface MIB configuration
-    	**type**\:   :py:class:`InterfaceMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib>`
+    	**type**\:  :py:class:`InterfaceMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib>`
     
     .. attribute:: subscriber
     
     	Subscriber threshold commands
-    	**type**\:   :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber>`
+    	**type**\:  :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber>`
     
     
 
@@ -9167,7 +9191,7 @@ class Mib(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-agent-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mpls-te-mib" : ("mpls_te_mib", Mib.MplsTeMib), "mpls-p2mp-mib" : ("mpls_p2mp_mib", Mib.MplsP2MpMib), "mpls-te-ext-std-mib" : ("mpls_te_ext_std_mib", Mib.MplsTeExtStdMib), "mpls-te-ext-mib" : ("mpls_te_ext_mib", Mib.MplsTeExtMib), "mpls-frr-mib" : ("mpls_frr_mib", Mib.MplsFrrMib), "cb-qosmib" : ("cb_qosmib", Mib.CbQosmib), "entity-mib" : ("entity_mib", Mib.EntityMib), "interface-mib" : ("interface_mib", Mib.InterfaceMib), "subscriber" : ("subscriber", Mib.Subscriber)}
+        self._child_container_classes = {"Cisco-IOS-XR-mpls-te-cfg:mpls-te-mib" : ("mpls_te_mib", Mib.MplsTeMib), "Cisco-IOS-XR-mpls-te-cfg:mpls-p2mp-mib" : ("mpls_p2mp_mib", Mib.MplsP2MpMib), "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-std-mib" : ("mpls_te_ext_std_mib", Mib.MplsTeExtStdMib), "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-mib" : ("mpls_te_ext_mib", Mib.MplsTeExtMib), "Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib" : ("mpls_frr_mib", Mib.MplsFrrMib), "Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib" : ("cb_qosmib", Mib.CbQosmib), "Cisco-IOS-XR-snmp-entitymib-cfg:entity-mib" : ("entity_mib", Mib.EntityMib), "Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib" : ("interface_mib", Mib.InterfaceMib), "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber" : ("subscriber", Mib.Subscriber)}
         self._child_list_classes = {}
 
         self.sensor_mib_cache = YLeaf(YType.empty, "Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor-mib-cache")
@@ -9229,7 +9253,7 @@ class Mib(Entity):
         .. attribute:: cache_garbage_collect_timer
         
         	Configure the cache garbage collector time for the mib
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..3600
         
@@ -9240,7 +9264,7 @@ class Mib(Entity):
         .. attribute:: cache_timer
         
         	Configure the cache time for the mib
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..600
         
@@ -9282,7 +9306,7 @@ class Mib(Entity):
         .. attribute:: cache_timer
         
         	Configure the cache time for the mib
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..600
         
@@ -9322,7 +9346,7 @@ class Mib(Entity):
         .. attribute:: cache_timer
         
         	Configure the cache time for the mib
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..600
         
@@ -9362,7 +9386,7 @@ class Mib(Entity):
         .. attribute:: cache_timer
         
         	Configure the cache time for the mib
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..600
         
@@ -9402,7 +9426,7 @@ class Mib(Entity):
         .. attribute:: cache_timer
         
         	Configure the cache time for the mib
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..600
         
@@ -9442,17 +9466,17 @@ class Mib(Entity):
         .. attribute:: cache
         
         	CBQoSMIB statistics data caching
-        	**type**\:   :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib.Cache>`
+        	**type**\:  :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib.Cache>`
         
         .. attribute:: member_interface_stats
         
         	Enable bundle member interface statistics retrieval
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: persist
         
         	Persist CBQoSMIB config, service\-policy and object indices
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -9493,12 +9517,12 @@ class Mib(Entity):
             .. attribute:: enable
             
             	Enable CBQoSMIB statistics data caching
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: refresh_time
             
             	Cache refresh time in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..60
             
@@ -9507,7 +9531,7 @@ class Mib(Entity):
             .. attribute:: service_policy_count
             
             	Maximum number of service policies to cache the statistics for
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..5000
             
@@ -9547,7 +9571,7 @@ class Mib(Entity):
         .. attribute:: entity_index_persistence
         
         	Enable entPhysicalIndex persistence
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -9581,22 +9605,22 @@ class Mib(Entity):
         .. attribute:: interfaces
         
         	Enter the SNMP interface configuration commands
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Interfaces>`
         
         .. attribute:: notification
         
         	MIB notification configuration
-        	**type**\:   :py:class:`Notification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Notification>`
+        	**type**\:  :py:class:`Notification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Notification>`
         
         .. attribute:: subsets
         
         	Add configuration for an interface subset
-        	**type**\:   :py:class:`Subsets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Subsets>`
+        	**type**\:  :py:class:`Subsets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Subsets>`
         
         .. attribute:: internal_cache
         
         	Get cached interface statistics
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..60
         
@@ -9605,22 +9629,22 @@ class Mib(Entity):
         .. attribute:: interface_alias_long
         
         	Enable support for ifAlias values longer than 64 characters
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: ip_subscriber
         
         	Enable IP subscriber interfaces in IFMIB
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: interface_index_persistence
         
         	Enable ifindex persistence
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: statistics_cache
         
         	Enable cached interface statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -9677,7 +9701,7 @@ class Mib(Entity):
             .. attribute:: interface
             
             	Interface to configure
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Interfaces.Interface>`
             
             
 
@@ -9711,17 +9735,19 @@ class Mib(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	The name of the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: link_up_down
                 
                 	Enable or disable LinkUpDown notification
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: index_persistence
                 
                 	Enable or disable index persistence
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -9759,7 +9785,7 @@ class Mib(Entity):
             .. attribute:: link_ietf
             
             	Set the varbind of linkupdown trap to the RFC specified varbinds (default cisco)
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -9793,7 +9819,7 @@ class Mib(Entity):
             .. attribute:: subset
             
             	Subset priorityID to group ifNames based on Regular Expression
-            	**type**\: list of    :py:class:`Subset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Subsets.Subset>`
+            	**type**\: list of  		 :py:class:`Subset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Subsets.Subset>`
             
             
 
@@ -9828,14 +9854,14 @@ class Mib(Entity):
                 .. attribute:: subset_id  <key>
                 
                 	The interface subset PriorityID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..255
                 
                 .. attribute:: link_up_down
                 
                 	SNMP linkUp and linkDown notifications
-                	**type**\:   :py:class:`LinkUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Subsets.Subset.LinkUpDown>`
+                	**type**\:  :py:class:`LinkUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Subsets.Subset.LinkUpDown>`
                 
                 
 
@@ -9874,12 +9900,12 @@ class Mib(Entity):
                     .. attribute:: enable
                     
                     	Enable or disable linkupdown notification
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: regular_expression
                     
                     	Regular expression to match ifName
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -9914,7 +9940,7 @@ class Mib(Entity):
         .. attribute:: threshold
         
         	Subscriber threshold commands
-        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold>`
+        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold>`
         
         
 
@@ -9948,22 +9974,22 @@ class Mib(Entity):
             .. attribute:: delta
             
             	Delta loss keyword
-            	**type**\:   :py:class:`Delta <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta>`
+            	**type**\:  :py:class:`Delta <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta>`
             
             .. attribute:: access_interface_sub
             
             	Access interface for regular expression
-            	**type**\:   :py:class:`AccessInterfaceSub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub>`
+            	**type**\:  :py:class:`AccessInterfaceSub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub>`
             
             .. attribute:: falling
             
             	Falling threshold
-            	**type**\:   :py:class:`Falling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling>`
+            	**type**\:  :py:class:`Falling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling>`
             
             .. attribute:: rising
             
             	Rising threshold
-            	**type**\:   :py:class:`Rising <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising>`
+            	**type**\:  :py:class:`Rising <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising>`
             
             
 
@@ -10012,12 +10038,12 @@ class Mib(Entity):
                 .. attribute:: evaluation
                 
                 	Evaluation keyword
-                	**type**\:   :py:class:`Evaluation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation>`
+                	**type**\:  :py:class:`Evaluation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation>`
                 
                 .. attribute:: percent
                 
                 	Delta loss percent
-                	**type**\:   :py:class:`Percent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent>`
+                	**type**\:  :py:class:`Percent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent>`
                 
                 
 
@@ -10056,12 +10082,12 @@ class Mib(Entity):
                     .. attribute:: access_interfaces
                     
                     	Table of AccessInterface
-                    	**type**\:   :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces>`
+                    	**type**\:  :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces>`
                     
                     .. attribute:: nodes
                     
                     	Table of Node
-                    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation.Nodes>`
+                    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation.Nodes>`
                     
                     
 
@@ -10100,7 +10126,7 @@ class Mib(Entity):
                         .. attribute:: access_interface
                         
                         	Access interface
-                        	**type**\: list of    :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces.AccessInterface>`
+                        	**type**\: list of  		 :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces.AccessInterface>`
                         
                         
 
@@ -10134,19 +10160,21 @@ class Mib(Entity):
                             .. attribute:: interface_name  <key>
                             
                             	Interface name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: session_count
                             
                             	Session count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967294
                             
                             .. attribute:: interval
                             
                             	Interval value in multiples of 10
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 30..3600
                             
@@ -10186,7 +10214,7 @@ class Mib(Entity):
                         .. attribute:: node
                         
                         	Rising node level
-                        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation.Nodes.Node>`
+                        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Evaluation.Nodes.Node>`
                         
                         
 
@@ -10220,19 +10248,21 @@ class Mib(Entity):
                             .. attribute:: node_name  <key>
                             
                             	location
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: session_count
                             
                             	Session count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967294
                             
                             .. attribute:: interval
                             
                             	interval value in multiples of 10
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 30..3600
                             
@@ -10272,12 +10302,12 @@ class Mib(Entity):
                     .. attribute:: access_interfaces
                     
                     	Table of AccessInterface
-                    	**type**\:   :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces>`
+                    	**type**\:  :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces>`
                     
                     .. attribute:: nodes
                     
                     	Table of Node
-                    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent.Nodes>`
+                    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent.Nodes>`
                     
                     
 
@@ -10316,7 +10346,7 @@ class Mib(Entity):
                         .. attribute:: access_interface
                         
                         	Access interface
-                        	**type**\: list of    :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces.AccessInterface>`
+                        	**type**\: list of  		 :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces.AccessInterface>`
                         
                         
 
@@ -10350,19 +10380,21 @@ class Mib(Entity):
                             .. attribute:: interface_name  <key>
                             
                             	Interface name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: session_count
                             
                             	Session count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967294
                             
                             .. attribute:: interval
                             
                             	Interval value in multiples of 10
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 30..3600
                             
@@ -10402,7 +10434,7 @@ class Mib(Entity):
                         .. attribute:: node
                         
                         	Rising node level
-                        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent.Nodes.Node>`
+                        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Delta.Percent.Nodes.Node>`
                         
                         
 
@@ -10436,19 +10468,21 @@ class Mib(Entity):
                             .. attribute:: node_name  <key>
                             
                             	location
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: session_count
                             
                             	Session count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967294
                             
                             .. attribute:: interval
                             
                             	interval value in multiples of 10
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 30..3600
                             
@@ -10488,7 +10522,7 @@ class Mib(Entity):
                 .. attribute:: subsets
                 
                 	Table of Subset
-                	**type**\:   :py:class:`Subsets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets>`
+                	**type**\:  :py:class:`Subsets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets>`
                 
                 
 
@@ -10522,7 +10556,7 @@ class Mib(Entity):
                     .. attribute:: subset
                     
                     	Subset command
-                    	**type**\: list of    :py:class:`Subset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset>`
+                    	**type**\: list of  		 :py:class:`Subset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset>`
                     
                     
 
@@ -10556,14 +10590,14 @@ class Mib(Entity):
                         .. attribute:: subset_id  <key>
                         
                         	Subset number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
                         .. attribute:: regular_expression
                         
                         	Regular expression
-                        	**type**\:   :py:class:`RegularExpression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression>`
+                        	**type**\:  :py:class:`RegularExpression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression>`
                         
                         
 
@@ -10602,7 +10636,7 @@ class Mib(Entity):
                             .. attribute:: notification
                             
                             	Notification keyword
-                            	**type**\:   :py:class:`Notification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification>`
+                            	**type**\:  :py:class:`Notification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification>`
                             
                             
 
@@ -10635,7 +10669,7 @@ class Mib(Entity):
                                 .. attribute:: rising_falling
                                 
                                 	Rising\-falling threshold
-                                	**type**\:   :py:class:`RisingFalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification.RisingFalling>`
+                                	**type**\:  :py:class:`RisingFalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification.RisingFalling>`
                                 
                                 
 
@@ -10668,7 +10702,7 @@ class Mib(Entity):
                                     .. attribute:: disable
                                     
                                     	Disable the notifications on access interfaces
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -10701,12 +10735,12 @@ class Mib(Entity):
                 .. attribute:: access_interfaces
                 
                 	Table of AccessInterface
-                	**type**\:   :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling.AccessInterfaces>`
+                	**type**\:  :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling.AccessInterfaces>`
                 
                 .. attribute:: nodes
                 
                 	Table of Node
-                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling.Nodes>`
+                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling.Nodes>`
                 
                 
 
@@ -10745,7 +10779,7 @@ class Mib(Entity):
                     .. attribute:: access_interface
                     
                     	Access interface
-                    	**type**\: list of    :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling.AccessInterfaces.AccessInterface>`
+                    	**type**\: list of  		 :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling.AccessInterfaces.AccessInterface>`
                     
                     
 
@@ -10779,19 +10813,21 @@ class Mib(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: session_count
                         
                         	Session count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967294
                         
                         .. attribute:: interval
                         
                         	Interval value in multiples of 10
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 30..3600
                         
@@ -10831,7 +10867,7 @@ class Mib(Entity):
                     .. attribute:: node
                     
                     	Rising node level
-                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling.Nodes.Node>`
+                    	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Falling.Nodes.Node>`
                     
                     
 
@@ -10865,19 +10901,21 @@ class Mib(Entity):
                         .. attribute:: node_name  <key>
                         
                         	location
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         .. attribute:: session_count
                         
                         	Session count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967294
                         
                         .. attribute:: interval
                         
                         	interval value in multiples of 10
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 30..3600
                         
@@ -10917,12 +10955,12 @@ class Mib(Entity):
                 .. attribute:: access_interfaces
                 
                 	Table of AccessInterface
-                	**type**\:   :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising.AccessInterfaces>`
+                	**type**\:  :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising.AccessInterfaces>`
                 
                 .. attribute:: nodes
                 
                 	Table of Node
-                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising.Nodes>`
+                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising.Nodes>`
                 
                 
 
@@ -10961,7 +10999,7 @@ class Mib(Entity):
                     .. attribute:: access_interface
                     
                     	Access interface
-                    	**type**\: list of    :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising.AccessInterfaces.AccessInterface>`
+                    	**type**\: list of  		 :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising.AccessInterfaces.AccessInterface>`
                     
                     
 
@@ -10995,19 +11033,21 @@ class Mib(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: session_count
                         
                         	Session count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967294
                         
                         .. attribute:: interval
                         
                         	Interval value in multiples of 10
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 30..3600
                         
@@ -11047,7 +11087,7 @@ class Mib(Entity):
                     .. attribute:: node
                     
                     	Rising node level
-                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising.Nodes.Node>`
+                    	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber.Threshold.Rising.Nodes.Node>`
                     
                     
 
@@ -11081,19 +11121,21 @@ class Mib(Entity):
                         .. attribute:: node_name  <key>
                         
                         	location
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         .. attribute:: session_count
                         
                         	Session count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967294
                         
                         .. attribute:: interval
                         
                         	interval value in multiples of 10
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 30..3600
                         

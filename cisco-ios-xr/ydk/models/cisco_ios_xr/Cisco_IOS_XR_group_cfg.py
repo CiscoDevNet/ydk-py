@@ -21,7 +21,7 @@ class Groups(Entity):
     .. attribute:: group
     
     	Group config definition
-    	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_group_cfg.Groups.Group>`
+    	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_group_cfg.Groups.Group>`
     
     
 
@@ -55,7 +55,7 @@ class Groups(Entity):
         .. attribute:: group_name  <key>
         
         	Group name
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 0..32
         
@@ -94,7 +94,9 @@ class ApplyGroups(Entity):
     .. attribute:: apply_group
     
     	apply\-group name
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
     
     
 

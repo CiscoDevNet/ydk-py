@@ -25,12 +25,12 @@ class Grpc(Entity):
     .. attribute:: statistics
     
     	Grpc Statistics
-    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_oper.Grpc.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_oper.Grpc.Statistics>`
     
     .. attribute:: status
     
     	Grpc Status
-    	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_oper.Grpc.Status>`
+    	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_oper.Grpc.Status>`
     
     
 
@@ -69,147 +69,147 @@ class Grpc(Entity):
         .. attribute:: ct_show_cmd_txt_req_recv
         
         	CounterShowCmdTxtReqRecv
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_show_cmd_txt_res_sent
         
         	CounterShowCmdTxtResSent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_get_config_req_recv
         
         	CounterGetConfigReqRecv
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_get_config_res_sent
         
         	CounterGetConfigResSent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_cli_config_req_recv
         
         	CounterCliConfigReqRecv
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_cli_config_res_sent
         
         	CounterCliConfigResSent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_merge_config_req_recv
         
         	CounterMergeConfigReq
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_merge_config_res_sent
         
         	CounterMergeConfigRes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_commit_replace_req_recv
         
         	CounterCommitReplaceReq
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_commit_replace_res_sent
         
         	CounterCommitReplaceRes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_delete_config_req_recv
         
         	CounterDeleteConfigReq
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_delete_config_res_sent
         
         	CounterDeleteConfigRes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_replace_config_req_recv
         
         	CounterReplaceConfigReq
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_replace_config_res_sent
         
         	CounterReplaceConfigSent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_get_oper_req_recv
         
         	CounterGetOperReqRecv
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_get_oper_res_sent
         
         	CounterGetOperResSent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_get_current_session
         
         	CounterGetCurrentSession
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ct_commit_config_req_recv
         
         	CounterForHowManyCommitConfigRequests
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_commit_config_res_sent
         
         	CounterForHowManyCommitConfigResponses
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_action_json_req_recv
         
         	CounterForHowManyActionJsonRequests
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ct_action_json_res_sent
         
         	CounterForHowManyActionJsonResponses
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -285,46 +285,46 @@ class Grpc(Entity):
         .. attribute:: transport
         
         	GRPCTransport
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: address_family
         
         	AddressFamily
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: tls
         
         	GRPCTLS
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: trustpoint
         
         	GRPCTrustpoint
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: listening_port
         
         	ListeningPort
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: vrf_socket_ns_path
         
         	VrfSocketNamespacePath
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: max_req_per_user
         
         	MaxReqPerUser
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: max_req_total
         
         	MaxReqTotal
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         

@@ -30,27 +30,27 @@ class Watchdog(Entity):
     .. attribute:: threshold_memory
     
     	Memory thresholds
-    	**type**\:   :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_watchd_cfg.Watchdog.ThresholdMemory>`
+    	**type**\:  :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_watchd_cfg.Watchdog.ThresholdMemory>`
     
     .. attribute:: overload_notification
     
     	Disable critical event notification
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: restart_deadlock_disable
     
     	Disable watchdog restart deadlock
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: restart_memoryhog_disable
     
     	Disable watchdog restart memory\-hog
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: overload_throttle_timeout
     
     	Watchdog overload throttle timeout configuration
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 5..120
     
@@ -99,21 +99,21 @@ class Watchdog(Entity):
         .. attribute:: minor
         
         	Threshold, Range (5, 40)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 5..40
         
         .. attribute:: severe
         
         	Threshold, Range (4, minor)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 4..40
         
         .. attribute:: critical
         
         	Threshold, Range (3, severe)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 3..40
         
@@ -156,7 +156,7 @@ class Watchd(Entity):
     .. attribute:: timeout
     
     	Length of timeout in seconds
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..10
     

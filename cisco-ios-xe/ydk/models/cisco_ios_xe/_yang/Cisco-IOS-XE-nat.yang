@@ -41,6 +41,15 @@ module Cisco-IOS-XE-nat {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
+  revision 2017-08-03 {
+    description
+      " Static NAT with VRF and route-map results in incorrect CLI order";
+  }
   revision 2017-06-16 {
     description
       "Native Yang Support for NATv6";
@@ -395,6 +404,11 @@ module Cisco-IOS-XE-nat {
                   range "1..65535";
                 }
               }
+              leaf vrf {
+                description
+                  "Specify vrf";
+                type string;
+              }
               leaf extendable {
                 description
                   "Extend this translation when used";
@@ -434,11 +448,6 @@ module Cisco-IOS-XE-nat {
                 type uint32 {
                   range "1..2147483647";
                 }
-              }
-              leaf vrf {
-                description
-                  "Specify vrf";
-                type string;
               }
               leaf match-in-vrf {
                 description
@@ -698,6 +707,14 @@ module Cisco-IOS-XE-nat {
     uses config-interface-ip-nat-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Port-channel/ios:ip" {
     uses config-interface-ip-nat-grouping;
   }
@@ -726,6 +743,14 @@ module Cisco-IOS-XE-nat {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     uses config-interface-nat66-grouping;
   }
 

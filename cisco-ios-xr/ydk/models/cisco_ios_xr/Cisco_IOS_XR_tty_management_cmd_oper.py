@@ -25,7 +25,7 @@ class ShowUsers(Entity):
     .. attribute:: sessions
     
     	Show users statistics
-    	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_cmd_oper.ShowUsers.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_cmd_oper.ShowUsers.Sessions>`
     
     
 
@@ -59,7 +59,7 @@ class ShowUsers(Entity):
         .. attribute:: session
         
         	Show users statistics
-        	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_cmd_oper.ShowUsers.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_cmd_oper.ShowUsers.Sessions.Session>`
         
         
 
@@ -93,39 +93,39 @@ class ShowUsers(Entity):
             .. attribute:: session_id  <key>
             
             	Session Id
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: line
             
             	Line Number
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: user
             
             	User Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: service
             
             	Service Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: conns
             
             	No. of Connections
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: idle_string
             
             	Idle Time
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: location
             
             	location
-            	**type**\:  str
+            	**type**\: str
             
             
 

@@ -25,14 +25,14 @@ class Lpts(Entity):
     .. attribute:: ipolicer
     
     	Pre IFiB Configuration 
-    	**type**\:   :py:class:`Ipolicer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer>`
+    	**type**\:  :py:class:`Ipolicer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer>`
     
     	**presence node**\: True
     
     .. attribute:: punt
     
     	Configure penalty timeout value
-    	**type**\:   :py:class:`Punt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt>`
+    	**type**\:  :py:class:`Punt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt>`
     
     
 
@@ -49,7 +49,7 @@ class Lpts(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-lpts-lib-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipolicer" : ("ipolicer", Lpts.Ipolicer), "punt" : ("punt", Lpts.Punt)}
+        self._child_container_classes = {"Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer" : ("ipolicer", Lpts.Ipolicer), "Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt" : ("punt", Lpts.Punt)}
         self._child_list_classes = {}
 
         self.ipolicer = None
@@ -70,19 +70,19 @@ class Lpts(Entity):
         .. attribute:: ipv4acls
         
         	Table for ACLs
-        	**type**\:   :py:class:`Ipv4Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls>`
+        	**type**\:  :py:class:`Ipv4Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls>`
         
         .. attribute:: enable
         
         	Enabled
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         	**mandatory**\: True
         
         .. attribute:: flows
         
         	Table for Flows
-        	**type**\:   :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Flows>`
+        	**type**\:  :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Flows>`
         
         
 
@@ -129,7 +129,7 @@ class Lpts(Entity):
             .. attribute:: ipv4acl
             
             	ACL name
-            	**type**\: list of    :py:class:`Ipv4Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl>`
+            	**type**\: list of  		 :py:class:`Ipv4Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl>`
             
             
 
@@ -163,12 +163,14 @@ class Lpts(Entity):
                 .. attribute:: acl_name  <key>
                 
                 	ACL name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: ipv4vrf_names
                 
                 	VRF list
-                	**type**\:   :py:class:`Ipv4VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames>`
+                	**type**\:  :py:class:`Ipv4VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames>`
                 
                 
 
@@ -207,7 +209,7 @@ class Lpts(Entity):
                     .. attribute:: ipv4vrf_name
                     
                     	VRF name
-                    	**type**\: list of    :py:class:`Ipv4VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames.Ipv4VrfName>`
+                    	**type**\: list of  		 :py:class:`Ipv4VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames.Ipv4VrfName>`
                     
                     
 
@@ -240,12 +242,14 @@ class Lpts(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: acl_rate
                         
                         	pre\-ifib policer rate config commands
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..100000
                         
@@ -282,7 +286,7 @@ class Lpts(Entity):
             .. attribute:: flow
             
             	selected flow type
-            	**type**\: list of    :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Flows.Flow>`
+            	**type**\: list of  		 :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Flows.Flow>`
             
             
 
@@ -316,17 +320,17 @@ class Lpts(Entity):
                 .. attribute:: flow_type  <key>
                 
                 	LPTS Flow Type
-                	**type**\:   :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
+                	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
                 
                 .. attribute:: precedences
                 
                 	TOS Precedence value(s)
-                	**type**\:   :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Flows.Flow.Precedences>`
+                	**type**\:  :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Flows.Flow.Precedences>`
                 
                 .. attribute:: rate
                 
                 	Configured rate value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -369,18 +373,14 @@ class Lpts(Entity):
                     .. attribute:: precedence
                     
                     	Precedence values
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  list of   :py:class:`LptsPreIFibPrecedenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber>`
+                    		**type**\: list of   :py:class:`LptsPreIFibPrecedenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber>`
                     
+                    		**type**\: list of int
                     
-                    ----
-                    	**type**\:  list of int
+                    			**range:** 0..7
                     
-                    	**range:** 0..7
-                    
-                    
-                    ----
                     
 
                     """
@@ -412,7 +412,7 @@ class Lpts(Entity):
         .. attribute:: flowtrap
         
         	excessive punt flow trap configuration commands
-        	**type**\:   :py:class:`Flowtrap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap>`
+        	**type**\:  :py:class:`Flowtrap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap>`
         
         
 
@@ -446,86 +446,86 @@ class Lpts(Entity):
             .. attribute:: penalty_rates
             
             	Configure penalty policing rate
-            	**type**\:   :py:class:`PenaltyRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyRates>`
+            	**type**\:  :py:class:`PenaltyRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyRates>`
             
             .. attribute:: penalty_timeouts
             
             	Configure penalty timeout value
-            	**type**\:   :py:class:`PenaltyTimeouts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyTimeouts>`
+            	**type**\:  :py:class:`PenaltyTimeouts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyTimeouts>`
             
             .. attribute:: exclude
             
             	Exclude an item from all traps
-            	**type**\:   :py:class:`Exclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude>`
+            	**type**\:  :py:class:`Exclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude>`
             
             .. attribute:: max_flow_gap
             
             	Maximum flow gap in milliseconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..60000
             
             .. attribute:: et_size
             
             	Should be power of 2. Any one of 1,2,4,8,16,32 ,64,128
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..128
             
             .. attribute:: eviction_threshold
             
             	Eviction threshold, should be less than report\-threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
             .. attribute:: report_threshold
             
             	Threshold to cross for a flow to be considered as bad actor flow
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
             .. attribute:: non_subscriber_interfaces
             
             	Enable trap based on source mac on non\-subscriber interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: sample_prob
             
             	Probability of packets to be sampled
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: eviction_search_limit
             
             	Eviction search limit, should be less than trap\-size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..128
             
             .. attribute:: routing_protocols_enable
             
             	Allow routing protocols to pass through copp sampler
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: subscriber_interfaces
             
             	Enable the trap on subscriber interfaces
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: interface_based_flow
             
             	Identify flow based on interface and flowtype
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: dampening
             
             	Dampening period for a bad actor flow in milliseconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5000..60000
             
@@ -596,7 +596,7 @@ class Lpts(Entity):
                 .. attribute:: penalty_rate
                 
                 	none
-                	**type**\: list of    :py:class:`PenaltyRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate>`
+                	**type**\: list of  		 :py:class:`PenaltyRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate>`
                 
                 
 
@@ -630,12 +630,12 @@ class Lpts(Entity):
                     .. attribute:: protocol_name  <key>
                     
                     	none
-                    	**type**\:   :py:class:`LptsPuntFlowtrapProtoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg.LptsPuntFlowtrapProtoId>`
+                    	**type**\:  :py:class:`LptsPuntFlowtrapProtoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg.LptsPuntFlowtrapProtoId>`
                     
                     .. attribute:: rate
                     
                     	Penalty policer rate in packets\-per\-second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 2..100
                     
@@ -675,7 +675,7 @@ class Lpts(Entity):
                 .. attribute:: penalty_timeout
                 
                 	none
-                	**type**\: list of    :py:class:`PenaltyTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout>`
+                	**type**\: list of  		 :py:class:`PenaltyTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout>`
                 
                 
 
@@ -709,12 +709,12 @@ class Lpts(Entity):
                     .. attribute:: protocol_name  <key>
                     
                     	none
-                    	**type**\:   :py:class:`LptsPuntFlowtrapProtoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg.LptsPuntFlowtrapProtoId>`
+                    	**type**\:  :py:class:`LptsPuntFlowtrapProtoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg.LptsPuntFlowtrapProtoId>`
                     
                     .. attribute:: timeout
                     
                     	Timeout value in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1000
                     
@@ -754,7 +754,7 @@ class Lpts(Entity):
                 .. attribute:: interface_names
                 
                 	none
-                	**type**\:   :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude.InterfaceNames>`
+                	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude.InterfaceNames>`
                 
                 
 
@@ -788,7 +788,7 @@ class Lpts(Entity):
                     .. attribute:: interface_name
                     
                     	Name of interface to exclude from all traps
-                    	**type**\: list of    :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName>`
+                    	**type**\: list of  		 :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName>`
                     
                     
 
@@ -822,12 +822,14 @@ class Lpts(Entity):
                         .. attribute:: ifname  <key>
                         
                         	Name of interface to exclude from all traps
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: id1
                         
                         	Enabled or disabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**mandatory**\: True
                         

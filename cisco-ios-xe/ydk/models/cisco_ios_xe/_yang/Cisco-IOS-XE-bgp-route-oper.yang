@@ -25,6 +25,16 @@ module Cisco-IOS-XE-bgp-route-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-05-22 {
+    description
+      "Added the BGP Peer Group Elements";
+    reference "1.2.0";
+  }
+  revision 2017-05-12 {
+    description
+      "Added the BGP RD and Neighbor routes";
+    reference "1.1.0";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -130,6 +140,150 @@ module Cisco-IOS-XE-bgp-route-oper {
     }
     description
       "BGP route filters";
+  }
+
+  typedef bgp-neighbor-route-filters {
+    type enumeration {
+      enum "bgp-nrf-post-received" {
+        value 0;
+        description
+          "BGP received routes post policy";
+      }
+      enum "bgp-nrf-pre-received" {
+        value 1;
+        description
+          "BGP received routes pre policy";
+      }
+      enum "bgp-nrf-pre-advertised" {
+        value 2;
+        description
+          "BGP pre advertised pre policy";
+      }
+      enum "bgp-nrf-post-advertised" {
+        value 3;
+        description
+          "BGP post advertised post policy";
+      }
+    }
+    description
+      "BGP neighbor route filters";
+  }
+
+  grouping peer-group {
+    description
+      "BGP peer groups";
+    leaf name {
+      type string;
+      description
+        "BGP peer group name";
+    }
+    leaf description {
+      type string;
+      description
+        "Peer Group description string";
+    }
+    leaf remote-as {
+      type uint32;
+      description
+        "Peer Group Remote as value";
+    }
+    leaf bgp-version {
+      type uint16;
+      description
+        "BGP version being used to communicate
+         with the remote router";
+    }
+    leaf min-time {
+      type uint16;
+      description
+        "Peer Group minimum time";
+    }
+    leaf num-of-sessions {
+      type uint32;
+      description
+        "Number of Sessions for peer group";
+    }
+    leaf num-estab-sessions {
+      type uint32;
+      description
+        "Number of established sessions 
+         for peer group";
+    }
+    leaf num-sso-sessions {
+      type uint32;
+      description
+        "Number of SSO sesssions for peer group";
+    }
+    leaf-list peer-members {
+      type string;
+      description
+        "BGP peer group members";
+    }
+    leaf fmt-grp-ix {
+      type uint16;
+      description
+        "BGP peer group Formatted Group Index value";
+    }
+    leaf adv-ix {
+      type uint16;
+      description
+        "BGP peer group Advertised Index value";
+    }
+    leaf aspath-in {
+      type uint32;
+      description
+        "BGP peer group aspath  filter in value";
+    }
+    leaf aspath-out {
+      type uint32;
+      description
+        "BGP peer group aspath  filter out value";
+    }
+    leaf routemap-in {
+      type string;
+      description
+        "BGP peer group Route Map in value";
+    }
+    leaf routemap-out {
+      type string;
+      description
+        "BGP peer group Route Map out value";
+    }
+    leaf updated-messages {
+      type uint64;
+      description
+        "BGP peer group Updated Messages value";
+    }
+    leaf rep-count {
+      type uint32;
+      description
+        "BGP peer group Replicated Count value";
+    }
+    leaf slowpeer-detection-value {
+      type uint16;
+      description
+        "BGP peer group slow peer Threshold value";
+    }
+    leaf weight {
+      type uint16;
+      description
+        "BGP weight value";
+    }
+    leaf send-community {
+      type boolean;
+      description
+        "BGP Send Community status";
+    }
+    leaf extended-community {
+      type boolean;
+      description
+        "BGP Extended Community status";
+    }
+    leaf remove-private-as {
+      type boolean;
+      description
+        "BGP Remove PrivateAs status";
+    }
   }
 
   grouping path-status {
@@ -260,6 +414,81 @@ module Cisco-IOS-XE-bgp-route-oper {
       description
         "Community label for the path";
     }
+    leaf mpls-in {
+      type string;
+      description
+        "MPLS label in for the path";
+    }
+    leaf mpls-out {
+      type string;
+      description
+        "MPLS label out for the path";
+    }
+    leaf sr-profile-name {
+      type string;
+      description
+        "SR profile name for the path";
+    }
+    leaf sr-binding-sid {
+      type uint32;
+      description
+        "SR binding sid for the path";
+    }
+    leaf sr-label-indx {
+      type uint32;
+      description
+        "SR label index for the path";
+    }
+    leaf as4-path {
+      type string;
+      description
+        "path using 4-octet AS numbers";
+    }
+    leaf atomic-aggregate {
+      type boolean;
+      description
+        "attribute indicating whether or not the prefix is an atomic aggregate";
+    }
+    leaf aggr-as-number {
+      type uint32;
+      description
+        "AS number of autonomous system them performed the aggregation";
+    }
+    leaf aggr-as4-number {
+      type uint32;
+      description
+        "AS4 number of autonomous system them performed the aggregation";
+    }
+    leaf aggr-address {
+      type string;
+      description
+        "IP address of the router that performed the aggregation";
+    }
+    leaf originator-id {
+      type string;
+      description
+        "the router ID of the originator of the route in the local AS";
+    }
+    leaf cluster-list {
+      type string;
+      description
+        "the reflection path the route has passed";
+    }
+    leaf extended-community {
+      type string;
+      description
+        "BGP extended community attribute";
+    }
+    leaf ext-aigp-metric {
+      type uint64;
+      description
+        "the accumulated IGP metric for the path";
+    }
+    leaf path-id {
+      type uint32;
+      description
+        "path identifier used to uniquely identify a route";
+    }
   }
 
   grouping route-entry {
@@ -317,6 +546,81 @@ module Cisco-IOS-XE-bgp-route-oper {
     }
   }
 
+  grouping neighbor-route-entry {
+    description
+      "Neighbor routing table entry details";
+    leaf prefix {
+      type string;
+      description
+        "Neighbor routing table entry prefix";
+    }
+    leaf version {
+      type uint32;
+      description
+        "Neighbor routing table version";
+    }
+    leaf available-paths {
+      type uint32;
+      description
+        "Number of paths available for BGP prefix";
+    }
+    leaf advertised-to {
+      type string;
+      description
+        "Who this prefix was advertized to";
+    }
+    container bgp-neighbor-path-entries {
+      description
+        "Prefix next hop details";
+      list bgp-neighbor-path-entry {
+        key "nexthop";
+        description
+          "List of prefix next hop details";
+        uses bgp-route-ios-xe-oper:path-type;
+      }
+    }
+  }
+
+  grouping neighbor-route-filter {
+    description
+      "BGP neighbor route filter";
+    leaf nbr-fltr {
+      type bgp-route-ios-xe-oper:bgp-neighbor-route-filters;
+      description
+        "BGP neighbor route filter";
+    }
+    container bgp-neighbor-route-entries {
+      description
+        "BGP neighbor route entries";
+      list bgp-neighbor-route-entry {
+        key "prefix";
+        description
+          "List of BGP neighbor route entries";
+        uses bgp-route-ios-xe-oper:neighbor-route-entry;
+      }
+    }
+  }
+
+  grouping bgp-route-neighbor {
+    description
+      "BGP route neighbor";
+    leaf nbr-id {
+      type string;
+      description
+        "BGP neighbor ID";
+    }
+    container bgp-neighbor-route-filters {
+      description
+        "BGP neighbor route filters";
+      list bgp-neighbor-route-filter {
+        key "nbr-fltr";
+        description
+          "List of BGP neighbor route filters";
+        uses bgp-route-ios-xe-oper:neighbor-route-filter;
+      }
+    }
+  }
+
   grouping af-record {
     description
       "BGP AF record";
@@ -333,6 +637,26 @@ module Cisco-IOS-XE-bgp-route-oper {
         description
           "List of BGP route filters";
         uses bgp-route-ios-xe-oper:route-filter;
+      }
+    }
+    container bgp-route-neighbors {
+      description
+        "BGP route neighbors";
+      list bgp-route-neighbor {
+        key "nbr-id";
+        description
+          "List of BGP route neighbors";
+        uses bgp-route-ios-xe-oper:bgp-route-neighbor;
+      }
+    }
+    container bgp-peer-groups {
+      description
+        "BGP peer groups";
+      list bgp-peer-group {
+        key "name";
+        description
+          "List of BGP peer groups";
+        uses bgp-route-ios-xe-oper:peer-group;
       }
     }
   }
@@ -353,6 +677,186 @@ module Cisco-IOS-XE-bgp-route-oper {
         description
           "List of BGP address families";
         uses bgp-route-ios-xe-oper:af-record;
+      }
+    }
+  }
+
+  grouping bgp-rd-neighbor-route-entry {
+    description
+      "RD neighbor routing table entry details";
+    leaf prefix {
+      type string;
+      description
+        "RD neighbor routing table entry prefix";
+    }
+    leaf version {
+      type uint32;
+      description
+        "RD neighbor routing table version";
+    }
+    leaf available-paths {
+      type uint32;
+      description
+        "Number of  paths available for BGP prefix";
+    }
+    leaf advertised-to {
+      type string;
+      description
+        "Who this prefix was advertized to";
+    }
+    container bgp-rd-neighbor-path-entries {
+      description
+        "Prefix next hop details";
+      list bgp-rd-neighbor-path-entry {
+        key "nexthop";
+        description
+          "List of prefix next hop details";
+        uses bgp-route-ios-xe-oper:path-type;
+      }
+    }
+  }
+
+  grouping bgp-rd-neighbor-route-filter {
+    description
+      "BGP RD neighbor route filter";
+    leaf neighbor-filter {
+      type bgp-route-ios-xe-oper:bgp-neighbor-route-filters;
+      description
+        "BGP RD neighbor route filter";
+    }
+    container bgp-rd-neighbor-route-entries {
+      description
+        "BGP RD neighbor route entries";
+      list bgp-rd-neighbor-route-entry {
+        key "prefix";
+        description
+          "List of BGP RD neighbor route entries";
+        uses bgp-route-ios-xe-oper:bgp-rd-neighbor-route-entry;
+      }
+    }
+  }
+
+  grouping bgp-rd-route-neighbor {
+    description
+      "BGP RD route neighbor";
+    leaf neighbor-id {
+      type string;
+      description
+        "BGP RD neighbor ID";
+    }
+    container bgp-rd-neighbor-route-filters {
+      description
+        "BGP RD neighbor route filters";
+      list bgp-rd-neighbor-route-filter {
+        key "neighbor-filter";
+        description
+          "List of BGP RD neighbor route filters";
+        uses bgp-route-ios-xe-oper:bgp-rd-neighbor-route-filter;
+      }
+    }
+  }
+
+  grouping bgp-rd-route-entry {
+    description
+      "RD Routing table entry details";
+    leaf prefix {
+      type string;
+      description
+        "RD Routing table entry prefix";
+    }
+    leaf version {
+      type uint32;
+      description
+        "RD Routing table version";
+    }
+    leaf available-paths {
+      type uint32;
+      description
+        "Number of  paths available for BGP prefix";
+    }
+    leaf advertised-to {
+      type string;
+      description
+        "Whom is thie prefix advertized to";
+    }
+    container bgp-rd-path-entries {
+      description
+        "Prefix next hop details";
+      list bgp-rd-path-entry {
+        key "nexthop";
+        description
+          "List of prefix next hop details";
+        uses bgp-route-ios-xe-oper:path-type;
+      }
+    }
+  }
+
+  grouping bgp-rd-route-filter {
+    description
+      "BGP RD route filter";
+    leaf route-filter {
+      type bgp-route-ios-xe-oper:bgp-route-filters;
+      description
+        "BGP RD route filter";
+    }
+    container bgp-rd-route-entries {
+      description
+        "BGP RD route entries";
+      list bgp-rd-route-entry {
+        key "prefix";
+        description
+          "List of BGP RD route entries";
+        uses bgp-route-ios-xe-oper:bgp-rd-route-entry;
+      }
+    }
+  }
+
+  grouping bgp-rd-route-af {
+    description
+      "BGP RD AF record";
+    leaf afi-safi {
+      type bgp-common-ios-xe-oper:afi-safi;
+      description
+        "BGP address family";
+    }
+    container bgp-rd-route-filters {
+      description
+        "BGP RD route filters";
+      list bgp-rd-route-filter {
+        key "route-filter";
+        description
+          "List of BGP RD route filters";
+        uses bgp-route-ios-xe-oper:bgp-rd-route-filter;
+      }
+    }
+    container bgp-rd-route-neighbors {
+      description
+        "BGP RD route neighbors";
+      list bgp-rd-route-neighbor {
+        key "neighbor-id";
+        description
+          "List of BGP RD route neighbors";
+        uses bgp-route-ios-xe-oper:bgp-rd-route-neighbor;
+      }
+    }
+  }
+
+  grouping bgp-rd-record {
+    description
+      "RD record";
+    leaf rd-value {
+      type string;
+      description
+        "BGP rd value";
+    }
+    container bgp-rd-route-afs {
+      description
+        "BGP rd address families";
+      list bgp-rd-route-af {
+        key "afi-safi";
+        description
+          "List of BGP RD address families";
+        uses bgp-route-ios-xe-oper:bgp-rd-route-af;
       }
     }
   }

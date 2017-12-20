@@ -46,7 +46,7 @@ class Pppea(Entity):
     .. attribute:: nodes
     
     	Per node PPPEA operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.Pppea.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.Pppea.Nodes>`
     
     
 
@@ -80,7 +80,7 @@ class Pppea(Entity):
         .. attribute:: node
         
         	The PPPEA operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.Pppea.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.Pppea.Nodes.Node>`
         
         
 
@@ -115,12 +115,14 @@ class Pppea(Entity):
             .. attribute:: node_name  <key>
             
             	The identifier for the node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: ea_interface_names
             
             	Show interface related information from the PPP EA
-            	**type**\:   :py:class:`EaInterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.Pppea.Nodes.Node.EaInterfaceNames>`
+            	**type**\:  :py:class:`EaInterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.Pppea.Nodes.Node.EaInterfaceNames>`
             
             
 
@@ -160,7 +162,7 @@ class Pppea(Entity):
                 .. attribute:: ea_interface_name
                 
                 	Interface name
-                	**type**\: list of    :py:class:`EaInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName>`
+                	**type**\: list of  		 :py:class:`EaInterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName>`
                 
                 
 
@@ -193,196 +195,204 @@ class Pppea(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface running PPPEA
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: interface
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: is_lcp_running
                     
                     	TRUE if LCP is running in the dataplane for the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_ipcp_running
                     
                     	TRUE if IPCP is running in the dataplane for the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_ipv6cp_running
                     
                     	TRUE if IPV6CP is running in the dataplane for the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_mplscp_running
                     
                     	TRUE if MPLSCP is running in the dataplane for the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: local_mtu
                     
                     	Local interface MTU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: local_mrru
                     
                     	Local MRRU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: peer_mrru
                     
                     	Peer MRRU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: local_magic
                     
                     	Local magic number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_magic
                     
                     	Peer magic number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_mcmp_classes
                     
                     	Local number of MCMP Suspension classes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: peer_mcmp_classes
                     
                     	Peer number of MCMP Suspension classes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: echo_request_interval
                     
                     	Echo\-Request interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: echo_request_retry_count
                     
                     	Echo\-Request retry count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_multilink_bundle
                     
                     	TRUE if this is a Multilink bundle interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: synchronized
                     
                     	MA synchronization
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: forwarding_enabled
                     
                     	Forwarding State
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: multilink_interface
                     
                     	Multilink interface that this interface is a member of, if any
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: l2_tunnel_enabled
                     
                     	L2 Tunnel State
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: l2_provisioned
                     
                     	L2 Provisioned State
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: l2ip_interworking_enabled
                     
                     	L2 IP Interworking State
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_vpdn_tunneled
                     
                     	Is VPDN tunneled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: xconnect_id
                     
                     	XConnect ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: parent_interface_handle
                     
                     	Parent Interface Handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vrf_table_id
                     
                     	IPCP VRF Table ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ipv6vrf_table_id
                     
                     	IPv6CP VRF Table ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: l2_adjacency_state
                     
                     	L2 adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    	**type**\:  :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
                     .. attribute:: l2ip_interworking_adjacency_state
                     
                     	L2 IP Interworking adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    	**type**\:  :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
                     .. attribute:: lac_adjacency_state
                     
                     	LAC adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    	**type**\:  :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
                     .. attribute:: interface_adjacency_state
                     
                     	Interface adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    	**type**\:  :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
                     .. attribute:: ipv4_adjacency_state
                     
                     	Ipv4 adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    	**type**\:  :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
                     .. attribute:: ipv6_adjacency_state
                     
                     	IPv6 adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    	**type**\:  :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
                     .. attribute:: mpls_adjacency_state
                     
                     	MPLS adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    	**type**\:  :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
                     
 

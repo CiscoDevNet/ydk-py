@@ -29,35 +29,35 @@ class Lldp(Entity):
     .. attribute:: tlv_select
     
     	Selection of LLDP TLVs to disable
-    	**type**\:   :py:class:`TlvSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect>`
+    	**type**\:  :py:class:`TlvSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect>`
     
     	**presence node**\: True
     
     .. attribute:: holdtime
     
     	Length  of time  (in sec) that receiver must keep this packet
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..65535
     
     .. attribute:: extended_show_width
     
     	Enable or disable LLDP Show LLDP Neighbor Extended Width
-    	**type**\:  bool
+    	**type**\: bool
     
     	**default value**\: false
     
     .. attribute:: enable_subintf
     
     	Enable or disable LLDP on Sub\-interfaces as well globally
-    	**type**\:  bool
+    	**type**\: bool
     
     	**default value**\: false
     
     .. attribute:: timer
     
     	Specify the rate at which LLDP packets are sent (in sec)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 5..65534
     
@@ -66,7 +66,7 @@ class Lldp(Entity):
     .. attribute:: reinit
     
     	Delay (in sec) for LLDP initialization on any interface
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 2..5
     
@@ -75,7 +75,7 @@ class Lldp(Entity):
     .. attribute:: enable
     
     	Enable or disable LLDP globally
-    	**type**\:  bool
+    	**type**\: bool
     
     	**default value**\: false
     
@@ -125,32 +125,32 @@ class Lldp(Entity):
         .. attribute:: system_name
         
         	System Name TLV
-        	**type**\:   :py:class:`SystemName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemName>`
+        	**type**\:  :py:class:`SystemName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemName>`
         
         .. attribute:: port_description
         
         	Port Description TLV
-        	**type**\:   :py:class:`PortDescription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.PortDescription>`
+        	**type**\:  :py:class:`PortDescription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.PortDescription>`
         
         .. attribute:: system_description
         
         	System Description TLV
-        	**type**\:   :py:class:`SystemDescription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemDescription>`
+        	**type**\:  :py:class:`SystemDescription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemDescription>`
         
         .. attribute:: system_capabilities
         
         	System Capabilities TLV
-        	**type**\:   :py:class:`SystemCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemCapabilities>`
+        	**type**\:  :py:class:`SystemCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemCapabilities>`
         
         .. attribute:: management_address
         
         	Management Address TLV
-        	**type**\:   :py:class:`ManagementAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.ManagementAddress>`
+        	**type**\:  :py:class:`ManagementAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.ManagementAddress>`
         
         .. attribute:: tlv_select_enter
         
         	enter lldp tlv\-select submode
-        	**type**\:  bool
+        	**type**\: bool
         
         	**mandatory**\: True
         
@@ -214,7 +214,7 @@ class Lldp(Entity):
             .. attribute:: disable
             
             	disable System Name TLV
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
@@ -250,7 +250,7 @@ class Lldp(Entity):
             .. attribute:: disable
             
             	disable Port Description TLV
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
@@ -286,7 +286,7 @@ class Lldp(Entity):
             .. attribute:: disable
             
             	disable System Description TLV
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
@@ -322,7 +322,7 @@ class Lldp(Entity):
             .. attribute:: disable
             
             	disable System Capabilities TLV
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
@@ -358,7 +358,7 @@ class Lldp(Entity):
             .. attribute:: disable
             
             	disable Management Address TLV
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             

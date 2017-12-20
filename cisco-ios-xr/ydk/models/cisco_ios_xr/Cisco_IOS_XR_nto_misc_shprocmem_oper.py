@@ -25,7 +25,7 @@ class ProcessesMemory(Entity):
     .. attribute:: nodes
     
     	List of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper.ProcessesMemory.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper.ProcessesMemory.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class ProcessesMemory(Entity):
         .. attribute:: node
         
         	Node ID
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper.ProcessesMemory.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper.ProcessesMemory.Nodes.Node>`
         
         
 
@@ -93,12 +93,14 @@ class ProcessesMemory(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: job_ids
             
             	List of jobs
-            	**type**\:   :py:class:`JobIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper.ProcessesMemory.Nodes.Node.JobIds>`
+            	**type**\:  :py:class:`JobIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper.ProcessesMemory.Nodes.Node.JobIds>`
             
             
 
@@ -137,7 +139,7 @@ class ProcessesMemory(Entity):
                 .. attribute:: job_id
                 
                 	Job Id
-                	**type**\: list of    :py:class:`JobId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper.ProcessesMemory.Nodes.Node.JobIds.JobId>`
+                	**type**\: list of  		 :py:class:`JobId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper.ProcessesMemory.Nodes.Node.JobIds.JobId>`
                 
                 
 
@@ -170,47 +172,47 @@ class ProcessesMemory(Entity):
                     .. attribute:: job_id  <key>
                     
                     	Job Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: name
                     
                     	Process name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: jid
                     
                     	Job ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: text_seg_size
                     
                     	Text Segment Size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: data_seg_size
                     
                     	Data Segment Size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: stack_seg_size
                     
                     	Stack Segment Size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: malloc_size
                     
                     	Malloced Memory Size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     

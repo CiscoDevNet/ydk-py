@@ -25,7 +25,7 @@ class Dpa(Entity):
     .. attribute:: stats
     
     	Voq or Trap Data
-    	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats>`
+    	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats>`
     
     
 
@@ -59,7 +59,7 @@ class Dpa(Entity):
         .. attribute:: nodes
         
         	DPA data for available nodes
-        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes>`
+        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes>`
         
         
 
@@ -93,7 +93,7 @@ class Dpa(Entity):
             .. attribute:: node
             
             	DPA operational data for a particular node
-            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node>`
+            	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node>`
             
             
 
@@ -127,17 +127,19 @@ class Dpa(Entity):
                 .. attribute:: node_name  <key>
                 
                 	Node ID
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: asic_statistics
                 
                 	ASIC statistics table
-                	**type**\:   :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics>`
+                	**type**\:  :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics>`
                 
                 .. attribute:: npu_numbers
                 
                 	Ingress Stats
-                	**type**\:   :py:class:`NpuNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers>`
+                	**type**\:  :py:class:`NpuNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers>`
                 
                 
 
@@ -181,12 +183,12 @@ class Dpa(Entity):
                     .. attribute:: asic_statistics_for_npu_ids
                     
                     	ASIC statistics
-                    	**type**\:   :py:class:`AsicStatisticsForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds>`
+                    	**type**\:  :py:class:`AsicStatisticsForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds>`
                     
                     .. attribute:: asic_statistics_detail_for_npu_ids
                     
                     	Detailed ASIC statistics
-                    	**type**\:   :py:class:`AsicStatisticsDetailForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds>`
+                    	**type**\:  :py:class:`AsicStatisticsDetailForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds>`
                     
                     
 
@@ -224,7 +226,7 @@ class Dpa(Entity):
                         .. attribute:: asic_statistics_for_npu_id
                         
                         	ASIC statistics for a particular NPU
-                        	**type**\: list of    :py:class:`AsicStatisticsForNpuId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId>`
+                        	**type**\: list of  		 :py:class:`AsicStatisticsForNpuId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId>`
                         
                         
 
@@ -257,45 +259,45 @@ class Dpa(Entity):
                             .. attribute:: npu_id  <key>
                             
                             	NPU number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: statistics
                             
                             	Statistics
-                            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics>`
+                            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics>`
                             
                             .. attribute:: valid
                             
                             	Flag to indicate if data is valid
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: rack_number
                             
                             	Rack number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: slot_number
                             
                             	Slot number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: asic_instance
                             
                             	ASIC instance
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: chip_version
                             
                             	Chip version
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -345,7 +347,7 @@ class Dpa(Entity):
                                 .. attribute:: nbi_rx_total_byte_cnt
                                 
                                 	Total bytes sent from NIF to IRE
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -354,126 +356,126 @@ class Dpa(Entity):
                                 .. attribute:: nbi_rx_total_pkt_cnt
                                 
                                 	Total packets sent from NIF to IRE
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ire_cpu_pkt_cnt
                                 
                                 	CPU ingress received packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ire_nif_pkt_cnt
                                 
                                 	NIF received packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ire_oamp_pkt_cnt
                                 
                                 	OAMP ingress received packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ire_olp_pkt_cnt
                                 
                                 	OLP ingress received packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ire_rcy_pkt_cnt
                                 
                                 	Recycling ingress received packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ire_fdt_if_cnt
                                 
                                 	Performance counter of the FDT interface
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: idr_mmu_if_cnt
                                 
                                 	Performance counter of the MMU interface
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: idr_ocb_if_cnt
                                 
                                 	Performance counter of the OCB interface
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: iqm_enqueue_pkt_cnt
                                 
                                 	Counts enqueued packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: iqm_dequeue_pkt_cnt
                                 
                                 	Counts dequeued packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: iqm_deleted_pkt_cnt
                                 
                                 	Counts matched packets discarded in the DEQ process
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: iqm_enq_discarded_pkt_cnt
                                 
                                 	Counts all packets discarded at the ENQ pipe
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ipt_egq_pkt_cnt
                                 
                                 	EGQ packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ipt_enq_pkt_cnt
                                 
                                 	ENQ packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ipt_fdt_pkt_cnt
                                 
                                 	FDT packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ipt_cfg_event_cnt
                                 
                                 	Configurable event counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ipt_cfg_byte_cnt
                                 
                                 	Configurable bytes counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -482,175 +484,175 @@ class Dpa(Entity):
                                 .. attribute:: fdt_ipt_desc_cell_cnt
                                 
                                 	Descriptor cell counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fdt_ire_desc_cell_cnt
                                 
                                 	IRE internal descriptor cell counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fdt_transmitted_data_cells_cnt
                                 
                                 	Counts all transmitted data cells
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fdr_p1_cell_in_cnt
                                 
                                 	FDR total incoming cell counter at pipe 1
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fdr_p2_cell_in_cnt
                                 
                                 	FDR total incoming cell counter at pipe 2
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fdr_p3_cell_in_cnt
                                 
                                 	FDR total incoming cell counter at pipe 3
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fdr_cell_in_cnt_total
                                 
                                 	FDR total incoming cell counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_in_cnt_p1
                                 
                                 	FDA input cell counter P1
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_in_cnt_p2
                                 
                                 	FDA input cell counter P2
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_in_cnt_p3
                                 
                                 	FDA input cell counter P3
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_in_tdm_cnt
                                 
                                 	FDA input cell counter TDM
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_in_meshmc_cnt
                                 
                                 	FDA input cell counter MESHMC
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_in_ipt_cnt
                                 
                                 	FDA input cell counter IPT
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_out_cnt_p1
                                 
                                 	FDA output cell counter P1
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_out_cnt_p2
                                 
                                 	FDA output cell counter P2
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_out_cnt_p3
                                 
                                 	FDA output cell counter P3
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_out_tdm_cnt
                                 
                                 	FDA output cell counter TDM
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_out_meshmc_cnt
                                 
                                 	FDA output cell counter MESHMC
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_cells_out_ipt_cnt
                                 
                                 	FDA output cell counter IPT
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_egq_drop_cnt
                                 
                                 	FDA EGQ drop counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fda_egq_meshmc_drop_cnt
                                 
                                 	FDA EGQ MESHMC drop counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_fqp_pkt_cnt
                                 
                                 	FQP2EPE packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_pqp_uc_pkt_cnt
                                 
                                 	PQP2FQP unicast packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_pqp_discard_uc_pkt_cnt
                                 
                                 	PQP discarded unicast packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_pqp_uc_bytes_cnt
                                 
                                 	PQP2FQP unicast bytes counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -659,21 +661,21 @@ class Dpa(Entity):
                                 .. attribute:: egq_pqp_mc_pkt_cnt
                                 
                                 	PQP2FQP multicast packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_pqp_discard_mc_pkt_cnt
                                 
                                 	PQP discarded multicast packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_pqp_mc_bytes_cnt
                                 
                                 	PQP2FQP multicast bytes counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -682,70 +684,70 @@ class Dpa(Entity):
                                 .. attribute:: egq_ehp_uc_pkt_cnt
                                 
                                 	EHP2PQP unicast packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_ehp_mc_high_pkt_cnt
                                 
                                 	EHP2PQP multicast high packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_ehp_mc_low_pkt_cnt
                                 
                                 	EHP2PQP multicast low packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_deleted_pkt_cnt
                                 
                                 	EHP2PQP discarded packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_ehp_mc_high_discard_cnt
                                 
                                 	Number of multicast high packets discarded because multicast FIFO is full
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_ehp_mc_low_discard_cnt
                                 
                                 	Number of multicast low packets discarded because multicast FIFO is full
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_erpp_lag_pruning_discard_cnt
                                 
                                 	Number of packet descriptors discarded due to LAG multicast pruning
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_erpp_pmf_discard_cnt
                                 
                                 	Number of packet descriptors discarded due to ERPP PMF
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: egq_erpp_vlan_mbr_discard_cnt
                                 
                                 	Number of packet descriptors discarded because of egress VLAN membership
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: epni_epe_byte_cnt
                                 
                                 	EPE2PNI bytes counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -754,21 +756,21 @@ class Dpa(Entity):
                                 .. attribute:: epni_epe_pkt_cnt
                                 
                                 	EPE2PNI packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: epni_epe_discard_cnt
                                 
                                 	EPE discarded packet counter
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: nbi_tx_total_byte_cnt
                                 
                                 	Total bytes sent from EGQ to NIF
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -777,7 +779,7 @@ class Dpa(Entity):
                                 .. attribute:: nbi_tx_total_pkt_cnt
                                 
                                 	Total packets sent from EGQ to NIF
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -932,7 +934,7 @@ class Dpa(Entity):
                         .. attribute:: asic_statistics_detail_for_npu_id
                         
                         	Detailed ASIC statistics for a particular NPU
-                        	**type**\: list of    :py:class:`AsicStatisticsDetailForNpuId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId>`
+                        	**type**\: list of  		 :py:class:`AsicStatisticsDetailForNpuId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId>`
                         
                         
 
@@ -966,45 +968,45 @@ class Dpa(Entity):
                             .. attribute:: npu_id  <key>
                             
                             	NPU number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: statistics
                             
                             	Statistics
-                            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics>`
+                            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics>`
                             
                             .. attribute:: valid
                             
                             	Flag to indicate if data is valid
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: rack_number
                             
                             	Rack number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: slot_number
                             
                             	Slot number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: asic_instance
                             
                             	ASIC instance
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: chip_version
                             
                             	Chip version
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -1054,14 +1056,14 @@ class Dpa(Entity):
                                 .. attribute:: num_blocks
                                 
                                 	Number of blocks
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: block_info
                                 
                                 	Block information
-                                	**type**\: list of    :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo>`
+                                	**type**\: list of  		 :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo>`
                                 
                                 
 
@@ -1096,21 +1098,21 @@ class Dpa(Entity):
                                     .. attribute:: block_name
                                     
                                     	Block name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..10
                                     
                                     .. attribute:: num_fields
                                     
                                     	Number of fields
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: field_info
                                     
                                     	Field information
-                                    	**type**\: list of    :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo>`
+                                    	**type**\: list of  		 :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo>`
                                     
                                     
 
@@ -1147,21 +1149,21 @@ class Dpa(Entity):
                                         .. attribute:: field_name
                                         
                                         	Field name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..80
                                         
                                         .. attribute:: field_value
                                         
                                         	Field value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: is_overflow
                                         
                                         	Flag to indicate overflow
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -1198,7 +1200,7 @@ class Dpa(Entity):
                     .. attribute:: npu_number
                     
                     	Stats for a particular npu
-                    	**type**\: list of    :py:class:`NpuNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber>`
+                    	**type**\: list of  		 :py:class:`NpuNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber>`
                     
                     
 
@@ -1231,14 +1233,14 @@ class Dpa(Entity):
                         .. attribute:: npu_id  <key>
                         
                         	Npu number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: display
                         
                         	show npu specific voq or trap stats
-                        	**type**\:   :py:class:`Display <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display>`
+                        	**type**\:  :py:class:`Display <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display>`
                         
                         
 
@@ -1276,17 +1278,17 @@ class Dpa(Entity):
                             .. attribute:: base_numbers
                             
                             	Voq stats grouped by voq base numbers
-                            	**type**\:   :py:class:`BaseNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers>`
+                            	**type**\:  :py:class:`BaseNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers>`
                             
                             .. attribute:: trap_ids
                             
                             	Trap stats for a particular npu
-                            	**type**\:   :py:class:`TrapIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds>`
+                            	**type**\:  :py:class:`TrapIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds>`
                             
                             .. attribute:: interface_handles
                             
                             	Voq stats grouped by interface handle
-                            	**type**\:   :py:class:`InterfaceHandles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles>`
+                            	**type**\:  :py:class:`InterfaceHandles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles>`
                             
                             
 
@@ -1329,7 +1331,7 @@ class Dpa(Entity):
                                 .. attribute:: base_number
                                 
                                 	Voq Base Number for a particular voq
-                                	**type**\: list of    :py:class:`BaseNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber>`
+                                	**type**\: list of  		 :py:class:`BaseNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber>`
                                 
                                 
 
@@ -1362,101 +1364,101 @@ class Dpa(Entity):
                                     .. attribute:: base_number  <key>
                                     
                                     	Interface handle
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: in_use
                                     
                                     	Flag to indicate if port is in use
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: rack_num
                                     
                                     	Rack of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: slot_num
                                     
                                     	Slot of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: npu_num
                                     
                                     	NPU of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: npu_core
                                     
                                     	NPU core of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: port_num
                                     
                                     	Port Number of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: if_handle
                                     
                                     	IfHandle of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: sys_port
                                     
                                     	System port of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: pp_port
                                     
                                     	PP Port number of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: port_speed
                                     
                                     	Port speed of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: voq_base
                                     
                                     	Voq Base number of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: connector_id
                                     
                                     	Connector id of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: is_local_port
                                     
                                     	Flag to indicate if port is local to the node
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: voq_stat
                                     
                                     	Keeps a record of the received and dropped packets and bytes on the port
-                                    	**type**\: list of    :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat>`
+                                    	**type**\: list of  		 :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat>`
                                     
                                     
 
@@ -1518,7 +1520,7 @@ class Dpa(Entity):
                                         .. attribute:: received_bytes
                                         
                                         	Bytes Received on the port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -1527,14 +1529,14 @@ class Dpa(Entity):
                                         .. attribute:: received_packets
                                         
                                         	Packets Received on the port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: dropped_bytes
                                         
                                         	Bytes Dropped on the port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -1543,7 +1545,7 @@ class Dpa(Entity):
                                         .. attribute:: dropped_packets
                                         
                                         	Packets Dropeed on the port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -1584,7 +1586,7 @@ class Dpa(Entity):
                                 .. attribute:: trap_id
                                 
                                 	Filter by specific trap id
-                                	**type**\: list of    :py:class:`TrapId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId>`
+                                	**type**\: list of  		 :py:class:`TrapId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId>`
                                 
                                 
 
@@ -1617,110 +1619,110 @@ class Dpa(Entity):
                                     .. attribute:: trap_id  <key>
                                     
                                     	Trap ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: trap_strength
                                     
                                     	Trap Strength of the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: priority
                                     
                                     	Priority of the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: trap_id_xr
                                     
                                     	Id of the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: gport
                                     
                                     	Gport of the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: fec_id
                                     
                                     	Fec id of the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: policer_id
                                     
                                     	Id of the policer on the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: stats_id
                                     
                                     	Stats Id of the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: encap_id
                                     
                                     	Encap Id of the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: mc_group
                                     
                                     	McGroup of the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: trap_string
                                     
                                     	Name String of the trap
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: id
                                     
                                     	Id for internal use
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: offset
                                     
                                     	Offset for internal use
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: npu_id
                                     
                                     	NpuId on which trap is enabled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: packet_dropped
                                     
                                     	Number of packets dropped after hitting the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: packet_accepted
                                     
                                     	Number of packets accepted after hitting the trap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1785,7 +1787,7 @@ class Dpa(Entity):
                                 .. attribute:: interface_handle
                                 
                                 	Voq stats for a particular interface handle
-                                	**type**\: list of    :py:class:`InterfaceHandle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle>`
+                                	**type**\: list of  		 :py:class:`InterfaceHandle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle>`
                                 
                                 
 
@@ -1819,101 +1821,101 @@ class Dpa(Entity):
                                     .. attribute:: interface_handle  <key>
                                     
                                     	Interface Handle
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: in_use
                                     
                                     	Flag to indicate if port is in use
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: rack_num
                                     
                                     	Rack of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: slot_num
                                     
                                     	Slot of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: npu_num
                                     
                                     	NPU of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: npu_core
                                     
                                     	NPU core of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: port_num
                                     
                                     	Port Number of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: if_handle
                                     
                                     	IfHandle of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: sys_port
                                     
                                     	System port of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: pp_port
                                     
                                     	PP Port number of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: port_speed
                                     
                                     	Port speed of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: voq_base
                                     
                                     	Voq Base number of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: connector_id
                                     
                                     	Connector id of port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: is_local_port
                                     
                                     	Flag to indicate if port is local to the node
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: voq_stat
                                     
                                     	Keeps a record of the received and dropped packets and bytes on the port
-                                    	**type**\: list of    :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat>`
+                                    	**type**\: list of  		 :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat>`
                                     
                                     
 
@@ -1975,7 +1977,7 @@ class Dpa(Entity):
                                         .. attribute:: received_bytes
                                         
                                         	Bytes Received on the port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -1984,14 +1986,14 @@ class Dpa(Entity):
                                         .. attribute:: received_packets
                                         
                                         	Packets Received on the port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: dropped_bytes
                                         
                                         	Bytes Dropped on the port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -2000,7 +2002,7 @@ class Dpa(Entity):
                                         .. attribute:: dropped_packets
                                         
                                         	Packets Dropeed on the port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         

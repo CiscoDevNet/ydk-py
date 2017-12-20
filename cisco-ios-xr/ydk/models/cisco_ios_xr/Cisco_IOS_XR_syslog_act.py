@@ -25,7 +25,7 @@ class Logmsg(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syslog_act.Logmsg.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syslog_act.Logmsg.Input>`
     
     
 
@@ -59,14 +59,14 @@ class Logmsg(Entity):
         .. attribute:: severity
         
         	Set serverity level
-        	**type**\:   :py:class:`Severity <ydk.models.ietf.ietf_syslog_types.Severity>`
+        	**type**\:  :py:class:`Severity <ydk.models.ietf.ietf_syslog_types.Severity>`
         
         	**mandatory**\: True
         
         .. attribute:: message
         
         	Message body
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         

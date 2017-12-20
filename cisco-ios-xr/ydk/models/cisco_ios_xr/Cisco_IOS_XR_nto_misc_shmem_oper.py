@@ -25,7 +25,7 @@ class MemorySummary(Entity):
     .. attribute:: nodes
     
     	List of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class MemorySummary(Entity):
         .. attribute:: node
         
         	Name of nodes
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes.Node>`
         
         
 
@@ -93,17 +93,19 @@ class MemorySummary(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: summary
             
             	Memory summary information for a specific node
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes.Node.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes.Node.Summary>`
             
             .. attribute:: detail
             
             	Detail Memory summary information for a specific node
-            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes.Node.Detail>`
+            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes.Node.Detail>`
             
             
 
@@ -147,7 +149,7 @@ class MemorySummary(Entity):
                 .. attribute:: page_size
                 
                 	Page size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -156,7 +158,7 @@ class MemorySummary(Entity):
                 .. attribute:: ram_memory
                 
                 	Physical memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -165,7 +167,7 @@ class MemorySummary(Entity):
                 .. attribute:: free_physical_memory
                 
                 	Physical memory available in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -174,7 +176,7 @@ class MemorySummary(Entity):
                 .. attribute:: system_ram_memory
                 
                 	Application memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -183,7 +185,7 @@ class MemorySummary(Entity):
                 .. attribute:: free_application_memory
                 
                 	Application memory available in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -192,7 +194,7 @@ class MemorySummary(Entity):
                 .. attribute:: image_memory
                 
                 	Image memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -201,7 +203,7 @@ class MemorySummary(Entity):
                 .. attribute:: boot_ram_size
                 
                 	Boot RAM size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -210,7 +212,7 @@ class MemorySummary(Entity):
                 .. attribute:: reserved_memory
                 
                 	Reserved memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -219,7 +221,7 @@ class MemorySummary(Entity):
                 .. attribute:: io_memory
                 
                 	IO memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -228,7 +230,7 @@ class MemorySummary(Entity):
                 .. attribute:: flash_system
                 
                 	Flash System size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -284,7 +286,7 @@ class MemorySummary(Entity):
                 .. attribute:: page_size
                 
                 	Page size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -293,7 +295,7 @@ class MemorySummary(Entity):
                 .. attribute:: ram_memory
                 
                 	Physical memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -302,7 +304,7 @@ class MemorySummary(Entity):
                 .. attribute:: free_physical_memory
                 
                 	Physical memory available in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -311,7 +313,7 @@ class MemorySummary(Entity):
                 .. attribute:: private_physical_memory
                 
                 	Private Physical memory in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -320,7 +322,7 @@ class MemorySummary(Entity):
                 .. attribute:: system_ram_memory
                 
                 	Application memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -329,7 +331,7 @@ class MemorySummary(Entity):
                 .. attribute:: free_application_memory
                 
                 	Application memory available in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -338,7 +340,7 @@ class MemorySummary(Entity):
                 .. attribute:: image_memory
                 
                 	Image memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -347,7 +349,7 @@ class MemorySummary(Entity):
                 .. attribute:: boot_ram_size
                 
                 	Boot RAM size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -356,7 +358,7 @@ class MemorySummary(Entity):
                 .. attribute:: reserved_memory
                 
                 	Reserved memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -365,7 +367,7 @@ class MemorySummary(Entity):
                 .. attribute:: io_memory
                 
                 	IO memory size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -374,7 +376,7 @@ class MemorySummary(Entity):
                 .. attribute:: flash_system
                 
                 	Flash System size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -383,42 +385,42 @@ class MemorySummary(Entity):
                 .. attribute:: total_shared_window
                 
                 	Total Shared window
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: allocated_memory
                 
                 	Allocated Memory Size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: program_text
                 
                 	Program Text Size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: program_data
                 
                 	Program Data Size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: program_stack
                 
                 	Program Stack Size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: shared_window
                 
                 	Available Shared windows
-                	**type**\: list of    :py:class:`SharedWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes.Node.Detail.SharedWindow>`
+                	**type**\: list of  		 :py:class:`SharedWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper.MemorySummary.Nodes.Node.Detail.SharedWindow>`
                 
                 
 
@@ -483,12 +485,12 @@ class MemorySummary(Entity):
                     .. attribute:: shared_window
                     
                     	Name of shared window
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: window_size
                     
                     	Size of shared window
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     

@@ -26,7 +26,7 @@ class EnvironmentalMonitoring(Entity):
     .. attribute:: racks
     
     	Table of racks
-    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks>`
+    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks>`
     
     
 
@@ -60,7 +60,7 @@ class EnvironmentalMonitoring(Entity):
         .. attribute:: rack
         
         	Number
-        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack>`
+        	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack>`
         
         
 
@@ -94,14 +94,14 @@ class EnvironmentalMonitoring(Entity):
             .. attribute:: rack  <key>
             
             	Rack number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: slots
             
             	Table of slots
-            	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots>`
+            	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots>`
             
             
 
@@ -140,7 +140,7 @@ class EnvironmentalMonitoring(Entity):
                 .. attribute:: slot
                 
                 	Name
-                	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot>`
+                	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot>`
                 
                 
 
@@ -173,12 +173,14 @@ class EnvironmentalMonitoring(Entity):
                     .. attribute:: slot  <key>
                     
                     	Slot name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: modules
                     
                     	Table of modules
-                    	**type**\:   :py:class:`Modules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules>`
+                    	**type**\:  :py:class:`Modules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules>`
                     
                     
 
@@ -216,7 +218,7 @@ class EnvironmentalMonitoring(Entity):
                         .. attribute:: module
                         
                         	Name
-                        	**type**\: list of    :py:class:`Module <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module>`
+                        	**type**\: list of  		 :py:class:`Module <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module>`
                         
                         
 
@@ -249,17 +251,19 @@ class EnvironmentalMonitoring(Entity):
                             .. attribute:: module  <key>
                             
                             	Module name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: power
                             
                             	Module Power Draw
-                            	**type**\:   :py:class:`Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power>`
+                            	**type**\:  :py:class:`Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power>`
                             
                             .. attribute:: sensor_types
                             
                             	Table of sensor types
-                            	**type**\:   :py:class:`SensorTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes>`
+                            	**type**\:  :py:class:`SensorTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes>`
                             
                             
 
@@ -302,7 +306,7 @@ class EnvironmentalMonitoring(Entity):
                                 .. attribute:: power_bag
                                 
                                 	Detailed power bag information
-                                	**type**\:   :py:class:`PowerBag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag>`
+                                	**type**\:  :py:class:`PowerBag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag>`
                                 
                                 
 
@@ -335,70 +339,70 @@ class EnvironmentalMonitoring(Entity):
                                     .. attribute:: power_value
                                     
                                     	Current Power Value of the Unit
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: power_max_value
                                     
                                     	Max Power Value of the Unit
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: power_unit_multiplier
                                     
                                     	Unit Multiplier of Power
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: power_accuracy
                                     
                                     	Accuracy of the Power Value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: power_measure_caliber
                                     
                                     	Measure Caliber
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: power_current_type
                                     
                                     	Current Type of the Unit
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: power_origin
                                     
                                     	The Power Origin of the Unit
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: power_admin_state
                                     
                                     	Admin Status of the Unit
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: power_oper_state
                                     
                                     	Oper Status of the Unit
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: power_state_enter_reason
                                     
                                     	Enter Reason for the State
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..50
                                     
@@ -451,7 +455,7 @@ class EnvironmentalMonitoring(Entity):
                                 .. attribute:: sensor_type
                                 
                                 	Type of sensor
-                                	**type**\: list of    :py:class:`SensorType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType>`
+                                	**type**\: list of  		 :py:class:`SensorType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType>`
                                 
                                 
 
@@ -484,12 +488,14 @@ class EnvironmentalMonitoring(Entity):
                                     .. attribute:: type  <key>
                                     
                                     	Sensor type
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: sensor_names
                                     
                                     	Table of sensors
-                                    	**type**\:   :py:class:`SensorNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames>`
+                                    	**type**\:  :py:class:`SensorNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames>`
                                     
                                     
 
@@ -527,7 +533,7 @@ class EnvironmentalMonitoring(Entity):
                                         .. attribute:: sensor_name
                                         
                                         	Name of sensor
-                                        	**type**\: list of    :py:class:`SensorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName>`
+                                        	**type**\: list of  		 :py:class:`SensorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName>`
                                         
                                         
 
@@ -560,22 +566,24 @@ class EnvironmentalMonitoring(Entity):
                                             .. attribute:: name  <key>
                                             
                                             	Sensor name
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
                                             .. attribute:: thresholds
                                             
                                             	The threshold information
-                                            	**type**\:   :py:class:`Thresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds>`
+                                            	**type**\:  :py:class:`Thresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds>`
                                             
                                             .. attribute:: value_detailed
                                             
                                             	Detailed sensor information including the sensor value
-                                            	**type**\:   :py:class:`ValueDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed>`
+                                            	**type**\:  :py:class:`ValueDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed>`
                                             
                                             .. attribute:: value_brief
                                             
                                             	The sensor value
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
@@ -622,7 +630,7 @@ class EnvironmentalMonitoring(Entity):
                                                 .. attribute:: threshold
                                                 
                                                 	Types of thresholds
-                                                	**type**\: list of    :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold>`
+                                                	**type**\: list of  		 :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold>`
                                                 
                                                 
 
@@ -655,22 +663,24 @@ class EnvironmentalMonitoring(Entity):
                                                     .. attribute:: type  <key>
                                                     
                                                     	Threshold type
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                     
                                                     .. attribute:: value_detailed
                                                     
                                                     	Detailed sensor threshold information
-                                                    	**type**\:   :py:class:`ValueDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed>`
+                                                    	**type**\:  :py:class:`ValueDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper.EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed>`
                                                     
                                                     .. attribute:: trap
                                                     
                                                     	Threshold trap enable flag true\-ENABLE, false\-DISABLE
-                                                    	**type**\:  bool
+                                                    	**type**\: bool
                                                     
                                                     .. attribute:: value_brief
                                                     
                                                     	Threshold value for the sensor
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
@@ -715,33 +725,33 @@ class EnvironmentalMonitoring(Entity):
                                                         .. attribute:: threshold_severity
                                                         
                                                         	Indicates minor, major, critical severities
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
                                                         .. attribute:: threshold_relation
                                                         
                                                         	Indicates relation between sensor value and threshold
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
                                                         .. attribute:: threshold_value
                                                         
                                                         	Value of the configured threshold
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
                                                         .. attribute:: threshold_evaluation
                                                         
                                                         	Indicates the result of the most recent evaluation of the thresholD
-                                                        	**type**\:  bool
+                                                        	**type**\: bool
                                                         
                                                         .. attribute:: threshold_notification_enabled
                                                         
                                                         	Indicates whether or not a notification should result, in case of threshold violation
-                                                        	**type**\:  bool
+                                                        	**type**\: bool
                                                         
                                                         
 
@@ -783,84 +793,84 @@ class EnvironmentalMonitoring(Entity):
                                                 .. attribute:: field_validity_bitmap
                                                 
                                                 	Sensor valid bitmap
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: device_description
                                                 
                                                 	Device Name
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..50
                                                 
                                                 .. attribute:: units
                                                 
                                                 	Units of variable being read
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..50
                                                 
                                                 .. attribute:: device_id
                                                 
                                                 	Identifier for this device
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: value
                                                 
                                                 	Current reading of sensor
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: alarm_type
                                                 
                                                 	Indicates threshold violation
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: data_type
                                                 
                                                 	Sensor data type enums
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: scale
                                                 
                                                 	Sensor scale enums
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: precision
                                                 
                                                 	Sensor precision range
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: status
                                                 
                                                 	Sensor operation state enums
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: age_time_stamp
                                                 
                                                 	Age of the sensor value; set to the current time if directly access the value from sensor
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: update_rate
                                                 
                                                 	Sensor value update rate;set to 0 if sensor value is updated and evaluated immediately
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 

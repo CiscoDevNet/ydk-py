@@ -1189,7 +1189,7 @@ class OpticsOper(Entity):
     .. attribute:: optics_ports
     
     	All Optics Port operational data
-    	**type**\:   :py:class:`OpticsPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts>`
+    	**type**\:  :py:class:`OpticsPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts>`
     
     
 
@@ -1223,7 +1223,7 @@ class OpticsOper(Entity):
         .. attribute:: optics_port
         
         	Optics operational data
-        	**type**\: list of    :py:class:`OpticsPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort>`
+        	**type**\: list of  		 :py:class:`OpticsPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort>`
         
         
 
@@ -1257,27 +1257,29 @@ class OpticsOper(Entity):
             .. attribute:: name  <key>
             
             	Port name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: optics_dwdm_carrrier_channel_map
             
             	Optics operational data
-            	**type**\:   :py:class:`OpticsDwdmCarrrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap>`
+            	**type**\:  :py:class:`OpticsDwdmCarrrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap>`
             
             .. attribute:: optics_info
             
             	Optics operational data
-            	**type**\:   :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo>`
+            	**type**\:  :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo>`
             
             .. attribute:: optics_lanes
             
             	All Optics Port operational data
-            	**type**\:   :py:class:`OpticsLanes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes>`
+            	**type**\:  :py:class:`OpticsLanes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes>`
             
             .. attribute:: optics_db_info
             
             	Optics operational data
-            	**type**\:   :py:class:`OpticsDbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo>`
+            	**type**\:  :py:class:`OpticsDbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo>`
             
             
 
@@ -1331,26 +1333,26 @@ class OpticsOper(Entity):
                 .. attribute:: dwdm_carrier_band
                 
                 	DWDM carrier band
-                	**type**\:   :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
+                	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
                 
                 .. attribute:: dwdm_carrier_min
                 
                 	Lowest DWDM carrier supported
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dwdm_carrier_max
                 
                 	Highest DWDM carrier supported
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dwdm_carrier_map_info
                 
                 	DWDM carrier mapping info
-                	**type**\: list of    :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo>`
+                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo>`
                 
                 
 
@@ -1389,28 +1391,28 @@ class OpticsOper(Entity):
                     .. attribute:: itu_chan_num
                     
                     	ITU channel number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: g694_chan_num
                     
                     	G694 channel number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: frequency
                     
                     	Frequency
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: wavelength
                     
                     	Wavelength
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
@@ -1451,108 +1453,108 @@ class OpticsOper(Entity):
                 .. attribute:: network_srlg_info
                 
                 	Network SRLG information
-                	**type**\:   :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo>`
+                	**type**\:  :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo>`
                 
                 .. attribute:: optics_alarm_info
                 
                 	Optics Alarm Information
-                	**type**\:   :py:class:`OpticsAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo>`
+                	**type**\:  :py:class:`OpticsAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo>`
                 
                 .. attribute:: ots_alarm_info
                 
                 	Ots Alarm Information
-                	**type**\:   :py:class:`OtsAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo>`
+                	**type**\:  :py:class:`OtsAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo>`
                 
                 .. attribute:: transceiver_info
                 
                 	Transceiver Vendor Details
-                	**type**\:   :py:class:`TransceiverInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo>`
+                	**type**\:  :py:class:`TransceiverInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo>`
                 
                 .. attribute:: ext_param_val
                 
                 	Extended optics parameters
-                	**type**\:   :py:class:`ExtParamVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal>`
+                	**type**\:  :py:class:`ExtParamVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal>`
                 
                 .. attribute:: ext_param_threshold_val
                 
                 	Extended optics parameters threshold values
-                	**type**\:   :py:class:`ExtParamThresholdVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal>`
+                	**type**\:  :py:class:`ExtParamThresholdVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal>`
                 
                 .. attribute:: spectrum_info
                 
                 	OTS Spectrum information
-                	**type**\:   :py:class:`SpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo>`
+                	**type**\:  :py:class:`SpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo>`
                 
                 .. attribute:: transport_admin_state
                 
                 	Transport Admin State
-                	**type**\:   :py:class:`OpticsTas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsTas>`
+                	**type**\:  :py:class:`OpticsTas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsTas>`
                 
                 .. attribute:: optics_present
                 
                 	Is Optics Present?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: optics_type
                 
                 	Old Optics type name, Use Derived Optics type
-                	**type**\:   :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.Optics>`
+                	**type**\:  :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.Optics>`
                 
                 .. attribute:: derived_optics_type
                 
                 	Derived Optics type name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: optics_module
                 
                 	Optics module name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: dwdm_carrier_band
                 
                 	DWDM Carrier Band information
-                	**type**\:   :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
+                	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
                 
                 .. attribute:: dwdm_carrier_channel
                 
                 	Current ITU DWDM Carrier channel number
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: dwdm_carrier_frequency
                 
                 	DWDM Carrier frequency read from hw in the unit 1THz
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: dwdm_carrier_wavelength
                 
                 	Wavelength of color optics 0.001nm
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: grey_wavelength
                 
                 	Wavelength of grey optics 0.01nm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: rx_low_threshold
                 
                 	Rx Low threshold value in units of 0.1dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: rx_high_threshold
                 
                 	Rx High threshold value in units of 0.1dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: lbc_high_threshold
                 
                 	LBC High threshold value in units of percentage
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -1561,469 +1563,469 @@ class OpticsOper(Entity):
                 .. attribute:: tx_low_threshold
                 
                 	Tx Low threshold value in units of 0.1dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tx_high_threshold
                 
                 	Tx High threshold value in units of 0.1dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: lbc_th_high_default
                 
                 	LBC high threshold default value in unit of 0 .001mA
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: lbc_th_low_default
                 
                 	LBC low threshold default value in units of 0 .001mA
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: temp_low_threshold
                 
                 	Temp Low threshold value in the units 0.01 C
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: temp_high_threshold
                 
                 	Temp High threshold value in the units of 0.01 C
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: volt_low_threshold
                 
                 	Volt Low threshold value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: volt_high_threshold
                 
                 	Volt High threshold value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: cd
                 
                 	Chromatic Dispersion ps/nm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: cd_min
                 
                 	Chromatic Dispersion Min ps/nm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: cd_max
                 
                 	Chromatic Dispersion Max ps/nm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: cd_low_threshold
                 
                 	Chromatic Dispersion low threshold ps/nm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: cd_high_threshold
                 
                 	Chromatic Dispersion high threshold ps/nm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: osnr_low_threshold
                 
                 	OSNR low threshold in 0.01 dB
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: dgd_high_threshold
                 
                 	DGD high threshold in 0.1 ps
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: polarization_mode_dispersion
                 
                 	Polarization Mode Dispersion 0.1ps
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: second_order_polarization_mode_dispersion
                 
                 	Second Order Polarization Mode Dispersion 0 .1ps^2
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: optical_signal_to_noise_ratio
                 
                 	Optical Signal to Noise Ratio dB
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: polarization_dependent_loss
                 
                 	Polarization Dependent Loss dB
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: polarization_change_rate
                 
                 	Polarization Change Rate rad/s
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: differential_group_delay
                 
                 	Differential Group Delay ps
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: phase_noise
                 
                 	Phase Noise dB
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: pm_enable
                 
                 	PmEable or Disable
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: laser_state
                 
                 	Showing laser state.Either ON or OFF or unknown
-                	**type**\:   :py:class:`OpticsLaserState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsLaserState>`
+                	**type**\:  :py:class:`OpticsLaserState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsLaserState>`
                 
                 .. attribute:: led_state
                 
                 	Showing Current Colour of led state
-                	**type**\:   :py:class:`OpticsLedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsLedState>`
+                	**type**\:  :py:class:`OpticsLedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsLedState>`
                 
                 .. attribute:: controller_state
                 
                 	Optics controller state\: Up, Down or Administratively Down
-                	**type**\:   :py:class:`OpticsControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsControllerState>`
+                	**type**\:  :py:class:`OpticsControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsControllerState>`
                 
                 .. attribute:: form_factor
                 
                 	Optics form factor
-                	**type**\:   :py:class:`OpticsFormFactor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFormFactor>`
+                	**type**\:  :py:class:`OpticsFormFactor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFormFactor>`
                 
                 .. attribute:: phy_type
                 
                 	Optics physical type
-                	**type**\:   :py:class:`OpticsPhy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPhy>`
+                	**type**\:  :py:class:`OpticsPhy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPhy>`
                 
                 .. attribute:: cfg_tx_power
                 
                 	Configured Tx power value in 0.1 dB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: cfg_tx_power_configurable
                 
                 	TX Power Configuration is supported or not
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: temperature
                 
                 	Temperature value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: voltage
                 
                 	Voltage value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: display_volt_temp
                 
                 	Display Volt/Temp ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: cd_configurable
                 
                 	CD Configurable is supported or not
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: optics_fec
                 
                 	Optics FEC
-                	**type**\:   :py:class:`OpticsFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFec>`
+                	**type**\:  :py:class:`OpticsFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFec>`
                 
                 .. attribute:: port_type
                 
                 	Showing port type
-                	**type**\:   :py:class:`OpticsPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPort>`
+                	**type**\:  :py:class:`OpticsPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPort>`
                 
                 .. attribute:: port_status
                 
                 	Showing port status
-                	**type**\:   :py:class:`OpticsPortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPortStatus>`
+                	**type**\:  :py:class:`OpticsPortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPortStatus>`
                 
                 .. attribute:: rx_voa_attenuation
                 
                 	Rx Voa Attenuation in the unit of 0.01dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tx_voa_attenuation
                 
                 	Tx Voa Attenuation in the unit of 0.01dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_gain
                 
                 	Ampli Gain in the unit of 0.01dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_tilt
                 
                 	Ampli Tilt in the unit of 0.01dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: rx_power_th_configurable
                 
                 	rx power th configurable
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: tx_power_th_configurable
                 
                 	tx power th configurable
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: rx_voa_attenuation_config_val
                 
                 	rx voa attenuation config val
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tx_voa_attenuation_config_val
                 
                 	tx voa attenuation config val
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_control_mode_config_val
                 
                 	ampli control mode config val
-                	**type**\:   :py:class:`OpticsAmplifierControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierControlMode>`
+                	**type**\:  :py:class:`OpticsAmplifierControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierControlMode>`
                 
                 .. attribute:: ampli_gain_range_config_val
                 
                 	ampli gain range config val
-                	**type**\:   :py:class:`OpticsAmplifierGainRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierGainRange>`
+                	**type**\:  :py:class:`OpticsAmplifierGainRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierGainRange>`
                 
                 .. attribute:: ampli_gain_config_val
                 
                 	ampli gain config val
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_tilt_config_val
                 
                 	ampli tilt config val
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_channel_power_config_val
                 
                 	ampli channel power config val
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: channel_power_max_delta_config_val
                 
                 	channel power max delta config val
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_gain_thr_deg_low_config_val
                 
                 	ampli gain thr deg low config val
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_gain_thr_deg_high_config_val
                 
                 	ampli gain thr deg high config val
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: osri_config_val
                 
                 	osri config val
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: safety_control_mode_config_val
                 
                 	safety control mode config val
-                	**type**\:   :py:class:`OpticsAmplifierSafetyControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierSafetyControlMode>`
+                	**type**\:  :py:class:`OpticsAmplifierSafetyControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierSafetyControlMode>`
                 
                 .. attribute:: total_rx_power
                 
                 	Total Receive Power for Multi\-Lane Optics in dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: total_tx_power
                 
                 	Total Transmit Power for Multi\-Lane Optics in dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: is_bo_configured
                 
                 	Is BO configured ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_ext_param_valid
                 
                 	Are the Extended Parameters Valid ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: alarm_detected
                 
                 	Are there any alarms ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: rx_low_warning_threshold
                 
                 	Rx Low Warning threshold value in units of 0 .1dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: rx_high_warning_threshold
                 
                 	Rx High Warning threshold value in units of 0 .1dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tx_low_warning_threshold
                 
                 	Tx Low Warning threshold value in units of 0 .1dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tx_high_warning_threshold
                 
                 	Tx High Warning threshold value in units of 0 .1dBm
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: lbc_th_high_warning_default
                 
                 	LBC high Warning threshold default value in unit of 0.001mA
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: lbc_th_low_warning_default
                 
                 	LBC low warning threshold default value in units of 0.001mA
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: temp_low_warning_threshold
                 
                 	Temp Low warning threshold value in the units 0 .01 C
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: temp_high_warning_threshold
                 
                 	Temp High warning threshold value in the units of 0.01 C
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: volt_low_warning_threshold
                 
                 	Volt Low warning threshold value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: volt_high_warning_threshold
                 
                 	Volt High warning threshold value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_gain_range
                 
                 	Ampli gain range
-                	**type**\:   :py:class:`OpticsAmplifierGainRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierGainRange>`
+                	**type**\:  :py:class:`OpticsAmplifierGainRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierGainRange>`
                 
                 .. attribute:: safety_control_mode
                 
                 	Safety control mode
-                	**type**\:   :py:class:`OpticsAmplifierSafetyControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierSafetyControlMode>`
+                	**type**\:  :py:class:`OpticsAmplifierSafetyControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierSafetyControlMode>`
                 
                 .. attribute:: osri
                 
                 	OSRI
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: description
                 
                 	Controller description string
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: is_optics_type_string_valid
                 
                 	Is the Optics type string valid ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: optics_type_str
                 
                 	optics type String
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: lane_data
                 
                 	Lane information
-                	**type**\: list of    :py:class:`LaneData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData>`
+                	**type**\: list of  		 :py:class:`LaneData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData>`
                 
                 
 
@@ -2269,7 +2271,7 @@ class OpticsOper(Entity):
                     .. attribute:: network_srlg_array
                     
                     	Network Srlg Array
-                    	**type**\: list of    :py:class:`NetworkSrlgArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray>`
+                    	**type**\: list of  		 :py:class:`NetworkSrlgArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray>`
                     
                     
 
@@ -2302,14 +2304,14 @@ class OpticsOper(Entity):
                         .. attribute:: set_number
                         
                         	Array to maintain set number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: network_srlg
                         
                         	Network Srlg
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         
@@ -2346,222 +2348,222 @@ class OpticsOper(Entity):
                     .. attribute:: high_rx_power
                     
                     	High Rx Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower>`
+                    	**type**\:  :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower>`
                     
                     .. attribute:: low_rx_power
                     
                     	Low Rx Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower>`
+                    	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower>`
                     
                     .. attribute:: high_tx_power
                     
                     	High Tx Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower>`
+                    	**type**\:  :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower>`
                     
                     .. attribute:: low_tx_power
                     
                     	Low Tx Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower>`
+                    	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower>`
                     
                     .. attribute:: high_lbc
                     
                     	High laser bias current in units of percentage
-                    	**type**\:   :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc>`
+                    	**type**\:  :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc>`
                     
                     .. attribute:: high_rx1_power
                     
                     	High Rx1 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighRx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power>`
+                    	**type**\:  :py:class:`HighRx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power>`
                     
                     .. attribute:: high_rx2_power
                     
                     	High Rx2 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighRx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power>`
+                    	**type**\:  :py:class:`HighRx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power>`
                     
                     .. attribute:: high_rx3_power
                     
                     	High Rx3 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighRx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power>`
+                    	**type**\:  :py:class:`HighRx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power>`
                     
                     .. attribute:: high_rx4_power
                     
                     	High Rx4 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighRx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power>`
+                    	**type**\:  :py:class:`HighRx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power>`
                     
                     .. attribute:: low_rx1_power
                     
                     	Low Rx1 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowRx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power>`
+                    	**type**\:  :py:class:`LowRx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power>`
                     
                     .. attribute:: low_rx2_power
                     
                     	Low Rx2 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowRx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power>`
+                    	**type**\:  :py:class:`LowRx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power>`
                     
                     .. attribute:: low_rx3_power
                     
                     	Low Rx3 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowRx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power>`
+                    	**type**\:  :py:class:`LowRx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power>`
                     
                     .. attribute:: low_rx4_power
                     
                     	Low Rx4 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowRx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power>`
+                    	**type**\:  :py:class:`LowRx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power>`
                     
                     .. attribute:: high_tx1_power
                     
                     	High Tx1 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighTx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power>`
+                    	**type**\:  :py:class:`HighTx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power>`
                     
                     .. attribute:: high_tx2_power
                     
                     	High Tx2 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighTx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power>`
+                    	**type**\:  :py:class:`HighTx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power>`
                     
                     .. attribute:: high_tx3_power
                     
                     	High Tx3 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighTx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power>`
+                    	**type**\:  :py:class:`HighTx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power>`
                     
                     .. attribute:: high_tx4_power
                     
                     	High Tx4 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`HighTx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power>`
+                    	**type**\:  :py:class:`HighTx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power>`
                     
                     .. attribute:: low_tx1_power
                     
                     	Low Tx1 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowTx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power>`
+                    	**type**\:  :py:class:`LowTx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power>`
                     
                     .. attribute:: low_tx2_power
                     
                     	Low Tx2 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowTx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power>`
+                    	**type**\:  :py:class:`LowTx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power>`
                     
                     .. attribute:: low_tx3_power
                     
                     	Low Tx3 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowTx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power>`
+                    	**type**\:  :py:class:`LowTx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power>`
                     
                     .. attribute:: low_tx4_power
                     
                     	Low Tx4 Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowTx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power>`
+                    	**type**\:  :py:class:`LowTx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power>`
                     
                     .. attribute:: high_tx1lbc
                     
                     	High Tx1 laser bias current in units of percentage
-                    	**type**\:   :py:class:`HighTx1Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc>`
+                    	**type**\:  :py:class:`HighTx1Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc>`
                     
                     .. attribute:: high_tx2lbc
                     
                     	High Tx2 laser bias current in units of percentage
-                    	**type**\:   :py:class:`HighTx2Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc>`
+                    	**type**\:  :py:class:`HighTx2Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc>`
                     
                     .. attribute:: high_tx3lbc
                     
                     	High Tx3 laser bias current in units of percentage
-                    	**type**\:   :py:class:`HighTx3Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc>`
+                    	**type**\:  :py:class:`HighTx3Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc>`
                     
                     .. attribute:: high_tx4lbc
                     
                     	High Tx4 laser bias current in units of percentage
-                    	**type**\:   :py:class:`HighTx4Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc>`
+                    	**type**\:  :py:class:`HighTx4Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc>`
                     
                     .. attribute:: low_tx1lbc
                     
                     	Low Tx1 laser bias current in units of percentage
-                    	**type**\:   :py:class:`LowTx1Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc>`
+                    	**type**\:  :py:class:`LowTx1Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc>`
                     
                     .. attribute:: low_tx2lbc
                     
                     	Low Tx2 laser bias current in units of percentage
-                    	**type**\:   :py:class:`LowTx2Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc>`
+                    	**type**\:  :py:class:`LowTx2Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc>`
                     
                     .. attribute:: low_tx3lbc
                     
                     	Low Tx3 laser bias current in units of percentage
-                    	**type**\:   :py:class:`LowTx3Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc>`
+                    	**type**\:  :py:class:`LowTx3Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc>`
                     
                     .. attribute:: low_tx4lbc
                     
                     	Low Tx4 laser bias current in units of percentage
-                    	**type**\:   :py:class:`LowTx4Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc>`
+                    	**type**\:  :py:class:`LowTx4Lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc>`
                     
                     .. attribute:: rx_los
                     
                     	RX LOS
-                    	**type**\:   :py:class:`RxLos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos>`
+                    	**type**\:  :py:class:`RxLos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos>`
                     
                     .. attribute:: tx_los
                     
                     	TX LOS
-                    	**type**\:   :py:class:`TxLos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos>`
+                    	**type**\:  :py:class:`TxLos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos>`
                     
                     .. attribute:: rx_lol
                     
                     	RX LOL
-                    	**type**\:   :py:class:`RxLol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol>`
+                    	**type**\:  :py:class:`RxLol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol>`
                     
                     .. attribute:: tx_lol
                     
                     	TX LOL
-                    	**type**\:   :py:class:`TxLol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol>`
+                    	**type**\:  :py:class:`TxLol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol>`
                     
                     .. attribute:: tx_fault
                     
                     	TX Fault
-                    	**type**\:   :py:class:`TxFault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault>`
+                    	**type**\:  :py:class:`TxFault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault>`
                     
                     .. attribute:: hidgd
                     
                     	HI DGD
-                    	**type**\:   :py:class:`Hidgd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd>`
+                    	**type**\:  :py:class:`Hidgd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd>`
                     
                     .. attribute:: oorcd
                     
                     	OOR CD
-                    	**type**\:   :py:class:`Oorcd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd>`
+                    	**type**\:  :py:class:`Oorcd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd>`
                     
                     .. attribute:: osnr
                     
                     	OSNR
-                    	**type**\:   :py:class:`Osnr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr>`
+                    	**type**\:  :py:class:`Osnr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr>`
                     
                     .. attribute:: wvlool
                     
                     	WVL OOL
-                    	**type**\:   :py:class:`Wvlool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool>`
+                    	**type**\:  :py:class:`Wvlool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool>`
                     
                     .. attribute:: mea
                     
                     	MEA
-                    	**type**\:   :py:class:`Mea <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea>`
+                    	**type**\:  :py:class:`Mea <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea>`
                     
                     .. attribute:: imp_removal
                     
                     	IMPROPER REM
-                    	**type**\:   :py:class:`ImpRemoval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval>`
+                    	**type**\:  :py:class:`ImpRemoval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval>`
                     
                     .. attribute:: rx_loc
                     
                     	Rx LOC
-                    	**type**\:   :py:class:`RxLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc>`
+                    	**type**\:  :py:class:`RxLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc>`
                     
                     .. attribute:: amp_gain_deg_low
                     
                     	Ampli Gain Deg Low
-                    	**type**\:   :py:class:`AmpGainDegLow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow>`
+                    	**type**\:  :py:class:`AmpGainDegLow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow>`
                     
                     .. attribute:: amp_gain_deg_high
                     
                     	Ampli Gain Deg High
-                    	**type**\:   :py:class:`AmpGainDegHigh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh>`
+                    	**type**\:  :py:class:`AmpGainDegHigh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh>`
                     
                     .. attribute:: txpwr_mismatch
                     
                     	TX POWER PROV MISMATCH
-                    	**type**\:   :py:class:`TxpwrMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch>`
+                    	**type**\:  :py:class:`TxpwrMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch>`
                     
                     
 
@@ -2809,12 +2811,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2851,12 +2853,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2893,12 +2895,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2935,12 +2937,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2977,12 +2979,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3019,12 +3021,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3061,12 +3063,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3103,12 +3105,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3145,12 +3147,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3187,12 +3189,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3229,12 +3231,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3271,12 +3273,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3313,12 +3315,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3355,12 +3357,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3397,12 +3399,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3439,12 +3441,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3481,12 +3483,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3523,12 +3525,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3565,12 +3567,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3607,12 +3609,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3649,12 +3651,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3692,12 +3694,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3735,12 +3737,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3778,12 +3780,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3821,12 +3823,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3864,12 +3866,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3907,12 +3909,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3950,12 +3952,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3993,12 +3995,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4035,12 +4037,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4077,12 +4079,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4119,12 +4121,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4161,12 +4163,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4203,12 +4205,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4245,12 +4247,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4287,12 +4289,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4329,12 +4331,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4371,12 +4373,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4413,12 +4415,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4455,12 +4457,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4497,12 +4499,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4539,12 +4541,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4581,12 +4583,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4623,12 +4625,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4665,62 +4667,62 @@ class OpticsOper(Entity):
                     .. attribute:: low_tx_power
                     
                     	Low Tx Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower>`
+                    	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower>`
                     
                     .. attribute:: low_rx_power
                     
                     	Low Rx Power in uints of 0.1 dBm
-                    	**type**\:   :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower>`
+                    	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower>`
                     
                     .. attribute:: rx_los_p
                     
                     	Rx LOS\_P
-                    	**type**\:   :py:class:`RxLosP <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP>`
+                    	**type**\:  :py:class:`RxLosP <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP>`
                     
                     .. attribute:: rx_loc
                     
                     	Rx LOC
-                    	**type**\:   :py:class:`RxLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc>`
+                    	**type**\:  :py:class:`RxLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc>`
                     
                     .. attribute:: amp_gain_deg_low
                     
                     	Ampli Gain Deg Low
-                    	**type**\:   :py:class:`AmpGainDegLow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow>`
+                    	**type**\:  :py:class:`AmpGainDegLow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow>`
                     
                     .. attribute:: amp_gain_deg_high
                     
                     	Ampli Gain Deg High
-                    	**type**\:   :py:class:`AmpGainDegHigh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh>`
+                    	**type**\:  :py:class:`AmpGainDegHigh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh>`
                     
                     .. attribute:: auto_laser_shut
                     
                     	Auto Laser Shut
-                    	**type**\:   :py:class:`AutoLaserShut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut>`
+                    	**type**\:  :py:class:`AutoLaserShut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut>`
                     
                     .. attribute:: auto_power_red
                     
                     	Auto Power Red
-                    	**type**\:   :py:class:`AutoPowerRed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed>`
+                    	**type**\:  :py:class:`AutoPowerRed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed>`
                     
                     .. attribute:: auto_ampli_ctrl_disabled
                     
                     	Auto Ampli Ctrl Disabled
-                    	**type**\:   :py:class:`AutoAmpliCtrlDisabled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled>`
+                    	**type**\:  :py:class:`AutoAmpliCtrlDisabled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled>`
                     
                     .. attribute:: auto_ampli_ctrl_config_mismatch
                     
                     	Auto Ampli Ctrl Config Mismatch
-                    	**type**\:   :py:class:`AutoAmpliCtrlConfigMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch>`
+                    	**type**\:  :py:class:`AutoAmpliCtrlConfigMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch>`
                     
                     .. attribute:: switch_to_protect
                     
                     	Switch To Protect
-                    	**type**\:   :py:class:`SwitchToProtect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect>`
+                    	**type**\:  :py:class:`SwitchToProtect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect>`
                     
                     .. attribute:: auto_ampli_ctrl_running
                     
                     	Auto Ampli Ctrl Running
-                    	**type**\:   :py:class:`AutoAmpliCtrlRunning <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning>`
+                    	**type**\:  :py:class:`AutoAmpliCtrlRunning <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning>`
                     
                     
 
@@ -4808,12 +4810,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4850,12 +4852,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4892,12 +4894,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4934,12 +4936,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4976,12 +4978,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5018,12 +5020,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5060,12 +5062,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5102,12 +5104,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5144,12 +5146,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5186,12 +5188,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5228,12 +5230,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5270,12 +5272,12 @@ class OpticsOper(Entity):
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5312,82 +5314,82 @@ class OpticsOper(Entity):
                     .. attribute:: vendor_info
                     
                     	Vendor Information
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: adapter_vendor_info
                     
                     	Adapter Vendor Information
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: date
                     
                     	Date in Transceiver
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: optics_vendor_rev
                     
                     	Transceiver vendors revision number
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: optics_serial_no
                     
                     	Transceiver serial number
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: optics_vendor_part
                     
                     	Transceiver vendors part number
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: optics_type
                     
                     	Transceiver optics type
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vendor_name
                     
                     	Transceiver optics vendor name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: oui_no
                     
                     	Transceiver optics type
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: optics_pid
                     
                     	Transceiver optics pid
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: optics_vid
                     
                     	Transceiver optics vid
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: connector_type
                     
                     	Connector type
-                    	**type**\:   :py:class:`FiberConnector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.FiberConnector>`
+                    	**type**\:  :py:class:`FiberConnector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.FiberConnector>`
                     
                     .. attribute:: otn_application_code
                     
                     	Otn Application Code
-                    	**type**\:   :py:class:`OtnApplicationCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OtnApplicationCode>`
+                    	**type**\:  :py:class:`OtnApplicationCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OtnApplicationCode>`
                     
                     .. attribute:: sonet_application_code
                     
                     	Sonet Application Code
-                    	**type**\:   :py:class:`SonetApplicationCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.SonetApplicationCode>`
+                    	**type**\:  :py:class:`SonetApplicationCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.SonetApplicationCode>`
                     
                     .. attribute:: ethernet_compliance_code
                     
                     	Ethernet Compliance Code
-                    	**type**\:   :py:class:`EthernetPmd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.EthernetPmd>`
+                    	**type**\:  :py:class:`EthernetPmd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.EthernetPmd>`
                     
                     .. attribute:: internal_temperature
                     
                     	Internal Temperature in C
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -5452,154 +5454,154 @@ class OpticsOper(Entity):
                     .. attribute:: snr_lane1
                     
                     	Signal to Noise Ratio on Lane 1
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: snr_lane2
                     
                     	Signal to Noise Ratio on Lane 2
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: isi_correction_lane1
                     
                     	Inter symbol Interference correction on Lane 1
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: isi_correction_lane2
                     
                     	Inter symbol Interference correction on Lane 2
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pam_rate_lane1
                     
                     	PAM Histogram parameter on Lane 1
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pam_rate_lane2
                     
                     	PAM Histogram parameter on Lane 2
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pre_fec_ber
                     
                     	Pre FEC BER since last counter reset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber
                     
                     	Uncorrected BER since last counter reset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: tec_current_lane1
                     
                     	Current flowing to the TEC of a cooled laser on Lane 1
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: tec_current_lane2
                     
                     	Current flowing to the TEC of a cooled laser on Lane 2
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_frequency_lane1
                     
                     	Difference between target and actual center frequency on Lane 1
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_frequency_lane2
                     
                     	Difference between target and actual center frequency on Lane 2
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_temperature_lane1
                     
                     	Difference between target and actual temperature on Lane 1
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_temperature_lane2
                     
                     	Difference between target and actual temperature on Lane 2
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pre_fec_ber_latched_min
                     
                     	Latched minimum Pre FEC BER value since last read, line ingress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_latched_max
                     
                     	Latched maximum Pre FEC BER value since last read, line ingress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_accumulated
                     
                     	Pre FEC BER value prior accumulation period, line ingress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_instantaneous
                     
                     	Pre FEC BER value instantaneous line ingress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_min
                     
                     	Latched minimum Uncorrected BER value since last read, line ingress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_max
                     
                     	Latched maximum Uncorrected BER value since last read, line ingress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_accumulated
                     
                     	Uncorrected BER value prior accumulation period, line ingress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_instantaneous
                     
                     	Uncorrected BER value instantaneous line line ingress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
@@ -5676,448 +5678,448 @@ class OpticsOper(Entity):
                     .. attribute:: snr_alarm_high_threshold
                     
                     	High threshold alarm for SNR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: snr_alarm_low_threshold
                     
                     	Low threshold alarm for SNR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: snr_warn_high_threshold
                     
                     	High threshold warning for SNR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: snr_warn_low_threshold
                     
                     	Low threshold warning for SNR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: isi_correction_alarm_high_threshold
                     
                     	High threshold alarm for ISI Correction
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: isi_correction_alarm_low_threshold
                     
                     	Low threshold alarm for ISI Correction
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: isi_correction_warn_high_threshold
                     
                     	High threshold warning for ISI Correction
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: isi_correction_warn_low_threshold
                     
                     	Low threshold warning for ISI Correction
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pam_rate_alarm_high_threshold
                     
                     	High threshold alarm for PAM Rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pam_rate_alarm_low_threshold
                     
                     	Low threshold alarm for PAM Rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pam_rate_warn_high_threshold
                     
                     	High threshold warning for PAM Rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pam_rate_warn_low_threshold
                     
                     	Low threshold warning for PAM Rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pre_fec_ber_alarm_high_threshold
                     
                     	High threshold alarm for Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_alarm_low_threshold
                     
                     	Low threshold alarm for Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_warn_high_threshold
                     
                     	High threshold warning for Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_warn_low_threshold
                     
                     	Low threshold warning for Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_alarm_high_threshold
                     
                     	High threshold alarm for Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_alarm_low_threshold
                     
                     	Low threshold alarm for Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_warn_high_threshold
                     
                     	High threshold warning for Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_warn_low_threshold
                     
                     	Low threshold warning for Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: tec_current_alarm_high_threshold
                     
                     	High threshold alarm for TEC Current
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: tec_current_alarm_low_threshold
                     
                     	Low threshold alarm for TEC Current
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: tec_current_warn_high_threshold
                     
                     	High threshold warning for TEC Current
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: tec_current_warn_low_threshold
                     
                     	Low threshold warning for TEC Current
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_frequency_alarm_high_threshold
                     
                     	High Threshold Alarm for Differential Laser Frequency
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_frequency_alarm_low_threshold
                     
                     	Low Threshold Alarm for Differential Laser Frequency
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_frequency_warn_high_threshold
                     
                     	High Threshold Warning for Differential Laser Frequency
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_frequency_warn_low_threshold
                     
                     	Low Threshold Warning for Differential Laser Frequency
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_temperature_alarm_high_threshold
                     
                     	High Threshold Alarm for Differential Laser Temperature
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_temperature_alarm_low_threshold
                     
                     	Low Threshold Alarm for Differential Laser Temperature
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_temperature_warn_high_threshold
                     
                     	High Threshold Warning for Differential Laser Temperature
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_diff_temperature_warn_low_threshold
                     
                     	Low Threshold Warning for Differential Laser Temperature
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: pre_fec_ber_latched_min_alarm_high_threshold
                     
                     	High threshold alarm for Latched Min Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_latched_min_alarm_low_threshold
                     
                     	Low threshold alarm for Latched Min Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_latched_min_warn_high_threshold
                     
                     	High threshold warning for Latched Min Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_latched_min_warn_low_threshold
                     
                     	Low threshold warning for Latched Min Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_latched_max_alarm_high_threshold
                     
                     	High threshold alarm for Latched Max Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_latched_max_alarm_low_threshold
                     
                     	Low threshold alarm for Latched Max Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_latched_max_warn_high_threshold
                     
                     	High threshold warning for Latched Max Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_latched_max_warn_low_threshold
                     
                     	Low threshold warning for Latched Max Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_accumulated_alarm_high_threshold
                     
                     	High threshold alarm for Accumulated Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_accumulated_alarm_low_threshold
                     
                     	Low threshold alarm for Accumulated Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_accumulated_warn_high_threshold
                     
                     	High threshold warning for Accumulated Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_accumulated_warn_low_threshold
                     
                     	Low threshold warning for Accumulated Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_instantaneous_alarm_high_threshold
                     
                     	High threshold alarm for Instantaneous Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_instantaneous_alarm_low_threshold
                     
                     	Low threshold alarm for Instantaneous Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_instantaneous_warn_high_threshold
                     
                     	High threshold warning for Instantaneous Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: pre_fec_ber_instantaneous_warn_low_threshold
                     
                     	Low threshold warning for Instantaneous Pre FEC BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_min_alarm_high_threshold
                     
                     	High threshold alarm for  Latched Min Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_min_alarm_low_threshold
                     
                     	Low threshold alarm for  Latched Min Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_min_warn_high_threshold
                     
                     	High threshold warning for  Latched Min Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_min_warn_low_threshold
                     
                     	Low threshold alarm for Latched Min Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_max_alarm_high_threshold
                     
                     	High threshold alarm for Latched\_Max Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_max_alarm_low_threshold
                     
                     	Low threshold alarm for Latched\_Max Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_max_warn_high_threshold
                     
                     	High threshold warning Latched\_Max for Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_latched_max_warn_low_threshold
                     
                     	Low threshold warning Latched\_Max for Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_accumulated_alarm_high_threshold
                     
                     	High threshold alarm for Accumulated Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_accumulated_alarm_low_threshold
                     
                     	Low threshold alarm for Accumulated Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_accumulated_warn_high_threshold
                     
                     	High threshold warning for Accumulated Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_accumulated_warn_low_threshold
                     
                     	Low threshold warning for Accumulated Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_instantaneous_alarm_high_threshold
                     
                     	High threshold alarm for Instantaneous Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_instantaneous_alarm_low_threshold
                     
                     	Low threshold alarm for Instantaneous Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_instantaneous_warn_high_threshold
                     
                     	High threshold warning for Instantaneous Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
                     .. attribute:: uncorrected_ber_instantaneous_warn_low_threshold
                     
                     	Low threshold warning for Instantaneous Uncorrected BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
@@ -6278,28 +6280,28 @@ class OpticsOper(Entity):
                     .. attribute:: total_spectrum_slice_count
                     
                     	Total number of slices in Spectrum
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: spectrum_slice_spacing
                     
                     	Spacing between spectrum slices
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: first_slice_wavelength
                     
                     	Wavelength of first slice
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: spectrum_slice_power_info
                     
                     	Power information of spectrum slice info
-                    	**type**\: list of    :py:class:`SpectrumSlicePowerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo.SpectrumSlicePowerInfo>`
+                    	**type**\: list of  		 :py:class:`SpectrumSlicePowerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo.SpectrumSlicePowerInfo>`
                     
                     
 
@@ -6338,49 +6340,49 @@ class OpticsOper(Entity):
                         .. attribute:: slice_num
                         
                         	spectrum slice number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lower_frequency
                         
                         	Lower frequency of the specified PSD
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: upper_frequency
                         
                         	Upper frequency of the specified PSD
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: rx_power
                         
                         	Received Power in dBm
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..32
                         
                         .. attribute:: tx_power
                         
                         	Transmit Power in dBm
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..32
                         
                         .. attribute:: rx_psd
                         
                         	Received Power spectral density in microwatts per megahertz, uW/MHz
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..32
                         
                         .. attribute:: tx_psd
                         
                         	Transmit Power spectral density in microwatts per megahertz, uW/MHz
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..32
                         
@@ -6427,19 +6429,19 @@ class OpticsOper(Entity):
                     .. attribute:: lane_alarm_info
                     
                     	Lane Alarm Information
-                    	**type**\:   :py:class:`LaneAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo>`
+                    	**type**\:  :py:class:`LaneAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo>`
                     
                     .. attribute:: lane_index
                     
                     	The index number of the lane
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: laser_bias_current_percent
                     
                     	Laser Bias Current in units of 0.01 percentage
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6448,49 +6450,49 @@ class OpticsOper(Entity):
                     .. attribute:: laser_bias_current_milli_amps
                     
                     	Laser Bias Current in units of 0.01mA
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: transmit_power
                     
                     	Transmit power in the unit of 0.01dBm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_power
                     
                     	Transponder receive power in the unit of 0.01dBm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_signal_power
                     
                     	Transponder receive signal power in the unit of 0.01dBm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transmit_signal_power
                     
                     	Transmit Signal power in the unit of 0.01dBm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: output_frequency
                     
                     	Output frequency read from hw in the unit 100MHz
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: frequency_offset
                     
                     	Frequency Offset read from hw in unit of MHz
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -6546,27 +6548,27 @@ class OpticsOper(Entity):
                         .. attribute:: high_rx_power
                         
                         	High Rx Power
-                        	**type**\:   :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower>`
+                        	**type**\:  :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower>`
                         
                         .. attribute:: low_rx_power
                         
                         	Low Rx Power
-                        	**type**\:   :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower>`
+                        	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower>`
                         
                         .. attribute:: high_tx_power
                         
                         	High Tx Power
-                        	**type**\:   :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower>`
+                        	**type**\:  :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower>`
                         
                         .. attribute:: low_tx_power
                         
                         	Low Tx Power
-                        	**type**\:   :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower>`
+                        	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower>`
                         
                         .. attribute:: high_lbc
                         
                         	High laser bias current
-                        	**type**\:   :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc>`
+                        	**type**\:  :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc>`
                         
                         
 
@@ -6619,12 +6621,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6661,12 +6663,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6703,12 +6705,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6745,12 +6747,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6787,12 +6789,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6829,7 +6831,7 @@ class OpticsOper(Entity):
                 .. attribute:: optics_lane
                 
                 	Lane Information
-                	**type**\: list of    :py:class:`OpticsLane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane>`
+                	**type**\: list of  		 :py:class:`OpticsLane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane>`
                 
                 
 
@@ -6862,26 +6864,26 @@ class OpticsOper(Entity):
                     .. attribute:: number  <key>
                     
                     	Lane Index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: lane_alarm_info
                     
                     	Lane Alarm Information
-                    	**type**\:   :py:class:`LaneAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo>`
+                    	**type**\:  :py:class:`LaneAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo>`
                     
                     .. attribute:: lane_index
                     
                     	The index number of the lane
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: laser_bias_current_percent
                     
                     	Laser Bias Current in units of 0.01 percentage
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6890,49 +6892,49 @@ class OpticsOper(Entity):
                     .. attribute:: laser_bias_current_milli_amps
                     
                     	Laser Bias Current in units of 0.01mA
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: transmit_power
                     
                     	Transmit power in the unit of 0.01dBm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_power
                     
                     	Transponder receive power in the unit of 0.01dBm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_signal_power
                     
                     	Transponder receive signal power in the unit of 0.01dBm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transmit_signal_power
                     
                     	Transmit Signal power in the unit of 0.01dBm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: output_frequency
                     
                     	Output frequency read from hw in the unit 100MHz
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: frequency_offset
                     
                     	Frequency Offset read from hw in unit of MHz
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -6990,27 +6992,27 @@ class OpticsOper(Entity):
                         .. attribute:: high_rx_power
                         
                         	High Rx Power
-                        	**type**\:   :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower>`
+                        	**type**\:  :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower>`
                         
                         .. attribute:: low_rx_power
                         
                         	Low Rx Power
-                        	**type**\:   :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower>`
+                        	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower>`
                         
                         .. attribute:: high_tx_power
                         
                         	High Tx Power
-                        	**type**\:   :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower>`
+                        	**type**\:  :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower>`
                         
                         .. attribute:: low_tx_power
                         
                         	Low Tx Power
-                        	**type**\:   :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower>`
+                        	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower>`
                         
                         .. attribute:: high_lbc
                         
                         	High laser bias current
-                        	**type**\:   :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc>`
+                        	**type**\:  :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc>`
                         
                         
 
@@ -7063,12 +7065,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -7105,12 +7107,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -7147,12 +7149,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -7189,12 +7191,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -7231,12 +7233,12 @@ class OpticsOper(Entity):
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -7273,17 +7275,17 @@ class OpticsOper(Entity):
                 .. attribute:: network_srlg_info
                 
                 	Network SRLG information
-                	**type**\:   :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo>`
+                	**type**\:  :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo>`
                 
                 .. attribute:: transport_admin_state
                 
                 	Transport Admin State
-                	**type**\:   :py:class:`OpticsTas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsTas>`
+                	**type**\:  :py:class:`OpticsTas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsTas>`
                 
                 .. attribute:: controller_state
                 
                 	Optics controller state\: Up, Down or Administratively Down
-                	**type**\:   :py:class:`OpticsControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsControllerState>`
+                	**type**\:  :py:class:`OpticsControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsControllerState>`
                 
                 
 
@@ -7323,7 +7325,7 @@ class OpticsOper(Entity):
                     .. attribute:: network_srlg_array
                     
                     	Network Srlg Array
-                    	**type**\: list of    :py:class:`NetworkSrlgArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray>`
+                    	**type**\: list of  		 :py:class:`NetworkSrlgArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray>`
                     
                     
 
@@ -7356,14 +7358,14 @@ class OpticsOper(Entity):
                         .. attribute:: set_number
                         
                         	Array to maintain set number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: network_srlg
                         
                         	Network Srlg
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         

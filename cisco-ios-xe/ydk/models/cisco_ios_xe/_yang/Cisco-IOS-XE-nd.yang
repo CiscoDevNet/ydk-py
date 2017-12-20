@@ -23,12 +23,18 @@ module Cisco-IOS-XE-nd {
 
   description
     "Cisco XE Native Neighbor Discovery (ND) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-04-07 {
     description
       "Add default-route";
@@ -310,6 +316,14 @@ module Cisco-IOS-XE-nd {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6/ios:nd" {
+    uses config-interface-ipv6-nd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6/ios:nd" {
+    uses config-interface-ipv6-nd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6/ios:nd" {
     uses config-interface-ipv6-nd-grouping;
   }
 

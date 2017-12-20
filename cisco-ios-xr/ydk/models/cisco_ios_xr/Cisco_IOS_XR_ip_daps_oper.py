@@ -85,7 +85,7 @@ class AddressPoolService(Entity):
     .. attribute:: nodes
     
     	Pool operational data for a particular location
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes>`
     
     
 
@@ -119,7 +119,7 @@ class AddressPoolService(Entity):
         .. attribute:: node
         
         	Location. For eg., 0/1/CPU0
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node>`
         
         
 
@@ -153,22 +153,24 @@ class AddressPoolService(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: pools
             
             	List of IPv4/IPv6 pool data
-            	**type**\:   :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools>`
+            	**type**\:  :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools>`
             
             .. attribute:: total_utilization
             
             	Show total utilization for pool
-            	**type**\:   :py:class:`TotalUtilization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.TotalUtilization>`
+            	**type**\:  :py:class:`TotalUtilization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.TotalUtilization>`
             
             .. attribute:: vrfs
             
             	Pool VRF data
-            	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs>`
+            	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs>`
             
             
 
@@ -217,7 +219,7 @@ class AddressPoolService(Entity):
                 .. attribute:: pool
                 
                 	Pool data by pool name
-                	**type**\: list of    :py:class:`Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool>`
+                	**type**\: list of  		 :py:class:`Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool>`
                 
                 
 
@@ -250,22 +252,24 @@ class AddressPoolService(Entity):
                     .. attribute:: pool_name  <key>
                     
                     	The pool name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: address_ranges
                     
                     	Summary info for pool
-                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges>`
+                    	**type**\:  :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges>`
                     
                     .. attribute:: allocated_addresses
                     
                     	Detailed info for the Pool
-                    	**type**\:   :py:class:`AllocatedAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses>`
+                    	**type**\:  :py:class:`AllocatedAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses>`
                     
                     .. attribute:: configuration
                     
                     	Configuration info for pool
-                    	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.Configuration>`
+                    	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.Configuration>`
                     
                     
 
@@ -313,7 +317,7 @@ class AddressPoolService(Entity):
                         .. attribute:: address_range
                         
                         	Start Address of the Range
-                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange>`
+                        	**type**\: list of  		 :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange>`
                         
                         
 
@@ -346,84 +350,84 @@ class AddressPoolService(Entity):
                             .. attribute:: start_address  <key>
                             
                             	IP Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: start_address_xr
                             
                             	Range start
-                            	**type**\:   :py:class:`StartAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr>`
+                            	**type**\:  :py:class:`StartAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr>`
                             
                             .. attribute:: end_address
                             
                             	Range end
-                            	**type**\:   :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress>`
+                            	**type**\:  :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress>`
                             
                             .. attribute:: default_router
                             
                             	Default router
-                            	**type**\:   :py:class:`DefaultRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter>`
+                            	**type**\:  :py:class:`DefaultRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter>`
                             
                             .. attribute:: pool_name
                             
                             	Pool name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: vrf_name
                             
                             	VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: pool_scope
                             
                             	Pool scope
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: allocated_addresses
                             
                             	Number of addresses allocated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: free_addresses
                             
                             	Number of addresses free
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: excluded_addresses
                             
                             	Number of addresses excluded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: network_blocked_status
                             
                             	Is network blocked
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: network_blocked_status_trp
                             
                             	Is network blocked trap send
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -489,7 +493,7 @@ class AddressPoolService(Entity):
                                 .. attribute:: address
                                 
                                 	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address>`
+                                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address>`
                                 
                                 
 
@@ -522,17 +526,21 @@ class AddressPoolService(Entity):
                                     .. attribute:: address_family
                                     
                                     	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -569,7 +577,7 @@ class AddressPoolService(Entity):
                                 .. attribute:: address
                                 
                                 	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address>`
+                                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address>`
                                 
                                 
 
@@ -602,17 +610,21 @@ class AddressPoolService(Entity):
                                     .. attribute:: address_family
                                     
                                     	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -649,7 +661,7 @@ class AddressPoolService(Entity):
                                 .. attribute:: address
                                 
                                 	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address>`
+                                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address>`
                                 
                                 
 
@@ -682,17 +694,21 @@ class AddressPoolService(Entity):
                                     .. attribute:: address_family
                                     
                                     	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -729,17 +745,17 @@ class AddressPoolService(Entity):
                         .. attribute:: pool_allocations
                         
                         	Pool allocations
-                        	**type**\:   :py:class:`PoolAllocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations>`
+                        	**type**\:  :py:class:`PoolAllocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations>`
                         
                         .. attribute:: address_range
                         
                         	Address ranges
-                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange>`
+                        	**type**\: list of  		 :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange>`
                         
                         .. attribute:: in_use_address
                         
                         	In\-use addresses
-                        	**type**\: list of    :py:class:`InUseAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress>`
+                        	**type**\: list of  		 :py:class:`InUseAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress>`
                         
                         
 
@@ -778,52 +794,52 @@ class AddressPoolService(Entity):
                             .. attribute:: high_threshold
                             
                             	High threshold data
-                            	**type**\:   :py:class:`HighThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold>`
+                            	**type**\:  :py:class:`HighThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold>`
                             
                             .. attribute:: low_threshold
                             
                             	Low threshold data
-                            	**type**\:   :py:class:`LowThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold>`
+                            	**type**\:  :py:class:`LowThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold>`
                             
                             .. attribute:: vrf_name
                             
                             	VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: used
                             
                             	Used allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
                             	Excluded allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: free
                             
                             	Free allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: total
                             
                             	Total allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: utilization
                             
                             	Current utilization in percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -880,7 +896,7 @@ class AddressPoolService(Entity):
                                 .. attribute:: threshold
                                 
                                 	Threshold in percentage
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -889,14 +905,14 @@ class AddressPoolService(Entity):
                                 .. attribute:: triggers
                                 
                                 	Number of Triggers
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: time_last_crossed
                                 
                                 	Last time at which threshold crossed in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -933,7 +949,7 @@ class AddressPoolService(Entity):
                                 .. attribute:: threshold
                                 
                                 	Threshold in percentage
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -942,14 +958,14 @@ class AddressPoolService(Entity):
                                 .. attribute:: triggers
                                 
                                 	Number of Triggers
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: time_last_crossed
                                 
                                 	Last time at which threshold crossed in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -986,31 +1002,31 @@ class AddressPoolService(Entity):
                             .. attribute:: start_address
                             
                             	Range start
-                            	**type**\:   :py:class:`StartAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress>`
+                            	**type**\:  :py:class:`StartAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress>`
                             
                             .. attribute:: end_address
                             
                             	Range end
-                            	**type**\:   :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress>`
+                            	**type**\:  :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress>`
                             
                             .. attribute:: used
                             
                             	Used allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
                             	Excluded allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: free
                             
                             	Free allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1059,7 +1075,7 @@ class AddressPoolService(Entity):
                                 .. attribute:: address
                                 
                                 	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address>`
+                                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address>`
                                 
                                 
 
@@ -1092,17 +1108,21 @@ class AddressPoolService(Entity):
                                     .. attribute:: address_family
                                     
                                     	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -1139,7 +1159,7 @@ class AddressPoolService(Entity):
                                 .. attribute:: address
                                 
                                 	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address>`
+                                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address>`
                                 
                                 
 
@@ -1172,17 +1192,21 @@ class AddressPoolService(Entity):
                                     .. attribute:: address_family
                                     
                                     	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -1219,12 +1243,12 @@ class AddressPoolService(Entity):
                             .. attribute:: address
                             
                             	Client address
-                            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address>`
+                            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address>`
                             
                             .. attribute:: client_type
                             
                             	Client type
-                            	**type**\:   :py:class:`DapsClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.DapsClient>`
+                            	**type**\:  :py:class:`DapsClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.DapsClient>`
                             
                             
 
@@ -1262,7 +1286,7 @@ class AddressPoolService(Entity):
                                 .. attribute:: address
                                 
                                 	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address>`
+                                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address>`
                                 
                                 
 
@@ -1295,17 +1319,21 @@ class AddressPoolService(Entity):
                                     .. attribute:: address_family
                                     
                                     	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -1342,70 +1370,70 @@ class AddressPoolService(Entity):
                         .. attribute:: pool_name
                         
                         	Pool name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..64
                         
                         .. attribute:: pool_id
                         
                         	Pool ID for MIBS
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: vrf_name
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..64
                         
                         .. attribute:: pool_scope
                         
                         	Pool Scope
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..64
                         
                         .. attribute:: pool_prefix_length
                         
                         	Prefix length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: high_utilization_mark
                         
                         	High utilization mark
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: low_utilization_mark
                         
                         	Low utilization mark
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: current_utilization
                         
                         	Current utilization
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: utilization_high_count
                         
                         	Number of times High utilization threshold was crossed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: utilization_low_count
                         
                         	Number of times Low utilization threshold was crossed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1458,21 +1486,21 @@ class AddressPoolService(Entity):
                 .. attribute:: total_utilization_high_mark
                 
                 	High utilization mark
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: total_utilization_low_mark
                 
                 	Low utilization mark
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: current_total_utilization
                 
                 	Current utilization
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
@@ -1511,7 +1539,7 @@ class AddressPoolService(Entity):
                 .. attribute:: vrf
                 
                 	VRF level Pool information
-                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf>`
+                	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf>`
                 
                 
 
@@ -1544,17 +1572,19 @@ class AddressPoolService(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	The VRF name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: ipv4
                     
                     	IPv4 pool VRF data
-                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4>`
+                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4>`
                     
                     .. attribute:: ipv6
                     
                     	IPv6 Pool VRF data
-                    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6>`
+                    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6>`
                     
                     
 
@@ -1597,12 +1627,12 @@ class AddressPoolService(Entity):
                         .. attribute:: allocation_summary
                         
                         	Allocation summary
-                        	**type**\:   :py:class:`AllocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary>`
+                        	**type**\:  :py:class:`AllocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary>`
                         
                         .. attribute:: pools
                         
                         	Pools data
-                        	**type**\: list of    :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools>`
+                        	**type**\: list of  		 :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools>`
                         
                         
 
@@ -1640,35 +1670,35 @@ class AddressPoolService(Entity):
                             .. attribute:: used
                             
                             	Used allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
                             	Excluded allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: free
                             
                             	Free allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: total
                             
                             	Total allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: high_utilization_threshold
                             
                             	High utilization threshold in percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1677,7 +1707,7 @@ class AddressPoolService(Entity):
                             .. attribute:: low_utilization_threshold
                             
                             	Low utilization threshold in percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1686,7 +1716,7 @@ class AddressPoolService(Entity):
                             .. attribute:: utilization
                             
                             	Current utilization in percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1735,42 +1765,42 @@ class AddressPoolService(Entity):
                             .. attribute:: pool_name
                             
                             	Pool name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: vrf_name
                             
                             	VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: used
                             
                             	Used allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
                             	Excluded allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: free
                             
                             	Free allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: total
                             
                             	Total allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1815,12 +1845,12 @@ class AddressPoolService(Entity):
                         .. attribute:: allocation_summary
                         
                         	Allocation summary
-                        	**type**\:   :py:class:`AllocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary>`
+                        	**type**\:  :py:class:`AllocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary>`
                         
                         .. attribute:: pools
                         
                         	Pools data
-                        	**type**\: list of    :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools>`
+                        	**type**\: list of  		 :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools>`
                         
                         
 
@@ -1858,35 +1888,35 @@ class AddressPoolService(Entity):
                             .. attribute:: used
                             
                             	Used allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
                             	Excluded allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: free
                             
                             	Free allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: total
                             
                             	Total allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: high_utilization_threshold
                             
                             	High utilization threshold in percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1895,7 +1925,7 @@ class AddressPoolService(Entity):
                             .. attribute:: low_utilization_threshold
                             
                             	Low utilization threshold in percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1904,7 +1934,7 @@ class AddressPoolService(Entity):
                             .. attribute:: utilization
                             
                             	Current utilization in percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1953,42 +1983,42 @@ class AddressPoolService(Entity):
                             .. attribute:: pool_name
                             
                             	Pool name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: vrf_name
                             
                             	VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: used
                             
                             	Used allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
                             	Excluded allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: free
                             
                             	Free allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: total
                             
                             	Total allocations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             

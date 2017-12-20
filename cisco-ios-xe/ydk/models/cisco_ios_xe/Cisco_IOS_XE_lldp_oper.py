@@ -20,7 +20,7 @@ class LldpEntries(Entity):
     .. attribute:: lldp_entry
     
     	The list of LLDP entries
-    	**type**\: list of    :py:class:`LldpEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lldp_oper.LldpEntries.LldpEntry>`
+    	**type**\: list of  		 :py:class:`LldpEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lldp_oper.LldpEntries.LldpEntry>`
     
     
 
@@ -54,29 +54,29 @@ class LldpEntries(Entity):
         .. attribute:: device_id  <key>
         
         	Device ID of the link
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: local_interface  <key>
         
         	Name of the local interface on the current device
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: connecting_interface  <key>
         
         	Name of the connected interface to 'local\-interface'
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: ttl
         
         	TTL denoting hold\-time of this link entry
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: capabilities
         
         	LLD device capabilities
-        	**type**\:   :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lldp_oper.LldpEntries.LldpEntry.Capabilities>`
+        	**type**\:  :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lldp_oper.LldpEntries.LldpEntry.Capabilities>`
         
         
 
@@ -121,42 +121,42 @@ class LldpEntries(Entity):
             .. attribute:: repeater
             
             	Repeater
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: bridge
             
             	Bridge
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: access_point
             
             	Access point
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: router
             
             	Router
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: telephone
             
             	Phone
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: docsis
             
             	Docsis
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: station
             
             	Station
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: other
             
             	Other
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 

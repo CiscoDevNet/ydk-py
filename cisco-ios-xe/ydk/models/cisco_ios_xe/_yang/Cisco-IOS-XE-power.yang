@@ -23,12 +23,17 @@ module Cisco-IOS-XE-power {
 
   description
     "Cisco XE Native Power over Ethernet Yang (PoE) model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -195,4 +200,19 @@ module Cisco-IOS-XE-power {
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
     uses config-interface-power-grouping;
   }
+
+  /////////////////////////////////////////////////////////
+  // native / interface Five GigabitEthernet * power
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-power-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / interface TwentyFiveGigabitEthernet * power
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+    uses config-interface-power-grouping;
+  }
+
 } //module

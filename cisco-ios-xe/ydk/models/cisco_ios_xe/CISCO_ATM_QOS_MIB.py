@@ -101,22 +101,22 @@ class CISCOATMQOSMIB(Entity):
     .. attribute:: caqvccparamstable
     
     	This table is defined to provide QoS information for each active ATM VC existing on the interface
-    	**type**\:   :py:class:`Caqvccparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvccparamstable>`
+    	**type**\:  :py:class:`Caqvccparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvccparamstable>`
     
     .. attribute:: caqvpcparamstable
     
     	This table is defined to provide QoS information for each active ATM VP existing on the interface
-    	**type**\:   :py:class:`Caqvpcparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvpcparamstable>`
+    	**type**\:  :py:class:`Caqvpcparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvpcparamstable>`
     
     .. attribute:: caqqueuingparamstable
     
     	This table provides queuing related information for a VC existing on an ATM interface
-    	**type**\:   :py:class:`Caqqueuingparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamstable>`
+    	**type**\:  :py:class:`Caqqueuingparamstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamstable>`
     
     .. attribute:: caqqueuingparamsclasstable
     
     	This table provides queuing information for all  queuing classes associating with a VC
-    	**type**\:   :py:class:`Caqqueuingparamsclasstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamsclasstable>`
+    	**type**\:  :py:class:`Caqqueuingparamsclasstable <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamsclasstable>`
     
     
 
@@ -166,7 +166,7 @@ class CISCOATMQOSMIB(Entity):
         .. attribute:: caqvccparamsentry
         
         	This list contains the ATM QoS parameters provided by ciscoAtmQosVccEntry
-        	**type**\: list of    :py:class:`Caqvccparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvccparamstable.Caqvccparamsentry>`
+        	**type**\: list of  		 :py:class:`Caqvccparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvccparamstable.Caqvccparamsentry>`
         
         
 
@@ -201,7 +201,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -210,7 +210,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: atmvclvpi  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
@@ -219,7 +219,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: atmvclvci  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -228,190 +228,190 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: caqvccparamstype
             
             	The service category of this virtual circuit connection
-            	**type**\:   :py:class:`AtmServiceCategory <ydk.models.cisco_ios_xe.ATM_FORUM_TC_MIB.AtmServiceCategory>`
+            	**type**\:  :py:class:`AtmServiceCategory <ydk.models.cisco_ios_xe.ATM_FORUM_TC_MIB.AtmServiceCategory>`
             
             .. attribute:: caqvccparamspcrin0
             
             	Input Peak Cell Rate (PCR) in kbps with  Cell Loss Priority bit set to 0 (clp0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamspcrin01
             
             	Number of OAM F5 end to end loopback cells sent through the VCC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamspcrout0
             
             	Output Peak Cell Rate (PCR) in kbps with Cell Loss Priority bit set to 0 (clp0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamspcrout01
             
             	Output Peak Cell Rate (PCR) in kbps with Cell Loss Priority bit set to 1 (clp01)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsscrin0
             
             	Input Sustained Cell Rate (SCR) in kbps for connection with VBR type of QoS and Cell Loss Priority bit set to 0 (clp0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsscrin01
             
             	Input Sustained Cell Rate (SCR) in kbps for connection with VBR type of QoS and Cell Loss Priority bit set to 1 (clp01)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsscrout0
             
             	Output Sustained Cell Rate (SCR) in kbps for connection with VBR type of QoS and Cell Loss Priority bit set to 0 (clp0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsscrout01
             
             	Output Sustained Cell Rate (SCR) in kbps for connection with VBR type of QoS and Cell Loss Priority bit set to 1 (clp01)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsbcsin0
             
             	Input Burst Cell Size (BCS) for connection with VBR type of QoS and Cell Loss Priority bit set to 0 (clp0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsbcsin01
             
             	Input Burst Cell Size (BCS) for connection with VBR type of QoS and Cell Loss Priority bit set to 1 (clp01)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsbcsout0
             
             	Output Burst Cell Size (BCS) for connection with VBR type of QoS and  Cell Loss Priority bit set to 0 (clp0)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsbcsout01
             
             	Output Burst Cell Size (BCS) for connection with VBR type of QoS and Cell Loss Priority bit set to 1 (clp01)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsinheritlevel
             
             	The source of configuration for peak cell rate
-            	**type**\:   :py:class:`VcParamConfigLocation <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.VcParamConfigLocation>`
+            	**type**\:  :py:class:`VcParamConfigLocation <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.VcParamConfigLocation>`
             
             .. attribute:: caqvccparamsmcrin
             
             	Input Minimum Cell Rate (MCR) in kbps for connection with VBR\-nrt or ABR type of QoS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsmcrout
             
             	Output Minimum Cell Rate (MCR) in kbps for connection with VBR\-nrt or ABR type of QoS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsinvrdf
             
             	Inverse of rate decrease factor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsinvrif
             
             	Inverse of rate increase factor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsrfl
             
             	The source of configuration for rate factor
-            	**type**\:   :py:class:`VcParamConfigLocation <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.VcParamConfigLocation>`
+            	**type**\:  :py:class:`VcParamConfigLocation <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.VcParamConfigLocation>`
             
             .. attribute:: caqvccparamscdv
             
             	Cell delay variation
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamscdvt
             
             	Cell delay variation tolerance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsicr
             
             	Initial cell rate
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamstbe
             
             	Transient buffer exposure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsfrtt
             
             	Fixed round\-trip time
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsnrm
             
             	Maximum number of tx cells for each forward rm cell
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsinvtrm
             
             	Maximum time between forward rm cells
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsinvcdf
             
             	Inverse of cutoff decrease factor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvccparamsadtf
             
             	Allowed cell rate decrease time factor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -508,7 +508,7 @@ class CISCOATMQOSMIB(Entity):
         .. attribute:: caqvpcparamsentry
         
         	This list contains the ATM QoS parameters provided by ciscoAtmQosVpcEntry
-        	**type**\: list of    :py:class:`Caqvpcparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvpcparamstable.Caqvpcparamsentry>`
+        	**type**\: list of  		 :py:class:`Caqvpcparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqvpcparamstable.Caqvpcparamsentry>`
         
         
 
@@ -543,7 +543,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -552,7 +552,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: atmvplvpi  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
@@ -561,68 +561,68 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: caqvpcparamsvpstate
             
             	VP state of the current permanent virtual path
-            	**type**\:   :py:class:`VpState <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.VpState>`
+            	**type**\:  :py:class:`VpState <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.VpState>`
             
             .. attribute:: caqvpcparamspeakrate
             
             	Maximum rate in kbps at which the associated permanent virtual path can transmit data
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvpcparamscesrate
             
             	Maximum rate in kbps at which CES VCs can transmit data with the associated permanent virtual path
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvpcparamsdatavccount
             
             	Number of data VCs currently associated with the permanent virtual path
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: caqvpcparamscesvccount
             
             	Number of CES VCs currently associated with the permanent virtual path
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: caqvpcparamsvcdf4seg
             
             	Vcd for F4 OAM segment processing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: caqvpcparamsvcdf4ete
             
             	Vcd for F4 OAM end to end processing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: caqvpcparamsscr
             
             	Sustained cell rate associated with the PVP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvpcparamsmbs
             
             	Maximum burst size associated with the PVP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqvpcparamsavailbw
             
             	Bandwidth in Kbps currently currently available on this PVP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -681,7 +681,7 @@ class CISCOATMQOSMIB(Entity):
         .. attribute:: caqqueuingparamsentry
         
         	This is defined as an entry in caqQueuingParamsTable
-        	**type**\: list of    :py:class:`Caqqueuingparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamstable.Caqqueuingparamsentry>`
+        	**type**\: list of  		 :py:class:`Caqqueuingparamsentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamstable.Caqqueuingparamsentry>`
         
         
 
@@ -715,7 +715,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -724,7 +724,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: atmvclvpi  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
@@ -733,7 +733,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: atmvclvci  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -742,7 +742,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: caqqueuingparamsmeanqdepth
             
             	Mean Queue Depth associated with the vc.  This value is calculated based on the actual queue depth on the interface and the exponential weighting constant
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -785,7 +785,7 @@ class CISCOATMQOSMIB(Entity):
         .. attribute:: caqqueuingparamsclassentry
         
         	This is defined as an entry in ciscoAtmQosVcQueuingClassTable to provide queuing information of a specific class
-        	**type**\: list of    :py:class:`Caqqueuingparamsclassentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamsclasstable.Caqqueuingparamsclassentry>`
+        	**type**\: list of  		 :py:class:`Caqqueuingparamsclassentry <ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB.CISCOATMQOSMIB.Caqqueuingparamsclasstable.Caqqueuingparamsclassentry>`
         
         
 
@@ -820,7 +820,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -829,7 +829,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: atmvclvpi  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
@@ -838,7 +838,7 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: atmvclvci  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -847,42 +847,42 @@ class CISCOATMQOSMIB(Entity):
             .. attribute:: caqqueuingparamsclassindex  <key>
             
             	A class index, which associates with an IP precedence (0 to 8), is defined to reference individual caqQueuingParamsClassEntry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..8
             
             .. attribute:: caqqueuingparamsclassranddrp
             
             	Number of packets dropped when Mean Queue Length is between Minimum Threshold and Maximum Threshold range
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqqueuingparamsclasstaildrp
             
             	Number of packets dropped because the Mean Queue Depth exceeds the Maximum Threshold value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqqueuingparamsclassminthre
             
             	Minimum Threshold value in kbps
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqqueuingparamsclassmaxthre
             
             	Maximum Threshold value in kbps
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: caqqueuingparamsclassmrkprob
             
             	Mark probability denominator.  This is the value used in the calculation of a packet being dropped when the average queue size is between the minimum threshold and the maximum threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

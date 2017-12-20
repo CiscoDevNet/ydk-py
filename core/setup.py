@@ -32,7 +32,7 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.6.2'
+VERSION = '0.6.3'
 INSTALL_REQUIREMENTS = ['pybind11>=2.1.1']
 
 
@@ -60,7 +60,10 @@ class CMakeExtension(Extension):
 class YdkBuildExtension(build_ext):
     def run(self):
         try:
-            subprocess.check_output(['cmake', '--version'])
+            cmake3_installed = (
+            0 == subprocess.call(['which', 'cmake3'], stdout=subprocess.PIPE, stderr=subprocess.PIPE))
+            if not cmake3_installed:
+                subprocess.check_output(['cmake', '--version'])
         except OSError:
             raise RuntimeError("CMake must be installed to build the following extensions: " +
                                ", ".join(e.name for e in self.extensions))

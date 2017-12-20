@@ -127,14 +127,14 @@ class Clock(Entity):
     .. attribute:: summer_time
     
     	Configure summer (daylight savings) time
-    	**type**\:   :py:class:`SummerTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.Clock.SummerTime>`
+    	**type**\:  :py:class:`SummerTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.Clock.SummerTime>`
     
     	**presence node**\: True
     
     .. attribute:: time_zone
     
     	Configure time zone
-    	**type**\:   :py:class:`TimeZone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.Clock.TimeZone>`
+    	**type**\:  :py:class:`TimeZone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.Clock.TimeZone>`
     
     	**presence node**\: True
     
@@ -173,87 +173,87 @@ class Clock(Entity):
         .. attribute:: time_zone_name
         
         	Name of time zone in summer
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: mode
         
         	Summer time mode
-        	**type**\:   :py:class:`ClockSummerTimeMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeMode>`
+        	**type**\:  :py:class:`ClockSummerTimeMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeMode>`
         
         	**mandatory**\: True
         
         .. attribute:: start_week_number_or_start_date
         
         	 If Mode is set to 'Recurring' specify Week number of the Month to start (first and last strings are not allowed as they are in CLI) , if Mode is set to 'Date' specify Date to start 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..31
         
         .. attribute:: start_weekday_or_start_year
         
         	 If Mode is set to 'Recurring' specify Weekday to start , if Mode is set to 'Date' specify Year to start 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2035
         
         .. attribute:: start_month
         
         	 Month to start 
-        	**type**\:   :py:class:`ClockMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth>`
+        	**type**\:  :py:class:`ClockMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth>`
         
         .. attribute:: start_hour
         
         	Hour to start 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..23
         
         .. attribute:: start_minute
         
         	Minute to start 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..59
         
         .. attribute:: end_week_number_or_end_date
         
         	If Mode is set to 'Recurring' specify Week number of the Month to end (first and last strings are not allowed as they are in CLI), if Mode is set to 'Date' specify Date to End
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..31
         
         .. attribute:: end_weekday_or_end_year
         
         	If Mode is set to 'Recurring' specify Weekday to end , if Mode is set to 'Date' specify Year to end
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2035
         
         .. attribute:: end_month
         
         	 Month to end 
-        	**type**\:   :py:class:`ClockMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth>`
+        	**type**\:  :py:class:`ClockMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth>`
         
         .. attribute:: end_hour
         
         	Hour to end 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..23
         
         .. attribute:: end_minute
         
         	Minute to end 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..59
         
         .. attribute:: offset
         
         	Offset to add in minutes 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1440
         
@@ -318,14 +318,14 @@ class Clock(Entity):
         .. attribute:: time_zone_name
         
         	Name of time zone
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: hour_offset
         
         	Hours offset from UTC
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-23..23
         
@@ -336,7 +336,7 @@ class Clock(Entity):
         .. attribute:: minute_offset
         
         	Minutes offset from UTC
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..59
         

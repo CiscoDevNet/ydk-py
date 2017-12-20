@@ -23,12 +23,18 @@ module Cisco-IOS-XE-sanet {
 
   description
     "Cisco XE Native Session Aware Networking (SaNet) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-11 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -395,6 +401,16 @@ module Cisco-IOS-XE-sanet {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-authentication-grouping;
+    uses config-interface-mab-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-authentication-grouping;
+    uses config-interface-mab-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     uses config-interface-authentication-grouping;
     uses config-interface-mab-grouping;
   }

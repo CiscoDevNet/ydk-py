@@ -46,12 +46,12 @@ class Crypto(Entity):
     .. attribute:: sam
     
     	Software Authentication Manager (SAM) Config
-    	**type**\:   :py:class:`Sam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Sam>`
+    	**type**\:  :py:class:`Sam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Sam>`
     
     .. attribute:: ssh
     
     	Secure Shell configuration
-    	**type**\:   :py:class:`Ssh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh>`
+    	**type**\:  :py:class:`Ssh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh>`
     
     
 
@@ -68,7 +68,7 @@ class Crypto(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-crypto-sam-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"sam" : ("sam", Crypto.Sam), "ssh" : ("ssh", Crypto.Ssh)}
+        self._child_container_classes = {"sam" : ("sam", Crypto.Sam), "Cisco-IOS-XR-crypto-ssh-cfg:ssh" : ("ssh", Crypto.Ssh)}
         self._child_list_classes = {}
 
         self.sam = Crypto.Sam()
@@ -90,7 +90,7 @@ class Crypto(Entity):
         .. attribute:: prompt_interval
         
         	Set prompt interval at reboot time
-        	**type**\:   :py:class:`PromptInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Sam.PromptInterval>`
+        	**type**\:  :py:class:`PromptInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Sam.PromptInterval>`
         
         	**presence node**\: True
         
@@ -125,14 +125,14 @@ class Crypto(Entity):
             .. attribute:: action
             
             	Respond to SAM prompt either Proceed/Terminate
-            	**type**\:   :py:class:`CryptoSamAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.CryptoSamAction>`
+            	**type**\:  :py:class:`CryptoSamAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.CryptoSamAction>`
             
             	**mandatory**\: True
             
             .. attribute:: prompt_time
             
             	Prompt time from 0 \- 300 seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..300
             
@@ -177,12 +177,12 @@ class Crypto(Entity):
         .. attribute:: client
         
         	Provide SSH client service
-        	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client>`
+        	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client>`
         
         .. attribute:: server
         
         	Provide SSH server service
-        	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server>`
+        	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server>`
         
         
 
@@ -221,12 +221,12 @@ class Crypto(Entity):
             .. attribute:: client_enable
             
             	clientenable
-            	**type**\:   :py:class:`ClientEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client.ClientEnable>`
+            	**type**\:  :py:class:`ClientEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client.ClientEnable>`
             
             .. attribute:: rekey_volume
             
             	Configure client volume\-based rekey for SSH
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1024..4095
             
@@ -235,19 +235,19 @@ class Crypto(Entity):
             .. attribute:: host_public_key
             
             	Filename \- where to store known host file
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: client_vrf
             
             	Source interface VRF for ssh client sessions
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: rekey_time
             
             	Configure client time\-based rekey for SSH
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 30..1440
             
@@ -256,12 +256,14 @@ class Crypto(Entity):
             .. attribute:: source_interface
             
             	Source interface for ssh client sessions
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: dscp
             
             	Cisco sshd DSCP value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..63
             
@@ -312,7 +314,7 @@ class Crypto(Entity):
                 .. attribute:: client_cipher
                 
                 	clientcipher
-                	**type**\:   :py:class:`ClientCipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client.ClientEnable.ClientCipher>`
+                	**type**\:  :py:class:`ClientCipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client.ClientEnable.ClientCipher>`
                 
                 
 
@@ -346,7 +348,7 @@ class Crypto(Entity):
                     .. attribute:: aescbc
                     
                     	Enable AES\-CBC ciphers for client
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
@@ -382,32 +384,32 @@ class Crypto(Entity):
             .. attribute:: disable
             
             	disable
-            	**type**\:   :py:class:`Disable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Disable>`
+            	**type**\:  :py:class:`Disable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Disable>`
             
             .. attribute:: enable
             
             	enable
-            	**type**\:   :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Enable>`
+            	**type**\:  :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Enable>`
             
             .. attribute:: vrf_table
             
             	Cisco sshd VRF name
-            	**type**\:   :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable>`
+            	**type**\:  :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable>`
             
             .. attribute:: capability
             
             	Capability
-            	**type**\:   :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Capability>`
+            	**type**\:  :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Capability>`
             
             .. attribute:: netconf_vrf_table
             
             	Cisco sshd Netconf VRF name
-            	**type**\:   :py:class:`NetconfVrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable>`
+            	**type**\:  :py:class:`NetconfVrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable>`
             
             .. attribute:: rekey_volume
             
             	Configure volume\-based rekey for SSH
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1024..4095
             
@@ -416,14 +418,14 @@ class Crypto(Entity):
             .. attribute:: session_limit
             
             	Cisco sshd session\-limit of service requests
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1024
             
             .. attribute:: netconf
             
             	port number on which ssh service to be started for netconf
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -432,12 +434,12 @@ class Crypto(Entity):
             .. attribute:: v2
             
             	Cisco sshd force protocol version 2 only
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rekey_time
             
             	Time Period in minutes, defalut 60
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 30..1440
             
@@ -446,12 +448,12 @@ class Crypto(Entity):
             .. attribute:: logging
             
             	Enable ssh server logging
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rate_limit
             
             	Cisco sshd rate\-limit of service requests
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..600
             
@@ -460,7 +462,7 @@ class Crypto(Entity):
             .. attribute:: timeout
             
             	Timeout value between 5\-120 seconds defalut 30
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..120
             
@@ -469,7 +471,7 @@ class Crypto(Entity):
             .. attribute:: dscp
             
             	Cisco sshd DSCP value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..63
             
@@ -546,7 +548,7 @@ class Crypto(Entity):
                 .. attribute:: hmac
                 
                 	hmac
-                	**type**\:   :py:class:`Hmac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Disable.Hmac>`
+                	**type**\:  :py:class:`Hmac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Disable.Hmac>`
                 
                 
 
@@ -580,7 +582,7 @@ class Crypto(Entity):
                     .. attribute:: hmac_sha512
                     
                     	Disable Hmac\-sha2\-512 negotiation
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
@@ -616,7 +618,7 @@ class Crypto(Entity):
                 .. attribute:: cipher
                 
                 	cipher
-                	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Enable.Cipher>`
+                	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Enable.Cipher>`
                 
                 
 
@@ -650,7 +652,7 @@ class Crypto(Entity):
                     .. attribute:: aescbc
                     
                     	Enable AES\-CBC ciphers
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
@@ -686,7 +688,7 @@ class Crypto(Entity):
                 .. attribute:: vrf
                 
                 	Enter VRF name
-                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable.Vrf>`
+                	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable.Vrf>`
                 
                 
 
@@ -720,28 +722,28 @@ class Crypto(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	Enter VRF name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: enable
                     
                     	Enable to use VRF
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: ipv4_access_list
                     
                     	SSH v4 access\-list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: ipv6_access_list
                     
                     	SSH v6 access\-list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
@@ -783,7 +785,7 @@ class Crypto(Entity):
                 .. attribute:: netconf_xml
                 
                 	Enable Netconf\-XML stack on port 22
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
@@ -819,7 +821,7 @@ class Crypto(Entity):
                 .. attribute:: vrf
                 
                 	Enter VRF name
-                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable.Vrf>`
+                	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable.Vrf>`
                 
                 
 
@@ -853,28 +855,28 @@ class Crypto(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	Enter VRF name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: enable
                     
                     	Enable to use VRF
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: ipv4_access_list
                     
                     	SSH v4 access\-list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: ipv6_access_list
                     
                     	SSH v6 access\-list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     

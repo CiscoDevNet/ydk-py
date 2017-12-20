@@ -73,7 +73,7 @@ class L2Tp(Entity):
     .. attribute:: classes
     
     	List of classes
-    	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes>`
+    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes>`
     
     
 
@@ -107,7 +107,7 @@ class L2Tp(Entity):
         .. attribute:: class_
         
         	Configuration for a specific class
-        	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_>`
+        	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_>`
         
         
 
@@ -141,49 +141,49 @@ class L2Tp(Entity):
             .. attribute:: class_name  <key>
             
             	Specify the class name. Regexp\: ^[a\-z0\-9A\-Z][\-\_.a\-z0\-9A\-Z]\*$
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..31
             
             .. attribute:: security
             
             	Security check
-            	**type**\:   :py:class:`Security <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Security>`
+            	**type**\:  :py:class:`Security <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Security>`
             
             .. attribute:: retransmit
             
             	Control message retransmission parameters
-            	**type**\:   :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit>`
+            	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit>`
             
             .. attribute:: tunnel
             
             	l2TP tunnel
-            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Tunnel>`
+            	**type**\:  :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Tunnel>`
             
             .. attribute:: digest
             
             	Message digest authentication for the L2TP control connection
-            	**type**\:   :py:class:`Digest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest>`
+            	**type**\:  :py:class:`Digest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest>`
             
             .. attribute:: ip
             
             	IP TOS value
-            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Ip>`
+            	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Ip>`
             
             .. attribute:: host_name
             
             	Local hostname for control connection authentication
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: hidden
             
             	Specify to hide AVPs in outgoing control messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: hello_interval
             
             	Specify interval (in seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1000
             
@@ -192,7 +192,7 @@ class L2Tp(Entity):
             .. attribute:: timeout_setup
             
             	Time permitted to set up a control connection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 60..6000
             
@@ -201,7 +201,7 @@ class L2Tp(Entity):
             .. attribute:: receive_window
             
             	Receive window size for the control connection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..16384
             
@@ -210,12 +210,12 @@ class L2Tp(Entity):
             .. attribute:: congestion_control
             
             	Congestion control enabled
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: timeout_no_user
             
             	Timeout value for no\-user in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -224,19 +224,21 @@ class L2Tp(Entity):
             .. attribute:: authentication
             
             	Authenticate the L2TP control connection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: enable
             
             	Enable L2TPv3 class used for L2VPNs
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: password
             
             	Specify the password for control channel authentication
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             
 
@@ -315,7 +317,7 @@ class L2Tp(Entity):
                 .. attribute:: ip
                 
                 	Security check for IP
-                	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Security.Ip>`
+                	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Security.Ip>`
                 
                 
 
@@ -348,7 +350,7 @@ class L2Tp(Entity):
                     .. attribute:: address_check
                     
                     	Enable IP address check for L2TP packets
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -381,19 +383,19 @@ class L2Tp(Entity):
                 .. attribute:: initial
                 
                 	Set retries and timeouts for initial
-                	**type**\:   :py:class:`Initial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit.Initial>`
+                	**type**\:  :py:class:`Initial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit.Initial>`
                 
                 .. attribute:: retry
                 
                 	Specify retransmit retry count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..1000
                 
                 .. attribute:: timeout
                 
                 	Set timeout value range
-                	**type**\:   :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit.Timeout>`
+                	**type**\:  :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit.Timeout>`
                 
                 
 
@@ -436,14 +438,14 @@ class L2Tp(Entity):
                     .. attribute:: retry
                     
                     	Specify the retry number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1000
                     
                     .. attribute:: timeout
                     
                     	Set timeout value range
-                    	**type**\:   :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit.Initial.Timeout>`
+                    	**type**\:  :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit.Initial.Timeout>`
                     
                     
 
@@ -481,14 +483,14 @@ class L2Tp(Entity):
                         .. attribute:: minimum
                         
                         	Specify minimum timeout
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..8
                         
                         .. attribute:: maximum
                         
                         	Specify maximum timeout
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..8
                         
@@ -525,14 +527,14 @@ class L2Tp(Entity):
                     .. attribute:: minimum
                     
                     	Specify minimum timeout
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8
                     
                     .. attribute:: maximum
                     
                     	Specify maximum timeout
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8
                     
@@ -569,7 +571,7 @@ class L2Tp(Entity):
                 .. attribute:: accounting
                 
                 	Tunnel accounting
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -603,17 +605,17 @@ class L2Tp(Entity):
                 .. attribute:: secrets
                 
                 	Set shared secret for message digest
-                	**type**\:   :py:class:`Secrets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest.Secrets>`
+                	**type**\:  :py:class:`Secrets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest.Secrets>`
                 
                 .. attribute:: hash
                 
                 	Specify hash method
-                	**type**\:   :py:class:`L2tpDigestHashMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2tpDigestHashMethod>`
+                	**type**\:  :py:class:`L2tpDigestHashMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2tpDigestHashMethod>`
                 
                 .. attribute:: check_disable
                 
                 	Disable digest checking
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -653,7 +655,7 @@ class L2Tp(Entity):
                     .. attribute:: secret
                     
                     	The encrypted user secret and hash method
-                    	**type**\: list of    :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest.Secrets.Secret>`
+                    	**type**\: list of  		 :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest.Secrets.Secret>`
                     
                     
 
@@ -686,12 +688,14 @@ class L2Tp(Entity):
                         .. attribute:: secret_name  <key>
                         
                         	Specify the encrypted user secret
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: hash
                         
                         	Specify hash method
-                        	**type**\:   :py:class:`L2tpHashMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2tpHashMethod>`
+                        	**type**\:  :py:class:`L2tpHashMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2tpHashMethod>`
                         
                         	**mandatory**\: True
                         
@@ -728,7 +732,7 @@ class L2Tp(Entity):
                 .. attribute:: tos
                 
                 	IP TOS value (decimal)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 

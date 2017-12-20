@@ -85,7 +85,7 @@ class RoutingState(Entity):
     .. attribute:: routing_instance
     
     	Each list entry is a container for state data of a routing instance.  An implementation MUST support routing instance(s) of the type 'rt\:default\-routing\-instance', and MAY support other types. An implementation MAY restrict the number of routing instances of each supported type.  An implementation SHOULD create at least one system\-controlled instance, and MAY allow the clients to create user\-controlled routing instances in configuration
-    	**type**\: list of    :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance>`
+    	**type**\: list of  		 :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance>`
     
     
 
@@ -130,32 +130,34 @@ class RoutingState(Entity):
         .. attribute:: name  <key>
         
         	The name of the routing instance.  For system\-controlled instances the name is persistent, i.e., it SHOULD NOT change across reboots
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: type
         
         	The routing instance type
-        	**type**\:   :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.RoutingInstance>`
+        	**type**\:  :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.RoutingInstance>`
         
         .. attribute:: router_id
         
         	A 32\-bit number in the form of a dotted quad that is used by some routing protocols identifying a router
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
         
         .. attribute:: interfaces
         
         	Network layer interfaces belonging to the routing instance
-        	**type**\:   :py:class:`Interfaces <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Interfaces>`
         
         .. attribute:: routing_protocols
         
         	Container for the list of routing protocol instances
-        	**type**\:   :py:class:`RoutingProtocols <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols>`
+        	**type**\:  :py:class:`RoutingProtocols <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols>`
         
         .. attribute:: ribs
         
         	Container for RIBs
-        	**type**\:   :py:class:`Ribs <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs>`
+        	**type**\:  :py:class:`Ribs <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs>`
         
         
 
@@ -209,7 +211,7 @@ class RoutingState(Entity):
             .. attribute:: interface
             
             	Each entry is a reference to the name of a configured network layer interface
-            	**type**\:  list of str
+            	**type**\: list of str
             
             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
             
@@ -244,7 +246,7 @@ class RoutingState(Entity):
             .. attribute:: routing_protocol
             
             	State data of a routing protocol instance.  An implementation MUST provide exactly one system\-controlled instance of the type 'direct'. Other instances MAY be created by configuration
-            	**type**\: list of    :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol>`
+            	**type**\: list of  		 :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol>`
             
             
 
@@ -281,17 +283,17 @@ class RoutingState(Entity):
                 .. attribute:: type  <key>
                 
                 	Type of the routing protocol
-                	**type**\:   :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
+                	**type**\:  :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
                 
                 .. attribute:: name  <key>
                 
                 	The name of the routing protocol instance.  For system\-controlled instances this name is persistent, i.e., it SHOULD NOT change across reboots
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ospf
                 
                 	OSPF
-                	**type**\:   :py:class:`Ospf <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf>`
+                	**type**\:  :py:class:`Ospf <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf>`
                 
                 
 
@@ -307,7 +309,7 @@ class RoutingState(Entity):
                     self.yang_parent_name = "routing-protocols"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"ospf" : ("ospf", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf)}
+                    self._child_container_classes = {"ietf-ospf:ospf" : ("ospf", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf)}
                     self._child_list_classes = {}
 
                     self.type = YLeaf(YType.identityref, "type")
@@ -331,12 +333,12 @@ class RoutingState(Entity):
                     .. attribute:: operation_mode
                     
                     	OSPF operation mode
-                    	**type**\:   :py:class:`OperationMode <ydk.models.ietf.ietf_ospf.OperationMode>`
+                    	**type**\:  :py:class:`OperationMode <ydk.models.ietf.ietf_ospf.OperationMode>`
                     
                     .. attribute:: instance
                     
                     	An OSPF routing protocol instance
-                    	**type**\: list of    :py:class:`Instance <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance>`
+                    	**type**\: list of  		 :py:class:`Instance <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance>`
                     
                     
 
@@ -371,27 +373,29 @@ class RoutingState(Entity):
                         .. attribute:: af  <key>
                         
                         	Address\-family of the instance
-                        	**type**\:   :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
+                        	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
                         
                         .. attribute:: router_id
                         
                         	Defined in RFC 2328. A 32\-bit number that uniquely identifies the router
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                         
                         .. attribute:: area
                         
                         	List of OSPF areas
-                        	**type**\: list of    :py:class:`Area <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area>`
+                        	**type**\: list of  		 :py:class:`Area <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area>`
                         
                         .. attribute:: as_scope_lsas
                         
                         	List OSPF AS scope LSA databases
-                        	**type**\: list of    :py:class:`AsScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas>`
+                        	**type**\: list of  		 :py:class:`AsScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas>`
                         
                         .. attribute:: topology
                         
                         	OSPF topology
-                        	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology>`
+                        	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology>`
                         
                         
 
@@ -430,27 +434,25 @@ class RoutingState(Entity):
                             .. attribute:: area_id  <key>
                             
                             	Area ID
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  int
+                            		**type**\: int
                             
-                            	**range:** 0..4294967295
+                            			**range:** 0..4294967295
                             
+                            		**type**\: str
                             
-                            ----
-                            	**type**\:  str
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                             
-                            
-                            ----
                             .. attribute:: interfaces
                             
                             	List of OSPF interfaces
-                            	**type**\: list of    :py:class:`Interfaces <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces>`
+                            	**type**\: list of  		 :py:class:`Interfaces <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces>`
                             
                             .. attribute:: area_scope_lsas
                             
                             	List OSPF area scope LSA databases
-                            	**type**\: list of    :py:class:`AreaScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas>`
+                            	**type**\: list of  		 :py:class:`AreaScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas>`
                             
                             
 
@@ -486,56 +488,56 @@ class RoutingState(Entity):
                                 .. attribute:: interface  <key>
                                 
                                 	Interface
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: network_type
                                 
                                 	Network type
-                                	**type**\:   :py:class:`NetworkType <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.NetworkType>`
+                                	**type**\:  :py:class:`NetworkType <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.NetworkType>`
                                 
                                 .. attribute:: passive
                                 
                                 	Enable/Disable passive
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: demand_circuit
                                 
                                 	Enable/Disable demand circuit
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: multi_area
                                 
                                 	Configure ospf multi\-area
-                                	**type**\:   :py:class:`MultiArea <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea>`
+                                	**type**\:  :py:class:`MultiArea <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea>`
                                 
                                 .. attribute:: static_neighbors
                                 
                                 	Static configured neighbors
-                                	**type**\:   :py:class:`StaticNeighbors <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors>`
+                                	**type**\:  :py:class:`StaticNeighbors <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors>`
                                 
                                 .. attribute:: node_flag
                                 
                                 	Set prefix as a node representative prefix
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: fast_reroute
                                 
                                 	Fast\-reroute configuration
-                                	**type**\:   :py:class:`FastReroute <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute>`
+                                	**type**\:  :py:class:`FastReroute <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute>`
                                 
                                 .. attribute:: cost
                                 
                                 	Interface cost
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
                                 .. attribute:: hello_interval
                                 
                                 	Time between hello packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -544,7 +546,7 @@ class RoutingState(Entity):
                                 .. attribute:: dead_interval
                                 
                                 	Interval after which a neighbor is declared dead
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -553,7 +555,7 @@ class RoutingState(Entity):
                                 .. attribute:: retransmit_interval
                                 
                                 	Time between retransmitting unacknowledged Link State Advertisements (LSAs)
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -562,7 +564,7 @@ class RoutingState(Entity):
                                 .. attribute:: transmit_delay
                                 
                                 	Estimated time needed to send link\-state update
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -571,49 +573,49 @@ class RoutingState(Entity):
                                 .. attribute:: mtu_ignore
                                 
                                 	Enable/Disable ignoring of MTU in DBD packets
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: lls
                                 
                                 	Enable/Disable link\-local signaling (LLS) support
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: prefix_suppression
                                 
                                 	Suppress advertisement of the prefixes
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: bfd
                                 
                                 	Enable/disable bfd
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: ttl_security
                                 
                                 	TTL security check
-                                	**type**\:   :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity>`
+                                	**type**\:  :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable/disable protocol on the interface
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: true
                                 
                                 .. attribute:: authentication
                                 
                                 	Authentication configuration
-                                	**type**\:   :py:class:`Authentication <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication>`
+                                	**type**\:  :py:class:`Authentication <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication>`
                                 
                                 .. attribute:: state
                                 
                                 	Interface state
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: hello_timer
                                 
                                 	Hello timer
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -622,7 +624,7 @@ class RoutingState(Entity):
                                 .. attribute:: wait_timer
                                 
                                 	Wait timer
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -631,27 +633,31 @@ class RoutingState(Entity):
                                 .. attribute:: dr
                                 
                                 	DR
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: bdr
                                 
                                 	BDR
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: neighbor
                                 
                                 	List of OSPF neighbors
-                                	**type**\: list of    :py:class:`Neighbor <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor>`
+                                	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor>`
                                 
                                 .. attribute:: link_scope_lsas
                                 
                                 	List OSPF link scope LSA databases
-                                	**type**\: list of    :py:class:`LinkScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas>`
+                                	**type**\: list of  		 :py:class:`LinkScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas>`
                                 
                                 .. attribute:: topology
                                 
                                 	OSPF interface topology
-                                	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology>`
+                                	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology>`
                                 
                                 
 
@@ -786,22 +792,20 @@ class RoutingState(Entity):
                                     .. attribute:: multi_area_id
                                     
                                     	Multi\-area ID
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  int
+                                    		**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    			**range:** 0..4294967295
                                     
+                                    		**type**\: str
                                     
-                                    ----
-                                    	**type**\:  str
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                     
-                                    
-                                    ----
                                     .. attribute:: cost
                                     
                                     	Interface cost for multi\-area
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -838,7 +842,7 @@ class RoutingState(Entity):
                                     .. attribute:: neighbor
                                     
                                     	Specify a neighbor router
-                                    	**type**\: list of    :py:class:`Neighbor <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor>`
+                                    	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor>`
                                     
                                     
 
@@ -871,27 +875,27 @@ class RoutingState(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	Neighbor IP address
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         .. attribute:: cost
                                         
                                         	Neighbor cost
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..65535
                                         
                                         .. attribute:: poll_interval
                                         
                                         	Neighbor poll interval
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..65535
                                         
@@ -900,7 +904,7 @@ class RoutingState(Entity):
                                         .. attribute:: priority
                                         
                                         	Neighbor priority for DR election
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..255
                                         
@@ -941,7 +945,7 @@ class RoutingState(Entity):
                                     .. attribute:: lfa
                                     
                                     	LFA configuration
-                                    	**type**\:   :py:class:`Lfa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa>`
+                                    	**type**\:  :py:class:`Lfa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa>`
                                     
                                     
 
@@ -974,17 +978,17 @@ class RoutingState(Entity):
                                         .. attribute:: candidate_disabled
                                         
                                         	Prevent the interface to be used as backup
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: enabled
                                         
                                         	Activates LFA. This model assumes activation of per\-prefix LFA
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: remote_lfa
                                         
                                         	Remote LFA configuration
-                                        	**type**\:   :py:class:`RemoteLfa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa>`
+                                        	**type**\:  :py:class:`RemoteLfa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa>`
                                         
                                         
 
@@ -1024,7 +1028,7 @@ class RoutingState(Entity):
                                             .. attribute:: enabled
                                             
                                             	Activates remote LFA
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -1057,12 +1061,12 @@ class RoutingState(Entity):
                                     .. attribute:: enable
                                     
                                     	Enable/Disable TTL security check
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: hops
                                     
                                     	Maximum number of hops that a OSPF packet may have traveled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..254
                                     
@@ -1099,24 +1103,24 @@ class RoutingState(Entity):
                                     .. attribute:: sa
                                     
                                     	SA name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: key_chain
                                     
                                     	key\-chain name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_key_chain.KeyChains>`
                                     
                                     .. attribute:: key
                                     
                                     	Key string in ASCII format
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: crypto_algorithm
                                     
                                     	Cryptographic algorithm associated with key
-                                    	**type**\:   :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm>`
+                                    	**type**\:  :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm>`
                                     
                                     
 
@@ -1158,42 +1162,42 @@ class RoutingState(Entity):
                                         .. attribute:: hmac_sha1_12
                                         
                                         	The HMAC\-SHA1\-12 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha1_20
                                         
                                         	The HMAC\-SHA1\-20 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: md5
                                         
                                         	The MD5 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: sha_1
                                         
                                         	The SHA\-1 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_1
                                         
                                         	HMAC\-SHA\-1 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_256
                                         
                                         	HMAC\-SHA\-256 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_384
                                         
                                         	HMAC\-SHA\-384 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_512
                                         
                                         	HMAC\-SHA\-512 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
 
@@ -1240,35 +1244,41 @@ class RoutingState(Entity):
                                     .. attribute:: neighbor_id  <key>
                                     
                                     	Neighbor ID
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: dr
                                     
                                     	Designated Router
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: bdr
                                     
                                     	Backup Designated Router
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: state
                                     
                                     	OSPF neighbor state
-                                    	**type**\:   :py:class:`NbrStateType <ydk.models.ietf.ietf_ospf.NbrStateType>`
+                                    	**type**\:  :py:class:`NbrStateType <ydk.models.ietf.ietf_ospf.NbrStateType>`
                                     
                                     
 
@@ -1309,14 +1319,14 @@ class RoutingState(Entity):
                                     .. attribute:: lsa_type  <key>
                                     
                                     	OSPF link scope LSA type
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: link_scope_lsa
                                     
                                     	List of OSPF link scope LSAs
-                                    	**type**\: list of    :py:class:`LinkScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa>`
+                                    	**type**\: list of  		 :py:class:`LinkScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa>`
                                     
                                     
 
@@ -1351,42 +1361,44 @@ class RoutingState(Entity):
                                         .. attribute:: lsa_id  <key>
                                         
                                         	LSA ID
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  int
+                                        		**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        			**range:** 0..4294967295
                                         
-                                        
-                                        ----
                                         .. attribute:: adv_router  <key>
                                         
                                         	Advertising router
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: decoded_completed
                                         
                                         	The OSPF LSA body is fully decoded
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: raw_data
                                         
                                         	The complete LSA in network byte order as received/sent over the wire
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         .. attribute:: ospfv2
                                         
                                         	OSPFv2 LSA
-                                        	**type**\:   :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2>`
+                                        	**type**\:  :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2>`
                                         
                                         .. attribute:: ospfv3
                                         
                                         	OSPFv3 LSA
-                                        	**type**\:   :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3>`
+                                        	**type**\:  :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3>`
                                         
                                         
 
@@ -1435,12 +1447,12 @@ class RoutingState(Entity):
                                             .. attribute:: header
                                             
                                             	Decoded OSPFv2 LSA header data
-                                            	**type**\:   :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header>`
+                                            	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header>`
                                             
                                             .. attribute:: body
                                             
                                             	Decoded OSPFv2 LSA body data
-                                            	**type**\:   :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body>`
+                                            	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body>`
                                             
                                             
 
@@ -1478,21 +1490,23 @@ class RoutingState(Entity):
                                                 .. attribute:: options
                                                 
                                                 	LSA option
-                                                	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header.Options>`
+                                                	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header.Options>`
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: lsa_id
                                                 
                                                 	LSA ID
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: opaque_type
                                                 
                                                 	Opaque type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
@@ -1501,7 +1515,7 @@ class RoutingState(Entity):
                                                 .. attribute:: opaque_id
                                                 
                                                 	Opaque id
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..16777215
                                                 
@@ -1510,7 +1524,7 @@ class RoutingState(Entity):
                                                 .. attribute:: age
                                                 
                                                 	LSA age
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
@@ -1519,7 +1533,7 @@ class RoutingState(Entity):
                                                 .. attribute:: type
                                                 
                                                 	LSA type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
@@ -1528,28 +1542,30 @@ class RoutingState(Entity):
                                                 .. attribute:: adv_router
                                                 
                                                 	LSA advertising router
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: seq_num
                                                 
                                                 	LSA sequence number
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: checksum
                                                 
                                                 	LSA checksum
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: length
                                                 
                                                 	LSA length
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
@@ -1604,27 +1620,27 @@ class RoutingState(Entity):
                                                 .. attribute:: router
                                                 
                                                 	Router LSA
-                                                	**type**\:   :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router>`
+                                                	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router>`
                                                 
                                                 .. attribute:: network
                                                 
                                                 	Network LSA
-                                                	**type**\:   :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network>`
+                                                	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network>`
                                                 
                                                 .. attribute:: summary
                                                 
                                                 	Summary LSA
-                                                	**type**\:   :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary>`
+                                                	**type**\:  :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary>`
                                                 
                                                 .. attribute:: external
                                                 
                                                 	External LSA
-                                                	**type**\:   :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External>`
+                                                	**type**\:  :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External>`
                                                 
                                                 .. attribute:: opaque
                                                 
                                                 	Opaque LSA
-                                                	**type**\:   :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque>`
+                                                	**type**\:  :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque>`
                                                 
                                                 
 
@@ -1677,19 +1693,19 @@ class RoutingState(Entity):
                                                     .. attribute:: flags
                                                     
                                                     	Flags
-                                                    	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Flags>`
+                                                    	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Flags>`
                                                     
                                                     .. attribute:: num_of_links
                                                     
                                                     	Number of links
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: link
                                                     
                                                     	Router LSA link
-                                                    	**type**\: list of    :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link>`
+                                                    	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link>`
                                                     
                                                     
 
@@ -1726,42 +1742,40 @@ class RoutingState(Entity):
                                                         .. attribute:: link_id  <key>
                                                         
                                                         	Link ID
-                                                        	**type**\: one of the below types:
+                                                        	**type**\: union of the below types:
                                                         
-                                                        	**type**\:  str
+                                                        		**type**\: str
                                                         
+                                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
-                                                        ----
-                                                        	**type**\:  str
+                                                        		**type**\: str
                                                         
+                                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                         
-                                                        ----
                                                         .. attribute:: link_data  <key>
                                                         
                                                         	Link data
-                                                        	**type**\: one of the below types:
+                                                        	**type**\: union of the below types:
                                                         
-                                                        	**type**\:  str
+                                                        		**type**\: str
                                                         
+                                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
-                                                        ----
-                                                        	**type**\:  int
+                                                        		**type**\: int
                                                         
-                                                        	**range:** 0..4294967295
+                                                        			**range:** 0..4294967295
                                                         
-                                                        
-                                                        ----
                                                         .. attribute:: type
                                                         
                                                         	Link type
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..255
                                                         
                                                         .. attribute:: topology
                                                         
                                                         	Topology specific information
-                                                        	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology>`
+                                                        	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology>`
                                                         
                                                         
 
@@ -1800,14 +1814,14 @@ class RoutingState(Entity):
                                                             .. attribute:: mt_id  <key>
                                                             
                                                             	The MT\-ID for topology enabled on the link
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** 0..255
                                                             
                                                             .. attribute:: metric
                                                             
                                                             	Metric for the topology
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** 0..65535
                                                             
@@ -1844,12 +1858,16 @@ class RoutingState(Entity):
                                                     .. attribute:: network_mask
                                                     
                                                     	The IP address mask for the network
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: attached_router
                                                     
                                                     	List of the routers attached to the network
-                                                    	**type**\:  list of str
+                                                    	**type**\: list of str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
                                                     
 
@@ -1884,12 +1902,14 @@ class RoutingState(Entity):
                                                     .. attribute:: network_mask
                                                     
                                                     	The IP address mask for the network
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: topology
                                                     
                                                     	Topology specific information
-                                                    	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology>`
+                                                    	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology>`
                                                     
                                                     
 
@@ -1924,14 +1944,14 @@ class RoutingState(Entity):
                                                         .. attribute:: mt_id  <key>
                                                         
                                                         	The MT\-ID for topology enabled on the link
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..255
                                                         
                                                         .. attribute:: metric
                                                         
                                                         	Metric for the topology
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..16777215
                                                         
@@ -1968,12 +1988,14 @@ class RoutingState(Entity):
                                                     .. attribute:: network_mask
                                                     
                                                     	The IP address mask for the network
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: topology
                                                     
                                                     	Topology specific information
-                                                    	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology>`
+                                                    	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology>`
                                                     
                                                     
 
@@ -2008,31 +2030,33 @@ class RoutingState(Entity):
                                                         .. attribute:: mt_id  <key>
                                                         
                                                         	The MT\-ID for topology enabled on the link
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..255
                                                         
                                                         .. attribute:: flags
                                                         
                                                         	Flags
-                                                        	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology.Flags>`
+                                                        	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology.Flags>`
                                                         
                                                         .. attribute:: metric
                                                         
                                                         	Metric for the topology
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..16777215
                                                         
                                                         .. attribute:: forwarding_address
                                                         
                                                         	Forwarding address
-                                                        	**type**\:  str
+                                                        	**type**\: str
+                                                        
+                                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
                                                         .. attribute:: external_route_tag
                                                         
                                                         	Route tag
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
@@ -2075,17 +2099,17 @@ class RoutingState(Entity):
                                                     .. attribute:: unknown_tlv
                                                     
                                                     	Unknown TLV
-                                                    	**type**\: list of    :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
+                                                    	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
                                                     
                                                     .. attribute:: router_address_tlv
                                                     
                                                     	Router address TLV
-                                                    	**type**\:   :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
+                                                    	**type**\:  :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
                                                     
                                                     .. attribute:: link_tlv
                                                     
                                                     	Link TLV
-                                                    	**type**\:   :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
+                                                    	**type**\:  :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
                                                     
                                                     
 
@@ -2128,21 +2152,23 @@ class RoutingState(Entity):
                                                         .. attribute:: type  <key>
                                                         
                                                         	TLV type
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..65535
                                                         
                                                         .. attribute:: length
                                                         
                                                         	TLV length
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..65535
                                                         
                                                         .. attribute:: value
                                                         
                                                         	TLV value
-                                                        	**type**\:  str
+                                                        	**type**\: str
+                                                        
+                                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                                         
                                                         
 
@@ -2179,7 +2205,9 @@ class RoutingState(Entity):
                                                         .. attribute:: router_address
                                                         
                                                         	Router address
-                                                        	**type**\:  str
+                                                        	**type**\: str
+                                                        
+                                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
                                                         
 
@@ -2212,7 +2240,7 @@ class RoutingState(Entity):
                                                         .. attribute:: link_type
                                                         
                                                         	Link type
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..255
                                                         
@@ -2221,69 +2249,71 @@ class RoutingState(Entity):
                                                         .. attribute:: link_id
                                                         
                                                         	Link ID
-                                                        	**type**\: one of the below types:
+                                                        	**type**\: union of the below types:
                                                         
-                                                        	**type**\:  str
+                                                        		**type**\: str
+                                                        
+                                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                        
+                                                        		**type**\: str
+                                                        
+                                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                         
                                                         	**mandatory**\: True
                                                         
-                                                        
-                                                        ----
-                                                        	**type**\:  str
-                                                        
-                                                        	**mandatory**\: True
-                                                        
-                                                        
-                                                        ----
                                                         .. attribute:: local_if_ipv4_addr
                                                         
                                                         	List of local interface IPv4 addresses
-                                                        	**type**\:  list of str
+                                                        	**type**\: list of str
+                                                        
+                                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
                                                         .. attribute:: local_remote_ipv4_addr
                                                         
                                                         	List of remote interface IPv4 addresses
-                                                        	**type**\:  list of str
+                                                        	**type**\: list of str
+                                                        
+                                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
                                                         .. attribute:: te_metric
                                                         
                                                         	TE metric
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
                                                         .. attribute:: max_bandwidth
                                                         
                                                         	Maximum bandwidth
-                                                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                         
                                                         	**range:** \-92233720368547758.08..92233720368547758.07
                                                         
                                                         .. attribute:: max_reservable_bandwidth
                                                         
                                                         	Maximum reservable bandwidth
-                                                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                         
                                                         	**range:** \-92233720368547758.08..92233720368547758.07
                                                         
                                                         .. attribute:: unreserved_bandwidth
                                                         
                                                         	Unreserved bandwidth
-                                                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                         
                                                         	**range:** \-92233720368547758.08..92233720368547758.07
                                                         
                                                         .. attribute:: admin_group
                                                         
                                                         	Administrative group/Resource class/Color
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
                                                         .. attribute:: unknown_subtlv
                                                         
                                                         	Unknown sub\-TLV
-                                                        	**type**\: list of    :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
+                                                        	**type**\: list of  		 :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
                                                         
                                                         
 
@@ -2334,21 +2364,23 @@ class RoutingState(Entity):
                                                             .. attribute:: type  <key>
                                                             
                                                             	TLV type
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** 0..65535
                                                             
                                                             .. attribute:: length
                                                             
                                                             	TLV length
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** 0..65535
                                                             
                                                             .. attribute:: value
                                                             
                                                             	TLV value
-                                                            	**type**\:  str
+                                                            	**type**\: str
+                                                            
+                                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                                             
                                                             
 
@@ -2385,12 +2417,12 @@ class RoutingState(Entity):
                                             .. attribute:: header
                                             
                                             	Decoded OSPFv3 LSA header data
-                                            	**type**\:   :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header>`
+                                            	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header>`
                                             
                                             .. attribute:: body
                                             
                                             	Decoded OSPF LSA body data
-                                            	**type**\:   :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body>`
+                                            	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body>`
                                             
                                             
 
@@ -2428,7 +2460,7 @@ class RoutingState(Entity):
                                                 .. attribute:: lsa_id
                                                 
                                                 	LSA ID
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -2437,7 +2469,7 @@ class RoutingState(Entity):
                                                 .. attribute:: age
                                                 
                                                 	LSA age
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
@@ -2446,7 +2478,7 @@ class RoutingState(Entity):
                                                 .. attribute:: type
                                                 
                                                 	LSA type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
@@ -2455,28 +2487,30 @@ class RoutingState(Entity):
                                                 .. attribute:: adv_router
                                                 
                                                 	LSA advertising router
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: seq_num
                                                 
                                                 	LSA sequence number
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: checksum
                                                 
                                                 	LSA checksum
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: length
                                                 
                                                 	LSA length
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
@@ -2485,7 +2519,7 @@ class RoutingState(Entity):
                                                 .. attribute:: options
                                                 
                                                 	OSPFv3 LSA options
-                                                	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header.Options>`
+                                                	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header.Options>`
                                                 
                                                 	**mandatory**\: True
                                                 
@@ -2534,42 +2568,42 @@ class RoutingState(Entity):
                                                 .. attribute:: router
                                                 
                                                 	Router LSA
-                                                	**type**\:   :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router>`
+                                                	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router>`
                                                 
                                                 .. attribute:: network
                                                 
                                                 	Network LSA
-                                                	**type**\:   :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network>`
+                                                	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network>`
                                                 
                                                 .. attribute:: inter_area_prefix
                                                 
                                                 	Inter\-Area\-Prefix LSA
-                                                	**type**\:   :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix>`
+                                                	**type**\:  :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix>`
                                                 
                                                 .. attribute:: inter_area_router
                                                 
                                                 	Inter\-Area\-Router LSA
-                                                	**type**\:   :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter>`
+                                                	**type**\:  :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter>`
                                                 
                                                 .. attribute:: as_external
                                                 
                                                 	AS\-External LSA
-                                                	**type**\:   :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal>`
+                                                	**type**\:  :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal>`
                                                 
                                                 .. attribute:: nssa
                                                 
                                                 	NSSA LSA
-                                                	**type**\:   :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa>`
+                                                	**type**\:  :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa>`
                                                 
                                                 .. attribute:: link
                                                 
                                                 	Link LSA
-                                                	**type**\:   :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link>`
+                                                	**type**\:  :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link>`
                                                 
                                                 .. attribute:: intra_area_prefix
                                                 
                                                 	Intra\-Area\-Prefix LSA
-                                                	**type**\:   :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
+                                                	**type**\:  :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
                                                 
                                                 
 
@@ -2637,21 +2671,21 @@ class RoutingState(Entity):
                                                     .. attribute:: flags
                                                     
                                                     	LSA option
-                                                    	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Flags>`
+                                                    	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Flags>`
                                                     
                                                     	**mandatory**\: True
                                                     
                                                     .. attribute:: options
                                                     
                                                     	OSPFv3 LSA options
-                                                    	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Options>`
+                                                    	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Options>`
                                                     
                                                     	**mandatory**\: True
                                                     
                                                     .. attribute:: link
                                                     
                                                     	Router LSA link
-                                                    	**type**\: list of    :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link>`
+                                                    	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link>`
                                                     
                                                     
 
@@ -2688,33 +2722,35 @@ class RoutingState(Entity):
                                                         .. attribute:: interface_id  <key>
                                                         
                                                         	Interface ID
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
                                                         .. attribute:: neighbor_interface_id  <key>
                                                         
                                                         	Neighbor Interface ID
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
                                                         .. attribute:: neighbor_router_id  <key>
                                                         
                                                         	Neighbor Router ID
-                                                        	**type**\:  str
+                                                        	**type**\: str
+                                                        
+                                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                         
                                                         .. attribute:: type
                                                         
                                                         	Link type
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..255
                                                         
                                                         .. attribute:: metric
                                                         
                                                         	Metric
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..65535
                                                         
@@ -2757,14 +2793,16 @@ class RoutingState(Entity):
                                                     .. attribute:: options
                                                     
                                                     	OSPFv3 LSA options
-                                                    	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network.Options>`
+                                                    	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network.Options>`
                                                     
                                                     	**mandatory**\: True
                                                     
                                                     .. attribute:: attached_router
                                                     
                                                     	List of the routers attached to the network
-                                                    	**type**\:  list of str
+                                                    	**type**\: list of str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
                                                     
 
@@ -2799,19 +2837,19 @@ class RoutingState(Entity):
                                                     .. attribute:: metric
                                                     
                                                     	Metric
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..16777215
                                                     
                                                     .. attribute:: prefix
                                                     
                                                     	Prefix
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: prefix_options
                                                     
                                                     	Prefix options
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**mandatory**\: True
                                                     
@@ -2850,21 +2888,23 @@ class RoutingState(Entity):
                                                     .. attribute:: options
                                                     
                                                     	OSPFv3 LSA options
-                                                    	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter.Options>`
+                                                    	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter.Options>`
                                                     
                                                     	**mandatory**\: True
                                                     
                                                     .. attribute:: metric
                                                     
                                                     	Metric
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..16777215
                                                     
                                                     .. attribute:: destination_router_id
                                                     
                                                     	The Router ID of the router being described by the LSA
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
                                                     
 
@@ -2901,50 +2941,52 @@ class RoutingState(Entity):
                                                     .. attribute:: metric
                                                     
                                                     	Metric
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..16777215
                                                     
                                                     .. attribute:: flags
                                                     
                                                     	Flags
-                                                    	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal.Flags>`
+                                                    	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal.Flags>`
                                                     
                                                     .. attribute:: referenced_ls_type
                                                     
                                                     	Referenced Link State type
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: prefix
                                                     
                                                     	Prefix
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: prefix_options
                                                     
                                                     	Prefix options
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**mandatory**\: True
                                                     
                                                     .. attribute:: forwarding_address
                                                     
                                                     	Forwarding address
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: external_route_tag
                                                     
                                                     	Route tag
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: referenced_link_state_id
                                                     
                                                     	Referenced Link State ID
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
@@ -2993,50 +3035,52 @@ class RoutingState(Entity):
                                                     .. attribute:: metric
                                                     
                                                     	Metric
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..16777215
                                                     
                                                     .. attribute:: flags
                                                     
                                                     	Flags
-                                                    	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa.Flags>`
+                                                    	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa.Flags>`
                                                     
                                                     .. attribute:: referenced_ls_type
                                                     
                                                     	Referenced Link State type
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: prefix
                                                     
                                                     	Prefix
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: prefix_options
                                                     
                                                     	Prefix options
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**mandatory**\: True
                                                     
                                                     .. attribute:: forwarding_address
                                                     
                                                     	Forwarding address
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: external_route_tag
                                                     
                                                     	Route tag
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: referenced_link_state_id
                                                     
                                                     	Referenced Link State ID
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
@@ -3085,41 +3129,41 @@ class RoutingState(Entity):
                                                     .. attribute:: rtr_priority
                                                     
                                                     	Router Priority of the interface
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..255
                                                     
                                                     .. attribute:: options
                                                     
                                                     	OSPFv3 LSA options
-                                                    	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.Options>`
+                                                    	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.Options>`
                                                     
                                                     	**mandatory**\: True
                                                     
                                                     .. attribute:: link_local_interface_address
                                                     
                                                     	The originating router's link\-local interface address on the link
-                                                    	**type**\: one of the below types:
+                                                    	**type**\: union of the below types:
                                                     
-                                                    	**type**\:  str
+                                                    		**type**\: str
                                                     
+                                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
-                                                    ----
-                                                    	**type**\:  str
+                                                    		**type**\: str
                                                     
+                                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                     
-                                                    ----
                                                     .. attribute:: num_of_prefixes
                                                     
                                                     	Number of prefixes
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: prefix_list
                                                     
                                                     	List of prefixes associated with the link
-                                                    	**type**\: list of    :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList>`
+                                                    	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList>`
                                                     
                                                     
 
@@ -3160,12 +3204,12 @@ class RoutingState(Entity):
                                                         .. attribute:: prefix  <key>
                                                         
                                                         	Prefix
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         .. attribute:: prefix_options
                                                         
                                                         	Prefix options
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**mandatory**\: True
                                                         
@@ -3202,33 +3246,35 @@ class RoutingState(Entity):
                                                     .. attribute:: referenced_ls_type
                                                     
                                                     	Referenced Link State type
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: referenced_link_state_id
                                                     
                                                     	Referenced Link State ID
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: referenced_adv_router
                                                     
                                                     	Referenced Advertising Router
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: num_of_prefixes
                                                     
                                                     	Number of prefixes
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: prefix_list
                                                     
                                                     	List of prefixes associated with the link
-                                                    	**type**\: list of    :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
+                                                    	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
                                                     
                                                     
 
@@ -3269,19 +3315,19 @@ class RoutingState(Entity):
                                                         .. attribute:: prefix  <key>
                                                         
                                                         	Prefix
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         .. attribute:: prefix_options
                                                         
                                                         	Prefix options
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**mandatory**\: True
                                                         
                                                         .. attribute:: metric
                                                         
                                                         	Metric
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..16777215
                                                         
@@ -3320,7 +3366,7 @@ class RoutingState(Entity):
                                     .. attribute:: name  <key>
                                     
                                     	One of the topology enabled on this interface
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs.Rib>`
                                     
@@ -3355,14 +3401,14 @@ class RoutingState(Entity):
                                 .. attribute:: lsa_type  <key>
                                 
                                 	OSPF area scope LSA type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: area_scope_lsa
                                 
                                 	List of OSPF area scope LSAs
-                                	**type**\: list of    :py:class:`AreaScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa>`
+                                	**type**\: list of  		 :py:class:`AreaScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa>`
                                 
                                 
 
@@ -3397,42 +3443,44 @@ class RoutingState(Entity):
                                     .. attribute:: lsa_id  <key>
                                     
                                     	LSA ID
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  int
+                                    		**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    			**range:** 0..4294967295
                                     
-                                    
-                                    ----
                                     .. attribute:: adv_router  <key>
                                     
                                     	Advertising router
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: decoded_completed
                                     
                                     	The OSPF LSA body is fully decoded
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: raw_data
                                     
                                     	The complete LSA in network byte order as received/sent over the wire
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                     
                                     .. attribute:: ospfv2
                                     
                                     	OSPFv2 LSA
-                                    	**type**\:   :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2>`
+                                    	**type**\:  :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2>`
                                     
                                     .. attribute:: ospfv3
                                     
                                     	OSPFv3 LSA
-                                    	**type**\:   :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3>`
+                                    	**type**\:  :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3>`
                                     
                                     
 
@@ -3481,12 +3529,12 @@ class RoutingState(Entity):
                                         .. attribute:: header
                                         
                                         	Decoded OSPFv2 LSA header data
-                                        	**type**\:   :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header>`
+                                        	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header>`
                                         
                                         .. attribute:: body
                                         
                                         	Decoded OSPFv2 LSA body data
-                                        	**type**\:   :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body>`
+                                        	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body>`
                                         
                                         
 
@@ -3524,21 +3572,23 @@ class RoutingState(Entity):
                                             .. attribute:: options
                                             
                                             	LSA option
-                                            	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header.Options>`
+                                            	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header.Options>`
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: lsa_id
                                             
                                             	LSA ID
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: opaque_type
                                             
                                             	Opaque type
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..255
                                             
@@ -3547,7 +3597,7 @@ class RoutingState(Entity):
                                             .. attribute:: opaque_id
                                             
                                             	Opaque id
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..16777215
                                             
@@ -3556,7 +3606,7 @@ class RoutingState(Entity):
                                             .. attribute:: age
                                             
                                             	LSA age
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -3565,7 +3615,7 @@ class RoutingState(Entity):
                                             .. attribute:: type
                                             
                                             	LSA type
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -3574,28 +3624,30 @@ class RoutingState(Entity):
                                             .. attribute:: adv_router
                                             
                                             	LSA advertising router
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: seq_num
                                             
                                             	LSA sequence number
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: checksum
                                             
                                             	LSA checksum
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: length
                                             
                                             	LSA length
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -3650,27 +3702,27 @@ class RoutingState(Entity):
                                             .. attribute:: router
                                             
                                             	Router LSA
-                                            	**type**\:   :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router>`
+                                            	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router>`
                                             
                                             .. attribute:: network
                                             
                                             	Network LSA
-                                            	**type**\:   :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network>`
+                                            	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network>`
                                             
                                             .. attribute:: summary
                                             
                                             	Summary LSA
-                                            	**type**\:   :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary>`
+                                            	**type**\:  :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary>`
                                             
                                             .. attribute:: external
                                             
                                             	External LSA
-                                            	**type**\:   :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External>`
+                                            	**type**\:  :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External>`
                                             
                                             .. attribute:: opaque
                                             
                                             	Opaque LSA
-                                            	**type**\:   :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque>`
+                                            	**type**\:  :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque>`
                                             
                                             
 
@@ -3723,19 +3775,19 @@ class RoutingState(Entity):
                                                 .. attribute:: flags
                                                 
                                                 	Flags
-                                                	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Flags>`
+                                                	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Flags>`
                                                 
                                                 .. attribute:: num_of_links
                                                 
                                                 	Number of links
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
                                                 .. attribute:: link
                                                 
                                                 	Router LSA link
-                                                	**type**\: list of    :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link>`
+                                                	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link>`
                                                 
                                                 
 
@@ -3772,42 +3824,40 @@ class RoutingState(Entity):
                                                     .. attribute:: link_id  <key>
                                                     
                                                     	Link ID
-                                                    	**type**\: one of the below types:
+                                                    	**type**\: union of the below types:
                                                     
-                                                    	**type**\:  str
+                                                    		**type**\: str
                                                     
+                                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
-                                                    ----
-                                                    	**type**\:  str
+                                                    		**type**\: str
                                                     
+                                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
-                                                    ----
                                                     .. attribute:: link_data  <key>
                                                     
                                                     	Link data
-                                                    	**type**\: one of the below types:
+                                                    	**type**\: union of the below types:
                                                     
-                                                    	**type**\:  str
+                                                    		**type**\: str
                                                     
+                                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
-                                                    ----
-                                                    	**type**\:  int
+                                                    		**type**\: int
                                                     
-                                                    	**range:** 0..4294967295
+                                                    			**range:** 0..4294967295
                                                     
-                                                    
-                                                    ----
                                                     .. attribute:: type
                                                     
                                                     	Link type
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..255
                                                     
                                                     .. attribute:: topology
                                                     
                                                     	Topology specific information
-                                                    	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology>`
+                                                    	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology>`
                                                     
                                                     
 
@@ -3846,14 +3896,14 @@ class RoutingState(Entity):
                                                         .. attribute:: mt_id  <key>
                                                         
                                                         	The MT\-ID for topology enabled on the link
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..255
                                                         
                                                         .. attribute:: metric
                                                         
                                                         	Metric for the topology
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..65535
                                                         
@@ -3890,12 +3940,16 @@ class RoutingState(Entity):
                                                 .. attribute:: network_mask
                                                 
                                                 	The IP address mask for the network
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: attached_router
                                                 
                                                 	List of the routers attached to the network
-                                                	**type**\:  list of str
+                                                	**type**\: list of str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
                                                 
 
@@ -3930,12 +3984,14 @@ class RoutingState(Entity):
                                                 .. attribute:: network_mask
                                                 
                                                 	The IP address mask for the network
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: topology
                                                 
                                                 	Topology specific information
-                                                	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology>`
+                                                	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology>`
                                                 
                                                 
 
@@ -3970,14 +4026,14 @@ class RoutingState(Entity):
                                                     .. attribute:: mt_id  <key>
                                                     
                                                     	The MT\-ID for topology enabled on the link
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..255
                                                     
                                                     .. attribute:: metric
                                                     
                                                     	Metric for the topology
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..16777215
                                                     
@@ -4014,12 +4070,14 @@ class RoutingState(Entity):
                                                 .. attribute:: network_mask
                                                 
                                                 	The IP address mask for the network
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: topology
                                                 
                                                 	Topology specific information
-                                                	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology>`
+                                                	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology>`
                                                 
                                                 
 
@@ -4054,31 +4112,33 @@ class RoutingState(Entity):
                                                     .. attribute:: mt_id  <key>
                                                     
                                                     	The MT\-ID for topology enabled on the link
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..255
                                                     
                                                     .. attribute:: flags
                                                     
                                                     	Flags
-                                                    	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology.Flags>`
+                                                    	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology.Flags>`
                                                     
                                                     .. attribute:: metric
                                                     
                                                     	Metric for the topology
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..16777215
                                                     
                                                     .. attribute:: forwarding_address
                                                     
                                                     	Forwarding address
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: external_route_tag
                                                     
                                                     	Route tag
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
@@ -4121,17 +4181,17 @@ class RoutingState(Entity):
                                                 .. attribute:: unknown_tlv
                                                 
                                                 	Unknown TLV
-                                                	**type**\: list of    :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
+                                                	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
                                                 
                                                 .. attribute:: router_address_tlv
                                                 
                                                 	Router address TLV
-                                                	**type**\:   :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
+                                                	**type**\:  :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
                                                 
                                                 .. attribute:: link_tlv
                                                 
                                                 	Link TLV
-                                                	**type**\:   :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
+                                                	**type**\:  :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
                                                 
                                                 
 
@@ -4174,21 +4234,23 @@ class RoutingState(Entity):
                                                     .. attribute:: type  <key>
                                                     
                                                     	TLV type
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: length
                                                     
                                                     	TLV length
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: value
                                                     
                                                     	TLV value
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                                     
                                                     
 
@@ -4225,7 +4287,9 @@ class RoutingState(Entity):
                                                     .. attribute:: router_address
                                                     
                                                     	Router address
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     
 
@@ -4258,7 +4322,7 @@ class RoutingState(Entity):
                                                     .. attribute:: link_type
                                                     
                                                     	Link type
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..255
                                                     
@@ -4267,69 +4331,71 @@ class RoutingState(Entity):
                                                     .. attribute:: link_id
                                                     
                                                     	Link ID
-                                                    	**type**\: one of the below types:
+                                                    	**type**\: union of the below types:
                                                     
-                                                    	**type**\:  str
+                                                    		**type**\: str
+                                                    
+                                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    		**type**\: str
+                                                    
+                                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
                                                     	**mandatory**\: True
                                                     
-                                                    
-                                                    ----
-                                                    	**type**\:  str
-                                                    
-                                                    	**mandatory**\: True
-                                                    
-                                                    
-                                                    ----
                                                     .. attribute:: local_if_ipv4_addr
                                                     
                                                     	List of local interface IPv4 addresses
-                                                    	**type**\:  list of str
+                                                    	**type**\: list of str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: local_remote_ipv4_addr
                                                     
                                                     	List of remote interface IPv4 addresses
-                                                    	**type**\:  list of str
+                                                    	**type**\: list of str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
                                                     .. attribute:: te_metric
                                                     
                                                     	TE metric
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: max_bandwidth
                                                     
                                                     	Maximum bandwidth
-                                                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                     
                                                     	**range:** \-92233720368547758.08..92233720368547758.07
                                                     
                                                     .. attribute:: max_reservable_bandwidth
                                                     
                                                     	Maximum reservable bandwidth
-                                                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                     
                                                     	**range:** \-92233720368547758.08..92233720368547758.07
                                                     
                                                     .. attribute:: unreserved_bandwidth
                                                     
                                                     	Unreserved bandwidth
-                                                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                     
                                                     	**range:** \-92233720368547758.08..92233720368547758.07
                                                     
                                                     .. attribute:: admin_group
                                                     
                                                     	Administrative group/Resource class/Color
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: unknown_subtlv
                                                     
                                                     	Unknown sub\-TLV
-                                                    	**type**\: list of    :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
+                                                    	**type**\: list of  		 :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
                                                     
                                                     
 
@@ -4380,21 +4446,23 @@ class RoutingState(Entity):
                                                         .. attribute:: type  <key>
                                                         
                                                         	TLV type
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..65535
                                                         
                                                         .. attribute:: length
                                                         
                                                         	TLV length
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** 0..65535
                                                         
                                                         .. attribute:: value
                                                         
                                                         	TLV value
-                                                        	**type**\:  str
+                                                        	**type**\: str
+                                                        
+                                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                                         
                                                         
 
@@ -4431,12 +4499,12 @@ class RoutingState(Entity):
                                         .. attribute:: header
                                         
                                         	Decoded OSPFv3 LSA header data
-                                        	**type**\:   :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header>`
+                                        	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header>`
                                         
                                         .. attribute:: body
                                         
                                         	Decoded OSPF LSA body data
-                                        	**type**\:   :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body>`
+                                        	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body>`
                                         
                                         
 
@@ -4474,7 +4542,7 @@ class RoutingState(Entity):
                                             .. attribute:: lsa_id
                                             
                                             	LSA ID
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
@@ -4483,7 +4551,7 @@ class RoutingState(Entity):
                                             .. attribute:: age
                                             
                                             	LSA age
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -4492,7 +4560,7 @@ class RoutingState(Entity):
                                             .. attribute:: type
                                             
                                             	LSA type
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -4501,28 +4569,30 @@ class RoutingState(Entity):
                                             .. attribute:: adv_router
                                             
                                             	LSA advertising router
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: seq_num
                                             
                                             	LSA sequence number
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: checksum
                                             
                                             	LSA checksum
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: length
                                             
                                             	LSA length
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -4531,7 +4601,7 @@ class RoutingState(Entity):
                                             .. attribute:: options
                                             
                                             	OSPFv3 LSA options
-                                            	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header.Options>`
+                                            	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header.Options>`
                                             
                                             	**mandatory**\: True
                                             
@@ -4580,42 +4650,42 @@ class RoutingState(Entity):
                                             .. attribute:: router
                                             
                                             	Router LSA
-                                            	**type**\:   :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router>`
+                                            	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router>`
                                             
                                             .. attribute:: network
                                             
                                             	Network LSA
-                                            	**type**\:   :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network>`
+                                            	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network>`
                                             
                                             .. attribute:: inter_area_prefix
                                             
                                             	Inter\-Area\-Prefix LSA
-                                            	**type**\:   :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix>`
+                                            	**type**\:  :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix>`
                                             
                                             .. attribute:: inter_area_router
                                             
                                             	Inter\-Area\-Router LSA
-                                            	**type**\:   :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter>`
+                                            	**type**\:  :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter>`
                                             
                                             .. attribute:: as_external
                                             
                                             	AS\-External LSA
-                                            	**type**\:   :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal>`
+                                            	**type**\:  :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal>`
                                             
                                             .. attribute:: nssa
                                             
                                             	NSSA LSA
-                                            	**type**\:   :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa>`
+                                            	**type**\:  :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa>`
                                             
                                             .. attribute:: link
                                             
                                             	Link LSA
-                                            	**type**\:   :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link>`
+                                            	**type**\:  :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link>`
                                             
                                             .. attribute:: intra_area_prefix
                                             
                                             	Intra\-Area\-Prefix LSA
-                                            	**type**\:   :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
+                                            	**type**\:  :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
                                             
                                             
 
@@ -4683,21 +4753,21 @@ class RoutingState(Entity):
                                                 .. attribute:: flags
                                                 
                                                 	LSA option
-                                                	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Flags>`
+                                                	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Flags>`
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: options
                                                 
                                                 	OSPFv3 LSA options
-                                                	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Options>`
+                                                	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Options>`
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: link
                                                 
                                                 	Router LSA link
-                                                	**type**\: list of    :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link>`
+                                                	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link>`
                                                 
                                                 
 
@@ -4734,33 +4804,35 @@ class RoutingState(Entity):
                                                     .. attribute:: interface_id  <key>
                                                     
                                                     	Interface ID
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: neighbor_interface_id  <key>
                                                     
                                                     	Neighbor Interface ID
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: neighbor_router_id  <key>
                                                     
                                                     	Neighbor Router ID
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
                                                     .. attribute:: type
                                                     
                                                     	Link type
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..255
                                                     
                                                     .. attribute:: metric
                                                     
                                                     	Metric
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
@@ -4803,14 +4875,16 @@ class RoutingState(Entity):
                                                 .. attribute:: options
                                                 
                                                 	OSPFv3 LSA options
-                                                	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network.Options>`
+                                                	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network.Options>`
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: attached_router
                                                 
                                                 	List of the routers attached to the network
-                                                	**type**\:  list of str
+                                                	**type**\: list of str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
                                                 
 
@@ -4845,19 +4919,19 @@ class RoutingState(Entity):
                                                 .. attribute:: metric
                                                 
                                                 	Metric
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..16777215
                                                 
                                                 .. attribute:: prefix
                                                 
                                                 	Prefix
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: prefix_options
                                                 
                                                 	Prefix options
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
@@ -4896,21 +4970,23 @@ class RoutingState(Entity):
                                                 .. attribute:: options
                                                 
                                                 	OSPFv3 LSA options
-                                                	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter.Options>`
+                                                	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter.Options>`
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: metric
                                                 
                                                 	Metric
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..16777215
                                                 
                                                 .. attribute:: destination_router_id
                                                 
                                                 	The Router ID of the router being described by the LSA
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
                                                 
 
@@ -4947,50 +5023,52 @@ class RoutingState(Entity):
                                                 .. attribute:: metric
                                                 
                                                 	Metric
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..16777215
                                                 
                                                 .. attribute:: flags
                                                 
                                                 	Flags
-                                                	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal.Flags>`
+                                                	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal.Flags>`
                                                 
                                                 .. attribute:: referenced_ls_type
                                                 
                                                 	Referenced Link State type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
                                                 .. attribute:: prefix
                                                 
                                                 	Prefix
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: prefix_options
                                                 
                                                 	Prefix options
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: forwarding_address
                                                 
                                                 	Forwarding address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: external_route_tag
                                                 
                                                 	Route tag
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: referenced_link_state_id
                                                 
                                                 	Referenced Link State ID
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5039,50 +5117,52 @@ class RoutingState(Entity):
                                                 .. attribute:: metric
                                                 
                                                 	Metric
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..16777215
                                                 
                                                 .. attribute:: flags
                                                 
                                                 	Flags
-                                                	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa.Flags>`
+                                                	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa.Flags>`
                                                 
                                                 .. attribute:: referenced_ls_type
                                                 
                                                 	Referenced Link State type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
                                                 .. attribute:: prefix
                                                 
                                                 	Prefix
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: prefix_options
                                                 
                                                 	Prefix options
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: forwarding_address
                                                 
                                                 	Forwarding address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: external_route_tag
                                                 
                                                 	Route tag
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: referenced_link_state_id
                                                 
                                                 	Referenced Link State ID
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5131,41 +5211,41 @@ class RoutingState(Entity):
                                                 .. attribute:: rtr_priority
                                                 
                                                 	Router Priority of the interface
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: options
                                                 
                                                 	OSPFv3 LSA options
-                                                	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.Options>`
+                                                	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.Options>`
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: link_local_interface_address
                                                 
                                                 	The originating router's link\-local interface address on the link
-                                                	**type**\: one of the below types:
+                                                	**type**\: union of the below types:
                                                 
-                                                	**type**\:  str
+                                                		**type**\: str
                                                 
+                                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
-                                                ----
-                                                	**type**\:  str
+                                                		**type**\: str
                                                 
+                                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                 
-                                                ----
                                                 .. attribute:: num_of_prefixes
                                                 
                                                 	Number of prefixes
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: prefix_list
                                                 
                                                 	List of prefixes associated with the link
-                                                	**type**\: list of    :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList>`
+                                                	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList>`
                                                 
                                                 
 
@@ -5206,12 +5286,12 @@ class RoutingState(Entity):
                                                     .. attribute:: prefix  <key>
                                                     
                                                     	Prefix
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: prefix_options
                                                     
                                                     	Prefix options
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**mandatory**\: True
                                                     
@@ -5248,33 +5328,35 @@ class RoutingState(Entity):
                                                 .. attribute:: referenced_ls_type
                                                 
                                                 	Referenced Link State type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
                                                 .. attribute:: referenced_link_state_id
                                                 
                                                 	Referenced Link State ID
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: referenced_adv_router
                                                 
                                                 	Referenced Advertising Router
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: num_of_prefixes
                                                 
                                                 	Number of prefixes
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
                                                 .. attribute:: prefix_list
                                                 
                                                 	List of prefixes associated with the link
-                                                	**type**\: list of    :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
+                                                	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
                                                 
                                                 
 
@@ -5315,19 +5397,19 @@ class RoutingState(Entity):
                                                     .. attribute:: prefix  <key>
                                                     
                                                     	Prefix
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     .. attribute:: prefix_options
                                                     
                                                     	Prefix options
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**mandatory**\: True
                                                     
                                                     .. attribute:: metric
                                                     
                                                     	Metric
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..16777215
                                                     
@@ -5366,14 +5448,14 @@ class RoutingState(Entity):
                             .. attribute:: lsa_type  <key>
                             
                             	OSPF AS scope LSA type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: as_scope_lsa
                             
                             	List of OSPF AS scope LSAs
-                            	**type**\: list of    :py:class:`AsScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa>`
+                            	**type**\: list of  		 :py:class:`AsScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa>`
                             
                             
 
@@ -5408,42 +5490,44 @@ class RoutingState(Entity):
                                 .. attribute:: lsa_id  <key>
                                 
                                 	LSA ID
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
-                                	**type**\:  int
+                                		**type**\: int
                                 
-                                	**range:** 0..4294967295
+                                			**range:** 0..4294967295
                                 
-                                
-                                ----
                                 .. attribute:: adv_router  <key>
                                 
                                 	Advertising router
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: decoded_completed
                                 
                                 	The OSPF LSA body is fully decoded
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: raw_data
                                 
                                 	The complete LSA in network byte order as received/sent over the wire
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
                                 .. attribute:: ospfv2
                                 
                                 	OSPFv2 LSA
-                                	**type**\:   :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2>`
+                                	**type**\:  :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2>`
                                 
                                 .. attribute:: ospfv3
                                 
                                 	OSPFv3 LSA
-                                	**type**\:   :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3>`
+                                	**type**\:  :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3>`
                                 
                                 
 
@@ -5492,12 +5576,12 @@ class RoutingState(Entity):
                                     .. attribute:: header
                                     
                                     	Decoded OSPFv2 LSA header data
-                                    	**type**\:   :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header>`
+                                    	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header>`
                                     
                                     .. attribute:: body
                                     
                                     	Decoded OSPFv2 LSA body data
-                                    	**type**\:   :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body>`
+                                    	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body>`
                                     
                                     
 
@@ -5535,21 +5619,23 @@ class RoutingState(Entity):
                                         .. attribute:: options
                                         
                                         	LSA option
-                                        	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header.Options>`
+                                        	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header.Options>`
                                         
                                         	**mandatory**\: True
                                         
                                         .. attribute:: lsa_id
                                         
                                         	LSA ID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         	**mandatory**\: True
                                         
                                         .. attribute:: opaque_type
                                         
                                         	Opaque type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -5558,7 +5644,7 @@ class RoutingState(Entity):
                                         .. attribute:: opaque_id
                                         
                                         	Opaque id
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..16777215
                                         
@@ -5567,7 +5653,7 @@ class RoutingState(Entity):
                                         .. attribute:: age
                                         
                                         	LSA age
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -5576,7 +5662,7 @@ class RoutingState(Entity):
                                         .. attribute:: type
                                         
                                         	LSA type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -5585,28 +5671,30 @@ class RoutingState(Entity):
                                         .. attribute:: adv_router
                                         
                                         	LSA advertising router
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                         
                                         	**mandatory**\: True
                                         
                                         .. attribute:: seq_num
                                         
                                         	LSA sequence number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**mandatory**\: True
                                         
                                         .. attribute:: checksum
                                         
                                         	LSA checksum
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**mandatory**\: True
                                         
                                         .. attribute:: length
                                         
                                         	LSA length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -5661,27 +5749,27 @@ class RoutingState(Entity):
                                         .. attribute:: router
                                         
                                         	Router LSA
-                                        	**type**\:   :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router>`
+                                        	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router>`
                                         
                                         .. attribute:: network
                                         
                                         	Network LSA
-                                        	**type**\:   :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network>`
+                                        	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network>`
                                         
                                         .. attribute:: summary
                                         
                                         	Summary LSA
-                                        	**type**\:   :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary>`
+                                        	**type**\:  :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary>`
                                         
                                         .. attribute:: external
                                         
                                         	External LSA
-                                        	**type**\:   :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External>`
+                                        	**type**\:  :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External>`
                                         
                                         .. attribute:: opaque
                                         
                                         	Opaque LSA
-                                        	**type**\:   :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque>`
+                                        	**type**\:  :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque>`
                                         
                                         
 
@@ -5734,19 +5822,19 @@ class RoutingState(Entity):
                                             .. attribute:: flags
                                             
                                             	Flags
-                                            	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Flags>`
+                                            	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Flags>`
                                             
                                             .. attribute:: num_of_links
                                             
                                             	Number of links
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: link
                                             
                                             	Router LSA link
-                                            	**type**\: list of    :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link>`
+                                            	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link>`
                                             
                                             
 
@@ -5783,42 +5871,40 @@ class RoutingState(Entity):
                                                 .. attribute:: link_id  <key>
                                                 
                                                 	Link ID
-                                                	**type**\: one of the below types:
+                                                	**type**\: union of the below types:
                                                 
-                                                	**type**\:  str
+                                                		**type**\: str
                                                 
+                                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
-                                                ----
-                                                	**type**\:  str
+                                                		**type**\: str
                                                 
+                                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
-                                                ----
                                                 .. attribute:: link_data  <key>
                                                 
                                                 	Link data
-                                                	**type**\: one of the below types:
+                                                	**type**\: union of the below types:
                                                 
-                                                	**type**\:  str
+                                                		**type**\: str
                                                 
+                                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
-                                                ----
-                                                	**type**\:  int
+                                                		**type**\: int
                                                 
-                                                	**range:** 0..4294967295
+                                                			**range:** 0..4294967295
                                                 
-                                                
-                                                ----
                                                 .. attribute:: type
                                                 
                                                 	Link type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: topology
                                                 
                                                 	Topology specific information
-                                                	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology>`
+                                                	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology>`
                                                 
                                                 
 
@@ -5857,14 +5943,14 @@ class RoutingState(Entity):
                                                     .. attribute:: mt_id  <key>
                                                     
                                                     	The MT\-ID for topology enabled on the link
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..255
                                                     
                                                     .. attribute:: metric
                                                     
                                                     	Metric for the topology
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
@@ -5901,12 +5987,16 @@ class RoutingState(Entity):
                                             .. attribute:: network_mask
                                             
                                             	The IP address mask for the network
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: attached_router
                                             
                                             	List of the routers attached to the network
-                                            	**type**\:  list of str
+                                            	**type**\: list of str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                             
                                             
 
@@ -5941,12 +6031,14 @@ class RoutingState(Entity):
                                             .. attribute:: network_mask
                                             
                                             	The IP address mask for the network
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: topology
                                             
                                             	Topology specific information
-                                            	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology>`
+                                            	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology>`
                                             
                                             
 
@@ -5981,14 +6073,14 @@ class RoutingState(Entity):
                                                 .. attribute:: mt_id  <key>
                                                 
                                                 	The MT\-ID for topology enabled on the link
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: metric
                                                 
                                                 	Metric for the topology
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..16777215
                                                 
@@ -6025,12 +6117,14 @@ class RoutingState(Entity):
                                             .. attribute:: network_mask
                                             
                                             	The IP address mask for the network
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: topology
                                             
                                             	Topology specific information
-                                            	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology>`
+                                            	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology>`
                                             
                                             
 
@@ -6065,31 +6159,33 @@ class RoutingState(Entity):
                                                 .. attribute:: mt_id  <key>
                                                 
                                                 	The MT\-ID for topology enabled on the link
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: flags
                                                 
                                                 	Flags
-                                                	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology.Flags>`
+                                                	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology.Flags>`
                                                 
                                                 .. attribute:: metric
                                                 
                                                 	Metric for the topology
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..16777215
                                                 
                                                 .. attribute:: forwarding_address
                                                 
                                                 	Forwarding address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: external_route_tag
                                                 
                                                 	Route tag
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -6132,17 +6228,17 @@ class RoutingState(Entity):
                                             .. attribute:: unknown_tlv
                                             
                                             	Unknown TLV
-                                            	**type**\: list of    :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
+                                            	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
                                             
                                             .. attribute:: router_address_tlv
                                             
                                             	Router address TLV
-                                            	**type**\:   :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
+                                            	**type**\:  :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
                                             
                                             .. attribute:: link_tlv
                                             
                                             	Link TLV
-                                            	**type**\:   :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
+                                            	**type**\:  :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
                                             
                                             
 
@@ -6185,21 +6281,23 @@ class RoutingState(Entity):
                                                 .. attribute:: type  <key>
                                                 
                                                 	TLV type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
                                                 .. attribute:: length
                                                 
                                                 	TLV length
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
                                                 .. attribute:: value
                                                 
                                                 	TLV value
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                                 
                                                 
 
@@ -6236,7 +6334,9 @@ class RoutingState(Entity):
                                                 .. attribute:: router_address
                                                 
                                                 	Router address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 
 
@@ -6269,7 +6369,7 @@ class RoutingState(Entity):
                                                 .. attribute:: link_type
                                                 
                                                 	Link type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
@@ -6278,69 +6378,71 @@ class RoutingState(Entity):
                                                 .. attribute:: link_id
                                                 
                                                 	Link ID
-                                                	**type**\: one of the below types:
+                                                	**type**\: union of the below types:
                                                 
-                                                	**type**\:  str
+                                                		**type**\: str
+                                                
+                                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                		**type**\: str
+                                                
+                                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
                                                 	**mandatory**\: True
                                                 
-                                                
-                                                ----
-                                                	**type**\:  str
-                                                
-                                                	**mandatory**\: True
-                                                
-                                                
-                                                ----
                                                 .. attribute:: local_if_ipv4_addr
                                                 
                                                 	List of local interface IPv4 addresses
-                                                	**type**\:  list of str
+                                                	**type**\: list of str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: local_remote_ipv4_addr
                                                 
                                                 	List of remote interface IPv4 addresses
-                                                	**type**\:  list of str
+                                                	**type**\: list of str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: te_metric
                                                 
                                                 	TE metric
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: max_bandwidth
                                                 
                                                 	Maximum bandwidth
-                                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                 
                                                 	**range:** \-92233720368547758.08..92233720368547758.07
                                                 
                                                 .. attribute:: max_reservable_bandwidth
                                                 
                                                 	Maximum reservable bandwidth
-                                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                 
                                                 	**range:** \-92233720368547758.08..92233720368547758.07
                                                 
                                                 .. attribute:: unreserved_bandwidth
                                                 
                                                 	Unreserved bandwidth
-                                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                                                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                 
                                                 	**range:** \-92233720368547758.08..92233720368547758.07
                                                 
                                                 .. attribute:: admin_group
                                                 
                                                 	Administrative group/Resource class/Color
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: unknown_subtlv
                                                 
                                                 	Unknown sub\-TLV
-                                                	**type**\: list of    :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
+                                                	**type**\: list of  		 :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
                                                 
                                                 
 
@@ -6391,21 +6493,23 @@ class RoutingState(Entity):
                                                     .. attribute:: type  <key>
                                                     
                                                     	TLV type
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: length
                                                     
                                                     	TLV length
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..65535
                                                     
                                                     .. attribute:: value
                                                     
                                                     	TLV value
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                                     
                                                     
 
@@ -6442,12 +6546,12 @@ class RoutingState(Entity):
                                     .. attribute:: header
                                     
                                     	Decoded OSPFv3 LSA header data
-                                    	**type**\:   :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header>`
+                                    	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header>`
                                     
                                     .. attribute:: body
                                     
                                     	Decoded OSPF LSA body data
-                                    	**type**\:   :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body>`
+                                    	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body>`
                                     
                                     
 
@@ -6485,7 +6589,7 @@ class RoutingState(Entity):
                                         .. attribute:: lsa_id
                                         
                                         	LSA ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -6494,7 +6598,7 @@ class RoutingState(Entity):
                                         .. attribute:: age
                                         
                                         	LSA age
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -6503,7 +6607,7 @@ class RoutingState(Entity):
                                         .. attribute:: type
                                         
                                         	LSA type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -6512,28 +6616,30 @@ class RoutingState(Entity):
                                         .. attribute:: adv_router
                                         
                                         	LSA advertising router
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                         
                                         	**mandatory**\: True
                                         
                                         .. attribute:: seq_num
                                         
                                         	LSA sequence number
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**mandatory**\: True
                                         
                                         .. attribute:: checksum
                                         
                                         	LSA checksum
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**mandatory**\: True
                                         
                                         .. attribute:: length
                                         
                                         	LSA length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -6542,7 +6648,7 @@ class RoutingState(Entity):
                                         .. attribute:: options
                                         
                                         	OSPFv3 LSA options
-                                        	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header.Options>`
+                                        	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header.Options>`
                                         
                                         	**mandatory**\: True
                                         
@@ -6591,42 +6697,42 @@ class RoutingState(Entity):
                                         .. attribute:: router
                                         
                                         	Router LSA
-                                        	**type**\:   :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router>`
+                                        	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router>`
                                         
                                         .. attribute:: network
                                         
                                         	Network LSA
-                                        	**type**\:   :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network>`
+                                        	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network>`
                                         
                                         .. attribute:: inter_area_prefix
                                         
                                         	Inter\-Area\-Prefix LSA
-                                        	**type**\:   :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix>`
+                                        	**type**\:  :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix>`
                                         
                                         .. attribute:: inter_area_router
                                         
                                         	Inter\-Area\-Router LSA
-                                        	**type**\:   :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter>`
+                                        	**type**\:  :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter>`
                                         
                                         .. attribute:: as_external
                                         
                                         	AS\-External LSA
-                                        	**type**\:   :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal>`
+                                        	**type**\:  :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal>`
                                         
                                         .. attribute:: nssa
                                         
                                         	NSSA LSA
-                                        	**type**\:   :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa>`
+                                        	**type**\:  :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa>`
                                         
                                         .. attribute:: link
                                         
                                         	Link LSA
-                                        	**type**\:   :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link>`
+                                        	**type**\:  :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link>`
                                         
                                         .. attribute:: intra_area_prefix
                                         
                                         	Intra\-Area\-Prefix LSA
-                                        	**type**\:   :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
+                                        	**type**\:  :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
                                         
                                         
 
@@ -6694,21 +6800,21 @@ class RoutingState(Entity):
                                             .. attribute:: flags
                                             
                                             	LSA option
-                                            	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Flags>`
+                                            	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Flags>`
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: options
                                             
                                             	OSPFv3 LSA options
-                                            	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Options>`
+                                            	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Options>`
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: link
                                             
                                             	Router LSA link
-                                            	**type**\: list of    :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link>`
+                                            	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link>`
                                             
                                             
 
@@ -6745,33 +6851,35 @@ class RoutingState(Entity):
                                                 .. attribute:: interface_id  <key>
                                                 
                                                 	Interface ID
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: neighbor_interface_id  <key>
                                                 
                                                 	Neighbor Interface ID
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: neighbor_router_id  <key>
                                                 
                                                 	Neighbor Router ID
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
                                                 .. attribute:: type
                                                 
                                                 	Link type
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: metric
                                                 
                                                 	Metric
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..65535
                                                 
@@ -6814,14 +6922,16 @@ class RoutingState(Entity):
                                             .. attribute:: options
                                             
                                             	OSPFv3 LSA options
-                                            	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network.Options>`
+                                            	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network.Options>`
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: attached_router
                                             
                                             	List of the routers attached to the network
-                                            	**type**\:  list of str
+                                            	**type**\: list of str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                             
                                             
 
@@ -6856,19 +6966,19 @@ class RoutingState(Entity):
                                             .. attribute:: metric
                                             
                                             	Metric
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..16777215
                                             
                                             .. attribute:: prefix
                                             
                                             	Prefix
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: prefix_options
                                             
                                             	Prefix options
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**mandatory**\: True
                                             
@@ -6907,21 +7017,23 @@ class RoutingState(Entity):
                                             .. attribute:: options
                                             
                                             	OSPFv3 LSA options
-                                            	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter.Options>`
+                                            	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter.Options>`
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: metric
                                             
                                             	Metric
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..16777215
                                             
                                             .. attribute:: destination_router_id
                                             
                                             	The Router ID of the router being described by the LSA
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                             
                                             
 
@@ -6958,50 +7070,52 @@ class RoutingState(Entity):
                                             .. attribute:: metric
                                             
                                             	Metric
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..16777215
                                             
                                             .. attribute:: flags
                                             
                                             	Flags
-                                            	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal.Flags>`
+                                            	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal.Flags>`
                                             
                                             .. attribute:: referenced_ls_type
                                             
                                             	Referenced Link State type
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: prefix
                                             
                                             	Prefix
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: prefix_options
                                             
                                             	Prefix options
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: forwarding_address
                                             
                                             	Forwarding address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: external_route_tag
                                             
                                             	Route tag
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: referenced_link_state_id
                                             
                                             	Referenced Link State ID
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
@@ -7050,50 +7164,52 @@ class RoutingState(Entity):
                                             .. attribute:: metric
                                             
                                             	Metric
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..16777215
                                             
                                             .. attribute:: flags
                                             
                                             	Flags
-                                            	**type**\:   :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa.Flags>`
+                                            	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa.Flags>`
                                             
                                             .. attribute:: referenced_ls_type
                                             
                                             	Referenced Link State type
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: prefix
                                             
                                             	Prefix
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: prefix_options
                                             
                                             	Prefix options
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: forwarding_address
                                             
                                             	Forwarding address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: external_route_tag
                                             
                                             	Route tag
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: referenced_link_state_id
                                             
                                             	Referenced Link State ID
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
@@ -7142,41 +7258,41 @@ class RoutingState(Entity):
                                             .. attribute:: rtr_priority
                                             
                                             	Router Priority of the interface
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..255
                                             
                                             .. attribute:: options
                                             
                                             	OSPFv3 LSA options
-                                            	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.Options>`
+                                            	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.Options>`
                                             
                                             	**mandatory**\: True
                                             
                                             .. attribute:: link_local_interface_address
                                             
                                             	The originating router's link\-local interface address on the link
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             .. attribute:: num_of_prefixes
                                             
                                             	Number of prefixes
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: prefix_list
                                             
                                             	List of prefixes associated with the link
-                                            	**type**\: list of    :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList>`
+                                            	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList>`
                                             
                                             
 
@@ -7217,12 +7333,12 @@ class RoutingState(Entity):
                                                 .. attribute:: prefix  <key>
                                                 
                                                 	Prefix
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: prefix_options
                                                 
                                                 	Prefix options
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
@@ -7259,33 +7375,35 @@ class RoutingState(Entity):
                                             .. attribute:: referenced_ls_type
                                             
                                             	Referenced Link State type
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: referenced_link_state_id
                                             
                                             	Referenced Link State ID
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: referenced_adv_router
                                             
                                             	Referenced Advertising Router
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: num_of_prefixes
                                             
                                             	Number of prefixes
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: prefix_list
                                             
                                             	List of prefixes associated with the link
-                                            	**type**\: list of    :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
+                                            	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
                                             
                                             
 
@@ -7326,19 +7444,19 @@ class RoutingState(Entity):
                                                 .. attribute:: prefix  <key>
                                                 
                                                 	Prefix
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 .. attribute:: prefix_options
                                                 
                                                 	Prefix options
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**mandatory**\: True
                                                 
                                                 .. attribute:: metric
                                                 
                                                 	Metric
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..16777215
                                                 
@@ -7377,14 +7495,14 @@ class RoutingState(Entity):
                             .. attribute:: name  <key>
                             
                             	RIB
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs.Rib>`
                             
                             .. attribute:: area
                             
                             	List of ospf areas
-                            	**type**\: list of    :py:class:`Area <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area>`
+                            	**type**\: list of  		 :py:class:`Area <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area>`
                             
                             
 
@@ -7419,18 +7537,16 @@ class RoutingState(Entity):
                                 .. attribute:: area_id  <key>
                                 
                                 	Area ID
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  int
+                                		**type**\: int
                                 
-                                	**range:** 0..4294967295
+                                			**range:** 0..4294967295
                                 
+                                		**type**\: str
                                 
-                                ----
-                                	**type**\:  str
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                 
-                                
-                                ----
                                 
 
                                 """
@@ -7462,7 +7578,7 @@ class RoutingState(Entity):
             .. attribute:: rib
             
             	Each entry represents a RIB identified by the 'name' key. All routes in a RIB MUST belong to the same address family.  For each routing instance, an implementation SHOULD provide one system\-controlled default RIB for each supported address family
-            	**type**\: list of    :py:class:`Rib <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib>`
+            	**type**\: list of  		 :py:class:`Rib <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib>`
             
             
 
@@ -7501,26 +7617,26 @@ class RoutingState(Entity):
                 .. attribute:: name  <key>
                 
                 	The name of the RIB
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:   :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
+                	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: default_rib
                 
                 	This flag has the value of 'true' if and only if the RIB is the default RIB for the given address family.  A default RIB always receives direct routes. By default it also receives routes from all routing protocols
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
                 .. attribute:: routes
                 
                 	Current content of the RIB
-                	**type**\:   :py:class:`Routes <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes>`
+                	**type**\:  :py:class:`Routes <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes>`
                 
                 
 
@@ -7562,7 +7678,7 @@ class RoutingState(Entity):
                     .. attribute:: route
                     
                     	A RIB route entry. This data node MUST be augmented with information specific for routes of each address family
-                    	**type**\: list of    :py:class:`Route <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route>`
+                    	**type**\: list of  		 :py:class:`Route <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route>`
                     
                     
 
@@ -7597,53 +7713,55 @@ class RoutingState(Entity):
                         .. attribute:: destination_prefix  <key>
                         
                         	Destination IP address with prefix
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: route_preference
                         
                         	This route attribute, also known as administrative distance, allows for selecting the preferred route among routes with the same destination prefix. A smaller value means a more preferred route
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: metric
                         
                         	Route metric
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: next_hop
                         
                         	Route's next\-hop attribute
-                        	**type**\:   :py:class:`NextHop <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop>`
+                        	**type**\:  :py:class:`NextHop <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop>`
                         
                         .. attribute:: source_protocol
                         
                         	Type of the routing protocol from which the route originated
-                        	**type**\:   :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
+                        	**type**\:  :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: active
                         
                         	Presence of this leaf indicates that the route is preferred among all routes in the same RIB that have the same destination prefix
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: last_updated
                         
                         	Time stamp of the last modification of the route. If the route was never modified, it is the time when the route was inserted into the RIB
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
                         .. attribute:: update_source
                         
                         	Update source for the route
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: tag
                         
                         	OSPF route tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7652,7 +7770,7 @@ class RoutingState(Entity):
                         .. attribute:: route_type
                         
                         	OSPF route type
-                        	**type**\:   :py:class:`RouteType <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.RouteType>`
+                        	**type**\:  :py:class:`RouteType <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.RouteType>`
                         
                         
 
@@ -7751,17 +7869,17 @@ class RoutingState(Entity):
                             .. attribute:: outgoing_interface
                             
                             	Name of the outgoing interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: next_hop_address
                             
                             	IP address
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: special_next_hop
                             
                             	Special next\-hop options
-                            	**type**\:   :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop.SpecialNextHop>`
+                            	**type**\:  :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop.SpecialNextHop>`
                             
                             
 
@@ -7842,7 +7960,7 @@ class Routing(Entity):
     .. attribute:: routing_instance
     
     	Configuration of a routing instance
-    	**type**\: list of    :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.Routing.RoutingInstance>`
+    	**type**\: list of  		 :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.Routing.RoutingInstance>`
     
     
 
@@ -7876,46 +7994,48 @@ class Routing(Entity):
         .. attribute:: name  <key>
         
         	The name of the routing instance.  For system\-controlled entries, the value of this leaf must be the same as the name of the corresponding entry in state data.  For user\-controlled entries, an arbitrary name can be used
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: type
         
         	The type of the routing instance
-        	**type**\:   :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.RoutingInstance>`
+        	**type**\:  :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.RoutingInstance>`
         
         	**default value**\: rt:default-routing-instance
         
         .. attribute:: enabled
         
         	Enable/disable the routing instance.  If this parameter is false, the parent routing instance is disabled and does not appear in state data, despite any other configuration that might be present
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: true
         
         .. attribute:: router_id
         
         	A 32\-bit number in the form of a dotted quad that is used by some routing protocols identifying a router
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
         
         .. attribute:: description
         
         	Textual description of the routing instance
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: interfaces
         
         	Assignment of the routing instance's interfaces
-        	**type**\:   :py:class:`Interfaces <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Interfaces>`
         
         .. attribute:: routing_protocols
         
         	Configuration of routing protocol instances
-        	**type**\:   :py:class:`RoutingProtocols <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols>`
+        	**type**\:  :py:class:`RoutingProtocols <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols>`
         
         .. attribute:: ribs
         
         	Configuration of RIBs
-        	**type**\:   :py:class:`Ribs <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs>`
+        	**type**\:  :py:class:`Ribs <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs>`
         
         
 
@@ -7972,7 +8092,7 @@ class Routing(Entity):
             .. attribute:: interface
             
             	The name of a configured network layer interface to be assigned to the routing\-instance
-            	**type**\:  list of str
+            	**type**\: list of str
             
             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
             
@@ -8007,7 +8127,7 @@ class Routing(Entity):
             .. attribute:: routing_protocol
             
             	Each entry contains configuration of a routing protocol instance
-            	**type**\: list of    :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol>`
+            	**type**\: list of  		 :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol>`
             
             
 
@@ -8041,27 +8161,27 @@ class Routing(Entity):
                 .. attribute:: type  <key>
                 
                 	Type of the routing protocol \- an identity derived from the 'routing\-protocol' base identity
-                	**type**\:   :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
+                	**type**\:  :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
                 
                 .. attribute:: name  <key>
                 
                 	An arbitrary name of the routing protocol instance
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: description
                 
                 	Textual description of the routing protocol instance
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: static_routes
                 
                 	Configuration of the 'static' pseudo\-protocol.  Address\-family\-specific modules augment this node with their lists of routes
-                	**type**\:   :py:class:`StaticRoutes <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes>`
+                	**type**\:  :py:class:`StaticRoutes <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes>`
                 
                 .. attribute:: ospf
                 
                 	OSPF
-                	**type**\:   :py:class:`Ospf <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf>`
+                	**type**\:  :py:class:`Ospf <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf>`
                 
                 
 
@@ -8077,7 +8197,7 @@ class Routing(Entity):
                     self.yang_parent_name = "routing-protocols"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"static-routes" : ("static_routes", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes), "ospf" : ("ospf", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf)}
+                    self._child_container_classes = {"static-routes" : ("static_routes", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes), "ietf-ospf:ospf" : ("ospf", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf)}
                     self._child_list_classes = {}
 
                     self.type = YLeaf(YType.identityref, "type")
@@ -8111,12 +8231,12 @@ class Routing(Entity):
                     .. attribute:: ipv4
                     
                     	Configuration of a 'static' pseudo\-protocol instance consists of a list of routes
-                    	**type**\:   :py:class:`Ipv4 <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4>`
+                    	**type**\:  :py:class:`Ipv4 <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4>`
                     
                     .. attribute:: ipv6
                     
                     	Configuration of a 'static' pseudo\-protocol instance consists of a list of routes
-                    	**type**\:   :py:class:`Ipv6 <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6>`
+                    	**type**\:  :py:class:`Ipv6 <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6>`
                     
                     
 
@@ -8132,7 +8252,7 @@ class Routing(Entity):
                         self.yang_parent_name = "routing-protocol"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"ipv4" : ("ipv4", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4), "ipv6" : ("ipv6", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6)}
+                        self._child_container_classes = {"ietf-ipv4-unicast-routing:ipv4" : ("ipv4", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4), "ietf-ipv6-unicast-routing:ipv6" : ("ipv6", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6)}
                         self._child_list_classes = {}
 
                         self.ipv4 = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4()
@@ -8155,7 +8275,7 @@ class Routing(Entity):
                         .. attribute:: route
                         
                         	A user\-ordered list of static routes
-                        	**type**\: list of    :py:class:`Route <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route>`
+                        	**type**\: list of  		 :py:class:`Route <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route>`
                         
                         
 
@@ -8188,19 +8308,21 @@ class Routing(Entity):
                             .. attribute:: destination_prefix  <key>
                             
                             	IPv4 destination prefix
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                             
                             	**mandatory**\: True
                             
                             .. attribute:: description
                             
                             	Textual description of the route
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: next_hop
                             
                             	Configuration of next\-hop
-                            	**type**\:   :py:class:`NextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop>`
+                            	**type**\:  :py:class:`NextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop>`
                             
                             
 
@@ -8240,17 +8362,19 @@ class Routing(Entity):
                                 .. attribute:: outgoing_interface
                                 
                                 	Name of the outgoing interface
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: special_next_hop
                                 
                                 	Special next\-hop options
-                                	**type**\:   :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop.SpecialNextHop>`
+                                	**type**\:  :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop.SpecialNextHop>`
                                 
                                 .. attribute:: next_hop_address
                                 
                                 	IPv4 address of the next\-hop
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -8329,7 +8453,7 @@ class Routing(Entity):
                         .. attribute:: route
                         
                         	A user\-ordered list of static routes
-                        	**type**\: list of    :py:class:`Route <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route>`
+                        	**type**\: list of  		 :py:class:`Route <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route>`
                         
                         
 
@@ -8362,19 +8486,21 @@ class Routing(Entity):
                             .. attribute:: destination_prefix  <key>
                             
                             	IPv6 destination prefix
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                             
                             	**mandatory**\: True
                             
                             .. attribute:: description
                             
                             	Textual description of the route
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: next_hop
                             
                             	Configuration of next\-hop
-                            	**type**\:   :py:class:`NextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop>`
+                            	**type**\:  :py:class:`NextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop>`
                             
                             
 
@@ -8414,17 +8540,19 @@ class Routing(Entity):
                                 .. attribute:: outgoing_interface
                                 
                                 	Name of the outgoing interface
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: special_next_hop
                                 
                                 	Special next\-hop options
-                                	**type**\:   :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop.SpecialNextHop>`
+                                	**type**\:  :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop.SpecialNextHop>`
                                 
                                 .. attribute:: next_hop_address
                                 
                                 	IPv6 address of the next\-hop
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -8502,19 +8630,19 @@ class Routing(Entity):
                     .. attribute:: all_instances_inherit
                     
                     	Inheritance support to all instances
-                    	**type**\:   :py:class:`AllInstancesInherit <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit>`
+                    	**type**\:  :py:class:`AllInstancesInherit <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit>`
                     
                     .. attribute:: operation_mode
                     
                     	OSPF operation mode
-                    	**type**\:   :py:class:`OperationMode <ydk.models.ietf.ietf_ospf.OperationMode>`
+                    	**type**\:  :py:class:`OperationMode <ydk.models.ietf.ietf_ospf.OperationMode>`
                     
                     	**default value**\: ospf:ships-in-the-night
                     
                     .. attribute:: instance
                     
                     	An OSPF routing protocol instance
-                    	**type**\: list of    :py:class:`Instance <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance>`
+                    	**type**\: list of  		 :py:class:`Instance <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance>`
                     
                     
 
@@ -8554,12 +8682,12 @@ class Routing(Entity):
                         .. attribute:: area
                         
                         	Area config to be inherited by all areas in all instances
-                        	**type**\:   :py:class:`Area <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Area>`
+                        	**type**\:  :py:class:`Area <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Area>`
                         
                         .. attribute:: interface
                         
                         	Interface config to be inherited by all interfaces in all instances
-                        	**type**\:   :py:class:`Interface <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Interface>`
+                        	**type**\:  :py:class:`Interface <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Interface>`
                         
                         
 
@@ -8645,79 +8773,81 @@ class Routing(Entity):
                         .. attribute:: af  <key>
                         
                         	Address\-family of the instance
-                        	**type**\:   :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
+                        	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
                         
                         .. attribute:: router_id
                         
                         	Defined in RFC 2328. A 32\-bit number that uniquely identifies the router
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                         
                         .. attribute:: admin_distance
                         
                         	Admin distance config state
-                        	**type**\:   :py:class:`AdminDistance <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance>`
+                        	**type**\:  :py:class:`AdminDistance <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance>`
                         
                         .. attribute:: nsr
                         
                         	NSR config state
-                        	**type**\:   :py:class:`Nsr <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr>`
+                        	**type**\:  :py:class:`Nsr <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr>`
                         
                         .. attribute:: graceful_restart
                         
                         	Graceful restart config state
-                        	**type**\:   :py:class:`GracefulRestart <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart>`
+                        	**type**\:  :py:class:`GracefulRestart <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart>`
                         
                         .. attribute:: enable
                         
                         	Enable/Disable the protocol
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: auto_cost
                         
                         	Auto cost config state
-                        	**type**\:   :py:class:`AutoCost <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost>`
+                        	**type**\:  :py:class:`AutoCost <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost>`
                         
                         .. attribute:: spf_control
                         
                         	SPF calculation control
-                        	**type**\:   :py:class:`SpfControl <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl>`
+                        	**type**\:  :py:class:`SpfControl <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl>`
                         
                         .. attribute:: database_control
                         
                         	Database maintenance control
-                        	**type**\:   :py:class:`DatabaseControl <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl>`
+                        	**type**\:  :py:class:`DatabaseControl <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl>`
                         
                         .. attribute:: reload_control
                         
                         	Protocol reload control
-                        	**type**\:   :py:class:`ReloadControl <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.ReloadControl>`
+                        	**type**\:  :py:class:`ReloadControl <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.ReloadControl>`
                         
                         .. attribute:: mpls
                         
                         	OSPF MPLS config state
-                        	**type**\:   :py:class:`Mpls <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls>`
+                        	**type**\:  :py:class:`Mpls <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls>`
                         
                         .. attribute:: fast_reroute
                         
                         	This container may be augmented with global parameters for IPFRR
-                        	**type**\:   :py:class:`FastReroute <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute>`
+                        	**type**\:  :py:class:`FastReroute <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute>`
                         
                         .. attribute:: all_areas_inherit
                         
                         	Inheritance for all areas
-                        	**type**\:   :py:class:`AllAreasInherit <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit>`
+                        	**type**\:  :py:class:`AllAreasInherit <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit>`
                         
                         .. attribute:: area
                         
                         	List of ospf areas
-                        	**type**\: list of    :py:class:`Area <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area>`
+                        	**type**\: list of  		 :py:class:`Area <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area>`
                         
                         .. attribute:: topology
                         
                         	OSPF topology
-                        	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology>`
+                        	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology>`
                         
                         
 
@@ -8807,28 +8937,28 @@ class Routing(Entity):
                             .. attribute:: intra_area
                             
                             	Admin distance for intra\-area route
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: inter_area
                             
                             	Admin distance for inter\-area route
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: internal
                             
                             	Admin distance for both intra\-area and inter\-area route
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: external
                             
                             	Admin distance for both external route
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -8869,7 +8999,7 @@ class Routing(Entity):
                             .. attribute:: enable
                             
                             	Enable/Disable NSR
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -8902,17 +9032,17 @@ class Routing(Entity):
                             .. attribute:: enable
                             
                             	Enable/Disable graceful restart as defined in RFC 3623
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: helper_enable
                             
                             	Enable RestartHelperSupport in RFC 3623 Section B.2
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: restart_interval
                             
                             	RestartInterval option in RFC 3623 Section B.1
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..1800
                             
@@ -8923,7 +9053,7 @@ class Routing(Entity):
                             .. attribute:: helper_strict_lsa_checking
                             
                             	RestartHelperStrictLSAChecking option in RFC 3623 Section B.2
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -8962,12 +9092,12 @@ class Routing(Entity):
                             .. attribute:: enable
                             
                             	Enable/Disable auto cost
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: reference_bandwidth
                             
                             	Configure reference bandwidth in term of Mbits
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967
                             
@@ -9006,7 +9136,7 @@ class Routing(Entity):
                             .. attribute:: paths
                             
                             	Maximum number of ECMP paths
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..32
                             
@@ -9041,7 +9171,7 @@ class Routing(Entity):
                             .. attribute:: max_lsa
                             
                             	Maximum number of LSAs OSPF will receive
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967294
                             
@@ -9099,12 +9229,12 @@ class Routing(Entity):
                             .. attribute:: te_rid
                             
                             	Traffic Engineering stable IP address for system
-                            	**type**\:   :py:class:`TeRid <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid>`
+                            	**type**\:  :py:class:`TeRid <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid>`
                             
                             .. attribute:: ldp
                             
                             	OSPF MPLS LDP config state
-                            	**type**\:   :py:class:`Ldp <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.Ldp>`
+                            	**type**\:  :py:class:`Ldp <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.Ldp>`
                             
                             
 
@@ -9142,14 +9272,16 @@ class Routing(Entity):
                                 .. attribute:: interface
                                 
                                 	Take the interface's IPv4 address as TE router ID
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                                 
                                 .. attribute:: router_id
                                 
                                 	Explicitly configure the TE router ID
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -9184,12 +9316,12 @@ class Routing(Entity):
                                 .. attribute:: igp_sync
                                 
                                 	Enable LDP IGP synchronization
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: autoconfig
                                 
                                 	Enable LDP IGP interface auto\-configuration
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -9225,7 +9357,7 @@ class Routing(Entity):
                             .. attribute:: lfa
                             
                             	This container may be augmented with global parameters for LFA. Creating the container has no effect on LFA activation
-                            	**type**\:   :py:class:`Lfa <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute.Lfa>`
+                            	**type**\:  :py:class:`Lfa <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute.Lfa>`
                             
                             
 
@@ -9284,12 +9416,12 @@ class Routing(Entity):
                             .. attribute:: area
                             
                             	Area config to be inherited by all areas
-                            	**type**\:   :py:class:`Area <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Area>`
+                            	**type**\:  :py:class:`Area <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Area>`
                             
                             .. attribute:: interface
                             
                             	Interface config to be inherited by all interfaces in all areas
-                            	**type**\:   :py:class:`Interface <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Interface>`
+                            	**type**\:  :py:class:`Interface <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Interface>`
                             
                             
 
@@ -9374,61 +9506,59 @@ class Routing(Entity):
                             .. attribute:: area_id  <key>
                             
                             	Area ID
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  int
+                            		**type**\: int
                             
-                            	**range:** 0..4294967295
+                            			**range:** 0..4294967295
                             
+                            		**type**\: str
                             
-                            ----
-                            	**type**\:  str
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                             
-                            
-                            ----
                             .. attribute:: area_type
                             
                             	Area type
-                            	**type**\:   :py:class:`AreaType <ydk.models.ietf.ietf_ospf.AreaType>`
+                            	**type**\:  :py:class:`AreaType <ydk.models.ietf.ietf_ospf.AreaType>`
                             
                             	**default value**\: normal
                             
                             .. attribute:: summary
                             
                             	Enable/Disable summary generation to the stub or NSSA area
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: default_cost
                             
                             	Set the summary default\-cost for a stub or NSSA area
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..16777215
                             
                             .. attribute:: range
                             
                             	Summarize routes matching address/mask (border routers only)
-                            	**type**\: list of    :py:class:`Range <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range>`
+                            	**type**\: list of  		 :py:class:`Range <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range>`
                             
                             .. attribute:: all_interfaces_inherit
                             
                             	Inheritance for all interfaces
-                            	**type**\:   :py:class:`AllInterfacesInherit <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit>`
+                            	**type**\:  :py:class:`AllInterfacesInherit <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit>`
                             
                             .. attribute:: virtual_link
                             
                             	OSPF virtual link
-                            	**type**\: list of    :py:class:`VirtualLink <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink>`
+                            	**type**\: list of  		 :py:class:`VirtualLink <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink>`
                             
                             .. attribute:: sham_link
                             
                             	OSPF sham link
-                            	**type**\: list of    :py:class:`ShamLink <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink>`
+                            	**type**\: list of  		 :py:class:`ShamLink <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink>`
                             
                             .. attribute:: interface
                             
                             	List of OSPF interfaces
-                            	**type**\: list of    :py:class:`Interface <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface>`
+                            	**type**\: list of  		 :py:class:`Interface <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface>`
                             
                             
 
@@ -9478,17 +9608,17 @@ class Routing(Entity):
                                 .. attribute:: prefix  <key>
                                 
                                 	IPv4 or IPv6 prefix
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: advertise
                                 
                                 	Advertise or hide
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: cost
                                 
                                 	Cost of summary route
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..16777214
                                 
@@ -9527,7 +9657,7 @@ class Routing(Entity):
                                 .. attribute:: interface
                                 
                                 	Interface config to be inherited by all interfaces
-                                	**type**\:   :py:class:`Interface <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit.Interface>`
+                                	**type**\:  :py:class:`Interface <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit.Interface>`
                                 
                                 
 
@@ -9584,19 +9714,21 @@ class Routing(Entity):
                                 .. attribute:: router_id  <key>
                                 
                                 	Virtual link router ID
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                 
                                 .. attribute:: cost
                                 
                                 	Interface cost
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
                                 .. attribute:: hello_interval
                                 
                                 	Time between hello packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -9605,7 +9737,7 @@ class Routing(Entity):
                                 .. attribute:: dead_interval
                                 
                                 	Interval after which a neighbor is declared dead
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -9614,7 +9746,7 @@ class Routing(Entity):
                                 .. attribute:: retransmit_interval
                                 
                                 	Time between retransmitting unacknowledged Link State Advertisements (LSAs)
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -9623,7 +9755,7 @@ class Routing(Entity):
                                 .. attribute:: transmit_delay
                                 
                                 	Estimated time needed to send link\-state update
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -9632,39 +9764,39 @@ class Routing(Entity):
                                 .. attribute:: mtu_ignore
                                 
                                 	Enable/Disable ignoring of MTU in DBD packets
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: lls
                                 
                                 	Enable/Disable link\-local signaling (LLS) support
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: prefix_suppression
                                 
                                 	Suppress advertisement of the prefixes
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: bfd
                                 
                                 	Enable/disable bfd
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: ttl_security
                                 
                                 	TTL security check
-                                	**type**\:   :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity>`
+                                	**type**\:  :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable/disable protocol on the interface
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: true
                                 
                                 .. attribute:: authentication
                                 
                                 	Authentication configuration
-                                	**type**\:   :py:class:`Authentication <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication>`
+                                	**type**\:  :py:class:`Authentication <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication>`
                                 
                                 
 
@@ -9727,12 +9859,12 @@ class Routing(Entity):
                                     .. attribute:: enable
                                     
                                     	Enable/Disable TTL security check
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: hops
                                     
                                     	Maximum number of hops that a OSPF packet may have traveled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..254
                                     
@@ -9769,24 +9901,24 @@ class Routing(Entity):
                                     .. attribute:: sa
                                     
                                     	SA name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: key_chain
                                     
                                     	key\-chain name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_key_chain.KeyChains>`
                                     
                                     .. attribute:: key
                                     
                                     	Key string in ASCII format
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: crypto_algorithm
                                     
                                     	Cryptographic algorithm associated with key
-                                    	**type**\:   :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm>`
+                                    	**type**\:  :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm>`
                                     
                                     
 
@@ -9828,42 +9960,42 @@ class Routing(Entity):
                                         .. attribute:: hmac_sha1_12
                                         
                                         	The HMAC\-SHA1\-12 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha1_20
                                         
                                         	The HMAC\-SHA1\-20 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: md5
                                         
                                         	The MD5 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: sha_1
                                         
                                         	The SHA\-1 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_1
                                         
                                         	HMAC\-SHA\-1 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_256
                                         
                                         	HMAC\-SHA\-256 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_384
                                         
                                         	HMAC\-SHA\-384 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_512
                                         
                                         	HMAC\-SHA\-512 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
 
@@ -9910,40 +10042,40 @@ class Routing(Entity):
                                 .. attribute:: local_id  <key>
                                 
                                 	Address of the local end\-point
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
                                 .. attribute:: remote_id  <key>
                                 
                                 	Address of the remote end\-point
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
                                 .. attribute:: cost
                                 
                                 	Interface cost
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
                                 .. attribute:: hello_interval
                                 
                                 	Time between hello packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -9952,7 +10084,7 @@ class Routing(Entity):
                                 .. attribute:: dead_interval
                                 
                                 	Interval after which a neighbor is declared dead
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -9961,7 +10093,7 @@ class Routing(Entity):
                                 .. attribute:: retransmit_interval
                                 
                                 	Time between retransmitting unacknowledged Link State Advertisements (LSAs)
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -9970,7 +10102,7 @@ class Routing(Entity):
                                 .. attribute:: transmit_delay
                                 
                                 	Estimated time needed to send link\-state update
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -9979,39 +10111,39 @@ class Routing(Entity):
                                 .. attribute:: mtu_ignore
                                 
                                 	Enable/Disable ignoring of MTU in DBD packets
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: lls
                                 
                                 	Enable/Disable link\-local signaling (LLS) support
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: prefix_suppression
                                 
                                 	Suppress advertisement of the prefixes
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: bfd
                                 
                                 	Enable/disable bfd
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: ttl_security
                                 
                                 	TTL security check
-                                	**type**\:   :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity>`
+                                	**type**\:  :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable/disable protocol on the interface
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: true
                                 
                                 .. attribute:: authentication
                                 
                                 	Authentication configuration
-                                	**type**\:   :py:class:`Authentication <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication>`
+                                	**type**\:  :py:class:`Authentication <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication>`
                                 
                                 
 
@@ -10076,12 +10208,12 @@ class Routing(Entity):
                                     .. attribute:: enable
                                     
                                     	Enable/Disable TTL security check
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: hops
                                     
                                     	Maximum number of hops that a OSPF packet may have traveled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..254
                                     
@@ -10118,24 +10250,24 @@ class Routing(Entity):
                                     .. attribute:: sa
                                     
                                     	SA name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: key_chain
                                     
                                     	key\-chain name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_key_chain.KeyChains>`
                                     
                                     .. attribute:: key
                                     
                                     	Key string in ASCII format
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: crypto_algorithm
                                     
                                     	Cryptographic algorithm associated with key
-                                    	**type**\:   :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm>`
+                                    	**type**\:  :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm>`
                                     
                                     
 
@@ -10177,42 +10309,42 @@ class Routing(Entity):
                                         .. attribute:: hmac_sha1_12
                                         
                                         	The HMAC\-SHA1\-12 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha1_20
                                         
                                         	The HMAC\-SHA1\-20 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: md5
                                         
                                         	The MD5 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: sha_1
                                         
                                         	The SHA\-1 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_1
                                         
                                         	HMAC\-SHA\-1 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_256
                                         
                                         	HMAC\-SHA\-256 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_384
                                         
                                         	HMAC\-SHA\-384 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_512
                                         
                                         	HMAC\-SHA\-512 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
 
@@ -10259,58 +10391,58 @@ class Routing(Entity):
                                 .. attribute:: interface  <key>
                                 
                                 	Interface
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                                 
                                 .. attribute:: network_type
                                 
                                 	Network type
-                                	**type**\:   :py:class:`NetworkType <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.NetworkType>`
+                                	**type**\:  :py:class:`NetworkType <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.NetworkType>`
                                 
                                 .. attribute:: passive
                                 
                                 	Enable/Disable passive
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: demand_circuit
                                 
                                 	Enable/Disable demand circuit
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: multi_area
                                 
                                 	Configure ospf multi\-area
-                                	**type**\:   :py:class:`MultiArea <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea>`
+                                	**type**\:  :py:class:`MultiArea <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea>`
                                 
                                 .. attribute:: static_neighbors
                                 
                                 	Static configured neighbors
-                                	**type**\:   :py:class:`StaticNeighbors <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors>`
+                                	**type**\:  :py:class:`StaticNeighbors <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors>`
                                 
                                 .. attribute:: node_flag
                                 
                                 	Set prefix as a node representative prefix
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: fast_reroute
                                 
                                 	Fast\-reroute configuration
-                                	**type**\:   :py:class:`FastReroute <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute>`
+                                	**type**\:  :py:class:`FastReroute <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute>`
                                 
                                 .. attribute:: cost
                                 
                                 	Interface cost
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
                                 .. attribute:: hello_interval
                                 
                                 	Time between hello packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -10319,7 +10451,7 @@ class Routing(Entity):
                                 .. attribute:: dead_interval
                                 
                                 	Interval after which a neighbor is declared dead
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -10328,7 +10460,7 @@ class Routing(Entity):
                                 .. attribute:: retransmit_interval
                                 
                                 	Time between retransmitting unacknowledged Link State Advertisements (LSAs)
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -10337,7 +10469,7 @@ class Routing(Entity):
                                 .. attribute:: transmit_delay
                                 
                                 	Estimated time needed to send link\-state update
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
@@ -10346,44 +10478,44 @@ class Routing(Entity):
                                 .. attribute:: mtu_ignore
                                 
                                 	Enable/Disable ignoring of MTU in DBD packets
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: lls
                                 
                                 	Enable/Disable link\-local signaling (LLS) support
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: prefix_suppression
                                 
                                 	Suppress advertisement of the prefixes
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: bfd
                                 
                                 	Enable/disable bfd
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: ttl_security
                                 
                                 	TTL security check
-                                	**type**\:   :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity>`
+                                	**type**\:  :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable/disable protocol on the interface
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: true
                                 
                                 .. attribute:: authentication
                                 
                                 	Authentication configuration
-                                	**type**\:   :py:class:`Authentication <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication>`
+                                	**type**\:  :py:class:`Authentication <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication>`
                                 
                                 .. attribute:: topology
                                 
                                 	OSPF interface topology
-                                	**type**\: list of    :py:class:`Topology <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology>`
+                                	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology>`
                                 
                                 
 
@@ -10506,22 +10638,20 @@ class Routing(Entity):
                                     .. attribute:: multi_area_id
                                     
                                     	Multi\-area ID
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  int
+                                    		**type**\: int
                                     
-                                    	**range:** 0..4294967295
+                                    			**range:** 0..4294967295
                                     
+                                    		**type**\: str
                                     
-                                    ----
-                                    	**type**\:  str
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                     
-                                    
-                                    ----
                                     .. attribute:: cost
                                     
                                     	Interface cost for multi\-area
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -10558,7 +10688,7 @@ class Routing(Entity):
                                     .. attribute:: neighbor
                                     
                                     	Specify a neighbor router
-                                    	**type**\: list of    :py:class:`Neighbor <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor>`
+                                    	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor>`
                                     
                                     
 
@@ -10591,27 +10721,27 @@ class Routing(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	Neighbor IP address
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         .. attribute:: cost
                                         
                                         	Neighbor cost
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..65535
                                         
                                         .. attribute:: poll_interval
                                         
                                         	Neighbor poll interval
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..65535
                                         
@@ -10620,7 +10750,7 @@ class Routing(Entity):
                                         .. attribute:: priority
                                         
                                         	Neighbor priority for DR election
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..255
                                         
@@ -10661,7 +10791,7 @@ class Routing(Entity):
                                     .. attribute:: lfa
                                     
                                     	LFA configuration
-                                    	**type**\:   :py:class:`Lfa <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa>`
+                                    	**type**\:  :py:class:`Lfa <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa>`
                                     
                                     
 
@@ -10694,17 +10824,17 @@ class Routing(Entity):
                                         .. attribute:: candidate_disabled
                                         
                                         	Prevent the interface to be used as backup
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: enabled
                                         
                                         	Activates LFA. This model assumes activation of per\-prefix LFA
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: remote_lfa
                                         
                                         	Remote LFA configuration
-                                        	**type**\:   :py:class:`RemoteLfa <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa>`
+                                        	**type**\:  :py:class:`RemoteLfa <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa>`
                                         
                                         
 
@@ -10744,7 +10874,7 @@ class Routing(Entity):
                                             .. attribute:: enabled
                                             
                                             	Activates remote LFA
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -10777,12 +10907,12 @@ class Routing(Entity):
                                     .. attribute:: enable
                                     
                                     	Enable/Disable TTL security check
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: hops
                                     
                                     	Maximum number of hops that a OSPF packet may have traveled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..254
                                     
@@ -10819,24 +10949,24 @@ class Routing(Entity):
                                     .. attribute:: sa
                                     
                                     	SA name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: key_chain
                                     
                                     	key\-chain name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_key_chain.KeyChains>`
                                     
                                     .. attribute:: key
                                     
                                     	Key string in ASCII format
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: crypto_algorithm
                                     
                                     	Cryptographic algorithm associated with key
-                                    	**type**\:   :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm>`
+                                    	**type**\:  :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm>`
                                     
                                     
 
@@ -10878,42 +11008,42 @@ class Routing(Entity):
                                         .. attribute:: hmac_sha1_12
                                         
                                         	The HMAC\-SHA1\-12 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha1_20
                                         
                                         	The HMAC\-SHA1\-20 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: md5
                                         
                                         	The MD5 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: sha_1
                                         
                                         	The SHA\-1 algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_1
                                         
                                         	HMAC\-SHA\-1 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_256
                                         
                                         	HMAC\-SHA\-256 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_384
                                         
                                         	HMAC\-SHA\-384 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: hmac_sha_512
                                         
                                         	HMAC\-SHA\-512 authentication algorithm
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
 
@@ -10960,14 +11090,14 @@ class Routing(Entity):
                                     .. attribute:: name  <key>
                                     
                                     	One of the topology enabled on this interface
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs.Rib>`
                                     
                                     .. attribute:: cost
                                     
                                     	Interface cost for this topology
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -11004,14 +11134,14 @@ class Routing(Entity):
                             .. attribute:: name  <key>
                             
                             	RIB
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs.Rib>`
                             
                             .. attribute:: area
                             
                             	List of ospf areas
-                            	**type**\: list of    :py:class:`Area <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area>`
+                            	**type**\: list of  		 :py:class:`Area <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area>`
                             
                             
 
@@ -11046,41 +11176,39 @@ class Routing(Entity):
                                 .. attribute:: area_id  <key>
                                 
                                 	Area ID
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  int
+                                		**type**\: int
                                 
-                                	**range:** 0..4294967295
+                                			**range:** 0..4294967295
                                 
+                                		**type**\: str
                                 
-                                ----
-                                	**type**\:  str
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                 
-                                
-                                ----
                                 .. attribute:: area_type
                                 
                                 	Area type
-                                	**type**\:   :py:class:`AreaType <ydk.models.ietf.ietf_ospf.AreaType>`
+                                	**type**\:  :py:class:`AreaType <ydk.models.ietf.ietf_ospf.AreaType>`
                                 
                                 	**default value**\: normal
                                 
                                 .. attribute:: summary
                                 
                                 	Enable/Disable summary generation to the stub or NSSA area
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: default_cost
                                 
                                 	Set the summary default\-cost for a stub or NSSA area
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..16777215
                                 
                                 .. attribute:: range
                                 
                                 	Summarize routes matching address/mask (border routers only)
-                                	**type**\: list of    :py:class:`Range <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range>`
+                                	**type**\: list of  		 :py:class:`Range <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range>`
                                 
                                 
 
@@ -11122,17 +11250,17 @@ class Routing(Entity):
                                     .. attribute:: prefix  <key>
                                     
                                     	IPv4 or IPv6 prefix
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: advertise
                                     
                                     	Advertise or hide
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: cost
                                     
                                     	Cost of summary route
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777214
                                     
@@ -11171,7 +11299,7 @@ class Routing(Entity):
             .. attribute:: rib
             
             	Each entry contains configuration for a RIB identified by the 'name' key.  Entries having the same key as a system\-controlled entry of the list /routing\-state/routing\-instance/ribs/rib are used for configuring parameters of that entry. Other entries define additional user\-controlled RIBs
-            	**type**\: list of    :py:class:`Rib <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs.Rib>`
+            	**type**\: list of  		 :py:class:`Rib <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs.Rib>`
             
             
 
@@ -11210,17 +11338,17 @@ class Routing(Entity):
                 .. attribute:: name  <key>
                 
                 	The name of the RIB.  For system\-controlled entries, the value of this leaf must be the same as the name of the corresponding entry in state data.  For user\-controlled entries, an arbitrary name can be used
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:   :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
+                	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
                 
                 .. attribute:: description
                 
                 	Textual description of the RIB
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -11261,12 +11389,12 @@ class FibRoute(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_routing.FibRoute.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_routing.FibRoute.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_routing.FibRoute.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_routing.FibRoute.Output>`
     
     
 
@@ -11305,14 +11433,14 @@ class FibRoute(Entity):
         .. attribute:: routing_instance_name
         
         	Name of the routing instance whose forwarding information base is being queried.  If the routing instance with name equal to the value of this parameter doesn't exist, then this operation SHALL fail with error\-tag 'data\-missing' and error\-app\-tag 'routing\-instance\-not\-found'
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: destination_address
         
         	Network layer destination address.  Address family specific modules MUST augment this container with a leaf named 'address'
-        	**type**\:   :py:class:`DestinationAddress <ydk.models.ietf.ietf_routing.FibRoute.Input.DestinationAddress>`
+        	**type**\:  :py:class:`DestinationAddress <ydk.models.ietf.ietf_routing.FibRoute.Input.DestinationAddress>`
         
         
 
@@ -11354,19 +11482,23 @@ class FibRoute(Entity):
             .. attribute:: address_family
             
             	Address family
-            	**type**\:   :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
+            	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
             
             	**mandatory**\: True
             
             .. attribute:: ietf_ipv4_unicast_routing_address
             
             	IPv4 destination address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ietf_ipv6_unicast_routing_address
             
             	IPv6 destination address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             
 
@@ -11387,9 +11519,9 @@ class FibRoute(Entity):
 
                 self.address_family = YLeaf(YType.identityref, "address-family")
 
-                self.ietf_ipv4_unicast_routing_address = YLeaf(YType.str, "ietf-ipv4-unicast-routing:ietf-ipv4-unicast-routing_address")
+                self.ietf_ipv4_unicast_routing_address = YLeaf(YType.str, "ietf-ipv4-unicast-routing:address")
 
-                self.ietf_ipv6_unicast_routing_address = YLeaf(YType.str, "ietf-ipv6-unicast-routing:ietf-ipv6-unicast-routing_address")
+                self.ietf_ipv6_unicast_routing_address = YLeaf(YType.str, "ietf-ipv6-unicast-routing:address")
                 self._segment_path = lambda: "destination-address"
                 self._absolute_path = lambda: "ietf-routing:fib-route/input/%s" % self._segment_path()
 
@@ -11404,7 +11536,7 @@ class FibRoute(Entity):
         .. attribute:: route
         
         	The active FIB route for the specified destination.  If the routing instance has no active FIB route for the destination address, no output is returned \- the server SHALL send an <rpc\-reply> containing a single element <ok>.  Address family specific modules MUST augment this list with appropriate route contents
-        	**type**\:   :py:class:`Route <ydk.models.ietf.ietf_routing.FibRoute.Output.Route>`
+        	**type**\:  :py:class:`Route <ydk.models.ietf.ietf_routing.FibRoute.Output.Route>`
         
         
 
@@ -11446,41 +11578,47 @@ class FibRoute(Entity):
             .. attribute:: address_family
             
             	Address family
-            	**type**\:   :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
+            	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
             
             	**mandatory**\: True
             
             .. attribute:: next_hop
             
             	Route's next\-hop attribute
-            	**type**\:   :py:class:`NextHop <ydk.models.ietf.ietf_routing.FibRoute.Output.Route.NextHop>`
+            	**type**\:  :py:class:`NextHop <ydk.models.ietf.ietf_routing.FibRoute.Output.Route.NextHop>`
             
             .. attribute:: source_protocol
             
             	Type of the routing protocol from which the route originated
-            	**type**\:   :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
+            	**type**\:  :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
             
             	**mandatory**\: True
             
             .. attribute:: active
             
             	Presence of this leaf indicates that the route is preferred among all routes in the same RIB that have the same destination prefix
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: last_updated
             
             	Time stamp of the last modification of the route. If the route was never modified, it is the time when the route was inserted into the RIB
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
             .. attribute:: ietf_ipv4_unicast_routing_destination_prefix
             
             	IPv4 destination prefix
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
             
             .. attribute:: ietf_ipv6_unicast_routing_destination_prefix
             
             	IPv6 destination prefix
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
             
             
 
@@ -11507,9 +11645,9 @@ class FibRoute(Entity):
 
                 self.last_updated = YLeaf(YType.str, "last-updated")
 
-                self.ietf_ipv4_unicast_routing_destination_prefix = YLeaf(YType.str, "ietf-ipv4-unicast-routing:ietf-ipv4-unicast-routing_destination-prefix")
+                self.ietf_ipv4_unicast_routing_destination_prefix = YLeaf(YType.str, "ietf-ipv4-unicast-routing:destination-prefix")
 
-                self.ietf_ipv6_unicast_routing_destination_prefix = YLeaf(YType.str, "ietf-ipv6-unicast-routing:ietf-ipv6-unicast-routing_destination-prefix")
+                self.ietf_ipv6_unicast_routing_destination_prefix = YLeaf(YType.str, "ietf-ipv6-unicast-routing:destination-prefix")
 
                 self.next_hop = FibRoute.Output.Route.NextHop()
                 self.next_hop.parent = self
@@ -11529,27 +11667,31 @@ class FibRoute(Entity):
                 .. attribute:: outgoing_interface
                 
                 	Name of the outgoing interface
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ietf_routing_next_hop_address
                 
                 	IP address
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ietf_ipv4_unicast_routing_next_hop_address
                 
                 	IPv4 address of the next\-hop
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: ietf_ipv6_unicast_routing_next_hop_address
                 
                 	IPv6 address of the next\-hop
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: special_next_hop
                 
                 	Special next\-hop options
-                	**type**\:   :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.FibRoute.Output.Route.NextHop.SpecialNextHop>`
+                	**type**\:  :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.FibRoute.Output.Route.NextHop.SpecialNextHop>`
                 
                 
 
@@ -11570,11 +11712,11 @@ class FibRoute(Entity):
 
                     self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
 
-                    self.ietf_routing_next_hop_address = YLeaf(YType.str, "ietf-routing_next-hop-address")
+                    self.ietf_routing_next_hop_address = YLeaf(YType.str, "next-hop-address")
 
-                    self.ietf_ipv4_unicast_routing_next_hop_address = YLeaf(YType.str, "ietf-ipv4-unicast-routing:ietf-ipv4-unicast-routing_next-hop-address")
+                    self.ietf_ipv4_unicast_routing_next_hop_address = YLeaf(YType.str, "ietf-ipv4-unicast-routing:next-hop-address")
 
-                    self.ietf_ipv6_unicast_routing_next_hop_address = YLeaf(YType.str, "ietf-ipv6-unicast-routing:ietf-ipv6-unicast-routing_next-hop-address")
+                    self.ietf_ipv6_unicast_routing_next_hop_address = YLeaf(YType.str, "ietf-ipv6-unicast-routing:next-hop-address")
 
                     self.special_next_hop = YLeaf(YType.enumeration, "special-next-hop")
                     self._segment_path = lambda: "next-hop"

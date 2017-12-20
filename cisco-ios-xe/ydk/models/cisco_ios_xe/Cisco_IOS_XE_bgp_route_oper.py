@@ -12,6 +12,39 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+class BgpNeighborRouteFilters(Enum):
+    """
+    BgpNeighborRouteFilters
+
+    BGP neighbor route filters
+
+    .. data:: bgp_nrf_post_received = 0
+
+    	BGP received routes post policy
+
+    .. data:: bgp_nrf_pre_received = 1
+
+    	BGP received routes pre policy
+
+    .. data:: bgp_nrf_pre_advertised = 2
+
+    	BGP pre advertised pre policy
+
+    .. data:: bgp_nrf_post_advertised = 3
+
+    	BGP post advertised post policy
+
+    """
+
+    bgp_nrf_post_received = Enum.YLeaf(0, "bgp-nrf-post-received")
+
+    bgp_nrf_pre_received = Enum.YLeaf(1, "bgp-nrf-pre-received")
+
+    bgp_nrf_pre_advertised = Enum.YLeaf(2, "bgp-nrf-pre-advertised")
+
+    bgp_nrf_post_advertised = Enum.YLeaf(3, "bgp-nrf-post-advertised")
+
+
 class BgpOriginCode(Enum):
     """
     BgpOriginCode

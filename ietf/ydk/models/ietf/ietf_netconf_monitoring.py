@@ -83,27 +83,27 @@ class NetconfState(Entity):
     .. attribute:: capabilities
     
     	Contains the list of NETCONF capabilities supported by the server
-    	**type**\:   :py:class:`Capabilities <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Capabilities>`
+    	**type**\:  :py:class:`Capabilities <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Capabilities>`
     
     .. attribute:: datastores
     
     	Contains the list of NETCONF configuration datastores
-    	**type**\:   :py:class:`Datastores <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores>`
+    	**type**\:  :py:class:`Datastores <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores>`
     
     .. attribute:: schemas
     
     	Contains the list of data model schemas supported by the server
-    	**type**\:   :py:class:`Schemas <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas>`
+    	**type**\:  :py:class:`Schemas <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas>`
     
     .. attribute:: sessions
     
     	The sessions container includes session\-specific data for NETCONF management sessions.  The session list MUST include all currently active NETCONF sessions
-    	**type**\:   :py:class:`Sessions <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions>`
     
     .. attribute:: statistics
     
     	Statistical data pertaining to the NETCONF server
-    	**type**\:   :py:class:`Statistics <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Statistics>`
     
     
 
@@ -158,7 +158,7 @@ class NetconfState(Entity):
         .. attribute:: capability
         
         	List of NETCONF capabilities supported by the server
-        	**type**\:  list of str
+        	**type**\: list of str
         
         
 
@@ -192,7 +192,7 @@ class NetconfState(Entity):
         .. attribute:: datastore
         
         	List of NETCONF configuration datastores supported by the NETCONF server and related information
-        	**type**\: list of    :py:class:`Datastore <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore>`
+        	**type**\: list of  		 :py:class:`Datastore <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore>`
         
         
 
@@ -227,12 +227,12 @@ class NetconfState(Entity):
             .. attribute:: name  <key>
             
             	Name of the datastore associated with this list entry
-            	**type**\:   :py:class:`NetconfDatastoreType <ydk.models.ietf.ietf_netconf_monitoring.NetconfDatastoreType>`
+            	**type**\:  :py:class:`NetconfDatastoreType <ydk.models.ietf.ietf_netconf_monitoring.NetconfDatastoreType>`
             
             .. attribute:: locks
             
             	The NETCONF <lock> and <partial\-lock> operations allow a client to lock specific resources in a datastore.  The NETCONF server will prevent changes to the locked resources by all sessions except the one that acquired the lock(s).  Monitoring information is provided for each datastore entry including details such as the session that acquired the lock, the type of lock (global or partial) and the list of locked resources.  Multiple locks per datastore are supported
-            	**type**\:   :py:class:`Locks <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks>`
+            	**type**\:  :py:class:`Locks <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks>`
             
             	**presence node**\: True
             
@@ -282,12 +282,12 @@ class NetconfState(Entity):
                 .. attribute:: global_lock
                 
                 	Present if the global lock is set
-                	**type**\:   :py:class:`GlobalLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.GlobalLock>`
+                	**type**\:  :py:class:`GlobalLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.GlobalLock>`
                 
                 .. attribute:: partial_lock
                 
                 	List of partial locks
-                	**type**\: list of    :py:class:`PartialLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.PartialLock>`
+                	**type**\: list of  		 :py:class:`PartialLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.PartialLock>`
                 
                 
 
@@ -328,7 +328,7 @@ class NetconfState(Entity):
                     .. attribute:: locked_by_session
                     
                     	The session ID of the session that has locked this resource.  Both a global lock and a partial lock MUST contain the NETCONF session\-id.  If the lock is held by a session that is not managed by the NETCONF server (e.g., a CLI session), a session id of 0 (zero) is reported
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -337,7 +337,9 @@ class NetconfState(Entity):
                     .. attribute:: locked_time
                     
                     	The date and time of when the resource was locked
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
                     	**mandatory**\: True
                     
@@ -374,14 +376,14 @@ class NetconfState(Entity):
                     .. attribute:: lock_id  <key>
                     
                     	This is the lock id returned in the <partial\-lock> response
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: locked_by_session
                     
                     	The session ID of the session that has locked this resource.  Both a global lock and a partial lock MUST contain the NETCONF session\-id.  If the lock is held by a session that is not managed by the NETCONF server (e.g., a CLI session), a session id of 0 (zero) is reported
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -390,19 +392,21 @@ class NetconfState(Entity):
                     .. attribute:: locked_time
                     
                     	The date and time of when the resource was locked
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
                     	**mandatory**\: True
                     
                     .. attribute:: select
                     
                     	The xpath expression that was used to request the lock.  The select expression indicates the original intended scope of the lock
-                    	**type**\:  list of str
+                    	**type**\: list of str
                     
                     .. attribute:: locked_node
                     
                     	The list of instance\-identifiers (i.e., the locked nodes).  The scope of the partial lock is defined by the list of locked nodes
-                    	**type**\:  list of str
+                    	**type**\: list of str
                     
                     
 
@@ -444,7 +448,7 @@ class NetconfState(Entity):
         .. attribute:: schema
         
         	List of data model schemas supported by the server
-        	**type**\: list of    :py:class:`Schema <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema>`
+        	**type**\: list of  		 :py:class:`Schema <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema>`
         
         
 
@@ -478,38 +482,34 @@ class NetconfState(Entity):
             .. attribute:: identifier  <key>
             
             	Identifier to uniquely reference the schema.  The identifier is used in the <get\-schema> operation and may be used for other purposes such as file retrieval.  For modeling languages that support or require a data model name (e.g., YANG module name) the identifier MUST match that name.  For YANG data models, the identifier is the name of the module or submodule.  In other cases, an identifier such as a filename MAY be used instead
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: version  <key>
             
             	Version of the schema supported.  Multiple versions MAY be supported simultaneously by a NETCONF server.  Each version MUST be reported individually in the schema list, i.e., with same identifier, possibly different location, but different version.  For YANG data models, version is the value of the most recent YANG 'revision' statement in the module or submodule, or the empty string if no 'revision' statement is present
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: format  <key>
             
             	The data modeling language the schema is written in (currently xsd, yang, yin, rng, or rnc). For YANG data models, 'yang' format MUST be supported and 'yin' format MAY also be provided
-            	**type**\:   :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
+            	**type**\:  :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
             
             .. attribute:: namespace
             
             	The XML namespace defined by the data model.  For YANG data models, this is the module's namespace. If the list entry describes a submodule, this field contains the namespace of the module to which the submodule belongs
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: location
             
             	One or more locations from which the schema can be retrieved.  This list SHOULD contain at least one entry per schema.  A schema entry may be located on a remote file system (e.g., reference to file system for ftp retrieval) or retrieved directly from a server supporting the <get\-schema> operation (denoted by the value 'NETCONF')
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  list of   :py:class:`Location <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema.Location>`
+            		**type**\: list of   :py:class:`Location <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema.Location>`
             
+            		**type**\: list of str
             
-            ----
-            	**type**\:  list of str
-            
-            
-            ----
             
 
             """
@@ -577,7 +577,7 @@ class NetconfState(Entity):
         .. attribute:: session
         
         	All NETCONF sessions managed by the NETCONF server MUST be reported in this list
-        	**type**\: list of    :py:class:`Session <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions.Session>`
         
         
 
@@ -612,77 +612,75 @@ class NetconfState(Entity):
             .. attribute:: session_id  <key>
             
             	Unique identifier for the session.  This value is the NETCONF session identifier, as defined in RFC 4741
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: transport
             
             	Identifies the transport for each session, e.g., 'netconf\-ssh', 'netconf\-soap', etc
-            	**type**\:   :py:class:`Transport <ydk.models.ietf.ietf_netconf_monitoring.Transport>`
+            	**type**\:  :py:class:`Transport <ydk.models.ietf.ietf_netconf_monitoring.Transport>`
             
             	**mandatory**\: True
             
             .. attribute:: username
             
             	The username is the client identity that was authenticated by the NETCONF transport protocol.  The algorithm used to derive the username is NETCONF transport protocol specific and in addition specific to the authentication mechanism used by the NETCONF transport protocol
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: source_host
             
             	Host identifier of the NETCONF client.  The value returned is implementation specific (e.g., hostname, IPv4 address, IPv6 address)
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            ----
+            		**type**\: str
             
-            ----
-            	**type**\:  str
+            			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
             
-            	**length:** 1..253
-            
-            
-            ----
             .. attribute:: login_time
             
             	Time at the server at which the session was established
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
             	**mandatory**\: True
             
             .. attribute:: in_rpcs
             
             	Number of correct <rpc> messages received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: in_bad_rpcs
             
             	Number of messages received when an <rpc> message was expected, that were not correct <rpc> messages.  This includes XML parse errors and errors on the rpc layer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: out_rpc_errors
             
             	Number of <rpc\-reply> messages sent that contained an <rpc\-error> element
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: out_notifications
             
             	Number of <notification> messages sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -734,54 +732,56 @@ class NetconfState(Entity):
         .. attribute:: netconf_start_time
         
         	Date and time at which the management subsystem was started
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: in_bad_hellos
         
         	Number of sessions silently dropped because an invalid <hello> message was received.  This includes <hello> messages with a 'session\-id' attribute, bad namespace, and bad capability declarations
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: in_sessions
         
         	Number of sessions started.  This counter is incremented when a <hello> message with a <session\-id> is sent.  'in\-sessions' \- 'in\-bad\-hellos' =    'number of correctly started netconf sessions'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: dropped_sessions
         
         	Number of sessions that were abnormally terminated, e.g., due to idle timeout or transport close.  This counter is not incremented when a session is properly closed by a <close\-session> operation, or killed by a <kill\-session> operation
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: in_rpcs
         
         	Number of correct <rpc> messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: in_bad_rpcs
         
         	Number of messages received when an <rpc> message was expected, that were not correct <rpc> messages.  This includes XML parse errors and errors on the rpc layer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: out_rpc_errors
         
         	Number of <rpc\-reply> messages sent that contained an <rpc\-error> element
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: out_notifications
         
         	Number of <notification> messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -846,12 +846,12 @@ class GetSchema(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Output>`
     
     
 
@@ -890,19 +890,19 @@ class GetSchema(Entity):
         .. attribute:: identifier
         
         	Identifier for the schema list entry
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: version
         
         	Version of the schema requested.  If this parameter is not present, and more than one version of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: format
         
         	The data modeling language of the schema.  If this parameter is not present, and more than one formats of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
-        	**type**\:   :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
+        	**type**\:  :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
         
         
 
@@ -940,7 +940,7 @@ class GetSchema(Entity):
         .. attribute:: data
         
         	Contains the schema content
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         
 

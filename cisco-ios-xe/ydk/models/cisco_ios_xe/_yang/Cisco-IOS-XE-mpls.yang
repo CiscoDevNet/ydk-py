@@ -45,6 +45,21 @@ module Cisco-IOS-XE-mpls {
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
+  revision 2017-07-20 {
+    description
+      "Add interface BDI mpls";
+  }
+  revision 2017-06-30 {
+    description
+      "This revision removes compile warning for mpls ldp router-id vrf";
+  }
+
   revision 2017-02-23 {
     description
       "This revision adds support for MPLS-TE (global and interface mode)";
@@ -1264,21 +1279,19 @@ module Cisco-IOS-XE-mpls {
               type empty;
             }
           }
-          container vrf {
-            list vrf {
-              key "vrf-name";
-              leaf vrf-name {
-                description 
-                  "VPN Routing/Forwarding instance name";
-                type string;
-              }
-              container interface {
-                uses ios-ifc:interface-grouping;
-                leaf force {
-                  description
-                    "Forcibly change the LDP router id";
-                  type empty;
-                }
+          list vrf {
+            key "vrf-name";
+            leaf vrf-name {
+              description 
+                "VPN Routing/Forwarding instance name";
+              type string;
+            }
+            container interface {
+              uses ios-ifc:interface-grouping;
+              leaf force {
+                description
+                  "Forcibly change the LDP router id";
+                type empty;
               }
             }
           }
@@ -2248,6 +2261,22 @@ module Cisco-IOS-XE-mpls {
           type ldp-discovery-address-type;
         }
       }
+      container igp {
+        description
+          "Configure IGP-related parameters";
+        container sync {
+          description
+            "Allow LDP-IGP Synchronization on this interface";
+          presence "true";
+          leaf delay {
+            description
+              "Configure LDP to IGP sync achieved notification delay time (seconds)";
+            type uint8 {
+              range "5..60";
+            }
+          }
+        }
+      }
     }
     leaf mtu {
       description
@@ -2849,6 +2878,18 @@ module Cisco-IOS-XE-mpls {
     uses config-interface-mpls-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:mpls" {
+    uses config-interface-mpls-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:mpls" {
+    uses config-interface-mpls-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Vlan/ios:mpls" {
+    uses config-interface-mpls-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Port-channel/ios:mpls" {
     uses config-interface-mpls-grouping;
   }
@@ -2858,6 +2899,9 @@ module Cisco-IOS-XE-mpls {
   }
 
   augment "/ios:native/ios:interface/ios:Tunnel/ios:mpls" {
+    uses config-interface-mpls-grouping;
+  }
+  augment "/ios:native/ios:interface/ios:BDI/ios:mpls" {
     uses config-interface-mpls-grouping;
   }
 }

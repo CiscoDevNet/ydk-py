@@ -505,12 +505,12 @@ class Fpd_(Entity):
     .. attribute:: nodes
     
     	List of FPD supported nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Nodes>`
     
     .. attribute:: packages
     
     	FPD packages information
-    	**type**\:   :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Packages>`
+    	**type**\:  :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Packages>`
     
     
 
@@ -549,7 +549,7 @@ class Fpd_(Entity):
         .. attribute:: node
         
         	Information about a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Nodes.Node>`
         
         
 
@@ -583,12 +583,14 @@ class Fpd_(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: devices
             
             	FPD information table
-            	**type**\:   :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Nodes.Node.Devices>`
+            	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Nodes.Node.Devices>`
             
             
 
@@ -627,7 +629,7 @@ class Fpd_(Entity):
                 .. attribute:: device
                 
                 	FPD information for a particular fpd type
-                	**type**\: list of    :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Nodes.Node.Devices.Device>`
+                	**type**\: list of  		 :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Nodes.Node.Devices.Device>`
                 
                 
 
@@ -660,39 +662,39 @@ class Fpd_(Entity):
                     .. attribute:: fpd_type
                     
                     	FPD type
-                    	**type**\:   :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd>`
+                    	**type**\:  :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd>`
                     
                     .. attribute:: instance
                     
                     	Instance
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: sub_type
                     
                     	FPD sub type
-                    	**type**\:   :py:class:`FpdSub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub>`
+                    	**type**\:  :py:class:`FpdSub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub>`
                     
                     .. attribute:: card_type
                     
                     	Card type containing FPD
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: hardware_version
                     
                     	FPD hardware version inX.Y format. X\-Major version, Y\-Minor version
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: software_version
                     
                     	FPD software version in X.Y format X\-Major version, Y\-Minor version Note\: 'Unknown' is returned in case the software version of the FPD cannot be determined
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: is_upgrade_downgrade
                     
                     	If true, upgrade or downgrade
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -737,7 +739,7 @@ class Fpd_(Entity):
         .. attribute:: all_package
         
         	List of packages
-        	**type**\: list of    :py:class:`AllPackage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Packages.AllPackage>`
+        	**type**\: list of  		 :py:class:`AllPackage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd_.Packages.AllPackage>`
         
         
 
@@ -771,37 +773,37 @@ class Fpd_(Entity):
             .. attribute:: card_type
             
             	Card type containing FPD
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: card_description
             
             	Card description
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: fpd_type
             
             	FPD type
-            	**type**\:   :py:class:`Fpd1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd1>`
+            	**type**\:  :py:class:`Fpd1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd1>`
             
             .. attribute:: fpd_sub_type
             
             	FPD sub type
-            	**type**\:   :py:class:`FpdSub1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub1>`
+            	**type**\:  :py:class:`FpdSub1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub1>`
             
             .. attribute:: software_version
             
             	FPD software version in X.Y format X\-Major version, Y\-Minor version Note\: 'Unknown' is returned in case the software version of the FPD cannot be determined
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: minimum_required_software_version
             
             	Minimum required FPD software version in X.Y format X\-Major version, Y\-Minor version Note\: 'Unknown' is returned in case the software version of the FPD cannot be determined
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: minimum_required_hardware_version
             
             	Minimum required FPD hardware version in X.Y format X\-Major version, Y\-Minor version 
-            	**type**\:  str
+            	**type**\: str
             
             
 

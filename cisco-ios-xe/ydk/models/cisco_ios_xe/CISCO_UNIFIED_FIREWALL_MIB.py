@@ -190,82 +190,82 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
     .. attribute:: cufwconnectionglobals
     
     	
-    	**type**\:   :py:class:`Cufwconnectionglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals>`
+    	**type**\:  :py:class:`Cufwconnectionglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals>`
     
     .. attribute:: cufwconnectionresources
     
     	
-    	**type**\:   :py:class:`Cufwconnectionresources <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources>`
+    	**type**\:  :py:class:`Cufwconnectionresources <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources>`
     
     .. attribute:: cufwconnectionreportsettings
     
     	
-    	**type**\:   :py:class:`Cufwconnectionreportsettings <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings>`
+    	**type**\:  :py:class:`Cufwconnectionreportsettings <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings>`
     
     .. attribute:: cufwapplinspectiongrp
     
     	
-    	**type**\:   :py:class:`Cufwapplinspectiongrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp>`
+    	**type**\:  :py:class:`Cufwapplinspectiongrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp>`
     
     .. attribute:: cufwurlfilterglobals
     
     	
-    	**type**\:   :py:class:`Cufwurlfilterglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals>`
+    	**type**\:  :py:class:`Cufwurlfilterglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals>`
     
     .. attribute:: cufwurlfilterresourceusage
     
     	
-    	**type**\:   :py:class:`Cufwurlfilterresourceusage <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage>`
+    	**type**\:  :py:class:`Cufwurlfilterresourceusage <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage>`
     
     .. attribute:: cufwaaicglobals
     
     	
-    	**type**\:   :py:class:`Cufwaaicglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals>`
+    	**type**\:  :py:class:`Cufwaaicglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals>`
     
     .. attribute:: cufwaaichttpprotocolstats
     
     	
-    	**type**\:   :py:class:`Cufwaaichttpprotocolstats <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats>`
+    	**type**\:  :py:class:`Cufwaaichttpprotocolstats <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats>`
     
     .. attribute:: cufwl2fwglobals
     
     	
-    	**type**\:   :py:class:`Cufwl2Fwglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals>`
+    	**type**\:  :py:class:`Cufwl2Fwglobals <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals>`
     
     .. attribute:: cufwnotifcntlgrp
     
     	
-    	**type**\:   :py:class:`Cufwnotifcntlgrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp>`
+    	**type**\:  :py:class:`Cufwnotifcntlgrp <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp>`
     
     .. attribute:: cufwconnsummarytable
     
     	This table summarizes the connection activity on the firewall per layer3\-layer 4 protocol instance.  Each entry in the table lists the connection summary of a distinct network protocol.  For instance, the conceptual row corresponding to the index       cufwConnProtocol = fwpTcp  yields the summary of TCP connection activity on the  firewall since its reboot
-    	**type**\:   :py:class:`Cufwconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable>`
+    	**type**\:  :py:class:`Cufwconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable>`
     
     .. attribute:: cufwappconnsummarytable
     
     	This table lists the summary of firewall  connections pertaining to Layer 7 protocols, catalogued by distinct application protocols.  Each entry in the table lists the connection summary corresponding to a distinct application  protocol.  For instance, to obtain the connection summary  for SMTP on the firewall since the last reboot  of the device, use the conceptual row  corresponding to      cufwAppConnProtocol = fwApSmtp
-    	**type**\:   :py:class:`Cufwappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable>`
+    	**type**\:  :py:class:`Cufwappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable>`
     
     .. attribute:: cufwpolicyconnsummarytable
     
     	This table lists the summary of firewall  connections for layer3\-layer 4 protocols catalogued  on a per policy basis.  Each entry in the table lists the connection summary of a distinct network protocol, configured on the specified policy on the firewall, and pertaining to a specified  target to which the policy is currently applied.   If a policy is bound to a target, it would have one or more entries in this table. If the policy is  detached from the target, all entries corresponding  to the association between the policy and the target  are elminated from this table.  Although the information is indexed by policy targets as well, one may aggregate the connection summary for a specific policy across all the target to which the  policy is currently applied by setting        cufwConnPolicyTargetType =  'targetAll'
-    	**type**\:   :py:class:`Cufwpolicyconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable>`
+    	**type**\:  :py:class:`Cufwpolicyconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable>`
     
     .. attribute:: cufwpolicyappconnsummarytable
     
     	This table lists the summary of firewall  connections pertaining to Layer 7 protocols, catalogued on a per policy basis  Each entry in the table lists the connection summary of a distinct application protocol,  configured on the specified policy on the firewall,  and pertaining to a specified target to which the policy has been applied.  If a policy is bound to a target, it would have one or more entries in this table. If the policy is detached from the target, all entries corresponding to the association between the policy and the target are elminated from this table.  Although the information is indexed by policy targets as well, one may aggregate the connection summary for a specific policy across all the target to which the policy is currently applied by setting        cufwAppConnPolicyTargetType = 'targetALL'
-    	**type**\:   :py:class:`Cufwpolicyappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable>`
+    	**type**\:  :py:class:`Cufwpolicyappconnsummarytable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable>`
     
     .. attribute:: cufwinspectiontable
     
     	This table identifies if an application protocol has been configured for inspection and if so, the name of  the firewall policy or the inspection configuration that configures the specified protocol for inspection. The table also identifies if the specified protocol is actively being inspected.  This table may be used by an administrator to quickly identify if a protocol is being subjected to application inspection by the managed firewall
-    	**type**\:   :py:class:`Cufwinspectiontable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable>`
+    	**type**\:  :py:class:`Cufwinspectiontable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable>`
     
     .. attribute:: cufwurlfservertable
     
     	This table lists the URL filtering servers configured on the managed device and their performance statistics.  This table is not meant as a device to  configure URL filtering servers
-    	**type**\:   :py:class:`Cufwurlfservertable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable>`
+    	**type**\:  :py:class:`Cufwurlfservertable <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable>`
     
     
 
@@ -374,7 +374,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumattempted
         
         	 Connection Statistics Aggregation  Connection 1  +\-\-\-\-\-\-\-\-\-\-\-+  \-\-\-\-\-\-\-\-\-\-\-\-\->\|           \|\-\-\-\-\-\-\-> Global Connection Summary Connection 2  \|           \| \-\-\-\-\-\-\-\-\-\-\-\-\->\|           \| Connection 3  \|           \| \-\-\-\-\-\-\-\-\-\-\-\-\->\|   First   \|\-\-\-\-\-\-\-\-\-\-\-\-> ConnSummary    \|   Level   \|            (i.e, L\-3/4 Protocol Connection 4  \|Aggregation\|             Connection Summary) \-\-\-\-\-\-\-\-\-\-\-\-\->\|           \| .    \|           \| .    \|           \|\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-> PolicyConnSummary  Connection N  \|           \|       (i.e, L\-3/4 Policy Target based \-\-\-\-\-\-\-\-\-\-\-\-\->\|           \|        Protocol Connection Summary)   +\-\-\-\-\-\-\-\-\-\-\-+     +\-\-\-\-\-\-\-\-\-\-\-+  L\-3/4 Protocol   \|           \| Connection Summary \|           \| \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\->\|           \|\-\-\-\-\-\-\-\-\-> AppConnSummary    \|           \|         (i.e, L\-7 Protocol    \|  Second   \|          Connection Summary)   \|\-\-\-Level\-\-\-\| L\-3/4 Policy Target \|Aggregation\| based Protocol    \|           \| Connection Summary  \|           \| \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\->\|           \|\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-> PolicyAppConnSummary   \|           \|       (i.e, L\-7 Policy Target based   \|           \|        Protocol Connection Summary)   +\-\-\-\-\-\-\-\-\-\-\-+   Specifically, the object  'cufwConnGlobalNumAttempted' models the number of connections which are attempted to be set up through the firewall.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -383,7 +383,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumsetupsaborted
         
         	The number of connection setup attempts that were aborted before the connection could proceed to completion. The counter includes setup attempts aborted by the firewall as well as  those aborted by the initiator and/or the  responder(s) of/to the connection setup attempt.  Consequently, this value subsumes the values of objects 'cufwConnGlobalNumPolicyDeclined' and  'cufwConnGlobalNumResDeclined'.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -392,7 +392,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumpolicydeclined
         
         	The number of connections which were attempted to be setup but which were declined due to reasons of security policy.  This includes the connections that failed  authentication.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -401,7 +401,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumresdeclined
         
         	The number of connections which were attempted to be setup but which were declined due to  non\-availability of required resources.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -410,7 +410,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumhalfopen
         
         	The number of connections which are in the process of being setup but which have not yet reached the established state in the connection table
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -419,7 +419,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumactive
         
         	The number of connections which are currently active
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -428,7 +428,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumexpired
         
         	The number of connections which were active but which were since normally terminated.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -437,7 +437,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumaborted
         
         	The number of connections which were active but which were aborted by the firewall due to reasons of policy or resource rationing.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -446,7 +446,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumembryonic
         
         	The number of embryonic application layer connections  (that is, connections in which the signaling channel has been established while the data channel is awaiting setup).  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -455,7 +455,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalconnsetuprate1
         
         	The averaged number of connections which the firewall  establishing per second, averaged over the last 60  seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -464,7 +464,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalconnsetuprate5
         
         	The averaged number of connections which the firewall  establishing per second, averaged over the last 300 seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -473,7 +473,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnglobalnumremoteaccess
         
         	The number of active connections which correspond to remote access applications. Specifically, the protocol for which the connection is established must be one of PPP, PPTP, L2TP or remote access IPsec (IPsec connections employing extended authentication).  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -533,7 +533,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnresmemoryusage
         
         	The amount of memory occupied by all structures required to maintain the state of all connections which are either being established or are active
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -542,7 +542,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnresactiveconnmemoryusage
         
         	The amount of memory occupied by all structures required to maintain the state of all active connections
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -551,7 +551,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnreshoconnmemoryusage
         
         	The amount of memory occupied by all structures required to maintain the state of all half open connections
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -560,7 +560,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnresembrconnmemoryusage
         
         	The amount of memory occupied by all structures required to maintain the state of all embryonic connections
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -604,12 +604,12 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnreptappstats
         
         	Setting this object to 'true' enables the MIB to report connection activity statistics pertaining to application protocols.  If this object is set to 'false', the agent should stop updating the objects defined in this module pertaining to application protocols.  Application monitoring could be a resource intensive operation. It is expected that the administrators  would use this control to disable application  monitoring when the performance of the firewall is  degrading
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cufwconnreptappstatslastchanged
         
         	The time at which the value of cufwConnReptAppStats  was last changed
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -647,12 +647,12 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaiaudittrailenabled
         
         	The value identifies if audit trail in application  inspection has been globally enabled or disabled
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cufwaialertenabled
         
         	The value identifies if application inspection alerts have been globally enabled or disabled
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -688,14 +688,14 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlffunctionenabled
         
         	 URL Filtering Operation                                  \_\_\_\_\_\_\_\_\_                  2.2 Request   \|         \|                    \|\-\-\-\-\-\-\-\-\-\->\| Server  \|                    \|           \|         \| \_\_\_\_\_\_\_\_\_                      \_\_\|\_          \|\_\_\_\_\_\_\_\_\_\| \|         \|<\-\-(5. Response )\-\-\-\|    \| 3. Response  \|   \|         \|                    \|    \|<\-\-\-\-\-\-\-\-\-\-\-\-\-\|  \| Client  \|\-\-\-(1. Request )\-\-\->\|FW  \| \|\_\_\_\_\_\_\_\_\_\|                    \|\_\_\_\_\|<\-\-\-\-\-\-\-\-\-\-\-\-\-\-\|                   \| 4. URLF Resp \_\_\_\_\|\_\_\_\_\_\_                   \|             \|           \|                   \|\-\-\-\-\-\-\-\-\-\-\-\->\|URLF Server\|                  2.1 URLF Req   \|\_\_\_\_\_\_\_\_\_\_\_\|  1)  Client sends a Request containing a URL to the Server  2.1)  FW extracts the URL from the Request and sends it to  URL Filtering Server (or Verifies the URL locally)  2.2)  FW also forwards the original Request from the Client to  the Server  3)  Any Responses from the Server received before receiving a response from URLF Server are cached by the FW  4)  URLF Response indicates whether the URL access should be  allowed or denied  5)  If the URLF Response allows the URL, FW forwards the URL Access responses from the Server to the Client  6)  If the URLF Response indicates that the URL access should be denied, FW drops all the cached URL responses and forces the connection between the Client and the Server to be terminated  Specifically, the object cufwUrlfFunctionEnabled  indicates if the URL filtering function is enabled.  When this MIB object contains the value 'false', the firewall device will not perform URL filtering function, even if it contains configuration pertaining to other aspects of URL filtering
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2
         
         .. attribute:: cufwurlfrequestsnumprocessed
         
         	The number of URL access requests processed by  this firewall.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -704,7 +704,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsprocrate1
         
         	The number of URL access requests processed per  seconds by this firewall averaged over the last 60  seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -713,7 +713,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsprocrate5
         
         	The number of URL access requests processed per second by this firewall averaged over the last 300 seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -722,7 +722,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsnumallowed
         
         	The number of URL access requests allowed by this firewall, due to a directive from a URL  filtering server or a static policy configured on  the firewall.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -731,7 +731,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsnumdenied
         
         	The number of URL access requests declined by this firewall, due to a directive from a URL  filtering server, a static policy configured on  the firewall, due to resource constraints or any other reason.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -740,7 +740,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsdeniedrate1
         
         	The rate at which URL access requests were denied by this firewall, due to a directive from a URL  filtering server, a static policy configured on  the firewall, due to resource constraints or any other reason, averaged over the last 60 seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -749,7 +749,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsdeniedrate5
         
         	The rate at which URL access requests were denied by this firewall, due to a directive from a URL  filtering server, a static policy configured on  the firewall, due to resource constraints or any other reason, averaged over the last 300 seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -758,7 +758,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsnumcacheallowed
         
         	The number of URL access requests allowed by the firewall because of a cached entry holding the result from a previous URL access request that was handled either by a URLF Server or exclusive domain configuration.   This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -767,7 +767,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsnumcachedenied
         
         	The number of URL access requests denied by the firewall because of a cached entry holding the result from a previous URL access request that was handled either by a URLF Server or exclusive domain configuration.   This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -776,7 +776,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfallowmodereqnumallowed
         
         	The number of URL access requests that were allowed by the firewall when the URL filtering server was not available.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -785,7 +785,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfallowmodereqnumdenied
         
         	The number of URL access requests that were declined by the firewall when the URL filtering server was not available.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -794,7 +794,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsnumresdropped
         
         	The number of incoming URL access requests that were dropped by the firewall because of resource constraints.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -803,7 +803,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsresdroprate1
         
         	The rate at which incoming URL access requests  were dropped by the firewall because of resource constraints, averaged over the last 60 seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -812,7 +812,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrequestsresdroprate5
         
         	The rate at which incoming URL access requests  were dropped by the firewall because of resource constraints, averaged over the last 300 seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -821,21 +821,21 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfnumservertimeouts
         
         	The number of times the firewall failed to receive a response from the configured URL filtering servers  for a request to authorize a URL access request.  This is equal to the number of times a firewall removed a URL access request from the queue of pending requests because no response was received from the URL filtering server(s).  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: cufwurlfnumserverretries
         
         	The number of URL access authorization requests  re\-sent by the firewall to the URL Filtering Servers  because a response was not received within the  configured time interval.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: cufwurlfresponsesnumlate
         
         	The number of responses from URL filtering servers which were received after the original URL access request was removed from the queue of pending requests.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -844,7 +844,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfurlaccrespsnumresdropped
         
         	The number of transport packets constituting responses to URL access requests that were dropped by the firewall due to resource constraints waiting for a response from the filtering server.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -918,7 +918,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrestotalrequestcachesize
         
         	The amount of memory occupied by all the caches used in the firewall to cache pending URL access requests
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -927,7 +927,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfrestotalrespcachesize
         
         	The amount of memory occupied by all the caches used in the firewall to cache responses for URL  requests received from servers while awaiting a response from URL filter server
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -967,7 +967,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaicglobalnumbadprotocolops
         
         	'Protocol Operation' is the application protocol specific operation that the PDU is intended to  perform. An example of 'protocol operation' is the  HELO command of SMTP protocol.  This MIB object records the number of application  protocol data units that contained a protocol operation which was disallowed by the local security policy.   For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -976,7 +976,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaicglobalnumbadpdusize
         
         	This MIB object records the number of application  protocol data units (PDU) that had either an invalid header size or an invalid payload size, as determined  by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -985,7 +985,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaicglobalnumbadportrange
         
         	Number of application protocol units that attempted  to advertise illegal port ranges for secondary  connections. An example of such an occurrence would be a passive FTP connection, where the  server advertises a disallowed port range for data connection.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  application traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1027,7 +1027,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaichttpnumbadprotocolops
         
         	The number of PDUs corresponding to HTTP protocol  which were detected to be containing HTTP protocol methods which are disallowed by the local security  policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1036,7 +1036,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaichttpnumbadpdusize
         
         	The number of PDUs corresponding to HTTP protocol  that had either an invalid header size or an invalid  payload size, as determined by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1045,7 +1045,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaichttpnumtunneledconns
         
         	The number of connections corresponding to HTTP protocol which were detected to be tunneling other  application traffic streams. An instance of this  would be InstantMessenger traffic running on HTTP.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1054,7 +1054,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaichttpnumlargeuris
         
         	The number of PDUs corresponding to HTTP protocol  which were detected to be containing a URI of size not permitted by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1063,7 +1063,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaichttpnumbadcontent
         
         	The number of PDUs corresponding to HTTP protocol  which were detected to be containing content whose type disallowed by the local security policy.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1072,7 +1072,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaichttpnummismatchcontent
         
         	The number of PDUs corresponding to HTTP protocol  which were detected to be containing content whose type was different from the content type specified  in the header of the PDU.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1081,7 +1081,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwaaichttpnumdoubleencodedpkts
         
         	The number of PDUs corresponding to HTTP protocol  which were detected to be containing double encoding. Double encoding is a mechanism to obfuscate content  in which a encoded data is re\-encoded so as to evade  deep packet inspections.  For this MIB to be implemented, the managed firewall  must be implementing deep packet inspection of  HTTP traffic payloads.  This value is accumulated from the last reboot of the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1131,12 +1131,12 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwl2globalenablestealthmode
         
         	The value indicates if the firewall is operating in transparent (layer 2) mode or not.  When operating in transparent mode, the firewall operates as a bridge while performing firewalling functions
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cufwl2globalarpcachesize
         
         	The value indicates the configured maximum size of the ARP cache used for management traffic
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -1145,12 +1145,12 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwl2globalenablearpinspection
         
         	The value indicates if ARP inspection, which is a security feature, is enabled globally on the managed firewall
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cufwl2globalnumarprequests
         
         	The number of ARP requests issued by the transparent firewall to resolve a destination IP address.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1159,7 +1159,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwl2globalnumicmprequests
         
         	The number of ICMP traceroute requests issued by the  transparent firewall to resolve a destination IP  address.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1168,28 +1168,28 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwl2globalnumfloods
         
         	The number of times the firewall floods a frame to be  forwarded to the egress interfaces because the  destination MAC address is missing in the bridge table.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: cufwl2globalnumdrops
         
         	The number of times the firewall dropped an incoming frame because the destination MAC address is missing  in the bridge table.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: cufwl2globalarpoverflowrate5
         
         	The number of times an existing entry from the ARP cache had to be ejected in order to insert a new entry in the last 300 seconds.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: cufwl2globalnumbadarpresponses
         
         	The number of malformed ARP responses received by the firewall in trying to resolve the MAC address of the destination IP address in an incoming frame.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1198,7 +1198,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwl2globalnumspoofedarpresps
         
         	The number of spoofed ARP responses received by the firewall. Such an event would occur when the firewall encounters an ARP response mapping an IP address to a different MAC Address from the one present in the local ARP cache.  This counter is accumulated since the last reboot of  the firewall
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1254,12 +1254,12 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwcntlurlfserverstatuschange
         
         	This object defines the administrative state of sending the SNMP notification to signal the election of a new primary URL filtering server by this firewall.  Such a change could occur either as a result of  the current primary server becoming unavailable or as a result of explicit management action in  nominating a filtering server the primary server
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cufwcntll2staticmacaddressmoved
         
         	This object defines the administrative state of sending the SNMP notification to signal the move of a statically configured MAC address to a new  port.  Such a change could occur either as a result of physical move of the device with the MAC Address to the new port or due to MAC address spoofing
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -1307,7 +1307,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwconnsummaryentry
         
         	Each entry contains the summary of connection activity for a layer3\-layer4 network protocol
-        	**type**\: list of    :py:class:`Cufwconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry>`
+        	**type**\: list of  		 :py:class:`Cufwconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable.Cufwconnsummaryentry>`
         
         
 
@@ -1342,12 +1342,12 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnprotocol  <key>
             
             	The (L3\-L4) protocol for which this conceptual  row summarizes the connection activity on the managed entity
-            	**type**\:   :py:class:`CFWNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWNetworkProtocol>`
+            	**type**\:  :py:class:`CFWNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWNetworkProtocol>`
             
             .. attribute:: cufwconnnumattempted
             
             	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1356,7 +1356,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnnumsetupsaborted
             
             	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwConnProtocol', that were aborted before the  connection could proceed to completion. The  counter includes setup attempts aborted by the  firewall as well as those aborted by the initiator  and/or the responder(s) of/to the connection setup  attempt.  Consequently, this value subsumes the values of objects 'cufwConnNumPolicyDeclined' and  'cufwConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1365,7 +1365,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnnumpolicydeclined
             
             	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1374,7 +1374,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnnumresdeclined
             
             	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1383,7 +1383,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnnumhalfopen
             
             	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwConnProtocol'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1392,7 +1392,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnnumactive
             
             	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwConnProtocol'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1401,7 +1401,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnnumaborted
             
             	The number of connections that were abnormally  terminated after successful establishment,  corresponding to the protocol denoted by  'cufwConnProtocol'.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1410,7 +1410,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnsetuprate1
             
             	The connection setup rate averaged over the last 60 seconds corresponding to the protocol denoted by  'cufwConnProtocol'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1419,7 +1419,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwconnsetuprate5
             
             	The connection setup rate averaged over the last 300 seconds corresponding to the protocol denoted by  'cufwConnProtocol'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1488,7 +1488,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwappconnsummaryentry
         
         	Each entry contains the summary of connection activity for a distinct layer 7 protocol identified by the index element 'cufwAppConnProtocol'
-        	**type**\: list of    :py:class:`Cufwappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry>`
+        	**type**\: list of  		 :py:class:`Cufwappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable.Cufwappconnsummaryentry>`
         
         
 
@@ -1524,12 +1524,12 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnprotocol  <key>
             
             	The layer7 protocol for which this conceptual  row summarizes the connection activity for this  firewall
-            	**type**\:   :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
+            	**type**\:  :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
             
             .. attribute:: cufwappconnnumattempted
             
             	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1538,7 +1538,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnnumsetupsaborted
             
             	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwAppConnProtocol', that were aborted before the connection could proceed to completion. The  counter includes setup attempts aborted by the  firewall as well as those aborted by the initiator  and/or the responder(s) of/to the connection setup  attempt.  Consequently, this value subsumes the values of objects 'cufwAppConnNumPolicyDeclined' and  'cufwAppConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1547,7 +1547,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnnumpolicydeclined
             
             	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1556,7 +1556,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnnumresdeclined
             
             	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1565,7 +1565,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnnumhalfopen
             
             	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwAppConnProtocol'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1574,7 +1574,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnnumactive
             
             	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwAppConnProtocol'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1583,7 +1583,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnnumaborted
             
             	The number of connections that were terminated by the  firewall successful establishment, corresponding  to the protocol denoted by 'cufwAppConnProtocol'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1592,7 +1592,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnsetuprate1
             
             	The connection setup rate averaged over the last 60 seconds corresponding to the protocol denoted by  'cufwAppConnProtocol'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1601,7 +1601,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwappconnsetuprate5
             
             	The connection setup rate averaged over the last 300 seconds corresponding to the protocol denoted by  'cufwAppConnProtocol'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1677,7 +1677,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwpolicyconnsummaryentry
         
         	Each entry contains the summary of connection activity for a specific protocol in a specific policy applied to the specified policy target
-        	**type**\: list of    :py:class:`Cufwpolicyconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry>`
+        	**type**\: list of  		 :py:class:`Cufwpolicyconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry>`
         
         
 
@@ -1713,31 +1713,31 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolconnpolicy  <key>
             
             	The identity of the firewall policy for which this conceptual row contains the connection  activity summary
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cufwpolconnpolicytargettype  <key>
             
             	The type of the entity to which the firewall policy 'cufwPolConnPolicy' has been applied. This could be an interface type (most commonly), the type of another object or a group of objects defined in the firewall configuration.  When this object is set to 'targetALL', the value of index object cufwConnPolicyTarget is ignored
-            	**type**\:   :py:class:`CFWPolicyTargetType <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWPolicyTargetType>`
+            	**type**\:  :py:class:`CFWPolicyTargetType <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWPolicyTargetType>`
             
             .. attribute:: cufwpolconnpolicytarget  <key>
             
             	The identity of the entity to which the firewall  policy 'cufwPolConnPolicy' is applied. This could be an interface object (most commonly), another object or group of objects defined in the firewall configuration
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cufwpolconnprotocol  <key>
             
             	The (L3\-L4) protocol corresponding to which this  conceptual row summarizes the connection activity on the firewall
-            	**type**\:   :py:class:`CFWNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWNetworkProtocol>`
+            	**type**\:  :py:class:`CFWNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWNetworkProtocol>`
             
             .. attribute:: cufwpolconnnumattempted
             
             	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1746,7 +1746,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolconnnumsetupsaborted
             
             	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwPolConnProtocol', associated with the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget', that were aborted before the connection could  proceed to completion. The counter includes  setup attempts aborted by the firewall as well  as those aborted by the initiator and/or the  responder(s) of/to the connection setup attempt.  Consequently, this value subsumes the values of objects 'cufwPolConnNumPolicyDeclined' and 'cufwPolConnNumResDeclined'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1755,7 +1755,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolconnnumpolicydeclined
             
             	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1764,7 +1764,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolconnnumresdeclined
             
             	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwPolConnProtocol', in the policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1773,7 +1773,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolconnnumhalfopen
             
             	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwPolConnProtocol', in the  policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1782,7 +1782,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolconnnumactive
             
             	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwPolConnProtocol', in the policy  'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1791,7 +1791,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolconnnumaborted
             
             	The number of connections that were abnormally  terminated after successful establishment, corresponding to the protocol denoted by 'cufwPolConnProtocol',  in the policy 'cufwPolConnPolicy' applied to the entity identified by 'cufwPolConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1870,7 +1870,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwpolicyappconnsummaryentry
         
         	Each entry contains the summary of connection activity for a specific layer 7 protocol in a specific policy applied to the specified policy  target
-        	**type**\: list of    :py:class:`Cufwpolicyappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry>`
+        	**type**\: list of  		 :py:class:`Cufwpolicyappconnsummaryentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry>`
         
         
 
@@ -1907,31 +1907,31 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolappconnpolicy  <key>
             
             	The identity of the firewall policy for which this conceptual row contains the connection  activity summary
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cufwpolappconnpolicytargettype  <key>
             
             	The type of the entity to which the firewall policy 'cufwPolAppConnPolicy' has been applied. This could be an interface type (most commonly), the type of another object or a group of objects defined in the firewall configuration.  When this object is set to 'targetALL', the value of index object cufwAppConnPolicyTarget is ignored
-            	**type**\:   :py:class:`CFWPolicyTargetType <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWPolicyTargetType>`
+            	**type**\:  :py:class:`CFWPolicyTargetType <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWPolicyTargetType>`
             
             .. attribute:: cufwpolappconnpolicytarget  <key>
             
             	The identity of the entity to which the firewall  policy 'cufwPolAppProtocol' refers. This could be an  interface object (most commonly), another object or group of objects defined in the firewall configuration
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cufwpolappconnprotocol  <key>
             
             	The layer7 protocol for which this conceptual  row summarizes the connection activity for this  firewall
-            	**type**\:   :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
+            	**type**\:  :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
             
             .. attribute:: cufwpolappconnnumattempted
             
             	The number of connections attempted since the last reboot of the firewall, corresponding to the protocol denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1940,7 +1940,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolappconnnumsetupsaborted
             
             	The number of connection setup attempts, corresponding to the protocol denoted by  'cufwPolAppConnProtocol', associated with the policy 'cufwPolAppConnPolicy' applied to the entity  identified by 'cufwPolAppConnPolicyTarget', that were aborted before the connections could  proceed to completion. The counter includes setup  attempts aborted by the firewall as well as those  aborted by the initiator and/or the responder(s)  of/to the connection setup attempt.  Consequently, this value subsumes the values of objects 'cufwPolAppConnNumPolicyDeclined' and  'cufwPolAppConnNumResDeclined'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1949,7 +1949,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolappconnnumpolicydeclined
             
             	The number of connection attempts that were declined due to security policy, corresponding to the protocol  denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1958,7 +1958,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolappconnnumresdeclined
             
             	The number of connection attempts that were declined due to resource unavailability, corresponding to the  protocol denoted by 'cufwPolAppConnProtocol', in the policy 'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'.  This value is accumulated from the last reboot of the firewall subject to the control exercised by cufwConnReptAppStats
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1967,7 +1967,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolappconnnumhalfopen
             
             	The number of connections that are currently in the process of being established, corresponding to the  protocol denoted by 'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1976,7 +1976,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolappconnnumactive
             
             	The number of connections that are currently active, corresponding to the protocol denoted by  'cufwPolAppConnProtocol', in the policy  'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1985,7 +1985,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwpolappconnnumaborted
             
             	The number of connections that were abnormally  terminated after successful establishment, corresponding to the protocol denoted by 'cufwPolAppConnProtocol', in the policy 'cufwPolAppConnPolicy' applied to the entity identified by 'cufwPolAppConnPolicyTarget'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -2052,7 +2052,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwinspectionentry
         
         	Each entry contains the configuration of a specific application inspection element
-        	**type**\: list of    :py:class:`Cufwinspectionentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry>`
+        	**type**\: list of  		 :py:class:`Cufwinspectionentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable.Cufwinspectionentry>`
         
         
 
@@ -2087,19 +2087,19 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwinspectionpolicyname  <key>
             
             	The name of the policy that configures the device inspect the protocol specified by    'cufwInspectionProtocol'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cufwinspectionprotocol  <key>
             
             	The application protocol that is configured for  inspection
-            	**type**\:   :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
+            	**type**\:  :py:class:`CFWApplicationProtocol <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWApplicationProtocol>`
             
             .. attribute:: cufwinspectionstatus
             
             	This MIB object identifies if the directive to inspect the protocol specified by 'cufwInspectionProtocol' by the policy corresponding to this conceptual row is enabled or disabled
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -2142,7 +2142,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
         .. attribute:: cufwurlfserverentry
         
         	Each entry contains the configuration of a specific URL filtering server
-        	**type**\: list of    :py:class:`Cufwurlfserverentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry>`
+        	**type**\: list of  		 :py:class:`Cufwurlfserverentry <ydk.models.cisco_ios_xe.CISCO_UNIFIED_FIREWALL_MIB.CISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable.Cufwurlfserverentry>`
         
         
 
@@ -2177,85 +2177,85 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwurlfserveraddrtype  <key>
             
             	The type of the IP address of the URL filtering server
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cufwurlfserveraddress  <key>
             
             	The value of the IP address of the URL filtering server
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cufwurlfserverport  <key>
             
             	The value of the port at which the URL filtering server listens for incoming requests
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cufwurlfservervendor
             
             	The vendor type of the URL filtering server
-            	**type**\:   :py:class:`CFWUrlfVendorId <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWUrlfVendorId>`
+            	**type**\:  :py:class:`CFWUrlfVendorId <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWUrlfVendorId>`
             
             .. attribute:: cufwurlfserverstatus
             
             	The status of the URL filtering server corresponding to this conceptual row
-            	**type**\:   :py:class:`CFWUrlServerStatus <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWUrlServerStatus>`
+            	**type**\:  :py:class:`CFWUrlServerStatus <ydk.models.cisco_ios_xe.CISCO_FIREWALL_TC.CFWUrlServerStatus>`
             
             .. attribute:: cufwurlfserverreqsnumprocessed
             
             	The number of URL access requests forwarded by the managed firewall device to the URL filtering server corresponding to this conceptual row.  This value is counted from the last reboot of the managed device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cufwurlfserverreqsnumallowed
             
             	The number of URL access requests allowed by the URL filtering server corresponding to this conceptual  row. This counter does not include late responses.  This value is counted from the last reboot of the managed device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cufwurlfserverreqsnumdenied
             
             	The number of URL access requests denied by the URL filtering server corresponding to this conceptual  row. This counter does not include late responses.  This value is counted from the last reboot of the managed device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cufwurlfservernumtimeouts
             
             	The number of times the firewall failed to receive a response from the URL filtering server corresponding  to this conceptual row, for a request to authorize a  URL access request.  This is equal to the number of times a firewall removed a URL access request from the queue of pending requests because no response was received from the URL filtering server.  This value is accumulated from the last reboot of the firewall
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cufwurlfservernumretries
             
             	The number of URL access authorization requests  re\-sent by the firewall to the URL Filtering Server  corresponding to this conceptual row, because a response was not received within the configured time interval from the server.  This value is counted from the last reboot of the managed device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cufwurlfserverrespsnumreceived
             
             	The number of URL access responses received by the firewall from the URL filtering server corresponding  to this conceptual row. This counter does not include  late responses.  This value is counted from the last reboot of the managed device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cufwurlfserverrespsnumlate
             
             	The number of URL access responses received by the managed firewall from the URL filtering server  corresponding to this conceptual row after the  original URL access request was removed from the  queue of pending requests.  This value is counted from the last reboot of the managed device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cufwurlfserveravgresptime1
             
             	The average round\-trip response time of the URL filtering server computed over the last 60 seconds.  A value of zero indicates that there was  insufficient data to compute this value over the  last time interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2264,7 +2264,7 @@ class CISCOUNIFIEDFIREWALLMIB(Entity):
             .. attribute:: cufwurlfserveravgresptime5
             
             	The average round\-trip response time of the URL filtering server computed over the last 300 seconds.  A value of zero indicates that there was  insufficient data to compute this value over the  last time interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

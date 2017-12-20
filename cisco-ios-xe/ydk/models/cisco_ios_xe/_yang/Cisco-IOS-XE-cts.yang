@@ -37,6 +37,14 @@ module Cisco-IOS-XE-cts {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-06-29 {
+    description
+      "This revison fix the problem in cts roll-based enforcement";
+  }
   revision 2017-06-16 {
     description
       "Extension for model CTS role-based commands under interface";
@@ -340,10 +348,14 @@ module Cisco-IOS-XE-cts {
         }
       }
 
+      container  enforcement-only {
+        leaf enforcement {
+          type empty;
+        }
+      }
       container enforcement {
         description 
           "Enable Role-based Access Control enforcement";
-        presence true;
         leaf logging-interval {
           description
             "Configure sgacl logging interval";
@@ -759,8 +771,15 @@ module Cisco-IOS-XE-cts {
   augment "/ios:native/ios:interface/ios:GigabitEthernet" {
     uses config-interface-cts-manual-role-based-grouping;
   }
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-cts-manual-role-based-grouping;
+  }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-cts-manual-role-based-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     uses config-interface-cts-manual-role-based-grouping;
   }
 

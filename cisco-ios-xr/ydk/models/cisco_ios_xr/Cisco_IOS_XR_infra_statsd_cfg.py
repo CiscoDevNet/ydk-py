@@ -29,7 +29,7 @@ class Statistics(Entity):
     .. attribute:: period
     
     	Collection period for statistics polling
-    	**type**\:   :py:class:`Period <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_cfg.Statistics.Period>`
+    	**type**\:  :py:class:`Period <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_cfg.Statistics.Period>`
     
     
 
@@ -63,7 +63,7 @@ class Statistics(Entity):
         .. attribute:: service_accounting
         
         	Collection polling period for service accounting collectors
-        	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_cfg.Statistics.Period.ServiceAccounting>`
+        	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_cfg.Statistics.Period.ServiceAccounting>`
         
         
 
@@ -98,7 +98,7 @@ class Statistics(Entity):
             .. attribute:: polling_period
             
             	Collection polling period for service accounting collectors
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 30..3600
             
@@ -107,7 +107,7 @@ class Statistics(Entity):
             .. attribute:: polling_disable
             
             	Disable periodic statistics polling for service accounting collectors
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 

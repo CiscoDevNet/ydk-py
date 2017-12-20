@@ -2305,12 +2305,12 @@ class Locale(Entity):
     .. attribute:: country
     
     	Name of country locale
-    	**type**\:   :py:class:`LocaleCountry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleCountry>`
+    	**type**\:  :py:class:`LocaleCountry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleCountry>`
     
     .. attribute:: language
     
     	Name of language locale
-    	**type**\:   :py:class:`LocaleLanguage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleLanguage>`
+    	**type**\:  :py:class:`LocaleLanguage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleLanguage>`
     
     
 

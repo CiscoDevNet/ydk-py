@@ -25,7 +25,7 @@ class Grid(Entity):
     .. attribute:: nodes
     
     	Table of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class Grid(Entity):
         .. attribute:: node
         
         	Operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node>`
         
         
 
@@ -93,17 +93,19 @@ class Grid(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: client_xr
             
             	GRID Client Table
-            	**type**\:   :py:class:`ClientXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr>`
+            	**type**\:  :py:class:`ClientXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr>`
             
             .. attribute:: clients
             
             	GRID Client Consistency Check
-            	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients>`
+            	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients>`
             
             
 
@@ -147,7 +149,7 @@ class Grid(Entity):
                 .. attribute:: client
                 
                 	GRID Client Database
-                	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr.Client>`
+                	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr.Client>`
                 
                 
 
@@ -180,12 +182,14 @@ class Grid(Entity):
                     .. attribute:: client_name  <key>
                     
                     	Client name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: client_data
                     
                     	Client information
-                    	**type**\: list of    :py:class:`ClientData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr.Client.ClientData>`
+                    	**type**\: list of  		 :py:class:`ClientData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr.Client.ClientData>`
                     
                     
 
@@ -220,7 +224,7 @@ class Grid(Entity):
                         .. attribute:: res_id
                         
                         	Resource ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -255,7 +259,7 @@ class Grid(Entity):
                 .. attribute:: client
                 
                 	GRID Client Consistency Check
-                	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients.Client>`
+                	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients.Client>`
                 
                 
 
@@ -288,12 +292,14 @@ class Grid(Entity):
                     .. attribute:: client_name  <key>
                     
                     	Client name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: client_data
                     
                     	Client information
-                    	**type**\: list of    :py:class:`ClientData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients.Client.ClientData>`
+                    	**type**\: list of  		 :py:class:`ClientData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients.Client.ClientData>`
                     
                     
 
@@ -328,7 +334,7 @@ class Grid(Entity):
                         .. attribute:: res_id
                         
                         	Resource ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         

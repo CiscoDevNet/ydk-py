@@ -159,12 +159,12 @@ class Ipv6Neighbor(Entity):
     .. attribute:: neighbors
     
     	IPv6 neighbors
-    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6Neighbor.Neighbors>`
+    	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6Neighbor.Neighbors>`
     
     .. attribute:: scavenge_timeout
     
     	Set lifetime for stale neighbor
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..43200
     
@@ -207,7 +207,7 @@ class Ipv6Neighbor(Entity):
         .. attribute:: neighbor
         
         	IPv6 neighbor configuration
-        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6Neighbor.Neighbors.Neighbor>`
+        	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6Neighbor.Neighbors.Neighbor>`
         
         
 
@@ -241,31 +241,37 @@ class Ipv6Neighbor(Entity):
             .. attribute:: neighbor_address  <key>
             
             	IPv6 address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: zone
             
             	IPv6 address zone
-            	**type**\:  str
+            	**type**\: str
             
             	**default value**\: 0
             
             .. attribute:: mac_address
             
             	48\-bit hardware address H.H.H
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             	**mandatory**\: True
             
             .. attribute:: encapsulation
             
             	Encapsulation type only if interface type is SRP
-            	**type**\:   :py:class:`Ipv6srpEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6srpEncapsulation>`
+            	**type**\:  :py:class:`Ipv6srpEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6srpEncapsulation>`
             
             
 

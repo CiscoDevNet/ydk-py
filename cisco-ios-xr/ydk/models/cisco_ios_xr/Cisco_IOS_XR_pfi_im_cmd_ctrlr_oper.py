@@ -148,7 +148,7 @@ class Controllers(Entity):
     .. attribute:: controllers
     
     	Descriptions for controllers
-    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.Controllers.Controllers>`
+    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.Controllers.Controllers>`
     
     
 
@@ -182,7 +182,7 @@ class Controllers(Entity):
         .. attribute:: controller
         
         	Description for a particular controller
-        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.Controllers.Controllers.Controller>`
+        	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.Controllers.Controllers.Controller>`
         
         
 
@@ -216,22 +216,26 @@ class Controllers(Entity):
             .. attribute:: interafce_name  <key>
             
             	The name of the controller
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: controller
             
             	Controller
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: state
             
             	Operational state with no translation of error disable or shutdown
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.ImStateEnum>`
+            	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.ImStateEnum>`
             
             .. attribute:: description
             
             	Controller description string
-            	**type**\:  str
+            	**type**\: str
             
             
 

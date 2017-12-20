@@ -153,12 +153,12 @@ class EstablishSubscription(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_event_notifications.EstablishSubscription.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_event_notifications.EstablishSubscription.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_event_notifications.EstablishSubscription.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_event_notifications.EstablishSubscription.Output>`
     
     
 
@@ -197,24 +197,24 @@ class EstablishSubscription(Entity):
         .. attribute:: stream
         
         	Indicates which stream of events is of interest. If not present, events in the default NETCONF stream will be sent
-        	**type**\:   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
+        	**type**\:  :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
         
         .. attribute:: encoding
         
         	The type of encoding for the subscribed data. Default is XML
-        	**type**\:   :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
+        	**type**\:  :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
         
         	**default value**\: encode-xml
         
         .. attribute:: filter
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: filter_ref
         
         	References filter which is associated with the subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -223,27 +223,31 @@ class EstablishSubscription(Entity):
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: starttime
         
         	Used to trigger the replay feature and indicate that the replay should start at the time specified.  If <startTime> is not present, this is not a replay subscription.  It is not valid to specify start times that are later than the current time.  If the <startTime> specified is earlier than the log can support, the replay will begin with the earliest available notification.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: period
         
         	Duration of time which should occur between periodic push updates.  Where the anchor of a start\-time is available, the push will include the objects and their values which exist at an exact multiple of timeticks aligning to this start\-time anchor
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -252,17 +256,19 @@ class EstablishSubscription(Entity):
         .. attribute:: anchor_time
         
         	Designates a timestamp from which the series of periodic push updates are computed. The next update will take place at the next period interval from the anchor time.  For example, for an anchor time at the top of a minute and a period interval of a minute, the next update will be sent at the top of the next minute
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: no_synch_on_start
         
         	This leaf acts as a flag that determines behavior at the start of the subscription.  When present, synchronization of state at the beginning of the subscription is outside the scope of the subscription. Only updates about changes that are observed from the start time, i.e. only push\-change\-update notifications are sent. When absent (default behavior), in order to facilitate a receiver's synchronization, a full update is sent when the subscription starts using a push\-update notification, just like in the case of a periodic subscription.  After that, push\-change\-update notifications only are sent unless the Publisher chooses to resynch the subscription again
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: dampening_period
         
         	Minimum amount of time that needs to have passed since the last time an update was provided
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -271,12 +277,12 @@ class EstablishSubscription(Entity):
         .. attribute:: excluded_change
         
         	Use to restrict which changes trigger an update. For example, if modify is excluded, only creation and deletion of objects is reported
-        	**type**\:  list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
+        	**type**\: list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
         
         .. attribute:: dscp
         
         	The push update's IP packet transport priority. This is made visible across network hops to receiver. The transport priority is shared for all receivers of a given subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..63
         
@@ -285,14 +291,14 @@ class EstablishSubscription(Entity):
         .. attribute:: subscription_priority
         
         	Relative priority for a subscription.   Allows an underlying transport layer perform informed load balance allocations between various subscriptions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: subscription_dependency
         
         	Provides the Subscription ID of a parent subscription without which this subscription should not exist. In other words, there is no reason to stream these objects if another subscription is missing
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -356,14 +362,14 @@ class EstablishSubscription(Entity):
         .. attribute:: subscription_result
         
         	Indicates whether subscription is operational, or if a problem was encountered
-        	**type**\:   :py:class:`SubscriptionResult <ydk.models.ietf.ietf_event_notifications.SubscriptionResult>`
+        	**type**\:  :py:class:`SubscriptionResult <ydk.models.ietf.ietf_event_notifications.SubscriptionResult>`
         
         	**mandatory**\: True
         
         .. attribute:: subscription_id
         
         	Identifier used for this subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -372,24 +378,24 @@ class EstablishSubscription(Entity):
         .. attribute:: stream
         
         	Indicates which stream of events is of interest. If not present, events in the default NETCONF stream will be sent
-        	**type**\:   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
+        	**type**\:  :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
         
         .. attribute:: encoding
         
         	The type of encoding for the subscribed data. Default is XML
-        	**type**\:   :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
+        	**type**\:  :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
         
         	**default value**\: encode-xml
         
         .. attribute:: filter
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: filter_ref
         
         	References filter which is associated with the subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -398,27 +404,31 @@ class EstablishSubscription(Entity):
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: starttime
         
         	Used to trigger the replay feature and indicate that the replay should start at the time specified.  If <startTime> is not present, this is not a replay subscription.  It is not valid to specify start times that are later than the current time.  If the <startTime> specified is earlier than the log can support, the replay will begin with the earliest available notification.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: period
         
         	Duration of time which should occur between periodic push updates.  Where the anchor of a start\-time is available, the push will include the objects and their values which exist at an exact multiple of timeticks aligning to this start\-time anchor
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -427,17 +437,19 @@ class EstablishSubscription(Entity):
         .. attribute:: anchor_time
         
         	Designates a timestamp from which the series of periodic push updates are computed. The next update will take place at the next period interval from the anchor time.  For example, for an anchor time at the top of a minute and a period interval of a minute, the next update will be sent at the top of the next minute
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: no_synch_on_start
         
         	This leaf acts as a flag that determines behavior at the start of the subscription.  When present, synchronization of state at the beginning of the subscription is outside the scope of the subscription. Only updates about changes that are observed from the start time, i.e. only push\-change\-update notifications are sent. When absent (default behavior), in order to facilitate a receiver's synchronization, a full update is sent when the subscription starts using a push\-update notification, just like in the case of a periodic subscription.  After that, push\-change\-update notifications only are sent unless the Publisher chooses to resynch the subscription again
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: dampening_period
         
         	Minimum amount of time that needs to have passed since the last time an update was provided
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -446,12 +458,12 @@ class EstablishSubscription(Entity):
         .. attribute:: excluded_change
         
         	Use to restrict which changes trigger an update. For example, if modify is excluded, only creation and deletion of objects is reported
-        	**type**\:  list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
+        	**type**\: list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
         
         .. attribute:: dscp
         
         	The push update's IP packet transport priority. This is made visible across network hops to receiver. The transport priority is shared for all receivers of a given subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..63
         
@@ -460,14 +472,14 @@ class EstablishSubscription(Entity):
         .. attribute:: subscription_priority
         
         	Relative priority for a subscription.   Allows an underlying transport layer perform informed load balance allocations between various subscriptions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: subscription_dependency
         
         	Provides the Subscription ID of a parent subscription without which this subscription should not exist. In other words, there is no reason to stream these objects if another subscription is missing
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -544,7 +556,7 @@ class CreateSubscription(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_event_notifications.CreateSubscription.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_event_notifications.CreateSubscription.Input>`
     
     
 
@@ -578,31 +590,35 @@ class CreateSubscription(Entity):
         .. attribute:: stream
         
         	Indicates which stream of events is of interest. If not present, events in the default NETCONF stream will be sent
-        	**type**\:   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
+        	**type**\:  :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
         
         	**default value**\: NETCONF
         
         .. attribute:: encoding
         
         	The type of encoding for the subscribed data. Default is XML
-        	**type**\:   :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
+        	**type**\:  :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
         
         	**default value**\: encode-xml
         
         .. attribute:: filter
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: starttime
         
         	Used to trigger the replay feature and indicate that the replay should start at the time specified.  If <startTime> is not present, this is not a replay subscription.  It is not valid to specify start times that are later than the current time.  If the <startTime> specified is earlier than the log can support, the replay will begin with the earliest available notification.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         
 
@@ -659,12 +675,12 @@ class ModifySubscription(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_event_notifications.ModifySubscription.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_event_notifications.ModifySubscription.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_event_notifications.ModifySubscription.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_event_notifications.ModifySubscription.Output>`
     
     
 
@@ -703,19 +719,19 @@ class ModifySubscription(Entity):
         .. attribute:: subscription_id
         
         	Identifier to use for this subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: filter
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: filter_ref
         
         	References filter which is associated with the subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -724,27 +740,31 @@ class ModifySubscription(Entity):
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: starttime
         
         	Used to trigger the replay feature and indicate that the replay should start at the time specified.  If <startTime> is not present, this is not a replay subscription.  It is not valid to specify start times that are later than the current time.  If the <startTime> specified is earlier than the log can support, the replay will begin with the earliest available notification.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: period
         
         	Duration of time which should occur between periodic push updates.  Where the anchor of a start\-time is available, the push will include the objects and their values which exist at an exact multiple of timeticks aligning to this start\-time anchor
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -753,17 +773,19 @@ class ModifySubscription(Entity):
         .. attribute:: anchor_time
         
         	Designates a timestamp from which the series of periodic push updates are computed. The next update will take place at the next period interval from the anchor time.  For example, for an anchor time at the top of a minute and a period interval of a minute, the next update will be sent at the top of the next minute
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: no_synch_on_start
         
         	This leaf acts as a flag that determines behavior at the start of the subscription.  When present, synchronization of state at the beginning of the subscription is outside the scope of the subscription. Only updates about changes that are observed from the start time, i.e. only push\-change\-update notifications are sent. When absent (default behavior), in order to facilitate a receiver's synchronization, a full update is sent when the subscription starts using a push\-update notification, just like in the case of a periodic subscription.  After that, push\-change\-update notifications only are sent unless the Publisher chooses to resynch the subscription again
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: dampening_period
         
         	Minimum amount of time that needs to have passed since the last time an update was provided
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -772,7 +794,7 @@ class ModifySubscription(Entity):
         .. attribute:: excluded_change
         
         	Use to restrict which changes trigger an update. For example, if modify is excluded, only creation and deletion of objects is reported
-        	**type**\:  list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
+        	**type**\: list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
         
         
 
@@ -828,14 +850,14 @@ class ModifySubscription(Entity):
         .. attribute:: subscription_result
         
         	Indicates whether subscription is operational, or if a problem was encountered
-        	**type**\:   :py:class:`SubscriptionResult <ydk.models.ietf.ietf_event_notifications.SubscriptionResult>`
+        	**type**\:  :py:class:`SubscriptionResult <ydk.models.ietf.ietf_event_notifications.SubscriptionResult>`
         
         	**mandatory**\: True
         
         .. attribute:: subscription_id
         
         	Identifier used for this subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -844,24 +866,24 @@ class ModifySubscription(Entity):
         .. attribute:: stream
         
         	Indicates which stream of events is of interest. If not present, events in the default NETCONF stream will be sent
-        	**type**\:   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
+        	**type**\:  :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
         
         .. attribute:: encoding
         
         	The type of encoding for the subscribed data. Default is XML
-        	**type**\:   :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
+        	**type**\:  :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
         
         	**default value**\: encode-xml
         
         .. attribute:: filter
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: filter_ref
         
         	References filter which is associated with the subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -870,27 +892,31 @@ class ModifySubscription(Entity):
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: starttime
         
         	Used to trigger the replay feature and indicate that the replay should start at the time specified.  If <startTime> is not present, this is not a replay subscription.  It is not valid to specify start times that are later than the current time.  If the <startTime> specified is earlier than the log can support, the replay will begin with the earliest available notification.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: period
         
         	Duration of time which should occur between periodic push updates.  Where the anchor of a start\-time is available, the push will include the objects and their values which exist at an exact multiple of timeticks aligning to this start\-time anchor
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -899,17 +925,19 @@ class ModifySubscription(Entity):
         .. attribute:: anchor_time
         
         	Designates a timestamp from which the series of periodic push updates are computed. The next update will take place at the next period interval from the anchor time.  For example, for an anchor time at the top of a minute and a period interval of a minute, the next update will be sent at the top of the next minute
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: no_synch_on_start
         
         	This leaf acts as a flag that determines behavior at the start of the subscription.  When present, synchronization of state at the beginning of the subscription is outside the scope of the subscription. Only updates about changes that are observed from the start time, i.e. only push\-change\-update notifications are sent. When absent (default behavior), in order to facilitate a receiver's synchronization, a full update is sent when the subscription starts using a push\-update notification, just like in the case of a periodic subscription.  After that, push\-change\-update notifications only are sent unless the Publisher chooses to resynch the subscription again
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: dampening_period
         
         	Minimum amount of time that needs to have passed since the last time an update was provided
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -918,12 +946,12 @@ class ModifySubscription(Entity):
         .. attribute:: excluded_change
         
         	Use to restrict which changes trigger an update. For example, if modify is excluded, only creation and deletion of objects is reported
-        	**type**\:  list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
+        	**type**\: list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
         
         .. attribute:: dscp
         
         	The push update's IP packet transport priority. This is made visible across network hops to receiver. The transport priority is shared for all receivers of a given subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..63
         
@@ -932,14 +960,14 @@ class ModifySubscription(Entity):
         .. attribute:: subscription_priority
         
         	Relative priority for a subscription.   Allows an underlying transport layer perform informed load balance allocations between various subscriptions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: subscription_dependency
         
         	Provides the Subscription ID of a parent subscription without which this subscription should not exist. In other words, there is no reason to stream these objects if another subscription is missing
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1011,12 +1039,12 @@ class DeleteSubscription(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_event_notifications.DeleteSubscription.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_event_notifications.DeleteSubscription.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_event_notifications.DeleteSubscription.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_event_notifications.DeleteSubscription.Output>`
     
     
 
@@ -1055,7 +1083,7 @@ class DeleteSubscription(Entity):
         .. attribute:: subscription_id
         
         	Identifier of the subscription that is to be deleted. Only subscriptions that were created using establish\-subscription can be deleted via this RPC
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1093,7 +1121,7 @@ class DeleteSubscription(Entity):
         .. attribute:: subscription_result
         
         	Indicates whether subscription is operational, or if a problem was encountered
-        	**type**\:   :py:class:`SubscriptionResult <ydk.models.ietf.ietf_event_notifications.SubscriptionResult>`
+        	**type**\:  :py:class:`SubscriptionResult <ydk.models.ietf.ietf_event_notifications.SubscriptionResult>`
         
         	**mandatory**\: True
         
@@ -1133,8 +1161,7 @@ class Streams(Entity):
     .. attribute:: stream
     
     	Identifies the built\-in streams that are supported by the system.  Built\-in streams are associated with their own identities, each of which carries a special semantics. In case configurable custom streams are supported, as indicated by the custom\-stream identity, the configuration of those custom streams is provided         separately
-    	**type**\:  
-    		list of  
+    	**type**\: list of   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
     
     
 
@@ -1173,7 +1200,7 @@ class Filters(Entity):
     .. attribute:: filter
     
     	A list of configurable filters that can be applied to subscriptions
-    	**type**\: list of    :py:class:`Filter <ydk.models.ietf.ietf_event_notifications.Filters.Filter>`
+    	**type**\: list of  		 :py:class:`Filter <ydk.models.ietf.ietf_event_notifications.Filters.Filter>`
     
     
 
@@ -1208,24 +1235,24 @@ class Filters(Entity):
         .. attribute:: filter_id  <key>
         
         	An identifier to differentiate between filters
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: filter
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1269,7 +1296,7 @@ class SubscriptionConfig(Entity):
     .. attribute:: subscription
     
     	Content of a subscription
-    	**type**\: list of    :py:class:`Subscription <ydk.models.ietf.ietf_event_notifications.SubscriptionConfig.Subscription>`
+    	**type**\: list of  		 :py:class:`Subscription <ydk.models.ietf.ietf_event_notifications.SubscriptionConfig.Subscription>`
     
     
 
@@ -1303,31 +1330,31 @@ class SubscriptionConfig(Entity):
         .. attribute:: subscription_id  <key>
         
         	Identifier to use for this subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: stream
         
         	Indicates which stream of events is of interest. If not present, events in the default NETCONF stream will be sent
-        	**type**\:   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
+        	**type**\:  :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
         
         .. attribute:: encoding
         
         	The type of encoding for the subscribed data. Default is XML
-        	**type**\:   :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
+        	**type**\:  :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
         
         	**default value**\: encode-xml
         
         .. attribute:: filter
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: filter_ref
         
         	References filter which is associated with the subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1336,63 +1363,65 @@ class SubscriptionConfig(Entity):
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: starttime
         
         	Used to trigger the replay feature and indicate that the replay should start at the time specified.  If <startTime> is not present, this is not a replay subscription.  It is not valid to specify start times that are later than the current time.  If the <startTime> specified is earlier than the log can support, the replay will begin with the earliest available notification.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: receivers
         
         	Set of receivers in a subscription
-        	**type**\:   :py:class:`Receivers <ydk.models.ietf.ietf_event_notifications.SubscriptionConfig.Subscription.Receivers>`
+        	**type**\:  :py:class:`Receivers <ydk.models.ietf.ietf_event_notifications.SubscriptionConfig.Subscription.Receivers>`
         
         .. attribute:: source_interface
         
         	References the interface for notifications
-        	**type**\:  str
+        	**type**\: str
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
         .. attribute:: source_vrf
         
         	Label of the vrf
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 16..1048574
         
         .. attribute:: source_address
         
         	The source address for the notifications
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: period
         
         	Duration of time which should occur between periodic push updates.  Where the anchor of a start\-time is available, the push will include the objects and their values which exist at an exact multiple of timeticks aligning to this start\-time anchor
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1401,17 +1430,19 @@ class SubscriptionConfig(Entity):
         .. attribute:: anchor_time
         
         	Designates a timestamp from which the series of periodic push updates are computed. The next update will take place at the next period interval from the anchor time.  For example, for an anchor time at the top of a minute and a period interval of a minute, the next update will be sent at the top of the next minute
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: no_synch_on_start
         
         	This leaf acts as a flag that determines behavior at the start of the subscription.  When present, synchronization of state at the beginning of the subscription is outside the scope of the subscription. Only updates about changes that are observed from the start time, i.e. only push\-change\-update notifications are sent. When absent (default behavior), in order to facilitate a receiver's synchronization, a full update is sent when the subscription starts using a push\-update notification, just like in the case of a periodic subscription.  After that, push\-change\-update notifications only are sent unless the Publisher chooses to resynch the subscription again
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: dampening_period
         
         	Minimum amount of time that needs to have passed since the last time an update was provided
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1420,12 +1451,12 @@ class SubscriptionConfig(Entity):
         .. attribute:: excluded_change
         
         	Use to restrict which changes trigger an update. For example, if modify is excluded, only creation and deletion of objects is reported
-        	**type**\:  list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
+        	**type**\: list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
         
         .. attribute:: dscp
         
         	The push update's IP packet transport priority. This is made visible across network hops to receiver. The transport priority is shared for all receivers of a given subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..63
         
@@ -1434,14 +1465,14 @@ class SubscriptionConfig(Entity):
         .. attribute:: subscription_priority
         
         	Relative priority for a subscription.   Allows an underlying transport layer perform informed load balance allocations between various subscriptions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: subscription_dependency
         
         	Provides the Subscription ID of a parent subscription without which this subscription should not exist. In other words, there is no reason to stream these objects if another subscription is missing
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1518,7 +1549,7 @@ class SubscriptionConfig(Entity):
             .. attribute:: receiver
             
             	A single host or multipoint address intended as a target for the notifications for a subscription
-            	**type**\: list of    :py:class:`Receiver <ydk.models.ietf.ietf_event_notifications.SubscriptionConfig.Subscription.Receivers.Receiver>`
+            	**type**\: list of  		 :py:class:`Receiver <ydk.models.ietf.ietf_event_notifications.SubscriptionConfig.Subscription.Receivers.Receiver>`
             
             
 
@@ -1552,34 +1583,26 @@ class SubscriptionConfig(Entity):
                 .. attribute:: address  <key>
                 
                 	Specifies the address for the traffic to reach a remote host. One of the following must be specified\: an ipv4 address, an ipv6 address, or a host name
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
-                	**mandatory**\: True
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                		**type**\: str
                 
-                ----
-                	**type**\:  str
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                	**mandatory**\: True
+                		**type**\: str
                 
-                
-                ----
-                
-                ----
-                	**type**\:  str
-                
-                	**length:** 1..253
+                			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
                 
                 	**mandatory**\: True
                 
-                
-                ----
                 .. attribute:: port
                 
                 	This leaf specifies the port number to use for messages destined for a receiver
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1588,7 +1611,7 @@ class SubscriptionConfig(Entity):
                 .. attribute:: protocol
                 
                 	This leaf specifies the transport protocol used to deliver messages destined for the receiver
-                	**type**\:   :py:class:`Transport <ydk.models.ietf.ietf_event_notifications.Transport>`
+                	**type**\:  :py:class:`Transport <ydk.models.ietf.ietf_event_notifications.Transport>`
                 
                 	**default value**\: netconf
                 
@@ -1637,7 +1660,7 @@ class Subscriptions(Entity):
     .. attribute:: subscription
     
     	Content of a subscription. Subscriptions can be created using a control channel or RPC, or be established through configuration
-    	**type**\: list of    :py:class:`Subscription <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription>`
+    	**type**\: list of  		 :py:class:`Subscription <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription>`
     
     
 
@@ -1673,41 +1696,41 @@ class Subscriptions(Entity):
         .. attribute:: subscription_id  <key>
         
         	Identifier of this subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: configured_subscription
         
         	The presence of this leaf indicates that the subscription originated from configuration, not through a control channel or RPC
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: subscription_status
         
         	The status of the subscription
-        	**type**\:   :py:class:`SubscriptionStreamStatus <ydk.models.ietf.ietf_event_notifications.SubscriptionStreamStatus>`
+        	**type**\:  :py:class:`SubscriptionStreamStatus <ydk.models.ietf.ietf_event_notifications.SubscriptionStreamStatus>`
         
         .. attribute:: stream
         
         	Indicates which stream of events is of interest. If not present, events in the default NETCONF stream will be sent
-        	**type**\:   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
+        	**type**\:  :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
         
         .. attribute:: encoding
         
         	The type of encoding for the subscribed data. Default is XML
-        	**type**\:   :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
+        	**type**\:  :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
         
         	**default value**\: encode-xml
         
         .. attribute:: filter
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: filter_ref
         
         	References filter which is associated with the subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1716,63 +1739,65 @@ class Subscriptions(Entity):
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: starttime
         
         	Used to trigger the replay feature and indicate that the replay should start at the time specified.  If <startTime> is not present, this is not a replay subscription.  It is not valid to specify start times that are later than the current time.  If the <startTime> specified is earlier than the log can support, the replay will begin with the earliest available notification.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: receivers
         
         	Set of receivers in a subscription
-        	**type**\:   :py:class:`Receivers <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription.Receivers>`
+        	**type**\:  :py:class:`Receivers <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription.Receivers>`
         
         .. attribute:: source_interface
         
         	References the interface for notifications
-        	**type**\:  str
+        	**type**\: str
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
         .. attribute:: source_vrf
         
         	Label of the vrf
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 16..1048574
         
         .. attribute:: source_address
         
         	The source address for the notifications
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: period
         
         	Duration of time which should occur between periodic push updates.  Where the anchor of a start\-time is available, the push will include the objects and their values which exist at an exact multiple of timeticks aligning to this start\-time anchor
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1781,17 +1806,19 @@ class Subscriptions(Entity):
         .. attribute:: anchor_time
         
         	Designates a timestamp from which the series of periodic push updates are computed. The next update will take place at the next period interval from the anchor time.  For example, for an anchor time at the top of a minute and a period interval of a minute, the next update will be sent at the top of the next minute
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: no_synch_on_start
         
         	This leaf acts as a flag that determines behavior at the start of the subscription.  When present, synchronization of state at the beginning of the subscription is outside the scope of the subscription. Only updates about changes that are observed from the start time, i.e. only push\-change\-update notifications are sent. When absent (default behavior), in order to facilitate a receiver's synchronization, a full update is sent when the subscription starts using a push\-update notification, just like in the case of a periodic subscription.  After that, push\-change\-update notifications only are sent unless the Publisher chooses to resynch the subscription again
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: dampening_period
         
         	Minimum amount of time that needs to have passed since the last time an update was provided
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1800,12 +1827,12 @@ class Subscriptions(Entity):
         .. attribute:: excluded_change
         
         	Use to restrict which changes trigger an update. For example, if modify is excluded, only creation and deletion of objects is reported
-        	**type**\:  list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
+        	**type**\: list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
         
         .. attribute:: dscp
         
         	The push update's IP packet transport priority. This is made visible across network hops to receiver. The transport priority is shared for all receivers of a given subscription
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..63
         
@@ -1814,14 +1841,14 @@ class Subscriptions(Entity):
         .. attribute:: subscription_priority
         
         	Relative priority for a subscription.   Allows an underlying transport layer perform informed load balance allocations between various subscriptions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: subscription_dependency
         
         	Provides the Subscription ID of a parent subscription without which this subscription should not exist. In other words, there is no reason to stream these objects if another subscription is missing
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1902,7 +1929,7 @@ class Subscriptions(Entity):
             .. attribute:: receiver
             
             	A single host or multipoint address intended as a target for the notifications for a subscription
-            	**type**\: list of    :py:class:`Receiver <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription.Receivers.Receiver>`
+            	**type**\: list of  		 :py:class:`Receiver <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription.Receivers.Receiver>`
             
             
 
@@ -1936,34 +1963,26 @@ class Subscriptions(Entity):
                 .. attribute:: address  <key>
                 
                 	Specifies the address for the traffic to reach a remote host. One of the following must be specified\: an ipv4 address, an ipv6 address, or a host name
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
-                	**mandatory**\: True
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                		**type**\: str
                 
-                ----
-                	**type**\:  str
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                	**mandatory**\: True
+                		**type**\: str
                 
-                
-                ----
-                
-                ----
-                	**type**\:  str
-                
-                	**length:** 1..253
+                			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
                 
                 	**mandatory**\: True
                 
-                
-                ----
                 .. attribute:: port
                 
                 	This leaf specifies the port number to use for messages destined for a receiver
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1972,7 +1991,7 @@ class Subscriptions(Entity):
                 .. attribute:: protocol
                 
                 	This leaf specifies the transport protocol used to deliver messages destined for the receiver
-                	**type**\:   :py:class:`Transport <ydk.models.ietf.ietf_event_notifications.Transport>`
+                	**type**\:  :py:class:`Transport <ydk.models.ietf.ietf_event_notifications.Transport>`
                 
                 	**default value**\: netconf
                 

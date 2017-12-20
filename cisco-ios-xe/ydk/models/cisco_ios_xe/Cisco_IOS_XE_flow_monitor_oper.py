@@ -20,7 +20,7 @@ class FlowMonitors(Entity):
     .. attribute:: flow_monitor
     
     	List of Flow monitors
-    	**type**\: list of    :py:class:`FlowMonitor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor>`
+    	**type**\: list of  		 :py:class:`FlowMonitor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor>`
     
     
 
@@ -54,19 +54,19 @@ class FlowMonitors(Entity):
         .. attribute:: name  <key>
         
         	Name of the flow monitor
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: time_collected
         
         	Time the flow monitor data was collected in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: flows
         
         	All the flows for this flow monitor
-        	**type**\:   :py:class:`Flows <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor.Flows>`
+        	**type**\:  :py:class:`Flows <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor.Flows>`
         
         
 
@@ -107,7 +107,7 @@ class FlowMonitors(Entity):
             .. attribute:: flow
             
             	List of flows
-            	**type**\: list of    :py:class:`Flow <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor.Flows.Flow>`
+            	**type**\: list of  		 :py:class:`Flow <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor.Flows.Flow>`
             
             
 
@@ -140,72 +140,72 @@ class FlowMonitors(Entity):
                 .. attribute:: source_address  <key>
                 
                 	Source address of the flow
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: destination_address  <key>
                 
                 	Destination address of the flow
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: interface_input  <key>
                 
                 	Input interface of the flow
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: is_multicast  <key>
                 
                 	Multicast flow
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: vrf_id_input  <key>
                 
                 	VRF ID input
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
                 .. attribute:: source_port  <key>
                 
                 	Source port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
                 .. attribute:: destination_port  <key>
                 
                 	Destination port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
                 .. attribute:: ip_tos  <key>
                 
                 	ip\-tos value
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ip_protocol  <key>
                 
                 	IP protocol number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
                 .. attribute:: interface_output
                 
                 	Output interface of the flow
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: bytes
                 
                 	Number of bytes passed through
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
                 .. attribute:: packets
                 
                 	Number of packets passed through
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 

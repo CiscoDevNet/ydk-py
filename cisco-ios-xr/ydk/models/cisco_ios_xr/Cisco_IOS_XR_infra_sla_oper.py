@@ -26,7 +26,7 @@ class Sla(Entity):
     .. attribute:: protocols
     
     	Table of all SLA protocols
-    	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols>`
+    	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols>`
     
     
 
@@ -60,7 +60,7 @@ class Sla(Entity):
         .. attribute:: ethernet
         
         	The Ethernet SLA protocol
-        	**type**\:   :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet>`
+        	**type**\:  :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet>`
         
         
 
@@ -76,7 +76,7 @@ class Sla(Entity):
             self.yang_parent_name = "sla"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ethernet" : ("ethernet", Sla.Protocols.Ethernet)}
+            self._child_container_classes = {"Cisco-IOS-XR-ethernet-cfm-oper:ethernet" : ("ethernet", Sla.Protocols.Ethernet)}
             self._child_list_classes = {}
 
             self.ethernet = Sla.Protocols.Ethernet()
@@ -94,37 +94,37 @@ class Sla(Entity):
             .. attribute:: statistics_on_demand_currents
             
             	Table of current statistics for SLA on\-demand operations
-            	**type**\:   :py:class:`StatisticsOnDemandCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents>`
+            	**type**\:  :py:class:`StatisticsOnDemandCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents>`
             
             .. attribute:: operations
             
             	Table of SLA operations
-            	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations>`
+            	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations>`
             
             .. attribute:: statistics_historicals
             
             	Table of historical statistics for SLA operations
-            	**type**\:   :py:class:`StatisticsHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals>`
+            	**type**\:  :py:class:`StatisticsHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals>`
             
             .. attribute:: statistics_on_demand_historicals
             
             	Table of historical statistics for SLA on\-demand operations
-            	**type**\:   :py:class:`StatisticsOnDemandHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals>`
+            	**type**\:  :py:class:`StatisticsOnDemandHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals>`
             
             .. attribute:: config_errors
             
             	Table of SLA configuration errors on configured operations
-            	**type**\:   :py:class:`ConfigErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors>`
+            	**type**\:  :py:class:`ConfigErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors>`
             
             .. attribute:: on_demand_operations
             
             	Table of SLA on\-demand operations
-            	**type**\:   :py:class:`OnDemandOperations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations>`
+            	**type**\:  :py:class:`OnDemandOperations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations>`
             
             .. attribute:: statistics_currents
             
             	Table of current statistics for SLA operations
-            	**type**\:   :py:class:`StatisticsCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents>`
+            	**type**\:  :py:class:`StatisticsCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents>`
             
             
 
@@ -189,7 +189,7 @@ class Sla(Entity):
                 .. attribute:: statistics_on_demand_current
                 
                 	Current statistics data for an SLA on\-demand operation
-                	**type**\: list of    :py:class:`StatisticsOnDemandCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent>`
+                	**type**\: list of  		 :py:class:`StatisticsOnDemandCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent>`
                 
                 
 
@@ -224,61 +224,65 @@ class Sla(Entity):
                     .. attribute:: operation_id
                     
                     	Operation ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..4294967295
                     
                     .. attribute:: domain_name
                     
                     	Domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8191
                     
                     .. attribute:: mac_address
                     
                     	Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address must be specified
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions>`
+                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions>`
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
-                    	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule>`
+                    	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule>`
                     
                     .. attribute:: probe_type
                     
                     	Type of probe used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: flr_calculation_interval
                     
                     	Interval between FLR calculations for SLM, in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -287,7 +291,7 @@ class Sla(Entity):
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
-                    	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric>`
+                    	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric>`
                     
                     
 
@@ -349,17 +353,17 @@ class Sla(Entity):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:   :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
                         
                         
 
@@ -403,7 +407,7 @@ class Sla(Entity):
                             .. attribute:: profile_name
                             
                             	Name of the profile used by the operation
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -437,14 +441,14 @@ class Sla(Entity):
                             .. attribute:: ondemand_operation_id
                             
                             	ID of the ondemand operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -482,7 +486,7 @@ class Sla(Entity):
                         .. attribute:: start_time
                         
                         	Start time of the first probe, in seconds since the Unix Epoch
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -491,12 +495,12 @@ class Sla(Entity):
                         .. attribute:: start_time_configured
                         
                         	Whether or not the operation start time was explicitly configured
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: schedule_duration
                         
                         	Duration of a probe for the operation in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -505,7 +509,7 @@ class Sla(Entity):
                         .. attribute:: schedule_interval
                         
                         	Interval between the start times of consecutive probes,  in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -549,12 +553,12 @@ class Sla(Entity):
                         .. attribute:: config
                         
                         	Configuration of the metric
-                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config>`
                         
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
-                        	**type**\: list of    :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket>`
+                        	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket>`
                         
                         
 
@@ -593,38 +597,38 @@ class Sla(Entity):
                             .. attribute:: metric_type
                             
                             	Type of metric to which this configuration applies
-                            	**type**\:   :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
+                            	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                             
                             .. attribute:: bins_count
                             
                             	Total number of bins into which to aggregate. 0 if no aggregation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: bins_width
                             
                             	Width of each bin into which to aggregate. 0 if no aggregation. For SLM, the units of this value are in single units of percent; for LMM they are in tenths of percent; for other measurements they are in milliseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: bucket_size
                             
                             	Size of buckets into which measurements are collected
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
-                            	**type**\:   :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                            	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
                             
                             .. attribute:: buckets_archive
                             
                             	Maximum number of buckets to store in memory
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -670,19 +674,19 @@ class Sla(Entity):
                             .. attribute:: contents
                             
                             	The contents of the bucket; bins or samples
-                            	**type**\:   :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents>`
+                            	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents>`
                             
                             .. attribute:: start_at
                             
                             	Absolute time that the bucket started being filled at
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duration
                             
                             	Length of time for which the bucket is being filled in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -691,105 +695,105 @@ class Sla(Entity):
                             .. attribute:: sent
                             
                             	Number of packets sent in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: corrupt
                             
                             	Number of corrupt packets in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_of_order
                             
                             	Number of packets recieved out\-of\-order in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duplicates
                             
                             	Number of duplicate packets received in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: minimum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: maximum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_of_minimum
                             
                             	Absolute time that the minimum value was recorded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: time_of_maximum
                             
                             	Absolute time that the maximum value was recorded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: average
                             
                             	Mean of the results in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: standard_deviation
                             
                             	Standard deviation of the results in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: result_count
                             
                             	The count of samples collected in the bucket
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_sent_count
                             
                             	The number of data packets sent across the bucket, used in the calculation of overall FLR
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_lost_count
                             
                             	The number of data packets lost across the bucket, used in the calculation of overall FLR
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: overall_flr
                             
                             	Frame Loss Ratio across the whole bucket, in millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -798,74 +802,74 @@ class Sla(Entity):
                             .. attribute:: suspect_start_mid_bucket
                             
                             	Results suspect due to a probe starting mid\-way through a bucket
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_schedule_latency
                             
                             	Results suspect due to scheduling latency causing one or more packets to not be sent
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_send_fail
                             
                             	Results suspect due to failure to send one or more packets
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_premature_end
                             
                             	Results suspect due to a probe ending prematurely
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_clock_drift
                             
                             	Results suspect as more than 10 seconds time drift detected
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_memory_allocation_failed
                             
                             	Results suspect due to a memory allocation failure
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_cleared_mid_bucket
                             
                             	Results suspect as bucket was cleared mid\-way through being filled
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_probe_restarted
                             
                             	Results suspect as probe restarted mid\-way through the bucket
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_management_latency
                             
                             	Results suspect as processing of results has been delayed
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_multiple_buckets
                             
                             	Results suspect as the probe has been configured across multiple buckets
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_misordering
                             
                             	Results suspect as misordering has been detected , affecting results
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_flr_low_packet_count
                             
                             	Results suspect as FLR calculated based on a low packet count
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: premature_reason
                             
                             	If the probe ended prematurely, the error that caused a probe to end
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: premature_reason_string
                             
                             	Description of the error code that caused the probe to end prematurely. For informational purposes only
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -964,17 +968,17 @@ class Sla(Entity):
                                 .. attribute:: aggregated
                                 
                                 	Result bins in an SLA metric bucket
-                                	**type**\:   :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated>`
+                                	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated>`
                                 
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
-                                	**type**\:   :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
+                                	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
-                                	**type**\:   :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
+                                	**type**\:  :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
                                 
                                 
 
@@ -1018,7 +1022,7 @@ class Sla(Entity):
                                     .. attribute:: bins
                                     
                                     	The bins of an SLA metric bucket
-                                    	**type**\: list of    :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    	**type**\: list of  		 :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
                                     
                                     
 
@@ -1052,21 +1056,21 @@ class Sla(Entity):
                                         .. attribute:: lower_bound
                                         
                                         	Lower bound (inclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: upper_bound
                                         
                                         	Upper bound (exclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: lower_bound_tenths
                                         
                                         	Lower bound (inclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -1075,7 +1079,7 @@ class Sla(Entity):
                                         .. attribute:: upper_bound_tenths
                                         
                                         	Upper bound (exclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -1084,14 +1088,14 @@ class Sla(Entity):
                                         .. attribute:: sum
                                         
                                         	The sum of the results in the bin, in microseconds or millionths of a percent
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-9223372036854775808..9223372036854775807
                                         
                                         .. attribute:: count
                                         
                                         	The total number of results in the bin
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1137,7 +1141,7 @@ class Sla(Entity):
                                     .. attribute:: sample
                                     
                                     	The samples of an SLA metric bucket
-                                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
                                     
                                     
 
@@ -1171,7 +1175,7 @@ class Sla(Entity):
                                         .. attribute:: sent_at
                                         
                                         	The time (in milliseconds relative to the start time of the bucket) that the sample was sent at
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1180,46 +1184,46 @@ class Sla(Entity):
                                         .. attribute:: sent
                                         
                                         	Whether the sample packet was sucessfully sent
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: timed_out
                                         
                                         	Whether the sample packet timed out
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: corrupt
                                         
                                         	Whether the sample packet was corrupt
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: out_of_order
                                         
                                         	Whether the sample packet was received out\-of\-order
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: no_data_packets
                                         
                                         	Whether a measurement could not be made because no data packets were sent in the sample period. Only applicable for LMM measurements
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: result
                                         
                                         	The result (in microseconds or millionths of a percent) of the sample, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: frames_sent
                                         
                                         	For FLR measurements, the number of frames sent, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: frames_lost
                                         
                                         	For FLR measurements, the number of frames lost, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1271,7 +1275,7 @@ class Sla(Entity):
                 .. attribute:: operation_
                 
                 	SLA operation to get operation data for
-                	**type**\: list of    :py:class:`Operation_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_>`
+                	**type**\: list of  		 :py:class:`Operation_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_>`
                 
                 
 
@@ -1305,54 +1309,60 @@ class Sla(Entity):
                     .. attribute:: profile_name
                     
                     	Profile Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: domain_name
                     
                     	Domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8191
                     
                     .. attribute:: mac_address
                     
                     	Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address must be specified
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: profile_options
                     
                     	Options that are only valid if the operation has a profile
-                    	**type**\:   :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions>`
+                    	**type**\:  :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions>`
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.SpecificOptions>`
+                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.SpecificOptions>`
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: last_run
                     
                     	Time that the last probe for the operation was run, NULL if never run
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1413,34 +1423,34 @@ class Sla(Entity):
                         .. attribute:: packet_padding
                         
                         	Configuration of the packet padding
-                        	**type**\:   :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.PacketPadding>`
+                        	**type**\:  :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.PacketPadding>`
                         
                         .. attribute:: priority
                         
                         	Priority at which to send the packet, if configured
-                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.Priority>`
+                        	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.Priority>`
                         
                         .. attribute:: operation_schedule
                         
                         	Operation schedule
-                        	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.OperationSchedule>`
+                        	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.OperationSchedule>`
                         
                         .. attribute:: probe_type
                         
                         	Type of probe used by the operation
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: packets_per_burst
                         
                         	Number of packets sent per burst
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: inter_packet_interval
                         
                         	Interval between packets within a burst in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -1449,14 +1459,14 @@ class Sla(Entity):
                         .. attribute:: bursts_per_probe
                         
                         	Number of bursts sent per probe
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: inter_burst_interval
                         
                         	Interval between bursts within a probe in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1465,7 +1475,7 @@ class Sla(Entity):
                         .. attribute:: flr_calculation_interval
                         
                         	Interval between FLR calculations for SLM, in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1474,7 +1484,7 @@ class Sla(Entity):
                         .. attribute:: operation_metric
                         
                         	Array of the metrics that are measured by the operation
-                        	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.OperationMetric>`
+                        	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.OperationMetric>`
                         
                         
 
@@ -1535,19 +1545,19 @@ class Sla(Entity):
                             .. attribute:: packet_pad_size
                             
                             	Size that packets are being padded to
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: test_pattern_pad_scheme
                             
                             	Test pattern scheme that is used in the packet padding
-                            	**type**\:   :py:class:`SlaOperTestPatternScheme <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternScheme>`
+                            	**type**\:  :py:class:`SlaOperTestPatternScheme <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternScheme>`
                             
                             .. attribute:: test_pattern_pad_hex_string
                             
                             	Hex string that is used in the packet padding
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1588,12 +1598,12 @@ class Sla(Entity):
                             .. attribute:: priority_type
                             
                             	PriorityType
-                            	**type**\:   :py:class:`SlaOperPacketPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriority>`
+                            	**type**\:  :py:class:`SlaOperPacketPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriority>`
                             
                             .. attribute:: cos
                             
                             	3\-bit COS priority value applied to packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1631,7 +1641,7 @@ class Sla(Entity):
                             .. attribute:: start_time
                             
                             	Start time of the first probe, in seconds since the Unix Epoch
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1640,12 +1650,12 @@ class Sla(Entity):
                             .. attribute:: start_time_configured
                             
                             	Whether or not the operation start time was explicitly configured
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: schedule_duration
                             
                             	Duration of a probe for the operation in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1654,7 +1664,7 @@ class Sla(Entity):
                             .. attribute:: schedule_interval
                             
                             	Interval between the start times of consecutive probes,  in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1699,12 +1709,12 @@ class Sla(Entity):
                             .. attribute:: metric_config
                             
                             	Configuration of the metric
-                            	**type**\:   :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.OperationMetric.MetricConfig>`
+                            	**type**\:  :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.ProfileOptions.OperationMetric.MetricConfig>`
                             
                             .. attribute:: current_buckets_archive
                             
                             	Number of valid buckets currently in the buckets archive
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1745,38 +1755,38 @@ class Sla(Entity):
                                 .. attribute:: metric_type
                                 
                                 	Type of metric to which this configuration applies
-                                	**type**\:   :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
+                                	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                                 
                                 .. attribute:: bins_count
                                 
                                 	Total number of bins into which to aggregate. 0 if no aggregation
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: bins_width
                                 
                                 	Width of each bin into which to aggregate. 0 if no aggregation. For SLM, the units of this value are in single units of percent; for LMM they are in tenths of percent; for other measurements they are in milliseconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: bucket_size
                                 
                                 	Size of buckets into which measurements are collected
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: bucket_size_unit
                                 
                                 	Whether bucket size is 'per\-probe' or 'probes'
-                                	**type**\:   :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                                	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
                                 
                                 .. attribute:: buckets_archive
                                 
                                 	Maximum number of buckets to store in memory
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1822,17 +1832,17 @@ class Sla(Entity):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation_.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:   :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
                         
                         
 
@@ -1876,7 +1886,7 @@ class Sla(Entity):
                             .. attribute:: profile_name
                             
                             	Name of the profile used by the operation
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1910,14 +1920,14 @@ class Sla(Entity):
                             .. attribute:: ondemand_operation_id
                             
                             	ID of the ondemand operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1956,7 +1966,7 @@ class Sla(Entity):
                 .. attribute:: statistics_historical
                 
                 	Historical statistics data for an SLA configured operation
-                	**type**\: list of    :py:class:`StatisticsHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical>`
+                	**type**\: list of  		 :py:class:`StatisticsHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical>`
                 
                 
 
@@ -1991,59 +2001,65 @@ class Sla(Entity):
                     .. attribute:: profile_name
                     
                     	Profile Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: domain_name
                     
                     	Domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8191
                     
                     .. attribute:: mac_address
                     
                     	Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address must be specified
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions>`
+                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions>`
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
-                    	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule>`
+                    	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule>`
                     
                     .. attribute:: probe_type
                     
                     	Type of probe used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: flr_calculation_interval
                     
                     	Interval between FLR calculations for SLM, in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2052,7 +2068,7 @@ class Sla(Entity):
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
-                    	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric>`
+                    	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric>`
                     
                     
 
@@ -2114,17 +2130,17 @@ class Sla(Entity):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:   :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
                         
                         
 
@@ -2168,7 +2184,7 @@ class Sla(Entity):
                             .. attribute:: profile_name
                             
                             	Name of the profile used by the operation
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2202,14 +2218,14 @@ class Sla(Entity):
                             .. attribute:: ondemand_operation_id
                             
                             	ID of the ondemand operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -2247,7 +2263,7 @@ class Sla(Entity):
                         .. attribute:: start_time
                         
                         	Start time of the first probe, in seconds since the Unix Epoch
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2256,12 +2272,12 @@ class Sla(Entity):
                         .. attribute:: start_time_configured
                         
                         	Whether or not the operation start time was explicitly configured
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: schedule_duration
                         
                         	Duration of a probe for the operation in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2270,7 +2286,7 @@ class Sla(Entity):
                         .. attribute:: schedule_interval
                         
                         	Interval between the start times of consecutive probes,  in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2314,12 +2330,12 @@ class Sla(Entity):
                         .. attribute:: config
                         
                         	Configuration of the metric
-                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config>`
                         
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
-                        	**type**\: list of    :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket>`
+                        	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket>`
                         
                         
 
@@ -2358,38 +2374,38 @@ class Sla(Entity):
                             .. attribute:: metric_type
                             
                             	Type of metric to which this configuration applies
-                            	**type**\:   :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
+                            	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                             
                             .. attribute:: bins_count
                             
                             	Total number of bins into which to aggregate. 0 if no aggregation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: bins_width
                             
                             	Width of each bin into which to aggregate. 0 if no aggregation. For SLM, the units of this value are in single units of percent; for LMM they are in tenths of percent; for other measurements they are in milliseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: bucket_size
                             
                             	Size of buckets into which measurements are collected
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
-                            	**type**\:   :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                            	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
                             
                             .. attribute:: buckets_archive
                             
                             	Maximum number of buckets to store in memory
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2435,19 +2451,19 @@ class Sla(Entity):
                             .. attribute:: contents
                             
                             	The contents of the bucket; bins or samples
-                            	**type**\:   :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents>`
+                            	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents>`
                             
                             .. attribute:: start_at
                             
                             	Absolute time that the bucket started being filled at
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duration
                             
                             	Length of time for which the bucket is being filled in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2456,105 +2472,105 @@ class Sla(Entity):
                             .. attribute:: sent
                             
                             	Number of packets sent in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: corrupt
                             
                             	Number of corrupt packets in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_of_order
                             
                             	Number of packets recieved out\-of\-order in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duplicates
                             
                             	Number of duplicate packets received in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: minimum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: maximum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_of_minimum
                             
                             	Absolute time that the minimum value was recorded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: time_of_maximum
                             
                             	Absolute time that the maximum value was recorded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: average
                             
                             	Mean of the results in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: standard_deviation
                             
                             	Standard deviation of the results in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: result_count
                             
                             	The count of samples collected in the bucket
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_sent_count
                             
                             	The number of data packets sent across the bucket, used in the calculation of overall FLR
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_lost_count
                             
                             	The number of data packets lost across the bucket, used in the calculation of overall FLR
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: overall_flr
                             
                             	Frame Loss Ratio across the whole bucket, in millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2563,74 +2579,74 @@ class Sla(Entity):
                             .. attribute:: suspect_start_mid_bucket
                             
                             	Results suspect due to a probe starting mid\-way through a bucket
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_schedule_latency
                             
                             	Results suspect due to scheduling latency causing one or more packets to not be sent
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_send_fail
                             
                             	Results suspect due to failure to send one or more packets
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_premature_end
                             
                             	Results suspect due to a probe ending prematurely
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_clock_drift
                             
                             	Results suspect as more than 10 seconds time drift detected
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_memory_allocation_failed
                             
                             	Results suspect due to a memory allocation failure
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_cleared_mid_bucket
                             
                             	Results suspect as bucket was cleared mid\-way through being filled
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_probe_restarted
                             
                             	Results suspect as probe restarted mid\-way through the bucket
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_management_latency
                             
                             	Results suspect as processing of results has been delayed
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_multiple_buckets
                             
                             	Results suspect as the probe has been configured across multiple buckets
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_misordering
                             
                             	Results suspect as misordering has been detected , affecting results
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_flr_low_packet_count
                             
                             	Results suspect as FLR calculated based on a low packet count
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: premature_reason
                             
                             	If the probe ended prematurely, the error that caused a probe to end
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: premature_reason_string
                             
                             	Description of the error code that caused the probe to end prematurely. For informational purposes only
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2729,17 +2745,17 @@ class Sla(Entity):
                                 .. attribute:: aggregated
                                 
                                 	Result bins in an SLA metric bucket
-                                	**type**\:   :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated>`
+                                	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated>`
                                 
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
-                                	**type**\:   :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
+                                	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
-                                	**type**\:   :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
+                                	**type**\:  :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
                                 
                                 
 
@@ -2783,7 +2799,7 @@ class Sla(Entity):
                                     .. attribute:: bins
                                     
                                     	The bins of an SLA metric bucket
-                                    	**type**\: list of    :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    	**type**\: list of  		 :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
                                     
                                     
 
@@ -2817,21 +2833,21 @@ class Sla(Entity):
                                         .. attribute:: lower_bound
                                         
                                         	Lower bound (inclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: upper_bound
                                         
                                         	Upper bound (exclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: lower_bound_tenths
                                         
                                         	Lower bound (inclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -2840,7 +2856,7 @@ class Sla(Entity):
                                         .. attribute:: upper_bound_tenths
                                         
                                         	Upper bound (exclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -2849,14 +2865,14 @@ class Sla(Entity):
                                         .. attribute:: sum
                                         
                                         	The sum of the results in the bin, in microseconds or millionths of a percent
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-9223372036854775808..9223372036854775807
                                         
                                         .. attribute:: count
                                         
                                         	The total number of results in the bin
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2902,7 +2918,7 @@ class Sla(Entity):
                                     .. attribute:: sample
                                     
                                     	The samples of an SLA metric bucket
-                                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
                                     
                                     
 
@@ -2936,7 +2952,7 @@ class Sla(Entity):
                                         .. attribute:: sent_at
                                         
                                         	The time (in milliseconds relative to the start time of the bucket) that the sample was sent at
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2945,46 +2961,46 @@ class Sla(Entity):
                                         .. attribute:: sent
                                         
                                         	Whether the sample packet was sucessfully sent
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: timed_out
                                         
                                         	Whether the sample packet timed out
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: corrupt
                                         
                                         	Whether the sample packet was corrupt
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: out_of_order
                                         
                                         	Whether the sample packet was received out\-of\-order
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: no_data_packets
                                         
                                         	Whether a measurement could not be made because no data packets were sent in the sample period. Only applicable for LMM measurements
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: result
                                         
                                         	The result (in microseconds or millionths of a percent) of the sample, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: frames_sent
                                         
                                         	For FLR measurements, the number of frames sent, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: frames_lost
                                         
                                         	For FLR measurements, the number of frames lost, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3037,7 +3053,7 @@ class Sla(Entity):
                 .. attribute:: statistics_on_demand_historical
                 
                 	Historical statistics data for an SLA on\-demand  operation
-                	**type**\: list of    :py:class:`StatisticsOnDemandHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical>`
+                	**type**\: list of  		 :py:class:`StatisticsOnDemandHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical>`
                 
                 
 
@@ -3072,61 +3088,65 @@ class Sla(Entity):
                     .. attribute:: operation_id
                     
                     	Operation ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..4294967295
                     
                     .. attribute:: domain_name
                     
                     	Domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8191
                     
                     .. attribute:: mac_address
                     
                     	Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address must be specified
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions>`
+                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions>`
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
-                    	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule>`
+                    	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule>`
                     
                     .. attribute:: probe_type
                     
                     	Type of probe used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: flr_calculation_interval
                     
                     	Interval between FLR calculations for SLM, in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3135,7 +3155,7 @@ class Sla(Entity):
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
-                    	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric>`
+                    	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric>`
                     
                     
 
@@ -3197,17 +3217,17 @@ class Sla(Entity):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:   :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
                         
                         
 
@@ -3251,7 +3271,7 @@ class Sla(Entity):
                             .. attribute:: profile_name
                             
                             	Name of the profile used by the operation
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -3285,14 +3305,14 @@ class Sla(Entity):
                             .. attribute:: ondemand_operation_id
                             
                             	ID of the ondemand operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -3330,7 +3350,7 @@ class Sla(Entity):
                         .. attribute:: start_time
                         
                         	Start time of the first probe, in seconds since the Unix Epoch
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3339,12 +3359,12 @@ class Sla(Entity):
                         .. attribute:: start_time_configured
                         
                         	Whether or not the operation start time was explicitly configured
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: schedule_duration
                         
                         	Duration of a probe for the operation in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3353,7 +3373,7 @@ class Sla(Entity):
                         .. attribute:: schedule_interval
                         
                         	Interval between the start times of consecutive probes,  in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3397,12 +3417,12 @@ class Sla(Entity):
                         .. attribute:: config
                         
                         	Configuration of the metric
-                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config>`
                         
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
-                        	**type**\: list of    :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket>`
+                        	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket>`
                         
                         
 
@@ -3441,38 +3461,38 @@ class Sla(Entity):
                             .. attribute:: metric_type
                             
                             	Type of metric to which this configuration applies
-                            	**type**\:   :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
+                            	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                             
                             .. attribute:: bins_count
                             
                             	Total number of bins into which to aggregate. 0 if no aggregation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: bins_width
                             
                             	Width of each bin into which to aggregate. 0 if no aggregation. For SLM, the units of this value are in single units of percent; for LMM they are in tenths of percent; for other measurements they are in milliseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: bucket_size
                             
                             	Size of buckets into which measurements are collected
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
-                            	**type**\:   :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                            	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
                             
                             .. attribute:: buckets_archive
                             
                             	Maximum number of buckets to store in memory
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3518,19 +3538,19 @@ class Sla(Entity):
                             .. attribute:: contents
                             
                             	The contents of the bucket; bins or samples
-                            	**type**\:   :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents>`
+                            	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents>`
                             
                             .. attribute:: start_at
                             
                             	Absolute time that the bucket started being filled at
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duration
                             
                             	Length of time for which the bucket is being filled in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3539,105 +3559,105 @@ class Sla(Entity):
                             .. attribute:: sent
                             
                             	Number of packets sent in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: corrupt
                             
                             	Number of corrupt packets in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_of_order
                             
                             	Number of packets recieved out\-of\-order in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duplicates
                             
                             	Number of duplicate packets received in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: minimum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: maximum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_of_minimum
                             
                             	Absolute time that the minimum value was recorded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: time_of_maximum
                             
                             	Absolute time that the maximum value was recorded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: average
                             
                             	Mean of the results in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: standard_deviation
                             
                             	Standard deviation of the results in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: result_count
                             
                             	The count of samples collected in the bucket
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_sent_count
                             
                             	The number of data packets sent across the bucket, used in the calculation of overall FLR
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_lost_count
                             
                             	The number of data packets lost across the bucket, used in the calculation of overall FLR
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: overall_flr
                             
                             	Frame Loss Ratio across the whole bucket, in millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -3646,74 +3666,74 @@ class Sla(Entity):
                             .. attribute:: suspect_start_mid_bucket
                             
                             	Results suspect due to a probe starting mid\-way through a bucket
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_schedule_latency
                             
                             	Results suspect due to scheduling latency causing one or more packets to not be sent
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_send_fail
                             
                             	Results suspect due to failure to send one or more packets
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_premature_end
                             
                             	Results suspect due to a probe ending prematurely
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_clock_drift
                             
                             	Results suspect as more than 10 seconds time drift detected
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_memory_allocation_failed
                             
                             	Results suspect due to a memory allocation failure
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_cleared_mid_bucket
                             
                             	Results suspect as bucket was cleared mid\-way through being filled
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_probe_restarted
                             
                             	Results suspect as probe restarted mid\-way through the bucket
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_management_latency
                             
                             	Results suspect as processing of results has been delayed
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_multiple_buckets
                             
                             	Results suspect as the probe has been configured across multiple buckets
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_misordering
                             
                             	Results suspect as misordering has been detected , affecting results
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_flr_low_packet_count
                             
                             	Results suspect as FLR calculated based on a low packet count
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: premature_reason
                             
                             	If the probe ended prematurely, the error that caused a probe to end
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: premature_reason_string
                             
                             	Description of the error code that caused the probe to end prematurely. For informational purposes only
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -3812,17 +3832,17 @@ class Sla(Entity):
                                 .. attribute:: aggregated
                                 
                                 	Result bins in an SLA metric bucket
-                                	**type**\:   :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated>`
+                                	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated>`
                                 
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
-                                	**type**\:   :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
+                                	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
-                                	**type**\:   :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
+                                	**type**\:  :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
                                 
                                 
 
@@ -3866,7 +3886,7 @@ class Sla(Entity):
                                     .. attribute:: bins
                                     
                                     	The bins of an SLA metric bucket
-                                    	**type**\: list of    :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    	**type**\: list of  		 :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
                                     
                                     
 
@@ -3900,21 +3920,21 @@ class Sla(Entity):
                                         .. attribute:: lower_bound
                                         
                                         	Lower bound (inclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: upper_bound
                                         
                                         	Upper bound (exclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: lower_bound_tenths
                                         
                                         	Lower bound (inclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -3923,7 +3943,7 @@ class Sla(Entity):
                                         .. attribute:: upper_bound_tenths
                                         
                                         	Upper bound (exclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -3932,14 +3952,14 @@ class Sla(Entity):
                                         .. attribute:: sum
                                         
                                         	The sum of the results in the bin, in microseconds or millionths of a percent
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-9223372036854775808..9223372036854775807
                                         
                                         .. attribute:: count
                                         
                                         	The total number of results in the bin
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3985,7 +4005,7 @@ class Sla(Entity):
                                     .. attribute:: sample
                                     
                                     	The samples of an SLA metric bucket
-                                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
                                     
                                     
 
@@ -4019,7 +4039,7 @@ class Sla(Entity):
                                         .. attribute:: sent_at
                                         
                                         	The time (in milliseconds relative to the start time of the bucket) that the sample was sent at
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4028,46 +4048,46 @@ class Sla(Entity):
                                         .. attribute:: sent
                                         
                                         	Whether the sample packet was sucessfully sent
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: timed_out
                                         
                                         	Whether the sample packet timed out
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: corrupt
                                         
                                         	Whether the sample packet was corrupt
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: out_of_order
                                         
                                         	Whether the sample packet was received out\-of\-order
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: no_data_packets
                                         
                                         	Whether a measurement could not be made because no data packets were sent in the sample period. Only applicable for LMM measurements
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: result
                                         
                                         	The result (in microseconds or millionths of a percent) of the sample, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: frames_sent
                                         
                                         	For FLR measurements, the number of frames sent, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: frames_lost
                                         
                                         	For FLR measurements, the number of frames lost, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4120,7 +4140,7 @@ class Sla(Entity):
                 .. attribute:: config_error
                 
                 	SLA operation to get configuration errors data for
-                	**type**\: list of    :py:class:`ConfigError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors.ConfigError>`
+                	**type**\: list of  		 :py:class:`ConfigError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors.ConfigError>`
                 
                 
 
@@ -4155,124 +4175,130 @@ class Sla(Entity):
                     .. attribute:: profile_name
                     
                     	Profile Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: domain_name
                     
                     	Domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8191
                     
                     .. attribute:: mac_address
                     
                     	Unicast MAC Address in xxxx.xxxx.xxxx format
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: profile_name_xr
                     
                     	The name of the operation profile
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: rt_delay_inconsistent
                     
                     	Is the profile configured to collect RT Delay but the packet type doesn't support it?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ow_delay_sd_inconsistent
                     
                     	Is the profile configured to collect OW Delay (SD) but the packet type doesn't support it?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ow_delay_ds_inconsistent
                     
                     	Is the profile configured to collect OW Delay (DS) but the packet type doesn't support it?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: rt_jitter_inconsistent
                     
                     	Is the profile configured to collect RT Jitter but the packet type doesn't support it?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ow_jitter_sd_inconsistent
                     
                     	Is the profile configured to collect OW Jitter (SD) but the packet type doesn't support it?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ow_jitter_ds_inconsistent
                     
                     	Is the profile configured to collect OW Delay (DS) but the packet type doesn't support it?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ow_loss_sd_inconsistent
                     
                     	Is the profile configured to collect OW Frame Loss (SD) but the packet type doesn't support it ?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ow_loss_ds_inconsistent
                     
                     	Is the profile configured to collect OW Frame Loss (DS) but the packet type doesn't support it ?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: packet_pad_inconsistent
                     
                     	Is the profile configured to pad packets but the packet type doesn't support it?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: packet_rand_pad_inconsistent
                     
                     	Is the profile configured to pad packets with a pseudo\-random string but the packet type doesn't support it?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: min_packet_interval_inconsistent
                     
                     	Is the profile configured to send packets more frequently than the protocol allows?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: priority_inconsistent
                     
                     	Is the profile configured to use a packet priority scheme that the protocol does not support?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: packet_type_inconsistent
                     
                     	Is the profile configured to use a packet type that isn't supported by any protocols?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: profile_doesnt_exist
                     
                     	Is the operation configured to use a profile that is not currently defined for the protocol?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: synthetic_loss_not_supported
                     
                     	The profile is configured to use a packet type which doesn't support synthetic loss measurement and the number of packets per FLR calculation has been configured
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: probe_too_big
                     
                     	The profile is configured to use a packet type which does not allow more than 72000 packets per probe and greater than 72000 packets per probe have been configured
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: error_string
                     
                     	Displays other issues not indicated from the flags above, for example MIB incompatibility issues
-                    	**type**\:  list of str
+                    	**type**\: list of str
                     
                     
 
@@ -4352,7 +4378,7 @@ class Sla(Entity):
                 .. attribute:: on_demand_operation
                 
                 	SLA on\-demand operation to get operation data for
-                	**type**\: list of    :py:class:`OnDemandOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation>`
+                	**type**\: list of  		 :py:class:`OnDemandOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation>`
                 
                 
 
@@ -4387,56 +4413,60 @@ class Sla(Entity):
                     .. attribute:: operation_id
                     
                     	Operation ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..4294967295
                     
                     .. attribute:: domain_name
                     
                     	Domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8191
                     
                     .. attribute:: mac_address
                     
                     	Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address must be specified
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: profile_options
                     
                     	Options that are only valid if the operation has a profile
-                    	**type**\:   :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions>`
+                    	**type**\:  :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions>`
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions>`
+                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions>`
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: last_run
                     
                     	Time that the last probe for the operation was run, NULL if never run
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4497,34 +4527,34 @@ class Sla(Entity):
                         .. attribute:: packet_padding
                         
                         	Configuration of the packet padding
-                        	**type**\:   :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding>`
+                        	**type**\:  :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding>`
                         
                         .. attribute:: priority
                         
                         	Priority at which to send the packet, if configured
-                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority>`
+                        	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority>`
                         
                         .. attribute:: operation_schedule
                         
                         	Operation schedule
-                        	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule>`
+                        	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule>`
                         
                         .. attribute:: probe_type
                         
                         	Type of probe used by the operation
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: packets_per_burst
                         
                         	Number of packets sent per burst
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: inter_packet_interval
                         
                         	Interval between packets within a burst in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -4533,14 +4563,14 @@ class Sla(Entity):
                         .. attribute:: bursts_per_probe
                         
                         	Number of bursts sent per probe
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: inter_burst_interval
                         
                         	Interval between bursts within a probe in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4549,7 +4579,7 @@ class Sla(Entity):
                         .. attribute:: flr_calculation_interval
                         
                         	Interval between FLR calculations for SLM, in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4558,7 +4588,7 @@ class Sla(Entity):
                         .. attribute:: operation_metric
                         
                         	Array of the metrics that are measured by the operation
-                        	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric>`
+                        	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric>`
                         
                         
 
@@ -4619,19 +4649,19 @@ class Sla(Entity):
                             .. attribute:: packet_pad_size
                             
                             	Size that packets are being padded to
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: test_pattern_pad_scheme
                             
                             	Test pattern scheme that is used in the packet padding
-                            	**type**\:   :py:class:`SlaOperTestPatternScheme <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternScheme>`
+                            	**type**\:  :py:class:`SlaOperTestPatternScheme <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternScheme>`
                             
                             .. attribute:: test_pattern_pad_hex_string
                             
                             	Hex string that is used in the packet padding
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4672,12 +4702,12 @@ class Sla(Entity):
                             .. attribute:: priority_type
                             
                             	PriorityType
-                            	**type**\:   :py:class:`SlaOperPacketPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriority>`
+                            	**type**\:  :py:class:`SlaOperPacketPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriority>`
                             
                             .. attribute:: cos
                             
                             	3\-bit COS priority value applied to packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -4715,7 +4745,7 @@ class Sla(Entity):
                             .. attribute:: start_time
                             
                             	Start time of the first probe, in seconds since the Unix Epoch
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4724,12 +4754,12 @@ class Sla(Entity):
                             .. attribute:: start_time_configured
                             
                             	Whether or not the operation start time was explicitly configured
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: schedule_duration
                             
                             	Duration of a probe for the operation in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4738,7 +4768,7 @@ class Sla(Entity):
                             .. attribute:: schedule_interval
                             
                             	Interval between the start times of consecutive probes,  in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4783,12 +4813,12 @@ class Sla(Entity):
                             .. attribute:: metric_config
                             
                             	Configuration of the metric
-                            	**type**\:   :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig>`
+                            	**type**\:  :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig>`
                             
                             .. attribute:: current_buckets_archive
                             
                             	Number of valid buckets currently in the buckets archive
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4829,38 +4859,38 @@ class Sla(Entity):
                                 .. attribute:: metric_type
                                 
                                 	Type of metric to which this configuration applies
-                                	**type**\:   :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
+                                	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                                 
                                 .. attribute:: bins_count
                                 
                                 	Total number of bins into which to aggregate. 0 if no aggregation
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: bins_width
                                 
                                 	Width of each bin into which to aggregate. 0 if no aggregation. For SLM, the units of this value are in single units of percent; for LMM they are in tenths of percent; for other measurements they are in milliseconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: bucket_size
                                 
                                 	Size of buckets into which measurements are collected
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: bucket_size_unit
                                 
                                 	Whether bucket size is 'per\-probe' or 'probes'
-                                	**type**\:   :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                                	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
                                 
                                 .. attribute:: buckets_archive
                                 
                                 	Maximum number of buckets to store in memory
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -4906,17 +4936,17 @@ class Sla(Entity):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:   :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
                         
                         
 
@@ -4960,7 +4990,7 @@ class Sla(Entity):
                             .. attribute:: profile_name
                             
                             	Name of the profile used by the operation
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -4994,14 +5024,14 @@ class Sla(Entity):
                             .. attribute:: ondemand_operation_id
                             
                             	ID of the ondemand operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -5039,7 +5069,7 @@ class Sla(Entity):
                 .. attribute:: statistics_current
                 
                 	Current statistics data for an SLA configured operation
-                	**type**\: list of    :py:class:`StatisticsCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent>`
+                	**type**\: list of  		 :py:class:`StatisticsCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent>`
                 
                 
 
@@ -5074,59 +5104,65 @@ class Sla(Entity):
                     .. attribute:: profile_name
                     
                     	Profile Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: domain_name
                     
                     	Domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..8191
                     
                     .. attribute:: mac_address
                     
                     	Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address must be specified
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions>`
+                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions>`
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
-                    	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule>`
+                    	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule>`
                     
                     .. attribute:: probe_type
                     
                     	Type of probe used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: flr_calculation_interval
                     
                     	Interval between FLR calculations for SLM, in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5135,7 +5171,7 @@ class Sla(Entity):
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
-                    	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric>`
+                    	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric>`
                     
                     
 
@@ -5197,17 +5233,17 @@ class Sla(Entity):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:   :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
                         
                         
 
@@ -5251,7 +5287,7 @@ class Sla(Entity):
                             .. attribute:: profile_name
                             
                             	Name of the profile used by the operation
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -5285,14 +5321,14 @@ class Sla(Entity):
                             .. attribute:: ondemand_operation_id
                             
                             	ID of the ondemand operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -5330,7 +5366,7 @@ class Sla(Entity):
                         .. attribute:: start_time
                         
                         	Start time of the first probe, in seconds since the Unix Epoch
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5339,12 +5375,12 @@ class Sla(Entity):
                         .. attribute:: start_time_configured
                         
                         	Whether or not the operation start time was explicitly configured
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: schedule_duration
                         
                         	Duration of a probe for the operation in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5353,7 +5389,7 @@ class Sla(Entity):
                         .. attribute:: schedule_interval
                         
                         	Interval between the start times of consecutive probes,  in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5397,12 +5433,12 @@ class Sla(Entity):
                         .. attribute:: config
                         
                         	Configuration of the metric
-                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config>`
                         
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
-                        	**type**\: list of    :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket>`
+                        	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket>`
                         
                         
 
@@ -5441,38 +5477,38 @@ class Sla(Entity):
                             .. attribute:: metric_type
                             
                             	Type of metric to which this configuration applies
-                            	**type**\:   :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
+                            	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                             
                             .. attribute:: bins_count
                             
                             	Total number of bins into which to aggregate. 0 if no aggregation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: bins_width
                             
                             	Width of each bin into which to aggregate. 0 if no aggregation. For SLM, the units of this value are in single units of percent; for LMM they are in tenths of percent; for other measurements they are in milliseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: bucket_size
                             
                             	Size of buckets into which measurements are collected
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
-                            	**type**\:   :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                            	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
                             
                             .. attribute:: buckets_archive
                             
                             	Maximum number of buckets to store in memory
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5518,19 +5554,19 @@ class Sla(Entity):
                             .. attribute:: contents
                             
                             	The contents of the bucket; bins or samples
-                            	**type**\:   :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents>`
+                            	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents>`
                             
                             .. attribute:: start_at
                             
                             	Absolute time that the bucket started being filled at
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duration
                             
                             	Length of time for which the bucket is being filled in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5539,105 +5575,105 @@ class Sla(Entity):
                             .. attribute:: sent
                             
                             	Number of packets sent in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: corrupt
                             
                             	Number of corrupt packets in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_of_order
                             
                             	Number of packets recieved out\-of\-order in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duplicates
                             
                             	Number of duplicate packets received in the probe
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: minimum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: maximum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_of_minimum
                             
                             	Absolute time that the minimum value was recorded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: time_of_maximum
                             
                             	Absolute time that the maximum value was recorded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: average
                             
                             	Mean of the results in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: standard_deviation
                             
                             	Standard deviation of the results in the probe, in microseconds or millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: result_count
                             
                             	The count of samples collected in the bucket
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_sent_count
                             
                             	The number of data packets sent across the bucket, used in the calculation of overall FLR
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: data_lost_count
                             
                             	The number of data packets lost across the bucket, used in the calculation of overall FLR
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: overall_flr
                             
                             	Frame Loss Ratio across the whole bucket, in millionths of a percent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -5646,74 +5682,74 @@ class Sla(Entity):
                             .. attribute:: suspect_start_mid_bucket
                             
                             	Results suspect due to a probe starting mid\-way through a bucket
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_schedule_latency
                             
                             	Results suspect due to scheduling latency causing one or more packets to not be sent
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_send_fail
                             
                             	Results suspect due to failure to send one or more packets
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_premature_end
                             
                             	Results suspect due to a probe ending prematurely
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_clock_drift
                             
                             	Results suspect as more than 10 seconds time drift detected
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_memory_allocation_failed
                             
                             	Results suspect due to a memory allocation failure
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_cleared_mid_bucket
                             
                             	Results suspect as bucket was cleared mid\-way through being filled
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_probe_restarted
                             
                             	Results suspect as probe restarted mid\-way through the bucket
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_management_latency
                             
                             	Results suspect as processing of results has been delayed
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_multiple_buckets
                             
                             	Results suspect as the probe has been configured across multiple buckets
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_misordering
                             
                             	Results suspect as misordering has been detected , affecting results
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: suspect_flr_low_packet_count
                             
                             	Results suspect as FLR calculated based on a low packet count
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: premature_reason
                             
                             	If the probe ended prematurely, the error that caused a probe to end
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: premature_reason_string
                             
                             	Description of the error code that caused the probe to end prematurely. For informational purposes only
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -5812,17 +5848,17 @@ class Sla(Entity):
                                 .. attribute:: aggregated
                                 
                                 	Result bins in an SLA metric bucket
-                                	**type**\:   :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated>`
+                                	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated>`
                                 
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
-                                	**type**\:   :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
+                                	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
-                                	**type**\:   :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
+                                	**type**\:  :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
                                 
                                 
 
@@ -5866,7 +5902,7 @@ class Sla(Entity):
                                     .. attribute:: bins
                                     
                                     	The bins of an SLA metric bucket
-                                    	**type**\: list of    :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    	**type**\: list of  		 :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
                                     
                                     
 
@@ -5900,21 +5936,21 @@ class Sla(Entity):
                                         .. attribute:: lower_bound
                                         
                                         	Lower bound (inclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: upper_bound
                                         
                                         	Upper bound (exclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: lower_bound_tenths
                                         
                                         	Lower bound (inclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -5923,7 +5959,7 @@ class Sla(Entity):
                                         .. attribute:: upper_bound_tenths
                                         
                                         	Upper bound (exclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -5932,14 +5968,14 @@ class Sla(Entity):
                                         .. attribute:: sum
                                         
                                         	The sum of the results in the bin, in microseconds or millionths of a percent
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-9223372036854775808..9223372036854775807
                                         
                                         .. attribute:: count
                                         
                                         	The total number of results in the bin
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -5985,7 +6021,7 @@ class Sla(Entity):
                                     .. attribute:: sample
                                     
                                     	The samples of an SLA metric bucket
-                                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
                                     
                                     
 
@@ -6019,7 +6055,7 @@ class Sla(Entity):
                                         .. attribute:: sent_at
                                         
                                         	The time (in milliseconds relative to the start time of the bucket) that the sample was sent at
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -6028,46 +6064,46 @@ class Sla(Entity):
                                         .. attribute:: sent
                                         
                                         	Whether the sample packet was sucessfully sent
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: timed_out
                                         
                                         	Whether the sample packet timed out
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: corrupt
                                         
                                         	Whether the sample packet was corrupt
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: out_of_order
                                         
                                         	Whether the sample packet was received out\-of\-order
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: no_data_packets
                                         
                                         	Whether a measurement could not be made because no data packets were sent in the sample period. Only applicable for LMM measurements
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: result
                                         
                                         	The result (in microseconds or millionths of a percent) of the sample, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: frames_sent
                                         
                                         	For FLR measurements, the number of frames sent, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: frames_lost
                                         
                                         	For FLR measurements, the number of frames lost, if available
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         

@@ -27,7 +27,7 @@ class Rcp(Entity):
     .. attribute:: rcp_client
     
     	RCP client configuration
-    	**type**\:   :py:class:`RcpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Rcp.RcpClient>`
+    	**type**\:  :py:class:`RcpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Rcp.RcpClient>`
     
     
 
@@ -61,12 +61,14 @@ class Rcp(Entity):
         .. attribute:: username
         
         	Specify username for connections
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: source_interface
         
         	Specify interface for source address in connections
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         
 
@@ -105,7 +107,7 @@ class Ftp(Entity):
     .. attribute:: ftp_client
     
     	FTP client configuration
-    	**type**\:   :py:class:`FtpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Ftp.FtpClient>`
+    	**type**\:  :py:class:`FtpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Ftp.FtpClient>`
     
     
 
@@ -139,27 +141,31 @@ class Ftp(Entity):
         .. attribute:: passive
         
         	Enable connect using passive mode
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: password
         
         	Specify password for ftp connnection
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (!.+)\|([^!].+)
         
         .. attribute:: anonymous_password
         
         	Password for anonymous user (ftp server dependent)
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: username
         
         	Specify username for connections
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: source_interface
         
         	Specify interface for source address in connections
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         
 
@@ -204,7 +210,7 @@ class Tftp(Entity):
     .. attribute:: tftp_client
     
     	TFTP client configuration
-    	**type**\:   :py:class:`TftpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient>`
+    	**type**\:  :py:class:`TftpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient>`
     
     
 
@@ -238,19 +244,19 @@ class Tftp(Entity):
         .. attribute:: vrfs
         
         	VRF table
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient.Vrfs>`
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient.Vrfs>`
         
         .. attribute:: retry
         
         	Specify the number of retries when client requests TFTP connections
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..256
         
         .. attribute:: timeout
         
         	Specify the timeout for every TFTP connection in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..256
         
@@ -259,7 +265,9 @@ class Tftp(Entity):
         .. attribute:: source_interface
         
         	Specify interface for source address in connections
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         
 
@@ -302,7 +310,7 @@ class Tftp(Entity):
             .. attribute:: vrf
             
             	VRF specific data
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient.Vrfs.Vrf>`
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient.Vrfs.Vrf>`
             
             
 
@@ -336,24 +344,28 @@ class Tftp(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	Name of the VRF instance
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: source_interface
                 
                 	Specify interface for source address in connections
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: retry
                 
                 	Specify the number of retries when client requests TFTP connections
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..256
                 
                 .. attribute:: timeout
                 
                 	Specify the timeout for every TFTP connection in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..256
                 

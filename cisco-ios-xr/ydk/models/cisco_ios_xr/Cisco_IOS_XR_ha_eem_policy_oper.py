@@ -25,27 +25,27 @@ class Eem(Entity):
     .. attribute:: dir_user
     
     	directory user
-    	**type**\:   :py:class:`DirUser <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.DirUser>`
+    	**type**\:  :py:class:`DirUser <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.DirUser>`
     
     .. attribute:: env_variables
     
     	list of environmental variables
-    	**type**\:   :py:class:`EnvVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.EnvVariables>`
+    	**type**\:  :py:class:`EnvVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.EnvVariables>`
     
     .. attribute:: refresh_time
     
     	Refresh time
-    	**type**\:   :py:class:`RefreshTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.RefreshTime>`
+    	**type**\:  :py:class:`RefreshTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.RefreshTime>`
     
     .. attribute:: reg_policies
     
     	list the registered policies
-    	**type**\:   :py:class:`RegPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.RegPolicies>`
+    	**type**\:  :py:class:`RegPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.RegPolicies>`
     
     .. attribute:: avl_policies
     
     	list the available policies
-    	**type**\:   :py:class:`AvlPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.AvlPolicies>`
+    	**type**\:  :py:class:`AvlPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.AvlPolicies>`
     
     
 
@@ -99,12 +99,12 @@ class Eem(Entity):
         .. attribute:: library
         
         	directory user library
-        	**type**\:   :py:class:`Library <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.DirUser.Library>`
+        	**type**\:  :py:class:`Library <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.DirUser.Library>`
         
         .. attribute:: policy
         
         	directory user policy
-        	**type**\:   :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.DirUser.Policy>`
+        	**type**\:  :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.DirUser.Policy>`
         
         
 
@@ -143,12 +143,12 @@ class Eem(Entity):
             .. attribute:: policy
             
             	policy
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: library
             
             	library
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -184,12 +184,12 @@ class Eem(Entity):
             .. attribute:: policy
             
             	policy
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: library
             
             	library
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -225,7 +225,7 @@ class Eem(Entity):
         .. attribute:: env_variable
         
         	environmental variables name and value 
-        	**type**\: list of    :py:class:`EnvVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.EnvVariables.EnvVariable>`
+        	**type**\: list of  		 :py:class:`EnvVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.EnvVariables.EnvVariable>`
         
         
 
@@ -259,17 +259,19 @@ class Eem(Entity):
             .. attribute:: name  <key>
             
             	Environmental variable name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: name_xr
             
             	variable name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: value
             
             	value
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -307,7 +309,7 @@ class Eem(Entity):
         .. attribute:: refreshtime
         
         	Event manager refresh\-time 
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -343,7 +345,7 @@ class Eem(Entity):
         .. attribute:: reg_policy
         
         	policy name and create time 
-        	**type**\: list of    :py:class:`RegPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.RegPolicies.RegPolicy>`
+        	**type**\: list of  		 :py:class:`RegPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.RegPolicies.RegPolicy>`
         
         
 
@@ -377,54 +379,56 @@ class Eem(Entity):
             .. attribute:: name  <key>
             
             	policy name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: type
             
             	policy type
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: time_created
             
             	time created
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: policy_name
             
             	policy name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: class_
             
             	class
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: event_type
             
             	event type
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: trap
             
             	trap
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: persist_time
             
             	PersistTime 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: username
             
             	username
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: description
             
             	description
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -476,7 +480,7 @@ class Eem(Entity):
         .. attribute:: avl_policy
         
         	policy name and create time 
-        	**type**\: list of    :py:class:`AvlPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.AvlPolicies.AvlPolicy>`
+        	**type**\: list of  		 :py:class:`AvlPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.AvlPolicies.AvlPolicy>`
         
         
 
@@ -510,22 +514,24 @@ class Eem(Entity):
             .. attribute:: name  <key>
             
             	System policy name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: type
             
             	policy type
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: time_created
             
             	time created
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: policy_name
             
             	policy name
-            	**type**\:  str
+            	**type**\: str
             
             
 

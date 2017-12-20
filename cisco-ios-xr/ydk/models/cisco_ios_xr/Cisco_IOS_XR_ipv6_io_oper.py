@@ -25,7 +25,7 @@ class Ipv6Io(Entity):
     .. attribute:: nodes
     
     	Node\-specific IPv6 IO operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class Ipv6Io(Entity):
         .. attribute:: node
         
         	IPv6 network operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node>`
         
         
 
@@ -94,12 +94,14 @@ class Ipv6Io(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: statistics
             
             	Statistical IPv6 network operational data for a node
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics>`
             
             
 
@@ -139,7 +141,7 @@ class Ipv6Io(Entity):
                 .. attribute:: traffic
                 
                 	Traffic statistics for a node
-                	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic>`
+                	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic>`
                 
                 
 
@@ -172,17 +174,17 @@ class Ipv6Io(Entity):
                     .. attribute:: ipv6
                     
                     	IPv6 Statistics
-                    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6>`
+                    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6>`
                     
                     .. attribute:: icmp
                     
                     	ICMP Statistics
-                    	**type**\:   :py:class:`Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp>`
+                    	**type**\:  :py:class:`Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp>`
                     
                     .. attribute:: ipv6_node_discovery
                     
                     	IPv6 Node Discovery Statistics
-                    	**type**\:   :py:class:`Ipv6NodeDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery>`
+                    	**type**\:  :py:class:`Ipv6NodeDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery>`
                     
                     
 
@@ -225,217 +227,217 @@ class Ipv6Io(Entity):
                         .. attribute:: total_packets
                         
                         	Total Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_destination_packets
                         
                         	Local Destination Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: format_errors
                         
                         	Format Errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: truncated_packets
                         
                         	Truncated Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hop_count_exceeded_packets
                         
                         	Hop Count Exceeded Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_source_address_packets
                         
                         	Bad Source Address Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_header_packets
                         
                         	Bad Header Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_option_type_packets
                         
                         	Unknown Option Type Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_protocol_packets
                         
                         	Unknown Protocol Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: fragments
                         
                         	Fragments
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassembled_packets
                         
                         	Reassembled Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassembly_timeouts
                         
                         	Reassembly Timeouts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassembly_failures
                         
                         	Reassembly Failures
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reassembly_maximum_drops
                         
                         	Reassembly Reach Maximum Drop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generated_packets
                         
                         	Packets Output
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: forwarded_packets
                         
                         	Packets Forwarded
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: source_routed_packets
                         
                         	Packets Source Routed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: fragmented_packets
                         
                         	Packets Fragmented
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: fragment_count
                         
                         	Fragmented Packet Count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: fragment_failures
                         
                         	Fragment Failures
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_route_packets
                         
                         	No Route Packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: too_big_packets
                         
                         	Packet Too Big
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_multicast_packets
                         
                         	Multicast In
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_multicast_packets
                         
                         	Multicast Out
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: miscellaneous_drops
                         
                         	Misc. drops
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_v4_encap_packets
                         
                         	Lisp IPv4 Encapped packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_v4_decap_packets
                         
                         	Lisp IPv4 Decapped packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_v6_encap_packets
                         
                         	Lisp IPv6 Encapped packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_v6_decap_packets
                         
                         	Lisp IPv6 Decapped packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_encap_errors
                         
                         	Lisp Encap errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lisp_decap_errors
                         
                         	Lisp Decap errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -530,266 +532,266 @@ class Ipv6Io(Entity):
                         .. attribute:: total_messages
                         
                         	ICMP Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: too_short_error_messages
                         
                         	ICMP Too Short Errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: checksum_error_messages
                         
                         	ICMP Checksum Errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unknown_error_type_messages
                         
                         	ICMP Unknown Error
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: output_messages
                         
                         	ICMP Transmitted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_rate_limited_packets
                         
                         	ICMP Sent Packets Ratelimited
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_unreachable_routing_messages
                         
                         	ICMP Route Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_unreachable_admin_messages
                         
                         	ICMP Admin Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_unreachable_neighbor_messages
                         
                         	ICMP Host Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_unreachable_address_messages
                         
                         	ICMP Addr Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_unreachable_port_messages
                         
                         	ICMP Port Unreachable Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_unreachable_routing_messages
                         
                         	ICMP Route Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_unreachable_admin_messages
                         
                         	ICMP Admin Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_unreachable_neighbor_messages
                         
                         	ICMP Host Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_unreachable_address_messages
                         
                         	ICMP Addr Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_unreachable_port_messages
                         
                         	ICMP Port Unreachable Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_hop_count_expired_messages
                         
                         	ICMP Hop Count Expired Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_reassembly_timeouts
                         
                         	ICMP Reassembly Timeouts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_hop_count_expired_messages
                         
                         	ICMP Hop Count Expired Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_reassembly_timeouts
                         
                         	ICMP Reassembly Timeouts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_too_big_messages
                         
                         	ICMP Too Big Messages Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_too_big_messages
                         
                         	ICMP Too Big Messages Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_parameter_error_messages
                         
                         	ICMP Parameter Error Messages Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_parameter_header_messages
                         
                         	ICMP Parameter Next Header Messages Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_parameter_option_messages
                         
                         	ICMP Parameter Option Messages Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_parameter_error_messages
                         
                         	ICMP Parameter Error Messages Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_parameter_header_messages
                         
                         	ICMP Parameter Next Header Messages Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_parameter_option_messages
                         
                         	ICMP Parameter Option Problem Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_echo_request_messages
                         
                         	ICMP Echo Request Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_echo_reply_messages
                         
                         	ICMP Echo Reply Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_echo_request_messages
                         
                         	ICMP Echo Request Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_echo_reply_messages
                         
                         	ICMP Echo Reply Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_unknown_timeout_messages
                         
                         	ICMP Unknown Timeout Messages Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_unknown_timeout_messages
                         
                         	ICMP Unknown Timeout Messages Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_parameter_unknown_type_messages
                         
                         	ICMP Parameter Unknown Type Messages Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_parameter_unknown_type_messages
                         
                         	ICMP Parameter Unknown Type Messages Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_unreachable_unknown_type_messages
                         
                         	ICMP Unreachable Unknown Messages Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_unreachable_unknown_type_messages
                         
                         	ICMP Unreachable Unknown Messages Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -898,70 +900,70 @@ class Ipv6Io(Entity):
                         .. attribute:: sent_router_solicitation_messages
                         
                         	ICMP Router Solicitations Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_router_advertisement_messages
                         
                         	ICMP Router Advertisements Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_neighbor_solicitation_messages
                         
                         	ICMP Neighbor Solicitations Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_neighbor_advertisement_messages
                         
                         	ICMP Neighbor Advertisements Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sent_redirect_messages
                         
                         	ICMP Redirect Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_router_solicitation_messages
                         
                         	ICMP Router Solicitations Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_router_advertisement_messages
                         
                         	ICMP Router Advertisements Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_neighbor_solicitation_messages
                         
                         	ICMP Neighbor Solicitations Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_neighbor_advertisement_messages
                         
                         	ICMP Neighbor Advertisements Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: received_redirect_messages
                         
                         	ICMP Redirect Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         

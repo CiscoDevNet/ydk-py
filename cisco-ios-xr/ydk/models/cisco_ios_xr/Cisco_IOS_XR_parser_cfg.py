@@ -25,42 +25,42 @@ class Parser(Entity):
     .. attribute:: indentation
     
     	indentation tracking
-    	**type**\:   :py:class:`Indentation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Indentation>`
+    	**type**\:  :py:class:`Indentation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Indentation>`
     
     .. attribute:: alias
     
     	Alias for command mapping
-    	**type**\:   :py:class:`Alias <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias>`
+    	**type**\:  :py:class:`Alias <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias>`
     
     .. attribute:: history
     
     	cli commands history
-    	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.History>`
+    	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.History>`
     
     .. attribute:: interactive
     
     	interactive mode
-    	**type**\:   :py:class:`Interactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Interactive>`
+    	**type**\:  :py:class:`Interactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Interactive>`
     
     .. attribute:: interface_display
     
     	Configure the Interface display order
-    	**type**\:   :py:class:`InterfaceDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.InterfaceDisplay>`
+    	**type**\:  :py:class:`InterfaceDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.InterfaceDisplay>`
     
     .. attribute:: netmask_format
     
     	Ipv4 netmask\-format to be configured
-    	**type**\:   :py:class:`NetmaskFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.NetmaskFormat>`
+    	**type**\:  :py:class:`NetmaskFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.NetmaskFormat>`
     
     .. attribute:: configuration
     
     	cli configuration services
-    	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Configuration>`
+    	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Configuration>`
     
     .. attribute:: submode_exit
     
     	Exit submode when only '!' seen in interactive mode
-    	**type**\:   :py:class:`SubmodeExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.SubmodeExit>`
+    	**type**\:  :py:class:`SubmodeExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.SubmodeExit>`
     
     
 
@@ -129,7 +129,7 @@ class Parser(Entity):
         .. attribute:: indentation_disable
         
         	disable the indentation
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -163,17 +163,17 @@ class Parser(Entity):
         .. attribute:: execs
         
         	Exec command alias
-        	**type**\:   :py:class:`Execs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs>`
+        	**type**\:  :py:class:`Execs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs>`
         
         .. attribute:: configurations
         
         	Configuration command alias
-        	**type**\:   :py:class:`Configurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Configurations>`
+        	**type**\:  :py:class:`Configurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Configurations>`
         
         .. attribute:: alls
         
         	Table of all aliases configured
-        	**type**\:   :py:class:`Alls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls>`
+        	**type**\:  :py:class:`Alls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls>`
         
         
 
@@ -217,7 +217,7 @@ class Parser(Entity):
             .. attribute:: exec_
             
             	Exec alias name
-            	**type**\: list of    :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs.Exec_>`
+            	**type**\: list of  		 :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs.Exec_>`
             
             
 
@@ -251,14 +251,14 @@ class Parser(Entity):
                 .. attribute:: identifier  <key>
                 
                 	Exec Alias name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..30
                 
                 .. attribute:: identifier_xr
                 
                 	Aliased exec command
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -296,7 +296,7 @@ class Parser(Entity):
             .. attribute:: configuration
             
             	Configuration Alias name
-            	**type**\: list of    :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Configurations.Configuration>`
+            	**type**\: list of  		 :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Configurations.Configuration>`
             
             
 
@@ -330,14 +330,14 @@ class Parser(Entity):
                 .. attribute:: identifier  <key>
                 
                 	Configuration alias name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..30
                 
                 .. attribute:: identifier_xr
                 
                 	Aliased config command
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -375,7 +375,7 @@ class Parser(Entity):
             .. attribute:: all
             
             	Alias name to command mapping
-            	**type**\: list of    :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls.All>`
+            	**type**\: list of  		 :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls.All>`
             
             
 
@@ -409,14 +409,14 @@ class Parser(Entity):
                 .. attribute:: identifier  <key>
                 
                 	Alias name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..30
                 
                 .. attribute:: identifier_xr
                 
                 	The actual command
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -454,7 +454,7 @@ class Parser(Entity):
         .. attribute:: size
         
         	maximum number of commands in history
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1000..5000
         
@@ -490,7 +490,7 @@ class Parser(Entity):
         .. attribute:: interactive_disable
         
         	disable interactive mode
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -524,7 +524,7 @@ class Parser(Entity):
         .. attribute:: slot_order
         
         	Configure Interface display order as slot order
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -558,7 +558,7 @@ class Parser(Entity):
         .. attribute:: bit_count
         
         	Enable ipv4 netmask\-format as bit\-count
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -592,7 +592,7 @@ class Parser(Entity):
         .. attribute:: disable
         
         	disable for read\-only access users
-        	**type**\:   :py:class:`Disable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Configuration.Disable>`
+        	**type**\:  :py:class:`Disable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Configuration.Disable>`
         
         
 
@@ -626,7 +626,7 @@ class Parser(Entity):
             .. attribute:: usergroup
             
             	Disable config mode for usergroup
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -661,7 +661,7 @@ class Parser(Entity):
         .. attribute:: enable
         
         	Enable the feature
-        	**type**\:  bool
+        	**type**\: bool
         
         
 

@@ -25,94 +25,94 @@ class Aaa(Entity):
     .. attribute:: accountings
     
     	AAA accounting
-    	**type**\:   :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings>`
+    	**type**\:  :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings>`
     
     .. attribute:: authorizations
     
     	AAA authorization
-    	**type**\:   :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations>`
+    	**type**\:  :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations>`
     
     .. attribute:: accounting_update
     
     	Configuration related to 'update' accounting
-    	**type**\:   :py:class:`AccountingUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AccountingUpdate>`
+    	**type**\:  :py:class:`AccountingUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AccountingUpdate>`
     
     	**presence node**\: True
     
     .. attribute:: banner
     
     	AAA banner
-    	**type**\:   :py:class:`Banner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Banner>`
+    	**type**\:  :py:class:`Banner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Banner>`
     
     .. attribute:: authentications
     
     	AAA authentication
-    	**type**\:   :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications>`
+    	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications>`
     
     .. attribute:: aaa_subscriber
     
     	AAA subscriber
-    	**type**\:   :py:class:`AaaSubscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber>`
+    	**type**\:  :py:class:`AaaSubscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber>`
     
     .. attribute:: aaa_mobile
     
     	AAA Mobile
-    	**type**\:   :py:class:`AaaMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile>`
+    	**type**\:  :py:class:`AaaMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile>`
     
     .. attribute:: aaa_dot1x
     
     	AAA Dot1x
-    	**type**\:   :py:class:`AaaDot1X <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X>`
+    	**type**\:  :py:class:`AaaDot1X <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X>`
     
     .. attribute:: radius_attribute
     
     	AAA RADIUS attribute configurations
-    	**type**\:   :py:class:`RadiusAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute>`
+    	**type**\:  :py:class:`RadiusAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute>`
     
     .. attribute:: server_groups
     
     	AAA group definitions
-    	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups>`
+    	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups>`
     
     .. attribute:: default_taskgroup
     
     	This class is used for setting the default taskgroup to be used for remote server authentication
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: usernames
     
     	Configure local usernames
-    	**type**\:   :py:class:`Usernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames>`
+    	**type**\:  :py:class:`Usernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames>`
     
     .. attribute:: taskgroups
     
     	Specify a taskgroup to inherit from
-    	**type**\:   :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups>`
+    	**type**\:  :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups>`
     
     .. attribute:: usergroups
     
     	Specify a Usergroup to inherit from
-    	**type**\:   :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups>`
+    	**type**\:  :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups>`
     
     .. attribute:: diameter
     
     	Diameter base protocol
-    	**type**\:   :py:class:`Diameter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter>`
+    	**type**\:  :py:class:`Diameter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter>`
     
     .. attribute:: intercept
     
     	Enable LI RADIUS Feature
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: radius
     
     	Remote Access Dial\-In User Service
-    	**type**\:   :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius>`
+    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius>`
     
     .. attribute:: tacacs
     
     	Modify TACACS+ query parameters
-    	**type**\:   :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs>`
+    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs>`
     
     
 
@@ -129,7 +129,7 @@ class Aaa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-aaa-lib-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"accountings" : ("accountings", Aaa.Accountings), "authorizations" : ("authorizations", Aaa.Authorizations), "accounting-update" : ("accounting_update", Aaa.AccountingUpdate), "banner" : ("banner", Aaa.Banner), "authentications" : ("authentications", Aaa.Authentications), "aaa-subscriber" : ("aaa_subscriber", Aaa.AaaSubscriber), "aaa-mobile" : ("aaa_mobile", Aaa.AaaMobile), "aaa-dot1x" : ("aaa_dot1x", Aaa.AaaDot1X), "radius-attribute" : ("radius_attribute", Aaa.RadiusAttribute), "server-groups" : ("server_groups", Aaa.ServerGroups), "usernames" : ("usernames", Aaa.Usernames), "taskgroups" : ("taskgroups", Aaa.Taskgroups), "usergroups" : ("usergroups", Aaa.Usergroups), "diameter" : ("diameter", Aaa.Diameter), "radius" : ("radius", Aaa.Radius), "tacacs" : ("tacacs", Aaa.Tacacs)}
+        self._child_container_classes = {"accountings" : ("accountings", Aaa.Accountings), "authorizations" : ("authorizations", Aaa.Authorizations), "accounting-update" : ("accounting_update", Aaa.AccountingUpdate), "banner" : ("banner", Aaa.Banner), "authentications" : ("authentications", Aaa.Authentications), "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber" : ("aaa_subscriber", Aaa.AaaSubscriber), "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile" : ("aaa_mobile", Aaa.AaaMobile), "Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x" : ("aaa_dot1x", Aaa.AaaDot1X), "Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute" : ("radius_attribute", Aaa.RadiusAttribute), "Cisco-IOS-XR-aaa-locald-cfg:server-groups" : ("server_groups", Aaa.ServerGroups), "Cisco-IOS-XR-aaa-locald-cfg:usernames" : ("usernames", Aaa.Usernames), "Cisco-IOS-XR-aaa-locald-cfg:taskgroups" : ("taskgroups", Aaa.Taskgroups), "Cisco-IOS-XR-aaa-locald-cfg:usergroups" : ("usergroups", Aaa.Usergroups), "Cisco-IOS-XR-aaa-diameter-cfg:diameter" : ("diameter", Aaa.Diameter), "Cisco-IOS-XR-aaa-protocol-radius-cfg:radius" : ("radius", Aaa.Radius), "Cisco-IOS-XR-aaa-tacacs-cfg:tacacs" : ("tacacs", Aaa.Tacacs)}
         self._child_list_classes = {}
 
         self.default_taskgroup = YLeaf(YType.str, "Cisco-IOS-XR-aaa-locald-cfg:default-taskgroup")
@@ -227,7 +227,7 @@ class Aaa(Entity):
         .. attribute:: accounting
         
         	Configurations related to accounting
-        	**type**\: list of    :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings.Accounting>`
+        	**type**\: list of  		 :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings.Accounting>`
         
         
 
@@ -261,67 +261,71 @@ class Aaa(Entity):
             .. attribute:: type  <key>
             
             	exec\:Account exec sessions, commands\: Account CLI commands
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: listname  <key>
             
             	Named accounting list
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: rp_failover
             
             	rpfailover
-            	**type**\:   :py:class:`AaaAccountingRpFailover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingRpFailover>`
+            	**type**\:  :py:class:`AaaAccountingRpFailover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingRpFailover>`
             
             .. attribute:: broadcast
             
             	Broadcast
-            	**type**\:   :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
+            	**type**\:  :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
             
             .. attribute:: type_xr
             
             	Stop only/Start Stop
-            	**type**\:   :py:class:`AaaAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccounting>`
+            	**type**\:  :py:class:`AaaAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccounting>`
             
             .. attribute:: method1
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method2
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method3
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method4
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: server_group_name1
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name2
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name3
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name4
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -379,7 +383,7 @@ class Aaa(Entity):
         .. attribute:: authorization
         
         	Configurations related to authorization
-        	**type**\: list of    :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations.Authorization>`
+        	**type**\: list of  		 :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations.Authorization>`
         
         
 
@@ -413,52 +417,56 @@ class Aaa(Entity):
             .. attribute:: type  <key>
             
             	network\: Authorize IKE requests, commands\: Authorize CLI commands
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: listname  <key>
             
             	List name for AAA authorization
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: method1
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method2
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method3
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method4
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: server_group_name1
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name2
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name3
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name4
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -510,14 +518,14 @@ class Aaa(Entity):
         .. attribute:: type
         
         	newinfo/periodic
-        	**type**\:   :py:class:`AaaAccountingUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingUpdate>`
+        	**type**\:  :py:class:`AaaAccountingUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingUpdate>`
         
         	**mandatory**\: True
         
         .. attribute:: periodic_interval
         
         	Periodic update interval in minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..35791394
         
@@ -560,7 +568,7 @@ class Aaa(Entity):
         .. attribute:: login
         
         	AAA login banner
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -594,7 +602,7 @@ class Aaa(Entity):
         .. attribute:: authentication
         
         	Configurations related to authentication
-        	**type**\: list of    :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications.Authentication>`
+        	**type**\: list of  		 :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications.Authentication>`
         
         
 
@@ -628,52 +636,56 @@ class Aaa(Entity):
             .. attribute:: type  <key>
             
             	login\: Authenticate login sessions, ppp\: Authenticate ppp sessions
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: listname  <key>
             
             	List name for AAA authentication
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: method1
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method2
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method3
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: method4
             
             	Method Type
-            	**type**\:   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+            	**type**\:  :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
             
             .. attribute:: server_group_name1
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name2
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name3
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: server_group_name4
             
             	Server group name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -725,32 +737,32 @@ class Aaa(Entity):
         .. attribute:: policy_if_authors
         
         	AAA authorization policy
-        	**type**\:   :py:class:`PolicyIfAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors>`
+        	**type**\:  :py:class:`PolicyIfAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors>`
         
         .. attribute:: accountings
         
         	AAA accounting
-        	**type**\:   :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings>`
+        	**type**\:  :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings>`
         
         .. attribute:: service_accounting
         
         	Set accounting parameters for Service
-        	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.ServiceAccounting>`
+        	**type**\:  :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.ServiceAccounting>`
         
         .. attribute:: prepaid_authors
         
         	AAA authorization prepaid
-        	**type**\:   :py:class:`PrepaidAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors>`
+        	**type**\:  :py:class:`PrepaidAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors>`
         
         .. attribute:: authorizations
         
         	AAA authorization
-        	**type**\:   :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations>`
+        	**type**\:  :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations>`
         
         .. attribute:: authentications
         
         	AAA authentication
-        	**type**\:   :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications>`
+        	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications>`
         
         
 
@@ -809,7 +821,7 @@ class Aaa(Entity):
             .. attribute:: policy_if_author
             
             	Configurations related to authorization
-            	**type**\: list of    :py:class:`PolicyIfAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor>`
+            	**type**\: list of  		 :py:class:`PolicyIfAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor>`
             
             
 
@@ -843,22 +855,26 @@ class Aaa(Entity):
                 .. attribute:: type  <key>
                 
                 	Set authorization lists
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
                 
                 .. attribute:: listname  <key>
                 
                 	Named authorization list
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: method
                 
                 	Method Types
-                	**type**\:  list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
                 
                 .. attribute:: server_group_name
                 
                 	Server group names
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -898,7 +914,7 @@ class Aaa(Entity):
             .. attribute:: accounting
             
             	Configurations related to accounting
-            	**type**\: list of    :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings.Accounting>`
+            	**type**\: list of  		 :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings.Accounting>`
             
             
 
@@ -932,29 +948,33 @@ class Aaa(Entity):
                 .. attribute:: type  <key>
                 
                 	Set accounting lists
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
                 
                 .. attribute:: listname  <key>
                 
                 	Named accounting list
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: broadcast
                 
                 	Broadcast
-                	**type**\:   :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
+                	**type**\:  :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: method
                 
                 	Method Types
-                	**type**\:  list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
                 
                 .. attribute:: server_group_name
                 
                 	Server group names
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -996,7 +1016,7 @@ class Aaa(Entity):
             .. attribute:: type
             
             	Send extended/brief service accounting records
-            	**type**\:   :py:class:`AaaServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_aaacore_cfg.AaaServiceAccounting>`
+            	**type**\:  :py:class:`AaaServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_aaacore_cfg.AaaServiceAccounting>`
             
             
 
@@ -1030,7 +1050,7 @@ class Aaa(Entity):
             .. attribute:: prepaid_author
             
             	Configurations related to authorization
-            	**type**\: list of    :py:class:`PrepaidAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor>`
+            	**type**\: list of  		 :py:class:`PrepaidAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor>`
             
             
 
@@ -1064,22 +1084,26 @@ class Aaa(Entity):
                 .. attribute:: type  <key>
                 
                 	Set authorization lists
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
                 
                 .. attribute:: listname  <key>
                 
                 	Named authorization list
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: method
                 
                 	Method Types
-                	**type**\:  list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
                 
                 .. attribute:: server_group_name
                 
                 	Server group names
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -1119,7 +1143,7 @@ class Aaa(Entity):
             .. attribute:: authorization
             
             	Configurations related to authorization
-            	**type**\: list of    :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations.Authorization>`
+            	**type**\: list of  		 :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations.Authorization>`
             
             
 
@@ -1153,22 +1177,26 @@ class Aaa(Entity):
                 .. attribute:: type  <key>
                 
                 	Set authorization lists
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
                 
                 .. attribute:: listname  <key>
                 
                 	Named authorization list
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: method
                 
                 	Method Types
-                	**type**\:  list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
                 
                 .. attribute:: server_group_name
                 
                 	Server group names
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -1208,7 +1236,7 @@ class Aaa(Entity):
             .. attribute:: authentication
             
             	Configurations related to authentication
-            	**type**\: list of    :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications.Authentication>`
+            	**type**\: list of  		 :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications.Authentication>`
             
             
 
@@ -1242,22 +1270,26 @@ class Aaa(Entity):
                 .. attribute:: type  <key>
                 
                 	Set authentication lists
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
                 
                 .. attribute:: listname  <key>
                 
                 	Named authentication list
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: method
                 
                 	Method Types
-                	**type**\:  list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
                 
                 .. attribute:: server_group_name
                 
                 	Server group names
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -1297,7 +1329,7 @@ class Aaa(Entity):
         .. attribute:: mobiles
         
         	AAA Mobile Accounting
-        	**type**\:   :py:class:`Mobiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles>`
+        	**type**\:  :py:class:`Mobiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles>`
         
         
 
@@ -1331,7 +1363,7 @@ class Aaa(Entity):
             .. attribute:: mobile
             
             	Configurations related to accounting
-            	**type**\: list of    :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles.Mobile>`
+            	**type**\: list of  		 :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles.Mobile>`
             
             
 
@@ -1365,24 +1397,26 @@ class Aaa(Entity):
                 .. attribute:: listname  <key>
                 
                 	Named accounting list
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: broadcast
                 
                 	Broadcast
-                	**type**\:   :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
+                	**type**\:  :py:class:`AaaAccountingBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcast>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: method
                 
                 	Method Types
-                	**type**\:  list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
                 
                 .. attribute:: server_group_name
                 
                 	Server group names
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -1422,7 +1456,7 @@ class Aaa(Entity):
         .. attribute:: authentications
         
         	AAA authentication
-        	**type**\:   :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications>`
+        	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications>`
         
         
 
@@ -1456,7 +1490,7 @@ class Aaa(Entity):
             .. attribute:: authentication
             
             	Configurations related to authentication
-            	**type**\: list of    :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications.Authentication>`
+            	**type**\: list of  		 :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications.Authentication>`
             
             
 
@@ -1490,22 +1524,26 @@ class Aaa(Entity):
                 .. attribute:: type  <key>
                 
                 	Set authentication lists
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
                 
                 .. attribute:: listname  <key>
                 
                 	Named authentication list
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: method
                 
                 	Method Types
-                	**type**\:  list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
+                	**type**\: list of   :py:class:`AaaMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethod>`
                 
                 .. attribute:: server_group_name
                 
                 	Server group names
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -1545,27 +1583,27 @@ class Aaa(Entity):
         .. attribute:: nas_port_id
         
         	AAA nas\-port\-id attribute
-        	**type**\:   :py:class:`NasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId>`
+        	**type**\:  :py:class:`NasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId>`
         
         .. attribute:: calling_station
         
         	AAA calling station id attribute
-        	**type**\:   :py:class:`CallingStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation>`
+        	**type**\:  :py:class:`CallingStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation>`
         
         .. attribute:: called_station
         
         	AAA called station id attribute
-        	**type**\:   :py:class:`CalledStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation>`
+        	**type**\:  :py:class:`CalledStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation>`
         
         .. attribute:: nas_port
         
         	AAA nas\-port\-id attribute
-        	**type**\:   :py:class:`NasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort>`
+        	**type**\:  :py:class:`NasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort>`
         
         .. attribute:: format_others
         
         	AAA nas\-port\-id attribute format
-        	**type**\:   :py:class:`FormatOthers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers>`
+        	**type**\:  :py:class:`FormatOthers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers>`
         
         
 
@@ -1619,7 +1657,7 @@ class Aaa(Entity):
             .. attribute:: formats
             
             	AAA nas\-port\-id attribute format
-            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats>`
+            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats>`
             
             
 
@@ -1653,7 +1691,7 @@ class Aaa(Entity):
                 .. attribute:: format
                 
                 	nas\-port\-id attribute format
-                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats.Format>`
+                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats.Format>`
                 
                 
 
@@ -1687,14 +1725,14 @@ class Aaa(Entity):
                     .. attribute:: type  <key>
                     
                     	Nas\-Port\-Type value to apply format name on
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..45
                     
                     .. attribute:: format_name
                     
                     	AAA nas\-port attribute format
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
@@ -1732,7 +1770,7 @@ class Aaa(Entity):
             .. attribute:: formats
             
             	AAA nas\-port\-id attribute format
-            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats>`
+            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats>`
             
             
 
@@ -1766,7 +1804,7 @@ class Aaa(Entity):
                 .. attribute:: format
                 
                 	nas\-port\-id attribute format
-                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats.Format>`
+                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats.Format>`
                 
                 
 
@@ -1800,14 +1838,14 @@ class Aaa(Entity):
                     .. attribute:: type  <key>
                     
                     	Nas\-Port\-Type value to apply format name on
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..45
                     
                     .. attribute:: format_name
                     
                     	AAA nas\-port attribute format
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
@@ -1845,7 +1883,7 @@ class Aaa(Entity):
             .. attribute:: formats
             
             	AAA nas\-port\-id attribute format
-            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats>`
+            	**type**\:  :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats>`
             
             
 
@@ -1879,7 +1917,7 @@ class Aaa(Entity):
                 .. attribute:: format
                 
                 	nas\-port\-id attribute format
-                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats.Format>`
+                	**type**\: list of  		 :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats.Format>`
                 
                 
 
@@ -1913,14 +1951,14 @@ class Aaa(Entity):
                     .. attribute:: type  <key>
                     
                     	Nas\-Port\-Type value to apply format name on
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..45
                     
                     .. attribute:: format_name
                     
                     	AAA nas\-port attribute format
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
@@ -1958,7 +1996,7 @@ class Aaa(Entity):
             .. attribute:: format_extendeds
             
             	AAA nas\-port\-id attribute format
-            	**type**\:   :py:class:`FormatExtendeds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds>`
+            	**type**\:  :py:class:`FormatExtendeds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds>`
             
             
 
@@ -1992,7 +2030,7 @@ class Aaa(Entity):
                 .. attribute:: format_extended
                 
                 	nas\-port\-id extended attribute
-                	**type**\: list of    :py:class:`FormatExtended <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended>`
+                	**type**\: list of  		 :py:class:`FormatExtended <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended>`
                 
                 
 
@@ -2026,19 +2064,21 @@ class Aaa(Entity):
                     .. attribute:: value  <key>
                     
                     	format type
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: type  <key>
                     
                     	AAA nas\-port attribute format
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..45
                     
                     .. attribute:: format_identifier
                     
                     	A 32 character string representing the format to be used
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
@@ -2078,7 +2118,7 @@ class Aaa(Entity):
             .. attribute:: format_other
             
             	Other configs
-            	**type**\: list of    :py:class:`FormatOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers.FormatOther>`
+            	**type**\: list of  		 :py:class:`FormatOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers.FormatOther>`
             
             
 
@@ -2112,102 +2152,104 @@ class Aaa(Entity):
                 .. attribute:: nas_port_type_name  <key>
                 
                 	Nas\-Port\-Type value to apply format name on
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: attribute_config1
                 
                 	Argument1
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config2
                 
                 	Argument2
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config3
                 
                 	Argument3
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config4
                 
                 	Argument4
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config5
                 
                 	Argument5
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config6
                 
                 	Argument6
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config7
                 
                 	Argument7
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config8
                 
                 	Argument8
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config9
                 
                 	Argument9
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config10
                 
                 	Argument10
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config11
                 
                 	Argument11
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config12
                 
                 	Argument12
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config13
                 
                 	Argument13
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config14
                 
                 	Argument14
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config15
                 
                 	Argument15
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config16
                 
                 	Argument16
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config17
                 
                 	Argument17
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config18
                 
                 	Argument18
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: attribute_config19
                 
                 	Argument19
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..253
                 
@@ -2281,17 +2323,17 @@ class Aaa(Entity):
         .. attribute:: diameter_server_groups
         
         	DIAMETER server group definition
-        	**type**\:   :py:class:`DiameterServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups>`
+        	**type**\:  :py:class:`DiameterServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups>`
         
         .. attribute:: radius_server_groups
         
         	RADIUS server group definition
-        	**type**\:   :py:class:`RadiusServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups>`
+        	**type**\:  :py:class:`RadiusServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups>`
         
         .. attribute:: tacacs_server_groups
         
         	TACACS+ server\-group definition
-        	**type**\:   :py:class:`TacacsServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups>`
+        	**type**\:  :py:class:`TacacsServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups>`
         
         
 
@@ -2307,7 +2349,7 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"diameter-server-groups" : ("diameter_server_groups", Aaa.ServerGroups.DiameterServerGroups), "radius-server-groups" : ("radius_server_groups", Aaa.ServerGroups.RadiusServerGroups), "tacacs-server-groups" : ("tacacs_server_groups", Aaa.ServerGroups.TacacsServerGroups)}
+            self._child_container_classes = {"Cisco-IOS-XR-aaa-diameter-cfg:diameter-server-groups" : ("diameter_server_groups", Aaa.ServerGroups.DiameterServerGroups), "Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-groups" : ("radius_server_groups", Aaa.ServerGroups.RadiusServerGroups), "Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups" : ("tacacs_server_groups", Aaa.ServerGroups.TacacsServerGroups)}
             self._child_list_classes = {}
 
             self.diameter_server_groups = Aaa.ServerGroups.DiameterServerGroups()
@@ -2335,7 +2377,7 @@ class Aaa(Entity):
             .. attribute:: diameter_server_group
             
             	DIAMETER server group name
-            	**type**\: list of    :py:class:`DiameterServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup>`
+            	**type**\: list of  		 :py:class:`DiameterServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup>`
             
             
 
@@ -2369,12 +2411,14 @@ class Aaa(Entity):
                 .. attribute:: server_group_name  <key>
                 
                 	DIAMETER server group name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: servers
                 
                 	List of DIAMETER servers present in the group
-                	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers>`
+                	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers>`
                 
                 
 
@@ -2413,7 +2457,7 @@ class Aaa(Entity):
                     .. attribute:: server
                     
                     	A server to include in the server group
-                    	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server>`
+                    	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server>`
                     
                     
 
@@ -2446,14 +2490,16 @@ class Aaa(Entity):
                         .. attribute:: ordering_index  <key>
                         
                         	This is used to sort the servers in the order of precedence
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: peer_name  <key>
                         
                         	Name for the diameter peer configuration
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         
 
@@ -2488,7 +2534,7 @@ class Aaa(Entity):
             .. attribute:: radius_server_group
             
             	RADIUS server group name
-            	**type**\: list of    :py:class:`RadiusServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup>`
+            	**type**\: list of  		 :py:class:`RadiusServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup>`
             
             
 
@@ -2522,42 +2568,44 @@ class Aaa(Entity):
                 .. attribute:: server_group_name  <key>
                 
                 	RADIUS server group name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: accounting
                 
                 	List of filters in server group
-                	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting>`
+                	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting>`
                 
                 .. attribute:: servers
                 
                 	List of RADIUS servers present in the group
-                	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers>`
+                	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers>`
                 
                 .. attribute:: private_servers
                 
                 	List of private RADIUS servers present in the group
-                	**type**\:   :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers>`
+                	**type**\:  :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers>`
                 
                 .. attribute:: server_group_throttle
                 
                 	Radius throttling options
-                	**type**\:   :py:class:`ServerGroupThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle>`
+                	**type**\:  :py:class:`ServerGroupThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle>`
                 
                 .. attribute:: load_balance
                 
                 	Radius load\-balancing options
-                	**type**\:   :py:class:`LoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance>`
+                	**type**\:  :py:class:`LoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance>`
                 
                 .. attribute:: authorization
                 
                 	List of filters in server group
-                	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization>`
+                	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization>`
                 
                 .. attribute:: dead_time
                 
                 	This indicates the length of time (in minutes) for which RADIUS servers present in this group remain marked as dead
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..1440
                 
@@ -2566,12 +2614,14 @@ class Aaa(Entity):
                 .. attribute:: source_interface
                 
                 	Specify interface for source address in RADIUS packets
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: vrf
                 
                 	Specify VRF name of RADIUS group
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -2641,12 +2691,12 @@ class Aaa(Entity):
                     .. attribute:: request
                     
                     	Specify a filter in server group
-                    	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request>`
+                    	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request>`
                     
                     .. attribute:: reply
                     
                     	Specify a filter in server group
-                    	**type**\:   :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply>`
+                    	**type**\:  :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply>`
                     
                     
 
@@ -2684,12 +2734,12 @@ class Aaa(Entity):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\:   :py:class:`AaaAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction>`
+                        	**type**\:  :py:class:`AaaAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction>`
                         
                         .. attribute:: attribute_list_name
                         
                         	Name of RADIUS attribute list
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -2724,12 +2774,12 @@ class Aaa(Entity):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\:   :py:class:`AaaAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction>`
+                        	**type**\:  :py:class:`AaaAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction>`
                         
                         .. attribute:: attribute_list_name
                         
                         	Name of RADIUS attribute list
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -2764,7 +2814,7 @@ class Aaa(Entity):
                     .. attribute:: server
                     
                     	A server to include in the server group
-                    	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server>`
+                    	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server>`
                     
                     
 
@@ -2797,34 +2847,34 @@ class Aaa(Entity):
                         .. attribute:: ordering_index  <key>
                         
                         	This is used to sort the servers in the order of precedence
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ip_address  <key>
                         
                         	IP address of RADIUS server
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: auth_port_number  <key>
                         
                         	Authentication Port number (standard port 1645)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: acct_port_number  <key>
                         
                         	Accounting Port number (standard port 1646)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -2866,7 +2916,7 @@ class Aaa(Entity):
                     .. attribute:: private_server
                     
                     	A private server to include in the server group
-                    	**type**\: list of    :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers.PrivateServer>`
+                    	**type**\: list of  		 :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers.PrivateServer>`
                     
                     
 
@@ -2900,41 +2950,41 @@ class Aaa(Entity):
                         .. attribute:: ordering_index  <key>
                         
                         	This is used to sort the servers in the order of precedence
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ip_address  <key>
                         
                         	IP address of RADIUS server
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: auth_port_number  <key>
                         
                         	Authentication Port number (standard port 1645)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: acct_port_number  <key>
                         
                         	Accounting Port number (standard port 1646)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: private_timeout
                         
                         	Time to wait for a RADIUS server to reply
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1000
                         
@@ -2943,12 +2993,12 @@ class Aaa(Entity):
                         .. attribute:: ignore_accounting_port
                         
                         	Ignore Accounting port
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: private_retransmit
                         
                         	Number of times to retransmit a request to the RADIUS server
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..100
                         
@@ -2957,7 +3007,7 @@ class Aaa(Entity):
                         .. attribute:: idle_time
                         
                         	Idle time for the radius Server
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..60
                         
@@ -2966,17 +3016,19 @@ class Aaa(Entity):
                         .. attribute:: private_key
                         
                         	RADIUS encryption key
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (!.+)\|([^!].+)
                         
                         .. attribute:: username
                         
                         	Username to be tested for automated testing
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: ignore_auth_port
                         
                         	Ignore authentication Port
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -3029,7 +3081,7 @@ class Aaa(Entity):
                     .. attribute:: access
                     
                     	To flow control the number of access requests sent to a radius server
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -3038,7 +3090,7 @@ class Aaa(Entity):
                     .. attribute:: accounting
                     
                     	To flow control the number of accounting requests sent to a radius server
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -3047,7 +3099,7 @@ class Aaa(Entity):
                     .. attribute:: access_timeout
                     
                     	Specify the number of timeouts exceeding which a throttled access request is dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10
                     
@@ -3088,7 +3140,7 @@ class Aaa(Entity):
                     .. attribute:: method
                     
                     	Method by which the next host will be picked
-                    	**type**\:   :py:class:`Method <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method>`
+                    	**type**\:  :py:class:`Method <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method>`
                     
                     
 
@@ -3121,7 +3173,7 @@ class Aaa(Entity):
                         .. attribute:: name
                         
                         	Batch size for selection of the server
-                        	**type**\:   :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method.Name>`
+                        	**type**\:  :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method.Name>`
                         
                         
 
@@ -3154,7 +3206,7 @@ class Aaa(Entity):
                             .. attribute:: least_outstanding
                             
                             	Pick the server with the least transactions outstanding
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -3163,7 +3215,7 @@ class Aaa(Entity):
                             .. attribute:: batch_size
                             
                             	Batch size for selection of the server
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..1500
                             
@@ -3172,7 +3224,7 @@ class Aaa(Entity):
                             .. attribute:: ignore_preferred_server
                             
                             	Disable preferred server for this Server Group
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: true
                             
@@ -3211,12 +3263,12 @@ class Aaa(Entity):
                     .. attribute:: request
                     
                     	Specify a filter in server group
-                    	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request>`
+                    	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request>`
                     
                     .. attribute:: reply
                     
                     	Specify a filter in server group
-                    	**type**\:   :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply>`
+                    	**type**\:  :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply>`
                     
                     
 
@@ -3254,12 +3306,12 @@ class Aaa(Entity):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\:   :py:class:`AaaAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction>`
+                        	**type**\:  :py:class:`AaaAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction>`
                         
                         .. attribute:: attribute_list_name
                         
                         	Name of RADIUS attribute list
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -3294,12 +3346,12 @@ class Aaa(Entity):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\:   :py:class:`AaaAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction>`
+                        	**type**\:  :py:class:`AaaAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction>`
                         
                         .. attribute:: attribute_list_name
                         
                         	Name of RADIUS attribute list
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -3334,7 +3386,7 @@ class Aaa(Entity):
             .. attribute:: tacacs_server_group
             
             	TACACS+ Server group name
-            	**type**\: list of    :py:class:`TacacsServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup>`
+            	**type**\: list of  		 :py:class:`TacacsServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup>`
             
             
 
@@ -3368,22 +3420,24 @@ class Aaa(Entity):
                 .. attribute:: server_group_name  <key>
                 
                 	TACACS+ Server group name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: servers
                 
                 	Specify a TACACS+ server
-                	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
+                	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
                 
                 .. attribute:: private_servers
                 
                 	List of private TACACS servers present in the group
-                	**type**\:   :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
+                	**type**\:  :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
                 
                 .. attribute:: vrf
                 
                 	Specify VRF name of TACACS group
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -3429,7 +3483,7 @@ class Aaa(Entity):
                     .. attribute:: server
                     
                     	A server to include in the server group
-                    	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server>`
+                    	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server>`
                     
                     
 
@@ -3462,23 +3516,23 @@ class Aaa(Entity):
                         .. attribute:: ordering_index  <key>
                         
                         	This is used to sort the servers in the order of precedence
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ip_address  <key>
                         
                         	IP address of TACACS+ server
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         
 
                         """
@@ -3513,7 +3567,7 @@ class Aaa(Entity):
                     .. attribute:: private_server
                     
                     	A private server to include in the server group
-                    	**type**\: list of    :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer>`
+                    	**type**\: list of  		 :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer>`
                     
                     
 
@@ -3547,39 +3601,41 @@ class Aaa(Entity):
                         .. attribute:: ordering_index  <key>
                         
                         	This is used to sort the servers in the order of precedence
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ip_address  <key>
                         
                         	IP address of TACACS+ server
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: port_number  <key>
                         
                         	Port number (standard 49)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: key
                         
                         	Set TACACS+ encryption key
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (!.+)\|([^!].+)
                         
                         .. attribute:: timeout
                         
                         	Time to wait for a TACACS+ server to reply
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1000
                         
@@ -3624,7 +3680,7 @@ class Aaa(Entity):
         .. attribute:: username
         
         	Local username
-        	**type**\: list of    :py:class:`Username <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username>`
+        	**type**\: list of  		 :py:class:`Username <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username>`
         
         
 
@@ -3658,29 +3714,33 @@ class Aaa(Entity):
             .. attribute:: ordering_index  <key>
             
             	This is used to sort the users in the order of precedence
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: name  <key>
             
             	Username
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: usergroup_under_usernames
             
             	Specify the usergroup to which this user belongs
-            	**type**\:   :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
+            	**type**\:  :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
             
             .. attribute:: secret
             
             	Specify the secret for the user
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             .. attribute:: password
             
             	Specify the password for the user
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             
 
@@ -3726,7 +3786,7 @@ class Aaa(Entity):
                 .. attribute:: usergroup_under_username
                 
                 	Name of the usergroup
-                	**type**\: list of    :py:class:`UsergroupUnderUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername>`
+                	**type**\: list of  		 :py:class:`UsergroupUnderUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername>`
                 
                 
 
@@ -3759,7 +3819,9 @@ class Aaa(Entity):
                     .. attribute:: name  <key>
                     
                     	Name of the usergroup
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -3792,7 +3854,7 @@ class Aaa(Entity):
         .. attribute:: taskgroup
         
         	Taskgroup name
-        	**type**\: list of    :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup>`
+        	**type**\: list of  		 :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup>`
         
         
 
@@ -3826,22 +3888,22 @@ class Aaa(Entity):
             .. attribute:: name  <key>
             
             	Taskgroup name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: taskgroup_under_taskgroups
             
             	Specify a taskgroup to inherit from
-            	**type**\:   :py:class:`TaskgroupUnderTaskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups>`
+            	**type**\:  :py:class:`TaskgroupUnderTaskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups>`
             
             .. attribute:: tasks
             
             	Specify task IDs to be part of this group
-            	**type**\:   :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks>`
+            	**type**\:  :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks>`
             
             .. attribute:: description
             
             	Description for the task group
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -3887,7 +3949,7 @@ class Aaa(Entity):
                 .. attribute:: taskgroup_under_taskgroup
                 
                 	Name of the task group to include
-                	**type**\: list of    :py:class:`TaskgroupUnderTaskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup>`
+                	**type**\: list of  		 :py:class:`TaskgroupUnderTaskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup>`
                 
                 
 
@@ -3920,7 +3982,9 @@ class Aaa(Entity):
                     .. attribute:: name  <key>
                     
                     	Name of the task group to include
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -3953,7 +4017,7 @@ class Aaa(Entity):
                 .. attribute:: task
                 
                 	Task ID to be included
-                	**type**\: list of    :py:class:`Task <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks.Task>`
+                	**type**\: list of  		 :py:class:`Task <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks.Task>`
                 
                 
 
@@ -3986,12 +4050,12 @@ class Aaa(Entity):
                     .. attribute:: type  <key>
                     
                     	This specifies the operation permitted for this task eg\: read/write/execute/debug
-                    	**type**\:   :py:class:`AaaLocaldTaskClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClass>`
+                    	**type**\:  :py:class:`AaaLocaldTaskClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClass>`
                     
                     .. attribute:: task_id  <key>
                     
                     	Task ID to which permission is to be granted (please use class AllTasks to get a list of valid task IDs)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -4026,7 +4090,7 @@ class Aaa(Entity):
         .. attribute:: usergroup
         
         	Usergroup name
-        	**type**\: list of    :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup>`
+        	**type**\: list of  		 :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup>`
         
         
 
@@ -4060,22 +4124,22 @@ class Aaa(Entity):
             .. attribute:: name  <key>
             
             	Usergroup name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: taskgroup_under_usergroups
             
             	Task group associated with this group
-            	**type**\:   :py:class:`TaskgroupUnderUsergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups>`
+            	**type**\:  :py:class:`TaskgroupUnderUsergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups>`
             
             .. attribute:: usergroup_under_usergroups
             
             	User group to be inherited by this group
-            	**type**\:   :py:class:`UsergroupUnderUsergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups>`
+            	**type**\:  :py:class:`UsergroupUnderUsergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups>`
             
             .. attribute:: description
             
             	Description for the user group
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -4121,7 +4185,7 @@ class Aaa(Entity):
                 .. attribute:: taskgroup_under_usergroup
                 
                 	Name of the task group
-                	**type**\: list of    :py:class:`TaskgroupUnderUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup>`
+                	**type**\: list of  		 :py:class:`TaskgroupUnderUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup>`
                 
                 
 
@@ -4154,7 +4218,9 @@ class Aaa(Entity):
                     .. attribute:: name  <key>
                     
                     	Name of the task group
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -4187,7 +4253,7 @@ class Aaa(Entity):
                 .. attribute:: usergroup_under_usergroup
                 
                 	Name of the user group
-                	**type**\: list of    :py:class:`UsergroupUnderUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup>`
+                	**type**\: list of  		 :py:class:`UsergroupUnderUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup>`
                 
                 
 
@@ -4220,7 +4286,9 @@ class Aaa(Entity):
                     .. attribute:: name  <key>
                     
                     	Name of the user group
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -4253,52 +4321,54 @@ class Aaa(Entity):
         .. attribute:: gy
         
         	Start diameter policy\-if
-        	**type**\:   :py:class:`Gy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Gy>`
+        	**type**\:  :py:class:`Gy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Gy>`
         
         .. attribute:: origin
         
         	Origin sub commands
-        	**type**\:   :py:class:`Origin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Origin>`
+        	**type**\:  :py:class:`Origin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Origin>`
         
         .. attribute:: nas
         
         	Start diameter Nas
-        	**type**\:   :py:class:`Nas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Nas>`
+        	**type**\:  :py:class:`Nas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Nas>`
         
         .. attribute:: diameter_tls
         
         	TLS sub commands
-        	**type**\:   :py:class:`DiameterTls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.DiameterTls>`
+        	**type**\:  :py:class:`DiameterTls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.DiameterTls>`
         
         .. attribute:: peers
         
         	List of diameter peers
-        	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Peers>`
+        	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Peers>`
         
         .. attribute:: diams
         
         	Attribute list configuration for test command
-        	**type**\:   :py:class:`Diams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams>`
+        	**type**\:  :py:class:`Diams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams>`
         
         .. attribute:: gx
         
         	Start diameter policy\-if
-        	**type**\:   :py:class:`Gx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Gx>`
+        	**type**\:  :py:class:`Gx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Gx>`
         
         .. attribute:: diameter_timer
         
         	Timers used for the peer
-        	**type**\:   :py:class:`DiameterTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.DiameterTimer>`
+        	**type**\:  :py:class:`DiameterTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.DiameterTimer>`
         
         .. attribute:: vendor
         
         	Vendor specific
-        	**type**\:   :py:class:`Vendor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Vendor>`
+        	**type**\:  :py:class:`Vendor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Vendor>`
         
         .. attribute:: source_interface
         
         	Specify interface for source address in DIAMETER packets
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         
 
@@ -4377,19 +4447,19 @@ class Aaa(Entity):
             .. attribute:: retransmit
             
             	Set retransmit count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
             .. attribute:: dest_host
             
             	Destination Host name in FQDN format
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: tx_timer
             
             	Transaction timer value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 6..1000
             
@@ -4429,12 +4499,12 @@ class Aaa(Entity):
             .. attribute:: realm
             
             	Origin Realm String
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: host
             
             	Host name in FQDN format
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -4470,7 +4540,7 @@ class Aaa(Entity):
             .. attribute:: dest_host
             
             	Destination Host name in FQDN format
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -4504,7 +4574,7 @@ class Aaa(Entity):
             .. attribute:: trustpoint
             
             	Trustpoint label to be used
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -4538,7 +4608,7 @@ class Aaa(Entity):
             .. attribute:: peer
             
             	Diameter peer instance
-            	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Peers.Peer>`
+            	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Peers.Peer>`
             
             
 
@@ -4572,61 +4642,69 @@ class Aaa(Entity):
                 .. attribute:: peer_name  <key>
                 
                 	Name for the diameter peer configuration
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: peer_timer
                 
                 	Timers used for the peer
-                	**type**\:   :py:class:`PeerTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Peers.Peer.PeerTimer>`
+                	**type**\:  :py:class:`PeerTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Peers.Peer.PeerTimer>`
                 
                 .. attribute:: peer_type
                 
                 	Peer Type
-                	**type**\:   :py:class:`PeerType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Peers.Peer.PeerType>`
+                	**type**\:  :py:class:`PeerType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Peers.Peer.PeerType>`
                 
                 .. attribute:: host_destination
                 
                 	Destination host information
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ipv4_address
                 
                 	IPv4 address of diameter server
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: realm_destination
                 
                 	Realm to which the peer belongs to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: tcp_transport
                 
                 	Specify a Diameter transport protocol
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: source_interface
                 
                 	Specify interface for source address in DIAMETER packets
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: ipv6_address
                 
                 	IPv6 address of diameter server
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: tls_transport
                 
                 	Specify a Diameter security type
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: vrf_ip
                 
                 	VRF the peer belongs to
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -4686,21 +4764,21 @@ class Aaa(Entity):
                     .. attribute:: transaction
                     
                     	Timer value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 6..1000
                     
                     .. attribute:: connection
                     
                     	Timer value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 6..1000
                     
                     .. attribute:: watchdog
                     
                     	Timer value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 6..1000
                     
@@ -4739,7 +4817,7 @@ class Aaa(Entity):
                     .. attribute:: server
                     
                     	Enabled or disabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -4772,7 +4850,7 @@ class Aaa(Entity):
             .. attribute:: diam
             
             	attribute list configuration
-            	**type**\: list of    :py:class:`Diam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams.Diam>`
+            	**type**\: list of  		 :py:class:`Diam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams.Diam>`
             
             
 
@@ -4806,14 +4884,14 @@ class Aaa(Entity):
                 .. attribute:: list_id  <key>
                 
                 	attribute list number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..99
                 
                 .. attribute:: diam_attr_defs
                 
                 	Specify an attribute definition
-                	**type**\:   :py:class:`DiamAttrDefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams.Diam.DiamAttrDefs>`
+                	**type**\:  :py:class:`DiamAttrDefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams.Diam.DiamAttrDefs>`
                 
                 
 
@@ -4852,7 +4930,7 @@ class Aaa(Entity):
                     .. attribute:: diam_attr_def
                     
                     	vendor id
-                    	**type**\: list of    :py:class:`DiamAttrDef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef>`
+                    	**type**\: list of  		 :py:class:`DiamAttrDef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef>`
                     
                     
 
@@ -4885,21 +4963,21 @@ class Aaa(Entity):
                         .. attribute:: vendor_id  <key>
                         
                         	value for vendor id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: attribute_id  <key>
                         
                         	enter attribute id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: diam_attr_value
                         
                         	attr subcommands
-                        	**type**\:   :py:class:`DiamAttrValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue>`
+                        	**type**\:  :py:class:`DiamAttrValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue>`
                         
                         
 
@@ -4939,62 +5017,64 @@ class Aaa(Entity):
                             .. attribute:: type_string
                             
                             	String type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: type_ipv4_address
                             
                             	IPv4 address type
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: type_binary
                             
                             	Binary type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: type_boolean
                             
                             	Boolean type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: type_enum
                             
                             	Enumeration type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: type_grouped
                             
                             	Grouped attribute
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..99
                             
                             .. attribute:: type_ulong
                             
                             	Numeric type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: type_identity
                             
                             	Diameter\-identity type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: data_type
                             
                             	Dataypte of attribute
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..23
                             
                             .. attribute:: mandatory
                             
                             	Is mandatory?
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
@@ -5047,19 +5127,19 @@ class Aaa(Entity):
             .. attribute:: retransmit
             
             	Set retransmit count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
             .. attribute:: dest_host
             
             	Destination Host name in FQDN format
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: tx_timer
             
             	Transaction timer value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 6..1000
             
@@ -5099,21 +5179,21 @@ class Aaa(Entity):
             .. attribute:: transaction
             
             	Timer value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 6..1000
             
             .. attribute:: connection
             
             	Timer value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 6..1000
             
             .. attribute:: watchdog
             
             	Timer value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 6..1000
             
@@ -5153,7 +5233,7 @@ class Aaa(Entity):
             .. attribute:: supported
             
             	Supported vendors
-            	**type**\:   :py:class:`Supported <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Vendor.Supported>`
+            	**type**\:  :py:class:`Supported <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Diameter.Vendor.Supported>`
             
             
 
@@ -5187,22 +5267,22 @@ class Aaa(Entity):
                 .. attribute:: cisco
                 
                 	Cisco attribute support
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: threegpp
                 
                 	3GPP attribute support
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: etsi
                 
                 	Etsi attribute support
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: vodafone
                 
                 	Vodafone attribute support
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -5242,72 +5322,72 @@ class Aaa(Entity):
         .. attribute:: hosts
         
         	List of RADIUS servers
-        	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts>`
+        	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts>`
         
         .. attribute:: dead_criteria
         
         	RADIUS server dead criteria
-        	**type**\:   :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DeadCriteria>`
+        	**type**\:  :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DeadCriteria>`
         
         .. attribute:: disallow
         
         	disallow null\-username
-        	**type**\:   :py:class:`Disallow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Disallow>`
+        	**type**\:  :py:class:`Disallow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Disallow>`
         
         .. attribute:: ipv6
         
         	IPv6 configuration
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv6>`
         
         .. attribute:: dynamic_authorization
         
         	RADIUS dynamic authorization
-        	**type**\:   :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization>`
+        	**type**\:  :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization>`
         
         .. attribute:: load_balance_options
         
         	Radius load\-balancing options
-        	**type**\:   :py:class:`LoadBalanceOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions>`
+        	**type**\:  :py:class:`LoadBalanceOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions>`
         
         .. attribute:: vrfs
         
         	List of VRFs
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs>`
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs>`
         
         .. attribute:: throttle
         
         	Radius throttling options
-        	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Throttle>`
+        	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Throttle>`
         
         .. attribute:: vsa
         
         	Unknown VSA (Vendor Specific Attribute) ignore configuration for RADIUS server
-        	**type**\:   :py:class:`Vsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa>`
+        	**type**\:  :py:class:`Vsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa>`
         
         .. attribute:: ipv4
         
         	IPv4 configuration
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv4>`
         
         .. attribute:: radius_attribute
         
         	attribute
-        	**type**\:   :py:class:`RadiusAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute>`
+        	**type**\:  :py:class:`RadiusAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute>`
         
         .. attribute:: attributes
         
         	Table of attribute list
-        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes>`
+        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes>`
         
         .. attribute:: source_port
         
         	Source port
-        	**type**\:   :py:class:`SourcePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.SourcePort>`
+        	**type**\:  :py:class:`SourcePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.SourcePort>`
         
         .. attribute:: retransmit
         
         	Number of times to retransmit a request to the RADIUS server(0\-Disable)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..100
         
@@ -5316,7 +5396,7 @@ class Aaa(Entity):
         .. attribute:: dead_time
         
         	This indicates the length of time (in minutes) for which a RADIUS server remains marked as dead
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1440
         
@@ -5325,12 +5405,14 @@ class Aaa(Entity):
         .. attribute:: key
         
         	RADIUS encryption key
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (!.+)\|([^!].+)
         
         .. attribute:: timeout
         
         	Time to wait for a RADIUS server to reply
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1000
         
@@ -5339,12 +5421,12 @@ class Aaa(Entity):
         .. attribute:: ignore_accounting_port
         
         	Time to wait for a RADIUS server to reply
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: idle_time
         
         	Idle time for RADIUS server
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1000
         
@@ -5353,12 +5435,12 @@ class Aaa(Entity):
         .. attribute:: username
         
         	Username to be tested for automated testing
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: ignore_auth_port
         
         	Time to wait for a RADIUS server to reply
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -5471,7 +5553,7 @@ class Aaa(Entity):
             .. attribute:: host
             
             	Instance of a RADIUS server
-            	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts.Host>`
+            	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts.Host>`
             
             
 
@@ -5505,41 +5587,41 @@ class Aaa(Entity):
                 .. attribute:: ordering_index  <key>
                 
                 	This is used to sort the servers in the order of precedence
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ip_address  <key>
                 
                 	IP address of RADIUS server
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: auth_port_number  <key>
                 
                 	Authentication Port number (standard port 1645)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: acct_port_number  <key>
                 
                 	Accounting Port number (standard port 1646)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: host_retransmit
                 
                 	Number of times to retransmit a request to the RADIUS server
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..100
                 
@@ -5548,7 +5630,7 @@ class Aaa(Entity):
                 .. attribute:: host_timeout
                 
                 	Time to wait for a RADIUS server to reply
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..1000
                 
@@ -5557,17 +5639,19 @@ class Aaa(Entity):
                 .. attribute:: host_key
                 
                 	RADIUS encryption key
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
                 
                 .. attribute:: ignore_accounting_port
                 
                 	Time to wait for a RADIUS server to reply
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: idle_time
                 
                 	Idle time for RADIUS server
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..1000
                 
@@ -5576,12 +5660,12 @@ class Aaa(Entity):
                 .. attribute:: username
                 
                 	Username to be tested for automated testing
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ignore_auth_port
                 
                 	Time to wait for a RADIUS server to reply
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -5635,14 +5719,14 @@ class Aaa(Entity):
             .. attribute:: tries
             
             	The number of consecutive timeouts the router must experience in order to mark the server as dead. All transmissions, including the initial transmit and all retransmits, will be counted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
             .. attribute:: time
             
             	The minimum amount of time which must elapse since the router last received a valid RADIUS packet from the server prior to marking it dead
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..120
             
@@ -5680,7 +5764,7 @@ class Aaa(Entity):
             .. attribute:: null_username
             
             	Disallow null\-username
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -5716,18 +5800,14 @@ class Aaa(Entity):
             .. attribute:: dscp
             
             	Specify the DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`AaaDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValue>`
+            		**type**\:  :py:class:`AaaDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             """
@@ -5760,29 +5840,31 @@ class Aaa(Entity):
             .. attribute:: clients
             
             	Client data
-            	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients>`
+            	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients>`
             
             .. attribute:: ignore
             
             	Ignore option for server key or session key
-            	**type**\:   :py:class:`AaaSelectKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaSelectKey>`
+            	**type**\:  :py:class:`AaaSelectKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaSelectKey>`
             
             .. attribute:: port
             
             	Specify the COA server port to listen on
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1000..5000
             
             .. attribute:: authentication_type
             
             	RADIUS  dynamic  authorization  type
-            	**type**\:   :py:class:`AaaAuthentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAuthentication>`
+            	**type**\:  :py:class:`AaaAuthentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAuthentication>`
             
             .. attribute:: server_key
             
             	RADIUS CoA client encryption key
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             
 
@@ -5827,12 +5909,12 @@ class Aaa(Entity):
                 .. attribute:: client
                 
                 	Client data
-                	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients.Client>`
+                	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients.Client>`
                 
                 .. attribute:: client_vrf_name
                 
                 	Client data
-                	**type**\: list of    :py:class:`ClientVrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName>`
+                	**type**\: list of  		 :py:class:`ClientVrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName>`
                 
                 
 
@@ -5867,20 +5949,22 @@ class Aaa(Entity):
                     .. attribute:: ip_address  <key>
                     
                     	IP address of COA client
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: server_key
                     
                     	RADIUS CoA client encryption key
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (!.+)\|([^!].+)
                     
                     
 
@@ -5916,25 +6000,29 @@ class Aaa(Entity):
                     .. attribute:: vrf_name  <key>
                     
                     	VRF name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: ip_address  <key>
                     
                     	IP address of COA client
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: server_key
                     
                     	RADIUS CoA client encryption key
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (!.+)\|([^!].+)
                     
                     
 
@@ -5972,7 +6060,7 @@ class Aaa(Entity):
             .. attribute:: load_balance_method
             
             	Method by which the next host will be picked
-            	**type**\:   :py:class:`LoadBalanceMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod>`
+            	**type**\:  :py:class:`LoadBalanceMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod>`
             
             
 
@@ -6006,7 +6094,7 @@ class Aaa(Entity):
                 .. attribute:: batch_size
                 
                 	Batch size for selection of the server
-                	**type**\:   :py:class:`BatchSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize>`
+                	**type**\:  :py:class:`BatchSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize>`
                 
                 
 
@@ -6040,7 +6128,7 @@ class Aaa(Entity):
                     .. attribute:: batch_size
                     
                     	Batch size for selection of the server
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1500
                     
@@ -6049,7 +6137,7 @@ class Aaa(Entity):
                     .. attribute:: ignore_preferred_server
                     
                     	Disable preferred server for this Server Group
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: true
                     
@@ -6087,7 +6175,7 @@ class Aaa(Entity):
             .. attribute:: vrf
             
             	A VRF
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs.Vrf>`
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs.Vrf>`
             
             
 
@@ -6121,12 +6209,16 @@ class Aaa(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	VRF name. Specify 'default' for defalut VRF
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: source_interface
                 
                 	Specify interface for source address in RADIUS packets
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 
 
@@ -6162,7 +6254,7 @@ class Aaa(Entity):
             .. attribute:: access
             
             	To flow control the number of access requests sent to a radius server
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -6171,7 +6263,7 @@ class Aaa(Entity):
             .. attribute:: accounting
             
             	To flow control the number of accounting requests sent to a radius server
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -6180,7 +6272,7 @@ class Aaa(Entity):
             .. attribute:: access_timeout
             
             	Specify the number of timeouts exceeding which a throttled access request is dropped
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
@@ -6223,7 +6315,7 @@ class Aaa(Entity):
             .. attribute:: attribute
             
             	Vendor Specific Attribute
-            	**type**\:   :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute>`
+            	**type**\:  :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute>`
             
             
 
@@ -6257,7 +6349,7 @@ class Aaa(Entity):
                 .. attribute:: ignore
                 
                 	Ignore the VSA
-                	**type**\:   :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute.Ignore>`
+                	**type**\:  :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute.Ignore>`
                 
                 
 
@@ -6291,7 +6383,7 @@ class Aaa(Entity):
                     .. attribute:: unknown
                     
                     	Ignore the VSA and no prefix will reject the unknown VSA
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -6325,18 +6417,14 @@ class Aaa(Entity):
             .. attribute:: dscp
             
             	Specify the DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`AaaDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValue>`
+            		**type**\:  :py:class:`AaaDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             """
@@ -6369,17 +6457,17 @@ class Aaa(Entity):
             .. attribute:: filter_id_11
             
             	Filter\-Id attribute configuration
-            	**type**\:   :py:class:`FilterId11 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.FilterId11>`
+            	**type**\:  :py:class:`FilterId11 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.FilterId11>`
             
             .. attribute:: acct_multi_session_id
             
             	Acct\-Session\-Id attribute(44)
-            	**type**\:   :py:class:`AcctMultiSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctMultiSessionId>`
+            	**type**\:  :py:class:`AcctMultiSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctMultiSessionId>`
             
             .. attribute:: acct_session_id
             
             	Acct\-Session\-Id attribute(44)
-            	**type**\:   :py:class:`AcctSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctSessionId>`
+            	**type**\:  :py:class:`AcctSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctSessionId>`
             
             
 
@@ -6423,7 +6511,7 @@ class Aaa(Entity):
                 .. attribute:: defaults
                 
                 	Set the attribute default direction
-                	**type**\:   :py:class:`Defaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.FilterId11.Defaults>`
+                	**type**\:  :py:class:`Defaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.FilterId11.Defaults>`
                 
                 
 
@@ -6457,7 +6545,7 @@ class Aaa(Entity):
                     .. attribute:: direction
                     
                     	Filtering is applied to ingress(inbound)/egress(outbound) packets only
-                    	**type**\:   :py:class:`AaaDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDirection>`
+                    	**type**\:  :py:class:`AaaDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDirection>`
                     
                     
 
@@ -6491,7 +6579,7 @@ class Aaa(Entity):
                 .. attribute:: include_parent_session_id
                 
                 	Prepend Acct\-Session\-Id attribute with Nas\-Port\-Id
-                	**type**\:   :py:class:`IncludeParentSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId>`
+                	**type**\:  :py:class:`IncludeParentSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId>`
                 
                 
 
@@ -6526,7 +6614,7 @@ class Aaa(Entity):
                     .. attribute:: config
                     
                     	false/true
-                    	**type**\:   :py:class:`AaaConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfig>`
+                    	**type**\:  :py:class:`AaaConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfig>`
                     
                     
 
@@ -6560,7 +6648,7 @@ class Aaa(Entity):
                 .. attribute:: prepend_nas_port_id
                 
                 	Prepend Acct\-Session\-Id attribute with Nas\-Port\-Id
-                	**type**\:   :py:class:`PrependNasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId>`
+                	**type**\:  :py:class:`PrependNasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId>`
                 
                 
 
@@ -6595,7 +6683,7 @@ class Aaa(Entity):
                     .. attribute:: config
                     
                     	false/true
-                    	**type**\:   :py:class:`AaaConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfig>`
+                    	**type**\:  :py:class:`AaaConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfig>`
                     
                     
 
@@ -6629,7 +6717,7 @@ class Aaa(Entity):
             .. attribute:: attribute
             
             	Attribute list name
-            	**type**\: list of    :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute>`
+            	**type**\: list of  		 :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute>`
             
             
 
@@ -6663,17 +6751,19 @@ class Aaa(Entity):
                 .. attribute:: attribute_list_name  <key>
                 
                 	Attribute list name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: vendor_ids
                 
                 	Vendor Specific Attribute
-                	**type**\:   :py:class:`VendorIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds>`
+                	**type**\:  :py:class:`VendorIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds>`
                 
                 .. attribute:: attribute
                 
                 	Specify RADIUS attribute
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -6714,7 +6804,7 @@ class Aaa(Entity):
                     .. attribute:: vendor_id
                     
                     	Vendor ID of vsa
-                    	**type**\: list of    :py:class:`VendorId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId>`
+                    	**type**\: list of  		 :py:class:`VendorId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId>`
                     
                     
 
@@ -6747,14 +6837,14 @@ class Aaa(Entity):
                         .. attribute:: vendor_id  <key>
                         
                         	Vendor Id of vsa
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: vendor_type
                         
                         	Vendor Type of vsa
-                        	**type**\: list of    :py:class:`VendorType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType>`
+                        	**type**\: list of  		 :py:class:`VendorType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType>`
                         
                         
 
@@ -6789,14 +6879,14 @@ class Aaa(Entity):
                             .. attribute:: vendor_type  <key>
                             
                             	Vendor Type of vsa
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: attribute_name
                             
                             	Attribute Name of vsa
-                            	**type**\: list of    :py:class:`AttributeName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName>`
+                            	**type**\: list of  		 :py:class:`AttributeName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName>`
                             
                             
 
@@ -6831,12 +6921,14 @@ class Aaa(Entity):
                                 .. attribute:: attribute_name  <key>
                                 
                                 	Attribute Name of vsa
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: attribute_name_absent
                                 
                                 	AttributeName of vsa is absent
-                                	**type**\: list of    :py:class:`AttributeNameAbsent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent>`
+                                	**type**\: list of  		 :py:class:`AttributeNameAbsent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent>`
                                 
                                 
 
@@ -6871,14 +6963,14 @@ class Aaa(Entity):
                                     .. attribute:: attribute_name_absent  <key>
                                     
                                     	AttributeName of vsa is absent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: attribute_name_present
                                     
                                     	AttributeName of vsa is present
-                                    	**type**\: list of    :py:class:`AttributeNamePresent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent.AttributeNamePresent>`
+                                    	**type**\: list of  		 :py:class:`AttributeNamePresent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute.VendorIds.VendorId.VendorType.AttributeName.AttributeNameAbsent.AttributeNamePresent>`
                                     
                                     
 
@@ -6913,7 +7005,7 @@ class Aaa(Entity):
                                         .. attribute:: attribute_name_present  <key>
                                         
                                         	AttributeName of vsa is present
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -6948,7 +7040,7 @@ class Aaa(Entity):
             .. attribute:: extended
             
             	Enable source\-port extend 
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -6982,32 +7074,34 @@ class Aaa(Entity):
         .. attribute:: ipv6
         
         	IPv6 configuration
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
         
         .. attribute:: hosts
         
         	Specify a TACACS+ server
-        	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts>`
+        	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts>`
         
         .. attribute:: ipv4
         
         	IPv4 configuration
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
         
         .. attribute:: vrfs
         
         	List of VRFs
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
         
         .. attribute:: key
         
         	Set TACACS+ encryption key
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (!.+)\|([^!].+)
         
         .. attribute:: timeout
         
         	Time to wait for a TACACS+ server to reply
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1000
         
@@ -7016,7 +7110,7 @@ class Aaa(Entity):
         .. attribute:: single_connect
         
         	Use a single connection for all sessions for a given TACACS+ server
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
@@ -7076,18 +7170,14 @@ class Aaa(Entity):
             .. attribute:: dscp
             
             	Specify the DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`TacacsDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue>`
+            		**type**\:  :py:class:`TacacsDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             """
@@ -7120,7 +7210,7 @@ class Aaa(Entity):
             .. attribute:: host
             
             	One of the TACACS+ servers
-            	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts.Host>`
+            	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts.Host>`
             
             
 
@@ -7154,39 +7244,41 @@ class Aaa(Entity):
                 .. attribute:: ordering_index  <key>
                 
                 	This is used to sort the servers in the order of precedence
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ip_address  <key>
                 
                 	IP address of TACACS+ server
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port_number  <key>
                 
                 	Port number (standard 49)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: key
                 
                 	Set TACACS+ encryption key
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
                 
                 .. attribute:: timeout
                 
                 	Time to wait for a TACACS+ server to reply
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..1000
                 
@@ -7195,7 +7287,7 @@ class Aaa(Entity):
                 .. attribute:: single_connect
                 
                 	Use a single connection for all sessions for a given TACACS+ server
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
@@ -7241,18 +7333,14 @@ class Aaa(Entity):
             .. attribute:: dscp
             
             	Specify the DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`TacacsDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue>`
+            		**type**\:  :py:class:`TacacsDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             """
@@ -7285,7 +7373,7 @@ class Aaa(Entity):
             .. attribute:: vrf
             
             	A VRF
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs.Vrf>`
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs.Vrf>`
             
             
 
@@ -7319,12 +7407,16 @@ class Aaa(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	VRF name. Specify 'default' for default VRF
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: source_interface
                 
                 	Specify interface for source address in TACACS+ packets
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 
 

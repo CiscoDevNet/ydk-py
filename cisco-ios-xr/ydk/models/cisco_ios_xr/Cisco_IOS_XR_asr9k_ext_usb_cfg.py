@@ -25,7 +25,7 @@ class HardwareModuleExtUsb(Entity):
     .. attribute:: disable
     
     	External USB disable
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 

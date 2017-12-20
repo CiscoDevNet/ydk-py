@@ -115,32 +115,32 @@ class CISCOCONFIGMANMIB(Entity):
     .. attribute:: ccmhistory
     
     	
-    	**type**\:   :py:class:`Ccmhistory <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistory>`
+    	**type**\:  :py:class:`Ccmhistory <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistory>`
     
     .. attribute:: ccmclihistory
     
     	
-    	**type**\:   :py:class:`Ccmclihistory <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistory>`
+    	**type**\:  :py:class:`Ccmclihistory <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistory>`
     
     .. attribute:: ccmclicfg
     
     	
-    	**type**\:   :py:class:`Ccmclicfg <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclicfg>`
+    	**type**\:  :py:class:`Ccmclicfg <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclicfg>`
     
     .. attribute:: ccmctidobjects
     
     	
-    	**type**\:   :py:class:`Ccmctidobjects <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmctidobjects>`
+    	**type**\:  :py:class:`Ccmctidobjects <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmctidobjects>`
     
     .. attribute:: ccmhistoryeventtable
     
     	A table of configuration events on this router
-    	**type**\:   :py:class:`Ccmhistoryeventtable <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable>`
+    	**type**\:  :py:class:`Ccmhistoryeventtable <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable>`
     
     .. attribute:: ccmclihistorycommandtable
     
     	A table of CLI commands that took effect during configuration events
-    	**type**\:   :py:class:`Ccmclihistorycommandtable <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistorycommandtable>`
+    	**type**\:  :py:class:`Ccmclihistorycommandtable <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistorycommandtable>`
     
     
 
@@ -199,35 +199,35 @@ class CISCOCONFIGMANMIB(Entity):
         .. attribute:: ccmhistoryrunninglastchanged
         
         	The value of sysUpTime when the running configuration was last changed.          If the value of ccmHistoryRunningLastChanged is         greater than ccmHistoryRunningLastSaved, the          configuration has been changed but not saved
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ccmhistoryrunninglastsaved
         
         	The value of sysUpTime when the running configuration was last saved (written).  If the value of ccmHistoryRunningLastChanged is  greater than ccmHistoryRunningLastSaved, the  configuration has been changed but not saved.  What constitutes a safe saving of the running configuration is a management policy issue beyond the scope of this MIB.  For some installations, writing the running configuration to a terminal may be a way of capturing and saving it.  Others may use local or remote storage.  Thus ANY write is considered saving for the purposes of the MIB
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ccmhistorystartuplastchanged
         
         	The value of sysUpTime when the startup configuration was last written to.  In general this is the default configuration used when cold starting the system.  It may have been changed by a save of the running configuration or by a copy from elsewhere
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ccmhistorymaxevententries
         
         	The maximum number of entries that can be held in ccmHistoryEventTable.  The recommended value for implementations is 10
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: ccmhistoryevententriesbumped
         
         	The number of times the oldest entry in ccmHistoryEventTable was deleted to make room  for a new entry
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -271,21 +271,21 @@ class CISCOCONFIGMANMIB(Entity):
         .. attribute:: ccmclihistorymaxcmdentries
         
         	The maximum number of entries that can be held in ccmCLIHistoryCommandTable.  The recommended value for implementations is 100.  If the number of entries in ccmCLIHistoryCommandTable  exceeds the value of this object, old entries will be  bumped to make room for new entries.  The ccmCLIHistoryCommandTable will not be populated if the value of this object is 0
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ccmclihistorycmdentries
         
         	The current number of entries in ccmCLIHistoryCommandTable
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ccmclihistorycmdentriesallowed
         
         	This object indicates the upper limit on the number of entries allowed in  ccmCLIHistoryCommandTable by the managed system
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -325,7 +325,7 @@ class CISCOCONFIGMANMIB(Entity):
         .. attribute:: ccmclicfgrunconfnotifenable
         
         	This variable indicates whether the system produces the ccmCLIRunningConfigChanged notification. A false  value will prevent notifications from being generated  by this system
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -359,24 +359,24 @@ class CISCOCONFIGMANMIB(Entity):
         .. attribute:: ccmctid
         
         	This object indicates the Config Change Tracking ID which uniquely represents version\-incrementing changes to the IOS  running configuration
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: ccmctidlastchangetime
         
         	This object indicates the time when the Config Change Tracking ID last changed
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: ccmctidwhochanged
         
         	This object indicates the user who last reset the Config Change Tracking ID
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: ccmctidrolledovernotifenable
         
         	This variable indicates whether the system produces the ccmCTIDRolledOver notification. A false value will prevent notifications from being generated by this system
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -416,7 +416,7 @@ class CISCOCONFIGMANMIB(Entity):
         .. attribute:: ccmhistoryevententry
         
         	Information about a configuration event on this router
-        	**type**\: list of    :py:class:`Ccmhistoryevententry <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry>`
+        	**type**\: list of  		 :py:class:`Ccmhistoryevententry <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry>`
         
         
 
@@ -451,121 +451,125 @@ class CISCOCONFIGMANMIB(Entity):
             .. attribute:: ccmhistoryeventindex  <key>
             
             	A monotonically increasing integer for the sole purpose of indexing events.  When it reaches the  maximum value, an extremely unlikely event, the agent  wraps the value back to 1 and may flush existing  entries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: ccmhistoryeventtime
             
             	The value of sysUpTime when the event occurred
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccmhistoryeventcommandsource
             
             	The source of the command that instigated the event
-            	**type**\:   :py:class:`Ccmhistoryeventcommandsource <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry.Ccmhistoryeventcommandsource>`
+            	**type**\:  :py:class:`Ccmhistoryeventcommandsource <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry.Ccmhistoryeventcommandsource>`
             
             .. attribute:: ccmhistoryeventconfigsource
             
             	The configuration data source for the event
-            	**type**\:   :py:class:`HistoryEventMedium <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.HistoryEventMedium>`
+            	**type**\:  :py:class:`HistoryEventMedium <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.HistoryEventMedium>`
             
             .. attribute:: ccmhistoryeventconfigdestination
             
             	The configuration data destination for the event
-            	**type**\:   :py:class:`HistoryEventMedium <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.HistoryEventMedium>`
+            	**type**\:  :py:class:`HistoryEventMedium <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.HistoryEventMedium>`
             
             .. attribute:: ccmhistoryeventterminaltype
             
             	If ccmHistoryEventCommandSource is 'commandLine', the terminal type, otherwise 'notApplicable'
-            	**type**\:   :py:class:`Ccmhistoryeventterminaltype <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry.Ccmhistoryeventterminaltype>`
+            	**type**\:  :py:class:`Ccmhistoryeventterminaltype <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmhistoryeventtable.Ccmhistoryevententry.Ccmhistoryeventterminaltype>`
             
             .. attribute:: ccmhistoryeventterminalnumber
             
             	If ccmHistoryEventCommandSource is 'commandLine', the terminal number.  The value is \-1 if not available or not applicable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ccmhistoryeventterminaluser
             
             	If ccmHistoryEventCommandSource is 'commandLine', the name of the logged in user.  The length is zero if not available or not applicable
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: ccmhistoryeventterminallocation
             
             	If ccmHistoryEventCommandSource is 'commandLine', the hard\-wired location of the terminal or the remote  host for an incoming connection.  The length is zero  if not available or not applicable
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: ccmhistoryeventcommandsourceaddress
             
             	If ccmHistoryEventTerminalType is 'virtual', the internet address of the connected system.  If ccmHistoryEventCommandSource is 'snmp', the internet address of the requester.  The value is 0.0.0.0 if not available or not  applicable.  This object is deprecated by ccmHistoryEventCommandSourceAddrRev1
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: ccmhistoryeventvirtualhostname
             
             	If ccmHistoryEventTerminalType is 'virtual', the host name of the connected system.  The length is zero if not available or not applicable
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: ccmhistoryeventserveraddress
             
             	If ccmHistoryEventConfigSource or ccmHistoryEventConfigDestination is 'networkTftp' or 'networkRcp', the internet address of the storage file server.  The value is 0.0.0.0 if not applicable or not         available.         This object is deprecated by         ccmHistoryEventServerAddrRev1
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: ccmhistoryeventfile
             
             	If ccmHistoryEventConfigSource or ccmHistoryEventConfigDestination is 'networkTftp' or 'networkRcp', the configuration file name at the storage file server.  The length is zero if not available or not applicable
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: ccmhistoryeventrcpuser
             
             	If ccmHistoryEventConfigSource or ccmHistoryEventConfigDestination is 'networkRcp', the remote user name.  The length is zero if not applicable or not available
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: ccmhistoryclicmdentriesbumped
             
             	The number of times the oldest entry in ccmCLIHistoryCommandTable with first index as  ccmHistoryEventIndex was deleted to make  room for a new entry.  This object is applicable only if  ccmHistoryEventCommandSource has a value  of 'commandLine'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccmhistoryeventcommandsourceaddrtype
             
             	This object indicates the transport type of the address contained in ccmHistoryEventCommandSourceAddrRev1.  The value will be zero if not available or not applicable
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: ccmhistoryeventcommandsourceaddrrev1
             
             	If ccmHistoryEventTerminalType is 'virtual', the internet address of the connected system.  If ccmHistoryEventCommandSource is 'snmp', the internet address of the requester.  The value of all bit's is zero  if not available or not applicable.  The Format of this address depends on the value of the ccmHistoryEventCommandSourceAddrType object.  This object deprecates ccmHistoryEventCommandSourceAddress
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: ccmhistoryeventserveraddrtype
             
             	This object indicates the transport type of the address contained in ccmHistoryEventServerAddrRev1.  The value will be zero if not available or not aplicable
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: ccmhistoryeventserveraddrrev1
             
             	If ccmHistoryEventConfigSource or ccmHistoryEventConfigDestination is 'networkTftp' or 'networkRcp', the internet address of the storage file server.   The value of all bits is 0s if not applicable or not available.  The Format of this address depends on the value of the ccmHistoryEventServerAddrType object.  This object deprecates ccmHistoryEventServerAddress
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
@@ -690,7 +694,7 @@ class CISCOCONFIGMANMIB(Entity):
         .. attribute:: ccmclihistorycommandentry
         
         	Information about the CLI commands that took effect during the configuration event pointed by  ccmCLIHistoryEventIndex.  A set of rows in this table having the first index as ccmHistoryEventIndex will store the CLI commands entered during the corresponding  configuration event in ccmHistoryEventTable.  An entry will be created in this table only if  the corresponding entry in ccmHistoryEventTable has  a value of 'commandLine' for  ccmHistoryEventCommandSource
-        	**type**\: list of    :py:class:`Ccmclihistorycommandentry <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistorycommandtable.Ccmclihistorycommandentry>`
+        	**type**\: list of  		 :py:class:`Ccmclihistorycommandentry <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CISCOCONFIGMANMIB.Ccmclihistorycommandtable.Ccmclihistorycommandentry>`
         
         
 
@@ -736,7 +740,7 @@ class CISCOCONFIGMANMIB(Entity):
             .. attribute:: ccmhistoryeventindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -745,14 +749,14 @@ class CISCOCONFIGMANMIB(Entity):
             .. attribute:: ccmclihistorycommandindex  <key>
             
             	A monotonically increasing integer for the purpose of indexing CLI commands which took effect during a configuration event
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: ccmclihistorycommand
             
             	The CLI command entered which took effect during the configuration event pointed by  ccmHistoryEventIndex
-            	**type**\:  str
+            	**type**\: str
             
             
 

@@ -29,6 +29,14 @@ module Cisco-IOS-XE-service-routing {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-07-24 {
+    description
+      "fix service-routing mdns-sd deleting issue";
+  } 
+  revision 2017-06-28 {
+    description
+      "add service-policy under service routing mdns-sd";
+  } 
   revision 2017-05-09 {
     description
       "add service-routing mdns-sd support";
@@ -49,10 +57,22 @@ module Cisco-IOS-XE-service-routing {
           "Service-Routing Capabilities Manager configuration";
         type boolean;
       }
-      leaf mdns-sd {
+      container mdns-sd {
         description
           "Service-Routing MDNS configuration";
-        type empty;
+        presence true;
+        list service-policy {
+          key direction;
+          leaf direction {
+            type enumeration {
+              enum "IN";
+              enum "OUT";
+            }
+          }  
+          leaf policy-name {
+            type string;
+          }
+        }
       }
     }
   }

@@ -37,6 +37,10 @@ module Cisco-IOS-XE-object-group {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-07-31 {
+    description
+      "Support multiple-host under object group network";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -324,10 +328,15 @@ module Cisco-IOS-XE-object-group {
             "Nested object group";
           type string;
         }
-        leaf host {
+        list host {
           description
             "Host address of the object-group member";
-          type inet:host;
+          key "ipv4-host";
+          leaf ipv4-host { 
+            description
+              "Host address of the object-group member";
+            type inet:host;
+          }
         }
         container range {
           leaf ip-addr-min {

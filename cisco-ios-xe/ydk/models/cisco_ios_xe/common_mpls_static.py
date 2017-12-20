@@ -69,12 +69,12 @@ class MplsStatic(Entity):
     .. attribute:: mpls_static_cfg
     
     	MPLS Static configuration commands
-    	**type**\:   :py:class:`MplsStaticCfg <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg>`
+    	**type**\:  :py:class:`MplsStaticCfg <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg>`
     
     .. attribute:: mpls_static_state
     
     	MPLS static operational data
-    	**type**\:   :py:class:`MplsStaticState <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState>`
+    	**type**\:  :py:class:`MplsStaticState <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState>`
     
     
 
@@ -113,27 +113,27 @@ class MplsStatic(Entity):
         .. attribute:: in_label_lsps
         
         	The LSPs indexed by in\-label
-        	**type**\:   :py:class:`InLabelLsps <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps>`
+        	**type**\:  :py:class:`InLabelLsps <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps>`
         
         .. attribute:: ipv6_ingress_lsps
         
         	The LSPs indexed by ipv6 prefix
-        	**type**\:   :py:class:`Ipv6IngressLsps <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps>`
+        	**type**\:  :py:class:`Ipv6IngressLsps <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps>`
         
         .. attribute:: interfaces
         
         	The list of interfaces configured with mpls
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Interfaces>`
         
         .. attribute:: named_lsps
         
         	The LSPs indexed by name
-        	**type**\:   :py:class:`NamedLsps <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps>`
+        	**type**\:  :py:class:`NamedLsps <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps>`
         
         .. attribute:: ipv4_ingress_lsps
         
         	The LSPs indexed by ipv4 prefix
-        	**type**\:   :py:class:`Ipv4IngressLsps <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps>`
+        	**type**\:  :py:class:`Ipv4IngressLsps <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps>`
         
         
 
@@ -187,7 +187,7 @@ class MplsStatic(Entity):
             .. attribute:: in_label_lsp
             
             	Non\-ingress MPLS Static LSPs, keyed on the incoming label
-            	**type**\: list of    :py:class:`InLabelLsp <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp>`
+            	**type**\: list of  		 :py:class:`InLabelLsp <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp>`
             
             
 
@@ -222,27 +222,23 @@ class MplsStatic(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	Name of the VRF
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: in_label  <key>
                 
                 	Value of the local label
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  int
+                		**type**\: int
                 
-                	**range:** 16..1048575
+                			**range:** 16..1048575
                 
+                		**type**\:  :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                 
-                ----
-                	**type**\:   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                
-                
-                ----
                 .. attribute:: path
                 
                 	Fowarding path
-                	**type**\:   :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path>`
+                	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path>`
                 
                 
 
@@ -283,19 +279,19 @@ class MplsStatic(Entity):
                     .. attribute:: operations
                     
                     	The incoming label processing
-                    	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations>`
+                    	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations>`
                     
                     .. attribute:: auto_protect
                     
                     	Enables automatic protection if true
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
                     .. attribute:: next_hop
                     
                     	next\-hops list
-                    	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop>`
+                    	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop>`
                     
                     
 
@@ -335,24 +331,24 @@ class MplsStatic(Entity):
                         .. attribute:: preserve
                         
                         	preserve incoming label stack
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: swap
                         
                         	Push outgoing label stack
-                        	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations.Swap>`
+                        	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations.Swap>`
                         
                         .. attribute:: push
                         
                         	Push outgoing label stack
-                        	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations.Push>`
+                        	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations.Push>`
                         
                         .. attribute:: pop_and_forward
                         
                         	Pop the incoming label and forward
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
@@ -399,7 +395,7 @@ class MplsStatic(Entity):
                             .. attribute:: stack
                             
                             	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations.Swap.Stack>`
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations.Swap.Stack>`
                             
                             
 
@@ -432,18 +428,14 @@ class MplsStatic(Entity):
                                 .. attribute:: label_stack
                                 
                                 	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  list of int
+                                		**type**\: list of int
                                 
-                                	**range:** 16..1048575
+                                			**range:** 16..1048575
                                 
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                 
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
                                 
 
                                 """
@@ -475,7 +467,7 @@ class MplsStatic(Entity):
                             .. attribute:: stack
                             
                             	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations.Push.Stack>`
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.Operations.Push.Stack>`
                             
                             
 
@@ -508,18 +500,14 @@ class MplsStatic(Entity):
                                 .. attribute:: label_stack
                                 
                                 	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  list of int
+                                		**type**\: list of int
                                 
-                                	**range:** 16..1048575
+                                			**range:** 16..1048575
                                 
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                 
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
                                 
 
                                 """
@@ -551,7 +539,7 @@ class MplsStatic(Entity):
                         .. attribute:: index  <key>
                         
                         	Index of the nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -560,26 +548,26 @@ class MplsStatic(Entity):
                         .. attribute:: type
                         
                         	The forwarding path's hoptype
-                        	**type**\:   :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
+                        	**type**\:  :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: protected_by
                         
                         	Index of the nexthop that protects this nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: next_hop_type
                         
                         	Next\-hop
-                        	**type**\:   :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.NextHopType>`
+                        	**type**\:  :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.NextHopType>`
                         
                         .. attribute:: operations
                         
                         	The incoming label processing
-                        	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations>`
+                        	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations>`
                         
                         
 
@@ -626,7 +614,7 @@ class MplsStatic(Entity):
                             .. attribute:: if_index
                             
                             	The interface index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -635,28 +623,34 @@ class MplsStatic(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: mac_address
                             
                             	MAC address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             	**mandatory**\: True
                             
                             .. attribute:: out_interface_name
                             
                             	Name of the outgoing interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                             
@@ -699,24 +693,24 @@ class MplsStatic(Entity):
                             .. attribute:: preserve
                             
                             	preserve incoming label stack
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: swap
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations.Swap>`
+                            	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations.Swap>`
                             
                             .. attribute:: push
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations.Push>`
+                            	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations.Push>`
                             
                             .. attribute:: pop_and_forward
                             
                             	Pop the incoming label and forward
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
@@ -763,7 +757,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations.Swap.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations.Swap.Stack>`
                                 
                                 
 
@@ -796,18 +790,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -839,7 +829,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations.Push.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.InLabelLsps.InLabelLsp.Path.NextHop.Operations.Push.Stack>`
                                 
                                 
 
@@ -872,18 +862,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -915,7 +901,7 @@ class MplsStatic(Entity):
             .. attribute:: ipv6_ingress_lsp
             
             	MPLS Static IPv6 Label Switched Path Configuration at Ingress
-            	**type**\: list of    :py:class:`Ipv6IngressLsp <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp>`
+            	**type**\: list of  		 :py:class:`Ipv6IngressLsp <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp>`
             
             
 
@@ -950,37 +936,35 @@ class MplsStatic(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	Name of the VRF
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: prefix  <key>
                 
                 	IPv6 prefix of packets that will ingress on this LSP
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
                 .. attribute:: name
                 
                 	Name of the LSP
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: in_label
                 
                 	Value of the local label. Optional for ingress
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  int
+                		**type**\: int
                 
-                	**range:** 16..1048575
+                			**range:** 16..1048575
                 
+                		**type**\:  :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                 
-                ----
-                	**type**\:   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                
-                
-                ----
                 .. attribute:: path
                 
                 	Fowarding path
-                	**type**\:   :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path>`
+                	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path>`
                 
                 
 
@@ -1025,19 +1009,19 @@ class MplsStatic(Entity):
                     .. attribute:: operations
                     
                     	The incoming label processing
-                    	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations>`
+                    	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations>`
                     
                     .. attribute:: auto_protect
                     
                     	Enables automatic protection if true
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
                     .. attribute:: next_hop
                     
                     	next\-hops list
-                    	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop>`
+                    	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop>`
                     
                     
 
@@ -1077,24 +1061,24 @@ class MplsStatic(Entity):
                         .. attribute:: preserve
                         
                         	preserve incoming label stack
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: swap
                         
                         	Push outgoing label stack
-                        	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations.Swap>`
+                        	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations.Swap>`
                         
                         .. attribute:: push
                         
                         	Push outgoing label stack
-                        	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations.Push>`
+                        	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations.Push>`
                         
                         .. attribute:: pop_and_forward
                         
                         	Pop the incoming label and forward
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
@@ -1141,7 +1125,7 @@ class MplsStatic(Entity):
                             .. attribute:: stack
                             
                             	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations.Swap.Stack>`
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations.Swap.Stack>`
                             
                             
 
@@ -1174,18 +1158,14 @@ class MplsStatic(Entity):
                                 .. attribute:: label_stack
                                 
                                 	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  list of int
+                                		**type**\: list of int
                                 
-                                	**range:** 16..1048575
+                                			**range:** 16..1048575
                                 
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                 
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
                                 
 
                                 """
@@ -1217,7 +1197,7 @@ class MplsStatic(Entity):
                             .. attribute:: stack
                             
                             	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations.Push.Stack>`
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.Operations.Push.Stack>`
                             
                             
 
@@ -1250,18 +1230,14 @@ class MplsStatic(Entity):
                                 .. attribute:: label_stack
                                 
                                 	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  list of int
+                                		**type**\: list of int
                                 
-                                	**range:** 16..1048575
+                                			**range:** 16..1048575
                                 
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                 
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
                                 
 
                                 """
@@ -1293,7 +1269,7 @@ class MplsStatic(Entity):
                         .. attribute:: index  <key>
                         
                         	Index of the nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1302,26 +1278,26 @@ class MplsStatic(Entity):
                         .. attribute:: type
                         
                         	The forwarding path's hoptype
-                        	**type**\:   :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
+                        	**type**\:  :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: protected_by
                         
                         	Index of the nexthop that protects this nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: next_hop_type
                         
                         	Next\-hop
-                        	**type**\:   :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.NextHopType>`
+                        	**type**\:  :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.NextHopType>`
                         
                         .. attribute:: operations
                         
                         	The incoming label processing
-                        	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations>`
+                        	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations>`
                         
                         
 
@@ -1368,7 +1344,7 @@ class MplsStatic(Entity):
                             .. attribute:: if_index
                             
                             	The interface index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1377,28 +1353,34 @@ class MplsStatic(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: mac_address
                             
                             	MAC address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             	**mandatory**\: True
                             
                             .. attribute:: out_interface_name
                             
                             	Name of the outgoing interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                             
@@ -1441,24 +1423,24 @@ class MplsStatic(Entity):
                             .. attribute:: preserve
                             
                             	preserve incoming label stack
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: swap
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations.Swap>`
+                            	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations.Swap>`
                             
                             .. attribute:: push
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations.Push>`
+                            	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations.Push>`
                             
                             .. attribute:: pop_and_forward
                             
                             	Pop the incoming label and forward
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
@@ -1505,7 +1487,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations.Swap.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations.Swap.Stack>`
                                 
                                 
 
@@ -1538,18 +1520,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -1581,7 +1559,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations.Push.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv6IngressLsps.Ipv6IngressLsp.Path.NextHop.Operations.Push.Stack>`
                                 
                                 
 
@@ -1614,18 +1592,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -1657,7 +1631,7 @@ class MplsStatic(Entity):
             .. attribute:: interface
             
             	List of interfaces that can be enabled under mpls static
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Interfaces.Interface>`
             
             
 
@@ -1692,7 +1666,7 @@ class MplsStatic(Entity):
                 .. attribute:: name  <key>
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                 
@@ -1701,7 +1675,7 @@ class MplsStatic(Entity):
                 .. attribute:: enabled
                 
                 	Interface Enabled boolean
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1741,7 +1715,7 @@ class MplsStatic(Entity):
             .. attribute:: named_lsp
             
             	MPLS Static Label Switched Path Configuration. The LSPs in this list are referenced by a string name. The LSPs may be ingress/egress/crossconnect, may have v4/v6 prefixes and may be associated with any VRF. The other specialized lists above are for implemetations that are keyed on prefixes or in\-labels instead of the LSP name
-            	**type**\: list of    :py:class:`NamedLsp <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp>`
+            	**type**\: list of  		 :py:class:`NamedLsp <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp>`
             
             
 
@@ -1781,51 +1755,51 @@ class MplsStatic(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	Name of the VRF
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: name  <key>
                 
                 	Name of the LSP
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
                 .. attribute:: lsp_type
                 
                 	lsp type
-                	**type**\:   :py:class:`LspType <ydk.models.cisco_ios_xe.common_mpls_static.LspType>`
+                	**type**\:  :py:class:`LspType <ydk.models.cisco_ios_xe.common_mpls_static.LspType>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: in_label
                 
                 	Value of the local label
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  int
+                		**type**\: int
                 
-                	**range:** 16..1048575
+                			**range:** 16..1048575
                 
+                		**type**\:  :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                 
-                ----
-                	**type**\:   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                
-                
-                ----
                 .. attribute:: ipv4_prefix
                 
                 	ipv4 prefix
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
                 .. attribute:: ipv6_prefix
                 
                 	ipv6 prefix
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
                 .. attribute:: path
                 
                 	Fowarding path
-                	**type**\:   :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path>`
+                	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path>`
                 
                 
 
@@ -1874,19 +1848,19 @@ class MplsStatic(Entity):
                     .. attribute:: operations
                     
                     	The incoming label processing
-                    	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations>`
+                    	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations>`
                     
                     .. attribute:: auto_protect
                     
                     	Enables automatic protection if true
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
                     .. attribute:: next_hop
                     
                     	next\-hops list
-                    	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop>`
+                    	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop>`
                     
                     
 
@@ -1926,24 +1900,24 @@ class MplsStatic(Entity):
                         .. attribute:: preserve
                         
                         	preserve incoming label stack
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: swap
                         
                         	Push outgoing label stack
-                        	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations.Swap>`
+                        	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations.Swap>`
                         
                         .. attribute:: push
                         
                         	Push outgoing label stack
-                        	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations.Push>`
+                        	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations.Push>`
                         
                         .. attribute:: pop_and_forward
                         
                         	Pop the incoming label and forward
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
@@ -1990,7 +1964,7 @@ class MplsStatic(Entity):
                             .. attribute:: stack
                             
                             	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations.Swap.Stack>`
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations.Swap.Stack>`
                             
                             
 
@@ -2023,18 +1997,14 @@ class MplsStatic(Entity):
                                 .. attribute:: label_stack
                                 
                                 	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  list of int
+                                		**type**\: list of int
                                 
-                                	**range:** 16..1048575
+                                			**range:** 16..1048575
                                 
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                 
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
                                 
 
                                 """
@@ -2066,7 +2036,7 @@ class MplsStatic(Entity):
                             .. attribute:: stack
                             
                             	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations.Push.Stack>`
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.Operations.Push.Stack>`
                             
                             
 
@@ -2099,18 +2069,14 @@ class MplsStatic(Entity):
                                 .. attribute:: label_stack
                                 
                                 	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  list of int
+                                		**type**\: list of int
                                 
-                                	**range:** 16..1048575
+                                			**range:** 16..1048575
                                 
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                 
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
                                 
 
                                 """
@@ -2142,7 +2108,7 @@ class MplsStatic(Entity):
                         .. attribute:: index  <key>
                         
                         	Index of the nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2151,26 +2117,26 @@ class MplsStatic(Entity):
                         .. attribute:: type
                         
                         	The forwarding path's hoptype
-                        	**type**\:   :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
+                        	**type**\:  :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: protected_by
                         
                         	Index of the nexthop that protects this nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: next_hop_type
                         
                         	Next\-hop
-                        	**type**\:   :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.NextHopType>`
+                        	**type**\:  :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.NextHopType>`
                         
                         .. attribute:: operations
                         
                         	The incoming label processing
-                        	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations>`
+                        	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations>`
                         
                         
 
@@ -2217,7 +2183,7 @@ class MplsStatic(Entity):
                             .. attribute:: if_index
                             
                             	The interface index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2226,28 +2192,34 @@ class MplsStatic(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: mac_address
                             
                             	MAC address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             	**mandatory**\: True
                             
                             .. attribute:: out_interface_name
                             
                             	Name of the outgoing interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                             
@@ -2290,24 +2262,24 @@ class MplsStatic(Entity):
                             .. attribute:: preserve
                             
                             	preserve incoming label stack
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: swap
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations.Swap>`
+                            	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations.Swap>`
                             
                             .. attribute:: push
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations.Push>`
+                            	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations.Push>`
                             
                             .. attribute:: pop_and_forward
                             
                             	Pop the incoming label and forward
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
@@ -2354,7 +2326,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations.Swap.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations.Swap.Stack>`
                                 
                                 
 
@@ -2387,18 +2359,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -2430,7 +2398,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations.Push.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.NamedLsps.NamedLsp.Path.NextHop.Operations.Push.Stack>`
                                 
                                 
 
@@ -2463,18 +2431,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -2506,7 +2470,7 @@ class MplsStatic(Entity):
             .. attribute:: ipv4_ingress_lsp
             
             	MPLS Static IPv4 Label Switched Path Configuration at Ingress
-            	**type**\: list of    :py:class:`Ipv4IngressLsp <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp>`
+            	**type**\: list of  		 :py:class:`Ipv4IngressLsp <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp>`
             
             
 
@@ -2541,37 +2505,35 @@ class MplsStatic(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	Name of the VRF
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: prefix  <key>
                 
                 	IPv4 prefix of packets that will ingress on this LSP
-                	**type**\:  str
+                	**type**\: str
                 
-                .. attribute:: in_label
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                	Value of the local label. Optional for ingress
-                	**type**\: one of the below types:
-                
-                	**type**\:  int
-                
-                	**range:** 16..1048575
-                
-                
-                ----
-                	**type**\:   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                
-                
-                ----
                 .. attribute:: path
                 
                 	Fowarding path
-                	**type**\:   :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path>`
+                	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path>`
                 
                 .. attribute:: name
                 
                 	Name of the LSP
-                	**type**\:  str
+                	**type**\: str
+                
+                .. attribute:: in_label
+                
+                	Value of the local label. Optional for ingress
+                	**type**\: union of the below types:
+                
+                		**type**\: int
+                
+                			**range:** 16..1048575
+                
+                		**type**\:  :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                 
                 
 
@@ -2594,9 +2556,9 @@ class MplsStatic(Entity):
 
                     self.prefix = YLeaf(YType.str, "prefix")
 
-                    self.in_label = YLeaf(YType.str, "in-label")
-
                     self.name = YLeaf(YType.str, "name")
+
+                    self.in_label = YLeaf(YType.str, "in-label")
 
                     self.path = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path()
                     self.path.parent = self
@@ -2606,29 +2568,29 @@ class MplsStatic(Entity):
                     self._absolute_path = lambda: "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp, ['vrf_name', 'prefix', 'in_label', 'name'], name, value)
+                    self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp, ['vrf_name', 'prefix', 'name', 'in_label'], name, value)
 
 
                 class Path(Entity):
                     """
                     Fowarding path
                     
+                    .. attribute:: next_hop
+                    
+                    	next\-hops list
+                    	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop>`
+                    
                     .. attribute:: operations
                     
                     	The incoming label processing
-                    	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations>`
+                    	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations>`
                     
                     .. attribute:: auto_protect
                     
                     	Enables automatic protection if true
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
-                    
-                    .. attribute:: next_hop
-                    
-                    	next\-hops list
-                    	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop>`
                     
                     
 
@@ -2661,222 +2623,6 @@ class MplsStatic(Entity):
                         self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path, ['auto_protect'], name, value)
 
 
-                    class Operations(Entity):
-                        """
-                        The incoming label processing
-                        
-                        .. attribute:: preserve
-                        
-                        	preserve incoming label stack
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: swap
-                        
-                        	Push outgoing label stack
-                        	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap>`
-                        
-                        .. attribute:: push
-                        
-                        	Push outgoing label stack
-                        	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push>`
-                        
-                        .. attribute:: pop_and_forward
-                        
-                        	Pop the incoming label and forward
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'ms'
-                        _revision = '2015-07-22'
-
-                        def __init__(self):
-                            super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations, self).__init__()
-
-                            self.yang_name = "operations"
-                            self.yang_parent_name = "path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"swap" : ("swap", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap), "push" : ("push", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push)}
-                            self._child_list_classes = {}
-
-                            self.preserve = YLeaf(YType.empty, "preserve")
-
-                            self.pop_and_forward = YLeaf(YType.empty, "pop-and-forward")
-
-                            self.swap = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap()
-                            self.swap.parent = self
-                            self._children_name_map["swap"] = "swap"
-                            self._children_yang_names.add("swap")
-
-                            self.push = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push()
-                            self.push.parent = self
-                            self._children_name_map["push"] = "push"
-                            self._children_yang_names.add("push")
-                            self._segment_path = lambda: "operations"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations, ['preserve', 'pop_and_forward'], name, value)
-
-
-                        class Swap(Entity):
-                            """
-                            Push outgoing label stack
-                            
-                            .. attribute:: stack
-                            
-                            	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ms'
-                            _revision = '2015-07-22'
-
-                            def __init__(self):
-                                super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap, self).__init__()
-
-                                self.yang_name = "swap"
-                                self.yang_parent_name = "operations"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"stack" : ("stack", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack)}
-                                self._child_list_classes = {}
-
-                                self.stack = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack()
-                                self.stack.parent = self
-                                self._children_name_map["stack"] = "stack"
-                                self._children_yang_names.add("stack")
-                                self._segment_path = lambda: "swap"
-
-
-                            class Stack(Entity):
-                                """
-                                The label stack
-                                
-                                .. attribute:: label_stack
-                                
-                                	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  list of int
-                                
-                                	**range:** 16..1048575
-                                
-                                
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
-                                
-
-                                """
-
-                                _prefix = 'ms'
-                                _revision = '2015-07-22'
-
-                                def __init__(self):
-                                    super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack, self).__init__()
-
-                                    self.yang_name = "stack"
-                                    self.yang_parent_name = "swap"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.label_stack = YLeafList(YType.str, "label-stack")
-                                    self._segment_path = lambda: "stack"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack, ['label_stack'], name, value)
-
-
-                        class Push(Entity):
-                            """
-                            Push outgoing label stack
-                            
-                            .. attribute:: stack
-                            
-                            	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ms'
-                            _revision = '2015-07-22'
-
-                            def __init__(self):
-                                super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push, self).__init__()
-
-                                self.yang_name = "push"
-                                self.yang_parent_name = "operations"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"stack" : ("stack", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack)}
-                                self._child_list_classes = {}
-
-                                self.stack = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack()
-                                self.stack.parent = self
-                                self._children_name_map["stack"] = "stack"
-                                self._children_yang_names.add("stack")
-                                self._segment_path = lambda: "push"
-
-
-                            class Stack(Entity):
-                                """
-                                The label stack
-                                
-                                .. attribute:: label_stack
-                                
-                                	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  list of int
-                                
-                                	**range:** 16..1048575
-                                
-                                
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
-                                
-
-                                """
-
-                                _prefix = 'ms'
-                                _revision = '2015-07-22'
-
-                                def __init__(self):
-                                    super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack, self).__init__()
-
-                                    self.yang_name = "stack"
-                                    self.yang_parent_name = "push"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.label_stack = YLeafList(YType.str, "label-stack")
-                                    self._segment_path = lambda: "stack"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack, ['label_stack'], name, value)
-
-
                     class NextHop(Entity):
                         """
                         next\-hops list
@@ -2884,7 +2630,7 @@ class MplsStatic(Entity):
                         .. attribute:: index  <key>
                         
                         	Index of the nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2893,24 +2639,24 @@ class MplsStatic(Entity):
                         .. attribute:: protected_by
                         
                         	Index of the nexthop that protects this nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: next_hop_type
                         
                         	Next\-hop
-                        	**type**\:   :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.NextHopType>`
+                        	**type**\:  :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.NextHopType>`
                         
                         .. attribute:: operations
                         
                         	The incoming label processing
-                        	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations>`
+                        	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations>`
                         
                         .. attribute:: type
                         
                         	The forwarding path's hoptype
-                        	**type**\:   :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
+                        	**type**\:  :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
                         
                         	**mandatory**\: True
                         
@@ -2959,37 +2705,43 @@ class MplsStatic(Entity):
                             .. attribute:: out_interface_name
                             
                             	Name of the outgoing interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
-                            
-                            .. attribute:: mac_address
-                            
-                            	MAC address of the nexthop
-                            	**type**\:  str
-                            
-                            	**mandatory**\: True
                             
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
                             
-                            	**mandatory**\: True
-                            
-                            .. attribute:: ipv6_address
-                            
-                            	IPv6 Address of the nexthop
-                            	**type**\:  str
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: if_index
                             
                             	The interface index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: mac_address
+                            
+                            	MAC address of the nexthop
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: ipv6_address
+                            
+                            	IPv6 Address of the nexthop
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
@@ -3012,46 +2764,46 @@ class MplsStatic(Entity):
 
                                 self.out_interface_name = YLeaf(YType.str, "out-interface-name")
 
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
                                 self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
-                                self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-
                                 self.if_index = YLeaf(YType.uint32, "if-index")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                self.ipv6_address = YLeaf(YType.str, "ipv6-address")
                                 self._segment_path = lambda: "next-hop-type"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.NextHopType, ['out_interface_name', 'mac_address', 'ipv4_address', 'ipv6_address', 'if_index'], name, value)
+                                self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.NextHopType, ['out_interface_name', 'ipv4_address', 'if_index', 'mac_address', 'ipv6_address'], name, value)
 
 
                         class Operations(Entity):
                             """
                             The incoming label processing
                             
-                            .. attribute:: pop_and_forward
+                            .. attribute:: push
                             
-                            	Pop the incoming label and forward
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            	**mandatory**\: True
+                            	Push outgoing label stack
+                            	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Push>`
                             
                             .. attribute:: swap
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap>`
+                            	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap>`
                             
                             .. attribute:: preserve
                             
                             	preserve incoming label stack
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
-                            .. attribute:: push
+                            .. attribute:: pop_and_forward
                             
-                            	Push outgoing label stack
-                            	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Push>`
+                            	Pop the incoming label and forward
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            	**mandatory**\: True
                             
                             
 
@@ -3067,102 +2819,26 @@ class MplsStatic(Entity):
                                 self.yang_parent_name = "next-hop"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"swap" : ("swap", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap), "push" : ("push", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Push)}
+                                self._child_container_classes = {"push" : ("push", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Push), "swap" : ("swap", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap)}
                                 self._child_list_classes = {}
-
-                                self.pop_and_forward = YLeaf(YType.empty, "pop-and-forward")
 
                                 self.preserve = YLeaf(YType.empty, "preserve")
 
-                                self.swap = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap()
-                                self.swap.parent = self
-                                self._children_name_map["swap"] = "swap"
-                                self._children_yang_names.add("swap")
+                                self.pop_and_forward = YLeaf(YType.empty, "pop-and-forward")
 
                                 self.push = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Push()
                                 self.push.parent = self
                                 self._children_name_map["push"] = "push"
                                 self._children_yang_names.add("push")
+
+                                self.swap = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap()
+                                self.swap.parent = self
+                                self._children_name_map["swap"] = "swap"
+                                self._children_yang_names.add("swap")
                                 self._segment_path = lambda: "operations"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations, ['pop_and_forward', 'preserve'], name, value)
-
-
-                            class Swap(Entity):
-                                """
-                                Push outgoing label stack
-                                
-                                .. attribute:: stack
-                                
-                                	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ms'
-                                _revision = '2015-07-22'
-
-                                def __init__(self):
-                                    super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap, self).__init__()
-
-                                    self.yang_name = "swap"
-                                    self.yang_parent_name = "operations"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"stack" : ("stack", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack)}
-                                    self._child_list_classes = {}
-
-                                    self.stack = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack()
-                                    self.stack.parent = self
-                                    self._children_name_map["stack"] = "stack"
-                                    self._children_yang_names.add("stack")
-                                    self._segment_path = lambda: "swap"
-
-
-                                class Stack(Entity):
-                                    """
-                                    The label stack
-                                    
-                                    .. attribute:: label_stack
-                                    
-                                    	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
-                                    
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 16..1048575
-                                    
-                                    
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
-                                    
-
-                                    """
-
-                                    _prefix = 'ms'
-                                    _revision = '2015-07-22'
-
-                                    def __init__(self):
-                                        super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack, self).__init__()
-
-                                        self.yang_name = "stack"
-                                        self.yang_parent_name = "swap"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.label_stack = YLeafList(YType.str, "label-stack")
-                                        self._segment_path = lambda: "stack"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack, ['label_stack'], name, value)
+                                self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations, ['preserve', 'pop_and_forward'], name, value)
 
 
                             class Push(Entity):
@@ -3172,7 +2848,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Push.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Push.Stack>`
                                 
                                 
 
@@ -3205,18 +2881,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -3241,6 +2913,286 @@ class MplsStatic(Entity):
                                         self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Push.Stack, ['label_stack'], name, value)
 
 
+                            class Swap(Entity):
+                                """
+                                Push outgoing label stack
+                                
+                                .. attribute:: stack
+                                
+                                	The label stack
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ms'
+                                _revision = '2015-07-22'
+
+                                def __init__(self):
+                                    super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap, self).__init__()
+
+                                    self.yang_name = "swap"
+                                    self.yang_parent_name = "operations"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"stack" : ("stack", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack)}
+                                    self._child_list_classes = {}
+
+                                    self.stack = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack()
+                                    self.stack.parent = self
+                                    self._children_name_map["stack"] = "stack"
+                                    self._children_yang_names.add("stack")
+                                    self._segment_path = lambda: "swap"
+
+
+                                class Stack(Entity):
+                                    """
+                                    The label stack
+                                    
+                                    .. attribute:: label_stack
+                                    
+                                    	First label in the list is the top of the stack
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: list of int
+                                    
+                                    			**range:** 16..1048575
+                                    
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ms'
+                                    _revision = '2015-07-22'
+
+                                    def __init__(self):
+                                        super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack, self).__init__()
+
+                                        self.yang_name = "stack"
+                                        self.yang_parent_name = "swap"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.label_stack = YLeafList(YType.str, "label-stack")
+                                        self._segment_path = lambda: "stack"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.NextHop.Operations.Swap.Stack, ['label_stack'], name, value)
+
+
+                    class Operations(Entity):
+                        """
+                        The incoming label processing
+                        
+                        .. attribute:: preserve
+                        
+                        	preserve incoming label stack
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: swap
+                        
+                        	Push outgoing label stack
+                        	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap>`
+                        
+                        .. attribute:: push
+                        
+                        	Push outgoing label stack
+                        	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push>`
+                        
+                        .. attribute:: pop_and_forward
+                        
+                        	Pop the incoming label and forward
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        """
+
+                        _prefix = 'ms'
+                        _revision = '2015-07-22'
+
+                        def __init__(self):
+                            super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations, self).__init__()
+
+                            self.yang_name = "operations"
+                            self.yang_parent_name = "path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"swap" : ("swap", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap), "push" : ("push", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push)}
+                            self._child_list_classes = {}
+
+                            self.preserve = YLeaf(YType.empty, "preserve")
+
+                            self.pop_and_forward = YLeaf(YType.empty, "pop-and-forward")
+
+                            self.swap = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap()
+                            self.swap.parent = self
+                            self._children_name_map["swap"] = "swap"
+                            self._children_yang_names.add("swap")
+
+                            self.push = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push()
+                            self.push.parent = self
+                            self._children_name_map["push"] = "push"
+                            self._children_yang_names.add("push")
+                            self._segment_path = lambda: "operations"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations, ['preserve', 'pop_and_forward'], name, value)
+
+
+                        class Swap(Entity):
+                            """
+                            Push outgoing label stack
+                            
+                            .. attribute:: stack
+                            
+                            	The label stack
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ms'
+                            _revision = '2015-07-22'
+
+                            def __init__(self):
+                                super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap, self).__init__()
+
+                                self.yang_name = "swap"
+                                self.yang_parent_name = "operations"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"stack" : ("stack", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack)}
+                                self._child_list_classes = {}
+
+                                self.stack = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack()
+                                self.stack.parent = self
+                                self._children_name_map["stack"] = "stack"
+                                self._children_yang_names.add("stack")
+                                self._segment_path = lambda: "swap"
+
+
+                            class Stack(Entity):
+                                """
+                                The label stack
+                                
+                                .. attribute:: label_stack
+                                
+                                	First label in the list is the top of the stack
+                                	**type**\: union of the below types:
+                                
+                                		**type**\: list of int
+                                
+                                			**range:** 16..1048575
+                                
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ms'
+                                _revision = '2015-07-22'
+
+                                def __init__(self):
+                                    super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack, self).__init__()
+
+                                    self.yang_name = "stack"
+                                    self.yang_parent_name = "swap"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.label_stack = YLeafList(YType.str, "label-stack")
+                                    self._segment_path = lambda: "stack"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Swap.Stack, ['label_stack'], name, value)
+
+
+                        class Push(Entity):
+                            """
+                            Push outgoing label stack
+                            
+                            .. attribute:: stack
+                            
+                            	The label stack
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ms'
+                            _revision = '2015-07-22'
+
+                            def __init__(self):
+                                super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push, self).__init__()
+
+                                self.yang_name = "push"
+                                self.yang_parent_name = "operations"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"stack" : ("stack", MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack)}
+                                self._child_list_classes = {}
+
+                                self.stack = MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack()
+                                self.stack.parent = self
+                                self._children_name_map["stack"] = "stack"
+                                self._children_yang_names.add("stack")
+                                self._segment_path = lambda: "push"
+
+
+                            class Stack(Entity):
+                                """
+                                The label stack
+                                
+                                .. attribute:: label_stack
+                                
+                                	First label in the list is the top of the stack
+                                	**type**\: union of the below types:
+                                
+                                		**type**\: list of int
+                                
+                                			**range:** 16..1048575
+                                
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ms'
+                                _revision = '2015-07-22'
+
+                                def __init__(self):
+                                    super(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack, self).__init__()
+
+                                    self.yang_name = "stack"
+                                    self.yang_parent_name = "push"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.label_stack = YLeafList(YType.str, "label-stack")
+                                    self._segment_path = lambda: "stack"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path.Operations.Push.Stack, ['label_stack'], name, value)
+
+
     class MplsStaticState(Entity):
         """
         MPLS static operational data
@@ -3248,7 +3200,7 @@ class MplsStatic(Entity):
         .. attribute:: label_switched_paths
         
         	MPLS Static Label Switched Paths
-        	**type**\:   :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths>`
+        	**type**\:  :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths>`
         
         
 
@@ -3282,7 +3234,7 @@ class MplsStatic(Entity):
             .. attribute:: label_switched_path
             
             	MPLS LSPs list
-            	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath>`
+            	**type**\: list of  		 :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath>`
             
             
 
@@ -3316,55 +3268,51 @@ class MplsStatic(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	Name of the VRF
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: prefix  <key>
                 
                 	IP v4/v6 prefix
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 .. attribute:: name
                 
                 	Name of the LSP
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: in_label_value
                 
                 	Value of the local label
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  int
+                		**type**\: int
                 
-                	**range:** 16..1048575
+                			**range:** 16..1048575
                 
+                		**type**\:  :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                 
-                ----
-                	**type**\:   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                
-                
-                ----
                 .. attribute:: ingress_stats
                 
                 	ingress stats
-                	**type**\:   :py:class:`IngressStats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.IngressStats>`
+                	**type**\:  :py:class:`IngressStats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.IngressStats>`
                 
                 .. attribute:: egress_stats
                 
                 	egress stats
-                	**type**\:   :py:class:`EgressStats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.EgressStats>`
+                	**type**\:  :py:class:`EgressStats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.EgressStats>`
                 
                 .. attribute:: path
                 
                 	Fowarding path
-                	**type**\:   :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path>`
+                	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path>`
                 
                 
 
@@ -3419,7 +3367,7 @@ class MplsStatic(Entity):
                     .. attribute:: stats
                     
                     	Statistics
-                    	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.IngressStats.Stats>`
+                    	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.IngressStats.Stats>`
                     
                     
 
@@ -3452,28 +3400,28 @@ class MplsStatic(Entity):
                         .. attribute:: packets
                         
                         	stats for packet count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bytes
                         
                         	stats for byte count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dropped_packets
                         
                         	stats for dropped\-packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dropped_bytes
                         
                         	stats for dropped\-bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3514,7 +3462,7 @@ class MplsStatic(Entity):
                     .. attribute:: stats
                     
                     	Statistics
-                    	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.EgressStats.Stats>`
+                    	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.EgressStats.Stats>`
                     
                     
 
@@ -3547,28 +3495,28 @@ class MplsStatic(Entity):
                         .. attribute:: packets
                         
                         	stats for packet count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bytes
                         
                         	stats for byte count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dropped_packets
                         
                         	stats for dropped\-packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dropped_bytes
                         
                         	stats for dropped\-bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3609,19 +3557,19 @@ class MplsStatic(Entity):
                     .. attribute:: operations
                     
                     	The incoming label processing
-                    	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations>`
+                    	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations>`
                     
                     .. attribute:: auto_protect
                     
                     	Enables automatic protection if true
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
                     .. attribute:: next_hop
                     
                     	next\-hops list
-                    	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop>`
+                    	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop>`
                     
                     
 
@@ -3661,24 +3609,24 @@ class MplsStatic(Entity):
                         .. attribute:: preserve
                         
                         	preserve incoming label stack
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: swap
                         
                         	Push outgoing label stack
-                        	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations.Swap>`
+                        	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations.Swap>`
                         
                         .. attribute:: push
                         
                         	Push outgoing label stack
-                        	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations.Push>`
+                        	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations.Push>`
                         
                         .. attribute:: pop_and_forward
                         
                         	Pop the incoming label and forward
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
@@ -3725,7 +3673,7 @@ class MplsStatic(Entity):
                             .. attribute:: stack
                             
                             	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations.Swap.Stack>`
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations.Swap.Stack>`
                             
                             
 
@@ -3758,18 +3706,14 @@ class MplsStatic(Entity):
                                 .. attribute:: label_stack
                                 
                                 	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  list of int
+                                		**type**\: list of int
                                 
-                                	**range:** 16..1048575
+                                			**range:** 16..1048575
                                 
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                 
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
                                 
 
                                 """
@@ -3801,7 +3745,7 @@ class MplsStatic(Entity):
                             .. attribute:: stack
                             
                             	The label stack
-                            	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations.Push.Stack>`
+                            	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.Operations.Push.Stack>`
                             
                             
 
@@ -3834,18 +3778,14 @@ class MplsStatic(Entity):
                                 .. attribute:: label_stack
                                 
                                 	First label in the list is the top of the stack
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  list of int
+                                		**type**\: list of int
                                 
-                                	**range:** 16..1048575
+                                			**range:** 16..1048575
                                 
+                                		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                 
-                                ----
-                                	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                
-                                
-                                ----
                                 
 
                                 """
@@ -3877,7 +3817,7 @@ class MplsStatic(Entity):
                         .. attribute:: index  <key>
                         
                         	Index of the nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3886,36 +3826,36 @@ class MplsStatic(Entity):
                         .. attribute:: type
                         
                         	The forwarding path's hoptype
-                        	**type**\:   :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
+                        	**type**\:  :py:class:`Hoptype <ydk.models.cisco_ios_xe.common_mpls_static.Hoptype>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: protected_by
                         
                         	Index of the nexthop that protects this nexthop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: next_hop_type
                         
                         	Next\-hop
-                        	**type**\:   :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.NextHopType>`
+                        	**type**\:  :py:class:`NextHopType <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.NextHopType>`
                         
                         .. attribute:: operations
                         
                         	The incoming label processing
-                        	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations>`
+                        	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations>`
                         
                         .. attribute:: origin
                         
                         	The origin of this nexthop
-                        	**type**\:   :py:class:`NexthopResolutionType <ydk.models.cisco_ios_xe.common_mpls_static.NexthopResolutionType>`
+                        	**type**\:  :py:class:`NexthopResolutionType <ydk.models.cisco_ios_xe.common_mpls_static.NexthopResolutionType>`
                         
                         .. attribute:: nexthop_stats
                         
                         	lsp stats
-                        	**type**\:   :py:class:`NexthopStats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.NexthopStats>`
+                        	**type**\:  :py:class:`NexthopStats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.NexthopStats>`
                         
                         
 
@@ -3969,7 +3909,7 @@ class MplsStatic(Entity):
                             .. attribute:: if_index
                             
                             	The interface index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3978,28 +3918,34 @@ class MplsStatic(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 Address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: mac_address
                             
                             	MAC address of the nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             	**mandatory**\: True
                             
                             .. attribute:: out_interface_name
                             
                             	Name of the outgoing interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                             
@@ -4042,24 +3988,24 @@ class MplsStatic(Entity):
                             .. attribute:: preserve
                             
                             	preserve incoming label stack
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: swap
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations.Swap>`
+                            	**type**\:  :py:class:`Swap <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations.Swap>`
                             
                             .. attribute:: push
                             
                             	Push outgoing label stack
-                            	**type**\:   :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations.Push>`
+                            	**type**\:  :py:class:`Push <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations.Push>`
                             
                             .. attribute:: pop_and_forward
                             
                             	Pop the incoming label and forward
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
@@ -4106,7 +4052,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations.Swap.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations.Swap.Stack>`
                                 
                                 
 
@@ -4139,18 +4085,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -4182,7 +4124,7 @@ class MplsStatic(Entity):
                                 .. attribute:: stack
                                 
                                 	The label stack
-                                	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations.Push.Stack>`
+                                	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.Operations.Push.Stack>`
                                 
                                 
 
@@ -4215,18 +4157,14 @@ class MplsStatic(Entity):
                                     .. attribute:: label_stack
                                     
                                     	First label in the list is the top of the stack
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  list of int
+                                    		**type**\: list of int
                                     
-                                    	**range:** 16..1048575
+                                    			**range:** 16..1048575
                                     
+                                    		**type**\: list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
                                     
-                                    ----
-                                    	**type**\:  list of   :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                                    
-                                    
-                                    ----
                                     
 
                                     """
@@ -4258,7 +4196,7 @@ class MplsStatic(Entity):
                             .. attribute:: stats
                             
                             	Statistics
-                            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.NexthopStats.Stats>`
+                            	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticState.LabelSwitchedPaths.LabelSwitchedPath.Path.NextHop.NexthopStats.Stats>`
                             
                             
 
@@ -4291,28 +4229,28 @@ class MplsStatic(Entity):
                                 .. attribute:: packets
                                 
                                 	stats for packet count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: bytes
                                 
                                 	stats for byte count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	stats for dropped\-packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_bytes
                                 
                                 	stats for dropped\-bytes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 

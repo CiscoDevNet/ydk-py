@@ -112,7 +112,7 @@ class OcBgp(Entity):
     .. attribute:: bgp_rib
     
     	BGP\-RIB operational data
-    	**type**\:   :py:class:`BgpRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib>`
+    	**type**\:  :py:class:`BgpRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib>`
     
     
 
@@ -146,7 +146,7 @@ class OcBgp(Entity):
         .. attribute:: afi_safi_table
         
         	AFI\-SAFIs information
-        	**type**\:   :py:class:`AfiSafiTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable>`
+        	**type**\:  :py:class:`AfiSafiTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable>`
         
         
 
@@ -180,12 +180,12 @@ class OcBgp(Entity):
             .. attribute:: ipv4_unicast
             
             	IPv4 Unicast
-            	**type**\:   :py:class:`Ipv4Unicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast>`
+            	**type**\:  :py:class:`Ipv4Unicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast>`
             
             .. attribute:: ipv6_unicast
             
             	IPv6 Unicast
-            	**type**\:   :py:class:`Ipv6Unicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast>`
+            	**type**\:  :py:class:`Ipv6Unicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast>`
             
             
 
@@ -224,12 +224,12 @@ class OcBgp(Entity):
                 .. attribute:: loc_rib
                 
                 	Local rib route table
-                	**type**\:   :py:class:`LocRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib>`
+                	**type**\:  :py:class:`LocRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib>`
                 
                 .. attribute:: open_config_neighbors
                 
                 	Neighbor list
-                	**type**\:   :py:class:`OpenConfigNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors>`
+                	**type**\:  :py:class:`OpenConfigNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors>`
                 
                 
 
@@ -268,12 +268,12 @@ class OcBgp(Entity):
                     .. attribute:: routes
                     
                     	routes table
-                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes>`
+                    	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes>`
                     
                     .. attribute:: num_routes
                     
                     	Number of routes in adjacency rib out\-bound post\-policy table
-                    	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes>`
+                    	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes>`
                     
                     
 
@@ -312,7 +312,7 @@ class OcBgp(Entity):
                         .. attribute:: route
                         
                         	route entry
-                        	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route>`
+                        	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route>`
                         
                         
 
@@ -346,75 +346,75 @@ class OcBgp(Entity):
                             .. attribute:: route
                             
                             	Network in prefix/length format
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                             
-                            ----
                             .. attribute:: neighbor_address
                             
                             	Neighbor address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: path_id
                             
                             	Path ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: prefix_name
                             
                             	Prefix
-                            	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName>`
+                            	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName>`
                             
                             .. attribute:: route_attr_list
                             
                             	RouteAttributesList
-                            	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList>`
+                            	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList>`
                             
                             .. attribute:: ext_attributes_list
                             
                             	ExtAttributesList
-                            	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList>`
+                            	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList>`
                             
                             .. attribute:: last_modified_date
                             
                             	LastModifiedDate
-                            	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate>`
+                            	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate>`
                             
                             .. attribute:: last_update_recieved
                             
                             	LastUpdateRecieved
-                            	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved>`
+                            	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved>`
                             
                             .. attribute:: valid_route
                             
                             	ValidRoute
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: invalid_reason
                             
                             	IndentityRef
-                            	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                            	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                             
                             .. attribute:: best_path
                             
                             	BestPath
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -483,12 +483,12 @@ class OcBgp(Entity):
                                 .. attribute:: prefix
                                 
                                 	Prefix
-                                	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix>`
+                                	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix>`
                                 
                                 .. attribute:: prefix_length
                                 
                                 	Prefix length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
@@ -529,17 +529,21 @@ class OcBgp(Entity):
                                     .. attribute:: afi
                                     
                                     	AFI
-                                    	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                    	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 Addr
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 Addr
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -577,51 +581,51 @@ class OcBgp(Entity):
                                 .. attribute:: next_hop
                                 
                                 	NextHopAddress
-                                	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop>`
+                                	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop>`
                                 
                                 .. attribute:: aggregrator_attributes
                                 
                                 	AggregatorList
-                                	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                 
                                 .. attribute:: origin_type
                                 
                                 	Origin Attribute Type
-                                	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                 
                                 .. attribute:: as_path
                                 
                                 	AS Path
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: as4_path
                                 
                                 	AS4 Path
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: med
                                 
                                 	Med
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: local_pref
                                 
                                 	LocalPref
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: atomic_aggr
                                 
                                 	AtomicAggr
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: community
                                 
                                 	CommunityArray
-                                	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community>`
+                                	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community>`
                                 
                                 
 
@@ -677,17 +681,21 @@ class OcBgp(Entity):
                                     .. attribute:: afi
                                     
                                     	AFI
-                                    	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                    	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 Addr
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 Addr
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -725,21 +733,23 @@ class OcBgp(Entity):
                                     .. attribute:: as_
                                     
                                     	AS number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: as4
                                     
                                     	AS4 number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -777,7 +787,7 @@ class OcBgp(Entity):
                                     .. attribute:: objects
                                     
                                     	BGP OC objects
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -811,36 +821,40 @@ class OcBgp(Entity):
                                 .. attribute:: originator_id
                                 
                                 	OriginatorID
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: aigp
                                 
                                 	AIGP
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: path_id
                                 
                                 	PathId
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: cluster
                                 
                                 	ClusterList
-                                	**type**\:  list of str
+                                	**type**\: list of str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: ext_community
                                 
                                 	ExtendedCommunityArray
-                                	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity>`
                                 
                                 .. attribute:: unknown_attributes
                                 
                                 	UnknownAttributes
-                                	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                 
                                 
 
@@ -883,7 +897,7 @@ class OcBgp(Entity):
                                     .. attribute:: objects
                                     
                                     	BGP OC objects
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -917,21 +931,23 @@ class OcBgp(Entity):
                                     .. attribute:: attribute_type
                                     
                                     	AttributeType
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: attribute_length
                                     
                                     	AttributeLength
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: attribute_value
                                     
                                     	Atributevalue
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                     
                                     
 
@@ -969,7 +985,7 @@ class OcBgp(Entity):
                                 .. attribute:: time_value
                                 
                                 	TimeValue
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -1003,7 +1019,7 @@ class OcBgp(Entity):
                                 .. attribute:: time_value
                                 
                                 	TimeValue
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -1038,7 +1054,7 @@ class OcBgp(Entity):
                         .. attribute:: num_routes
                         
                         	NumRoutes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1074,7 +1090,7 @@ class OcBgp(Entity):
                     .. attribute:: open_config_neighbor
                     
                     	Neighbor name
-                    	**type**\: list of    :py:class:`OpenConfigNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor>`
+                    	**type**\: list of  		 :py:class:`OpenConfigNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor>`
                     
                     
 
@@ -1108,35 +1124,35 @@ class OcBgp(Entity):
                         .. attribute:: neighbor_address  <key>
                         
                         	Neighbor Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: adj_rib_in_post
                         
                         	Adjacency rib in\-bound post\-policy table
-                        	**type**\:   :py:class:`AdjRibInPost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost>`
+                        	**type**\:  :py:class:`AdjRibInPost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost>`
                         
                         .. attribute:: adj_rib_out_post
                         
                         	Adjacency rib out\-bound post\-policy table
-                        	**type**\:   :py:class:`AdjRibOutPost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost>`
+                        	**type**\:  :py:class:`AdjRibOutPost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost>`
                         
                         .. attribute:: adj_rib_out_pre
                         
                         	Adjacency rib out\-bound pre\-policy table
-                        	**type**\:   :py:class:`AdjRibOutPre <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre>`
+                        	**type**\:  :py:class:`AdjRibOutPre <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre>`
                         
                         .. attribute:: adj_rib_in_pre
                         
                         	Adjacency rib in\-bound pre\-policy table
-                        	**type**\:   :py:class:`AdjRibInPre <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre>`
+                        	**type**\:  :py:class:`AdjRibInPre <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre>`
                         
                         
 
@@ -1190,12 +1206,12 @@ class OcBgp(Entity):
                             .. attribute:: routes
                             
                             	routes table
-                            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes>`
+                            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes>`
                             
                             .. attribute:: num_routes
                             
                             	Number of routes in adjacency rib out\-bound post\-policy table
-                            	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes>`
+                            	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes>`
                             
                             
 
@@ -1233,7 +1249,7 @@ class OcBgp(Entity):
                                 .. attribute:: route
                                 
                                 	route entry
-                                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route>`
+                                	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route>`
                                 
                                 
 
@@ -1266,75 +1282,75 @@ class OcBgp(Entity):
                                     .. attribute:: route
                                     
                                     	Network in prefix/length format
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     .. attribute:: neighbor_address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: path_id
                                     
                                     	Path ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: prefix_name
                                     
                                     	Prefix
-                                    	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName>`
+                                    	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName>`
                                     
                                     .. attribute:: route_attr_list
                                     
                                     	RouteAttributesList
-                                    	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList>`
+                                    	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList>`
                                     
                                     .. attribute:: ext_attributes_list
                                     
                                     	ExtAttributesList
-                                    	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList>`
+                                    	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList>`
                                     
                                     .. attribute:: last_modified_date
                                     
                                     	LastModifiedDate
-                                    	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate>`
+                                    	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate>`
                                     
                                     .. attribute:: last_update_recieved
                                     
                                     	LastUpdateRecieved
-                                    	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved>`
+                                    	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved>`
                                     
                                     .. attribute:: valid_route
                                     
                                     	ValidRoute
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	IndentityRef
-                                    	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                                    	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                                     
                                     .. attribute:: best_path
                                     
                                     	BestPath
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -1402,12 +1418,12 @@ class OcBgp(Entity):
                                         .. attribute:: prefix
                                         
                                         	Prefix
-                                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix>`
+                                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix>`
                                         
                                         .. attribute:: prefix_length
                                         
                                         	Prefix length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -1447,17 +1463,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -1494,51 +1514,51 @@ class OcBgp(Entity):
                                         .. attribute:: next_hop
                                         
                                         	NextHopAddress
-                                        	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop>`
+                                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop>`
                                         
                                         .. attribute:: aggregrator_attributes
                                         
                                         	AggregatorList
-                                        	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                        	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                         
                                         .. attribute:: origin_type
                                         
                                         	Origin Attribute Type
-                                        	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                        	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                         
                                         .. attribute:: as_path
                                         
                                         	AS Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: as4_path
                                         
                                         	AS4 Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: med
                                         
                                         	Med
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: local_pref
                                         
                                         	LocalPref
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: atomic_aggr
                                         
                                         	AtomicAggr
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: community
                                         
                                         	CommunityArray
-                                        	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community>`
+                                        	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community>`
                                         
                                         
 
@@ -1593,17 +1613,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -1640,21 +1664,23 @@ class OcBgp(Entity):
                                             .. attribute:: as_
                                             
                                             	AS number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as4
                                             
                                             	AS4 number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -1691,7 +1717,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -1724,36 +1750,40 @@ class OcBgp(Entity):
                                         .. attribute:: originator_id
                                         
                                         	OriginatorID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: aigp
                                         
                                         	AIGP
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: path_id
                                         
                                         	PathId
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: cluster
                                         
                                         	ClusterList
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: ext_community
                                         
                                         	ExtendedCommunityArray
-                                        	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                        	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity>`
                                         
                                         .. attribute:: unknown_attributes
                                         
                                         	UnknownAttributes
-                                        	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                        	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                         
                                         
 
@@ -1795,7 +1825,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -1828,21 +1858,23 @@ class OcBgp(Entity):
                                             .. attribute:: attribute_type
                                             
                                             	AttributeType
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_length
                                             
                                             	AttributeLength
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_value
                                             
                                             	Atributevalue
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                             
                                             
 
@@ -1879,7 +1911,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -1912,7 +1944,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -1946,7 +1978,7 @@ class OcBgp(Entity):
                                 .. attribute:: num_routes
                                 
                                 	NumRoutes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1981,12 +2013,12 @@ class OcBgp(Entity):
                             .. attribute:: routes
                             
                             	routes table
-                            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes>`
+                            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes>`
                             
                             .. attribute:: num_routes
                             
                             	Number of routes in adjacency rib out\-bound post\-policy table
-                            	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes>`
+                            	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes>`
                             
                             
 
@@ -2024,7 +2056,7 @@ class OcBgp(Entity):
                                 .. attribute:: route
                                 
                                 	route entry
-                                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route>`
+                                	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route>`
                                 
                                 
 
@@ -2057,75 +2089,75 @@ class OcBgp(Entity):
                                     .. attribute:: route
                                     
                                     	Network in prefix/length format
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     .. attribute:: neighbor_address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: path_id
                                     
                                     	Path ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: prefix_name
                                     
                                     	Prefix
-                                    	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName>`
+                                    	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName>`
                                     
                                     .. attribute:: route_attr_list
                                     
                                     	RouteAttributesList
-                                    	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList>`
+                                    	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList>`
                                     
                                     .. attribute:: ext_attributes_list
                                     
                                     	ExtAttributesList
-                                    	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList>`
+                                    	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList>`
                                     
                                     .. attribute:: last_modified_date
                                     
                                     	LastModifiedDate
-                                    	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate>`
+                                    	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate>`
                                     
                                     .. attribute:: last_update_recieved
                                     
                                     	LastUpdateRecieved
-                                    	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved>`
+                                    	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved>`
                                     
                                     .. attribute:: valid_route
                                     
                                     	ValidRoute
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	IndentityRef
-                                    	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                                    	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                                     
                                     .. attribute:: best_path
                                     
                                     	BestPath
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -2193,12 +2225,12 @@ class OcBgp(Entity):
                                         .. attribute:: prefix
                                         
                                         	Prefix
-                                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix>`
+                                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix>`
                                         
                                         .. attribute:: prefix_length
                                         
                                         	Prefix length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -2238,17 +2270,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -2285,51 +2321,51 @@ class OcBgp(Entity):
                                         .. attribute:: next_hop
                                         
                                         	NextHopAddress
-                                        	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop>`
+                                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop>`
                                         
                                         .. attribute:: aggregrator_attributes
                                         
                                         	AggregatorList
-                                        	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                        	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                         
                                         .. attribute:: origin_type
                                         
                                         	Origin Attribute Type
-                                        	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                        	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                         
                                         .. attribute:: as_path
                                         
                                         	AS Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: as4_path
                                         
                                         	AS4 Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: med
                                         
                                         	Med
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: local_pref
                                         
                                         	LocalPref
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: atomic_aggr
                                         
                                         	AtomicAggr
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: community
                                         
                                         	CommunityArray
-                                        	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community>`
+                                        	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community>`
                                         
                                         
 
@@ -2384,17 +2420,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -2431,21 +2471,23 @@ class OcBgp(Entity):
                                             .. attribute:: as_
                                             
                                             	AS number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as4
                                             
                                             	AS4 number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -2482,7 +2524,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -2515,36 +2557,40 @@ class OcBgp(Entity):
                                         .. attribute:: originator_id
                                         
                                         	OriginatorID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: aigp
                                         
                                         	AIGP
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: path_id
                                         
                                         	PathId
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: cluster
                                         
                                         	ClusterList
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: ext_community
                                         
                                         	ExtendedCommunityArray
-                                        	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                        	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity>`
                                         
                                         .. attribute:: unknown_attributes
                                         
                                         	UnknownAttributes
-                                        	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                        	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                         
                                         
 
@@ -2586,7 +2632,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -2619,21 +2665,23 @@ class OcBgp(Entity):
                                             .. attribute:: attribute_type
                                             
                                             	AttributeType
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_length
                                             
                                             	AttributeLength
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_value
                                             
                                             	Atributevalue
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                             
                                             
 
@@ -2670,7 +2718,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -2703,7 +2751,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -2737,7 +2785,7 @@ class OcBgp(Entity):
                                 .. attribute:: num_routes
                                 
                                 	NumRoutes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2772,12 +2820,12 @@ class OcBgp(Entity):
                             .. attribute:: routes
                             
                             	routes table
-                            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes>`
+                            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes>`
                             
                             .. attribute:: num_routes
                             
                             	Number of routes in adjacency rib out\-bound post\-policy table
-                            	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes>`
+                            	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes>`
                             
                             
 
@@ -2815,7 +2863,7 @@ class OcBgp(Entity):
                                 .. attribute:: route
                                 
                                 	route entry
-                                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route>`
+                                	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route>`
                                 
                                 
 
@@ -2848,75 +2896,75 @@ class OcBgp(Entity):
                                     .. attribute:: route
                                     
                                     	Network in prefix/length format
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     .. attribute:: neighbor_address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: path_id
                                     
                                     	Path ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: prefix_name
                                     
                                     	Prefix
-                                    	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName>`
+                                    	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName>`
                                     
                                     .. attribute:: route_attr_list
                                     
                                     	RouteAttributesList
-                                    	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList>`
+                                    	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList>`
                                     
                                     .. attribute:: ext_attributes_list
                                     
                                     	ExtAttributesList
-                                    	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList>`
+                                    	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList>`
                                     
                                     .. attribute:: last_modified_date
                                     
                                     	LastModifiedDate
-                                    	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate>`
+                                    	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate>`
                                     
                                     .. attribute:: last_update_recieved
                                     
                                     	LastUpdateRecieved
-                                    	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved>`
+                                    	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved>`
                                     
                                     .. attribute:: valid_route
                                     
                                     	ValidRoute
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	IndentityRef
-                                    	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                                    	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                                     
                                     .. attribute:: best_path
                                     
                                     	BestPath
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -2984,12 +3032,12 @@ class OcBgp(Entity):
                                         .. attribute:: prefix
                                         
                                         	Prefix
-                                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix>`
+                                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix>`
                                         
                                         .. attribute:: prefix_length
                                         
                                         	Prefix length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -3029,17 +3077,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -3076,51 +3128,51 @@ class OcBgp(Entity):
                                         .. attribute:: next_hop
                                         
                                         	NextHopAddress
-                                        	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop>`
+                                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop>`
                                         
                                         .. attribute:: aggregrator_attributes
                                         
                                         	AggregatorList
-                                        	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                        	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                         
                                         .. attribute:: origin_type
                                         
                                         	Origin Attribute Type
-                                        	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                        	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                         
                                         .. attribute:: as_path
                                         
                                         	AS Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: as4_path
                                         
                                         	AS4 Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: med
                                         
                                         	Med
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: local_pref
                                         
                                         	LocalPref
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: atomic_aggr
                                         
                                         	AtomicAggr
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: community
                                         
                                         	CommunityArray
-                                        	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community>`
+                                        	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community>`
                                         
                                         
 
@@ -3175,17 +3227,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -3222,21 +3278,23 @@ class OcBgp(Entity):
                                             .. attribute:: as_
                                             
                                             	AS number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as4
                                             
                                             	AS4 number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -3273,7 +3331,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -3306,36 +3364,40 @@ class OcBgp(Entity):
                                         .. attribute:: originator_id
                                         
                                         	OriginatorID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: aigp
                                         
                                         	AIGP
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: path_id
                                         
                                         	PathId
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: cluster
                                         
                                         	ClusterList
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: ext_community
                                         
                                         	ExtendedCommunityArray
-                                        	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                        	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity>`
                                         
                                         .. attribute:: unknown_attributes
                                         
                                         	UnknownAttributes
-                                        	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                        	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                         
                                         
 
@@ -3377,7 +3439,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -3410,21 +3472,23 @@ class OcBgp(Entity):
                                             .. attribute:: attribute_type
                                             
                                             	AttributeType
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_length
                                             
                                             	AttributeLength
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_value
                                             
                                             	Atributevalue
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                             
                                             
 
@@ -3461,7 +3525,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -3494,7 +3558,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -3528,7 +3592,7 @@ class OcBgp(Entity):
                                 .. attribute:: num_routes
                                 
                                 	NumRoutes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -3563,12 +3627,12 @@ class OcBgp(Entity):
                             .. attribute:: routes
                             
                             	routes table
-                            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes>`
+                            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes>`
                             
                             .. attribute:: num_routes
                             
                             	Number of routes in adjacency rib out\-bound post\-policy table
-                            	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes>`
+                            	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes>`
                             
                             
 
@@ -3606,7 +3670,7 @@ class OcBgp(Entity):
                                 .. attribute:: route
                                 
                                 	route entry
-                                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route>`
+                                	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route>`
                                 
                                 
 
@@ -3639,75 +3703,75 @@ class OcBgp(Entity):
                                     .. attribute:: route
                                     
                                     	Network in prefix/length format
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     .. attribute:: neighbor_address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: path_id
                                     
                                     	Path ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: prefix_name
                                     
                                     	Prefix
-                                    	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName>`
+                                    	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName>`
                                     
                                     .. attribute:: route_attr_list
                                     
                                     	RouteAttributesList
-                                    	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList>`
+                                    	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList>`
                                     
                                     .. attribute:: ext_attributes_list
                                     
                                     	ExtAttributesList
-                                    	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList>`
+                                    	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList>`
                                     
                                     .. attribute:: last_modified_date
                                     
                                     	LastModifiedDate
-                                    	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate>`
+                                    	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate>`
                                     
                                     .. attribute:: last_update_recieved
                                     
                                     	LastUpdateRecieved
-                                    	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved>`
+                                    	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved>`
                                     
                                     .. attribute:: valid_route
                                     
                                     	ValidRoute
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	IndentityRef
-                                    	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                                    	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                                     
                                     .. attribute:: best_path
                                     
                                     	BestPath
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -3775,12 +3839,12 @@ class OcBgp(Entity):
                                         .. attribute:: prefix
                                         
                                         	Prefix
-                                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix>`
+                                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix>`
                                         
                                         .. attribute:: prefix_length
                                         
                                         	Prefix length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -3820,17 +3884,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -3867,51 +3935,51 @@ class OcBgp(Entity):
                                         .. attribute:: next_hop
                                         
                                         	NextHopAddress
-                                        	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop>`
+                                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop>`
                                         
                                         .. attribute:: aggregrator_attributes
                                         
                                         	AggregatorList
-                                        	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                        	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                         
                                         .. attribute:: origin_type
                                         
                                         	Origin Attribute Type
-                                        	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                        	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                         
                                         .. attribute:: as_path
                                         
                                         	AS Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: as4_path
                                         
                                         	AS4 Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: med
                                         
                                         	Med
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: local_pref
                                         
                                         	LocalPref
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: atomic_aggr
                                         
                                         	AtomicAggr
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: community
                                         
                                         	CommunityArray
-                                        	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community>`
+                                        	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community>`
                                         
                                         
 
@@ -3966,17 +4034,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -4013,21 +4085,23 @@ class OcBgp(Entity):
                                             .. attribute:: as_
                                             
                                             	AS number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as4
                                             
                                             	AS4 number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -4064,7 +4138,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -4097,36 +4171,40 @@ class OcBgp(Entity):
                                         .. attribute:: originator_id
                                         
                                         	OriginatorID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: aigp
                                         
                                         	AIGP
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: path_id
                                         
                                         	PathId
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: cluster
                                         
                                         	ClusterList
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: ext_community
                                         
                                         	ExtendedCommunityArray
-                                        	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                        	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity>`
                                         
                                         .. attribute:: unknown_attributes
                                         
                                         	UnknownAttributes
-                                        	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                        	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                         
                                         
 
@@ -4168,7 +4246,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -4201,21 +4279,23 @@ class OcBgp(Entity):
                                             .. attribute:: attribute_type
                                             
                                             	AttributeType
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_length
                                             
                                             	AttributeLength
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_value
                                             
                                             	Atributevalue
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                             
                                             
 
@@ -4252,7 +4332,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -4285,7 +4365,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -4319,7 +4399,7 @@ class OcBgp(Entity):
                                 .. attribute:: num_routes
                                 
                                 	NumRoutes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -4354,12 +4434,12 @@ class OcBgp(Entity):
                 .. attribute:: loc_rib
                 
                 	Local rib route table
-                	**type**\:   :py:class:`LocRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib>`
+                	**type**\:  :py:class:`LocRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib>`
                 
                 .. attribute:: open_config_neighbors
                 
                 	Neighbor list
-                	**type**\:   :py:class:`OpenConfigNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors>`
+                	**type**\:  :py:class:`OpenConfigNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors>`
                 
                 
 
@@ -4398,12 +4478,12 @@ class OcBgp(Entity):
                     .. attribute:: routes
                     
                     	routes table
-                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes>`
+                    	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes>`
                     
                     .. attribute:: num_routes
                     
                     	Number of routes in adjacency rib out\-bound post\-policy table
-                    	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes>`
+                    	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes>`
                     
                     
 
@@ -4442,7 +4522,7 @@ class OcBgp(Entity):
                         .. attribute:: route
                         
                         	route entry
-                        	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route>`
+                        	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route>`
                         
                         
 
@@ -4476,75 +4556,75 @@ class OcBgp(Entity):
                             .. attribute:: route
                             
                             	Network in prefix/length format
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                             
-                            ----
                             .. attribute:: neighbor_address
                             
                             	Neighbor address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: path_id
                             
                             	Path ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: prefix_name
                             
                             	Prefix
-                            	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName>`
+                            	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName>`
                             
                             .. attribute:: route_attr_list
                             
                             	RouteAttributesList
-                            	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList>`
+                            	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList>`
                             
                             .. attribute:: ext_attributes_list
                             
                             	ExtAttributesList
-                            	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList>`
+                            	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList>`
                             
                             .. attribute:: last_modified_date
                             
                             	LastModifiedDate
-                            	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate>`
+                            	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate>`
                             
                             .. attribute:: last_update_recieved
                             
                             	LastUpdateRecieved
-                            	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved>`
+                            	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved>`
                             
                             .. attribute:: valid_route
                             
                             	ValidRoute
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: invalid_reason
                             
                             	IndentityRef
-                            	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                            	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                             
                             .. attribute:: best_path
                             
                             	BestPath
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4613,12 +4693,12 @@ class OcBgp(Entity):
                                 .. attribute:: prefix
                                 
                                 	Prefix
-                                	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix>`
+                                	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix>`
                                 
                                 .. attribute:: prefix_length
                                 
                                 	Prefix length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
@@ -4659,17 +4739,21 @@ class OcBgp(Entity):
                                     .. attribute:: afi
                                     
                                     	AFI
-                                    	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                    	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 Addr
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 Addr
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -4707,51 +4791,51 @@ class OcBgp(Entity):
                                 .. attribute:: next_hop
                                 
                                 	NextHopAddress
-                                	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop>`
+                                	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop>`
                                 
                                 .. attribute:: aggregrator_attributes
                                 
                                 	AggregatorList
-                                	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                 
                                 .. attribute:: origin_type
                                 
                                 	Origin Attribute Type
-                                	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                 
                                 .. attribute:: as_path
                                 
                                 	AS Path
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: as4_path
                                 
                                 	AS4 Path
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: med
                                 
                                 	Med
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: local_pref
                                 
                                 	LocalPref
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: atomic_aggr
                                 
                                 	AtomicAggr
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: community
                                 
                                 	CommunityArray
-                                	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community>`
+                                	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community>`
                                 
                                 
 
@@ -4807,17 +4891,21 @@ class OcBgp(Entity):
                                     .. attribute:: afi
                                     
                                     	AFI
-                                    	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                    	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 Addr
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 Addr
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -4855,21 +4943,23 @@ class OcBgp(Entity):
                                     .. attribute:: as_
                                     
                                     	AS number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: as4
                                     
                                     	AS4 number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -4907,7 +4997,7 @@ class OcBgp(Entity):
                                     .. attribute:: objects
                                     
                                     	BGP OC objects
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -4941,36 +5031,40 @@ class OcBgp(Entity):
                                 .. attribute:: originator_id
                                 
                                 	OriginatorID
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: aigp
                                 
                                 	AIGP
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: path_id
                                 
                                 	PathId
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: cluster
                                 
                                 	ClusterList
-                                	**type**\:  list of str
+                                	**type**\: list of str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: ext_community
                                 
                                 	ExtendedCommunityArray
-                                	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity>`
                                 
                                 .. attribute:: unknown_attributes
                                 
                                 	UnknownAttributes
-                                	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                 
                                 
 
@@ -5013,7 +5107,7 @@ class OcBgp(Entity):
                                     .. attribute:: objects
                                     
                                     	BGP OC objects
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -5047,21 +5141,23 @@ class OcBgp(Entity):
                                     .. attribute:: attribute_type
                                     
                                     	AttributeType
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: attribute_length
                                     
                                     	AttributeLength
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: attribute_value
                                     
                                     	Atributevalue
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                     
                                     
 
@@ -5099,7 +5195,7 @@ class OcBgp(Entity):
                                 .. attribute:: time_value
                                 
                                 	TimeValue
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -5133,7 +5229,7 @@ class OcBgp(Entity):
                                 .. attribute:: time_value
                                 
                                 	TimeValue
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -5168,7 +5264,7 @@ class OcBgp(Entity):
                         .. attribute:: num_routes
                         
                         	NumRoutes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -5204,7 +5300,7 @@ class OcBgp(Entity):
                     .. attribute:: open_config_neighbor
                     
                     	Neighbor name
-                    	**type**\: list of    :py:class:`OpenConfigNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor>`
+                    	**type**\: list of  		 :py:class:`OpenConfigNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor>`
                     
                     
 
@@ -5238,35 +5334,35 @@ class OcBgp(Entity):
                         .. attribute:: neighbor_address  <key>
                         
                         	Neighbor Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: adj_rib_in_post
                         
                         	Adjacency rib in\-bound post\-policy table
-                        	**type**\:   :py:class:`AdjRibInPost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost>`
+                        	**type**\:  :py:class:`AdjRibInPost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost>`
                         
                         .. attribute:: adj_rib_out_post
                         
                         	Adjacency rib out\-bound post\-policy table
-                        	**type**\:   :py:class:`AdjRibOutPost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost>`
+                        	**type**\:  :py:class:`AdjRibOutPost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost>`
                         
                         .. attribute:: adj_rib_out_pre
                         
                         	Adjacency rib out\-bound pre\-policy table
-                        	**type**\:   :py:class:`AdjRibOutPre <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre>`
+                        	**type**\:  :py:class:`AdjRibOutPre <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre>`
                         
                         .. attribute:: adj_rib_in_pre
                         
                         	Adjacency rib in\-bound pre\-policy table
-                        	**type**\:   :py:class:`AdjRibInPre <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre>`
+                        	**type**\:  :py:class:`AdjRibInPre <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre>`
                         
                         
 
@@ -5320,12 +5416,12 @@ class OcBgp(Entity):
                             .. attribute:: routes
                             
                             	routes table
-                            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes>`
+                            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes>`
                             
                             .. attribute:: num_routes
                             
                             	Number of routes in adjacency rib out\-bound post\-policy table
-                            	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes>`
+                            	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes>`
                             
                             
 
@@ -5363,7 +5459,7 @@ class OcBgp(Entity):
                                 .. attribute:: route
                                 
                                 	route entry
-                                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route>`
+                                	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route>`
                                 
                                 
 
@@ -5396,75 +5492,75 @@ class OcBgp(Entity):
                                     .. attribute:: route
                                     
                                     	Network in prefix/length format
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     .. attribute:: neighbor_address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: path_id
                                     
                                     	Path ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: prefix_name
                                     
                                     	Prefix
-                                    	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName>`
+                                    	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName>`
                                     
                                     .. attribute:: route_attr_list
                                     
                                     	RouteAttributesList
-                                    	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList>`
+                                    	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList>`
                                     
                                     .. attribute:: ext_attributes_list
                                     
                                     	ExtAttributesList
-                                    	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList>`
+                                    	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList>`
                                     
                                     .. attribute:: last_modified_date
                                     
                                     	LastModifiedDate
-                                    	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate>`
+                                    	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate>`
                                     
                                     .. attribute:: last_update_recieved
                                     
                                     	LastUpdateRecieved
-                                    	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved>`
+                                    	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved>`
                                     
                                     .. attribute:: valid_route
                                     
                                     	ValidRoute
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	IndentityRef
-                                    	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                                    	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                                     
                                     .. attribute:: best_path
                                     
                                     	BestPath
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -5532,12 +5628,12 @@ class OcBgp(Entity):
                                         .. attribute:: prefix
                                         
                                         	Prefix
-                                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix>`
+                                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix>`
                                         
                                         .. attribute:: prefix_length
                                         
                                         	Prefix length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -5577,17 +5673,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -5624,51 +5724,51 @@ class OcBgp(Entity):
                                         .. attribute:: next_hop
                                         
                                         	NextHopAddress
-                                        	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop>`
+                                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop>`
                                         
                                         .. attribute:: aggregrator_attributes
                                         
                                         	AggregatorList
-                                        	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                        	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                         
                                         .. attribute:: origin_type
                                         
                                         	Origin Attribute Type
-                                        	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                        	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                         
                                         .. attribute:: as_path
                                         
                                         	AS Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: as4_path
                                         
                                         	AS4 Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: med
                                         
                                         	Med
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: local_pref
                                         
                                         	LocalPref
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: atomic_aggr
                                         
                                         	AtomicAggr
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: community
                                         
                                         	CommunityArray
-                                        	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community>`
+                                        	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community>`
                                         
                                         
 
@@ -5723,17 +5823,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -5770,21 +5874,23 @@ class OcBgp(Entity):
                                             .. attribute:: as_
                                             
                                             	AS number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as4
                                             
                                             	AS4 number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -5821,7 +5927,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -5854,36 +5960,40 @@ class OcBgp(Entity):
                                         .. attribute:: originator_id
                                         
                                         	OriginatorID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: aigp
                                         
                                         	AIGP
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: path_id
                                         
                                         	PathId
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: cluster
                                         
                                         	ClusterList
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: ext_community
                                         
                                         	ExtendedCommunityArray
-                                        	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                        	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity>`
                                         
                                         .. attribute:: unknown_attributes
                                         
                                         	UnknownAttributes
-                                        	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                        	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                         
                                         
 
@@ -5925,7 +6035,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -5958,21 +6068,23 @@ class OcBgp(Entity):
                                             .. attribute:: attribute_type
                                             
                                             	AttributeType
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_length
                                             
                                             	AttributeLength
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_value
                                             
                                             	Atributevalue
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                             
                                             
 
@@ -6009,7 +6121,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -6042,7 +6154,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -6076,7 +6188,7 @@ class OcBgp(Entity):
                                 .. attribute:: num_routes
                                 
                                 	NumRoutes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6111,12 +6223,12 @@ class OcBgp(Entity):
                             .. attribute:: routes
                             
                             	routes table
-                            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes>`
+                            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes>`
                             
                             .. attribute:: num_routes
                             
                             	Number of routes in adjacency rib out\-bound post\-policy table
-                            	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes>`
+                            	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes>`
                             
                             
 
@@ -6154,7 +6266,7 @@ class OcBgp(Entity):
                                 .. attribute:: route
                                 
                                 	route entry
-                                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route>`
+                                	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route>`
                                 
                                 
 
@@ -6187,75 +6299,75 @@ class OcBgp(Entity):
                                     .. attribute:: route
                                     
                                     	Network in prefix/length format
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     .. attribute:: neighbor_address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: path_id
                                     
                                     	Path ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: prefix_name
                                     
                                     	Prefix
-                                    	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName>`
+                                    	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName>`
                                     
                                     .. attribute:: route_attr_list
                                     
                                     	RouteAttributesList
-                                    	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList>`
+                                    	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList>`
                                     
                                     .. attribute:: ext_attributes_list
                                     
                                     	ExtAttributesList
-                                    	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList>`
+                                    	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList>`
                                     
                                     .. attribute:: last_modified_date
                                     
                                     	LastModifiedDate
-                                    	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate>`
+                                    	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate>`
                                     
                                     .. attribute:: last_update_recieved
                                     
                                     	LastUpdateRecieved
-                                    	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved>`
+                                    	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved>`
                                     
                                     .. attribute:: valid_route
                                     
                                     	ValidRoute
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	IndentityRef
-                                    	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                                    	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                                     
                                     .. attribute:: best_path
                                     
                                     	BestPath
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -6323,12 +6435,12 @@ class OcBgp(Entity):
                                         .. attribute:: prefix
                                         
                                         	Prefix
-                                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix>`
+                                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix>`
                                         
                                         .. attribute:: prefix_length
                                         
                                         	Prefix length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -6368,17 +6480,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -6415,51 +6531,51 @@ class OcBgp(Entity):
                                         .. attribute:: next_hop
                                         
                                         	NextHopAddress
-                                        	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop>`
+                                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop>`
                                         
                                         .. attribute:: aggregrator_attributes
                                         
                                         	AggregatorList
-                                        	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                        	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                         
                                         .. attribute:: origin_type
                                         
                                         	Origin Attribute Type
-                                        	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                        	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                         
                                         .. attribute:: as_path
                                         
                                         	AS Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: as4_path
                                         
                                         	AS4 Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: med
                                         
                                         	Med
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: local_pref
                                         
                                         	LocalPref
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: atomic_aggr
                                         
                                         	AtomicAggr
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: community
                                         
                                         	CommunityArray
-                                        	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community>`
+                                        	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community>`
                                         
                                         
 
@@ -6514,17 +6630,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -6561,21 +6681,23 @@ class OcBgp(Entity):
                                             .. attribute:: as_
                                             
                                             	AS number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as4
                                             
                                             	AS4 number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -6612,7 +6734,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -6645,36 +6767,40 @@ class OcBgp(Entity):
                                         .. attribute:: originator_id
                                         
                                         	OriginatorID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: aigp
                                         
                                         	AIGP
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: path_id
                                         
                                         	PathId
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: cluster
                                         
                                         	ClusterList
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: ext_community
                                         
                                         	ExtendedCommunityArray
-                                        	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                        	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity>`
                                         
                                         .. attribute:: unknown_attributes
                                         
                                         	UnknownAttributes
-                                        	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                        	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                         
                                         
 
@@ -6716,7 +6842,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -6749,21 +6875,23 @@ class OcBgp(Entity):
                                             .. attribute:: attribute_type
                                             
                                             	AttributeType
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_length
                                             
                                             	AttributeLength
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_value
                                             
                                             	Atributevalue
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                             
                                             
 
@@ -6800,7 +6928,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -6833,7 +6961,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -6867,7 +6995,7 @@ class OcBgp(Entity):
                                 .. attribute:: num_routes
                                 
                                 	NumRoutes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6902,12 +7030,12 @@ class OcBgp(Entity):
                             .. attribute:: routes
                             
                             	routes table
-                            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes>`
+                            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes>`
                             
                             .. attribute:: num_routes
                             
                             	Number of routes in adjacency rib out\-bound post\-policy table
-                            	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes>`
+                            	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes>`
                             
                             
 
@@ -6945,7 +7073,7 @@ class OcBgp(Entity):
                                 .. attribute:: route
                                 
                                 	route entry
-                                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route>`
+                                	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route>`
                                 
                                 
 
@@ -6978,75 +7106,75 @@ class OcBgp(Entity):
                                     .. attribute:: route
                                     
                                     	Network in prefix/length format
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     .. attribute:: neighbor_address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: path_id
                                     
                                     	Path ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: prefix_name
                                     
                                     	Prefix
-                                    	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName>`
+                                    	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName>`
                                     
                                     .. attribute:: route_attr_list
                                     
                                     	RouteAttributesList
-                                    	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList>`
+                                    	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList>`
                                     
                                     .. attribute:: ext_attributes_list
                                     
                                     	ExtAttributesList
-                                    	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList>`
+                                    	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList>`
                                     
                                     .. attribute:: last_modified_date
                                     
                                     	LastModifiedDate
-                                    	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate>`
+                                    	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate>`
                                     
                                     .. attribute:: last_update_recieved
                                     
                                     	LastUpdateRecieved
-                                    	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved>`
+                                    	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved>`
                                     
                                     .. attribute:: valid_route
                                     
                                     	ValidRoute
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	IndentityRef
-                                    	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                                    	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                                     
                                     .. attribute:: best_path
                                     
                                     	BestPath
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -7114,12 +7242,12 @@ class OcBgp(Entity):
                                         .. attribute:: prefix
                                         
                                         	Prefix
-                                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix>`
+                                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix>`
                                         
                                         .. attribute:: prefix_length
                                         
                                         	Prefix length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -7159,17 +7287,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -7206,51 +7338,51 @@ class OcBgp(Entity):
                                         .. attribute:: next_hop
                                         
                                         	NextHopAddress
-                                        	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop>`
+                                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop>`
                                         
                                         .. attribute:: aggregrator_attributes
                                         
                                         	AggregatorList
-                                        	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                        	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                         
                                         .. attribute:: origin_type
                                         
                                         	Origin Attribute Type
-                                        	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                        	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                         
                                         .. attribute:: as_path
                                         
                                         	AS Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: as4_path
                                         
                                         	AS4 Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: med
                                         
                                         	Med
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: local_pref
                                         
                                         	LocalPref
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: atomic_aggr
                                         
                                         	AtomicAggr
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: community
                                         
                                         	CommunityArray
-                                        	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community>`
+                                        	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community>`
                                         
                                         
 
@@ -7305,17 +7437,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -7352,21 +7488,23 @@ class OcBgp(Entity):
                                             .. attribute:: as_
                                             
                                             	AS number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as4
                                             
                                             	AS4 number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -7403,7 +7541,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -7436,36 +7574,40 @@ class OcBgp(Entity):
                                         .. attribute:: originator_id
                                         
                                         	OriginatorID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: aigp
                                         
                                         	AIGP
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: path_id
                                         
                                         	PathId
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: cluster
                                         
                                         	ClusterList
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: ext_community
                                         
                                         	ExtendedCommunityArray
-                                        	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                        	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity>`
                                         
                                         .. attribute:: unknown_attributes
                                         
                                         	UnknownAttributes
-                                        	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                        	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                         
                                         
 
@@ -7507,7 +7649,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -7540,21 +7682,23 @@ class OcBgp(Entity):
                                             .. attribute:: attribute_type
                                             
                                             	AttributeType
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_length
                                             
                                             	AttributeLength
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_value
                                             
                                             	Atributevalue
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                             
                                             
 
@@ -7591,7 +7735,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -7624,7 +7768,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -7658,7 +7802,7 @@ class OcBgp(Entity):
                                 .. attribute:: num_routes
                                 
                                 	NumRoutes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7693,12 +7837,12 @@ class OcBgp(Entity):
                             .. attribute:: routes
                             
                             	routes table
-                            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes>`
+                            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes>`
                             
                             .. attribute:: num_routes
                             
                             	Number of routes in adjacency rib out\-bound post\-policy table
-                            	**type**\:   :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes>`
+                            	**type**\:  :py:class:`NumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes>`
                             
                             
 
@@ -7736,7 +7880,7 @@ class OcBgp(Entity):
                                 .. attribute:: route
                                 
                                 	route entry
-                                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route>`
+                                	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route>`
                                 
                                 
 
@@ -7769,75 +7913,75 @@ class OcBgp(Entity):
                                     .. attribute:: route
                                     
                                     	Network in prefix/length format
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     .. attribute:: neighbor_address
                                     
                                     	Neighbor address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: path_id
                                     
                                     	Path ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: prefix_name
                                     
                                     	Prefix
-                                    	**type**\:   :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName>`
+                                    	**type**\:  :py:class:`PrefixName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName>`
                                     
                                     .. attribute:: route_attr_list
                                     
                                     	RouteAttributesList
-                                    	**type**\:   :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList>`
+                                    	**type**\:  :py:class:`RouteAttrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList>`
                                     
                                     .. attribute:: ext_attributes_list
                                     
                                     	ExtAttributesList
-                                    	**type**\:   :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList>`
+                                    	**type**\:  :py:class:`ExtAttributesList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList>`
                                     
                                     .. attribute:: last_modified_date
                                     
                                     	LastModifiedDate
-                                    	**type**\:   :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate>`
+                                    	**type**\:  :py:class:`LastModifiedDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate>`
                                     
                                     .. attribute:: last_update_recieved
                                     
                                     	LastUpdateRecieved
-                                    	**type**\:   :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved>`
+                                    	**type**\:  :py:class:`LastUpdateRecieved <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved>`
                                     
                                     .. attribute:: valid_route
                                     
                                     	ValidRoute
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	IndentityRef
-                                    	**type**\:   :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
+                                    	**type**\:  :py:class:`BgpOcInvalidRouteReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcInvalidRouteReason>`
                                     
                                     .. attribute:: best_path
                                     
                                     	BestPath
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -7905,12 +8049,12 @@ class OcBgp(Entity):
                                         .. attribute:: prefix
                                         
                                         	Prefix
-                                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix>`
+                                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix>`
                                         
                                         .. attribute:: prefix_length
                                         
                                         	Prefix length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -7950,17 +8094,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -7997,51 +8145,51 @@ class OcBgp(Entity):
                                         .. attribute:: next_hop
                                         
                                         	NextHopAddress
-                                        	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop>`
+                                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop>`
                                         
                                         .. attribute:: aggregrator_attributes
                                         
                                         	AggregatorList
-                                        	**type**\:   :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes>`
+                                        	**type**\:  :py:class:`AggregratorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes>`
                                         
                                         .. attribute:: origin_type
                                         
                                         	Origin Attribute Type
-                                        	**type**\:   :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
+                                        	**type**\:  :py:class:`BgpOcOriginAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcOriginAttr>`
                                         
                                         .. attribute:: as_path
                                         
                                         	AS Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: as4_path
                                         
                                         	AS4 Path
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: med
                                         
                                         	Med
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: local_pref
                                         
                                         	LocalPref
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: atomic_aggr
                                         
                                         	AtomicAggr
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: community
                                         
                                         	CommunityArray
-                                        	**type**\: list of    :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community>`
+                                        	**type**\: list of  		 :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community>`
                                         
                                         
 
@@ -8096,17 +8244,21 @@ class OcBgp(Entity):
                                             .. attribute:: afi
                                             
                                             	AFI
-                                            	**type**\:   :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
+                                            	**type**\:  :py:class:`BgpOcAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.BgpOcAfi>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 Addr
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -8143,21 +8295,23 @@ class OcBgp(Entity):
                                             .. attribute:: as_
                                             
                                             	AS number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as4
                                             
                                             	AS4 number
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: address
                                             
                                             	IPv4 address
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             
 
@@ -8194,7 +8348,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -8227,36 +8381,40 @@ class OcBgp(Entity):
                                         .. attribute:: originator_id
                                         
                                         	OriginatorID
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: aigp
                                         
                                         	AIGP
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: path_id
                                         
                                         	PathId
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: cluster
                                         
                                         	ClusterList
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: ext_community
                                         
                                         	ExtendedCommunityArray
-                                        	**type**\: list of    :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity>`
+                                        	**type**\: list of  		 :py:class:`ExtCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity>`
                                         
                                         .. attribute:: unknown_attributes
                                         
                                         	UnknownAttributes
-                                        	**type**\: list of    :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes>`
+                                        	**type**\: list of  		 :py:class:`UnknownAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper.OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes>`
                                         
                                         
 
@@ -8298,7 +8456,7 @@ class OcBgp(Entity):
                                             .. attribute:: objects
                                             
                                             	BGP OC objects
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             
 
@@ -8331,21 +8489,23 @@ class OcBgp(Entity):
                                             .. attribute:: attribute_type
                                             
                                             	AttributeType
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_length
                                             
                                             	AttributeLength
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: attribute_value
                                             
                                             	Atributevalue
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                             
                                             
 
@@ -8382,7 +8542,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -8415,7 +8575,7 @@ class OcBgp(Entity):
                                         .. attribute:: time_value
                                         
                                         	TimeValue
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -8449,7 +8609,7 @@ class OcBgp(Entity):
                                 .. attribute:: num_routes
                                 
                                 	NumRoutes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 

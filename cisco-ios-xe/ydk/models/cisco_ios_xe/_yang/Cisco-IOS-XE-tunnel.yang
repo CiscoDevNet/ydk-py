@@ -45,6 +45,14 @@ module Cisco-IOS-XE-tunnel {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-28 {
+    description
+      "Extend modeling for multicast";
+  }
+  revision 2017-07-11 {
+    description 
+      "add tailf dependency extension to order tunnel mode before tunnel key";
+  }
   revision 2017-04-28 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -181,10 +189,29 @@ module Cisco-IOS-XE-tunnel {
       }
 
       // interface * / tunnel destination
-      leaf destination {
+      container destination {
         description
           "destination of tunnel";
-        type inet:host;
+        leaf ipaddress-or-host {
+          type inet:host;
+        }
+        container list {
+          description
+            "List of Tunnel destinations";
+          container mpls {
+            description
+              "MPLS destination list";
+              container traffic-eng {
+                description
+                  "MPLS Traffic Engineering destination list";
+                leaf name {
+                  description
+                    "Specify a destination list by name";
+                  type string;
+                }
+              }
+           }
+         }
       }
 
       // interface * / tunnel dst-port
@@ -290,6 +317,11 @@ module Cisco-IOS-XE-tunnel {
               leaf multilsp {
                 description
                   "Multiple LSP mode";
+                type empty;
+              }
+              leaf point-to-multipoint {
+                description
+                  "point-to-multipoint tunnel mode";
                 type empty;
               }
             }

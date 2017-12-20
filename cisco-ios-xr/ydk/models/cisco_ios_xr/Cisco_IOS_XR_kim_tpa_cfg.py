@@ -25,17 +25,17 @@ class Tpa(Entity):
     .. attribute:: vrf_names
     
     	VRF container
-    	**type**\:   :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames>`
+    	**type**\:  :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames>`
     
     .. attribute:: logging
     
     	Third party app logging
-    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.Logging>`
+    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.Logging>`
     
     .. attribute:: statistics
     
     	Statistics
-    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.Statistics>`
     
     
 
@@ -79,7 +79,7 @@ class Tpa(Entity):
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\: list of    :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName>`
+        	**type**\: list of  		 :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName>`
         
         
 
@@ -113,19 +113,19 @@ class Tpa(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: east_west_names
             
             	EastWest container
-            	**type**\:   :py:class:`EastWestNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.EastWestNames>`
+            	**type**\:  :py:class:`EastWestNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.EastWestNames>`
             
             .. attribute:: address_family
             
             	Address family
-            	**type**\:   :py:class:`AddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily>`
+            	**type**\:  :py:class:`AddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily>`
             
             
 
@@ -169,7 +169,7 @@ class Tpa(Entity):
                 .. attribute:: east_west_name
                 
                 	East West interface
-                	**type**\: list of    :py:class:`EastWestName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.EastWestNames.EastWestName>`
+                	**type**\: list of  		 :py:class:`EastWestName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.EastWestNames.EastWestName>`
                 
                 
 
@@ -202,17 +202,19 @@ class Tpa(Entity):
                     .. attribute:: east_west_name  <key>
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: vrf
                     
                     	VRF name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -249,12 +251,12 @@ class Tpa(Entity):
                 .. attribute:: ipv6
                 
                 	IPv6 configuration
-                	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6>`
+                	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6>`
                 
                 .. attribute:: ipv4
                 
                 	IPv4 configuration
-                	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4>`
+                	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4>`
                 
                 
 
@@ -292,17 +294,19 @@ class Tpa(Entity):
                     .. attribute:: default_route
                     
                     	Default interface used for routing
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: lpts_allow_entries
                     
                     	TPA Cli to configure LPTS entries
-                    	**type**\:   :py:class:`LptsAllowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries>`
+                    	**type**\:  :py:class:`LptsAllowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries>`
                     
                     .. attribute:: update_source
                     
                     	Interface name for source address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     
 
@@ -342,7 +346,7 @@ class Tpa(Entity):
                         .. attribute:: lpts_allow_entry
                         
                         	TPA Cli to configure LPTS entry
-                        	**type**\: list of    :py:class:`LptsAllowEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries.LptsAllowEntry>`
+                        	**type**\: list of  		 :py:class:`LptsAllowEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.LptsAllowEntries.LptsAllowEntry>`
                         
                         
 
@@ -375,72 +379,80 @@ class Tpa(Entity):
                             .. attribute:: interface_name  <key>
                             
                             	Interface name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: remote_addr  <key>
                             
                             	remote address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: local_addr  <key>
                             
                             	local address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: remote_port  <key>
                             
                             	remote port
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: local_port  <key>
                             
                             	local port
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: protocol  <key>
                             
                             	L4 protocol
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: interface_name_xr
                             
                             	Interface name for allow command
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: remote_addr_xr
                             
                             	IPv4/6 remote\-address prefix to match
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: local_addr_xr
                             
                             	IPv4/6 local\-address prefix to match
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: remote_port_xr
                             
                             	remote port value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: local_port_xr
                             
                             	local port value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: protocol_xr
                             
                             	L4 protocol value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -497,17 +509,19 @@ class Tpa(Entity):
                     .. attribute:: default_route
                     
                     	Default interface used for routing
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: lpts_allow_entries
                     
                     	TPA Cli to configure LPTS entries
-                    	**type**\:   :py:class:`LptsAllowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries>`
+                    	**type**\:  :py:class:`LptsAllowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries>`
                     
                     .. attribute:: update_source
                     
                     	Interface name for source address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     
 
@@ -547,7 +561,7 @@ class Tpa(Entity):
                         .. attribute:: lpts_allow_entry
                         
                         	TPA Cli to configure LPTS entry
-                        	**type**\: list of    :py:class:`LptsAllowEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries.LptsAllowEntry>`
+                        	**type**\: list of  		 :py:class:`LptsAllowEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.LptsAllowEntries.LptsAllowEntry>`
                         
                         
 
@@ -580,72 +594,80 @@ class Tpa(Entity):
                             .. attribute:: interface_name  <key>
                             
                             	Interface name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: remote_addr  <key>
                             
                             	remote address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: local_addr  <key>
                             
                             	local address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: remote_port  <key>
                             
                             	remote port
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: local_port  <key>
                             
                             	local port
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: protocol  <key>
                             
                             	L4 protocol
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: interface_name_xr
                             
                             	Interface name for allow command
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: remote_addr_xr
                             
                             	IPv4/6 remote\-address prefix to match
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: local_addr_xr
                             
                             	IPv4/6 local\-address prefix to match
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: remote_port_xr
                             
                             	remote port value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: local_port_xr
                             
                             	local port value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: protocol_xr
                             
                             	L4 protocol value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -702,7 +724,7 @@ class Tpa(Entity):
         .. attribute:: kim
         
         	KIM logging
-        	**type**\:   :py:class:`Kim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.Logging.Kim>`
+        	**type**\:  :py:class:`Kim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.Logging.Kim>`
         
         
 
@@ -736,14 +758,14 @@ class Tpa(Entity):
             .. attribute:: rotation_max
             
             	How many log rotation files to keep
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: file_size_max_kb
             
             	Size in Kilobytes of the log file
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -783,21 +805,21 @@ class Tpa(Entity):
         .. attribute:: max_intf_events
         
         	How many interface events to record
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: max_lpts_events
         
         	How many LPTS events to record
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: statistics_update_frequency
         
         	Statistics update frequency into Linux
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         

@@ -31,7 +31,7 @@ class NvSatelliteGlobal(Entity):
     .. attribute:: chassis_mac
     
     	Chassis MAC address
-    	**type**\:   :py:class:`ChassisMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatelliteGlobal.ChassisMac>`
+    	**type**\:  :py:class:`ChassisMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatelliteGlobal.ChassisMac>`
     
     
 
@@ -65,7 +65,7 @@ class NvSatelliteGlobal(Entity):
         .. attribute:: mac1
         
         	First two bytes of MAC address
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -74,7 +74,7 @@ class NvSatelliteGlobal(Entity):
         .. attribute:: mac2
         
         	Second two bytes of MAC address
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -83,7 +83,7 @@ class NvSatelliteGlobal(Entity):
         .. attribute:: mac3
         
         	Third two bytes of MAC address
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -128,7 +128,7 @@ class NvSatellites(Entity):
     .. attribute:: nv_satellite
     
     	Satellite Configuration
-    	**type**\: list of    :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite>`
+    	**type**\: list of  		 :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite>`
     
     
 
@@ -162,73 +162,73 @@ class NvSatellites(Entity):
         .. attribute:: satellite_id  <key>
         
         	Satellite ID
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 100..65534
         
         .. attribute:: upgrade_on_connect
         
         	Satellite auto\-upgrade capability
-        	**type**\:   :py:class:`UpgradeOnConnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.UpgradeOnConnect>`
+        	**type**\:  :py:class:`UpgradeOnConnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.UpgradeOnConnect>`
         
         .. attribute:: candidate_fabric_ports
         
         	Enable interfaces on the satellite to be used as fabric ports table
-        	**type**\:   :py:class:`CandidateFabricPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts>`
+        	**type**\:  :py:class:`CandidateFabricPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts>`
         
         .. attribute:: connection_info
         
         	Satellite User
-        	**type**\:   :py:class:`ConnectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.ConnectionInfo>`
+        	**type**\:  :py:class:`ConnectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.ConnectionInfo>`
         
         .. attribute:: redundancy
         
         	Redundancy submode
-        	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.Redundancy>`
+        	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.Redundancy>`
         
         .. attribute:: vrf
         
         	VRF for Satellite IP Address
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: timeout_warning
         
         	Discovery timeout warning for the satellite
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: device_name
         
         	Satellite Name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: description
         
         	Satellite Description
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: type
         
         	Satellite Type
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: enable
         
         	Enable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: disc_timeout
         
         	Discovery timeout for the satellite
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: delayed_switchback
         
         	Timer (in seconds) for delaying switchback in a dual home setup
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -237,26 +237,28 @@ class NvSatellites(Entity):
         .. attribute:: serial_number
         
         	Satellite Serial Number
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: secret
         
         	Encrypted password for the Satellite
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (!.+)\|([^!].+)
         
         .. attribute:: ip_address
         
         	Satellite IP Address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
-        ----
         
 
         """
@@ -331,12 +333,12 @@ class NvSatellites(Entity):
             .. attribute:: connect_type
             
             	When to upgrade the satellite
-            	**type**\:   :py:class:`ConnectType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.UpgradeOnConnect.ConnectType>`
+            	**type**\:  :py:class:`ConnectType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.UpgradeOnConnect.ConnectType>`
             
             .. attribute:: reference
             
             	Reference name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -395,7 +397,7 @@ class NvSatellites(Entity):
             .. attribute:: candidate_fabric_port
             
             	Enable interfaces on the satellite to be used as fabric ports
-            	**type**\: list of    :py:class:`CandidateFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort>`
+            	**type**\: list of  		 :py:class:`CandidateFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort>`
             
             
 
@@ -429,26 +431,28 @@ class NvSatellites(Entity):
                 .. attribute:: port_type  <key>
                 
                 	Port type
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: slot  <key>
                 
                 	Slot
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..8
                 
                 .. attribute:: sub_slot  <key>
                 
                 	Sub slot
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..8
                 
                 .. attribute:: port_range
                 
                 	Port range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -489,12 +493,14 @@ class NvSatellites(Entity):
             .. attribute:: username
             
             	Satellite Username
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: password
             
             	Encrypted password for the user
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             
 
@@ -529,7 +535,7 @@ class NvSatellites(Entity):
             .. attribute:: host_priority
             
             	Priority for this host for the given satellite
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             

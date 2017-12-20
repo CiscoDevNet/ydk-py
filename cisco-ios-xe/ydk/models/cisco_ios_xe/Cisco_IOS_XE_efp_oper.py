@@ -20,7 +20,7 @@ class EfpStats(Entity):
     .. attribute:: efp_stat
     
     	List of service instance stats
-    	**type**\: list of    :py:class:`EfpStat <ydk.models.cisco_ios_xe.Cisco_IOS_XE_efp_oper.EfpStats.EfpStat>`
+    	**type**\: list of  		 :py:class:`EfpStat <ydk.models.cisco_ios_xe.Cisco_IOS_XE_efp_oper.EfpStats.EfpStat>`
     
     
 
@@ -54,40 +54,40 @@ class EfpStats(Entity):
         .. attribute:: id  <key>
         
         	EFP id
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: interface  <key>
         
         	Interface name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: in_pkts
         
         	Incoming packets
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: in_bytes
         
         	Incoming bytes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: out_pkts
         
         	Outgoing packets
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: out_bytes
         
         	Outgoing bytes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         

@@ -25,7 +25,7 @@ class Cfgmgr(Entity):
     .. attribute:: mode_exclusive
     
     	Enabled or Disabled
-    	**type**\:  bool
+    	**type**\: bool
     
     	**default value**\: true
     

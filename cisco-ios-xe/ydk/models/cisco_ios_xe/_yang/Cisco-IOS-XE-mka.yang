@@ -23,12 +23,20 @@ module Cisco-IOS-XE-mka {
 
   description
     "Cisco XE  Macsec Key Agreement protocol (MKA) Yang Model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-07-26 {
+    description
+      "add confidentiality-offset for mka grouping";
+  }  
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -55,6 +63,15 @@ module Cisco-IOS-XE-mka {
             type empty;
           }
         }
+        leaf confidentiality-offset {
+          description
+            "Set the confidentiality offset for MACsec operation";
+          type enumeration {
+            enum "0";
+            enum "30";
+            enum "50";
+          }
+        }
       }
   }
 
@@ -62,6 +79,15 @@ module Cisco-IOS-XE-mka {
     container mka {
       description
         "MACsec Key Agreement (MKA) interface configuration";
+      container policy {
+        description
+          "Apply MKA Policy";
+        leaf name {
+          description
+            "MKA Policy NAME";
+          type string;
+        }
+      }
       container pre-shared-key {
         description
           "Configure MKA Pre-Shared-Key";
@@ -97,6 +123,14 @@ module Cisco-IOS-XE-mka {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-mka-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-mka-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     uses config-interface-mka-grouping;
   }
 }

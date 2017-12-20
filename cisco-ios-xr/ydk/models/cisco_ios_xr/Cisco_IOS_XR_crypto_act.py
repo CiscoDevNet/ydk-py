@@ -21,7 +21,7 @@ class KeyGenerateRsaGeneralKeys(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaGeneralKeys.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaGeneralKeys.Input>`
     
     
 
@@ -55,12 +55,12 @@ class KeyGenerateRsaGeneralKeys(Entity):
         .. attribute:: key_label
         
         	RSA keypair label
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: key_modulus
         
         	Key modulus in the range of 512 to 4096 for your General Purpose Keypair. Choosing a key modulus greater than 512 may take a few minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 512..4096
         
@@ -103,7 +103,7 @@ class KeyGenerateRsaUsageKeys(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaUsageKeys.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaUsageKeys.Input>`
     
     
 
@@ -137,12 +137,12 @@ class KeyGenerateRsaUsageKeys(Entity):
         .. attribute:: key_label
         
         	RSA keypair label
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: key_modulus
         
         	Key modulus in the range of 512 to 4096 for your General Purpose Keypair. Choosing a key modulus greater than 512 may take a few minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 512..4096
         
@@ -185,7 +185,7 @@ class KeyGenerateRsa(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsa.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsa.Input>`
     
     
 
@@ -219,12 +219,12 @@ class KeyGenerateRsa(Entity):
         .. attribute:: key_label
         
         	RSA keypair label
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: key_modulus
         
         	Key modulus in the range of 512 to 4096 for your General Purpose Keypair. Choosing a key modulus greater than 512 may take a few minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 512..4096
         
@@ -267,7 +267,7 @@ class KeyGenerateDsa(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateDsa.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateDsa.Input>`
     
     
 
@@ -301,7 +301,7 @@ class KeyGenerateDsa(Entity):
         .. attribute:: key_modulus
         
         	Key modulus size can be 512, 768, or 1024 bits
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 512..None \| 768..None \| 1024..None
         
@@ -342,7 +342,7 @@ class KeyZeroizeRsa(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyZeroizeRsa.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyZeroizeRsa.Input>`
     
     
 
@@ -376,7 +376,7 @@ class KeyZeroizeRsa(Entity):
         .. attribute:: key_label
         
         	RSA key label
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -467,7 +467,7 @@ class KeyImportAuthenticationRsa(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyImportAuthenticationRsa.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyImportAuthenticationRsa.Input>`
     
     
 
@@ -501,7 +501,7 @@ class KeyImportAuthenticationRsa(Entity):
         .. attribute:: path
         
         	Path to RSA pubkey file
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -540,7 +540,7 @@ class CaAuthenticate(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaAuthenticate.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaAuthenticate.Input>`
     
     
 
@@ -574,7 +574,7 @@ class CaAuthenticate(Entity):
         .. attribute:: server_name
         
         	CA Server Name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -613,7 +613,7 @@ class CaEnroll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaEnroll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaEnroll.Input>`
     
     
 
@@ -647,7 +647,7 @@ class CaEnroll(Entity):
         .. attribute:: server_name
         
         	CA Server Name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -686,7 +686,7 @@ class CaImportCertificate(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaImportCertificate.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaImportCertificate.Input>`
     
     
 
@@ -720,7 +720,7 @@ class CaImportCertificate(Entity):
         .. attribute:: server_name
         
         	CA Server Name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -759,7 +759,7 @@ class CaCancelEnroll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCancelEnroll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCancelEnroll.Input>`
     
     
 
@@ -793,7 +793,7 @@ class CaCancelEnroll(Entity):
         .. attribute:: server_name
         
         	CA Server Name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -832,12 +832,12 @@ class CaCrlRequest(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCrlRequest.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCrlRequest.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCrlRequest.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCrlRequest.Output>`
     
     
 
@@ -876,7 +876,7 @@ class CaCrlRequest(Entity):
         .. attribute:: uri
         
         	CRL Distribution Point in URI format
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -912,7 +912,7 @@ class CaCrlRequest(Entity):
         .. attribute:: certificate
         
         	Certificate returned
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -951,7 +951,7 @@ class CaTrustpoolImportUrl(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaTrustpoolImportUrl.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaTrustpoolImportUrl.Input>`
     
     
 
@@ -985,7 +985,7 @@ class CaTrustpoolImportUrl(Entity):
         .. attribute:: url
         
         	in URL format
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1022,7 +1022,7 @@ class CaTrustpoolImportUrlClean(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaTrustpoolImportUrlClean.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaTrustpoolImportUrlClean.Input>`
     
     
 
@@ -1056,7 +1056,7 @@ class CaTrustpoolImportUrlClean(Entity):
         .. attribute:: url
         
         	in URL format
-        	**type**\:  str
+        	**type**\: str
         
         
 

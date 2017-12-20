@@ -41,17 +41,17 @@ class RedundancyGroupManager(Entity):
     .. attribute:: aps
     
     	MR\-APS groups
-    	**type**\:   :py:class:`Aps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps>`
+    	**type**\:  :py:class:`Aps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps>`
     
     .. attribute:: iccp
     
     	ICCP configuration
-    	**type**\:   :py:class:`Iccp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp>`
+    	**type**\:  :py:class:`Iccp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp>`
     
     .. attribute:: enable
     
     	Enable redundancy group manager
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -95,12 +95,12 @@ class RedundancyGroupManager(Entity):
         .. attribute:: default_redundancy_group
         
         	Default SONET controller backup configuration
-        	**type**\:   :py:class:`DefaultRedundancyGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.DefaultRedundancyGroup>`
+        	**type**\:  :py:class:`DefaultRedundancyGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.DefaultRedundancyGroup>`
         
         .. attribute:: groups
         
         	Redundancy Group Table
-        	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups>`
+        	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups>`
         
         
 
@@ -139,12 +139,16 @@ class RedundancyGroupManager(Entity):
             .. attribute:: next_hop_address
             
             	IPv4 address of remote peer
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: backup_interface_name
             
             	Backup interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 
@@ -180,7 +184,7 @@ class RedundancyGroupManager(Entity):
             .. attribute:: group
             
             	Redundancy Group Configuration
-            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group>`
+            	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group>`
             
             
 
@@ -214,14 +218,14 @@ class RedundancyGroupManager(Entity):
                 .. attribute:: group_id  <key>
                 
                 	The redundancy group ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..32
                 
                 .. attribute:: controllers
                 
                 	Controller configuration
-                	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group.Controllers>`
+                	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group.Controllers>`
                 
                 
 
@@ -260,7 +264,7 @@ class RedundancyGroupManager(Entity):
                     .. attribute:: controller
                     
                     	none
-                    	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller>`
+                    	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller>`
                     
                     
 
@@ -293,17 +297,23 @@ class RedundancyGroupManager(Entity):
                         .. attribute:: controller_name  <key>
                         
                         	Controller Name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: next_hop_address
                         
                         	IPv4 address of remote peer
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: backup_interface_name
                         
                         	Backup interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         
 
@@ -340,7 +350,7 @@ class RedundancyGroupManager(Entity):
         .. attribute:: iccp_groups
         
         	Redundancy Group Table Configuration
-        	**type**\:   :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups>`
+        	**type**\:  :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups>`
         
         
 
@@ -374,7 +384,7 @@ class RedundancyGroupManager(Entity):
             .. attribute:: iccp_group
             
             	Redundancy Group Configuration
-            	**type**\: list of    :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup>`
+            	**type**\: list of  		 :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup>`
             
             
 
@@ -408,24 +418,24 @@ class RedundancyGroupManager(Entity):
                 .. attribute:: group_number  <key>
                 
                 	The redundancy icc group number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..4294967295
                 
                 .. attribute:: backbones
                 
                 	ICCP backbone configuration
-                	**type**\:   :py:class:`Backbones <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones>`
+                	**type**\:  :py:class:`Backbones <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones>`
                 
                 .. attribute:: members
                 
                 	ICCP member configuration
-                	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
+                	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
                 
                 .. attribute:: isolation_recovery_delay
                 
                 	ICCP isolation recovery delay
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 30..600
                 
@@ -434,17 +444,17 @@ class RedundancyGroupManager(Entity):
                 .. attribute:: mode
                 
                 	ICCP mode
-                	**type**\:   :py:class:`IccpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.IccpMode>`
+                	**type**\:  :py:class:`IccpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.IccpMode>`
                 
                 .. attribute:: mlacp
                 
                 	Multi\-chassis Link Aggregation Control Protocol commands
-                	**type**\:   :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp>`
+                	**type**\:  :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp>`
                 
                 .. attribute:: nv_satellite
                 
                 	nV Satellite configuration
-                	**type**\:   :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite>`
+                	**type**\:  :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite>`
                 
                 
 
@@ -460,7 +470,7 @@ class RedundancyGroupManager(Entity):
                     self.yang_parent_name = "iccp-groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"backbones" : ("backbones", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones), "members" : ("members", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members), "mlacp" : ("mlacp", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp), "nv-satellite" : ("nv_satellite", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite)}
+                    self._child_container_classes = {"backbones" : ("backbones", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones), "members" : ("members", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members), "Cisco-IOS-XR-bundlemgr-cfg:mlacp" : ("mlacp", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp), "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite" : ("nv_satellite", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite)}
                     self._child_list_classes = {}
 
                     self.group_number = YLeaf(YType.uint32, "group-number")
@@ -502,7 +512,7 @@ class RedundancyGroupManager(Entity):
                     .. attribute:: backbone
                     
                     	ICCP backbone interface configuration
-                    	**type**\: list of    :py:class:`Backbone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone>`
+                    	**type**\: list of  		 :py:class:`Backbone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone>`
                     
                     
 
@@ -535,7 +545,9 @@ class RedundancyGroupManager(Entity):
                         .. attribute:: backbone_name  <key>
                         
                         	none
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         
 
@@ -568,7 +580,7 @@ class RedundancyGroupManager(Entity):
                     .. attribute:: member
                     
                     	ICCP member configuration
-                    	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member>`
+                    	**type**\: list of  		 :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member>`
                     
                     
 
@@ -601,7 +613,9 @@ class RedundancyGroupManager(Entity):
                         .. attribute:: neighbor_address  <key>
                         
                         	Neighbor IP address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -635,26 +649,28 @@ class RedundancyGroupManager(Entity):
                     .. attribute:: connect_timeout
                     
                     	Number of seconds to wait before assuming mLACP peer is down
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65534
                     
                     .. attribute:: system_mac
                     
                     	Unique LACP identifier for this system
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: node
                     
                     	Unique identifier for this system in the ICCP Group
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: system_priority
                     
                     	Priority for this system. Lower value is higher priority
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -695,7 +711,9 @@ class RedundancyGroupManager(Entity):
                     .. attribute:: system_mac
                     
                     	Optional identifier for this system
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     
 

@@ -25,7 +25,7 @@ class PlatformPtp(Entity):
     .. attribute:: platform_ptp_servo
     
     	PTP PD Servo information
-    	**type**\:   :py:class:`PlatformPtpServo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo>`
+    	**type**\:  :py:class:`PlatformPtpServo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo>`
     
     
 
@@ -59,167 +59,167 @@ class PlatformPtp(Entity):
         .. attribute:: last_set_time
         
         	last input of setTime
-        	**type**\:   :py:class:`LastSetTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastSetTime>`
+        	**type**\:  :py:class:`LastSetTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastSetTime>`
         
         .. attribute:: last_received_t1
         
         	last T1 timestamp reveiced
-        	**type**\:   :py:class:`LastReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT1>`
+        	**type**\:  :py:class:`LastReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT1>`
         
         .. attribute:: last_received_t2
         
         	last T2 timestamp reveiced
-        	**type**\:   :py:class:`LastReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT2>`
+        	**type**\:  :py:class:`LastReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT2>`
         
         .. attribute:: last_received_t3
         
         	last T3 timestamp reveiced
-        	**type**\:   :py:class:`LastReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT3>`
+        	**type**\:  :py:class:`LastReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT3>`
         
         .. attribute:: last_received_t4
         
         	last T4 timestamp reveiced
-        	**type**\:   :py:class:`LastReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT4>`
+        	**type**\:  :py:class:`LastReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.LastReceivedT4>`
         
         .. attribute:: pre_received_t1
         
         	pre T1 timestamp reveiced
-        	**type**\:   :py:class:`PreReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT1>`
+        	**type**\:  :py:class:`PreReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT1>`
         
         .. attribute:: pre_received_t2
         
         	pre T2 timestamp reveiced
-        	**type**\:   :py:class:`PreReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT2>`
+        	**type**\:  :py:class:`PreReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT2>`
         
         .. attribute:: pre_received_t3
         
         	pre T3 timestamp reveiced
-        	**type**\:   :py:class:`PreReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT3>`
+        	**type**\:  :py:class:`PreReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT3>`
         
         .. attribute:: pre_received_t4
         
         	pre T4 timestamp reveiced
-        	**type**\:   :py:class:`PreReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT4>`
+        	**type**\:  :py:class:`PreReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper.PlatformPtp.PlatformPtpServo.PreReceivedT4>`
         
         .. attribute:: lock_status
         
         	lock status of device
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: running
         
         	running status of apr
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: device_status
         
         	status of device
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 0..50
         
         .. attribute:: log_level
         
         	log level of apr
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: phase_accuracy_last
         
         	 last phase alignment accuracy
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-9223372036854775808..9223372036854775807
         
         .. attribute:: num_sync_timestamp
         
         	number of sync timestamp reveiced
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: num_delay_timestamp
         
         	number of delay timestamp reveiced
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: num_set_time
         
         	number of setTime() been called
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: num_step_time
         
         	number of stepTime() been called
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: num_adjust_freq
         
         	number of adjustFreq() been called
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: num_adjust_freq_time
         
         	number of adjustFreqTime() been called
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: last_adjust_freq
         
         	last input of adjustFreq
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: last_step_time
         
         	last input of stepTime
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: num_discard_sync_timestamp
         
         	number of sync timestamp discarded
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: num_discard_delay_timestamp
         
         	number of delay timestamp discarded
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: flagof_last_set_time
         
         	last input flag of setTime
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: offset_from_master
         
         	Time Offset From Master
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-9223372036854775808..9223372036854775807
         
         .. attribute:: mean_path_delay
         
         	Mean Path Delay
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-9223372036854775808..9223372036854775807
         
@@ -334,14 +334,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -379,14 +379,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -424,14 +424,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -469,14 +469,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -514,14 +514,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -559,14 +559,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -604,14 +604,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -649,14 +649,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -694,14 +694,14 @@ class PlatformPtp(Entity):
             .. attribute:: second
             
             	value of second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: nano_second
             
             	value of nano second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

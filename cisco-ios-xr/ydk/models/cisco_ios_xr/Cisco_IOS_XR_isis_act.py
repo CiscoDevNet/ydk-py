@@ -21,7 +21,7 @@ class ClearIsisProcess(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisProcess.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisProcess.Input>`
     
     
 
@@ -55,12 +55,12 @@ class ClearIsisProcess(Entity):
         .. attribute:: instance
         
         	Clear data from single IS\-IS instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisProcess.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisProcess.Input.Instance>`
         
         .. attribute:: process
         
         	Clear all IS\-IS data structures
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -99,7 +99,7 @@ class ClearIsisProcess(Entity):
             .. attribute:: instance_identifier
             
             	IS\-IS process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -136,7 +136,7 @@ class ClearIsisRoute(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisRoute.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisRoute.Input>`
     
     
 
@@ -170,12 +170,12 @@ class ClearIsisRoute(Entity):
         .. attribute:: instance
         
         	Clear data from single IS\-IS instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisRoute.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisRoute.Input.Instance>`
         
         .. attribute:: route
         
         	Clear IS\-IS routes
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -214,7 +214,7 @@ class ClearIsisRoute(Entity):
             .. attribute:: instance_identifier
             
             	IS\-IS process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -251,7 +251,7 @@ class ClearIsisStat(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisStat.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisStat.Input>`
     
     
 
@@ -285,12 +285,12 @@ class ClearIsisStat(Entity):
         .. attribute:: instance
         
         	Clear data from single IS\-IS instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisStat.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisStat.Input.Instance>`
         
         .. attribute:: statistics
         
         	Clear IS\-IS protocol statistics
-        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisStat.Input.Statistics>`
+        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisStat.Input.Statistics>`
         
         
 
@@ -329,7 +329,7 @@ class ClearIsisStat(Entity):
             .. attribute:: instance_identifier
             
             	IS\-IS process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -363,7 +363,9 @@ class ClearIsisStat(Entity):
             .. attribute:: interface_name
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             	**mandatory**\: True
             
@@ -402,7 +404,7 @@ class ClearIsisDist(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisDist.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisDist.Input>`
     
     
 
@@ -436,12 +438,12 @@ class ClearIsisDist(Entity):
         .. attribute:: instance
         
         	Reset BGP\-LS topology from single IS\-IS instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisDist.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisDist.Input.Instance>`
         
         .. attribute:: distribution
         
         	Reset BGP\-LS topology distribution
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -480,7 +482,7 @@ class ClearIsisDist(Entity):
             .. attribute:: instance_identifier
             
             	IS\-IS process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -517,7 +519,7 @@ class ClearIsisLocalLsp(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisLocalLsp.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisLocalLsp.Input>`
     
     
 
@@ -551,12 +553,12 @@ class ClearIsisLocalLsp(Entity):
         .. attribute:: instance
         
         	Clean and regenerate local LSPs from single IS\-IS instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisLocalLsp.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsisLocalLsp.Input.Instance>`
         
         .. attribute:: local_lsp
         
         	Clean and regenerate local LSPs
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -595,7 +597,7 @@ class ClearIsisLocalLsp(Entity):
             .. attribute:: instance_identifier
             
             	IS\-IS process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -632,7 +634,7 @@ class ClearIsis(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsis.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsis.Input>`
     
     
 
@@ -666,22 +668,22 @@ class ClearIsis(Entity):
         .. attribute:: instance
         
         	Clear data from single IS\-IS instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsis.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsis.Input.Instance>`
         
         .. attribute:: rt_type
         
         	Clear data for these route types
-        	**type**\:   :py:class:`RtType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsis.Input.RtType>`
+        	**type**\:  :py:class:`RtType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act.ClearIsis.Input.RtType>`
         
         .. attribute:: route
         
         	Clear IS\-IS routes
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: topology
         
         	Topology table information
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -769,7 +771,7 @@ class ClearIsis(Entity):
             .. attribute:: instance_identifier
             
             	IS\-IS process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 

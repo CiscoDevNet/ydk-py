@@ -18,27 +18,27 @@ class DIALCONTROLMIB(Entity):
     .. attribute:: dialctlconfiguration
     
     	
-    	**type**\:   :py:class:`Dialctlconfiguration <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration>`
+    	**type**\:  :py:class:`Dialctlconfiguration <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration>`
     
     .. attribute:: callhistory
     
     	
-    	**type**\:   :py:class:`Callhistory <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistory>`
+    	**type**\:  :py:class:`Callhistory <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistory>`
     
     .. attribute:: dialctlpeercfgtable
     
     	The list of peers from which the managed device will accept calls or to which it will place them
-    	**type**\:   :py:class:`Dialctlpeercfgtable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable>`
+    	**type**\:  :py:class:`Dialctlpeercfgtable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable>`
     
     .. attribute:: callactivetable
     
     	A table containing information about active calls to a specific destination
-    	**type**\:   :py:class:`Callactivetable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable>`
+    	**type**\:  :py:class:`Callactivetable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable>`
     
     .. attribute:: callhistorytable
     
     	A table containing information about specific calls to a specific destination
-    	**type**\:   :py:class:`Callhistorytable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable>`
+    	**type**\:  :py:class:`Callhistorytable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable>`
     
     
 
@@ -92,12 +92,12 @@ class DIALCONTROLMIB(Entity):
         .. attribute:: dialctlacceptmode
         
         	The security level for acceptance of incoming calls. acceptNone(1)  \- incoming calls will not be accepted acceptAll(2)   \- incoming calls will be accepted,                  even if there is no matching entry                  in the dialCtlPeerCfgTable acceptKnown(3) \- incoming calls will be accepted only                  if there is a matching entry in the                  dialCtlPeerCfgTable
-        	**type**\:   :py:class:`Dialctlacceptmode <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration.Dialctlacceptmode>`
+        	**type**\:  :py:class:`Dialctlacceptmode <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration.Dialctlacceptmode>`
         
         .. attribute:: dialctltrapenable
         
         	This object indicates whether dialCtlPeerCallInformation and dialCtlPeerCallSetup traps should be generated for all peers. If the value of this object is enabled(1), traps will be generated for all peers. If the value of this object is disabled(2), traps will be generated only for peers having dialCtlPeerCfgTrapEnable set to enabled(1)
-        	**type**\:   :py:class:`Dialctltrapenable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration.Dialctltrapenable>`
+        	**type**\:  :py:class:`Dialctltrapenable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration.Dialctltrapenable>`
         
         
 
@@ -197,14 +197,14 @@ class DIALCONTROLMIB(Entity):
         .. attribute:: callhistorytablemaxlength
         
         	The upper limit on the number of entries that the callHistoryTable may contain.  A value of 0 will prevent any history from being retained. When this table is full, the oldest entry will be deleted and the new one will be created
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: callhistoryretaintimer
         
         	The minimum amount of time that an callHistoryEntry will be maintained before being deleted. A value of 0 will prevent any history from being retained in the callHistoryTable, but will neither prevent callCompletion traps being generated nor affect other tables
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -245,7 +245,7 @@ class DIALCONTROLMIB(Entity):
         .. attribute:: dialctlpeercfgentry
         
         	Configuration data for a single Peer. This entry is effectively permanent, and contains information to identify the peer, how to connect to the peer, how to identify the peer and its permissions. The value of dialCtlPeerCfgOriginateAddress must be specified before a new row in this table can become active(1). Any writeable parameters in an existing entry can be modified while the entry is active. The modification will take effect when the peer in question will be called the next time. An entry in this table can only be created if the associated ifEntry already exists
-        	**type**\: list of    :py:class:`Dialctlpeercfgentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry>`
+        	**type**\: list of  		 :py:class:`Dialctlpeercfgentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry>`
         
         
 
@@ -290,14 +290,14 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeercfgid  <key>
             
             	This object identifies a single peer. There may be several entries in this table for one peer, defining different ways of reaching this peer. Thus, there may be several entries in this table with the same value of dialCtlPeerCfgId. Multiple entries for one peer may be used to support multilink as well as backup lines. A single peer will be identified by a unique value of this object. Several entries for one peer MUST have the same value of dialCtlPeerCfgId, but different ifEntries and thus different values of ifIndex
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -306,56 +306,56 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeercfgiftype
             
             	The interface type to be used for calling this peer. In case of ISDN, the value of isdn(63) is to be used
-            	**type**\:   :py:class:`IANAifType <ydk.models.cisco_ios_xe.IANAifType_MIB.IANAifType>`
+            	**type**\:  :py:class:`IANAifType <ydk.models.cisco_ios_xe.IANAifType_MIB.IANAifType>`
             
             .. attribute:: dialctlpeercfglowerif
             
             	ifIndex value of an interface the peer will have to be called on. For example, on an ISDN interface, this can be the ifIndex value of a D channel or the ifIndex value of a B channel, whatever is appropriate for a given peer. As an example, for Basic Rate leased lines it will be necessary to specify a B channel ifIndex, while for     semi\-permanent connections the D channel ifIndex has to be specified. If the interface can be dynamically assigned, this object has a value of zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: dialctlpeercfgoriginateaddress
             
             	Call Address at which the peer will be called. Think of this as the set of characters following 'ATDT ' or the 'phone number' included in a D channel call request.  The structure of this information will be switch type specific. If there is no address information required for reaching the peer, i.e., for leased lines, this object will be a zero length string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dialctlpeercfgansweraddress
             
             	Calling Party Number information element, as for example passed in an ISDN SETUP message by a PBX or switch, for incoming calls. This address can be used to identify the peer. If this address is either unknown or identical to dialCtlPeerCfgOriginateAddress, this object will be a zero length string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dialctlpeercfgsubaddress
             
             	Subaddress at which the peer will be called. If the subaddress is undefined for the given media or unused, this is a zero length string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dialctlpeercfgclosedusergroup
             
             	Closed User Group at which the peer will be called. If the Closed User Group is undefined for the given media or unused, this is a zero length string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dialctlpeercfgspeed
             
             	The desired information transfer speed in bits/second when calling this peer. The detailed media specific information, e.g. information type and information transfer rate for ISDN circuits, has to be extracted from this object. If the transfer speed to be used is unknown or the default speed for this type of interfaces, the value of this object may be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: dialctlpeercfginfotype
             
             	The Information Transfer Capability to be used when calling this peer.  speech(2) refers to a non\-data connection, whereas audio31(6) and audio7(7) refer to data mode connections
-            	**type**\:   :py:class:`Dialctlpeercfginfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfginfotype>`
+            	**type**\:  :py:class:`Dialctlpeercfginfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfginfotype>`
             
             .. attribute:: dialctlpeercfgpermission
             
             	Applicable permissions. callback(4) either rejects the call and then calls back, or uses the 'Reverse charging' information element if it is available. Note that callback(4) is supposed to control charging, not security, and applies to callback prior to accepting a call. Callback for security reasons can be handled using PPP callback
-            	**type**\:   :py:class:`Dialctlpeercfgpermission <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfgpermission>`
+            	**type**\:  :py:class:`Dialctlpeercfgpermission <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfgpermission>`
             
             .. attribute:: dialctlpeercfginactivitytimer
             
             	The connection will be automatically disconnected if no longer carrying useful data for a time period, in seconds, specified in this object. Useful data in this context refers to forwarding packets, including routing information; it excludes the encapsulator maintenance frames. A value of zero means the connection will not be automatically taken down due to inactivity, which implies that it is a dedicated circuit
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -364,21 +364,21 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeercfgminduration
             
             	Minimum duration of a call in seconds, starting from the time the call is connected until the call is disconnected. This is to accomplish the fact that in most countries charging applies to units of time, which should be matched as closely as possible
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: dialctlpeercfgmaxduration
             
             	Maximum call duration in seconds. Zero means 'unlimited'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: dialctlpeercfgcarrierdelay
             
             	The call timeout time in seconds. The default value of zero means that the call timeout as specified for the media in question will apply
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -387,14 +387,14 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeercfgcallretries
             
             	The number of calls to a non\-responding address that may be made. A retry count of zero means there is no bound. The intent is to bound the number of successive calls to an address which is inaccessible, or which refuses those calls.  Some countries regulate the number of call retries to a given peer that can be made
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: dialctlpeercfgretrydelay
             
             	The time in seconds between call retries if a peer cannot be reached. A value of zero means that call retries may be done without any delay
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -403,7 +403,7 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeercfgfailuredelay
             
             	The time in seconds after which call attempts are to be placed again after a peer has been noticed to be unreachable, i.e. after dialCtlPeerCfgCallRetries unsuccessful call attempts. A value of zero means that a peer will not be called again after dialCtlPeerCfgCallRetries unsuccessful call attempts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -412,17 +412,17 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeercfgtrapenable
             
             	This object indicates whether dialCtlPeerCallInformation and dialCtlPeerCallSetup traps should be generated for this peer
-            	**type**\:   :py:class:`Dialctlpeercfgtrapenable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfgtrapenable>`
+            	**type**\:  :py:class:`Dialctlpeercfgtrapenable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfgtrapenable>`
             
             .. attribute:: dialctlpeercfgstatus
             
             	Status of one row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: dialctlpeerstatsconnecttime
             
             	Accumulated connect time to the peer since system startup. This is the total connect time, i.e. the connect time for outgoing calls plus the time for incoming calls
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -431,54 +431,54 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeerstatschargedunits
             
             	The total number of charging units applying to this peer since system startup. Only the charging units applying to the local interface, i.e. for originated calls or for calls with 'Reverse charging' being active, will be counted here
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dialctlpeerstatssuccesscalls
             
             	Number of completed calls to this peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dialctlpeerstatsfailcalls
             
             	Number of failed call attempts to this peer since system startup
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dialctlpeerstatsacceptcalls
             
             	Number of calls from this peer accepted since system startup
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dialctlpeerstatsrefusecalls
             
             	Number of calls from this peer refused since system startup
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dialctlpeerstatslastdisconnectcause
             
             	The encoded network cause value associated with the last call. This object will be updated whenever a call is started or cleared. The value of this object will depend on the interface type as well as on the protocol and protocol version being used on this interface. Some references for possible cause values are given below
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..4
             
             .. attribute:: dialctlpeerstatslastdisconnecttext
             
             	ASCII text describing the reason for the last call termination.  This object exists because it would be impossible for a management station to store all possible cause values for all types of interfaces. It should be used only if a management station is unable to decode the value of dialCtlPeerStatsLastDisconnectCause.  This object will be updated whenever a call is started or cleared
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dialctlpeerstatslastsetuptime
             
             	The value of sysUpTime when the last call to this peer was started. For ISDN media, this will be the time when the setup message was received from or sent to the network. This object will be updated whenever a call is started or cleared
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -690,7 +690,7 @@ class DIALCONTROLMIB(Entity):
         .. attribute:: callactiveentry
         
         	The information regarding a single active Connection. An entry in this table will be created when a call is started. An entry in this table will be deleted when an active call clears
-        	**type**\: list of    :py:class:`Callactiveentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+        	**type**\: list of  		 :py:class:`Callactiveentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
         
         
 
@@ -727,102 +727,102 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: callactivesetuptime  <key>
             
             	The value of sysUpTime when the call associated to this entry was started. This will be useful for an NMS to retrieve all calls after a specific time. Also, this object can be useful in finding large delays between the time the call was started and the time the call was connected. For ISDN media, this will be the time when the setup message was received from or sent to the network
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callactiveindex  <key>
             
             	Small index variable to distinguish calls that start in the same hundredth of a second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: callactivepeeraddress
             
             	The number this call is connected to. If the number is not available, then it will have a length of zero
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: callactivepeersubaddress
             
             	The subaddress this call is connected to. If the subaddress is undefined or not available, this will be a zero length string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: callactivepeerid
             
             	This is the Id value of the peer table entry to which this call was made. If a peer table entry for this call does not exist or is unknown, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: callactivepeerifindex
             
             	This is the ifIndex value of the peer table entry to which this call was made. If a peer table entry for this call does not exist or is unknown, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: callactivelogicalifindex
             
             	This is the ifIndex value of the logical interface through which this call was made. For ISDN media, this would be the ifIndex of the B channel which was used for this call. If the ifIndex value is unknown, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: callactiveconnecttime
             
             	The value of sysUpTime when the call was connected. If the call is not connected, this object will have a value of zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callactivecallstate
             
             	The current call state. unknown(1)     \- The call state is unknown. connecting(2)  \- A connection attempt (outgoing call)                  is being made. connected(3)   \- An incoming call is in the process                  of validation. active(4)      \- The call is active
-            	**type**\:   :py:class:`Callactivecallstate <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactivecallstate>`
+            	**type**\:  :py:class:`Callactivecallstate <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactivecallstate>`
             
             .. attribute:: callactivecallorigin
             
             	The call origin
-            	**type**\:   :py:class:`Callactivecallorigin <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactivecallorigin>`
+            	**type**\:  :py:class:`Callactivecallorigin <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactivecallorigin>`
             
             .. attribute:: callactivechargedunits
             
             	The number of charged units for this connection. For incoming calls or if charging information is not supplied by the switch, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callactiveinfotype
             
             	The information type for this call
-            	**type**\:   :py:class:`Callactiveinfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactiveinfotype>`
+            	**type**\:  :py:class:`Callactiveinfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactiveinfotype>`
             
             .. attribute:: callactivetransmitpackets
             
             	The number of packets which were transmitted for this call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callactivetransmitbytes
             
             	The number of bytes which were transmitted for this call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callactivereceivepackets
             
             	The number of packets which were received for this call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callactivereceivebytes
             
             	The number of bytes which were received for this call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -996,7 +996,7 @@ class DIALCONTROLMIB(Entity):
         .. attribute:: callhistoryentry
         
         	The information regarding a single Connection
-        	**type**\: list of    :py:class:`Callhistoryentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry>`
+        	**type**\: list of  		 :py:class:`Callhistoryentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry>`
         
         
 
@@ -1030,7 +1030,7 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: callactivesetuptime  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1039,7 +1039,7 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: callactiveindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1048,102 +1048,102 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: callhistorypeeraddress
             
             	The number this call was connected to. If the number is not available, then it will have a length of zero
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: callhistorypeersubaddress
             
             	The subaddress this call was connected to. If the subaddress is undefined or not available, this will be a zero length string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: callhistorypeerid
             
             	This is the Id value of the peer table entry to which this call was made. If a peer table entry for this call does not exist, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: callhistorypeerifindex
             
             	This is the ifIndex value of the peer table entry to which this call was made. If a peer table entry for this call does not exist, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: callhistorylogicalifindex
             
             	This is the ifIndex value of the logical interface through which this call was made. For ISDN media, this would be the ifIndex of the B channel which was used for this call
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: callhistorydisconnectcause
             
             	The encoded network cause value associated with this call.  The value of this object will depend on the interface type as well as on the protocol and protocol version being used on this interface. Some references for possible cause values are given below
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..4
             
             .. attribute:: callhistorydisconnecttext
             
             	ASCII text describing the reason for call termination.  This object exists because it would be impossible for a management station to store all possible cause values for all types of interfaces. It should be used only if a management station is unable to decode the value of dialCtlPeerStatsLastDisconnectCause
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: callhistoryconnecttime
             
             	The value of sysUpTime when the call was connected
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callhistorydisconnecttime
             
             	The value of sysUpTime when the call was disconnected
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callhistorycallorigin
             
             	The call origin
-            	**type**\:   :py:class:`Callhistorycallorigin <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry.Callhistorycallorigin>`
+            	**type**\:  :py:class:`Callhistorycallorigin <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry.Callhistorycallorigin>`
             
             .. attribute:: callhistorychargedunits
             
             	The number of charged units for this connection. For incoming calls or if charging information is not supplied by the switch, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callhistoryinfotype
             
             	The information type for this call
-            	**type**\:   :py:class:`Callhistoryinfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry.Callhistoryinfotype>`
+            	**type**\:  :py:class:`Callhistoryinfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry.Callhistoryinfotype>`
             
             .. attribute:: callhistorytransmitpackets
             
             	The number of packets which were transmitted while this call was active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callhistorytransmitbytes
             
             	The number of bytes which were transmitted while this call was active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callhistoryreceivepackets
             
             	The number of packets which were received while this call was active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: callhistoryreceivebytes
             
             	The number of bytes which were received while this call was active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

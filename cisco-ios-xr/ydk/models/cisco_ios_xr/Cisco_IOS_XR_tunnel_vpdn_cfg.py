@@ -85,59 +85,59 @@ class Vpdn(Entity):
     .. attribute:: history
     
     	VPDN history logging
-    	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.History>`
+    	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.History>`
     
     .. attribute:: redundancy
     
     	Enable VPDN redundancy
-    	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Redundancy>`
+    	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Redundancy>`
     
     .. attribute:: local
     
     	VPDN Local radius process configuration
-    	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Local>`
+    	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Local>`
     
     .. attribute:: templates
     
     	Table of Template
-    	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates>`
+    	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates>`
     
     .. attribute:: caller_id
     
     	Options to apply on calling station ID
-    	**type**\:   :py:class:`CallerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.CallerId>`
+    	**type**\:  :py:class:`CallerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.CallerId>`
     
     .. attribute:: vpd_ngroups
     
     	Table of VPDNgroup
-    	**type**\:   :py:class:`VpdNgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups>`
+    	**type**\:  :py:class:`VpdNgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups>`
     
     .. attribute:: loggings
     
     	Table of Logging
-    	**type**\:   :py:class:`Loggings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Loggings>`
+    	**type**\:  :py:class:`Loggings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Loggings>`
     
     .. attribute:: l2tp
     
     	L2TPv2 protocol commands
-    	**type**\:   :py:class:`L2Tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp>`
+    	**type**\:  :py:class:`L2Tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp>`
     
     .. attribute:: session_limit
     
     	Maximum simultaneous VPDN sessions
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..131072
     
     .. attribute:: enable
     
     	Enable VPDN configuration. Deletion of this object also causes deletion of all associated objects under VPDN
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: soft_shut
     
     	New session no longer allowed
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -215,7 +215,7 @@ class Vpdn(Entity):
         .. attribute:: failure
         
         	User failure
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -249,12 +249,12 @@ class Vpdn(Entity):
         .. attribute:: process_failures
         
         	Process crash configuration
-        	**type**\:   :py:class:`ProcessFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Redundancy.ProcessFailures>`
+        	**type**\:  :py:class:`ProcessFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Redundancy.ProcessFailures>`
         
         .. attribute:: enable
         
         	Enable Enable VPDN redundancy. Deletion of this object also causes deletion of all associated objects under Redundancy
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -293,7 +293,7 @@ class Vpdn(Entity):
             .. attribute:: switchover
             
             	Force a switchover if the process crashes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -327,26 +327,26 @@ class Vpdn(Entity):
         .. attribute:: secret_text
         
         	secret password
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..32
         
         .. attribute:: path
         
         	local path of the saved profile
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..64
         
         .. attribute:: cache_disabled
         
         	Set constant integer
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: port
         
         	port value
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..65535
         
@@ -388,7 +388,7 @@ class Vpdn(Entity):
         .. attribute:: template
         
         	VPDN template configuration
-        	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template>`
+        	**type**\: list of  		 :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template>`
         
         
 
@@ -422,58 +422,58 @@ class Vpdn(Entity):
             .. attribute:: template_name  <key>
             
             	VPDN template name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..63
             
             .. attribute:: caller_id
             
             	Options to apply on calling station id
-            	**type**\:   :py:class:`CallerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.CallerId>`
+            	**type**\:  :py:class:`CallerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.CallerId>`
             
             .. attribute:: vpn
             
             	VPN ID/VRF name
-            	**type**\:   :py:class:`Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Vpn>`
+            	**type**\:  :py:class:`Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Vpn>`
             
             .. attribute:: tunnel
             
             	L2TP tunnel commands
-            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Tunnel>`
+            	**type**\:  :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Tunnel>`
             
             .. attribute:: ip
             
             	Set IP TOS value
-            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Ip>`
+            	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Ip>`
             
             .. attribute:: ipv4
             
             	IPv4 settings for tunnel
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Ipv4>`
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Ipv4>`
             
             .. attribute:: cisco_avp100_format_e_enable
             
             	To support NAS\-Port format e in Cisco AVP 100
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: description
             
             	Up to 100 characters describing this VPDN template
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..100
             
             .. attribute:: l2tp_class
             
             	L2TP class  command
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..79
             
             .. attribute:: dsl_line_forwarding
             
             	Forward DSL Line Info attributes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -540,7 +540,7 @@ class Vpdn(Entity):
                 .. attribute:: mask
                 
                 	Mask characters by method
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..63
                 
@@ -575,12 +575,12 @@ class Vpdn(Entity):
                 .. attribute:: id
                 
                 	VPN ID
-                	**type**\:   :py:class:`Id <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Vpn.Id>`
+                	**type**\:  :py:class:`Id <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Vpn.Id>`
                 
                 .. attribute:: vrf
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
@@ -620,12 +620,16 @@ class Vpdn(Entity):
                     .. attribute:: oui
                     
                     	VPN ID, (OUI\:VPN\-Index) format(hex), 3 bytes OUI Part
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     .. attribute:: index
                     
                     	VPN ID, (OUI\:VPN\-Index) format(hex), 4 bytes VPN\_Index Part
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     
 
@@ -660,7 +664,7 @@ class Vpdn(Entity):
                 .. attribute:: busy_timeout
                 
                 	Busy time out value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 60..65535
                 
@@ -697,7 +701,7 @@ class Vpdn(Entity):
                 .. attribute:: tos
                 
                 	Set constant integer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -732,12 +736,14 @@ class Vpdn(Entity):
                 .. attribute:: df_bit
                 
                 	IPv4 don't fragment bit set/clear/reflect
-                	**type**\:   :py:class:`DfBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.DfBit>`
+                	**type**\:  :py:class:`DfBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.DfBit>`
                 
                 .. attribute:: source
                 
                 	Enter an IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -772,7 +778,7 @@ class Vpdn(Entity):
         .. attribute:: mask
         
         	Mask characters by method
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..63
         
@@ -808,7 +814,7 @@ class Vpdn(Entity):
         .. attribute:: vpd_ngroup
         
         	vpdn\-group configuration
-        	**type**\: list of    :py:class:`VpdNgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup>`
+        	**type**\: list of  		 :py:class:`VpdNgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup>`
         
         
 
@@ -842,69 +848,69 @@ class Vpdn(Entity):
             .. attribute:: vpd_ngroupname  <key>
             
             	vpdn\-group name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..63
             
             .. attribute:: vpn_id
             
             	Vpn id
-            	**type**\:   :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup.VpnId>`
+            	**type**\:  :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup.VpnId>`
             
             .. attribute:: ip
             
             	set ip tos value
-            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup.Ip>`
+            	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup.Ip>`
             
             .. attribute:: dsl_line_forwarding
             
             	Forward DSL Line Info attributes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: cisco_avp100_format_e_enable
             
             	To support NAS\-Port format e in cisco AVP 100
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: desc
             
             	upto 100 characters describing this VPDN group
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..100
             
             .. attribute:: attribute
             
             	match substring
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..63
             
             .. attribute:: l2tp_class
             
             	l2tp class name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..79
             
             .. attribute:: tunnel_busy_timeout
             
             	Busy list timeout length
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
             .. attribute:: vrf_name
             
             	Vrf name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: sr_ctemplate
             
             	Source vpdn\-template
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..63
             
@@ -966,12 +972,16 @@ class Vpdn(Entity):
                 .. attribute:: vpn_id_oui
                 
                 	VPN ID, (OUI\:VPN\-Index) format(hex), 3 bytes OUI Part
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: vpn_id_index
                 
                 	VPN ID, (OUI\:VPN\-Index) format(hex), 4 bytes VPN\_Index Part
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 
 
@@ -1006,7 +1016,7 @@ class Vpdn(Entity):
                 .. attribute:: tos
                 
                 	ip tos value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
@@ -1041,7 +1051,7 @@ class Vpdn(Entity):
         .. attribute:: logging
         
         	Configure logging for VPDN
-        	**type**\: list of    :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Loggings.Logging>`
+        	**type**\: list of  		 :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Loggings.Logging>`
         
         
 
@@ -1075,7 +1085,7 @@ class Vpdn(Entity):
             .. attribute:: option  <key>
             
             	VPDN logging options
-            	**type**\:   :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Option>`
+            	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Option>`
             
             
 
@@ -1109,19 +1119,19 @@ class Vpdn(Entity):
         .. attribute:: session_id
         
         	Session ID commands
-        	**type**\:   :py:class:`SessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId>`
+        	**type**\:  :py:class:`SessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId>`
         
         .. attribute:: tcp_mss_adjust
         
         	TCP MSS adjust value. The acceptable values might be further limited depending on platform
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1280..1460
         
         .. attribute:: reassembly
         
         	L2TP IP packet reassembly enable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -1162,7 +1172,7 @@ class Vpdn(Entity):
             .. attribute:: space
             
             	Session ID space commands
-            	**type**\:   :py:class:`Space <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId.Space>`
+            	**type**\:  :py:class:`Space <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId.Space>`
             
             
 
@@ -1196,7 +1206,7 @@ class Vpdn(Entity):
                 .. attribute:: hierarchy
                 
                 	Session ID space hierarchical command
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 

@@ -20,7 +20,7 @@ class MemoryUsageProcesses(Entity):
     .. attribute:: memory_usage_process
     
     	The list of software processes on the device
-    	**type**\: list of    :py:class:`MemoryUsageProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_memory_oper.MemoryUsageProcesses.MemoryUsageProcess>`
+    	**type**\: list of  		 :py:class:`MemoryUsageProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_memory_oper.MemoryUsageProcesses.MemoryUsageProcess>`
     
     
 
@@ -54,26 +54,26 @@ class MemoryUsageProcesses(Entity):
         .. attribute:: pid  <key>
         
         	Process\-ID of the process
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: name  <key>
         
         	The name of the process
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: tty
         
         	TTY bound to by the process
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: allocated_memory
         
         	Total memory allocated to this process (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -82,7 +82,7 @@ class MemoryUsageProcesses(Entity):
         .. attribute:: freed_memory
         
         	Total memory freed by this process (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -91,7 +91,7 @@ class MemoryUsageProcesses(Entity):
         .. attribute:: holding_memory
         
         	Total memory currently held by this process (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -100,14 +100,14 @@ class MemoryUsageProcesses(Entity):
         .. attribute:: get_buffers
         
         	Get Buffers of this process (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ret_buffers
         
         	Return Buffers of this process (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         

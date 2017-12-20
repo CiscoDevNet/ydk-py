@@ -638,7 +638,7 @@ class ClearBgpIpAddrGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpIpAddrGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpIpAddrGraceful.Input>`
     
     
 
@@ -672,20 +672,18 @@ class ClearBgpIpAddrGraceful(Entity):
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -723,7 +721,7 @@ class ClearBgpIpAddrLongLivedStale(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpIpAddrLongLivedStale.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpIpAddrLongLivedStale.Input>`
     
     
 
@@ -757,20 +755,18 @@ class ClearBgpIpAddrLongLivedStale(Entity):
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -807,7 +803,7 @@ class ClearBgpIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpIpAddr.Input>`
     
     
 
@@ -841,20 +837,18 @@ class ClearBgpIpAddr(Entity):
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -894,7 +888,7 @@ class ClearBgpAfiSafiAllSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAllSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAllSoftInPrefixFilter.Input>`
     
     
 
@@ -928,7 +922,7 @@ class ClearBgpAfiSafiAllSoftInPrefixFilter(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -970,7 +964,7 @@ class ClearBgpAfiSafiAllSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAllSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAllSoftIn.Input>`
     
     
 
@@ -1004,7 +998,7 @@ class ClearBgpAfiSafiAllSoftIn(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -1046,7 +1040,7 @@ class ClearBgpAfiSafiAllSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAllSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAllSoftOut.Input>`
     
     
 
@@ -1080,7 +1074,7 @@ class ClearBgpAfiSafiAllSoftOut(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -1121,7 +1115,7 @@ class ClearBgpAfiSafiAllSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAllSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAllSoft.Input>`
     
     
 
@@ -1155,7 +1149,7 @@ class ClearBgpAfiSafiAllSoft(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -1195,7 +1189,7 @@ class ClearBgpAfiSafiIpAddrLongLivedStale(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrLongLivedStale.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrLongLivedStale.Input>`
     
     
 
@@ -1229,27 +1223,25 @@ class ClearBgpAfiSafiIpAddrLongLivedStale(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -1290,7 +1282,7 @@ class ClearBgpAfiSafiIpAddrSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrSoftInPrefixFilter.Input>`
     
     
 
@@ -1324,27 +1316,25 @@ class ClearBgpAfiSafiIpAddrSoftInPrefixFilter(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -1384,7 +1374,7 @@ class ClearBgpAfiSafiIpAddrSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrSoftIn.Input>`
     
     
 
@@ -1418,27 +1408,25 @@ class ClearBgpAfiSafiIpAddrSoftIn(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -1478,7 +1466,7 @@ class ClearBgpAfiSafiIpAddrSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrSoftOut.Input>`
     
     
 
@@ -1512,27 +1500,25 @@ class ClearBgpAfiSafiIpAddrSoftOut(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -1571,7 +1557,7 @@ class ClearBgpAfiSafiIpAddrSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiIpAddrSoft.Input>`
     
     
 
@@ -1605,27 +1591,25 @@ class ClearBgpAfiSafiIpAddrSoft(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -1667,7 +1651,7 @@ class ClearBgpAfiSafiAsSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAsSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAsSoftInPrefixFilter.Input>`
     
     
 
@@ -1701,39 +1685,29 @@ class ClearBgpAfiSafiAsSoftInPrefixFilter(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -1774,7 +1748,7 @@ class ClearBgpAfiSafiAsSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAsSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAsSoftIn.Input>`
     
     
 
@@ -1808,39 +1782,29 @@ class ClearBgpAfiSafiAsSoftIn(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -1881,7 +1845,7 @@ class ClearBgpAfiSafiAsSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAsSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAsSoftOut.Input>`
     
     
 
@@ -1915,39 +1879,29 @@ class ClearBgpAfiSafiAsSoftOut(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -1987,7 +1941,7 @@ class ClearBgpAfiSafiAsSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAsSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiAsSoft.Input>`
     
     
 
@@ -2021,39 +1975,29 @@ class ClearBgpAfiSafiAsSoft(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -2092,7 +2036,7 @@ class ClearBgpAfiSafiDampeningIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiDampeningIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiDampeningIpPrefix.Input>`
     
     
 
@@ -2126,27 +2070,25 @@ class ClearBgpAfiSafiDampeningIpPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and mask or masklength to clear dampening information
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -2185,7 +2127,7 @@ class ClearBgpAfiSafiDampening(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiDampening.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiDampening.Input>`
     
     
 
@@ -2219,7 +2161,7 @@ class ClearBgpAfiSafiDampening(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -2262,7 +2204,7 @@ class ClearBgpAfiSafiExternalSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiExternalSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiExternalSoftInPrefixFilter.Input>`
     
     
 
@@ -2296,7 +2238,7 @@ class ClearBgpAfiSafiExternalSoftInPrefixFilter(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -2338,7 +2280,7 @@ class ClearBgpAfiSafiExternalSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiExternalSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiExternalSoftIn.Input>`
     
     
 
@@ -2372,7 +2314,7 @@ class ClearBgpAfiSafiExternalSoftIn(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -2414,7 +2356,7 @@ class ClearBgpAfiSafiExternalSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiExternalSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiExternalSoftOut.Input>`
     
     
 
@@ -2448,7 +2390,7 @@ class ClearBgpAfiSafiExternalSoftOut(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -2489,7 +2431,7 @@ class ClearBgpAfiSafiExternalSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiExternalSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiExternalSoft.Input>`
     
     
 
@@ -2523,7 +2465,7 @@ class ClearBgpAfiSafiExternalSoft(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -2563,7 +2505,7 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.Input>`
     
     
 
@@ -2597,31 +2539,31 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ipv4_mask
         
         	Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -2665,7 +2607,7 @@ class ClearBgpAfiSafiFlapStatisticsIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpAddr.Input>`
     
     
 
@@ -2699,27 +2641,25 @@ class ClearBgpAfiSafiFlapStatisticsIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -2758,7 +2698,7 @@ class ClearBgpAfiSafiFlapStatisticsIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpPrefix.Input>`
     
     
 
@@ -2792,27 +2732,25 @@ class ClearBgpAfiSafiFlapStatisticsIpPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and mask or masklength to clear flap statistics
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -2852,7 +2790,7 @@ class ClearBgpAfiSafiFlapStatisticsRegexp(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsRegexp.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsRegexp.Input>`
     
     
 
@@ -2886,14 +2824,14 @@ class ClearBgpAfiSafiFlapStatisticsRegexp(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: regexp_pattern
         
         	A regular expression to match the BGP AS paths.  Use 'ctrl\-v ?' to enter '?'
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -2936,7 +2874,7 @@ class ClearBgpAfiSafiFlapStatisticsRoutePolicy(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsRoutePolicy.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsRoutePolicy.Input>`
     
     
 
@@ -2970,14 +2908,14 @@ class ClearBgpAfiSafiFlapStatisticsRoutePolicy(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: route_policy_name
         
         	Route Policy name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -3019,7 +2957,7 @@ class ClearBgpAfiSafiFlapStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatistics.Input>`
     
     
 
@@ -3053,7 +2991,7 @@ class ClearBgpAfiSafiFlapStatistics(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -3094,7 +3032,7 @@ class ClearBgpAfiSafiNexthopPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiNexthopPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiNexthopPerformanceStatistics.Input>`
     
     
 
@@ -3128,7 +3066,7 @@ class ClearBgpAfiSafiNexthopPerformanceStatistics(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -3169,7 +3107,7 @@ class ClearBgpAfiSafiNexthopRegistrationIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiNexthopRegistrationIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiNexthopRegistrationIpAddr.Input>`
     
     
 
@@ -3203,27 +3141,25 @@ class ClearBgpAfiSafiNexthopRegistrationIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Nexthop address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -3262,7 +3198,7 @@ class ClearBgpAfiSafiSelfOriginated(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiSelfOriginated.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiSelfOriginated.Input>`
     
     
 
@@ -3296,7 +3232,7 @@ class ClearBgpAfiSafiSelfOriginated(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -3336,7 +3272,7 @@ class ClearBgpAfiSafiShutdown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiShutdown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiShutdown.Input>`
     
     
 
@@ -3370,7 +3306,7 @@ class ClearBgpAfiSafiShutdown(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -3413,7 +3349,7 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.Input>`
     
     
 
@@ -3447,7 +3383,7 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -3489,7 +3425,7 @@ class ClearBgpAfiSafiUpdateOutqAddressFamily(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqAddressFamily.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqAddressFamily.Input>`
     
     
 
@@ -3523,7 +3459,7 @@ class ClearBgpAfiSafiUpdateOutqAddressFamily(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -3567,7 +3503,7 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
     
     
 
@@ -3601,27 +3537,25 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -3663,7 +3597,7 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.Input>`
     
     
 
@@ -3697,27 +3631,25 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -3759,7 +3691,7 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input>`
     
     
 
@@ -3793,27 +3725,25 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -3854,7 +3784,7 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqNeighborIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqNeighborIpAddr.Input>`
     
     
 
@@ -3888,27 +3818,25 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -3951,7 +3879,7 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
     
     
 
@@ -3985,21 +3913,25 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -4046,7 +3978,7 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.Input>`
     
     
 
@@ -4080,21 +4012,25 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -4142,7 +4078,7 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(En
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
     
     
 
@@ -4176,21 +4112,25 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(En
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -4237,7 +4177,7 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
     
     
 
@@ -4271,21 +4211,25 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -4332,7 +4276,7 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.Input>`
     
     
 
@@ -4366,14 +4310,16 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -4417,7 +4363,7 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiUpdateOutqUpdateGroup.Input>`
     
     
 
@@ -4451,14 +4397,16 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroup(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -4501,7 +4449,7 @@ class ClearBgpAsGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAsGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAsGraceful.Input>`
     
     
 
@@ -4535,32 +4483,22 @@ class ClearBgpAsGraceful(Entity):
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -4597,7 +4535,7 @@ class ClearBgpAs(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAs.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAs.Input>`
     
     
 
@@ -4631,32 +4569,22 @@ class ClearBgpAs(Entity):
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -4693,7 +4621,7 @@ class ClearBgpBestpathIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathIpAddrIpNetmask.Input>`
     
     
 
@@ -4727,37 +4655,33 @@ class ClearBgpBestpathIpAddrIpNetmask(Entity):
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -4796,7 +4720,7 @@ class ClearBgpBestpathIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathIpAddr.Input>`
     
     
 
@@ -4830,20 +4754,18 @@ class ClearBgpBestpathIpAddr(Entity):
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -4880,7 +4802,7 @@ class ClearBgpBestpathIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathIpPrefix.Input>`
     
     
 
@@ -4914,20 +4836,18 @@ class ClearBgpBestpathIpPrefix(Entity):
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -4964,7 +4884,7 @@ class ClearBgpBestpathAfiSafiIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpAddrIpNetmask.Input>`
     
     
 
@@ -4998,44 +4918,40 @@ class ClearBgpBestpathAfiSafiIpAddrIpNetmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5076,7 +4992,7 @@ class ClearBgpBestpathAfiSafiIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpAddr.Input>`
     
     
 
@@ -5110,27 +5026,25 @@ class ClearBgpBestpathAfiSafiIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5169,7 +5083,7 @@ class ClearBgpBestpathAfiSafiIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpPrefix.Input>`
     
     
 
@@ -5203,27 +5117,25 @@ class ClearBgpBestpathAfiSafiIpPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5263,7 +5175,7 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.Input>`
     
     
 
@@ -5297,51 +5209,47 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5385,7 +5293,7 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiBridgeDomainIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiBridgeDomainIpAddr.Input>`
     
     
 
@@ -5419,34 +5327,32 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5488,7 +5394,7 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiBridgeDomainIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiBridgeDomainIpPrefix.Input>`
     
     
 
@@ -5522,34 +5428,32 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5591,7 +5495,7 @@ class ClearBgpBestpathAfiSafiRdIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpAddrIpNetmask.Input>`
     
     
 
@@ -5625,73 +5529,63 @@ class ClearBgpBestpathAfiSafiRdIpAddrIpNetmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5735,7 +5629,7 @@ class ClearBgpBestpathAfiSafiRdIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpAddr.Input>`
     
     
 
@@ -5769,56 +5663,48 @@ class ClearBgpBestpathAfiSafiRdIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5860,7 +5746,7 @@ class ClearBgpBestpathAfiSafiRdIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpPrefix.Input>`
     
     
 
@@ -5894,56 +5780,48 @@ class ClearBgpBestpathAfiSafiRdIpPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -5984,7 +5862,7 @@ class ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -6018,21 +5896,25 @@ class ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -6076,7 +5958,7 @@ class ClearBgpBestpathAfiSafiIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv4Addr.Input>`
     
     
 
@@ -6110,14 +5992,16 @@ class ClearBgpBestpathAfiSafiIpv4Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -6159,7 +6043,7 @@ class ClearBgpBestpathAfiSafiIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv4Prefix.Input>`
     
     
 
@@ -6193,14 +6077,16 @@ class ClearBgpBestpathAfiSafiIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -6243,7 +6129,7 @@ class ClearBgpBestpathAfiSafiRdIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv4Addr.Input>`
     
     
 
@@ -6277,43 +6163,39 @@ class ClearBgpBestpathAfiSafiRdIpv4Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_addr
         
         	IPv4 MDT network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -6358,7 +6240,7 @@ class ClearBgpBestpathAfiSafiVrfIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv4Addr.Input>`
     
     
 
@@ -6392,21 +6274,23 @@ class ClearBgpBestpathAfiSafiVrfIpv4Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 MDT network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -6450,7 +6334,7 @@ class ClearBgpBestpathAfiSafiNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiNetwork.Input>`
     
     
 
@@ -6484,14 +6368,14 @@ class ClearBgpBestpathAfiSafiNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -6534,7 +6418,7 @@ class ClearBgpBestpathAfiSafiRdNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdNetwork.Input>`
     
     
 
@@ -6568,43 +6452,37 @@ class ClearBgpBestpathAfiSafiRdNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -6649,7 +6527,7 @@ class ClearBgpBestpathAfiSafiVrfNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfNetwork.Input>`
     
     
 
@@ -6683,21 +6561,21 @@ class ClearBgpBestpathAfiSafiVrfNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -6741,7 +6619,7 @@ class ClearBgpBestpathAfiSafiRtConstraintNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRtConstraintNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRtConstraintNetwork.Input>`
     
     
 
@@ -6775,14 +6653,14 @@ class ClearBgpBestpathAfiSafiRtConstraintNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rt_constraint_network
         
         	RT\-Constraint network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -6824,7 +6702,7 @@ class ClearBgpBestpathAfiSafiIpv4TunnelNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv4TunnelNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv4TunnelNetwork.Input>`
     
     
 
@@ -6858,14 +6736,14 @@ class ClearBgpBestpathAfiSafiIpv4TunnelNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_tunnel_network
         
         	IPv4 Tunnel network <Tunnel\-ID>\:<IPv4 Address>
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -6907,7 +6785,7 @@ class ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -6941,21 +6819,25 @@ class ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -6999,7 +6881,7 @@ class ClearBgpBestpathAfiSafiIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv6Addr.Input>`
     
     
 
@@ -7033,14 +6915,16 @@ class ClearBgpBestpathAfiSafiIpv6Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -7082,7 +6966,7 @@ class ClearBgpBestpathAfiSafiIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiIpv6Prefix.Input>`
     
     
 
@@ -7116,14 +7000,16 @@ class ClearBgpBestpathAfiSafiIpv6Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -7166,7 +7052,7 @@ class ClearBgpBestpathAfiSafiRd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRd.Input>`
     
     
 
@@ -7200,39 +7086,33 @@ class ClearBgpBestpathAfiSafiRd(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -7272,7 +7152,7 @@ class ClearBgpBestpathAfiSafiVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrf.Input>`
     
     
 
@@ -7306,14 +7186,14 @@ class ClearBgpBestpathAfiSafiVrf(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -7355,7 +7235,7 @@ class ClearBgpBestpathAfiSafi(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafi.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafi.Input>`
     
     
 
@@ -7389,7 +7269,7 @@ class ClearBgpBestpathAfiSafi(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -7429,7 +7309,7 @@ class ClearBgpBestpathAfiSafiSrPolicyPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiSrPolicyPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiSrPolicyPrefix.Input>`
     
     
 
@@ -7463,14 +7343,14 @@ class ClearBgpBestpathAfiSafiSrPolicyPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: sr_policy_prefix
         
         	SR Policy prefix
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -7513,7 +7393,7 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.Input>`
     
     
 
@@ -7547,21 +7427,23 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	L2VPN EVPN Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -7606,7 +7488,7 @@ class ClearBgpBestpathAfiSafiRdIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv4Prefix.Input>`
     
     
 
@@ -7640,43 +7522,39 @@ class ClearBgpBestpathAfiSafiRdIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_prefix
         
         	L2VPN EVPN Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -7721,7 +7599,7 @@ class ClearBgpBestpathAfiSafiMp2MpIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiMp2MpIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiMp2MpIpv4Prefix.Input>`
     
     
 
@@ -7755,21 +7633,23 @@ class ClearBgpBestpathAfiSafiMp2MpIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: mp2mp
         
         	Xconnect Group\:mp2mp
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	L2VPN VPWS Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -7814,7 +7694,7 @@ class ClearBgpBestpathAfiSafiVrfIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv4Prefix.Input>`
     
     
 
@@ -7848,21 +7728,23 @@ class ClearBgpBestpathAfiSafiVrfIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	VPN Fspec Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -7907,7 +7789,7 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -7941,50 +7823,48 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -8031,7 +7911,7 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -8065,28 +7945,32 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -8133,7 +8017,7 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -8167,50 +8051,48 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -8257,7 +8139,7 @@ class ClearBgpBestpathAfiSafiRdIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv6Addr.Input>`
     
     
 
@@ -8291,43 +8173,39 @@ class ClearBgpBestpathAfiSafiRdIpv6Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -8372,7 +8250,7 @@ class ClearBgpBestpathAfiSafiRdIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiRdIpv6Prefix.Input>`
     
     
 
@@ -8406,43 +8284,39 @@ class ClearBgpBestpathAfiSafiRdIpv6Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -8487,7 +8361,7 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -8521,28 +8395,32 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -8589,7 +8467,7 @@ class ClearBgpBestpathAfiSafiVrfIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv6Addr.Input>`
     
     
 
@@ -8623,21 +8501,23 @@ class ClearBgpBestpathAfiSafiVrfIpv6Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -8682,7 +8562,7 @@ class ClearBgpBestpathAfiSafiVrfIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathAfiSafiVrfIpv6Prefix.Input>`
     
     
 
@@ -8716,21 +8596,23 @@ class ClearBgpBestpathAfiSafiVrfIpv6Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -8775,7 +8657,7 @@ class ClearBgpBestpathVrfIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfIpAddrIpNetmask.Input>`
     
     
 
@@ -8809,54 +8691,44 @@ class ClearBgpBestpathVrfIpAddrIpNetmask(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -8898,7 +8770,7 @@ class ClearBgpBestpathVrfIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfIpAddr.Input>`
     
     
 
@@ -8932,37 +8804,29 @@ class ClearBgpBestpathVrfIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -9002,7 +8866,7 @@ class ClearBgpBestpathVrfIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfIpPrefix.Input>`
     
     
 
@@ -9036,37 +8900,29 @@ class ClearBgpBestpathVrfIpPrefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -9106,7 +8962,7 @@ class ClearBgpBestpathVrfAfiSafiIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv4Prefix.Input>`
     
     
 
@@ -9140,31 +8996,27 @@ class ClearBgpBestpathVrfAfiSafiIpv4Prefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	Fspec IPv4 Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -9209,7 +9061,7 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -9243,38 +9095,36 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -9321,7 +9171,7 @@ class ClearBgpBestpathVrfAfiSafiIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv4Addr.Input>`
     
     
 
@@ -9355,31 +9205,27 @@ class ClearBgpBestpathVrfAfiSafiIpv4Addr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -9424,7 +9270,7 @@ class ClearBgpBestpathVrfAfiSafiNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiNetwork.Input>`
     
     
 
@@ -9458,31 +9304,25 @@ class ClearBgpBestpathVrfAfiSafiNetwork(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -9528,7 +9368,7 @@ class ClearBgpBestpathVrfAfiSafiRdNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiRdNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiRdNetwork.Input>`
     
     
 
@@ -9562,60 +9402,48 @@ class ClearBgpBestpathVrfAfiSafiRdNetwork(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -9663,7 +9491,7 @@ class ClearBgpBestpathVrfAfiSafiVrfNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiVrfNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiVrfNetwork.Input>`
     
     
 
@@ -9697,38 +9525,32 @@ class ClearBgpBestpathVrfAfiSafiVrfNetwork(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -9775,7 +9597,7 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -9809,38 +9631,36 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -9887,7 +9707,7 @@ class ClearBgpBestpathVrfAfiSafiIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv6Addr.Input>`
     
     
 
@@ -9921,31 +9741,27 @@ class ClearBgpBestpathVrfAfiSafiIpv6Addr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -9990,7 +9806,7 @@ class ClearBgpBestpathVrfAfiSafiIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiIpv6Prefix.Input>`
     
     
 
@@ -10024,31 +9840,27 @@ class ClearBgpBestpathVrfAfiSafiIpv6Prefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -10094,7 +9906,7 @@ class ClearBgpBestpathVrfAfiSafiRd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiRd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiRd.Input>`
     
     
 
@@ -10128,56 +9940,44 @@ class ClearBgpBestpathVrfAfiSafiRd(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -10220,7 +10020,7 @@ class ClearBgpBestpathVrfAfiSafiVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafiVrf.Input>`
     
     
 
@@ -10254,31 +10054,25 @@ class ClearBgpBestpathVrfAfiSafiVrf(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -10323,7 +10117,7 @@ class ClearBgpBestpathVrfAfiSafi(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafi.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpBestpathVrfAfiSafi.Input>`
     
     
 
@@ -10357,24 +10151,18 @@ class ClearBgpBestpathVrfAfiSafi(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -10475,7 +10263,7 @@ class ClearBgpInstanceAllGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAllGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAllGraceful.Input>`
     
     
 
@@ -10509,20 +10297,14 @@ class ClearBgpInstanceAllGraceful(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -10560,7 +10342,7 @@ class ClearBgpInstanceAll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAll.Input>`
     
     
 
@@ -10594,20 +10376,14 @@ class ClearBgpInstanceAll(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -10645,7 +10421,7 @@ class ClearBgpInstanceIpAddrGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceIpAddrGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceIpAddrGraceful.Input>`
     
     
 
@@ -10679,37 +10455,29 @@ class ClearBgpInstanceIpAddrGraceful(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -10749,7 +10517,7 @@ class ClearBgpInstanceIpAddrLongLivedStale(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceIpAddrLongLivedStale.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceIpAddrLongLivedStale.Input>`
     
     
 
@@ -10783,37 +10551,29 @@ class ClearBgpInstanceIpAddrLongLivedStale(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -10852,7 +10612,7 @@ class ClearBgpInstanceIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceIpAddr.Input>`
     
     
 
@@ -10886,37 +10646,29 @@ class ClearBgpInstanceIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -10959,7 +10711,7 @@ class ClearBgpInstanceAfiSafiAllSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAllSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAllSoftInPrefixFilter.Input>`
     
     
 
@@ -10993,24 +10745,18 @@ class ClearBgpInstanceAfiSafiAllSoftInPrefixFilter(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -11055,7 +10801,7 @@ class ClearBgpInstanceAfiSafiAllSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAllSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAllSoftIn.Input>`
     
     
 
@@ -11089,24 +10835,18 @@ class ClearBgpInstanceAfiSafiAllSoftIn(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -11151,7 +10891,7 @@ class ClearBgpInstanceAfiSafiAllSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAllSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAllSoftOut.Input>`
     
     
 
@@ -11185,24 +10925,18 @@ class ClearBgpInstanceAfiSafiAllSoftOut(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -11246,7 +10980,7 @@ class ClearBgpInstanceAfiSafiAllSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAllSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAllSoft.Input>`
     
     
 
@@ -11280,24 +11014,18 @@ class ClearBgpInstanceAfiSafiAllSoft(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -11340,7 +11068,7 @@ class ClearBgpInstanceAfiSafiIpAddrLongLivedStale(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrLongLivedStale.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrLongLivedStale.Input>`
     
     
 
@@ -11374,44 +11102,36 @@ class ClearBgpInstanceAfiSafiIpAddrLongLivedStale(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -11455,7 +11175,7 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.Input>`
     
     
 
@@ -11489,44 +11209,36 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -11569,7 +11281,7 @@ class ClearBgpInstanceAfiSafiIpAddrSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrSoftIn.Input>`
     
     
 
@@ -11603,44 +11315,36 @@ class ClearBgpInstanceAfiSafiIpAddrSoftIn(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -11683,7 +11387,7 @@ class ClearBgpInstanceAfiSafiIpAddrSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrSoftOut.Input>`
     
     
 
@@ -11717,44 +11421,36 @@ class ClearBgpInstanceAfiSafiIpAddrSoftOut(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -11796,7 +11492,7 @@ class ClearBgpInstanceAfiSafiIpAddrSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiIpAddrSoft.Input>`
     
     
 
@@ -11830,44 +11526,36 @@ class ClearBgpInstanceAfiSafiIpAddrSoft(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -11912,7 +11600,7 @@ class ClearBgpInstanceAfiSafiAsSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAsSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAsSoftInPrefixFilter.Input>`
     
     
 
@@ -11946,56 +11634,40 @@ class ClearBgpInstanceAfiSafiAsSoftInPrefixFilter(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -12039,7 +11711,7 @@ class ClearBgpInstanceAfiSafiAsSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAsSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAsSoftIn.Input>`
     
     
 
@@ -12073,56 +11745,40 @@ class ClearBgpInstanceAfiSafiAsSoftIn(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -12166,7 +11822,7 @@ class ClearBgpInstanceAfiSafiAsSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAsSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAsSoftOut.Input>`
     
     
 
@@ -12200,56 +11856,40 @@ class ClearBgpInstanceAfiSafiAsSoftOut(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -12292,7 +11932,7 @@ class ClearBgpInstanceAfiSafiAsSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAsSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiAsSoft.Input>`
     
     
 
@@ -12326,56 +11966,40 @@ class ClearBgpInstanceAfiSafiAsSoft(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -12417,7 +12041,7 @@ class ClearBgpInstanceAfiSafiDampeningIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiDampeningIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiDampeningIpPrefix.Input>`
     
     
 
@@ -12451,44 +12075,36 @@ class ClearBgpInstanceAfiSafiDampeningIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and mask or masklength to clear dampening information
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -12530,7 +12146,7 @@ class ClearBgpInstanceAfiSafiDampening(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiDampening.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiDampening.Input>`
     
     
 
@@ -12564,24 +12180,18 @@ class ClearBgpInstanceAfiSafiDampening(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -12627,7 +12237,7 @@ class ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter.Input>`
     
     
 
@@ -12661,24 +12271,18 @@ class ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -12723,7 +12327,7 @@ class ClearBgpInstanceAfiSafiExternalSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiExternalSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiExternalSoftIn.Input>`
     
     
 
@@ -12757,24 +12361,18 @@ class ClearBgpInstanceAfiSafiExternalSoftIn(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -12819,7 +12417,7 @@ class ClearBgpInstanceAfiSafiExternalSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiExternalSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiExternalSoftOut.Input>`
     
     
 
@@ -12853,24 +12451,18 @@ class ClearBgpInstanceAfiSafiExternalSoftOut(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -12914,7 +12506,7 @@ class ClearBgpInstanceAfiSafiExternalSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiExternalSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiExternalSoft.Input>`
     
     
 
@@ -12948,24 +12540,18 @@ class ClearBgpInstanceAfiSafiExternalSoft(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -13008,7 +12594,7 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.Input>`
     
     
 
@@ -13042,48 +12628,42 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ipv4_mask
         
         	Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -13130,7 +12710,7 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpAddr.Input>`
     
     
 
@@ -13164,44 +12744,36 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -13243,7 +12815,7 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix.Input>`
     
     
 
@@ -13277,44 +12849,36 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and mask or masklength to clear flap statistics
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -13357,7 +12921,7 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRegexp(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsRegexp.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsRegexp.Input>`
     
     
 
@@ -13391,31 +12955,25 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRegexp(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: regexp_pattern
         
         	A regular expression to match the BGP AS paths.  Use 'ctrl\-v ?' to enter '?'
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -13461,7 +13019,7 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.Input>`
     
     
 
@@ -13495,31 +13053,25 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: route_policy_name
         
         	Route Policy name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -13564,7 +13116,7 @@ class ClearBgpInstanceAfiSafiFlapStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatistics.Input>`
     
     
 
@@ -13598,24 +13150,18 @@ class ClearBgpInstanceAfiSafiFlapStatistics(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -13659,7 +13205,7 @@ class ClearBgpInstanceAfiSafiNexthopPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiNexthopPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiNexthopPerformanceStatistics.Input>`
     
     
 
@@ -13693,24 +13239,18 @@ class ClearBgpInstanceAfiSafiNexthopPerformanceStatistics(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -13754,7 +13294,7 @@ class ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr.Input>`
     
     
 
@@ -13788,44 +13328,36 @@ class ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Nexthop address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -13867,7 +13399,7 @@ class ClearBgpInstanceAfiSafiSelfOriginated(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiSelfOriginated.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiSelfOriginated.Input>`
     
     
 
@@ -13901,24 +13433,18 @@ class ClearBgpInstanceAfiSafiSelfOriginated(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -13961,7 +13487,7 @@ class ClearBgpInstanceAfiSafiShutdown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiShutdown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiShutdown.Input>`
     
     
 
@@ -13995,24 +13521,18 @@ class ClearBgpInstanceAfiSafiShutdown(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -14058,7 +13578,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.Input>`
     
     
 
@@ -14092,24 +13612,18 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -14154,7 +13668,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamily(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqAddressFamily.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqAddressFamily.Input>`
     
     
 
@@ -14188,24 +13702,18 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamily(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -14252,7 +13760,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity)
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
     
     
 
@@ -14286,44 +13794,36 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity)
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -14368,7 +13868,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.Input>`
     
     
 
@@ -14402,44 +13902,36 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -14484,7 +13976,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input>`
     
     
 
@@ -14518,44 +14010,36 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -14599,7 +14083,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.Input>`
     
     
 
@@ -14633,44 +14117,36 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -14716,7 +14192,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
     
     
 
@@ -14750,38 +14226,36 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -14831,7 +14305,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.Input>`
     
     
 
@@ -14865,38 +14339,36 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -14947,7 +14419,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
     
     
 
@@ -14981,38 +14453,36 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -15062,7 +14532,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
     
     
 
@@ -15096,38 +14566,36 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -15177,7 +14645,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.Input>`
     
     
 
@@ -15211,31 +14679,27 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -15282,7 +14746,7 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup.Input>`
     
     
 
@@ -15316,31 +14780,27 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -15386,7 +14846,7 @@ class ClearBgpInstanceAsGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAsGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAsGraceful.Input>`
     
     
 
@@ -15420,49 +14880,33 @@ class ClearBgpInstanceAsGraceful(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -15502,7 +14946,7 @@ class ClearBgpInstanceAs(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAs.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAs.Input>`
     
     
 
@@ -15536,49 +14980,33 @@ class ClearBgpInstanceAs(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -15618,7 +15046,7 @@ class ClearBgpInstanceBestpathIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathIpAddrIpNetmask.Input>`
     
     
 
@@ -15652,54 +15080,44 @@ class ClearBgpInstanceBestpathIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -15741,7 +15159,7 @@ class ClearBgpInstanceBestpathIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathIpAddr.Input>`
     
     
 
@@ -15775,37 +15193,29 @@ class ClearBgpInstanceBestpathIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -15845,7 +15255,7 @@ class ClearBgpInstanceBestpathIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathIpPrefix.Input>`
     
     
 
@@ -15879,37 +15289,29 @@ class ClearBgpInstanceBestpathIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -15949,7 +15351,7 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.Input>`
     
     
 
@@ -15983,61 +15385,51 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -16081,7 +15473,7 @@ class ClearBgpInstanceBestpathAfiSafiIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpAddr.Input>`
     
     
 
@@ -16115,44 +15507,36 @@ class ClearBgpInstanceBestpathAfiSafiIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -16194,7 +15578,7 @@ class ClearBgpInstanceBestpathAfiSafiIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpPrefix.Input>`
     
     
 
@@ -16228,44 +15612,36 @@ class ClearBgpInstanceBestpathAfiSafiIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -16308,7 +15684,7 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.Input>`
     
     
 
@@ -16342,68 +15718,58 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -16450,7 +15816,7 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.Input>`
     
     
 
@@ -16484,51 +15850,43 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -16573,7 +15931,7 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.Input>`
     
     
 
@@ -16607,51 +15965,43 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -16696,7 +16046,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.Input>`
     
     
 
@@ -16730,90 +16080,74 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -16860,7 +16194,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpAddr.Input>`
     
     
 
@@ -16894,73 +16228,59 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -17005,7 +16325,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpPrefix.Input>`
     
     
 
@@ -17039,73 +16359,59 @@ class ClearBgpInstanceBestpathAfiSafiRdIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -17149,7 +16455,7 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -17183,38 +16489,36 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -17261,7 +16565,7 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv4Addr.Input>`
     
     
 
@@ -17295,31 +16599,27 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -17364,7 +16664,7 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv4Prefix.Input>`
     
     
 
@@ -17398,31 +16698,27 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -17468,7 +16764,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv4Addr.Input>`
     
     
 
@@ -17502,60 +16798,50 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_addr
         
         	IPv4 MDT network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -17603,7 +16889,7 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr.Input>`
     
     
 
@@ -17637,38 +16923,34 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 MDT network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -17715,7 +16997,7 @@ class ClearBgpInstanceBestpathAfiSafiNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiNetwork.Input>`
     
     
 
@@ -17749,31 +17031,25 @@ class ClearBgpInstanceBestpathAfiSafiNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -17819,7 +17095,7 @@ class ClearBgpInstanceBestpathAfiSafiRdNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdNetwork.Input>`
     
     
 
@@ -17853,60 +17129,48 @@ class ClearBgpInstanceBestpathAfiSafiRdNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -17954,7 +17218,7 @@ class ClearBgpInstanceBestpathAfiSafiVrfNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfNetwork.Input>`
     
     
 
@@ -17988,38 +17252,32 @@ class ClearBgpInstanceBestpathAfiSafiVrfNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -18066,7 +17324,7 @@ class ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork.Input>`
     
     
 
@@ -18100,31 +17358,25 @@ class ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rt_constraint_network
         
         	RT\-Constraint network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -18169,7 +17421,7 @@ class ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.Input>`
     
     
 
@@ -18203,31 +17455,25 @@ class ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_tunnel_network
         
         	IPv4 Tunnel network <Tunnel\-ID>\:<IPv4 Address>
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -18272,7 +17518,7 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -18306,38 +17552,36 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -18384,7 +17628,7 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv6Addr.Input>`
     
     
 
@@ -18418,31 +17662,27 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -18487,7 +17727,7 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiIpv6Prefix.Input>`
     
     
 
@@ -18521,31 +17761,27 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -18591,7 +17827,7 @@ class ClearBgpInstanceBestpathAfiSafiRd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRd.Input>`
     
     
 
@@ -18625,56 +17861,44 @@ class ClearBgpInstanceBestpathAfiSafiRd(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -18717,7 +17941,7 @@ class ClearBgpInstanceBestpathAfiSafiVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrf.Input>`
     
     
 
@@ -18751,31 +17975,25 @@ class ClearBgpInstanceBestpathAfiSafiVrf(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -18820,7 +18038,7 @@ class ClearBgpInstanceBestpathAfiSafi(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafi.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafi.Input>`
     
     
 
@@ -18854,24 +18072,18 @@ class ClearBgpInstanceBestpathAfiSafi(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -18914,7 +18126,7 @@ class ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix.Input>`
     
     
 
@@ -18948,31 +18160,25 @@ class ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: sr_policy_prefix
         
         	SR Policy prefix
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -19018,7 +18224,7 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.Input>`
     
     
 
@@ -19052,38 +18258,34 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	L2VPN EVPN Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -19131,7 +18333,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix.Input>`
     
     
 
@@ -19165,60 +18367,50 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_prefix
         
         	L2VPN EVPN Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -19266,7 +18458,7 @@ class ClearBgpInstanceBestpathAfiSafiMp2MpIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiMp2MpIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiMp2MpIpv4Prefix.Input>`
     
     
 
@@ -19300,38 +18492,34 @@ class ClearBgpInstanceBestpathAfiSafiMp2MpIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: mp2mp
         
         	Xconnect Group\:mp2mp
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	L2VPN VPWS Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -19379,7 +18567,7 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.Input>`
     
     
 
@@ -19413,38 +18601,34 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	VPN Fspec Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -19492,7 +18676,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -19526,67 +18710,59 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -19636,7 +18812,7 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -19670,45 +18846,43 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -19758,7 +18932,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -19792,67 +18966,59 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -19902,7 +19068,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv6Addr.Input>`
     
     
 
@@ -19936,60 +19102,50 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -20037,7 +19193,7 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix.Input>`
     
     
 
@@ -20071,60 +19227,50 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -20172,7 +19318,7 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -20206,45 +19352,43 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -20294,7 +19438,7 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr.Input>`
     
     
 
@@ -20328,38 +19472,34 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -20407,7 +19547,7 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.Input>`
     
     
 
@@ -20441,38 +19581,34 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -20520,7 +19656,7 @@ class ClearBgpInstanceBestpathVrfIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfIpAddrIpNetmask.Input>`
     
     
 
@@ -20554,71 +19690,55 @@ class ClearBgpInstanceBestpathVrfIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -20663,7 +19783,7 @@ class ClearBgpInstanceBestpathVrfIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfIpAddr.Input>`
     
     
 
@@ -20697,54 +19817,40 @@ class ClearBgpInstanceBestpathVrfIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -20787,7 +19893,7 @@ class ClearBgpInstanceBestpathVrfIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfIpPrefix.Input>`
     
     
 
@@ -20821,54 +19927,40 @@ class ClearBgpInstanceBestpathVrfIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -20911,7 +20003,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.Input>`
     
     
 
@@ -20945,48 +20037,38 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	Fspec IPv4 Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -21034,7 +20116,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -21068,55 +20150,47 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -21166,7 +20240,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr.Input>`
     
     
 
@@ -21200,48 +20274,38 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -21289,7 +20353,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiNetwork.Input>`
     
     
 
@@ -21323,48 +20387,36 @@ class ClearBgpInstanceBestpathVrfAfiSafiNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -21413,7 +20465,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiRdNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiRdNetwork.Input>`
     
     
 
@@ -21447,77 +20499,59 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -21568,7 +20602,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork.Input>`
     
     
 
@@ -21602,55 +20636,43 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -21700,7 +20722,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -21734,55 +20756,47 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -21832,7 +20846,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr.Input>`
     
     
 
@@ -21866,48 +20880,38 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -21955,7 +20959,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.Input>`
     
     
 
@@ -21989,48 +20993,38 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -22079,7 +21073,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiRd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiRd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiRd.Input>`
     
     
 
@@ -22113,73 +21107,55 @@ class ClearBgpInstanceBestpathVrfAfiSafiRd(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -22225,7 +21201,7 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafiVrf.Input>`
     
     
 
@@ -22259,48 +21235,36 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrf(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -22348,7 +21312,7 @@ class ClearBgpInstanceBestpathVrfAfiSafi(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafi.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceBestpathVrfAfiSafi.Input>`
     
     
 
@@ -22382,41 +21346,29 @@ class ClearBgpInstanceBestpathVrfAfiSafi(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -22462,7 +21414,7 @@ class ClearBgpInstanceExternalGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceExternalGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceExternalGraceful.Input>`
     
     
 
@@ -22496,20 +21448,14 @@ class ClearBgpInstanceExternalGraceful(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -22547,7 +21493,7 @@ class ClearBgpInstanceExternal(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceExternal.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceExternal.Input>`
     
     
 
@@ -22581,20 +21527,14 @@ class ClearBgpInstanceExternal(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -22632,7 +21572,7 @@ class ClearBgpInstanceAfiSafiDampeningIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiDampeningIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiDampeningIpv4Prefix.Input>`
     
     
 
@@ -22666,31 +21606,27 @@ class ClearBgpInstanceAfiSafiDampeningIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 Network and mask or masklength to clear dampening information
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -22735,7 +21671,7 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.Input>`
     
     
 
@@ -22769,31 +21705,27 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -22838,7 +21770,7 @@ class ClearBgpInstanceAfiSafiDampeningIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiDampeningIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiDampeningIpv6Prefix.Input>`
     
     
 
@@ -22872,31 +21804,27 @@ class ClearBgpInstanceAfiSafiDampeningIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 Network and mask or masklength to clear dampening information
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -22941,7 +21869,7 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.Input>`
     
     
 
@@ -22975,31 +21903,27 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -23045,7 +21969,7 @@ class ClearBgpInstanceNexthopPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceNexthopPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceNexthopPerformanceStatistics.Input>`
     
     
 
@@ -23079,20 +22003,14 @@ class ClearBgpInstanceNexthopPerformanceStatistics(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -23131,7 +22049,7 @@ class ClearBgpInstanceNexthopRegistrationIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceNexthopRegistrationIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceNexthopRegistrationIpAddr.Input>`
     
     
 
@@ -23165,37 +22083,29 @@ class ClearBgpInstanceNexthopRegistrationIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Nexthop address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -23236,7 +22146,7 @@ class ClearBgpInstancePeerDropsAll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstancePeerDropsAll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstancePeerDropsAll.Input>`
     
     
 
@@ -23270,20 +22180,14 @@ class ClearBgpInstancePeerDropsAll(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -23321,7 +22225,7 @@ class ClearBgpInstancePeerDropsIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstancePeerDropsIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstancePeerDropsIpAddr.Input>`
     
     
 
@@ -23355,37 +22259,29 @@ class ClearBgpInstancePeerDropsIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor IP address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -23425,7 +22321,7 @@ class ClearBgpInstancePerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstancePerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstancePerformanceStatistics.Input>`
     
     
 
@@ -23459,20 +22355,14 @@ class ClearBgpInstancePerformanceStatistics(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -23513,7 +22403,7 @@ class ClearBgpInstanceRpkiServerAllSerialQuery(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiServerAllSerialQuery.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiServerAllSerialQuery.Input>`
     
     
 
@@ -23547,20 +22437,14 @@ class ClearBgpInstanceRpkiServerAllSerialQuery(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -23600,7 +22484,7 @@ class ClearBgpInstanceRpkiServerAll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiServerAll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiServerAll.Input>`
     
     
 
@@ -23634,20 +22518,14 @@ class ClearBgpInstanceRpkiServerAll(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -23686,7 +22564,7 @@ class ClearBgpInstanceRpkiServerRpkiServer(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiServerRpkiServer.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiServerRpkiServer.Input>`
     
     
 
@@ -23720,24 +22598,18 @@ class ClearBgpInstanceRpkiServerRpkiServer(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: rpki_server
         
         	clear a specific RPKI cache\-server (hostname or IP address)
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -23782,7 +22654,7 @@ class ClearBgpInstanceRpkiValidationIpv4(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiValidationIpv4.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiValidationIpv4.Input>`
     
     
 
@@ -23816,20 +22688,14 @@ class ClearBgpInstanceRpkiValidationIpv4(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -23869,7 +22735,7 @@ class ClearBgpInstanceRpkiValidationIpv6(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiValidationIpv6.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiValidationIpv6.Input>`
     
     
 
@@ -23903,20 +22769,14 @@ class ClearBgpInstanceRpkiValidationIpv6(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -23955,7 +22815,7 @@ class ClearBgpInstanceRpkiValidation(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiValidation.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceRpkiValidation.Input>`
     
     
 
@@ -23989,20 +22849,14 @@ class ClearBgpInstanceRpkiValidation(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -24040,7 +22894,7 @@ class ClearBgpInstanceShutdown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceShutdown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceShutdown.Input>`
     
     
 
@@ -24074,20 +22928,14 @@ class ClearBgpInstanceShutdown(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -24128,7 +22976,7 @@ class ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent.Input>`
     
     
 
@@ -24162,20 +23010,14 @@ class ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -24215,7 +23057,7 @@ class ClearBgpInstanceUpdateOutqAddressFamily(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqAddressFamily.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqAddressFamily.Input>`
     
     
 
@@ -24249,20 +23091,14 @@ class ClearBgpInstanceUpdateOutqAddressFamily(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -24304,7 +23140,7 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
     
     
 
@@ -24338,37 +23174,29 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -24411,7 +23239,7 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh.Input>`
     
     
 
@@ -24445,37 +23273,29 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -24518,7 +23338,7 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.Input>`
     
     
 
@@ -24552,37 +23372,29 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -24624,7 +23436,7 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqNeighborIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqNeighborIpAddr.Input>`
     
     
 
@@ -24658,37 +23470,29 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -24730,7 +23534,7 @@ class ClearBgpInstanceUpdateOutqProcess(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqProcess.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqProcess.Input>`
     
     
 
@@ -24764,20 +23568,14 @@ class ClearBgpInstanceUpdateOutqProcess(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -24819,7 +23617,7 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
     
     
 
@@ -24853,31 +23651,29 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -24925,7 +23721,7 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupSubGroup.Input>`
     
     
 
@@ -24959,31 +23755,29 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -25032,7 +23826,7 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(E
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
     
     
 
@@ -25066,31 +23860,29 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(E
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -25138,7 +23930,7 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
     
     
 
@@ -25172,31 +23964,29 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -25244,7 +24034,7 @@ class ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent.Input>`
     
     
 
@@ -25278,24 +24068,20 @@ class ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -25340,7 +24126,7 @@ class ClearBgpInstanceUpdateOutqUpdateGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceUpdateOutqUpdateGroup.Input>`
     
     
 
@@ -25374,24 +24160,20 @@ class ClearBgpInstanceUpdateOutqUpdateGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -25434,7 +24216,7 @@ class ClearBgpInstanceVersionIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionIpAddrIpNetmask.Input>`
     
     
 
@@ -25468,54 +24250,44 @@ class ClearBgpInstanceVersionIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -25557,7 +24329,7 @@ class ClearBgpInstanceVersionIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionIpAddr.Input>`
     
     
 
@@ -25591,37 +24363,29 @@ class ClearBgpInstanceVersionIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -25661,7 +24425,7 @@ class ClearBgpInstanceVersionIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionIpPrefix.Input>`
     
     
 
@@ -25695,37 +24459,29 @@ class ClearBgpInstanceVersionIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -25765,7 +24521,7 @@ class ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask.Input>`
     
     
 
@@ -25799,61 +24555,51 @@ class ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -25897,7 +24643,7 @@ class ClearBgpInstanceVersionAfiSafiIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpAddr.Input>`
     
     
 
@@ -25931,44 +24677,36 @@ class ClearBgpInstanceVersionAfiSafiIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -26010,7 +24748,7 @@ class ClearBgpInstanceVersionAfiSafiIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpPrefix.Input>`
     
     
 
@@ -26044,44 +24782,36 @@ class ClearBgpInstanceVersionAfiSafiIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -26124,7 +24854,7 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.Input>`
     
     
 
@@ -26158,68 +24888,58 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -26266,7 +24986,7 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.Input>`
     
     
 
@@ -26300,51 +25020,43 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -26389,7 +25101,7 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.Input>`
     
     
 
@@ -26423,51 +25135,43 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -26512,7 +25216,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.Input>`
     
     
 
@@ -26546,90 +25250,74 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -26676,7 +25364,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpAddr.Input>`
     
     
 
@@ -26710,73 +25398,59 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -26821,7 +25495,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpPrefix.Input>`
     
     
 
@@ -26855,73 +25529,59 @@ class ClearBgpInstanceVersionAfiSafiRdIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -26965,7 +25625,7 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -26999,38 +25659,36 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -27077,7 +25735,7 @@ class ClearBgpInstanceVersionAfiSafiIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv4Addr.Input>`
     
     
 
@@ -27111,31 +25769,27 @@ class ClearBgpInstanceVersionAfiSafiIpv4Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -27180,7 +25834,7 @@ class ClearBgpInstanceVersionAfiSafiIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv4Prefix.Input>`
     
     
 
@@ -27214,31 +25868,27 @@ class ClearBgpInstanceVersionAfiSafiIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -27284,7 +25934,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv4Addr.Input>`
     
     
 
@@ -27318,60 +25968,50 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_addr
         
         	IPv4 MDT network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -27419,7 +26059,7 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv4Addr.Input>`
     
     
 
@@ -27453,38 +26093,34 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 MDT network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -27531,7 +26167,7 @@ class ClearBgpInstanceVersionAfiSafiNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiNetwork.Input>`
     
     
 
@@ -27565,31 +26201,25 @@ class ClearBgpInstanceVersionAfiSafiNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -27635,7 +26265,7 @@ class ClearBgpInstanceVersionAfiSafiRdNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdNetwork.Input>`
     
     
 
@@ -27669,60 +26299,48 @@ class ClearBgpInstanceVersionAfiSafiRdNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -27770,7 +26388,7 @@ class ClearBgpInstanceVersionAfiSafiVrfNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfNetwork.Input>`
     
     
 
@@ -27804,38 +26422,32 @@ class ClearBgpInstanceVersionAfiSafiVrfNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -27882,7 +26494,7 @@ class ClearBgpInstanceVersionAfiSafiRtConstraintNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRtConstraintNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRtConstraintNetwork.Input>`
     
     
 
@@ -27916,31 +26528,25 @@ class ClearBgpInstanceVersionAfiSafiRtConstraintNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rt_constraint_network
         
         	RT\-Constraint network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -27985,7 +26591,7 @@ class ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.Input>`
     
     
 
@@ -28019,31 +26625,25 @@ class ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_tunnel_network
         
         	IPv4 Tunnel network <Tunnel\-ID>\:<IPv4 Address>
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -28088,7 +26688,7 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -28122,38 +26722,36 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -28200,7 +26798,7 @@ class ClearBgpInstanceVersionAfiSafiIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv6Addr.Input>`
     
     
 
@@ -28234,31 +26832,27 @@ class ClearBgpInstanceVersionAfiSafiIpv6Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -28303,7 +26897,7 @@ class ClearBgpInstanceVersionAfiSafiIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiIpv6Prefix.Input>`
     
     
 
@@ -28337,31 +26931,27 @@ class ClearBgpInstanceVersionAfiSafiIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -28407,7 +26997,7 @@ class ClearBgpInstanceVersionAfiSafiRd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRd.Input>`
     
     
 
@@ -28441,56 +27031,44 @@ class ClearBgpInstanceVersionAfiSafiRd(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -28533,7 +27111,7 @@ class ClearBgpInstanceVersionAfiSafiVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrf.Input>`
     
     
 
@@ -28567,31 +27145,25 @@ class ClearBgpInstanceVersionAfiSafiVrf(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -28636,7 +27208,7 @@ class ClearBgpInstanceVersionAfiSafi(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafi.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafi.Input>`
     
     
 
@@ -28670,24 +27242,18 @@ class ClearBgpInstanceVersionAfiSafi(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -28730,7 +27296,7 @@ class ClearBgpInstanceVersionAfiSafiSrPolicyPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiSrPolicyPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiSrPolicyPrefix.Input>`
     
     
 
@@ -28764,31 +27330,25 @@ class ClearBgpInstanceVersionAfiSafiSrPolicyPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: sr_policy_prefix
         
         	SR Policy prefix
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -28834,7 +27394,7 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.Input>`
     
     
 
@@ -28868,38 +27428,34 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	L2VPN EVPN Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -28947,7 +27503,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv4Prefix.Input>`
     
     
 
@@ -28981,60 +27537,50 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_prefix
         
         	L2VPN EVPN Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -29082,7 +27628,7 @@ class ClearBgpInstanceVersionAfiSafiMp2MpIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiMp2MpIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiMp2MpIpv4Prefix.Input>`
     
     
 
@@ -29116,38 +27662,34 @@ class ClearBgpInstanceVersionAfiSafiMp2MpIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: mp2mp
         
         	Xconnect Group\:mp2mp
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	L2VPN VPWS Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -29195,7 +27737,7 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix.Input>`
     
     
 
@@ -29229,38 +27771,34 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	VPN Fspec Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -29308,7 +27846,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -29342,67 +27880,59 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -29452,7 +27982,7 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -29486,45 +28016,43 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -29574,7 +28102,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -29608,67 +28136,59 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -29718,7 +28238,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv6Addr.Input>`
     
     
 
@@ -29752,60 +28272,50 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -29853,7 +28363,7 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiRdIpv6Prefix.Input>`
     
     
 
@@ -29887,60 +28397,50 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -29988,7 +28488,7 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -30022,45 +28522,43 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -30110,7 +28608,7 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv6Addr.Input>`
     
     
 
@@ -30144,38 +28642,34 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -30223,7 +28717,7 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix.Input>`
     
     
 
@@ -30257,38 +28751,34 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -30336,7 +28826,7 @@ class ClearBgpInstanceVersionVrfIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfIpAddrIpNetmask.Input>`
     
     
 
@@ -30370,71 +28860,55 @@ class ClearBgpInstanceVersionVrfIpAddrIpNetmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -30479,7 +28953,7 @@ class ClearBgpInstanceVersionVrfIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfIpAddr.Input>`
     
     
 
@@ -30513,54 +28987,40 @@ class ClearBgpInstanceVersionVrfIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -30603,7 +29063,7 @@ class ClearBgpInstanceVersionVrfIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfIpPrefix.Input>`
     
     
 
@@ -30637,54 +29097,40 @@ class ClearBgpInstanceVersionVrfIpPrefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -30727,7 +29173,7 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix.Input>`
     
     
 
@@ -30761,48 +29207,38 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	Fspec IPv4 Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -30850,7 +29286,7 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -30884,55 +29320,47 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -30982,7 +29410,7 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv4Addr.Input>`
     
     
 
@@ -31016,48 +29444,38 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -31105,7 +29523,7 @@ class ClearBgpInstanceVersionVrfAfiSafiNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiNetwork.Input>`
     
     
 
@@ -31139,48 +29557,36 @@ class ClearBgpInstanceVersionVrfAfiSafiNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -31229,7 +29635,7 @@ class ClearBgpInstanceVersionVrfAfiSafiRdNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiRdNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiRdNetwork.Input>`
     
     
 
@@ -31263,77 +29669,59 @@ class ClearBgpInstanceVersionVrfAfiSafiRdNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -31384,7 +29772,7 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiVrfNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiVrfNetwork.Input>`
     
     
 
@@ -31418,55 +29806,43 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfNetwork(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -31516,7 +29892,7 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -31550,55 +29926,47 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -31648,7 +30016,7 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv6Addr.Input>`
     
     
 
@@ -31682,48 +30050,38 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Addr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -31771,7 +30129,7 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix.Input>`
     
     
 
@@ -31805,48 +30163,38 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -31895,7 +30243,7 @@ class ClearBgpInstanceVersionVrfAfiSafiRd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiRd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiRd.Input>`
     
     
 
@@ -31929,73 +30277,55 @@ class ClearBgpInstanceVersionVrfAfiSafiRd(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -32041,7 +30371,7 @@ class ClearBgpInstanceVersionVrfAfiSafiVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafiVrf.Input>`
     
     
 
@@ -32075,48 +30405,36 @@ class ClearBgpInstanceVersionVrfAfiSafiVrf(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -32164,7 +30482,7 @@ class ClearBgpInstanceVersionVrfAfiSafi(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafi.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVersionVrfAfiSafi.Input>`
     
     
 
@@ -32198,41 +30516,29 @@ class ClearBgpInstanceVersionVrfAfiSafi(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -32279,7 +30585,7 @@ class ClearBgpInstanceVrfAllGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAllGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAllGraceful.Input>`
     
     
 
@@ -32313,37 +30619,25 @@ class ClearBgpInstanceVrfAllGraceful(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -32384,7 +30678,7 @@ class ClearBgpInstanceVrfAll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAll.Input>`
     
     
 
@@ -32418,37 +30712,25 @@ class ClearBgpInstanceVrfAll(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -32489,7 +30771,7 @@ class ClearBgpInstanceVrfIpAddrGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfIpAddrGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfIpAddrGraceful.Input>`
     
     
 
@@ -32523,54 +30805,40 @@ class ClearBgpInstanceVrfIpAddrGraceful(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -32613,7 +30881,7 @@ class ClearBgpInstanceVrfIpAddrLongLivedStale(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfIpAddrLongLivedStale.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfIpAddrLongLivedStale.Input>`
     
     
 
@@ -32647,54 +30915,40 @@ class ClearBgpInstanceVrfIpAddrLongLivedStale(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -32736,7 +30990,7 @@ class ClearBgpInstanceVrfIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfIpAddr.Input>`
     
     
 
@@ -32770,54 +31024,40 @@ class ClearBgpInstanceVrfIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -32861,7 +31101,7 @@ class ClearBgpInstanceVrfAsGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAsGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAsGraceful.Input>`
     
     
 
@@ -32895,66 +31135,44 @@ class ClearBgpInstanceVrfAsGraceful(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -32997,7 +31215,7 @@ class ClearBgpInstanceVrfAs(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAs.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAs.Input>`
     
     
 
@@ -33031,66 +31249,44 @@ class ClearBgpInstanceVrfAs(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -33134,7 +31330,7 @@ class ClearBgpInstanceVrfExternalGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfExternalGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfExternalGraceful.Input>`
     
     
 
@@ -33168,37 +31364,25 @@ class ClearBgpInstanceVrfExternalGraceful(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -33239,7 +31423,7 @@ class ClearBgpInstanceVrfExternal(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfExternal.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfExternal.Input>`
     
     
 
@@ -33273,37 +31457,25 @@ class ClearBgpInstanceVrfExternal(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -33347,7 +31519,7 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.Input>`
     
     
 
@@ -33381,41 +31553,29 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -33463,7 +31623,7 @@ class ClearBgpInstanceVrfAfiSafiAllSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAllSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAllSoftIn.Input>`
     
     
 
@@ -33497,41 +31657,29 @@ class ClearBgpInstanceVrfAfiSafiAllSoftIn(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -33579,7 +31727,7 @@ class ClearBgpInstanceVrfAfiSafiAllSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAllSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAllSoftOut.Input>`
     
     
 
@@ -33613,41 +31761,29 @@ class ClearBgpInstanceVrfAfiSafiAllSoftOut(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -33694,7 +31830,7 @@ class ClearBgpInstanceVrfAfiSafiAllSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAllSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAllSoft.Input>`
     
     
 
@@ -33728,41 +31864,29 @@ class ClearBgpInstanceVrfAfiSafiAllSoft(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -33808,7 +31932,7 @@ class ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.Input>`
     
     
 
@@ -33842,61 +31966,47 @@ class ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -33943,7 +32053,7 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.Input>`
     
     
 
@@ -33977,61 +32087,47 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -34077,7 +32173,7 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrSoftIn.Input>`
     
     
 
@@ -34111,61 +32207,47 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftIn(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -34211,7 +32293,7 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrSoftOut.Input>`
     
     
 
@@ -34245,61 +32327,47 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftOut(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -34344,7 +32412,7 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiIpAddrSoft.Input>`
     
     
 
@@ -34378,61 +32446,47 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoft(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -34480,7 +32534,7 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.Input>`
     
     
 
@@ -34514,73 +32568,51 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -34627,7 +32659,7 @@ class ClearBgpInstanceVrfAfiSafiAsSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAsSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAsSoftIn.Input>`
     
     
 
@@ -34661,73 +32693,51 @@ class ClearBgpInstanceVrfAfiSafiAsSoftIn(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -34774,7 +32784,7 @@ class ClearBgpInstanceVrfAfiSafiAsSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAsSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAsSoftOut.Input>`
     
     
 
@@ -34808,73 +32818,51 @@ class ClearBgpInstanceVrfAfiSafiAsSoftOut(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -34920,7 +32908,7 @@ class ClearBgpInstanceVrfAfiSafiAsSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAsSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiAsSoft.Input>`
     
     
 
@@ -34954,73 +32942,51 @@ class ClearBgpInstanceVrfAfiSafiAsSoft(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -35065,7 +33031,7 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.Input>`
     
     
 
@@ -35099,48 +33065,38 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 Network and mask or masklength to clear dampening information
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -35188,7 +33144,7 @@ class ClearBgpInstanceVrfAfiSafiDampening(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiDampening.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiDampening.Input>`
     
     
 
@@ -35222,41 +33178,29 @@ class ClearBgpInstanceVrfAfiSafiDampening(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -35305,7 +33249,7 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.Input>`
     
     
 
@@ -35339,41 +33283,29 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -35421,7 +33353,7 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiExternalSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiExternalSoftIn.Input>`
     
     
 
@@ -35455,41 +33387,29 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftIn(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -35537,7 +33457,7 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiExternalSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiExternalSoftOut.Input>`
     
     
 
@@ -35571,41 +33491,29 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftOut(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -35652,7 +33560,7 @@ class ClearBgpInstanceVrfAfiSafiExternalSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiExternalSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiExternalSoft.Input>`
     
     
 
@@ -35686,41 +33594,29 @@ class ClearBgpInstanceVrfAfiSafiExternalSoft(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -35766,7 +33662,7 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.Input>`
     
     
 
@@ -35800,65 +33696,53 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ipv4_mask
         
         	IPv4 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -35908,7 +33792,7 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.Input>`
     
     
 
@@ -35942,61 +33826,47 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -36041,7 +33911,7 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.Input>`
     
     
 
@@ -36075,48 +33945,38 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -36165,7 +34025,7 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.Input>`
     
     
 
@@ -36199,48 +34059,36 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: regexp_pattern
         
         	A regular expression to match the BGP AS paths.  Use 'ctrl\-v ?' to enter '?'
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -36289,7 +34137,7 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.Input>`
     
     
 
@@ -36323,48 +34171,36 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: route_policy_name
         
         	Route Policy name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -36412,7 +34248,7 @@ class ClearBgpInstanceVrfAfiSafiFlapStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatistics.Input>`
     
     
 
@@ -36446,41 +34282,29 @@ class ClearBgpInstanceVrfAfiSafiFlapStatistics(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -36527,7 +34351,7 @@ class ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.Input>`
     
     
 
@@ -36561,41 +34385,29 @@ class ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -36642,7 +34454,7 @@ class ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.Input>`
     
     
 
@@ -36676,61 +34488,47 @@ class ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Nexthop address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -36775,7 +34573,7 @@ class ClearBgpInstanceVrfAfiSafiSelfOriginated(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiSelfOriginated.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiSelfOriginated.Input>`
     
     
 
@@ -36809,41 +34607,29 @@ class ClearBgpInstanceVrfAfiSafiSelfOriginated(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -36889,7 +34675,7 @@ class ClearBgpInstanceVrfAfiSafiShutdown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiShutdown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiShutdown.Input>`
     
     
 
@@ -36923,41 +34709,29 @@ class ClearBgpInstanceVrfAfiSafiShutdown(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -37006,7 +34780,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.Input>`
     
     
 
@@ -37040,41 +34814,29 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -37122,7 +34884,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.Input>`
     
     
 
@@ -37156,41 +34918,29 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -37240,7 +34990,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Enti
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
     
     
 
@@ -37274,61 +35024,47 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Enti
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -37376,7 +35112,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.Input>`
     
     
 
@@ -37410,61 +35146,47 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -37512,7 +35234,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input>`
     
     
 
@@ -37546,61 +35268,47 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -37647,7 +35355,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.Input>`
     
     
 
@@ -37681,61 +35389,47 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -37784,7 +35478,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
     
     
 
@@ -37818,55 +35512,47 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -37919,7 +35605,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.Input>`
     
     
 
@@ -37953,55 +35639,47 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -38055,7 +35733,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
     
     
 
@@ -38089,55 +35767,47 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -38190,7 +35860,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Ent
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
     
     
 
@@ -38224,55 +35894,47 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Ent
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -38325,7 +35987,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.Input>`
     
     
 
@@ -38359,48 +36021,38 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -38450,7 +36102,7 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.Input>`
     
     
 
@@ -38484,48 +36136,38 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -38573,7 +36215,7 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.Input>`
     
     
 
@@ -38607,48 +36249,38 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 Network and mask or masklength to clear dampening information
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -38696,7 +36328,7 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.Input>`
     
     
 
@@ -38730,48 +36362,38 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -38820,7 +36442,7 @@ class ClearBgpInstanceVrfNexthopPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfNexthopPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfNexthopPerformanceStatistics.Input>`
     
     
 
@@ -38854,37 +36476,25 @@ class ClearBgpInstanceVrfNexthopPerformanceStatistics(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -38926,7 +36536,7 @@ class ClearBgpInstanceVrfNexthopRegistrationIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfNexthopRegistrationIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfNexthopRegistrationIpAddr.Input>`
     
     
 
@@ -38960,54 +36570,40 @@ class ClearBgpInstanceVrfNexthopRegistrationIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Nexthop address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -39051,7 +36647,7 @@ class ClearBgpInstanceVrfPeerDropsAll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfPeerDropsAll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfPeerDropsAll.Input>`
     
     
 
@@ -39085,37 +36681,25 @@ class ClearBgpInstanceVrfPeerDropsAll(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -39156,7 +36740,7 @@ class ClearBgpInstanceVrfPeerDropsIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfPeerDropsIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfPeerDropsIpAddr.Input>`
     
     
 
@@ -39190,54 +36774,40 @@ class ClearBgpInstanceVrfPeerDropsIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor IP address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -39280,7 +36850,7 @@ class ClearBgpInstanceVrfPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfPerformanceStatistics.Input>`
     
     
 
@@ -39314,37 +36884,25 @@ class ClearBgpInstanceVrfPerformanceStatistics(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -39385,7 +36943,7 @@ class ClearBgpInstanceVrfShutdown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfShutdown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfShutdown.Input>`
     
     
 
@@ -39419,37 +36977,25 @@ class ClearBgpInstanceVrfShutdown(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -39493,7 +37039,7 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.Input>`
     
     
 
@@ -39527,37 +37073,25 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -39600,7 +37134,7 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamily(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqAddressFamily.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqAddressFamily.Input>`
     
     
 
@@ -39634,37 +37168,25 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamily(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -39709,7 +37231,7 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
     
     
 
@@ -39743,54 +37265,40 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -39836,7 +37344,7 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.Input>`
     
     
 
@@ -39870,54 +37378,40 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -39963,7 +37457,7 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.Input>`
     
     
 
@@ -39997,54 +37491,40 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -40089,7 +37569,7 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqNeighborIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqNeighborIpAddr.Input>`
     
     
 
@@ -40123,54 +37603,40 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddr(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -40217,7 +37683,7 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
     
     
 
@@ -40251,48 +37717,40 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -40343,7 +37801,7 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.Input>`
     
     
 
@@ -40377,48 +37835,40 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -40470,7 +37920,7 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParen
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
     
     
 
@@ -40504,48 +37954,40 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParen
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -40596,7 +38038,7 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
     
     
 
@@ -40630,48 +38072,40 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -40722,7 +38156,7 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.Input>`
     
     
 
@@ -40756,41 +38190,31 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -40838,7 +38262,7 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpInstanceVrfUpdateOutqUpdateGroup.Input>`
     
     
 
@@ -40872,41 +38296,31 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroup(Entity):
         .. attribute:: instance_name
         
         	instance name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
+        		**type**\:  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.InstanceName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -40950,7 +38364,7 @@ class ClearBgpAfiSafiDampeningIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiDampeningIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiDampeningIpv4Prefix.Input>`
     
     
 
@@ -40984,14 +38398,16 @@ class ClearBgpAfiSafiDampeningIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 Network and mask or masklength to clear dampening information
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -41033,7 +38449,7 @@ class ClearBgpAfiSafiFlapStatisticsIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpv4Prefix.Input>`
     
     
 
@@ -41067,14 +38483,16 @@ class ClearBgpAfiSafiFlapStatisticsIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -41116,7 +38534,7 @@ class ClearBgpAfiSafiDampeningIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiDampeningIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiDampeningIpv6Prefix.Input>`
     
     
 
@@ -41150,14 +38568,16 @@ class ClearBgpAfiSafiDampeningIpv6Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 Network and mask or masklength to clear dampening information
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -41199,7 +38619,7 @@ class ClearBgpAfiSafiFlapStatisticsIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpAfiSafiFlapStatisticsIpv6Prefix.Input>`
     
     
 
@@ -41233,14 +38653,16 @@ class ClearBgpAfiSafiFlapStatisticsIpv6Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -41312,7 +38734,7 @@ class ClearBgpNexthopRegistrationIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpNexthopRegistrationIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpNexthopRegistrationIpAddr.Input>`
     
     
 
@@ -41346,20 +38768,18 @@ class ClearBgpNexthopRegistrationIpAddr(Entity):
         .. attribute:: ip_addr
         
         	Nexthop address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -41425,7 +38845,7 @@ class ClearBgpPeerDropsIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpPeerDropsIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpPeerDropsIpAddr.Input>`
     
     
 
@@ -41459,20 +38879,18 @@ class ClearBgpPeerDropsIpAddr(Entity):
         .. attribute:: ip_addr
         
         	BGP neighbor IP address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -41599,7 +39017,7 @@ class ClearBgpRpkiServerRpkiServer(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpRpkiServerRpkiServer.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpRpkiServerRpkiServer.Input>`
     
     
 
@@ -41633,7 +39051,7 @@ class ClearBgpRpkiServerRpkiServer(Entity):
         .. attribute:: rpki_server
         
         	clear a specific RPKI cache\-server (hostname or IP address)
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -41855,7 +39273,7 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
     
     
 
@@ -41889,20 +39307,18 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -41942,7 +39358,7 @@ class ClearBgpUpdateOutqNeighborIpAddrRefresh(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqNeighborIpAddrRefresh.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqNeighborIpAddrRefresh.Input>`
     
     
 
@@ -41976,20 +39392,18 @@ class ClearBgpUpdateOutqNeighborIpAddrRefresh(Entity):
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -42029,7 +39443,7 @@ class ClearBgpUpdateOutqNeighborIpAddrUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqNeighborIpAddrUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqNeighborIpAddrUpdateParent.Input>`
     
     
 
@@ -42063,20 +39477,18 @@ class ClearBgpUpdateOutqNeighborIpAddrUpdateParent(Entity):
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -42115,7 +39527,7 @@ class ClearBgpUpdateOutqNeighborIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqNeighborIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqNeighborIpAddr.Input>`
     
     
 
@@ -42149,20 +39561,18 @@ class ClearBgpUpdateOutqNeighborIpAddr(Entity):
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -42233,7 +39643,7 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
     
     
 
@@ -42267,14 +39677,18 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -42319,7 +39733,7 @@ class ClearBgpUpdateOutqUpdateGroupSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupSubGroup.Input>`
     
     
 
@@ -42353,14 +39767,18 @@ class ClearBgpUpdateOutqUpdateGroupSubGroup(Entity):
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -42406,7 +39824,7 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
     
     
 
@@ -42440,14 +39858,18 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -42492,7 +39914,7 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
     
     
 
@@ -42526,14 +39948,18 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -42578,7 +40004,7 @@ class ClearBgpUpdateOutqUpdateGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroupUpdateParent.Input>`
     
     
 
@@ -42612,7 +40038,9 @@ class ClearBgpUpdateOutqUpdateGroupUpdateParent(Entity):
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -42654,7 +40082,7 @@ class ClearBgpUpdateOutqUpdateGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpUpdateOutqUpdateGroup.Input>`
     
     
 
@@ -42688,7 +40116,9 @@ class ClearBgpUpdateOutqUpdateGroup(Entity):
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -42728,7 +40158,7 @@ class ClearBgpVersionIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionIpAddrIpNetmask.Input>`
     
     
 
@@ -42762,37 +40192,33 @@ class ClearBgpVersionIpAddrIpNetmask(Entity):
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -42831,7 +40257,7 @@ class ClearBgpVersionIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionIpAddr.Input>`
     
     
 
@@ -42865,20 +40291,18 @@ class ClearBgpVersionIpAddr(Entity):
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -42915,7 +40339,7 @@ class ClearBgpVersionIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionIpPrefix.Input>`
     
     
 
@@ -42949,20 +40373,18 @@ class ClearBgpVersionIpPrefix(Entity):
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -42999,7 +40421,7 @@ class ClearBgpVersionAfiSafiIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpAddrIpNetmask.Input>`
     
     
 
@@ -43033,44 +40455,40 @@ class ClearBgpVersionAfiSafiIpAddrIpNetmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -43111,7 +40529,7 @@ class ClearBgpVersionAfiSafiIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpAddr.Input>`
     
     
 
@@ -43145,27 +40563,25 @@ class ClearBgpVersionAfiSafiIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -43204,7 +40620,7 @@ class ClearBgpVersionAfiSafiIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpPrefix.Input>`
     
     
 
@@ -43238,27 +40654,25 @@ class ClearBgpVersionAfiSafiIpPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -43298,7 +40712,7 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.Input>`
     
     
 
@@ -43332,51 +40746,47 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -43420,7 +40830,7 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiBridgeDomainIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiBridgeDomainIpAddr.Input>`
     
     
 
@@ -43454,34 +40864,32 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -43523,7 +40931,7 @@ class ClearBgpVersionAfiSafiBridgeDomainIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiBridgeDomainIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiBridgeDomainIpPrefix.Input>`
     
     
 
@@ -43557,34 +40965,32 @@ class ClearBgpVersionAfiSafiBridgeDomainIpPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -43626,7 +41032,7 @@ class ClearBgpVersionAfiSafiRdIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpAddrIpNetmask.Input>`
     
     
 
@@ -43660,73 +41066,63 @@ class ClearBgpVersionAfiSafiRdIpAddrIpNetmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -43770,7 +41166,7 @@ class ClearBgpVersionAfiSafiRdIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpAddr.Input>`
     
     
 
@@ -43804,56 +41200,48 @@ class ClearBgpVersionAfiSafiRdIpAddr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -43895,7 +41283,7 @@ class ClearBgpVersionAfiSafiRdIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpPrefix.Input>`
     
     
 
@@ -43929,56 +41317,48 @@ class ClearBgpVersionAfiSafiRdIpPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -44019,7 +41399,7 @@ class ClearBgpVersionAfiSafiIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -44053,21 +41433,25 @@ class ClearBgpVersionAfiSafiIpv4AddrIpv4Mask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -44111,7 +41495,7 @@ class ClearBgpVersionAfiSafiIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv4Addr.Input>`
     
     
 
@@ -44145,14 +41529,16 @@ class ClearBgpVersionAfiSafiIpv4Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -44194,7 +41580,7 @@ class ClearBgpVersionAfiSafiIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv4Prefix.Input>`
     
     
 
@@ -44228,14 +41614,16 @@ class ClearBgpVersionAfiSafiIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -44278,7 +41666,7 @@ class ClearBgpVersionAfiSafiRdIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv4Addr.Input>`
     
     
 
@@ -44312,43 +41700,39 @@ class ClearBgpVersionAfiSafiRdIpv4Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_addr
         
         	IPv4 MDT network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -44393,7 +41777,7 @@ class ClearBgpVersionAfiSafiVrfIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv4Addr.Input>`
     
     
 
@@ -44427,21 +41811,23 @@ class ClearBgpVersionAfiSafiVrfIpv4Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 MDT network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -44485,7 +41871,7 @@ class ClearBgpVersionAfiSafiNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiNetwork.Input>`
     
     
 
@@ -44519,14 +41905,14 @@ class ClearBgpVersionAfiSafiNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -44569,7 +41955,7 @@ class ClearBgpVersionAfiSafiRdNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdNetwork.Input>`
     
     
 
@@ -44603,43 +41989,37 @@ class ClearBgpVersionAfiSafiRdNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -44684,7 +42064,7 @@ class ClearBgpVersionAfiSafiVrfNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfNetwork.Input>`
     
     
 
@@ -44718,21 +42098,21 @@ class ClearBgpVersionAfiSafiVrfNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -44776,7 +42156,7 @@ class ClearBgpVersionAfiSafiRtConstraintNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRtConstraintNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRtConstraintNetwork.Input>`
     
     
 
@@ -44810,14 +42190,14 @@ class ClearBgpVersionAfiSafiRtConstraintNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rt_constraint_network
         
         	RT\-Constraint network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -44859,7 +42239,7 @@ class ClearBgpVersionAfiSafiIpv4TunnelNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv4TunnelNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv4TunnelNetwork.Input>`
     
     
 
@@ -44893,14 +42273,14 @@ class ClearBgpVersionAfiSafiIpv4TunnelNetwork(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_tunnel_network
         
         	IPv4 Tunnel network <Tunnel\-ID>\:<IPv4 Address>
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -44942,7 +42322,7 @@ class ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -44976,21 +42356,25 @@ class ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -45034,7 +42418,7 @@ class ClearBgpVersionAfiSafiIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv6Addr.Input>`
     
     
 
@@ -45068,14 +42452,16 @@ class ClearBgpVersionAfiSafiIpv6Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -45117,7 +42503,7 @@ class ClearBgpVersionAfiSafiIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiIpv6Prefix.Input>`
     
     
 
@@ -45151,14 +42537,16 @@ class ClearBgpVersionAfiSafiIpv6Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -45201,7 +42589,7 @@ class ClearBgpVersionAfiSafiRd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRd.Input>`
     
     
 
@@ -45235,39 +42623,33 @@ class ClearBgpVersionAfiSafiRd(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -45307,7 +42689,7 @@ class ClearBgpVersionAfiSafiVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrf.Input>`
     
     
 
@@ -45341,14 +42723,14 @@ class ClearBgpVersionAfiSafiVrf(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -45390,7 +42772,7 @@ class ClearBgpVersionAfiSafi(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafi.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafi.Input>`
     
     
 
@@ -45424,7 +42806,7 @@ class ClearBgpVersionAfiSafi(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -45464,7 +42846,7 @@ class ClearBgpVersionAfiSafiSrPolicyPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiSrPolicyPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiSrPolicyPrefix.Input>`
     
     
 
@@ -45498,14 +42880,14 @@ class ClearBgpVersionAfiSafiSrPolicyPrefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: sr_policy_prefix
         
         	SR Policy prefix
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -45548,7 +42930,7 @@ class ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix.Input>`
     
     
 
@@ -45582,21 +42964,23 @@ class ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: bridge_domain_name
         
         	Bridge Domain
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	L2VPN EVPN Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -45641,7 +43025,7 @@ class ClearBgpVersionAfiSafiRdIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv4Prefix.Input>`
     
     
 
@@ -45675,43 +43059,39 @@ class ClearBgpVersionAfiSafiRdIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_prefix
         
         	L2VPN EVPN Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -45756,7 +43136,7 @@ class ClearBgpVersionAfiSafiMp2MpIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiMp2MpIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiMp2MpIpv4Prefix.Input>`
     
     
 
@@ -45790,21 +43170,23 @@ class ClearBgpVersionAfiSafiMp2MpIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: mp2mp
         
         	Xconnect Group\:mp2mp
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	L2VPN VPWS Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -45849,7 +43231,7 @@ class ClearBgpVersionAfiSafiVrfIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv4Prefix.Input>`
     
     
 
@@ -45883,21 +43265,23 @@ class ClearBgpVersionAfiSafiVrfIpv4Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	VPN Fspec Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -45942,7 +43326,7 @@ class ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -45976,50 +43360,48 @@ class ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -46066,7 +43448,7 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -46100,28 +43482,32 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -46168,7 +43554,7 @@ class ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -46202,50 +43588,48 @@ class ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -46292,7 +43676,7 @@ class ClearBgpVersionAfiSafiRdIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv6Addr.Input>`
     
     
 
@@ -46326,43 +43710,39 @@ class ClearBgpVersionAfiSafiRdIpv6Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -46407,7 +43787,7 @@ class ClearBgpVersionAfiSafiRdIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiRdIpv6Prefix.Input>`
     
     
 
@@ -46441,43 +43821,39 @@ class ClearBgpVersionAfiSafiRdIpv6Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -46522,7 +43898,7 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -46556,28 +43932,32 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -46624,7 +44004,7 @@ class ClearBgpVersionAfiSafiVrfIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv6Addr.Input>`
     
     
 
@@ -46658,21 +44038,23 @@ class ClearBgpVersionAfiSafiVrfIpv6Addr(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -46717,7 +44099,7 @@ class ClearBgpVersionAfiSafiVrfIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionAfiSafiVrfIpv6Prefix.Input>`
     
     
 
@@ -46751,21 +44133,23 @@ class ClearBgpVersionAfiSafiVrfIpv6Prefix(Entity):
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -46810,7 +44194,7 @@ class ClearBgpVersionVrfIpAddrIpNetmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfIpAddrIpNetmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfIpAddrIpNetmask.Input>`
     
     
 
@@ -46844,54 +44228,44 @@ class ClearBgpVersionVrfIpAddrIpNetmask(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ip_netmask
         
         	Mask
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -46933,7 +44307,7 @@ class ClearBgpVersionVrfIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfIpAddr.Input>`
     
     
 
@@ -46967,37 +44341,29 @@ class ClearBgpVersionVrfIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Network
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -47037,7 +44403,7 @@ class ClearBgpVersionVrfIpPrefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfIpPrefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfIpPrefix.Input>`
     
     
 
@@ -47071,37 +44437,29 @@ class ClearBgpVersionVrfIpPrefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_prefix
         
         	Network and masklength
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -47141,7 +44499,7 @@ class ClearBgpVersionVrfAfiSafiIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv4Prefix.Input>`
     
     
 
@@ -47175,31 +44533,27 @@ class ClearBgpVersionVrfAfiSafiIpv4Prefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	Fspec IPv4 Prefix
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -47244,7 +44598,7 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.Input>`
     
     
 
@@ -47278,38 +44632,36 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_mask
         
         	IPv4 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -47356,7 +44708,7 @@ class ClearBgpVersionVrfAfiSafiIpv4Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv4Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv4Addr.Input>`
     
     
 
@@ -47390,31 +44742,27 @@ class ClearBgpVersionVrfAfiSafiIpv4Addr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_addr
         
         	IPv4 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -47459,7 +44807,7 @@ class ClearBgpVersionVrfAfiSafiNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiNetwork.Input>`
     
     
 
@@ -47493,31 +44841,25 @@ class ClearBgpVersionVrfAfiSafiNetwork(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -47563,7 +44905,7 @@ class ClearBgpVersionVrfAfiSafiRdNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiRdNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiRdNetwork.Input>`
     
     
 
@@ -47597,60 +44939,48 @@ class ClearBgpVersionVrfAfiSafiRdNetwork(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -47698,7 +45028,7 @@ class ClearBgpVersionVrfAfiSafiVrfNetwork(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiVrfNetwork.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiVrfNetwork.Input>`
     
     
 
@@ -47732,38 +45062,32 @@ class ClearBgpVersionVrfAfiSafiVrfNetwork(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: network
         
         	Address family modifier specific network
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -47810,7 +45134,7 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.Input>`
     
     
 
@@ -47844,38 +45168,36 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_netmask
         
         	IPv6 mask
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -47922,7 +45244,7 @@ class ClearBgpVersionVrfAfiSafiIpv6Addr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv6Addr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv6Addr.Input>`
     
     
 
@@ -47956,31 +45278,27 @@ class ClearBgpVersionVrfAfiSafiIpv6Addr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_addr
         
         	IPv6 network
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -48025,7 +45343,7 @@ class ClearBgpVersionVrfAfiSafiIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiIpv6Prefix.Input>`
     
     
 
@@ -48059,31 +45377,27 @@ class ClearBgpVersionVrfAfiSafiIpv6Prefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 network and masklength
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -48129,7 +45443,7 @@ class ClearBgpVersionVrfAfiSafiRd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiRd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiRd.Input>`
     
     
 
@@ -48163,56 +45477,44 @@ class ClearBgpVersionVrfAfiSafiRd(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: rd
         
         	Route distinguisher
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
+        			**pattern:** (\\d+\\.\\d+\:\\d+)
         
+        		**type**\: str
         
-        ----
-        	**type**\:  str
+        			**pattern:** (\\d+\:\\d+)
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\:\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(\:\\d+)
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -48255,7 +45557,7 @@ class ClearBgpVersionVrfAfiSafiVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafiVrf.Input>`
     
     
 
@@ -48289,31 +45591,25 @@ class ClearBgpVersionVrfAfiSafiVrf(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: vrf_name
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -48358,7 +45654,7 @@ class ClearBgpVersionVrfAfiSafi(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafi.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVersionVrfAfiSafi.Input>`
     
     
 
@@ -48392,24 +45688,18 @@ class ClearBgpVersionVrfAfiSafi(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -48453,7 +45743,7 @@ class ClearBgpVrfAllGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAllGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAllGraceful.Input>`
     
     
 
@@ -48487,20 +45777,14 @@ class ClearBgpVrfAllGraceful(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -48538,7 +45822,7 @@ class ClearBgpVrfAll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAll.Input>`
     
     
 
@@ -48572,20 +45856,14 @@ class ClearBgpVrfAll(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -48623,7 +45901,7 @@ class ClearBgpVrfIpAddrGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfIpAddrGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfIpAddrGraceful.Input>`
     
     
 
@@ -48657,37 +45935,29 @@ class ClearBgpVrfIpAddrGraceful(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -48727,7 +45997,7 @@ class ClearBgpVrfIpAddrLongLivedStale(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfIpAddrLongLivedStale.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfIpAddrLongLivedStale.Input>`
     
     
 
@@ -48761,37 +46031,29 @@ class ClearBgpVrfIpAddrLongLivedStale(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -48830,7 +46092,7 @@ class ClearBgpVrfIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfIpAddr.Input>`
     
     
 
@@ -48864,37 +46126,29 @@ class ClearBgpVrfIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -48935,7 +46189,7 @@ class ClearBgpVrfAsGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAsGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAsGraceful.Input>`
     
     
 
@@ -48969,49 +46223,33 @@ class ClearBgpVrfAsGraceful(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -49051,7 +46289,7 @@ class ClearBgpVrfAs(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAs.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAs.Input>`
     
     
 
@@ -49085,49 +46323,33 @@ class ClearBgpVrfAs(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -49168,7 +46390,7 @@ class ClearBgpVrfExternalGraceful(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfExternalGraceful.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfExternalGraceful.Input>`
     
     
 
@@ -49202,20 +46424,14 @@ class ClearBgpVrfExternalGraceful(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -49253,7 +46469,7 @@ class ClearBgpVrfExternal(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfExternal.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfExternal.Input>`
     
     
 
@@ -49287,20 +46503,14 @@ class ClearBgpVrfExternal(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -49341,7 +46551,7 @@ class ClearBgpVrfAfiSafiAllSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAllSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAllSoftInPrefixFilter.Input>`
     
     
 
@@ -49375,24 +46585,18 @@ class ClearBgpVrfAfiSafiAllSoftInPrefixFilter(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -49437,7 +46641,7 @@ class ClearBgpVrfAfiSafiAllSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAllSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAllSoftIn.Input>`
     
     
 
@@ -49471,24 +46675,18 @@ class ClearBgpVrfAfiSafiAllSoftIn(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -49533,7 +46731,7 @@ class ClearBgpVrfAfiSafiAllSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAllSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAllSoftOut.Input>`
     
     
 
@@ -49567,24 +46765,18 @@ class ClearBgpVrfAfiSafiAllSoftOut(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -49628,7 +46820,7 @@ class ClearBgpVrfAfiSafiAllSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAllSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAllSoft.Input>`
     
     
 
@@ -49662,24 +46854,18 @@ class ClearBgpVrfAfiSafiAllSoft(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -49722,7 +46908,7 @@ class ClearBgpVrfAfiSafiIpAddrLongLivedStale(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrLongLivedStale.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrLongLivedStale.Input>`
     
     
 
@@ -49756,44 +46942,36 @@ class ClearBgpVrfAfiSafiIpAddrLongLivedStale(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -49837,7 +47015,7 @@ class ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.Input>`
     
     
 
@@ -49871,44 +47049,36 @@ class ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -49951,7 +47121,7 @@ class ClearBgpVrfAfiSafiIpAddrSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrSoftIn.Input>`
     
     
 
@@ -49985,44 +47155,36 @@ class ClearBgpVrfAfiSafiIpAddrSoftIn(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -50065,7 +47227,7 @@ class ClearBgpVrfAfiSafiIpAddrSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrSoftOut.Input>`
     
     
 
@@ -50099,44 +47261,36 @@ class ClearBgpVrfAfiSafiIpAddrSoftOut(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -50178,7 +47332,7 @@ class ClearBgpVrfAfiSafiIpAddrSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiIpAddrSoft.Input>`
     
     
 
@@ -50212,44 +47366,36 @@ class ClearBgpVrfAfiSafiIpAddrSoft(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -50294,7 +47440,7 @@ class ClearBgpVrfAfiSafiAsSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAsSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAsSoftInPrefixFilter.Input>`
     
     
 
@@ -50328,56 +47474,40 @@ class ClearBgpVrfAfiSafiAsSoftInPrefixFilter(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -50421,7 +47551,7 @@ class ClearBgpVrfAfiSafiAsSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAsSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAsSoftIn.Input>`
     
     
 
@@ -50455,56 +47585,40 @@ class ClearBgpVrfAfiSafiAsSoftIn(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -50548,7 +47662,7 @@ class ClearBgpVrfAfiSafiAsSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAsSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAsSoftOut.Input>`
     
     
 
@@ -50582,56 +47696,40 @@ class ClearBgpVrfAfiSafiAsSoftOut(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -50674,7 +47772,7 @@ class ClearBgpVrfAfiSafiAsSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAsSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiAsSoft.Input>`
     
     
 
@@ -50708,56 +47806,40 @@ class ClearBgpVrfAfiSafiAsSoft(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: as_number
         
         	AS number
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  int
+        		**type**\: int
         
-        	**range:** 1..65535
+        			**range:** 1..65535
         
-        	**mandatory**\: True
+        		**type**\: str
         
+        			**pattern:** (\\d+\\.\\d+)
         
-        ----
-        	**type**\:  str
+        		**type**\: int
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  int
-        
-        	**range:** 65536..4294967295
+        			**range:** 65536..4294967295
         
         	**mandatory**\: True
         
-        
-        ----
-        
-        ----
         
 
         """
@@ -50799,7 +47881,7 @@ class ClearBgpVrfAfiSafiDampeningIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiDampeningIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiDampeningIpv4Prefix.Input>`
     
     
 
@@ -50833,31 +47915,27 @@ class ClearBgpVrfAfiSafiDampeningIpv4Prefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 Network and mask or masklength to clear dampening information
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -50902,7 +47980,7 @@ class ClearBgpVrfAfiSafiDampening(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiDampening.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiDampening.Input>`
     
     
 
@@ -50936,24 +48014,18 @@ class ClearBgpVrfAfiSafiDampening(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -50999,7 +48071,7 @@ class ClearBgpVrfAfiSafiExternalSoftInPrefixFilter(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiExternalSoftInPrefixFilter.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiExternalSoftInPrefixFilter.Input>`
     
     
 
@@ -51033,24 +48105,18 @@ class ClearBgpVrfAfiSafiExternalSoftInPrefixFilter(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -51095,7 +48161,7 @@ class ClearBgpVrfAfiSafiExternalSoftIn(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiExternalSoftIn.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiExternalSoftIn.Input>`
     
     
 
@@ -51129,24 +48195,18 @@ class ClearBgpVrfAfiSafiExternalSoftIn(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -51191,7 +48251,7 @@ class ClearBgpVrfAfiSafiExternalSoftOut(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiExternalSoftOut.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiExternalSoftOut.Input>`
     
     
 
@@ -51225,24 +48285,18 @@ class ClearBgpVrfAfiSafiExternalSoftOut(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -51286,7 +48340,7 @@ class ClearBgpVrfAfiSafiExternalSoft(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiExternalSoft.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiExternalSoft.Input>`
     
     
 
@@ -51320,24 +48374,18 @@ class ClearBgpVrfAfiSafiExternalSoft(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -51380,7 +48428,7 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.Input>`
     
     
 
@@ -51414,48 +48462,42 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         .. attribute:: ipv4_mask
         
         	IPv4 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -51502,7 +48544,7 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsIpAddr.Input>`
     
     
 
@@ -51536,44 +48578,36 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	BGP neighbor address to clear
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -51615,7 +48649,7 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.Input>`
     
     
 
@@ -51649,31 +48683,27 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv4_prefix
         
         	IPv4 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
         
         	**mandatory**\: True
         
@@ -51719,7 +48749,7 @@ class ClearBgpVrfAfiSafiFlapStatisticsRegexp(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsRegexp.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsRegexp.Input>`
     
     
 
@@ -51753,31 +48783,25 @@ class ClearBgpVrfAfiSafiFlapStatisticsRegexp(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: regexp_pattern
         
         	A regular expression to match the BGP AS paths.  Use 'ctrl\-v ?' to enter '?'
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -51823,7 +48847,7 @@ class ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy.Input>`
     
     
 
@@ -51857,31 +48881,25 @@ class ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: route_policy_name
         
         	Route Policy name
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
@@ -51926,7 +48944,7 @@ class ClearBgpVrfAfiSafiFlapStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatistics.Input>`
     
     
 
@@ -51960,24 +48978,18 @@ class ClearBgpVrfAfiSafiFlapStatistics(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -52021,7 +49033,7 @@ class ClearBgpVrfAfiSafiNexthopPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiNexthopPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiNexthopPerformanceStatistics.Input>`
     
     
 
@@ -52055,24 +49067,18 @@ class ClearBgpVrfAfiSafiNexthopPerformanceStatistics(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -52116,7 +49122,7 @@ class ClearBgpVrfAfiSafiNexthopRegistrationIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiNexthopRegistrationIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiNexthopRegistrationIpAddr.Input>`
     
     
 
@@ -52150,44 +49156,36 @@ class ClearBgpVrfAfiSafiNexthopRegistrationIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Nexthop address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -52229,7 +49227,7 @@ class ClearBgpVrfAfiSafiSelfOriginated(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiSelfOriginated.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiSelfOriginated.Input>`
     
     
 
@@ -52263,24 +49261,18 @@ class ClearBgpVrfAfiSafiSelfOriginated(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -52323,7 +49315,7 @@ class ClearBgpVrfAfiSafiShutdown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiShutdown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiShutdown.Input>`
     
     
 
@@ -52357,24 +49349,18 @@ class ClearBgpVrfAfiSafiShutdown(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -52420,7 +49406,7 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.Input>`
     
     
 
@@ -52454,24 +49440,18 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -52516,7 +49496,7 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamily(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqAddressFamily.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqAddressFamily.Input>`
     
     
 
@@ -52550,24 +49530,18 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamily(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
@@ -52614,7 +49588,7 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
     
     
 
@@ -52648,44 +49622,36 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -52730,7 +49696,7 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.Input>`
     
     
 
@@ -52764,44 +49730,36 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -52846,7 +49804,7 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input>`
     
     
 
@@ -52880,44 +49838,36 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -52961,7 +49911,7 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.Input>`
     
     
 
@@ -52995,44 +49945,36 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -53078,7 +50020,7 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
     
     
 
@@ -53112,38 +50054,36 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -53193,7 +50133,7 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.Input>`
     
     
 
@@ -53227,38 +50167,36 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -53309,7 +50247,7 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
     
     
 
@@ -53343,38 +50281,36 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -53424,7 +50360,7 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
     
     
 
@@ -53458,38 +50394,36 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -53539,7 +50473,7 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.Input>`
     
     
 
@@ -53573,31 +50507,27 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -53644,7 +50574,7 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiUpdateOutqUpdateGroup.Input>`
     
     
 
@@ -53678,31 +50608,27 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroup(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -53747,7 +50673,7 @@ class ClearBgpVrfAfiSafiDampeningIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiDampeningIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiDampeningIpv6Prefix.Input>`
     
     
 
@@ -53781,31 +50707,27 @@ class ClearBgpVrfAfiSafiDampeningIpv6Prefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 Network and mask or masklength to clear dampening information
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -53850,7 +50772,7 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.Input>`
     
     
 
@@ -53884,31 +50806,27 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: afi_safi_name
         
         	AFI and SAFI
-        	**type**\:   :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
+        	**type**\:  :py:class:`AfiSafiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.AfiSafiType>`
         
         	**mandatory**\: True
         
         .. attribute:: ipv6_prefix
         
         	IPv6 Network and mask or masklength to clear flap statistics
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
         
         	**mandatory**\: True
         
@@ -53954,7 +50872,7 @@ class ClearBgpVrfNexthopPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfNexthopPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfNexthopPerformanceStatistics.Input>`
     
     
 
@@ -53988,20 +50906,14 @@ class ClearBgpVrfNexthopPerformanceStatistics(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -54040,7 +50952,7 @@ class ClearBgpVrfNexthopRegistrationIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfNexthopRegistrationIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfNexthopRegistrationIpAddr.Input>`
     
     
 
@@ -54074,37 +50986,29 @@ class ClearBgpVrfNexthopRegistrationIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Nexthop address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -54145,7 +51049,7 @@ class ClearBgpVrfPeerDropsAll(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfPeerDropsAll.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfPeerDropsAll.Input>`
     
     
 
@@ -54179,20 +51083,14 @@ class ClearBgpVrfPeerDropsAll(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -54230,7 +51128,7 @@ class ClearBgpVrfPeerDropsIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfPeerDropsIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfPeerDropsIpAddr.Input>`
     
     
 
@@ -54264,37 +51162,29 @@ class ClearBgpVrfPeerDropsIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	BGP neighbor IP address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -54334,7 +51224,7 @@ class ClearBgpVrfPerformanceStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfPerformanceStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfPerformanceStatistics.Input>`
     
     
 
@@ -54368,20 +51258,14 @@ class ClearBgpVrfPerformanceStatistics(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -54419,7 +51303,7 @@ class ClearBgpVrfShutdown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfShutdown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfShutdown.Input>`
     
     
 
@@ -54453,20 +51337,14 @@ class ClearBgpVrfShutdown(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -54507,7 +51385,7 @@ class ClearBgpVrfUpdateOutqAddressFamilyUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqAddressFamilyUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqAddressFamilyUpdateParent.Input>`
     
     
 
@@ -54541,20 +51419,14 @@ class ClearBgpVrfUpdateOutqAddressFamilyUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -54594,7 +51466,7 @@ class ClearBgpVrfUpdateOutqAddressFamily(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqAddressFamily.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqAddressFamily.Input>`
     
     
 
@@ -54628,20 +51500,14 @@ class ClearBgpVrfUpdateOutqAddressFamily(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         
 
         """
@@ -54683,7 +51549,7 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.Input>`
     
     
 
@@ -54717,37 +51583,29 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -54790,7 +51648,7 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefresh(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqNeighborIpAddrRefresh.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqNeighborIpAddrRefresh.Input>`
     
     
 
@@ -54824,37 +51682,29 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefresh(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -54897,7 +51747,7 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.Input>`
     
     
 
@@ -54931,37 +51781,29 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -55003,7 +51845,7 @@ class ClearBgpVrfUpdateOutqNeighborIpAddr(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqNeighborIpAddr.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqNeighborIpAddr.Input>`
     
     
 
@@ -55037,37 +51879,29 @@ class ClearBgpVrfUpdateOutqNeighborIpAddr(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: ip_addr
         
         	Neighbor address
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
-        
-        ----
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        
-        ----
         
 
         """
@@ -55111,7 +51945,7 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.Input>`
     
     
 
@@ -55145,31 +51979,29 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -55217,7 +52049,7 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupSubGroup.Input>`
     
     
 
@@ -55251,31 +52083,29 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroup(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: sub_group
         
         	Sub\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -55324,7 +52154,7 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input>`
     
     
 
@@ -55358,31 +52188,29 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -55430,7 +52258,7 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input>`
     
     
 
@@ -55464,31 +52292,29 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
         .. attribute:: refresh_sub_group
         
         	Refresh Sub\-group process ID <x.y\:z>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)(\:\\d+)
         
         	**mandatory**\: True
         
@@ -55536,7 +52362,7 @@ class ClearBgpVrfUpdateOutqUpdateGroupUpdateParent(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupUpdateParent.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroupUpdateParent.Input>`
     
     
 
@@ -55570,24 +52396,20 @@ class ClearBgpVrfUpdateOutqUpdateGroupUpdateParent(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         
@@ -55632,7 +52454,7 @@ class ClearBgpVrfUpdateOutqUpdateGroup(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroup.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.ClearBgpVrfUpdateOutqUpdateGroup.Input>`
     
     
 
@@ -55666,24 +52488,20 @@ class ClearBgpVrfUpdateOutqUpdateGroup(Entity):
         .. attribute:: vrf_all
         
         	VRF name or all
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
+        		**type**\:  :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act.VrfName>`
         
-        	**mandatory**\: True
-        
-        
-        ----
-        	**type**\:  str
+        		**type**\: str
         
         	**mandatory**\: True
         
-        
-        ----
         .. attribute:: update_group
         
         	Update\-group process ID <x.y>
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|1[0\-5])\\.\\d+)
         
         	**mandatory**\: True
         

@@ -25,7 +25,7 @@ class UpgradeFpd(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_ng_act.UpgradeFpd.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_ng_act.UpgradeFpd.Input>`
     
     
 
@@ -59,21 +59,21 @@ class UpgradeFpd(Entity):
         .. attribute:: location
         
         	Location of the FPD to be upgraded
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: fpd
         
         	name of the fpd to be upgraded
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: force
         
         	Force the upgrade process
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 

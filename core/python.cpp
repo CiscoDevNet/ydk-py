@@ -343,6 +343,92 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("on_demand")=true,
             arg("common_cache")=false,
             arg("timeout")=-1)
+
+        .def("__init__",
+            [](ydk::path::NetconfSession &nc_session,
+                ydk::path::Repository& repo,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                int port,
+                bool on_demand,
+                int timeout) {
+                    new(&nc_session) ydk::path::NetconfSession(
+                        repo, address, username, private_key_path, public_key_path, port, on_demand, timeout);
+            },
+            arg("repo"),
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
+            arg("port")=830,
+            arg("on_demand")=true,
+            arg("timeout")=-1)
+        .def("__init__",
+            [](ydk::path::NetconfSession &nc_session,
+                ydk::path::Repository& repo,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                void* port,
+                bool on_demand,
+                int timeout) {
+                    new(&nc_session) ydk::path::NetconfSession(
+                        repo, address, username, private_key_path,public_key_path , 830, on_demand, timeout);
+            },
+            arg("repo"),
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
+            arg("port")=nullptr,
+            arg("on_demand")=true,
+            arg("timeout")=-1)
+        .def("__init__",
+            [](ydk::path::NetconfSession &nc_session,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                int port,
+                bool on_demand,
+                bool common_cache,
+                int timeout) {
+                    new(&nc_session) ydk::path::NetconfSession(
+                        address, username, private_key_path, public_key_path, port, on_demand, common_cache, timeout);
+            },
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
+            arg("port")=830,
+            arg("on_demand")=true,
+            arg("common_cache")=false,
+            arg("timeout")=-1)
+        .def("__init__",
+            [](ydk::path::NetconfSession &nc_session,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                void* port,
+                bool on_demand,
+                bool common_cache,
+                int timeout) {
+                    new(&nc_session) ydk::path::NetconfSession(
+                        address, username, private_key_path, public_key_path, 830, on_demand, common_cache, timeout);
+            },
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
+            arg("port")=nullptr,
+            arg("on_demand")=true,
+            arg("common_cache")=false,
+            arg("timeout")=-1)
+
         .def("get_root_schema", &ydk::path::NetconfSession::get_root_schema, return_value_policy::reference)
         .def("invoke", &ydk::path::NetconfSession::invoke, return_value_policy::reference)
         .def("get_capabilities", &ydk::path::NetconfSession::get_capabilities, return_value_policy::reference);
@@ -695,6 +781,110 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("address"),
             arg("username"),
             arg("password"),
+            arg("on_demand")=true,
+            arg("common_cache")=false,
+            arg("timeout")=-1)
+
+        .def("__init__",
+            [](ydk::NetconfServiceProvider &nc_provider,
+                ydk::path::Repository& repo,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                int port,
+                bool on_demand,
+                int timeout) {
+                    new(&nc_provider) ydk::NetconfServiceProvider(
+                        repo, address, username, private_key_path, public_key_path, port, on_demand, timeout);
+            },
+            arg("repo"),
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
+            arg("port")=830,
+            arg("on_demand")=true,
+            arg("timeout")=-1)
+        .def("__init__",
+            [](ydk::NetconfServiceProvider &nc_provider,
+                ydk::path::Repository& repo,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                void* port,
+                bool on_demand,
+                int timeout) {
+                    new(&nc_provider) ydk::NetconfServiceProvider(
+                        repo, address, username, private_key_path, public_key_path, 830, on_demand, timeout);
+            },
+            arg("repo"),
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
+            arg("port")=nullptr,
+            arg("on_demand")=true,
+            arg("timeout")=-1)
+        .def("__init__",
+            [](ydk::NetconfServiceProvider &nc_provider,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                int port,
+                bool on_demand,
+                bool common_cache,
+                int timeout) {
+                    new(&nc_provider) ydk::NetconfServiceProvider(
+                        address, username, private_key_path, public_key_path, port, on_demand, common_cache, timeout);
+            },
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
+            arg("port")=830,
+            arg("on_demand")=true,
+            arg("common_cache")=false,
+            arg("timeout")=-1)
+        .def("__init__",
+            [](ydk::NetconfServiceProvider &nc_provider,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                void* port,
+                bool on_demand,
+                bool common_cache,
+                int timeout) {
+                    new(&nc_provider) ydk::NetconfServiceProvider(
+                        address, username, private_key_path, public_key_path, 830, on_demand, common_cache, timeout);
+            },
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
+            arg("port")=nullptr,
+            arg("on_demand")=true,
+            arg("common_cache")=false,
+            arg("timeout")=-1)
+        .def("__init__",
+            [](ydk::NetconfServiceProvider &nc_provider,
+                const string& address,
+                const string& username,
+                const string& private_key_path,
+                const string& public_key_path,
+                bool on_demand,
+                bool common_cache,
+                int timeout) {
+                    new(&nc_provider) ydk::NetconfServiceProvider(
+                        address, username, private_key_path, public_key_path, 830, on_demand, common_cache, timeout);
+            },
+            arg("address"),
+            arg("username"),
+            arg("private_key_path"),
+            arg("public_key_path"),
             arg("on_demand")=true,
             arg("common_cache")=false,
             arg("timeout")=-1)

@@ -23,7 +23,7 @@ class CISCOUBEMIB(Entity):
     .. attribute:: ciscoubemibobjects
     
     	
-    	**type**\:   :py:class:`Ciscoubemibobjects <ydk.models.cisco_ios_xe.CISCO_UBE_MIB.CISCOUBEMIB.Ciscoubemibobjects>`
+    	**type**\:  :py:class:`Ciscoubemibobjects <ydk.models.cisco_ios_xe.CISCO_UBE_MIB.CISCOUBEMIB.Ciscoubemibobjects>`
     
     
 
@@ -57,17 +57,17 @@ class CISCOUBEMIB(Entity):
         .. attribute:: cubeenabled
         
         	This object represents, whether the Cisco Unified Border Element (CUBE) is enabled  on the device or not.  The value 'true' means that the CUBE feature  is enabled on the device.  The value 'false' means that the CUBE feature  is disabled
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cubeversion
         
         	This object represents the version of Cisco Unified Border Element on the device
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: cubetotalsessionallowed
         
         	This object provides the total number of CUBE session allowed on the device. The value zero  means no sessions are allowed with CUBE
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..999999
         

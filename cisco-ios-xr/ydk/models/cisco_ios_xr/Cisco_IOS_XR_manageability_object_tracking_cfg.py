@@ -29,7 +29,7 @@ class ObjectTrackings(Entity):
     .. attribute:: object_tracking
     
     	Track name \- maximum 32 characters
-    	**type**\: list of    :py:class:`ObjectTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking>`
+    	**type**\: list of  		 :py:class:`ObjectTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking>`
     
     
 
@@ -63,34 +63,34 @@ class ObjectTrackings(Entity):
         .. attribute:: track_name  <key>
         
         	Track name
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..32
         
         .. attribute:: type_interface
         
         	Track type line\-protocol
-        	**type**\:   :py:class:`TypeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeInterface>`
+        	**type**\:  :py:class:`TypeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeInterface>`
         
         .. attribute:: type_list
         
         	Track type boolean list
-        	**type**\:   :py:class:`TypeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList>`
+        	**type**\:  :py:class:`TypeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList>`
         
         .. attribute:: type_route
         
         	Track type route ipv4
-        	**type**\:   :py:class:`TypeRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeRoute>`
+        	**type**\:  :py:class:`TypeRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeRoute>`
         
         .. attribute:: type_boolean_list
         
         	Track type boolean list
-        	**type**\:   :py:class:`TypeBooleanList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList>`
+        	**type**\:  :py:class:`TypeBooleanList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList>`
         
         .. attribute:: delay_up
         
         	Delay up in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..10
         
@@ -99,12 +99,12 @@ class ObjectTrackings(Entity):
         .. attribute:: enable
         
         	Enable the Track
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: delay_down
         
         	Track delay down time
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..10
         
@@ -113,22 +113,22 @@ class ObjectTrackings(Entity):
         .. attribute:: type_interface_enable
         
         	Enable track type Interface
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: type_route_enable
         
         	Enable track type Route
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: type_boolean_list_and_enable
         
         	Enable track type boolean list and
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: type_boolean_list_or_enable
         
         	Enable track type boolean list or
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -196,7 +196,9 @@ class ObjectTrackings(Entity):
             .. attribute:: interface
             
             	The name of the interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 
@@ -229,22 +231,22 @@ class ObjectTrackings(Entity):
             .. attribute:: threshold_weight
             
             	Track type threshold weight
-            	**type**\:   :py:class:`ThresholdWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight>`
+            	**type**\:  :py:class:`ThresholdWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight>`
             
             .. attribute:: threshold_percentage_object
             
             	Track type threshold percentage
-            	**type**\:   :py:class:`ThresholdPercentageObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject>`
+            	**type**\:  :py:class:`ThresholdPercentageObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject>`
             
             .. attribute:: threshold_percentage
             
             	Track type threshold percentage
-            	**type**\:   :py:class:`ThresholdPercentage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage>`
+            	**type**\:  :py:class:`ThresholdPercentage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage>`
             
             .. attribute:: threshold_weight_object
             
             	Track type threshold weight
-            	**type**\:   :py:class:`ThresholdWeightObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject>`
+            	**type**\:  :py:class:`ThresholdWeightObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject>`
             
             
 
@@ -292,7 +294,7 @@ class ObjectTrackings(Entity):
                 .. attribute:: threshold_limits
                 
                 	Threshold Limits
-                	**type**\:   :py:class:`ThresholdLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits>`
+                	**type**\:  :py:class:`ThresholdLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits>`
                 
                 
 
@@ -325,7 +327,7 @@ class ObjectTrackings(Entity):
                     .. attribute:: threshold_up_values
                     
                     	Threshold limit at which track is set to UP state
-                    	**type**\:   :py:class:`ThresholdUpValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues>`
+                    	**type**\:  :py:class:`ThresholdUpValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues>`
                     
                     
 
@@ -359,7 +361,7 @@ class ObjectTrackings(Entity):
                         .. attribute:: threshold_up_value
                         
                         	Threshold limit at which track is set to UP state
-                        	**type**\: list of    :py:class:`ThresholdUpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue>`
+                        	**type**\: list of  		 :py:class:`ThresholdUpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue>`
                         
                         
 
@@ -393,14 +395,14 @@ class ObjectTrackings(Entity):
                             .. attribute:: up  <key>
                             
                             	Up value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: threshold_down
                             
                             	Threshold limit at which track is set to Down state
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -439,7 +441,7 @@ class ObjectTrackings(Entity):
                 .. attribute:: object
                 
                 	Track name object
-                	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object>`
+                	**type**\: list of  		 :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object>`
                 
                 
 
@@ -472,14 +474,14 @@ class ObjectTrackings(Entity):
                     .. attribute:: object  <key>
                     
                     	Object name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: object_weight
                     
                     	Weight of object
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -518,7 +520,7 @@ class ObjectTrackings(Entity):
                 .. attribute:: threshold_limits
                 
                 	Threshold Limits
-                	**type**\:   :py:class:`ThresholdLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits>`
+                	**type**\:  :py:class:`ThresholdLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits>`
                 
                 
 
@@ -551,7 +553,7 @@ class ObjectTrackings(Entity):
                     .. attribute:: threshold_up_values
                     
                     	Threshold limit at which track is set to UP state
-                    	**type**\:   :py:class:`ThresholdUpValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues>`
+                    	**type**\:  :py:class:`ThresholdUpValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues>`
                     
                     
 
@@ -585,7 +587,7 @@ class ObjectTrackings(Entity):
                         .. attribute:: threshold_up_value
                         
                         	Threshold limit at which track is set to UP state
-                        	**type**\: list of    :py:class:`ThresholdUpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue>`
+                        	**type**\: list of  		 :py:class:`ThresholdUpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue>`
                         
                         
 
@@ -619,14 +621,14 @@ class ObjectTrackings(Entity):
                             .. attribute:: up  <key>
                             
                             	Up value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: threshold_down
                             
                             	Threshold limit at which track is set to Down state
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -665,7 +667,7 @@ class ObjectTrackings(Entity):
                 .. attribute:: object
                 
                 	Track name object
-                	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object>`
+                	**type**\: list of  		 :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object>`
                 
                 
 
@@ -698,14 +700,14 @@ class ObjectTrackings(Entity):
                     .. attribute:: object  <key>
                     
                     	Object name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: object_weight
                     
                     	Weight of object
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -744,14 +746,14 @@ class ObjectTrackings(Entity):
             .. attribute:: ip_address
             
             	set track IPv4 address
-            	**type**\:   :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeRoute.IpAddress>`
+            	**type**\:  :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeRoute.IpAddress>`
             
             	**presence node**\: True
             
             .. attribute:: vrf
             
             	VRF tag \- use 'default' for the DEFAULT vrf
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
@@ -790,12 +792,16 @@ class ObjectTrackings(Entity):
                 .. attribute:: address
                 
                 	IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: mask
                 
                 	Mask
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -833,12 +839,12 @@ class ObjectTrackings(Entity):
             .. attribute:: or_objects
             
             	Track type boolean or list
-            	**type**\:   :py:class:`OrObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects>`
+            	**type**\:  :py:class:`OrObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects>`
             
             .. attribute:: and_objects
             
             	Track type boolean and list
-            	**type**\:   :py:class:`AndObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects>`
+            	**type**\:  :py:class:`AndObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects>`
             
             
 
@@ -876,7 +882,7 @@ class ObjectTrackings(Entity):
                 .. attribute:: or_object
                 
                 	Track name \- maximum 32 characters
-                	**type**\: list of    :py:class:`OrObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject>`
+                	**type**\: list of  		 :py:class:`OrObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject>`
                 
                 
 
@@ -909,14 +915,14 @@ class ObjectTrackings(Entity):
                     .. attribute:: object  <key>
                     
                     	Object name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: object_sign
                     
                     	Tracked Object sign (with or without not)
-                    	**type**\:   :py:class:`ObjectTrackingBooleanSign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_datatypes.ObjectTrackingBooleanSign>`
+                    	**type**\:  :py:class:`ObjectTrackingBooleanSign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_datatypes.ObjectTrackingBooleanSign>`
                     
                     
 
@@ -951,7 +957,7 @@ class ObjectTrackings(Entity):
                 .. attribute:: and_object
                 
                 	Track name \- maximum 32 characters
-                	**type**\: list of    :py:class:`AndObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject>`
+                	**type**\: list of  		 :py:class:`AndObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject>`
                 
                 
 
@@ -984,14 +990,14 @@ class ObjectTrackings(Entity):
                     .. attribute:: object_name  <key>
                     
                     	Object name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: object_sign
                     
                     	Tracked Object sign (with or without not)
-                    	**type**\:   :py:class:`ObjectTrackingBooleanSign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_datatypes.ObjectTrackingBooleanSign>`
+                    	**type**\:  :py:class:`ObjectTrackingBooleanSign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_datatypes.ObjectTrackingBooleanSign>`
                     
                     
 

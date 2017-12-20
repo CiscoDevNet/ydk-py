@@ -106,7 +106,7 @@ class HardwareModule(Entity):
     .. attribute:: node
     
     	Node
-    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node>`
+    	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node>`
     
     
 
@@ -140,12 +140,14 @@ class HardwareModule(Entity):
         .. attribute:: location  <key>
         
         	Fully qualified line card specification
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: slice
         
         	Slice to be Provisioned
-        	**type**\: list of    :py:class:`Slice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Slice>`
+        	**type**\: list of  		 :py:class:`Slice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Slice>`
         
         
 
@@ -181,17 +183,19 @@ class HardwareModule(Entity):
             .. attribute:: slice_id  <key>
             
             	Set Slice
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: values
             
             	Data rates & FEC
-            	**type**\:   :py:class:`Values <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Slice.Values>`
+            	**type**\:  :py:class:`Values <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Slice.Values>`
             
             .. attribute:: lldp
             
             	Drop LLDP Packets
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -231,22 +235,22 @@ class HardwareModule(Entity):
                 .. attribute:: client_rate
                 
                 	Client Rate
-                	**type**\:   :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRate>`
+                	**type**\:  :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRate>`
                 
                 .. attribute:: trunk_rate
                 
                 	TrunkRate
-                	**type**\:   :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRate>`
+                	**type**\:  :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRate>`
                 
                 .. attribute:: fec
                 
                 	FEC
-                	**type**\:   :py:class:`Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.Fec>`
+                	**type**\:  :py:class:`Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.Fec>`
                 
                 .. attribute:: encrypted
                 
                 	Encrypted
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 

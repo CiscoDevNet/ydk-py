@@ -25,7 +25,7 @@ class ControlPlane(Entity):
     .. attribute:: management_plane_protection
     
     	Configure management plane protection
-    	**type**\:   :py:class:`ManagementPlaneProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection>`
+    	**type**\:  :py:class:`ManagementPlaneProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection>`
     
     
 
@@ -59,12 +59,12 @@ class ControlPlane(Entity):
         .. attribute:: outband
         
         	Outband Configuration
-        	**type**\:   :py:class:`Outband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband>`
+        	**type**\:  :py:class:`Outband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband>`
         
         .. attribute:: inband
         
         	Inband Configuration
-        	**type**\:   :py:class:`Inband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband>`
+        	**type**\:  :py:class:`Inband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband>`
         
         
 
@@ -103,12 +103,12 @@ class ControlPlane(Entity):
             .. attribute:: outband_vrf
             
             	Configure outband VRF
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: interface_selection
             
             	Configure interfaces
-            	**type**\:   :py:class:`InterfaceSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection>`
+            	**type**\:  :py:class:`InterfaceSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection>`
             
             
 
@@ -147,12 +147,12 @@ class ControlPlane(Entity):
                 .. attribute:: interfaces
                 
                 	Configure a specific interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces>`
                 
                 .. attribute:: all_interfaces
                 
                 	Configure all Inband interfaces
-                	**type**\:   :py:class:`AllInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces>`
+                	**type**\:  :py:class:`AllInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces>`
                 
                 
 
@@ -191,7 +191,7 @@ class ControlPlane(Entity):
                     .. attribute:: interface
                     
                     	Specific interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface>`
                     
                     
 
@@ -225,47 +225,49 @@ class ControlPlane(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Name of the Interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: http_protocol
                         
                         	Configure HTTP on this interface
-                        	**type**\:   :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol>`
+                        	**type**\:  :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol>`
                         
                         .. attribute:: tftp_protocol
                         
                         	Configure TFTP on this interface
-                        	**type**\:   :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol>`
+                        	**type**\:  :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol>`
                         
                         .. attribute:: netconf_protocol
                         
                         	Configure NETCONF protocol and peer addresses
-                        	**type**\:   :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol>`
+                        	**type**\:  :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol>`
                         
                         .. attribute:: xr_xml
                         
                         	Configure XML and peer addresses
-                        	**type**\:   :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml>`
+                        	**type**\:  :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml>`
                         
                         .. attribute:: ssh_protocol
                         
                         	Configure SSH protocol and peer addresses
-                        	**type**\:   :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol>`
+                        	**type**\:  :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol>`
                         
                         .. attribute:: snmp_protocol
                         
                         	Configure SNMP for this interface
-                        	**type**\:   :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol>`
+                        	**type**\:  :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol>`
                         
                         .. attribute:: telnet_protocol
                         
                         	Configure Telnet for this interface
-                        	**type**\:   :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol>`
+                        	**type**\:  :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol>`
                         
                         .. attribute:: all_protocols
                         
                         	Configure all protocols on this interface
-                        	**type**\:   :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols>`
+                        	**type**\:  :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols>`
                         
                         
 
@@ -339,7 +341,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass>`
                             
                             
 
@@ -372,17 +374,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -425,12 +427,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -468,7 +470,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -501,16 +503,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -542,7 +544,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -575,16 +577,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -616,12 +618,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -659,7 +661,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -692,16 +694,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -733,7 +735,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -766,16 +768,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -807,7 +809,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass>`
                             
                             
 
@@ -840,17 +842,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -893,12 +895,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -936,7 +938,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -969,16 +971,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -1010,7 +1012,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -1043,16 +1045,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -1084,12 +1086,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -1127,7 +1129,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -1160,16 +1162,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -1201,7 +1203,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -1234,16 +1236,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -1275,7 +1277,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass>`
                             
                             
 
@@ -1308,17 +1310,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -1361,12 +1363,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -1404,7 +1406,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -1437,16 +1439,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -1478,7 +1480,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -1511,16 +1513,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -1552,12 +1554,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -1595,7 +1597,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -1628,16 +1630,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -1669,7 +1671,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -1702,16 +1704,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -1743,7 +1745,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass>`
                             
                             
 
@@ -1776,17 +1778,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -1829,12 +1831,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -1872,7 +1874,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -1905,16 +1907,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -1946,7 +1948,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -1979,16 +1981,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -2020,12 +2022,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -2063,7 +2065,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -2096,16 +2098,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -2137,7 +2139,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -2170,16 +2172,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -2211,7 +2213,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass>`
                             
                             
 
@@ -2244,17 +2246,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -2297,12 +2299,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -2340,7 +2342,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -2373,16 +2375,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -2414,7 +2416,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -2447,16 +2449,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -2488,12 +2490,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -2531,7 +2533,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -2564,16 +2566,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -2605,7 +2607,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -2638,16 +2640,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -2679,7 +2681,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass>`
                             
                             
 
@@ -2712,17 +2714,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -2765,12 +2767,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -2808,7 +2810,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -2841,16 +2843,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -2882,7 +2884,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -2915,16 +2917,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -2956,12 +2958,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -2999,7 +3001,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -3032,16 +3034,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -3073,7 +3075,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -3106,16 +3108,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -3147,7 +3149,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass>`
                             
                             
 
@@ -3180,17 +3182,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -3233,12 +3235,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -3276,7 +3278,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -3309,16 +3311,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -3350,7 +3352,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -3383,16 +3385,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -3424,12 +3426,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -3467,7 +3469,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -3500,16 +3502,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -3541,7 +3543,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -3574,16 +3576,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -3615,7 +3617,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass>`
                             
                             
 
@@ -3648,17 +3650,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -3701,12 +3703,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -3744,7 +3746,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -3777,16 +3779,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -3818,7 +3820,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -3851,16 +3853,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -3892,12 +3894,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -3935,7 +3937,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -3968,16 +3970,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -4009,7 +4011,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -4042,16 +4044,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -4083,42 +4085,42 @@ class ControlPlane(Entity):
                     .. attribute:: http_protocol
                     
                     	Configure HTTP on this interface
-                    	**type**\:   :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol>`
+                    	**type**\:  :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol>`
                     
                     .. attribute:: tftp_protocol
                     
                     	Configure TFTP on this interface
-                    	**type**\:   :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol>`
+                    	**type**\:  :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol>`
                     
                     .. attribute:: netconf_protocol
                     
                     	Configure NETCONF protocol and peer addresses
-                    	**type**\:   :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol>`
+                    	**type**\:  :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol>`
                     
                     .. attribute:: xr_xml
                     
                     	Configure XML and peer addresses
-                    	**type**\:   :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml>`
+                    	**type**\:  :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml>`
                     
                     .. attribute:: ssh_protocol
                     
                     	Configure SSH protocol and peer addresses
-                    	**type**\:   :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol>`
+                    	**type**\:  :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol>`
                     
                     .. attribute:: snmp_protocol
                     
                     	Configure SNMP for this interface
-                    	**type**\:   :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol>`
+                    	**type**\:  :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol>`
                     
                     .. attribute:: telnet_protocol
                     
                     	Configure Telnet for this interface
-                    	**type**\:   :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol>`
+                    	**type**\:  :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol>`
                     
                     .. attribute:: all_protocols
                     
                     	Configure all protocols on this interface
-                    	**type**\:   :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols>`
+                    	**type**\:  :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols>`
                     
                     
 
@@ -4187,7 +4189,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass>`
                         
                         
 
@@ -4221,17 +4223,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -4275,12 +4277,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -4319,7 +4321,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -4353,16 +4355,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -4395,7 +4397,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -4429,16 +4431,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -4471,12 +4473,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -4515,7 +4517,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -4549,16 +4551,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -4591,7 +4593,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -4625,16 +4627,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -4667,7 +4669,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass>`
                         
                         
 
@@ -4701,17 +4703,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -4755,12 +4757,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -4799,7 +4801,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -4833,16 +4835,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -4875,7 +4877,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -4909,16 +4911,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -4951,12 +4953,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -4995,7 +4997,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -5029,16 +5031,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -5071,7 +5073,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -5105,16 +5107,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -5147,7 +5149,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass>`
                         
                         
 
@@ -5181,17 +5183,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -5235,12 +5237,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -5279,7 +5281,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -5313,16 +5315,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -5355,7 +5357,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -5389,16 +5391,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -5431,12 +5433,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -5475,7 +5477,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -5509,16 +5511,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -5551,7 +5553,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -5585,16 +5587,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -5627,7 +5629,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass>`
                         
                         
 
@@ -5661,17 +5663,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -5715,12 +5717,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -5759,7 +5761,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -5793,16 +5795,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -5835,7 +5837,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -5869,16 +5871,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -5911,12 +5913,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -5955,7 +5957,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -5989,16 +5991,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -6031,7 +6033,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -6065,16 +6067,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -6107,7 +6109,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass>`
                         
                         
 
@@ -6141,17 +6143,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -6195,12 +6197,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -6239,7 +6241,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -6273,16 +6275,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -6315,7 +6317,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -6349,16 +6351,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -6391,12 +6393,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -6435,7 +6437,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -6469,16 +6471,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -6511,7 +6513,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -6545,16 +6547,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -6587,7 +6589,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass>`
                         
                         
 
@@ -6621,17 +6623,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -6675,12 +6677,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -6719,7 +6721,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -6753,16 +6755,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -6795,7 +6797,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -6829,16 +6831,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -6871,12 +6873,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -6915,7 +6917,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -6949,16 +6951,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -6991,7 +6993,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -7025,16 +7027,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -7067,7 +7069,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass>`
                         
                         
 
@@ -7101,17 +7103,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7155,12 +7157,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -7199,7 +7201,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -7233,16 +7235,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -7275,7 +7277,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -7309,16 +7311,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -7351,12 +7353,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -7395,7 +7397,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -7429,16 +7431,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -7471,7 +7473,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -7505,16 +7507,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -7547,7 +7549,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass>`
                         
                         
 
@@ -7581,17 +7583,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7635,12 +7637,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -7679,7 +7681,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -7713,16 +7715,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -7755,7 +7757,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -7789,16 +7791,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -7831,12 +7833,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -7875,7 +7877,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -7909,16 +7911,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -7951,7 +7953,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -7985,16 +7987,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -8027,7 +8029,7 @@ class ControlPlane(Entity):
             .. attribute:: interface_selection
             
             	Configure interfaces
-            	**type**\:   :py:class:`InterfaceSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection>`
+            	**type**\:  :py:class:`InterfaceSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection>`
             
             
 
@@ -8061,12 +8063,12 @@ class ControlPlane(Entity):
                 .. attribute:: interfaces
                 
                 	Configure a specific interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces>`
                 
                 .. attribute:: all_interfaces
                 
                 	Configure all Inband interfaces
-                	**type**\:   :py:class:`AllInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces>`
+                	**type**\:  :py:class:`AllInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces>`
                 
                 
 
@@ -8105,7 +8107,7 @@ class ControlPlane(Entity):
                     .. attribute:: interface
                     
                     	Specific interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface>`
                     
                     
 
@@ -8139,47 +8141,49 @@ class ControlPlane(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Name of the Interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: http_protocol
                         
                         	Configure HTTP on this interface
-                        	**type**\:   :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol>`
+                        	**type**\:  :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol>`
                         
                         .. attribute:: tftp_protocol
                         
                         	Configure TFTP on this interface
-                        	**type**\:   :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol>`
+                        	**type**\:  :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol>`
                         
                         .. attribute:: netconf_protocol
                         
                         	Configure NETCONF protocol and peer addresses
-                        	**type**\:   :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol>`
+                        	**type**\:  :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol>`
                         
                         .. attribute:: xr_xml
                         
                         	Configure XML and peer addresses
-                        	**type**\:   :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml>`
+                        	**type**\:  :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml>`
                         
                         .. attribute:: ssh_protocol
                         
                         	Configure SSH protocol and peer addresses
-                        	**type**\:   :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol>`
+                        	**type**\:  :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol>`
                         
                         .. attribute:: snmp_protocol
                         
                         	Configure SNMP for this interface
-                        	**type**\:   :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol>`
+                        	**type**\:  :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol>`
                         
                         .. attribute:: telnet_protocol
                         
                         	Configure Telnet for this interface
-                        	**type**\:   :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol>`
+                        	**type**\:  :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol>`
                         
                         .. attribute:: all_protocols
                         
                         	Configure all protocols on this interface
-                        	**type**\:   :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols>`
+                        	**type**\:  :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols>`
                         
                         
 
@@ -8253,7 +8257,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass>`
                             
                             
 
@@ -8286,17 +8290,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -8339,12 +8343,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -8382,7 +8386,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -8415,16 +8419,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -8456,7 +8460,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -8489,16 +8493,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -8530,12 +8534,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -8573,7 +8577,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -8606,16 +8610,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -8647,7 +8651,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -8680,16 +8684,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -8721,7 +8725,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass>`
                             
                             
 
@@ -8754,17 +8758,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -8807,12 +8811,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -8850,7 +8854,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -8883,16 +8887,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -8924,7 +8928,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -8957,16 +8961,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -8998,12 +9002,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -9041,7 +9045,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -9074,16 +9078,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -9115,7 +9119,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -9148,16 +9152,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -9189,7 +9193,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass>`
                             
                             
 
@@ -9222,17 +9226,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -9275,12 +9279,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -9318,7 +9322,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -9351,16 +9355,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -9392,7 +9396,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -9425,16 +9429,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -9466,12 +9470,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -9509,7 +9513,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -9542,16 +9546,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -9583,7 +9587,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -9616,16 +9620,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -9657,7 +9661,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass>`
                             
                             
 
@@ -9690,17 +9694,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -9743,12 +9747,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -9786,7 +9790,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -9819,16 +9823,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -9860,7 +9864,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -9893,16 +9897,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -9934,12 +9938,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -9977,7 +9981,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -10010,16 +10014,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -10051,7 +10055,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -10084,16 +10088,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -10125,7 +10129,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass>`
                             
                             
 
@@ -10158,17 +10162,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -10211,12 +10215,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -10254,7 +10258,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -10287,16 +10291,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -10328,7 +10332,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -10361,16 +10365,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -10402,12 +10406,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -10445,7 +10449,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -10478,16 +10482,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -10519,7 +10523,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -10552,16 +10556,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -10593,7 +10597,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass>`
                             
                             
 
@@ -10626,17 +10630,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -10679,12 +10683,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -10722,7 +10726,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -10755,16 +10759,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -10796,7 +10800,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -10829,16 +10833,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -10870,12 +10874,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -10913,7 +10917,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -10946,16 +10950,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -10987,7 +10991,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -11020,16 +11024,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -11061,7 +11065,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass>`
                             
                             
 
@@ -11094,17 +11098,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -11147,12 +11151,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -11190,7 +11194,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -11223,16 +11227,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -11264,7 +11268,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -11297,16 +11301,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -11338,12 +11342,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -11381,7 +11385,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -11414,16 +11418,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -11455,7 +11459,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -11488,16 +11492,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -11529,7 +11533,7 @@ class ControlPlane(Entity):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass>`
+                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass>`
                             
                             
 
@@ -11562,17 +11566,17 @@ class ControlPlane(Entity):
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4>`
+                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6>`
+                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6>`
                                 
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -11615,12 +11619,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     
 
@@ -11658,7 +11662,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -11691,16 +11695,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -11732,7 +11736,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -11765,16 +11769,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -11806,12 +11810,12 @@ class ControlPlane(Entity):
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers>`
+                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers>`
                                     
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     
 
@@ -11849,7 +11853,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -11882,16 +11886,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address  <key>
                                             
                                             	prefix
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
-                                            ----
                                             
 
                                             """
@@ -11923,7 +11927,7 @@ class ControlPlane(Entity):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -11956,16 +11960,16 @@ class ControlPlane(Entity):
                                             .. attribute:: address_prefix  <key>
                                             
                                             	prefix/length
-                                            	**type**\: one of the below types:
+                                            	**type**\: union of the below types:
                                             
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                             
-                                            ----
-                                            	**type**\:  str
+                                            		**type**\: str
                                             
+                                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                             
-                                            ----
                                             
 
                                             """
@@ -11997,42 +12001,42 @@ class ControlPlane(Entity):
                     .. attribute:: http_protocol
                     
                     	Configure HTTP on this interface
-                    	**type**\:   :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol>`
+                    	**type**\:  :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol>`
                     
                     .. attribute:: tftp_protocol
                     
                     	Configure TFTP on this interface
-                    	**type**\:   :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol>`
+                    	**type**\:  :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol>`
                     
                     .. attribute:: netconf_protocol
                     
                     	Configure NETCONF protocol and peer addresses
-                    	**type**\:   :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol>`
+                    	**type**\:  :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol>`
                     
                     .. attribute:: xr_xml
                     
                     	Configure XML and peer addresses
-                    	**type**\:   :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml>`
+                    	**type**\:  :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml>`
                     
                     .. attribute:: ssh_protocol
                     
                     	Configure SSH protocol and peer addresses
-                    	**type**\:   :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol>`
+                    	**type**\:  :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol>`
                     
                     .. attribute:: snmp_protocol
                     
                     	Configure SNMP for this interface
-                    	**type**\:   :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol>`
+                    	**type**\:  :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol>`
                     
                     .. attribute:: telnet_protocol
                     
                     	Configure Telnet for this interface
-                    	**type**\:   :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol>`
+                    	**type**\:  :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol>`
                     
                     .. attribute:: all_protocols
                     
                     	Configure all protocols on this interface
-                    	**type**\:   :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols>`
+                    	**type**\:  :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols>`
                     
                     
 
@@ -12101,7 +12105,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass>`
                         
                         
 
@@ -12135,17 +12139,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -12189,12 +12193,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -12233,7 +12237,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -12267,16 +12271,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -12309,7 +12313,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -12343,16 +12347,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -12385,12 +12389,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -12429,7 +12433,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -12463,16 +12467,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -12505,7 +12509,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -12539,16 +12543,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -12581,7 +12585,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass>`
                         
                         
 
@@ -12615,17 +12619,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -12669,12 +12673,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -12713,7 +12717,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -12747,16 +12751,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -12789,7 +12793,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -12823,16 +12827,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -12865,12 +12869,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -12909,7 +12913,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -12943,16 +12947,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -12985,7 +12989,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -13019,16 +13023,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -13061,7 +13065,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass>`
                         
                         
 
@@ -13095,17 +13099,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -13149,12 +13153,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -13193,7 +13197,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -13227,16 +13231,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -13269,7 +13273,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -13303,16 +13307,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -13345,12 +13349,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -13389,7 +13393,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -13423,16 +13427,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -13465,7 +13469,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -13499,16 +13503,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -13541,7 +13545,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass>`
                         
                         
 
@@ -13575,17 +13579,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -13629,12 +13633,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -13673,7 +13677,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -13707,16 +13711,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -13749,7 +13753,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -13783,16 +13787,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -13825,12 +13829,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -13869,7 +13873,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -13903,16 +13907,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -13945,7 +13949,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -13979,16 +13983,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -14021,7 +14025,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass>`
                         
                         
 
@@ -14055,17 +14059,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -14109,12 +14113,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -14153,7 +14157,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -14187,16 +14191,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -14229,7 +14233,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -14263,16 +14267,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -14305,12 +14309,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -14349,7 +14353,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -14383,16 +14387,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -14425,7 +14429,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -14459,16 +14463,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -14501,7 +14505,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass>`
                         
                         
 
@@ -14535,17 +14539,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -14589,12 +14593,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -14633,7 +14637,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -14667,16 +14671,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -14709,7 +14713,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -14743,16 +14747,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -14785,12 +14789,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -14829,7 +14833,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -14863,16 +14867,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -14905,7 +14909,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -14939,16 +14943,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -14981,7 +14985,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass>`
                         
                         
 
@@ -15015,17 +15019,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -15069,12 +15073,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -15113,7 +15117,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -15147,16 +15151,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -15189,7 +15193,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -15223,16 +15227,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -15265,12 +15269,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -15309,7 +15313,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -15343,16 +15347,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -15385,7 +15389,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -15419,16 +15423,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -15461,7 +15465,7 @@ class ControlPlane(Entity):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass>`
+                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass>`
                         
                         
 
@@ -15495,17 +15499,17 @@ class ControlPlane(Entity):
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4>`
+                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6>`
+                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6>`
                             
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -15549,12 +15553,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 
 
@@ -15593,7 +15597,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -15627,16 +15631,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -15669,7 +15673,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -15703,16 +15707,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """
@@ -15745,12 +15749,12 @@ class ControlPlane(Entity):
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers>`
+                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers>`
                                 
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 
 
@@ -15789,7 +15793,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -15823,16 +15827,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address  <key>
                                         
                                         	prefix
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
-                                        ----
                                         
 
                                         """
@@ -15865,7 +15869,7 @@ class ControlPlane(Entity):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of  		 :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -15899,16 +15903,16 @@ class ControlPlane(Entity):
                                         .. attribute:: address_prefix  <key>
                                         
                                         	prefix/length
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                         
-                                        ----
-                                        	**type**\:  str
+                                        		**type**\: str
                                         
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                         
-                                        ----
                                         
 
                                         """

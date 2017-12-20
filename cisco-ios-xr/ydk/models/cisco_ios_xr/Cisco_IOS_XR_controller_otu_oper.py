@@ -625,7 +625,7 @@ class Otu(Entity):
     .. attribute:: controllers
     
     	All OTU Port operational data
-    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers>`
+    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers>`
     
     
 
@@ -659,7 +659,7 @@ class Otu(Entity):
         .. attribute:: controller
         
         	OTU Port operational data
-        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller>`
+        	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller>`
         
         
 
@@ -693,17 +693,19 @@ class Otu(Entity):
             .. attribute:: controller_name  <key>
             
             	Port name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: prbs
             
             	OTU port PRBS operational data
-            	**type**\:   :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Prbs>`
+            	**type**\:  :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Prbs>`
             
             .. attribute:: info
             
             	OTU port operational data
-            	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info>`
+            	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info>`
             
             
 
@@ -747,22 +749,22 @@ class Otu(Entity):
                 .. attribute:: otu_prbs_test
                 
                 	otu prbs test
-                	**type**\:   :py:class:`OtuPrbsTest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsTest>`
+                	**type**\:  :py:class:`OtuPrbsTest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsTest>`
                 
                 .. attribute:: otu_prbs_mode
                 
                 	otu prbs mode
-                	**type**\:   :py:class:`OtuPrbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsMode>`
+                	**type**\:  :py:class:`OtuPrbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsMode>`
                 
                 .. attribute:: otu_prbs_pattern
                 
                 	otu prbs pattern
-                	**type**\:   :py:class:`OtuPrbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsPattern>`
+                	**type**\:  :py:class:`OtuPrbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsPattern>`
                 
                 .. attribute:: otu_prbs_status
                 
                 	otu prbs status
-                	**type**\:   :py:class:`OtuPrbsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsStatus>`
+                	**type**\:  :py:class:`OtuPrbsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsStatus>`
                 
                 
 
@@ -801,185 +803,185 @@ class Otu(Entity):
                 .. attribute:: local
                 
                 	TTI
-                	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Local>`
+                	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Local>`
                 
                 .. attribute:: remote
                 
                 	Remote
-                	**type**\:   :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
+                	**type**\:  :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
                 
                 .. attribute:: tti_mode
                 
                 	OTU TTI
-                	**type**\:   :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
+                	**type**\:  :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
                 
                 .. attribute:: network_srlg
                 
                 	Network Shared Risk Link Group information
-                	**type**\:   :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg>`
+                	**type**\:  :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg>`
                 
                 .. attribute:: otu_alarm_info
                 
                 	OTU layer alarm Information
-                	**type**\:   :py:class:`OtuAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
+                	**type**\:  :py:class:`OtuAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
                 
                 .. attribute:: proactive
                 
                 	Proactive Protection
-                	**type**\:   :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
+                	**type**\:  :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
                 
                 .. attribute:: otu_fec_satistics
                 
                 	OTU FEC Statistics
-                	**type**\:   :py:class:`OtuFecSatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuFecSatistics>`
+                	**type**\:  :py:class:`OtuFecSatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuFecSatistics>`
                 
                 .. attribute:: state
                 
                 	Admin State
-                	**type**\:   :py:class:`OtuStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEt>`
+                	**type**\:  :py:class:`OtuStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEt>`
                 
                 .. attribute:: name
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: sf
                 
                 	SF in the form of 1.0E \- <SF>
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: sd
                 
                 	SD in the form of 1.0E \- <SD>
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: loopback_mode
                 
                 	Loopback
-                	**type**\:   :py:class:`OtuLoopBackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackMode>`
+                	**type**\:  :py:class:`OtuLoopBackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackMode>`
                 
                 .. attribute:: fec_mode
                 
                 	FEC
-                	**type**\:   :py:class:`OtuG709FecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709FecMode>`
+                	**type**\:  :py:class:`OtuG709FecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709FecMode>`
                 
                 .. attribute:: derivedstate_mode
                 
                 	Derived State
-                	**type**\:   :py:class:`OtuDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerState>`
+                	**type**\:  :py:class:`OtuDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerState>`
                 
                 .. attribute:: inherit_sec_state
                 
                 	Sec State
-                	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                	**type**\:  :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                 
                 .. attribute:: config_sec_state
                 
                 	Sec State
-                	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                	**type**\:  :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                 
                 .. attribute:: gcc_mode
                 
                 	OTU GCC
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: q
                 
                 	q value calculated
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: q_margin
                 
                 	q margin calculated
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: performance_monitoring
                 
                 	Performance Monitoring
-                	**type**\:   :py:class:`OtuPerMon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMon>`
+                	**type**\:  :py:class:`OtuPerMon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMon>`
                 
                 .. attribute:: ec
                 
                 	Average bit errors corrected
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: uc
                 
                 	Uncorrected word count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: pre_fec_val
                 
                 	Pre FEC BER Value in form 0.00
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: pre_fec_mantissa
                 
                 	Pre FEC BER Mantissa in form E\-<mantisaa>
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-128..127
                 
                 .. attribute:: ec_value
                 
                 	EC value present
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: uc_value
                 
                 	Uc value present
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: pre_fec_ber_value
                 
                 	Pre fec val present 
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: pre_fec_ber_mantissa
                 
                 	Pre fec val mantissa
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: nv_optical_support
                 
                 	NV Optical support
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: gmpls_tti_mode
                 
                 	GMPLS TTI MODE
-                	**type**\:   :py:class:`GmplsOtuTtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiMode>`
+                	**type**\:  :py:class:`GmplsOtuTtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiMode>`
                 
                 .. attribute:: gmpls_tvm_id
                 
                 	GMPLS TCM ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: auto_tti_flag
                 
                 	Auto tti flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: description
                 
                 	Controller description string
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1097,14 +1099,14 @@ class Otu(Entity):
                     .. attribute:: router_id
                     
                     	Router ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: if_index
                     
                     	IfIndex
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1141,14 +1143,14 @@ class Otu(Entity):
                     .. attribute:: router_id
                     
                     	Router ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: if_index
                     
                     	IfIndex
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1185,47 +1187,47 @@ class Otu(Entity):
                     .. attribute:: tx
                     
                     	String Sent
-                    	**type**\:   :py:class:`Tx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
+                    	**type**\:  :py:class:`Tx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
                     
                     .. attribute:: exp
                     
                     	String Expected
-                    	**type**\:   :py:class:`Exp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp>`
+                    	**type**\:  :py:class:`Exp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp>`
                     
                     .. attribute:: rec
                     
                     	String Received
-                    	**type**\:   :py:class:`Rec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
+                    	**type**\:  :py:class:`Rec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
                     
                     .. attribute:: g709tti_sent_mode
                     
                     	G709TTI sent
-                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
+                    	**type**\:  :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
                     
                     .. attribute:: g709tti_exp_mode
                     
                     	G709TTI Expected
-                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
+                    	**type**\:  :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
                     
                     .. attribute:: g709tti_rec_mode
                     
                     	G709TTI Recieved
-                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
+                    	**type**\:  :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
                     
                     .. attribute:: remote_interface
                     
                     	Remote Interface Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: remote_host_name
                     
                     	Remote host name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: remote_ip_addr
                     
                     	Remote host ip
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -1283,26 +1285,26 @@ class Otu(Entity):
                         .. attribute:: full_tti_ascii_string
                         
                         	full tti ascii String 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: sapi
                         
                         	tx String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
                         .. attribute:: dapi
                         
                         	exp String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
                         .. attribute:: operator_specific
                         
                         	rec String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
@@ -1343,26 +1345,26 @@ class Otu(Entity):
                         .. attribute:: full_tti_ascii_string
                         
                         	full tti ascii String 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: sapi
                         
                         	tx String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
                         .. attribute:: dapi
                         
                         	exp String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
                         .. attribute:: operator_specific
                         
                         	rec String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
@@ -1403,26 +1405,26 @@ class Otu(Entity):
                         .. attribute:: full_tti_ascii_string
                         
                         	full tti ascii String 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: sapi
                         
                         	tx String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
                         .. attribute:: dapi
                         
                         	exp String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
                         .. attribute:: operator_specific
                         
                         	rec String 
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..255
                         
@@ -1463,7 +1465,7 @@ class Otu(Entity):
                     .. attribute:: srlg_info
                     
                     	Array of Network Shared Risk Link Group information
-                    	**type**\: list of    :py:class:`SrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo>`
+                    	**type**\: list of  		 :py:class:`SrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo>`
                     
                     
 
@@ -1497,14 +1499,14 @@ class Otu(Entity):
                         .. attribute:: set_id
                         
                         	Array to maintain set id number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: srlg
                         
                         	Shared Risk Link Group information expressed in integer format
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         
@@ -1541,87 +1543,87 @@ class Otu(Entity):
                     .. attribute:: los
                     
                     	Loss of Signal
-                    	**type**\:   :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
+                    	**type**\:  :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
                     
                     .. attribute:: lof
                     
                     	Loss of Frame
-                    	**type**\:   :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof>`
+                    	**type**\:  :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof>`
                     
                     .. attribute:: lom
                     
                     	Loss of MultiFrame
-                    	**type**\:   :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom>`
+                    	**type**\:  :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom>`
                     
                     .. attribute:: oof
                     
                     	Out of Frame
-                    	**type**\:   :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof>`
+                    	**type**\:  :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof>`
                     
                     .. attribute:: oom
                     
                     	Out of MultiFrame
-                    	**type**\:   :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom>`
+                    	**type**\:  :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom>`
                     
                     .. attribute:: ais
                     
                     	Alarm Indication Signal
-                    	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais>`
+                    	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais>`
                     
                     .. attribute:: iae
                     
                     	Incoming Alignment Error
-                    	**type**\:   :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
+                    	**type**\:  :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
                     
                     .. attribute:: biae
                     
                     	Backward Incoming Alignment Error
-                    	**type**\:   :py:class:`Biae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
+                    	**type**\:  :py:class:`Biae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
                     
                     .. attribute:: bdi
                     
                     	Backward Defect Indication
-                    	**type**\:   :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi>`
+                    	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi>`
                     
                     .. attribute:: tim
                     
                     	Trace Identifier Mismatch
-                    	**type**\:   :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim>`
+                    	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim>`
                     
                     .. attribute:: eoc
                     
                     	GCC End of Channel
-                    	**type**\:   :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc>`
+                    	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc>`
                     
                     .. attribute:: fec_mismatch
                     
                     	FEC mismatch alarm
-                    	**type**\:   :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch>`
+                    	**type**\:  :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch>`
                     
                     .. attribute:: sf_ber
                     
                     	SF BER alarm
-                    	**type**\:   :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
+                    	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
                     
                     .. attribute:: sd_ber
                     
                     	SD BER alarm
-                    	**type**\:   :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer>`
+                    	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer>`
                     
                     .. attribute:: ec
                     
                     	EC alarm
-                    	**type**\:   :py:class:`Ec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
+                    	**type**\:  :py:class:`Ec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
                     
                     .. attribute:: uc
                     
                     	UC alarm
-                    	**type**\:   :py:class:`Uc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc>`
+                    	**type**\:  :py:class:`Uc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc>`
                     
                     .. attribute:: fecunc
                     
                     	FEC UnCorrected Word
-                    	**type**\:   :py:class:`Fecunc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
+                    	**type**\:  :py:class:`Fecunc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
                     
                     
 
@@ -1734,22 +1736,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1790,22 +1792,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1846,22 +1848,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1902,22 +1904,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1958,22 +1960,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2014,22 +2016,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2070,22 +2072,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2126,22 +2128,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2182,22 +2184,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2238,22 +2240,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2294,22 +2296,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2350,22 +2352,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2406,22 +2408,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2462,22 +2464,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2518,22 +2520,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2574,22 +2576,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2630,22 +2632,22 @@ class Otu(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2686,67 +2688,67 @@ class Otu(Entity):
                     .. attribute:: proactive_status
                     
                     	Proactive Status
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: inherit_sec_state
                     
                     	Secondary Admin State
-                    	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                    	**type**\:  :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                     
                     .. attribute:: config_sec_state
                     
                     	Sec State
-                    	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                    	**type**\:  :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                     
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
-                    	**type**\:   :py:class:`OtuPpFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmState>`
+                    	**type**\:  :py:class:`OtuPpFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmState>`
                     
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
-                    	**type**\:   :py:class:`OtuPpIntfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfState>`
+                    	**type**\:  :py:class:`OtuPpIntfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfState>`
                     
                     .. attribute:: trig_thresh_coeff
                     
                     	Trigger threshold coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: trig_thresh_power
                     
                     	Trigger threshold power
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rvrt_thresh_coeff
                     
                     	Revert threshold coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rvrt_thresh_power
                     
                     	Revert threshold power
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: trigger_window
                     
                     	Trigger Integration window
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: revert_window
                     
                     	Revert Integration Window
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2801,12 +2803,12 @@ class Otu(Entity):
                     .. attribute:: post_fec_ber
                     
                     	Bit Error Rate After Forward Error Correction
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: pre_fec_ber
                     
                     	Bit Error Rate Before Forward Error Correction
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

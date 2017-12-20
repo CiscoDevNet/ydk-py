@@ -25,7 +25,7 @@ class Telnet(Entity):
     .. attribute:: vrfs
     
     	VRF name for telnet service
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs>`
     
     
 
@@ -59,7 +59,7 @@ class Telnet(Entity):
         .. attribute:: vrf
         
         	VRF name for telnet service
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs.Vrf>`
         
         
 
@@ -93,12 +93,14 @@ class Telnet(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: ipv4
             
             	IPv4 configuration
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs.Vrf.Ipv4>`
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs.Vrf.Ipv4>`
             
             
 
@@ -137,7 +139,7 @@ class Telnet(Entity):
                 .. attribute:: dscp
                 
                 	Specify the DSCP value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..63
                 

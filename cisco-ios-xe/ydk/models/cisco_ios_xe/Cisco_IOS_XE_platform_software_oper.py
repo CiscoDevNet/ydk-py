@@ -43,7 +43,7 @@ class CiscoPlatformSoftware(Entity):
     .. attribute:: control_processes
     
     	Information about control processes
-    	**type**\:   :py:class:`ControlProcesses <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses>`
+    	**type**\:  :py:class:`ControlProcesses <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses>`
     
     
 
@@ -77,7 +77,7 @@ class CiscoPlatformSoftware(Entity):
         .. attribute:: control_process
         
         	The list of control processes
-        	**type**\: list of    :py:class:`ControlProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess>`
+        	**type**\: list of  		 :py:class:`ControlProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess>`
         
         
 
@@ -111,60 +111,60 @@ class CiscoPlatformSoftware(Entity):
             .. attribute:: fru  <key>
             
             	Field replaceable unit
-            	**type**\:   :py:class:`BFru <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.BFru>`
+            	**type**\:  :py:class:`BFru <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.BFru>`
             
             .. attribute:: slotnum  <key>
             
             	Slot number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-32768..32767
             
             .. attribute:: baynum  <key>
             
             	Bay number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-32768..32767
             
             .. attribute:: chassisnum  <key>
             
             	Chassis number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-32768..32767
             
             .. attribute:: control_process_status
             
             	Status of the control process
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: updated
             
             	Number of seconds since the data has been updated
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: load_average_stats
             
             	Load average statictics
-            	**type**\:   :py:class:`LoadAverageStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats>`
+            	**type**\:  :py:class:`LoadAverageStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats>`
             
             .. attribute:: load_avg_minutes
             
             	Load average statistics calculated over a period of time
-            	**type**\:   :py:class:`LoadAvgMinutes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes>`
+            	**type**\:  :py:class:`LoadAvgMinutes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes>`
             
             .. attribute:: memory_stats
             
             	Memory statistics
-            	**type**\:   :py:class:`MemoryStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats>`
+            	**type**\:  :py:class:`MemoryStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats>`
             
             .. attribute:: per_core_stats
             
             	Processor core statistics
-            	**type**\:   :py:class:`PerCoreStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats>`
+            	**type**\:  :py:class:`PerCoreStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats>`
             
             
 
@@ -228,7 +228,7 @@ class CiscoPlatformSoftware(Entity):
                 .. attribute:: load_average_status
                 
                 	Load average status
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -261,7 +261,7 @@ class CiscoPlatformSoftware(Entity):
                 .. attribute:: load_avg_minute
                 
                 	List of Load averages based on a time frame
-                	**type**\: list of    :py:class:`LoadAvgMinute <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute>`
+                	**type**\: list of  		 :py:class:`LoadAvgMinute <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute>`
                 
                 
 
@@ -294,21 +294,21 @@ class CiscoPlatformSoftware(Entity):
                     .. attribute:: number  <key>
                     
                     	The number of minutes the average was calculated on
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: average
                     
                     	Calculated average
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     .. attribute:: status
                     
                     	Load average statistics minute status
-                    	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status>`
+                    	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status>`
                     
                     
 
@@ -348,17 +348,17 @@ class CiscoPlatformSoftware(Entity):
                         .. attribute:: condition
                         
                         	Load average condition
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: threshold_status
                         
                         	Load average status
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: threshold_value
                         
                         	Load average threshold
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -397,75 +397,75 @@ class CiscoPlatformSoftware(Entity):
                 .. attribute:: memory_status
                 
                 	The status of the memory
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: total
                 
                 	The total amount of memory in kb
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: used_number
                 
                 	The amount of memory being used in kb
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: used_percent
                 
                 	The percentage of memory being used
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: free_number
                 
                 	The amount of free memory in kb
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: free_percent
                 
                 	The percentage of free memory
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: available_number
                 
                 	The amount of available memory in kb
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: available_percent
                 
                 	The percentage of available memory
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: committed_number
                 
                 	The amount of committed memory in kb
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: committed_percent
                 
                 	The percentage of committed memory
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: status
                 
                 	Memory status
-                	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status>`
+                	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status>`
                 
                 
 
@@ -521,14 +521,14 @@ class CiscoPlatformSoftware(Entity):
                     .. attribute:: warning_threshold_percent
                     
                     	Memory warning threshold value percent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: critical_threshold_percent
                     
                     	Memory critical threshold value percent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -565,7 +565,7 @@ class CiscoPlatformSoftware(Entity):
                 .. attribute:: per_core_stat
                 
                 	List of processor cores
-                	**type**\: list of    :py:class:`PerCoreStat <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat>`
+                	**type**\: list of  		 :py:class:`PerCoreStat <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat>`
                 
                 
 
@@ -598,56 +598,56 @@ class CiscoPlatformSoftware(Entity):
                     .. attribute:: name  <key>
                     
                     	The identifier of the core
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: user
                     
                     	CPU utilization in user mode
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     .. attribute:: system
                     
                     	CPU utilization in system mode
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     .. attribute:: nice
                     
                     	Nice level
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     .. attribute:: idle
                     
                     	Idle percentage
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     .. attribute:: irq
                     
                     	The percentage of utilization by irq
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     .. attribute:: sirq
                     
                     	The percentage of utilization by sirq
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     .. attribute:: io_wait
                     
                     	IOWait percentage
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     

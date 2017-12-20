@@ -100,27 +100,27 @@ class Vservice(Entity):
     .. attribute:: service_function_locator
     
     	configure service function locator
-    	**type**\:   :py:class:`ServiceFunctionLocator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator>`
+    	**type**\:  :py:class:`ServiceFunctionLocator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator>`
     
     .. attribute:: metadata_dispositions
     
     	Configure metadata disposition
-    	**type**\:   :py:class:`MetadataDispositions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions>`
+    	**type**\:  :py:class:`MetadataDispositions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions>`
     
     .. attribute:: service_function_forward_locator
     
     	configure service function forward locator
-    	**type**\:   :py:class:`ServiceFunctionForwardLocator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator>`
+    	**type**\:  :py:class:`ServiceFunctionForwardLocator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator>`
     
     .. attribute:: metadata_templates
     
     	configure metadata imposition
-    	**type**\:   :py:class:`MetadataTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataTemplates>`
+    	**type**\:  :py:class:`MetadataTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataTemplates>`
     
     .. attribute:: service_function_path
     
     	service function path
-    	**type**\:   :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath>`
+    	**type**\:  :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath>`
     
     
 
@@ -174,7 +174,7 @@ class Vservice(Entity):
         .. attribute:: names
         
         	Mention the sf/sff name
-        	**type**\:   :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator.Names>`
+        	**type**\:  :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator.Names>`
         
         
 
@@ -208,7 +208,7 @@ class Vservice(Entity):
             .. attribute:: name
             
             	service function name
-            	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator.Names.Name>`
+            	**type**\: list of  		 :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator.Names.Name>`
             
             
 
@@ -242,19 +242,21 @@ class Vservice(Entity):
                 .. attribute:: function_name  <key>
                 
                 	Service function/forwarder name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: locator_id  <key>
                 
                 	Specify locator id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..255
                 
                 .. attribute:: node
                 
                 	configure sff/sffl
-                	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator.Names.Name.Node>`
+                	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionLocator.Names.Name.Node>`
                 
                 
 
@@ -295,22 +297,26 @@ class Vservice(Entity):
                     .. attribute:: transport
                     
                     	Transport type
-                    	**type**\:   :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
+                    	**type**\:  :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
                     
                     .. attribute:: ipv4_source_address
                     
                     	IPv4 source address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv4_destination_address
                     
                     	IPv4 destination address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: vni
                     
                     	VNI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -351,7 +357,7 @@ class Vservice(Entity):
         .. attribute:: metadata_disposition
         
         	metadata disposition name
-        	**type**\: list of    :py:class:`MetadataDisposition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition>`
+        	**type**\: list of  		 :py:class:`MetadataDisposition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition>`
         
         
 
@@ -385,17 +391,19 @@ class Vservice(Entity):
             .. attribute:: disposition_name  <key>
             
             	disposition name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: format  <key>
             
             	Specify Format
-            	**type**\:   :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
+            	**type**\:  :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
             
             .. attribute:: match_entry
             
             	match entry name
-            	**type**\: list of    :py:class:`MatchEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition.MatchEntry>`
+            	**type**\: list of  		 :py:class:`MatchEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition.MatchEntry>`
             
             
 
@@ -433,12 +441,14 @@ class Vservice(Entity):
                 .. attribute:: match_entry_name  <key>
                 
                 	match entry name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: node
                 
                 	configure disposition data
-                	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node>`
+                	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node>`
                 
                 
 
@@ -476,27 +486,29 @@ class Vservice(Entity):
                     .. attribute:: match_type
                     
                     	match type
-                    	**type**\:   :py:class:`SfcMetadataDispositionMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionMatch>`
+                    	**type**\:  :py:class:`SfcMetadataDispositionMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionMatch>`
                     
                     .. attribute:: action_type
                     
                     	action type
-                    	**type**\:   :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
+                    	**type**\:  :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
                     
                     .. attribute:: vrf
                     
                     	VRF name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: nexthop_ipv4_address
                     
                     	IPv4 nexthop address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: tenant_id
                     
                     	24\-bit tenant id
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -539,7 +551,7 @@ class Vservice(Entity):
         .. attribute:: names
         
         	Mention the sf/sff name
-        	**type**\:   :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names>`
+        	**type**\:  :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names>`
         
         
 
@@ -573,7 +585,7 @@ class Vservice(Entity):
             .. attribute:: name
             
             	service function name
-            	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names.Name>`
+            	**type**\: list of  		 :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names.Name>`
             
             
 
@@ -607,19 +619,21 @@ class Vservice(Entity):
                 .. attribute:: function_name  <key>
                 
                 	Service function/forwarder name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: locator_id  <key>
                 
                 	Specify locator id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..255
                 
                 .. attribute:: node
                 
                 	configure sff/sffl
-                	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names.Name.Node>`
+                	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionForwardLocator.Names.Name.Node>`
                 
                 
 
@@ -660,22 +674,26 @@ class Vservice(Entity):
                     .. attribute:: transport
                     
                     	Transport type
-                    	**type**\:   :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
+                    	**type**\:  :py:class:`SfcSfTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcSfTransport>`
                     
                     .. attribute:: ipv4_source_address
                     
                     	IPv4 source address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv4_destination_address
                     
                     	IPv4 destination address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: vni
                     
                     	VNI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -716,7 +734,7 @@ class Vservice(Entity):
         .. attribute:: metadata_template
         
         	metadata name, type and format
-        	**type**\: list of    :py:class:`MetadataTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataTemplates.MetadataTemplate>`
+        	**type**\: list of  		 :py:class:`MetadataTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.MetadataTemplates.MetadataTemplate>`
         
         
 
@@ -750,22 +768,24 @@ class Vservice(Entity):
             .. attribute:: metadata_name  <key>
             
             	metadata name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: type  <key>
             
             	Specify Type 
-            	**type**\:   :py:class:`SfcMetadataAlloc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataAlloc>`
+            	**type**\:  :py:class:`SfcMetadataAlloc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataAlloc>`
             
             .. attribute:: format  <key>
             
             	Specify Format
-            	**type**\:   :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
+            	**type**\:  :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
             
             .. attribute:: tenant_id
             
             	Enter 24\-bit tenant id
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..16777215
             
@@ -807,7 +827,7 @@ class Vservice(Entity):
         .. attribute:: paths
         
         	service function path id
-        	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths>`
+        	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths>`
         
         
 
@@ -841,7 +861,7 @@ class Vservice(Entity):
             .. attribute:: path
             
             	specify the service function path id
-            	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path>`
+            	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path>`
             
             
 
@@ -875,14 +895,14 @@ class Vservice(Entity):
                 .. attribute:: path_id  <key>
                 
                 	Specify the service function path id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..16777215
                 
                 .. attribute:: service_index
                 
                 	specify the service index
-                	**type**\: list of    :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex>`
+                	**type**\: list of  		 :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex>`
                 
                 
 
@@ -918,24 +938,24 @@ class Vservice(Entity):
                     .. attribute:: index  <key>
                     
                     	Specify the id of service function
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
                     .. attribute:: terminate
                     
                     	configure terminate
-                    	**type**\:   :py:class:`Terminate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate>`
+                    	**type**\:  :py:class:`Terminate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate>`
                     
                     .. attribute:: sff_names
                     
                     	service function forwarder 
-                    	**type**\:   :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames>`
+                    	**type**\:  :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames>`
                     
                     .. attribute:: sf_names
                     
                     	service function 
-                    	**type**\:   :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames>`
+                    	**type**\:  :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames>`
                     
                     
 
@@ -983,7 +1003,7 @@ class Vservice(Entity):
                         .. attribute:: node
                         
                         	configure default terminate action
-                        	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node>`
+                        	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node>`
                         
                         
 
@@ -1016,22 +1036,24 @@ class Vservice(Entity):
                             .. attribute:: action
                             
                             	default action enum
-                            	**type**\:   :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
+                            	**type**\:  :py:class:`SfcMetadataDispositionAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataDispositionAction>`
                             
                             .. attribute:: vrf
                             
                             	nexthop vrf name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nexthop_ipv4_address
                             
                             	IPv4 nexthop address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: metatdata_disposition
                             
                             	metadata\-disposition name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1070,7 +1092,7 @@ class Vservice(Entity):
                         .. attribute:: sff_name
                         
                         	service function forwarder name
-                        	**type**\: list of    :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName>`
+                        	**type**\: list of  		 :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName>`
                         
                         
 
@@ -1103,12 +1125,14 @@ class Vservice(Entity):
                             .. attribute:: name  <key>
                             
                             	SFF Name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: node
                             
                             	configure SFP
-                            	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node>`
+                            	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node>`
                             
                             
 
@@ -1146,12 +1170,12 @@ class Vservice(Entity):
                                 .. attribute:: enable
                                 
                                 	Enable Service function path
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: reserved
                                 
                                 	Dummy
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -1186,7 +1210,7 @@ class Vservice(Entity):
                         .. attribute:: sf_name
                         
                         	service function name
-                        	**type**\: list of    :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName>`
+                        	**type**\: list of  		 :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName>`
                         
                         
 
@@ -1219,12 +1243,14 @@ class Vservice(Entity):
                             .. attribute:: name  <key>
                             
                             	SF Name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: node
                             
                             	configure SFP
-                            	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node>`
+                            	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node>`
                             
                             
 
@@ -1262,12 +1288,12 @@ class Vservice(Entity):
                                 .. attribute:: enable
                                 
                                 	Enable Service function path
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: reserved
                                 
                                 	Dummy
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 

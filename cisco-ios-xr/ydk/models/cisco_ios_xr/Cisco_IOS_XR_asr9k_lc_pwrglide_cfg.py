@@ -25,7 +25,7 @@ class HardwareModulePortMode(Entity):
     .. attribute:: config_mode
     
     	Active or Pre configuration
-    	**type**\: list of    :py:class:`ConfigMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_pwrglide_cfg.HardwareModulePortMode.ConfigMode>`
+    	**type**\: list of  		 :py:class:`ConfigMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_pwrglide_cfg.HardwareModulePortMode.ConfigMode>`
     
     
 
@@ -59,12 +59,14 @@ class HardwareModulePortMode(Entity):
         .. attribute:: id1  <key>
         
         	act\- or pre\-config
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: node
         
         	A node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_pwrglide_cfg.HardwareModulePortMode.ConfigMode.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_pwrglide_cfg.HardwareModulePortMode.ConfigMode.Node>`
         
         
 
@@ -100,12 +102,14 @@ class HardwareModulePortMode(Entity):
             .. attribute:: id2  <key>
             
             	Fully qualified line card specification
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: port_mode
             
             	Linecard port\-mode
-            	**type**\:   :py:class:`PortMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_pwrglide_cfg.HardwareModulePortMode.ConfigMode.Node.PortMode>`
+            	**type**\:  :py:class:`PortMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_pwrglide_cfg.HardwareModulePortMode.ConfigMode.Node.PortMode>`
             
             
 
@@ -143,7 +147,7 @@ class HardwareModulePortMode(Entity):
                 .. attribute:: if_port_mode
                 
                 	Linecard interface port\-mode
-                	**type**\:  str
+                	**type**\: str
                 
                 
 

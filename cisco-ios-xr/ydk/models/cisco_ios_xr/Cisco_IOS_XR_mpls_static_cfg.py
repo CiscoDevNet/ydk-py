@@ -198,22 +198,22 @@ class MplsStatic(Entity):
     .. attribute:: vrfs
     
     	VRF table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs>`
     
     .. attribute:: interfaces
     
     	MPLS Static Interface Table
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces>`
     
     .. attribute:: default_vrf
     
     	Default VRF
-    	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf>`
+    	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf>`
     
     .. attribute:: enable
     
     	MPLS Static Apply Enable
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -262,7 +262,7 @@ class MplsStatic(Entity):
         .. attribute:: vrf
         
         	VRF Name
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf>`
         
         
 
@@ -296,22 +296,24 @@ class MplsStatic(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: label_switched_paths
             
             	Table of the Label Switched Paths
-            	**type**\:   :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths>`
+            	**type**\:  :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths>`
             
             .. attribute:: afs
             
             	Address Family Table
-            	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs>`
+            	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs>`
             
             .. attribute:: enable
             
             	MPLS Static Apply Enable
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -357,7 +359,7 @@ class MplsStatic(Entity):
                 .. attribute:: label_switched_path
                 
                 	Label Switched Path
-                	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath>`
+                	**type**\: list of  		 :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath>`
                 
                 
 
@@ -390,27 +392,29 @@ class MplsStatic(Entity):
                     .. attribute:: lsp_name  <key>
                     
                     	LSP Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: backup_paths
                     
                     	Backup Path Parameters
-                    	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
+                    	**type**\:  :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
                     
                     .. attribute:: in_label
                     
                     	MPLS Static Local Label Value
-                    	**type**\:   :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
+                    	**type**\:  :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
                     
                     .. attribute:: enable
                     
                     	MPLS Static Apply Enable
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: paths
                     
                     	Forward Path Parameters
-                    	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths>`
+                    	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths>`
                     
                     
 
@@ -460,7 +464,7 @@ class MplsStatic(Entity):
                         .. attribute:: path
                         
                         	Path Information
-                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
+                        	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
                         
                         
 
@@ -493,28 +497,28 @@ class MplsStatic(Entity):
                             .. attribute:: path_id  <key>
                             
                             	Number of paths
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..16
                             
                             .. attribute:: path_type
                             
                             	Type of Path (PopAndLookup, CrossConnect)
-                            	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                            	**type**\:  :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                             
                             	**default value**\: cross-connect
                             
                             .. attribute:: label_type
                             
                             	Type of label (Outlabel, ExpNull or Pop)
-                            	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                            	**type**\:  :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                             
                             	**default value**\: none
                             
                             .. attribute:: next_hop_label
                             
                             	Outgoing/NH Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 16..1048575
                             
@@ -523,36 +527,36 @@ class MplsStatic(Entity):
                             .. attribute:: next_hop_address
                             
                             	Next Hop IP Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             	**default value**\: 0.0.0.0
                             
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**default value**\: 0.0.0.0
-                            
-                            
-                            ----
                             .. attribute:: interface_name
                             
                             	Next hop Interface with form <Interface>R/S/I/P
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: afi
                             
                             	Next hop Address Family
-                            	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                            	**type**\:  :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
                             
                             	**default value**\: ipv4
                             
                             .. attribute:: metric
                             
                             	NH Path Metric
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..254
                             
@@ -561,21 +565,21 @@ class MplsStatic(Entity):
                             .. attribute:: nh_mode
                             
                             	Next hop mode
-                            	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                            	**type**\:  :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
                             
                             	**default value**\: configured
                             
                             .. attribute:: path_role
                             
                             	Path Role
-                            	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                            	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
                             
                             	**default value**\: primary
                             
                             .. attribute:: backup_id
                             
                             	Backup ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..16
                             
@@ -632,39 +636,39 @@ class MplsStatic(Entity):
                         .. attribute:: in_label_value
                         
                         	Local Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..1048575
                         
                         .. attribute:: label_mode
                         
                         	Label Mode (PerVRF, PerPrefix or LSP)
-                        	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                        	**type**\:  :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
                         
                         .. attribute:: prefix
                         
                         	Address (IPv4/6 depending on AFI)
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: prefix_length
                         
                         	Prefix length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: tlh_mode
                         
                         	Top Label Hashing Mode
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -705,7 +709,7 @@ class MplsStatic(Entity):
                         .. attribute:: path
                         
                         	Path Information
-                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path>`
+                        	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path>`
                         
                         
 
@@ -738,28 +742,28 @@ class MplsStatic(Entity):
                             .. attribute:: path_id  <key>
                             
                             	Number of paths
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..16
                             
                             .. attribute:: path_type
                             
                             	Type of Path (PopAndLookup, CrossConnect)
-                            	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                            	**type**\:  :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                             
                             	**default value**\: cross-connect
                             
                             .. attribute:: label_type
                             
                             	Type of label (Outlabel, ExpNull or Pop)
-                            	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                            	**type**\:  :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                             
                             	**default value**\: none
                             
                             .. attribute:: next_hop_label
                             
                             	Outgoing/NH Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 16..1048575
                             
@@ -768,36 +772,36 @@ class MplsStatic(Entity):
                             .. attribute:: next_hop_address
                             
                             	Next Hop IP Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
+                            
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            		**type**\: str
+                            
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             	**default value**\: 0.0.0.0
                             
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**default value**\: 0.0.0.0
-                            
-                            
-                            ----
                             .. attribute:: interface_name
                             
                             	Next hop Interface with form <Interface>R/S/I/P
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: afi
                             
                             	Next hop Address Family
-                            	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                            	**type**\:  :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
                             
                             	**default value**\: ipv4
                             
                             .. attribute:: metric
                             
                             	NH Path Metric
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..254
                             
@@ -806,21 +810,21 @@ class MplsStatic(Entity):
                             .. attribute:: nh_mode
                             
                             	Next hop mode
-                            	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                            	**type**\:  :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
                             
                             	**default value**\: configured
                             
                             .. attribute:: path_role
                             
                             	Path Role
-                            	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                            	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
                             
                             	**default value**\: primary
                             
                             .. attribute:: backup_id
                             
                             	Backup ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..16
                             
@@ -877,7 +881,7 @@ class MplsStatic(Entity):
                 .. attribute:: af
                 
                 	Address Family
-                	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af>`
+                	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af>`
                 
                 
 
@@ -910,22 +914,22 @@ class MplsStatic(Entity):
                     .. attribute:: afi  <key>
                     
                     	Address Family
-                    	**type**\:   :py:class:`MplsStaticAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamily>`
+                    	**type**\:  :py:class:`MplsStaticAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamily>`
                     
                     .. attribute:: top_label_hash
                     
                     	Top Label Hash
-                    	**type**\:   :py:class:`TopLabelHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash>`
+                    	**type**\:  :py:class:`TopLabelHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash>`
                     
                     .. attribute:: local_labels
                     
                     	Local Label
-                    	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels>`
+                    	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels>`
                     
                     .. attribute:: enable
                     
                     	MPLS Static Apply Enable
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -970,7 +974,7 @@ class MplsStatic(Entity):
                         .. attribute:: local_labels
                         
                         	Local Label
-                        	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels>`
+                        	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels>`
                         
                         
 
@@ -1003,7 +1007,7 @@ class MplsStatic(Entity):
                             .. attribute:: local_label
                             
                             	Specify Local Label
-                            	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel>`
+                            	**type**\: list of  		 :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel>`
                             
                             
 
@@ -1036,19 +1040,19 @@ class MplsStatic(Entity):
                                 .. attribute:: local_label_id  <key>
                                 
                                 	Local Label
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 16..1048575
                                 
                                 .. attribute:: label_type
                                 
                                 	MPLS Static Local Label Value
-                                	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType>`
+                                	**type**\:  :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType>`
                                 
                                 .. attribute:: paths
                                 
                                 	Forward Path Parameters
-                                	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths>`
+                                	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths>`
                                 
                                 
 
@@ -1091,25 +1095,25 @@ class MplsStatic(Entity):
                                     .. attribute:: label_mode
                                     
                                     	Label Mode (PerVRF, PerPrefix or LSP)
-                                    	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                                    	**type**\:  :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
                                     
                                     .. attribute:: prefix
                                     
                                     	Address (IPv4/6 depending on AFI)
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    ----
                                     .. attribute:: prefix_length
                                     
                                     	Prefix length
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -1148,7 +1152,7 @@ class MplsStatic(Entity):
                                     .. attribute:: path
                                     
                                     	Path Information
-                                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path>`
+                                    	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path>`
                                     
                                     
 
@@ -1181,28 +1185,28 @@ class MplsStatic(Entity):
                                         .. attribute:: path_id  <key>
                                         
                                         	Number of paths
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..16
                                         
                                         .. attribute:: path_type
                                         
                                         	Type of Path (PopAndLookup, CrossConnect)
-                                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                                        	**type**\:  :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                                         
                                         	**default value**\: cross-connect
                                         
                                         .. attribute:: label_type
                                         
                                         	Type of label (Outlabel, ExpNull or Pop)
-                                        	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                                        	**type**\:  :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                                         
                                         	**default value**\: none
                                         
                                         .. attribute:: next_hop_label
                                         
                                         	Outgoing/NH Label
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 16..1048575
                                         
@@ -1211,36 +1215,36 @@ class MplsStatic(Entity):
                                         .. attribute:: next_hop_address
                                         
                                         	Next Hop IP Address
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:  str
+                                        		**type**\: str
+                                        
+                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        		**type**\: str
+                                        
+                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
                                         	**default value**\: 0.0.0.0
                                         
-                                        
-                                        ----
-                                        	**type**\:  str
-                                        
-                                        	**default value**\: 0.0.0.0
-                                        
-                                        
-                                        ----
                                         .. attribute:: interface_name
                                         
                                         	Next hop Interface with form <Interface>R/S/I/P
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                                         
                                         .. attribute:: afi
                                         
                                         	Next hop Address Family
-                                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                        	**type**\:  :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
                                         
                                         	**default value**\: ipv4
                                         
                                         .. attribute:: metric
                                         
                                         	NH Path Metric
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..254
                                         
@@ -1249,21 +1253,21 @@ class MplsStatic(Entity):
                                         .. attribute:: nh_mode
                                         
                                         	Next hop mode
-                                        	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                                        	**type**\:  :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
                                         
                                         	**default value**\: configured
                                         
                                         .. attribute:: path_role
                                         
                                         	Path Role
-                                        	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                                        	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
                                         
                                         	**default value**\: primary
                                         
                                         .. attribute:: backup_id
                                         
                                         	Backup ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..16
                                         
@@ -1320,7 +1324,7 @@ class MplsStatic(Entity):
                         .. attribute:: local_label
                         
                         	Specify Local Label
-                        	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel>`
+                        	**type**\: list of  		 :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel>`
                         
                         
 
@@ -1353,19 +1357,19 @@ class MplsStatic(Entity):
                             .. attribute:: local_label_id  <key>
                             
                             	Local Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 16..1048575
                             
                             .. attribute:: label_type
                             
                             	MPLS Static Local Label Value
-                            	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType>`
+                            	**type**\:  :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType>`
                             
                             .. attribute:: paths
                             
                             	Forward Path Parameters
-                            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths>`
+                            	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths>`
                             
                             
 
@@ -1408,25 +1412,25 @@ class MplsStatic(Entity):
                                 .. attribute:: label_mode
                                 
                                 	Label Mode (PerVRF, PerPrefix or LSP)
-                                	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                                	**type**\:  :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
                                 
                                 .. attribute:: prefix
                                 
                                 	Address (IPv4/6 depending on AFI)
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
                                 .. attribute:: prefix_length
                                 
                                 	Prefix length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -1465,7 +1469,7 @@ class MplsStatic(Entity):
                                 .. attribute:: path
                                 
                                 	Path Information
-                                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path>`
+                                	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path>`
                                 
                                 
 
@@ -1498,28 +1502,28 @@ class MplsStatic(Entity):
                                     .. attribute:: path_id  <key>
                                     
                                     	Number of paths
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..16
                                     
                                     .. attribute:: path_type
                                     
                                     	Type of Path (PopAndLookup, CrossConnect)
-                                    	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                                    	**type**\:  :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                                     
                                     	**default value**\: cross-connect
                                     
                                     .. attribute:: label_type
                                     
                                     	Type of label (Outlabel, ExpNull or Pop)
-                                    	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                                    	**type**\:  :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                                     
                                     	**default value**\: none
                                     
                                     .. attribute:: next_hop_label
                                     
                                     	Outgoing/NH Label
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 16..1048575
                                     
@@ -1528,36 +1532,36 @@ class MplsStatic(Entity):
                                     .. attribute:: next_hop_address
                                     
                                     	Next Hop IP Address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     	**default value**\: 0.0.0.0
                                     
-                                    
-                                    ----
-                                    	**type**\:  str
-                                    
-                                    	**default value**\: 0.0.0.0
-                                    
-                                    
-                                    ----
                                     .. attribute:: interface_name
                                     
                                     	Next hop Interface with form <Interface>R/S/I/P
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                                     
                                     .. attribute:: afi
                                     
                                     	Next hop Address Family
-                                    	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                    	**type**\:  :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
                                     
                                     	**default value**\: ipv4
                                     
                                     .. attribute:: metric
                                     
                                     	NH Path Metric
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..254
                                     
@@ -1566,21 +1570,21 @@ class MplsStatic(Entity):
                                     .. attribute:: nh_mode
                                     
                                     	Next hop mode
-                                    	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                                    	**type**\:  :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
                                     
                                     	**default value**\: configured
                                     
                                     .. attribute:: path_role
                                     
                                     	Path Role
-                                    	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                                    	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
                                     
                                     	**default value**\: primary
                                     
                                     .. attribute:: backup_id
                                     
                                     	Backup ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16
                                     
@@ -1637,7 +1641,7 @@ class MplsStatic(Entity):
         .. attribute:: interface
         
         	MPLS Static Interface Enable
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces.Interface>`
         
         
 
@@ -1671,7 +1675,9 @@ class MplsStatic(Entity):
             .. attribute:: interface_name  <key>
             
             	Name of Interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 
@@ -1705,17 +1711,17 @@ class MplsStatic(Entity):
         .. attribute:: label_switched_paths
         
         	Table of the Label Switched Paths
-        	**type**\:   :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths>`
+        	**type**\:  :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths>`
         
         .. attribute:: afs
         
         	Address Family Table
-        	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs>`
+        	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs>`
         
         .. attribute:: enable
         
         	MPLS Static Apply Enable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -1759,7 +1765,7 @@ class MplsStatic(Entity):
             .. attribute:: label_switched_path
             
             	Label Switched Path
-            	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath>`
+            	**type**\: list of  		 :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath>`
             
             
 
@@ -1793,27 +1799,29 @@ class MplsStatic(Entity):
                 .. attribute:: lsp_name  <key>
                 
                 	LSP Name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: backup_paths
                 
                 	Backup Path Parameters
-                	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
+                	**type**\:  :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
                 
                 .. attribute:: in_label
                 
                 	MPLS Static Local Label Value
-                	**type**\:   :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
+                	**type**\:  :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
                 
                 .. attribute:: enable
                 
                 	MPLS Static Apply Enable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: paths
                 
                 	Forward Path Parameters
-                	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths>`
+                	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths>`
                 
                 
 
@@ -1864,7 +1872,7 @@ class MplsStatic(Entity):
                     .. attribute:: path
                     
                     	Path Information
-                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
+                    	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
                     
                     
 
@@ -1897,28 +1905,28 @@ class MplsStatic(Entity):
                         .. attribute:: path_id  <key>
                         
                         	Number of paths
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..16
                         
                         .. attribute:: path_type
                         
                         	Type of Path (PopAndLookup, CrossConnect)
-                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                        	**type**\:  :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                         
                         	**default value**\: cross-connect
                         
                         .. attribute:: label_type
                         
                         	Type of label (Outlabel, ExpNull or Pop)
-                        	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                        	**type**\:  :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                         
                         	**default value**\: none
                         
                         .. attribute:: next_hop_label
                         
                         	Outgoing/NH Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..1048575
                         
@@ -1927,36 +1935,36 @@ class MplsStatic(Entity):
                         .. attribute:: next_hop_address
                         
                         	Next Hop IP Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         	**default value**\: 0.0.0.0
                         
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**default value**\: 0.0.0.0
-                        
-                        
-                        ----
                         .. attribute:: interface_name
                         
                         	Next hop Interface with form <Interface>R/S/I/P
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: afi
                         
                         	Next hop Address Family
-                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                        	**type**\:  :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
                         
                         	**default value**\: ipv4
                         
                         .. attribute:: metric
                         
                         	NH Path Metric
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..254
                         
@@ -1965,21 +1973,21 @@ class MplsStatic(Entity):
                         .. attribute:: nh_mode
                         
                         	Next hop mode
-                        	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                        	**type**\:  :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
                         
                         	**default value**\: configured
                         
                         .. attribute:: path_role
                         
                         	Path Role
-                        	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                        	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
                         
                         	**default value**\: primary
                         
                         .. attribute:: backup_id
                         
                         	Backup ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..16
                         
@@ -2036,39 +2044,39 @@ class MplsStatic(Entity):
                     .. attribute:: in_label_value
                     
                     	Local Label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 16..1048575
                     
                     .. attribute:: label_mode
                     
                     	Label Mode (PerVRF, PerPrefix or LSP)
-                    	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                    	**type**\:  :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
                     
                     .. attribute:: prefix
                     
                     	Address (IPv4/6 depending on AFI)
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: prefix_length
                     
                     	Prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: tlh_mode
                     
                     	Top Label Hashing Mode
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -2109,7 +2117,7 @@ class MplsStatic(Entity):
                     .. attribute:: path
                     
                     	Path Information
-                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path>`
+                    	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path>`
                     
                     
 
@@ -2142,28 +2150,28 @@ class MplsStatic(Entity):
                         .. attribute:: path_id  <key>
                         
                         	Number of paths
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..16
                         
                         .. attribute:: path_type
                         
                         	Type of Path (PopAndLookup, CrossConnect)
-                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                        	**type**\:  :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                         
                         	**default value**\: cross-connect
                         
                         .. attribute:: label_type
                         
                         	Type of label (Outlabel, ExpNull or Pop)
-                        	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                        	**type**\:  :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                         
                         	**default value**\: none
                         
                         .. attribute:: next_hop_label
                         
                         	Outgoing/NH Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..1048575
                         
@@ -2172,36 +2180,36 @@ class MplsStatic(Entity):
                         .. attribute:: next_hop_address
                         
                         	Next Hop IP Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         	**default value**\: 0.0.0.0
                         
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**default value**\: 0.0.0.0
-                        
-                        
-                        ----
                         .. attribute:: interface_name
                         
                         	Next hop Interface with form <Interface>R/S/I/P
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: afi
                         
                         	Next hop Address Family
-                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                        	**type**\:  :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
                         
                         	**default value**\: ipv4
                         
                         .. attribute:: metric
                         
                         	NH Path Metric
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..254
                         
@@ -2210,21 +2218,21 @@ class MplsStatic(Entity):
                         .. attribute:: nh_mode
                         
                         	Next hop mode
-                        	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                        	**type**\:  :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
                         
                         	**default value**\: configured
                         
                         .. attribute:: path_role
                         
                         	Path Role
-                        	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                        	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
                         
                         	**default value**\: primary
                         
                         .. attribute:: backup_id
                         
                         	Backup ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..16
                         
@@ -2281,7 +2289,7 @@ class MplsStatic(Entity):
             .. attribute:: af
             
             	Address Family
-            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af>`
+            	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af>`
             
             
 
@@ -2315,22 +2323,22 @@ class MplsStatic(Entity):
                 .. attribute:: afi  <key>
                 
                 	Address Family
-                	**type**\:   :py:class:`MplsStaticAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamily>`
+                	**type**\:  :py:class:`MplsStaticAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamily>`
                 
                 .. attribute:: top_label_hash
                 
                 	Top Label Hash
-                	**type**\:   :py:class:`TopLabelHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash>`
+                	**type**\:  :py:class:`TopLabelHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash>`
                 
                 .. attribute:: local_labels
                 
                 	Local Label
-                	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels>`
+                	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels>`
                 
                 .. attribute:: enable
                 
                 	MPLS Static Apply Enable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -2376,7 +2384,7 @@ class MplsStatic(Entity):
                     .. attribute:: local_labels
                     
                     	Local Label
-                    	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels>`
+                    	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels>`
                     
                     
 
@@ -2409,7 +2417,7 @@ class MplsStatic(Entity):
                         .. attribute:: local_label
                         
                         	Specify Local Label
-                        	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel>`
+                        	**type**\: list of  		 :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel>`
                         
                         
 
@@ -2442,19 +2450,19 @@ class MplsStatic(Entity):
                             .. attribute:: local_label_id  <key>
                             
                             	Local Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 16..1048575
                             
                             .. attribute:: label_type
                             
                             	MPLS Static Local Label Value
-                            	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType>`
+                            	**type**\:  :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType>`
                             
                             .. attribute:: paths
                             
                             	Forward Path Parameters
-                            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths>`
+                            	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths>`
                             
                             
 
@@ -2497,25 +2505,25 @@ class MplsStatic(Entity):
                                 .. attribute:: label_mode
                                 
                                 	Label Mode (PerVRF, PerPrefix or LSP)
-                                	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                                	**type**\:  :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
                                 
                                 .. attribute:: prefix
                                 
                                 	Address (IPv4/6 depending on AFI)
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                ----
                                 .. attribute:: prefix_length
                                 
                                 	Prefix length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -2554,7 +2562,7 @@ class MplsStatic(Entity):
                                 .. attribute:: path
                                 
                                 	Path Information
-                                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path>`
+                                	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path>`
                                 
                                 
 
@@ -2587,28 +2595,28 @@ class MplsStatic(Entity):
                                     .. attribute:: path_id  <key>
                                     
                                     	Number of paths
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..16
                                     
                                     .. attribute:: path_type
                                     
                                     	Type of Path (PopAndLookup, CrossConnect)
-                                    	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                                    	**type**\:  :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                                     
                                     	**default value**\: cross-connect
                                     
                                     .. attribute:: label_type
                                     
                                     	Type of label (Outlabel, ExpNull or Pop)
-                                    	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                                    	**type**\:  :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                                     
                                     	**default value**\: none
                                     
                                     .. attribute:: next_hop_label
                                     
                                     	Outgoing/NH Label
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 16..1048575
                                     
@@ -2617,36 +2625,36 @@ class MplsStatic(Entity):
                                     .. attribute:: next_hop_address
                                     
                                     	Next Hop IP Address
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     	**default value**\: 0.0.0.0
                                     
-                                    
-                                    ----
-                                    	**type**\:  str
-                                    
-                                    	**default value**\: 0.0.0.0
-                                    
-                                    
-                                    ----
                                     .. attribute:: interface_name
                                     
                                     	Next hop Interface with form <Interface>R/S/I/P
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                                     
                                     .. attribute:: afi
                                     
                                     	Next hop Address Family
-                                    	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                    	**type**\:  :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
                                     
                                     	**default value**\: ipv4
                                     
                                     .. attribute:: metric
                                     
                                     	NH Path Metric
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..254
                                     
@@ -2655,21 +2663,21 @@ class MplsStatic(Entity):
                                     .. attribute:: nh_mode
                                     
                                     	Next hop mode
-                                    	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                                    	**type**\:  :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
                                     
                                     	**default value**\: configured
                                     
                                     .. attribute:: path_role
                                     
                                     	Path Role
-                                    	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                                    	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
                                     
                                     	**default value**\: primary
                                     
                                     .. attribute:: backup_id
                                     
                                     	Backup ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16
                                     
@@ -2726,7 +2734,7 @@ class MplsStatic(Entity):
                     .. attribute:: local_label
                     
                     	Specify Local Label
-                    	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel>`
+                    	**type**\: list of  		 :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel>`
                     
                     
 
@@ -2759,19 +2767,19 @@ class MplsStatic(Entity):
                         .. attribute:: local_label_id  <key>
                         
                         	Local Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..1048575
                         
                         .. attribute:: label_type
                         
                         	MPLS Static Local Label Value
-                        	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType>`
+                        	**type**\:  :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType>`
                         
                         .. attribute:: paths
                         
                         	Forward Path Parameters
-                        	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths>`
+                        	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths>`
                         
                         
 
@@ -2814,25 +2822,25 @@ class MplsStatic(Entity):
                             .. attribute:: label_mode
                             
                             	Label Mode (PerVRF, PerPrefix or LSP)
-                            	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                            	**type**\:  :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
                             
                             .. attribute:: prefix
                             
                             	Address (IPv4/6 depending on AFI)
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: prefix_length
                             
                             	Prefix length
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2871,7 +2879,7 @@ class MplsStatic(Entity):
                             .. attribute:: path
                             
                             	Path Information
-                            	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path>`
+                            	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path>`
                             
                             
 
@@ -2904,28 +2912,28 @@ class MplsStatic(Entity):
                                 .. attribute:: path_id  <key>
                                 
                                 	Number of paths
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..16
                                 
                                 .. attribute:: path_type
                                 
                                 	Type of Path (PopAndLookup, CrossConnect)
-                                	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                                	**type**\:  :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                                 
                                 	**default value**\: cross-connect
                                 
                                 .. attribute:: label_type
                                 
                                 	Type of label (Outlabel, ExpNull or Pop)
-                                	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                                	**type**\:  :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                                 
                                 	**default value**\: none
                                 
                                 .. attribute:: next_hop_label
                                 
                                 	Outgoing/NH Label
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 16..1048575
                                 
@@ -2934,36 +2942,36 @@ class MplsStatic(Entity):
                                 .. attribute:: next_hop_address
                                 
                                 	Next Hop IP Address
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
+                                
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                		**type**\: str
+                                
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 	**default value**\: 0.0.0.0
                                 
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**default value**\: 0.0.0.0
-                                
-                                
-                                ----
                                 .. attribute:: interface_name
                                 
                                 	Next hop Interface with form <Interface>R/S/I/P
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: afi
                                 
                                 	Next hop Address Family
-                                	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                	**type**\:  :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
                                 
                                 	**default value**\: ipv4
                                 
                                 .. attribute:: metric
                                 
                                 	NH Path Metric
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..254
                                 
@@ -2972,21 +2980,21 @@ class MplsStatic(Entity):
                                 .. attribute:: nh_mode
                                 
                                 	Next hop mode
-                                	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                                	**type**\:  :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
                                 
                                 	**default value**\: configured
                                 
                                 .. attribute:: path_role
                                 
                                 	Path Role
-                                	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                                	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
                                 
                                 	**default value**\: primary
                                 
                                 .. attribute:: backup_id
                                 
                                 	Backup ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..16
                                 

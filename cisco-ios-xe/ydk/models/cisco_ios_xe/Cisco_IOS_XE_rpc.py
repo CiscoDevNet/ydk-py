@@ -19,19 +19,19 @@ class Switch(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Output>`
     
     
 
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-02-07'
+    _revision = '2017-08-28'
 
     def __init__(self):
         super(Switch, self).__init__()
@@ -60,10 +60,10 @@ class Switch(Entity):
         """
         
         
-        .. attribute:: switch_number
+        .. attribute:: y_switch_number
         
         	
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..9
         
@@ -72,28 +72,28 @@ class Switch(Entity):
         .. attribute:: priority
         
         	<1\-15>  Switch Priority
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..15
         
         .. attribute:: renumber
         
         	<1\-9>  New number of the Switch
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..9
         
         .. attribute:: statck
         
         	
-        	**type**\:   :py:class:`Statck <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Input.Statck>`
+        	**type**\:  :py:class:`Statck <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Input.Statck>`
         
         
 
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
+        _revision = '2017-08-28'
 
         def __init__(self):
             super(Switch.Input, self).__init__()
@@ -105,7 +105,7 @@ class Switch(Entity):
             self._child_container_classes = {"statck" : ("statck", Switch.Input.Statck)}
             self._child_list_classes = {}
 
-            self.switch_number = YLeaf(YType.uint8, "switch-number")
+            self.y_switch_number = YLeaf(YType.uint8, "_switch-number")
 
             self.priority = YLeaf(YType.uint8, "priority")
 
@@ -119,7 +119,7 @@ class Switch(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Switch.Input, ['switch_number', 'priority', 'renumber'], name, value)
+            self._perform_setattr(Switch.Input, ['y_switch_number', 'priority', 'renumber'], name, value)
 
 
         class Statck(Entity):
@@ -129,7 +129,7 @@ class Switch(Entity):
             .. attribute:: port
             
             	<1\-2>  Stack port number to enable/disable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2
             
@@ -138,7 +138,7 @@ class Switch(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-02-07'
+            _revision = '2017-08-28'
 
             def __init__(self):
                 super(Switch.Input.Statck, self).__init__()
@@ -165,14 +165,14 @@ class Switch(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
+        _revision = '2017-08-28'
 
         def __init__(self):
             super(Switch.Output, self).__init__()
@@ -202,19 +202,19 @@ class Default(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Default.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Default.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Default.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Default.Output>`
     
     
 
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-02-07'
+    _revision = '2017-08-28'
 
     def __init__(self):
         super(Default, self).__init__()
@@ -246,14 +246,16 @@ class Default(Entity):
         .. attribute:: interface
         
         	Select an interface to configure
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [A\-Za\-z]([\\w/.\-]+)
         
         
 
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
+        _revision = '2017-08-28'
 
         def __init__(self):
             super(Default.Input, self).__init__()
@@ -280,14 +282,14 @@ class Default(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
+        _revision = '2017-08-28'
 
         def __init__(self):
             super(Default.Output, self).__init__()
@@ -314,17 +316,22 @@ class Reload(Entity):
     """
     Halt and perform a cold restart
     
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Reload.Input>`
+    
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Reload.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Reload.Output>`
     
     
 
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-02-07'
+    _revision = '2017-08-28'
 
     def __init__(self):
         super(Reload, self).__init__()
@@ -337,11 +344,50 @@ class Reload(Entity):
         self._child_container_classes = {}
         self._child_list_classes = {}
 
+        self.input = Reload.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
         self.output = Reload.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:reload"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: force
+        
+        	Force a restart even if there is unsaved config
+        	**type**\: bool
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2017-08-28'
+
+        def __init__(self):
+            super(Reload.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "reload"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.force = YLeaf(YType.boolean, "force")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:reload/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Reload.Input, ['force'], name, value)
 
 
     class Output(Entity):
@@ -351,14 +397,14 @@ class Reload(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
+        _revision = '2017-08-28'
 
         def __init__(self):
             super(Reload.Output, self).__init__()
@@ -388,19 +434,19 @@ class License(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Output>`
     
     
 
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-02-07'
+    _revision = '2017-08-28'
 
     def __init__(self):
         super(License, self).__init__()
@@ -432,14 +478,14 @@ class License(Entity):
         .. attribute:: smart
         
         	
-        	**type**\:   :py:class:`Smart <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input.Smart>`
+        	**type**\:  :py:class:`Smart <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input.Smart>`
         
         
 
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
+        _revision = '2017-08-28'
 
         def __init__(self):
             super(License.Input, self).__init__()
@@ -466,24 +512,24 @@ class License(Entity):
             .. attribute:: register
             
             	
-            	**type**\:   :py:class:`Register <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input.Smart.Register>`
+            	**type**\:  :py:class:`Register <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input.Smart.Register>`
             
             .. attribute:: deregister
             
             	
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: renew
             
             	
-            	**type**\:   :py:class:`Renew <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input.Smart.Renew>`
+            	**type**\:  :py:class:`Renew <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input.Smart.Renew>`
             
             
 
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-02-07'
+            _revision = '2017-08-28'
 
             def __init__(self):
                 super(License.Input.Smart, self).__init__()
@@ -520,14 +566,14 @@ class License(Entity):
                 .. attribute:: idtoken
                 
                 	
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-02-07'
+                _revision = '2017-08-28'
 
                 def __init__(self):
                     super(License.Input.Smart.Register, self).__init__()
@@ -554,19 +600,19 @@ class License(Entity):
                 .. attribute:: id
                 
                 	
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: auth
                 
                 	
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-02-07'
+                _revision = '2017-08-28'
 
                 def __init__(self):
                     super(License.Input.Smart.Renew, self).__init__()
@@ -595,14 +641,14 @@ class License(Entity):
         .. attribute:: result
         
         	Output returned by the network element
-        	**type**\:  str
+        	**type**\: str
         
         
 
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
+        _revision = '2017-08-28'
 
         def __init__(self):
             super(License.Output, self).__init__()
@@ -623,5 +669,378 @@ class License(Entity):
 
     def clone_ptr(self):
         self._top_entity = License()
+        return self._top_entity
+
+class Service(Entity):
+    """
+    SD\-AVC service management
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Service.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Service.Output>`
+    
+    
+
+    """
+
+    _prefix = 'ios-xe-rpc'
+    _revision = '2017-08-28'
+
+    def __init__(self):
+        super(Service, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "service"
+        self.yang_parent_name = "Cisco-IOS-XE-rpc"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = Service.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = Service.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "Cisco-IOS-XE-rpc:service"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: sd_avc
+        
+        	
+        	**type**\:  :py:class:`SdAvc <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Service.Input.SdAvc>`
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2017-08-28'
+
+        def __init__(self):
+            super(Service.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "service"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"sd-avc" : ("sd_avc", Service.Input.SdAvc)}
+            self._child_list_classes = {}
+
+            self.sd_avc = Service.Input.SdAvc()
+            self.sd_avc.parent = self
+            self._children_name_map["sd_avc"] = "sd-avc"
+            self._children_yang_names.add("sd-avc")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/%s" % self._segment_path()
+
+
+        class SdAvc(Entity):
+            """
+            
+            
+            .. attribute:: activate
+            
+            	
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: configure
+            
+            	
+            	**type**\:  :py:class:`Configure <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Service.Input.SdAvc.Configure>`
+            
+            .. attribute:: connect
+            
+            	
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: help
+            
+            	
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: deactivate
+            
+            	
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: install
+            
+            	
+            	**type**\:  :py:class:`Install <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Service.Input.SdAvc.Install>`
+            
+            .. attribute:: status
+            
+            	
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: unconfigure
+            
+            	
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: uninstall
+            
+            	
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: upgrade
+            
+            	
+            	**type**\:  :py:class:`Upgrade <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Service.Input.SdAvc.Upgrade>`
+            
+            
+
+            """
+
+            _prefix = 'ios-xe-rpc'
+            _revision = '2017-08-28'
+
+            def __init__(self):
+                super(Service.Input.SdAvc, self).__init__()
+
+                self.yang_name = "sd-avc"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"configure" : ("configure", Service.Input.SdAvc.Configure), "install" : ("install", Service.Input.SdAvc.Install), "upgrade" : ("upgrade", Service.Input.SdAvc.Upgrade)}
+                self._child_list_classes = {}
+
+                self.activate = YLeaf(YType.empty, "activate")
+
+                self.connect = YLeaf(YType.empty, "connect")
+
+                self.help = YLeaf(YType.empty, "help")
+
+                self.deactivate = YLeaf(YType.empty, "deactivate")
+
+                self.status = YLeaf(YType.empty, "status")
+
+                self.unconfigure = YLeaf(YType.empty, "unconfigure")
+
+                self.uninstall = YLeaf(YType.empty, "uninstall")
+
+                self.configure = Service.Input.SdAvc.Configure()
+                self.configure.parent = self
+                self._children_name_map["configure"] = "configure"
+                self._children_yang_names.add("configure")
+
+                self.install = Service.Input.SdAvc.Install()
+                self.install.parent = self
+                self._children_name_map["install"] = "install"
+                self._children_yang_names.add("install")
+
+                self.upgrade = Service.Input.SdAvc.Upgrade()
+                self.upgrade.parent = self
+                self._children_name_map["upgrade"] = "upgrade"
+                self._children_yang_names.add("upgrade")
+                self._segment_path = lambda: "sd-avc"
+                self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Service.Input.SdAvc, ['activate', 'connect', 'help', 'deactivate', 'status', 'unconfigure', 'uninstall'], name, value)
+
+
+            class Configure(Entity):
+                """
+                
+                
+                .. attribute:: gateway
+                
+                	
+                	**type**\:  :py:class:`Gateway <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Service.Input.SdAvc.Configure.Gateway>`
+                
+                
+
+                """
+
+                _prefix = 'ios-xe-rpc'
+                _revision = '2017-08-28'
+
+                def __init__(self):
+                    super(Service.Input.SdAvc.Configure, self).__init__()
+
+                    self.yang_name = "configure"
+                    self.yang_parent_name = "sd-avc"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"gateway" : ("gateway", Service.Input.SdAvc.Configure.Gateway)}
+                    self._child_list_classes = {}
+
+                    self.gateway = Service.Input.SdAvc.Configure.Gateway()
+                    self.gateway.parent = self
+                    self._children_name_map["gateway"] = "gateway"
+                    self._children_yang_names.add("gateway")
+                    self._segment_path = lambda: "configure"
+                    self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/%s" % self._segment_path()
+
+
+                class Gateway(Entity):
+                    """
+                    
+                    
+                    .. attribute:: interface
+                    
+                    	
+                    	**type**\: str
+                    
+                    .. attribute:: service_ip
+                    
+                    	
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: activate
+                    
+                    	
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ios-xe-rpc'
+                    _revision = '2017-08-28'
+
+                    def __init__(self):
+                        super(Service.Input.SdAvc.Configure.Gateway, self).__init__()
+
+                        self.yang_name = "gateway"
+                        self.yang_parent_name = "configure"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.service_ip = YLeaf(YType.str, "service-ip")
+
+                        self.activate = YLeaf(YType.empty, "activate")
+                        self._segment_path = lambda: "gateway"
+                        self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/configure/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Service.Input.SdAvc.Configure.Gateway, ['interface', 'service_ip', 'activate'], name, value)
+
+
+            class Install(Entity):
+                """
+                
+                
+                .. attribute:: package
+                
+                	
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'ios-xe-rpc'
+                _revision = '2017-08-28'
+
+                def __init__(self):
+                    super(Service.Input.SdAvc.Install, self).__init__()
+
+                    self.yang_name = "install"
+                    self.yang_parent_name = "sd-avc"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.package = YLeaf(YType.str, "package")
+                    self._segment_path = lambda: "install"
+                    self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Service.Input.SdAvc.Install, ['package'], name, value)
+
+
+            class Upgrade(Entity):
+                """
+                
+                
+                .. attribute:: package
+                
+                	
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'ios-xe-rpc'
+                _revision = '2017-08-28'
+
+                def __init__(self):
+                    super(Service.Input.SdAvc.Upgrade, self).__init__()
+
+                    self.yang_name = "upgrade"
+                    self.yang_parent_name = "sd-avc"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.package = YLeaf(YType.str, "package")
+                    self._segment_path = lambda: "upgrade"
+                    self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Service.Input.SdAvc.Upgrade, ['package'], name, value)
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: result
+        
+        	Output returned by the network element
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2017-08-28'
+
+        def __init__(self):
+            super(Service.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "service"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.result = YLeaf(YType.str, "result")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Service.Output, ['result'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Service()
         return self._top_entity
 

@@ -40,6 +40,11 @@ module Cisco-IOS-XE-route-map {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-07-27 {
+    description
+      "Add model for set ip next-hop verify-availability \
+       <ipaddr> <range> track <range>";
+  }
   revision 2017-06-07 {
     description
       "Add model for named ordering route-map enable";
@@ -548,6 +553,14 @@ module Cisco-IOS-XE-route-map {
                       range "1..65535";
                     }
                   }
+                  leaf track {
+                    description
+                      "set the next hop depending on the state\
+                       of a tracked object";
+                    type uint16 {
+                       range "1..1000";
+                    }
+                  } 
                 }
               }
             }

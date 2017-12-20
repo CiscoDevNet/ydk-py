@@ -42,10 +42,60 @@ submodule Cisco-IOS-XE-interfaces {
   // =========================================================================
   // REVISION
   // =========================================================================
-  revision 2017-05-31 { 
+  revision 2017-08-30 {
     description
-      "Add dependency for interface ip address to encapsulation/dot1Q";
+      "Move UTD interface support";
   }
+
+  revision 2017-08-21 {
+    description
+      "Add HundredGigE interface support";
+  }
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
+  revision 2017-08-02 {
+    description
+      "Added Stackwise Virtual Interface commands";
+  }
+
+  revision 2017-07-31 {
+    description
+      "Add dependency between ip primary and secondary";
+  }
+
+  revision 2017-07-20 {
+    description
+      "Change mtu range";
+  }
+  revision 2017-07-07 {
+    description
+      "Add ipv6 source-guard support and storm-control broadcast/multicast falling-threshold for int gig";
+  }
+
+  revision 2017-06-28 {
+     description
+       "Add nve support for special interface ucse, Ethernet-Internal and Service-Engine";
+   }
+
+  revision 2017-06-27 { 
+    description
+      "Extend FastEthernet and FortyGigabitEthernet to allow subinterfaces";
+  }
+
+  revision 2017-06-14 { 
+     description
+       "Add nve support for ingress-replication"; 
+   }
+
+  revision 2017-06-01 { 
+     description
+       "Add dependency for interface ip address to encapsulation/dot1Q";
+   }
+
   revision 2017-05-11 { 
     description
       "fix hold-queue to allow support for both in and out queues.";
@@ -72,7 +122,85 @@ submodule Cisco-IOS-XE-interfaces {
       "Initial revision";
   }
 
+  grouping nve-member-vni-mcast-group-grouping {
+     container mcast-group {
+       leaf multicast-group-min {
+         description
+           "Starting Multicast Group IPv4 Address";
+         type inet:ipv4-address;
+       }
+       leaf multicast-group-max {
+         description
+           "Ending Multicast Group IPv4 Address";
+         type inet:ipv4-address;
+       }
+     }
+   }
+ 
+   grouping nve-member-vni-grouping {
+     leaf ingress-replication {
+       description
+         "Ingress Replication or Unicast mode for vni(s)";
+       type inet:ipv4-address;
+     }
+     uses nve-member-vni-mcast-group-grouping;
+   }
 
+
+  grouping storm-control-threshold-grouping {
+    container level {
+      description
+        "Set storm suppression level on this interface";
+      container threshold {
+        description
+          "Broadcast address storm control";
+        leaf rising-threshold {
+          description
+            "Enter rising threshold";
+          type decimal64 {
+            fraction-digits 2;
+            range "0..100";
+          }
+        }
+        leaf falling-threshold  {
+          description
+            "Enter falling threshold";
+          type decimal64 {
+            fraction-digits 2;
+            range "0..100";
+          }
+        }
+      }
+      container bps {
+        description
+          "Enter suppression level in bits per second";
+        leaf rising-threshold {
+          description
+            "Enter rising threshold - <0.0 - 10000000000.0>[k|m|g]>";
+          type ios-types:storm-control-threshold-type;
+        }
+        leaf falling-threshold  {
+          description
+            "Enter falling threshold - <0.0 - 10000000000.0>[k|m|g]> ";
+          type ios-types:storm-control-threshold-type;
+        }
+      }
+      container pps {
+        description
+          "Enter suppression level in packets per second";
+        leaf rising-threshold {
+          description
+            "Enter rising threshold - <0.0 - 10000000000.0>[k|m|g]";
+          type ios-types:storm-control-threshold-type;
+        }
+        leaf falling-threshold  {
+          description
+            "Enter falling threshold - <0.0 - 10000000000.0>[k|m|g] ";
+          type ios-types:storm-control-threshold-type;
+        }
+      }
+    }
+  }
   grouping ethernet-grouping {
     choice ethernet-choice {
       leaf FastEthernet {
@@ -85,6 +213,11 @@ submodule Cisco-IOS-XE-interfaces {
           "GigabitEthernet IEEE 802.3z";
         type string;
       }
+      leaf FiveGigabitEthernet {
+        description
+          "Five Gigabit Ethernet ";
+        type string;
+      }
       leaf Port-channel {
         description
           "Ethernet Channel of interfaces";
@@ -95,9 +228,19 @@ submodule Cisco-IOS-XE-interfaces {
           "Ten Gigabit Ethernet";
         type string;
       }
+      leaf TwentyFiveGigabitEthernet {
+        description
+          "Twenty Five Gigabit Ethernet ";
+        type string;
+      }
       leaf FortyGigabitEthernet {
         description
           "Forty Gigabit Ethernet";
+        type string;
+      }
+      leaf HundredGigE {
+        description
+          "Hundred Gigabit Ethernet";
         type string;
       }
       leaf vlan {
@@ -109,6 +252,112 @@ submodule Cisco-IOS-XE-interfaces {
       }
     }
   }
+
+ grouping interface-negotiation-grouping {
+     container negotiation {
+       description
+         "Select autonegotiation mode";
+       leaf auto {
+         description
+           "Enable link autonegotiation";
+         type boolean;
+       }
+     }
+   }
+  
+   grouping interface-switchport-grouping {
+     container switchport-wrapper {
+       container switchport {
+ 
+         // interface * / switchport access
+         container access {
+           description
+             "Set access mode characteristics of the interface";
+           leaf vlan {
+             description
+               "Set VLAN when interface is in access mode";
+             type uint16 {
+                range "1..4094";
+             }
+           }
+         }
+ 
+         // interface * / switchport mode
+         leaf mode {
+           description
+             "Set trunking mode of the interface";
+           type enumeration {
+             enum "access";
+             enum "trunk";
+           }
+         }
+ 
+         // interface * / switchport trunk
+         container trunk {
+           description
+             "Set trunking characteristics of the interface";
+           // interface * / switchport trunk allowed
+           container allowed {
+             description
+               "Set allowed VLAN characteristics when interface is in trunking mode";
+             // interface * / switchport trunk allowed vlan
+             container vlan {
+               description
+                 "Set allowed VLANs when interface is in trunking mode";
+               choice vlan-choice {
+                 leaf vlans {
+                   type string;
+                 }
+                 leaf add {
+                   description
+                     "VLAN IDs of the allowed VLANs when this port is in trunking mode";
+                   type union {
+                     type uint16;
+                     type string;
+                   }
+                 }
+                 leaf all {
+                   description
+                     "all VLANs";
+                   type empty;
+                 }
+                 leaf-list except {
+                   description
+                     "all VLANs except the following";
+                   type union {
+                     type uint16;
+                     type string;
+                   }
+                 }
+                 leaf none {
+                   description
+                     "no VLANs";
+                   type empty;
+                 }
+                 leaf remove {
+                   description
+                     "VLAN IDs of disallowed VLANS when this port is in trunking mode";
+                   type union {
+                     type uint16;
+                     type string;
+                   }
+                 }
+               }
+             }
+           }
+           container native {
+             leaf vlan {
+               description
+                 "Set VLAN when interface is in access mode";
+               type uint16 {
+                 range "1..4094";
+               }
+             }
+           }
+         }
+       }
+     }
+   }
 
   grouping interface-common-grouping {
     // interface * / description
@@ -132,6 +381,20 @@ submodule Cisco-IOS-XE-interfaces {
        description
          "Set switching mode characteristics";
        if-feature ios-features:switching-platform;
+    }
+   
+    // interface * / stackwise-virtual
+    container stackwise-virtual {
+       description
+         "Configure stackwise-virtual link values";
+        leaf link {
+          type uint8 {
+            range 1..2;
+          }
+        }
+        leaf dual-active-detection {
+          type empty;
+        }
     }
 
     // interface * / mac-address
@@ -1142,7 +1405,7 @@ submodule Cisco-IOS-XE-interfaces {
         description
           "Set IP Maximum Transmission Unit";
         type uint16 {
-          range "68..9198";
+          range "68..9216";
         }
       }
 
@@ -1247,6 +1510,15 @@ submodule Cisco-IOS-XE-interfaces {
           type string;
         }
       }
+      container source-guard {
+        description "Configure ipv6 source guard on the interface";
+        presence true;
+        leaf attach-policy {
+          description "Apply a policy for feature ipv6 sourceguard";
+          type string;
+        }
+      }
+ 
 
       // interface * / ipv6 dhcp
       container dhcp {
@@ -1335,7 +1607,7 @@ submodule Cisco-IOS-XE-interfaces {
         description
           "Set IPv6 Maximum Transmission Unit";
         type uint16 {
-          range "1280..9198";
+          range "1280..9216";
         }
       }
 
@@ -1476,11 +1748,15 @@ submodule Cisco-IOS-XE-interfaces {
 
     // interface * / mop
     container mop {
-      leaf enabled {
-        type boolean;
-//FIXME this should not be set as default        default true;
-      }
-    }
+        leaf enabled {
+         type boolean;
+       }
+       leaf sysid {
+         description
+           "Send out MOP periodic system ID messages";
+         type boolean;
+       }
+     }
 
     // interface * / max-reserved-bandwidth
     leaf max-reserved-bandwidth {
@@ -1898,150 +2174,19 @@ submodule Cisco-IOS-XE-interfaces {
             type empty;
           }
         }
-        container level {
-          description
-            "Set storm suppression level on this interface";
-          leaf threshold{
-            description
-              "Broadcast address storm control";
-            type decimal64 {
-              fraction-digits 2;
-              range "0..100";
-            }
-          }
-          container bps {
-            description
-              "Enter suppression level in bits per second";
-            leaf rising-threshold {
-              description
-                "Enter rising threshold - <0.0 - 10000000000.0>[k|m|g]>";
-              type ios-types:storm-control-threshold-type;
-            }
-          leaf falling-threshold  {
-              description
-               "Enter falling threshold - <0.0 - 10000000000.0>[k|m|g]> ";
-              type ios-types:storm-control-threshold-type;
-            }
-          }
-          container pps {
-            description
-              "Enter suppression level in packets per second";
-            leaf rising-threshold {
-              description
-                "Enter rising threshold - <0.0 - 10000000000.0>[k|m|g]";
-              type ios-types:storm-control-threshold-type;
-            }
-            leaf falling-threshold  {
-              description
-                "Enter falling threshold - <0.0 - 10000000000.0>[k|m|g] ";
-              type ios-types:storm-control-threshold-type;
-            }
-          }
-        }
+        uses storm-control-threshold-grouping; 
       }
       container multicast {
         description
           "Multicast address storm control";
-        container level {
-          description
-            "Set storm suppression level on this interface";
-          leaf threshold{
-            description
-              "Broadcast address storm control";
-            type decimal64 {
-              fraction-digits 2;
-              range "0..100";
-            }
-          }
-          container bps {
-            description
-              "Enter suppression level in bits per second";
-            leaf rising-threshold {
-              description
-                "Enter rising threshold - <0.0 - 10000000000.0>[k|m|g]";
-              type ios-types:storm-control-threshold-type;
-            }
-            leaf falling-threshold  {
-              description
-                "Enter falling threshold - <0.0 - 10000000000.0>[k|m|g] ";
-              type ios-types:storm-control-threshold-type;
-            }
-          }
-          container pps {
-            description
-              "Enter suppression level in packets per second";
-            leaf rising-threshold {
-              description
-                "Enter rising threshold - <0.0 - 10000000000.0>[k|m|g]";
-              type ios-types:storm-control-threshold-type;
-            }
-            leaf falling-threshold {
-              description
-                "Enter falling threshold - <0.0 - 10000000000.0>[k|m|g]";
-              type ios-types:storm-control-threshold-type;
-            }
-          }
-        }
+        uses storm-control-threshold-grouping; 
       }
       container unicast {
         description
           "Unicast address storm control";
-        container level {
-          description
-            "Set storm suppression level on this interface";
-          container threshold {
-            description
-             "Broadcast address storm control";
-            leaf rising-threshold {
-              description
-              "Enter rising threshold";
-              type decimal64 {
-                fraction-digits 2;
-                range "0..100";
-              }
-            }
-            leaf falling-threshold  {
-              description
-               "Enter falling threshold";
-              type decimal64 {
-                fraction-digits 2;
-                range "0..100";
-              }
-            }
-          }
-          container bps {
-            description
-              "Enter suppression level in bits per second";
-            leaf rising-threshold {
-              description
-                "Enter rising threshold - <0.0 - 10000000000.0>[k|m|g]";
-              type ios-types:storm-control-threshold-type;
-            }
-            leaf falling-threshold  {
-              description
-                "Enter falling threshold - <0.0 - 10000000000.0>[k|m|g]";
-              type ios-types:storm-control-threshold-type;
-            }
-          }
-
-          container pps {
-            description
-              "Enter suppression level in packets per second";
-            leaf rising-threshold {
-              description
-                "Enter rising threshold - <0.0 - 10000000000.0>[k|m|g]";
-              type ios-types:storm-control-threshold-type;
-            }
-            leaf falling-threshold  {
-              description
-                "Enter falling threshold - <0.0 - 10000000000.0>[k|m|g]";
-              type ios-types:storm-control-threshold-type;
-            }
-          }
-        }
+        uses storm-control-threshold-grouping; 
       }
     }
-
     // interface * / trust
     container trust {
       description
@@ -2055,17 +2200,6 @@ submodule Cisco-IOS-XE-interfaces {
           enum ip-camera;
           enum media-player;
         }
-      }
-    }
-
-    // interface * / utd
-    container utd {
-      description
-        "UTD support on this interface";
-      leaf enable {
-        description
-          "Enable threat defense on this interface";
-        type empty;
       }
     }
 
@@ -2331,18 +2465,79 @@ submodule Cisco-IOS-XE-interfaces {
           "FastEthernet IEEE 802.3";
         key "name";
         leaf name {
-//PVH          type string;
           type string {
-            pattern "([0-9]/)([0-9]/)([1-3][0-9]|4[0-8]|[0-9])";
+            pattern "([0-9]/)([0-9]/)([1-3][0-9]|4[0-8]|[0-9])(\\.[0-9]+)?";
           }
+         }
+         uses interface-common-grouping;
+       }
+ 
+        // interface ucse 
+       list ucse {
+         description
+           "Cisco ucse server";
+         key "name";
+         leaf name {
+           type string;
+         }
+         uses interface-negotiation-grouping;
+         uses interface-switchport-grouping;
+         uses interface-common-grouping;
+       }
+ 
+       // interface Ethernet-Internal 
+       list Ethernet-Internal {
+         description
+           "Ethernet-Internal interface";
+         key "name";
+         leaf name {
+           type string;
+         }
+         uses interface-negotiation-grouping;
+         uses interface-switchport-grouping;
+         uses interface-common-grouping;
+       }
+ 
+       // interface Service-Engine 
+       list Service-Engine {
+         description
+           "Cisco service engine module";
+         key "name";
+         leaf name {
+           type string;
+         }
+          uses interface-common-grouping;
         }
-        uses interface-common-grouping;
-      }
 
       // interface GigabitEthernet
       list GigabitEthernet {
         description
           "GigabitEthernet IEEE 802.3z";
+        key "name";
+        leaf name {
+          type string;
+        }
+        leaf media-type {
+          description
+            "Media type";
+          type enumeration {
+            enum "auto-select";
+            enum "rj45";
+            enum "sfp";
+          }
+        }
+        leaf port-type {
+          type enumeration {
+            enum "nni";
+          }
+        }
+        uses interface-common-grouping;
+      }
+
+      // interface FiveGigabitEthernet
+      list FiveGigabitEthernet {
+        description
+          "Five Gigabit Ethernet";
         key "name";
         leaf name {
           type string;
@@ -2386,29 +2581,15 @@ submodule Cisco-IOS-XE-interfaces {
             enum "nni";
           }
         }
-        container lacp {
-          description "LACP interface subcommands";
-          container rate {
-            description "Rate at which the LACP packets are requested to be ingressed to this interface";
-            leaf fast {
-              description "Request LACP packets to be ingressed at the 1 second rate for this interface";
-              type empty;
-            }
-          }
-        }
         uses interface-common-grouping;
       }
-
-      // interface FortyGigabitEthernet
-      list FortyGigabitEthernet {
+      // interface FiveGigabitEthernet
+      list TwentyFiveGigabitEthernet {
         description
-          "Forty Gigabit Ethernet";
+          "Twenty Five Gigabit Ethernet";
         key "name";
         leaf name {
-//PVH type string;
-          type string {
-            pattern "([0-9]/)([0-1]/)[0-4]";
-          }
+          type string;
         }
         leaf media-type {
           description
@@ -2423,6 +2604,42 @@ submodule Cisco-IOS-XE-interfaces {
           type enumeration {
             enum "nni";
           }
+        }
+        uses interface-common-grouping;
+      }
+
+      // interface FortyGigabitEthernet
+      list FortyGigabitEthernet {
+        description
+          "Forty Gigabit Ethernet";
+        key "name";
+        leaf name {
+          type string;
+        }
+        leaf media-type {
+          description
+            "Media type";
+          type enumeration {
+            enum "auto-select";
+            enum "rj45";
+            enum "sfp";
+          }
+        }
+        leaf port-type {
+          type enumeration {
+            enum "nni";
+          }
+        }
+        uses interface-common-grouping;
+      }
+
+      // interface HundredGigE
+      list HundredGigE {
+        description
+          "Hundred Gigabit Ethernet";
+        key "name";
+        leaf name {
+          type string;
         }
         uses interface-common-grouping;
       }
@@ -2487,6 +2704,23 @@ submodule Cisco-IOS-XE-interfaces {
             "Specify source interface for NVE";
           uses ios-ifc:interface-grouping;
         }
+        container member-in-one-line {
+           container member {
+             list vni {
+               description
+                 "Configure VNI information";
+               key "vni-range";
+               leaf vni-range {
+                 type string;
+               }
+               leaf vrf { 
+                 description
+                   "Specify a particular VRF";
+                 type string; 
+               }
+             }
+           }
+         }
         container member {
           list vni {
             description
@@ -2495,21 +2729,17 @@ submodule Cisco-IOS-XE-interfaces {
             leaf vni-range {
               type string;
             }
-            container mcast-group {
-              leaf multicast-group-min {
-                description
-                  "Starting Multicast Group IPv4 Address";
-                type inet:ipv4-address;
-              }
-              leaf multicast-group-max {
-                description
-                  "Ending Multicast Group IPv4 Address";
-                type inet:ipv4-address;
+            container default {
+               uses nve-member-vni-grouping; 
+             }
+             uses nve-member-vni-grouping; 
+             container no {
+               uses nve-member-vni-grouping; 
               }
             }
           }
+         uses interface-common-grouping;
         }
-      }
 
       // interface overlay
       list overlay {
@@ -2529,21 +2759,9 @@ submodule Cisco-IOS-XE-interfaces {
           "Ethernet Channel of interfaces";
         key "name";
         leaf name {
-//PVH          type string;
           type uint32 {
-            range "1..512"; //FIXME changed range to 0
+            range "1..512";
          }
-        }
-        container lacp {
-          description
-            "LACP Port Channel interface subcommands";
-          leaf max-bundle {
-            description
-              "LACP maximum number of ports to bundle in this port channel";
-            type int8 {
-              range "1..8";
-            }
-          }
         }
         leaf pc-speed {
           description

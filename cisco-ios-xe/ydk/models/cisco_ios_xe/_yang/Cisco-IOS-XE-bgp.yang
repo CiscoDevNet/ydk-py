@@ -45,6 +45,46 @@ module Cisco-IOS-XE-bgp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-09-18 {
+    description
+      "BGP neighbor should match a v4/v6 address";
+  }
+  revision 2017-09-08 {
+    description
+      "Add show no for enhanced-error";
+  }
+  revision 2017-08-17 {
+    description
+      "send-community delete before change";
+  }
+  revision 2017-08-10 {
+    description
+      "Add bgp mpls-local-label, import path selection all, bgp bestpath as-path ignore";
+  }
+  revision 2017-08-02 {
+    description
+      "Fix delete for redistribute connected";
+  }
+  revision 2017-07-30 {
+    description
+      "adding neighbor remove-privare-as support";
+  }
+  revision 2017-07-27 {
+    description
+      "Fix delete for redistribute connected";
+  }
+  revision 2017-07-17 {
+    description
+      "adding neighbor send-label";
+  }
+  revision 2017-07-10 {
+    description
+      "adding redistribute ospfv3";
+  }
+  revision 2017-05-25 {
+    description
+      "adding neighber listen and next-hop-self all";
+  }
   revision 2017-04-28 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -592,19 +632,53 @@ module Cisco-IOS-XE-bgp {
     }
   }
 
+  grouping redistribute-ospf-non-vrf-grouping {
+    container match {
+      leaf internal {
+        description
+          "Redistribute OSPF internal routes";
+        type empty;
+      }
+      leaf external {
+        description
+          "Redistribute OSPF external routes";
+        type ios-types:redist-ospf-external-type;
+      }
+      leaf external2 {
+        description
+          "Redistribute OSPF external routes";
+        type ios-types:redist-ospf-external-type;
+      }
+      leaf nssa-external {
+        description
+          "Redistribute OSPF NSSA external routes";
+        type ios-types:redist-ospf-external-type;
+      }
+      uses metric-route-map-grouping;
+    }
+    uses metric-route-map-grouping;
+  }
 
   grouping bgp-address-family-grouping {
-
     // router bgp * / import
-    container import {                                                      
-      description "Configure path import";                                
-      container path {                                                    
-        description "Path selection and path limit";                    
-        leaf limit {                                                    
-          description "Per net imported path limit";                  
-          type uint8 {                                                
-            range "2..255";                                         
-          }                                                           
+    container import {
+      description "Configure path import";
+      container path {
+        description "Path selection and path limit";
+        leaf limit {
+          description "Per net imported path limit";
+          type uint8 {
+            range "2..255";
+          }
+        }
+        container selection {
+          description
+            "Path selection policy";
+          leaf all {
+            description
+              "Import all available paths";
+            type empty;
+          }
         }
       }
     }
@@ -826,6 +900,11 @@ module Cisco-IOS-XE-bgp {
       container bestpath {
         description
           "Change the default bestpath selection";
+        leaf as-path {
+          type enumeration {
+            enum "ignore";
+          }
+        }
         leaf compare-routerid {
           type empty;
         }
@@ -1020,7 +1099,7 @@ module Cisco-IOS-XE-bgp {
       leaf enhanced-error {
         description
           "Enabled BGP Enhanced error handling";
-        type empty;
+        type boolean;
       }
       // router bgp * / bgp fast-external-fallover
       leaf fast-external-fallover {
@@ -1090,6 +1169,34 @@ module Cisco-IOS-XE-bgp {
         description
           "Log neighbor up/down and reset reason";
         type empty;
+      }
+      // router bgp * / bgp listen 
+      container listen {
+        description
+          "Neighbor subnet range listener";
+        leaf limit {
+          description
+            "Set the max limit for the dynamic subnet range neighbors";
+          type uint16 {
+            range "1..10000";
+          }
+        }
+        list range {
+          description
+            "Subnet network range";
+          key "network-range peer-group";
+          leaf network-range {
+            type union {
+              type inet:ipv4-prefix;
+              type ios-types:ipv6-prefix;
+            }
+          }
+          leaf peer-group {
+            description
+              "Member of the peer-group";
+            type string;
+          }
+        }
       }
       // router bgp * / bgp maxas-limit
       leaf maxas-limit {
@@ -1192,6 +1299,12 @@ module Cisco-IOS-XE-bgp {
             "Route map for valid nexthops";
           type string;
         }
+      }
+      // router bgp * / bgp  mpls-local-label
+      leaf mpls-local-label {
+        description
+          "Installs local label for ALL /32 prefixes";
+        type empty;
       }
       // router bgp * / bgp redistribute-internal
       leaf redistribute-internal {
@@ -1386,9 +1499,9 @@ module Cisco-IOS-XE-bgp {
       key "id";
       leaf id {
         type union {
-          type string;
           type inet:ipv4-address;
           type inet:ipv6-address;
+          type string;
         }
       }
       uses neighbor-peer-group-grouping;
@@ -1852,10 +1965,15 @@ module Cisco-IOS-XE-bgp {
         }
       }
       // router bgp * / neighbor * next-hop-self
-      leaf next-hop-self {
+      container next-hop-self {
         description
           "Disable the next hop calculation for this neighbor";
-        type empty;
+        presence "true";
+        leaf all {
+          description
+            "Enable next-hop-self for both eBGP and iBGP received paths";
+          type empty;
+        }
       }
       // router bgp * / neighbor * next-hop-unchanged
       leaf next-hop-unchanged {
@@ -1898,10 +2016,20 @@ module Cisco-IOS-XE-bgp {
         }
       }
       // router bgp * / neighbor * remove-private-as
-      leaf remove-private-as {
+      container remove-private-as {
         description
           "Remove private AS number from outbound updates";
-        type empty;
+        presence true;
+        container all {
+          description
+            "Remove all private AS numbers";
+          presence true;
+          leaf replace-as {
+            description
+              "Replace all private AS numbers with local AS";
+            type empty;
+          }
+        }
       }
       // router bgp * / neighbor * route-map *
       list route-map {
@@ -1954,6 +2082,7 @@ module Cisco-IOS-XE-bgp {
       container send-label {
         description
           "Send NLRI + MPLS Label to this peer";
+        presence "true";
         leaf send-label-explicit {
           type enumeration {
             enum "explicit-null" {
@@ -2279,31 +2408,19 @@ module Cisco-IOS-XE-bgp {
           uses metric-route-map-grouping;
         }
         container non-vrf {
-          container match {
-            leaf internal {
-              description
-                "Redistribute OSPF internal routes";
-              type empty;
-            }
-            leaf external {
-              description
-                "Redistribute OSPF external routes";
-              type ios-types:redist-ospf-external-type;
-            }
-            leaf external2 {
-              description
-                "Redistribute OSPF external routes";
-              type ios-types:redist-ospf-external-type;
-            }
-            leaf nssa-external {
-              description
-                "Redistribute OSPF NSSA external routes";
-              type ios-types:redist-ospf-external-type;
-            }
-            uses metric-route-map-grouping;
-          }
-          uses metric-route-map-grouping;
+          uses redistribute-ospf-non-vrf-grouping;
         }
+      }
+      list ospfv3 {
+        description
+          "OSPFv3";
+        key "id";
+        leaf id {
+          type uint16 {
+            range "1..65535";
+          }
+        }
+        uses redistribute-ospf-non-vrf-grouping;
       }
       container rip {
         presence "Routing Information Protocol (RIP)";
@@ -2729,9 +2846,9 @@ module Cisco-IOS-XE-bgp {
               key "id";
               leaf id {
                 type union {
-                  type string;
                   type inet:ipv4-address;
                   type inet:ipv6-address;
+                  type string;
                 }
               }
               uses neighbor-peer-group-grouping;
@@ -2752,9 +2869,9 @@ module Cisco-IOS-XE-bgp {
               key "id";
               leaf id {
                 type union {
-                  type string;
                   type inet:ipv4-address;
                   type inet:ipv6-address;
+                  type string;
                 }
               }
           list neighbor {
@@ -2766,9 +2883,9 @@ module Cisco-IOS-XE-bgp {
               key "id";
               leaf id {
                 type union {
-                  type string;
                   type inet:ipv4-address;
                   type inet:ipv6-address;
+                  type string;
                 }
               }
               uses neighbor-peer-group-grouping;

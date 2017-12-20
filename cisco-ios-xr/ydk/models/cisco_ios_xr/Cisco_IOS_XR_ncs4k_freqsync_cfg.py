@@ -94,7 +94,7 @@ class ClockInterface(Entity):
     .. attribute:: clocks
     
     	Configuration for a clock interface
-    	**type**\:   :py:class:`Clocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks>`
+    	**type**\:  :py:class:`Clocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks>`
     
     
 
@@ -128,7 +128,7 @@ class ClockInterface(Entity):
         .. attribute:: clock
         
         	Configuration for a clock interface
-        	**type**\: list of    :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock>`
+        	**type**\: list of  		 :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock>`
         
         
 
@@ -162,12 +162,14 @@ class ClockInterface(Entity):
             .. attribute:: clock_name  <key>
             
             	Clock Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: frequency_synchronization
             
             	Frequency Synchronization clock configuraiton
-            	**type**\:   :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock.FrequencySynchronization>`
+            	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock.FrequencySynchronization>`
             
             
 
@@ -206,22 +208,22 @@ class ClockInterface(Entity):
                 .. attribute:: input_quality_level
                 
                 	Set the input quality level
-                	**type**\:   :py:class:`InputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel>`
+                	**type**\:  :py:class:`InputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel>`
                 
                 .. attribute:: output_quality_level
                 
                 	Set the output quality level
-                	**type**\:   :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
+                	**type**\:  :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
                 
                 .. attribute:: ssm_disable
                 
                 	Disable SSM on this source
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: wait_to_restore_time
                 
                 	Set the wait\-to\-restore time for this source
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..12
                 
@@ -230,7 +232,7 @@ class ClockInterface(Entity):
                 .. attribute:: time_of_day_priority
                 
                 	Set the time\-of\-day priority of this source
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..254
                 
@@ -239,7 +241,7 @@ class ClockInterface(Entity):
                 .. attribute:: priority
                 
                 	Set the priority of this source
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..254
                 
@@ -248,7 +250,7 @@ class ClockInterface(Entity):
                 .. attribute:: selection_input
                 
                 	Assign this source as a selection input
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -299,22 +301,22 @@ class ClockInterface(Entity):
                     .. attribute:: quality_level_option
                     
                     	Quality level option
-                    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                    	**type**\:  :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
                     
                     .. attribute:: exact_quality_level_value
                     
                     	Exact quality level value
-                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                    	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     .. attribute:: min_quality_level_value
                     
                     	Minimum quality level value
-                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                    	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     .. attribute:: max_quality_level_value
                     
                     	Maximum quality level value
-                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                    	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     
 
@@ -353,22 +355,22 @@ class ClockInterface(Entity):
                     .. attribute:: quality_level_option
                     
                     	Quality level option
-                    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                    	**type**\:  :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
                     
                     .. attribute:: exact_quality_level_value
                     
                     	Exact quality level value
-                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                    	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     .. attribute:: min_quality_level_value
                     
                     	Minimum quality level value
-                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                    	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     .. attribute:: max_quality_level_value
                     
                     	Maximum quality level value
-                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                    	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     
 
@@ -410,29 +412,29 @@ class FrequencySynchronization(Entity):
     .. attribute:: quality_level_option
     
     	Quality level option
-    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+    	**type**\:  :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
     
     	**default value**\: option-1
     
     .. attribute:: enable
     
     	Enable Frequency Synchronization
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: source_selection_logging
     
     	Source selection logging option
-    	**type**\:   :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncSourceSelectionLogging>`
+    	**type**\:  :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncSourceSelectionLogging>`
     
     .. attribute:: clock_interface_source_type
     
     	Clock interface source type
-    	**type**\:   :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncClockSource>`
+    	**type**\:  :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncClockSource>`
     
     .. attribute:: system_timing_mode
     
     	System timing mode
-    	**type**\:   :py:class:`FsyncSystemTimingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncSystemTimingMode>`
+    	**type**\:  :py:class:`FsyncSystemTimingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncSystemTimingMode>`
     
     
 

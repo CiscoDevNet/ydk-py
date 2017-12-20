@@ -1,3 +1,19 @@
+### 2017-12-15 version 0.6.3
+
+#### Python & C++
+##### Model API updates
+* Updated `cisco-ios-xe` bundle to support Cisco IOS XE [16.6.2](https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/bundles/cisco-ios-xe_16_6_2.json) and [16.7.1](https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/bundles/cisco-ios-xe_16_7_1.json) releases
+##### Netconf provider improvements
+* Added support for keybase authentication ([#619](https://github.com/CiscoDevNet/ydk-gen/issues/619))
+##### CRUD service improvements
+* Fixed various issues with usage of XE model API ([#640](https://github.com/CiscoDevNet/ydk-gen/issues/640), [#535](https://github.com/CiscoDevNet/ydk-gen/issues/535), [#612](https://github.com/CiscoDevNet/ydk-gen/issues/612), [#632](https://github.com/CiscoDevNet/ydk-gen/issues/632))
+* Improved handling of leaf-lists ([#621](https://github.com/CiscoDevNet/ydk-gen/issues/621), [#631](https://github.com/CiscoDevNet/ydk-gen/issues/631), [#646](https://github.com/CiscoDevNet/ydk-gen/issues/646))
+##### Documentation improvements
+* Improved documentation for unions ([#642](https://github.com/CiscoDevNet/ydk-gen/issues/642)) and string patterns ([#651](https://github.com/CiscoDevNet/ydk-gen/issues/651))
+* Improved developer guide ([#622](https://github.com/CiscoDevNet/ydk-gen/issues/622), [#625](https://github.com/CiscoDevNet/ydk-gen/issues/625))  
+##### Testing improvements
+* Fixed CI failures and added CI on CentOS & Ubuntu Xenial platforms ([#637](https://github.com/CiscoDevNet/ydk-gen/issues/637), [#644](https://github.com/CiscoDevNet/ydk-gen/issues/644))
+
 ### 2017-10-30 version 0.6.2
 
 #### Python

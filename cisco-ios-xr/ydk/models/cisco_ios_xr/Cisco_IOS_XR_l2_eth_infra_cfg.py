@@ -154,17 +154,17 @@ class EthernetFeatures(Entity):
     .. attribute:: egress_filtering
     
     	Egress Filtering Configuration
-    	**type**\:   :py:class:`EgressFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EgressFiltering>`
+    	**type**\:  :py:class:`EgressFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EgressFiltering>`
     
     .. attribute:: cfm
     
     	CFM global configuration
-    	**type**\:   :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm>`
+    	**type**\:  :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm>`
     
     .. attribute:: ether_link_oam
     
     	Ethernet Link OAM Global Configuration
-    	**type**\:   :py:class:`EtherLinkOam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam>`
+    	**type**\:  :py:class:`EtherLinkOam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam>`
     
     
 
@@ -181,7 +181,7 @@ class EthernetFeatures(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"egress-filtering" : ("egress_filtering", EthernetFeatures.EgressFiltering), "cfm" : ("cfm", EthernetFeatures.Cfm), "ether-link-oam" : ("ether_link_oam", EthernetFeatures.EtherLinkOam)}
+        self._child_container_classes = {"egress-filtering" : ("egress_filtering", EthernetFeatures.EgressFiltering), "Cisco-IOS-XR-ethernet-cfm-cfg:cfm" : ("cfm", EthernetFeatures.Cfm), "Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam" : ("ether_link_oam", EthernetFeatures.EtherLinkOam)}
         self._child_list_classes = {}
 
         self.egress_filtering = EthernetFeatures.EgressFiltering()
@@ -208,7 +208,7 @@ class EthernetFeatures(Entity):
         .. attribute:: egress_filtering_default_on
         
         	Whether Egress Filtering is on by default
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -242,17 +242,17 @@ class EthernetFeatures(Entity):
         .. attribute:: traceroute_cache
         
         	Traceroute Cache Configuration
-        	**type**\:   :py:class:`TracerouteCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.TracerouteCache>`
+        	**type**\:  :py:class:`TracerouteCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.TracerouteCache>`
         
         .. attribute:: domains
         
         	Domain\-specific global configuration
-        	**type**\:   :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains>`
+        	**type**\:  :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains>`
         
         .. attribute:: nv_satellite_sla_processing_disable
         
         	Disable processing of Ethernet SLA packets on nV Satellite devices
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -296,7 +296,7 @@ class EthernetFeatures(Entity):
             .. attribute:: hold_time
             
             	Hold Time in minutes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..525600
             
@@ -305,7 +305,7 @@ class EthernetFeatures(Entity):
             .. attribute:: cache_size
             
             	Cache Size limit (number of replies)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -345,7 +345,7 @@ class EthernetFeatures(Entity):
             .. attribute:: domain
             
             	Configuration for a particular Maintenance Domain
-            	**type**\: list of    :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain>`
+            	**type**\: list of  		 :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain>`
             
             
 
@@ -380,19 +380,19 @@ class EthernetFeatures(Entity):
                 .. attribute:: domain  <key>
                 
                 	Maintenance Domain
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..79
                 
                 .. attribute:: services
                 
                 	Service\-specific global configuration
-                	**type**\:   :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services>`
+                	**type**\:  :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services>`
                 
                 .. attribute:: domain_properties
                 
                 	Fundamental properties of the domain
-                	**type**\:   :py:class:`DomainProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.DomainProperties>`
+                	**type**\:  :py:class:`DomainProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.DomainProperties>`
                 
                 
 
@@ -436,7 +436,7 @@ class EthernetFeatures(Entity):
                     .. attribute:: service
                     
                     	Configuration for a particular Service (Maintenance Association)
-                    	**type**\: list of    :py:class:`Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service>`
+                    	**type**\: list of  		 :py:class:`Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service>`
                     
                     
 
@@ -470,52 +470,52 @@ class EthernetFeatures(Entity):
                         .. attribute:: service  <key>
                         
                         	Service (Maintenance Association)
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..79
                         
                         .. attribute:: efd2
                         
                         	Enable EFD to bring down ports when MEPs detect errors
-                        	**type**\:   :py:class:`Efd2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2>`
+                        	**type**\:  :py:class:`Efd2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: continuity_check_interval
                         
                         	Continuity Check Interval and Loss Threshold.  Configuring the interval enables Continuity Check
-                        	**type**\:   :py:class:`ContinuityCheckInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval>`
+                        	**type**\:  :py:class:`ContinuityCheckInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: mip_auto_creation
                         
                         	MIP Auto\-creation Policy
-                        	**type**\:   :py:class:`MipAutoCreation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation>`
+                        	**type**\:  :py:class:`MipAutoCreation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: ais
                         
                         	Service specific AIS configuration
-                        	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais>`
+                        	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais>`
                         
                         .. attribute:: cross_check
                         
                         	Cross\-check configuration
-                        	**type**\:   :py:class:`CrossCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck>`
+                        	**type**\:  :py:class:`CrossCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck>`
                         
                         .. attribute:: service_properties
                         
                         	Fundamental properties of the service (maintenance association)
-                        	**type**\:   :py:class:`ServiceProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties>`
+                        	**type**\:  :py:class:`ServiceProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: maximum_meps
                         
                         	Limit on the number of MEPs in the service
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 2..8190
                         
@@ -524,12 +524,12 @@ class EthernetFeatures(Entity):
                         .. attribute:: log_cross_check_errors
                         
                         	Log Cross\-check Errors detected for peer MEPs
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: continuity_check_archive_hold_time
                         
                         	How long to store information for peer MEPs that have timed out
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
@@ -538,34 +538,34 @@ class EthernetFeatures(Entity):
                         .. attribute:: tags
                         
                         	The number of tags to use when sending CFM packets from up MEPs in this Service
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: log_continuity_check_state_changes
                         
                         	Log peer MEPs state changes
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: log_efd
                         
                         	Enable logging
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: continuity_check_auto_traceroute
                         
                         	Automatically trigger a traceroute when a peer MEP times out
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: log_continuity_check_errors
                         
                         	Log CCM Errors detected for peer MEPs
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: log_ais
                         
                         	Log receipt of AIS and LCK messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -643,14 +643,14 @@ class EthernetFeatures(Entity):
                             .. attribute:: enable
                             
                             	Enable EFD
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: protection_switching_enable
                             
                             	Enable protection switching notifications
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -690,14 +690,14 @@ class EthernetFeatures(Entity):
                             .. attribute:: ccm_interval
                             
                             	CCM Interval
-                            	**type**\:   :py:class:`CfmCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmInterval>`
+                            	**type**\:  :py:class:`CfmCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmInterval>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: loss_threshold
                             
                             	Loss Threshold (default 3)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 2..255
                             
@@ -737,14 +737,14 @@ class EthernetFeatures(Entity):
                             .. attribute:: mip_policy
                             
                             	MIP Auto\-creation Policy
-                            	**type**\:   :py:class:`CfmMipPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMipPolicy>`
+                            	**type**\:  :py:class:`CfmMipPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMipPolicy>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: ccm_learning_enable
                             
                             	Enable CCM Learning at MIPs in this service
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -782,7 +782,7 @@ class EthernetFeatures(Entity):
                             .. attribute:: transmission
                             
                             	AIS transmission configuration
-                            	**type**\:   :py:class:`Transmission <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission>`
+                            	**type**\:  :py:class:`Transmission <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission>`
                             
                             	**presence node**\: True
                             
@@ -816,12 +816,12 @@ class EthernetFeatures(Entity):
                                 .. attribute:: ais_interval
                                 
                                 	AIS Interval
-                                	**type**\:   :py:class:`CfmAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisInterval>`
+                                	**type**\:  :py:class:`CfmAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisInterval>`
                                 
                                 .. attribute:: cos
                                 
                                 	Class of Service bits
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..7
                                 
@@ -861,12 +861,12 @@ class EthernetFeatures(Entity):
                             .. attribute:: cross_check_meps
                             
                             	Cross\-check MEPs
-                            	**type**\:   :py:class:`CrossCheckMeps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps>`
+                            	**type**\:  :py:class:`CrossCheckMeps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps>`
                             
                             .. attribute:: auto
                             
                             	Enable automatic MEP cross\-check
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -904,7 +904,7 @@ class EthernetFeatures(Entity):
                                 .. attribute:: cross_check_mep
                                 
                                 	MEP ID and optional MAC Address for Cross\-check
-                                	**type**\: list of    :py:class:`CrossCheckMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep>`
+                                	**type**\: list of  		 :py:class:`CrossCheckMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep>`
                                 
                                 
 
@@ -938,19 +938,21 @@ class EthernetFeatures(Entity):
                                     .. attribute:: mep_id  <key>
                                     
                                     	MEP ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..8191
                                     
                                     .. attribute:: enable_mac_address
                                     
                                     	MAC Address is specified
-                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: mac_address
                                     
                                     	MAC Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                     
                                     
 
@@ -988,85 +990,85 @@ class EthernetFeatures(Entity):
                             .. attribute:: service_type
                             
                             	Type of Service
-                            	**type**\:   :py:class:`CfmService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmService>`
+                            	**type**\:  :py:class:`CfmService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmService>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: group_name
                             
                             	Bridge Group or Cross\-connect Group, if Service Type is BridgeDomain or CrossConnect
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: switching_name
                             
                             	Bridge Domain or Cross\-connect name, if Service Type is BridgeDomain or CrossConnect
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: ce_id
                             
                             	Local Customer Edge Identifier
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..16384
                             
                             .. attribute:: remote_ce_id
                             
                             	Remote Customer Edge Identifier
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..16384
                             
                             .. attribute:: evi
                             
                             	EVPN ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65534
                             
                             .. attribute:: short_ma_name_format
                             
                             	Short MA Name Format
-                            	**type**\:   :py:class:`CfmShortMaNameFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmShortMaNameFormat>`
+                            	**type**\:  :py:class:`CfmShortMaNameFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmShortMaNameFormat>`
                             
                             .. attribute:: short_ma_name_string
                             
                             	String Short MA Name, if format is String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..45
                             
                             .. attribute:: short_ma_name_number
                             
                             	Numeric Short MA Name, if format is VlanID or Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: short_ma_name_oui
                             
                             	VPN OUI, if Short MA Name format is VPN\_ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..16777215
                             
                             .. attribute:: short_ma_name_vpn_index
                             
                             	VPN Index, if Short MA Name format is VPN\_ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: short_ma_name_icc
                             
                             	ITU Carrier Code (ICC), if format is ICCBased
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..6
                             
                             .. attribute:: short_ma_name_umc
                             
                             	Unique MEG ID Code (UMC), if format is ICCBased
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..12
                             
@@ -1128,31 +1130,33 @@ class EthernetFeatures(Entity):
                     .. attribute:: level
                     
                     	Maintenance Domain Level
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: mdid_format
                     
                     	Maintenance Domain ID Format
-                    	**type**\:   :py:class:`CfmMdidFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMdidFormat>`
+                    	**type**\:  :py:class:`CfmMdidFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMdidFormat>`
                     
                     .. attribute:: mdid_mac_address
                     
                     	MAC Address, if MDID Format is MACAddress
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: mdid_number
                     
                     	Unsigned 16\-bit Interger, if MDID Format is MACAddress
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: mdid_string
                     
                     	String MDID, if MDID format is String or DNSLike
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..43
                     
@@ -1195,7 +1199,7 @@ class EthernetFeatures(Entity):
         .. attribute:: profiles
         
         	Table of Ethernet Link OAM profiles
-        	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles>`
+        	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles>`
         
         
 
@@ -1229,7 +1233,7 @@ class EthernetFeatures(Entity):
             .. attribute:: profile
             
             	Name of the profile
-            	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile>`
+            	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile>`
             
             
 
@@ -1263,54 +1267,56 @@ class EthernetFeatures(Entity):
                 .. attribute:: profile  <key>
                 
                 	none
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: action
                 
                 	Configure action parameters
-                	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.Action>`
+                	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.Action>`
                 
                 .. attribute:: require_remote
                 
                 	Configure remote requirement parameters
-                	**type**\:   :py:class:`RequireRemote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote>`
+                	**type**\:  :py:class:`RequireRemote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote>`
                 
                 .. attribute:: mib_retrieval
                 
                 	Enable or disable MIB retrieval support
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: udlf
                 
                 	Enable or disable uni\-directional link\-fault detection support
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: hello_interval
                 
                 	Possible Ethernet Link OAM hello intervals
-                	**type**\:   :py:class:`EtherLinkOamHelloIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamHelloIntervalEnum>`
+                	**type**\:  :py:class:`EtherLinkOamHelloIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamHelloIntervalEnum>`
                 
                 .. attribute:: mode
                 
                 	Set the OAM mode to passive
-                	**type**\:   :py:class:`EtherLinkOamModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamModeEnum>`
+                	**type**\:  :py:class:`EtherLinkOamModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamModeEnum>`
                 
                 .. attribute:: remote_loopback
                 
                 	Enable or disable remote loopback support
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: timeout
                 
                 	Connection timeout period in number of lost heartbeats
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 2..30
                 
                 .. attribute:: link_monitoring
                 
                 	Configure link monitor parameters
-                	**type**\:   :py:class:`LinkMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring>`
+                	**type**\:  :py:class:`LinkMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring>`
                 
                 
 
@@ -1371,52 +1377,52 @@ class EthernetFeatures(Entity):
                     .. attribute:: dying_gasp
                     
                     	Action to perform when a dying gasp occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
                     
                     .. attribute:: session_up
                     
                     	Action to perform when a session comes up
-                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnum>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionPrimEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnum>`
                     
                     .. attribute:: critical_event
                     
                     	Action to perform when a critical event occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
                     
                     .. attribute:: session_down
                     
                     	Action to perform when a session goes down
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     .. attribute:: discovery_timeout
                     
                     	Action to perform when discovery timeout occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     .. attribute:: high_threshold
                     
                     	Action to perform when a high\-threshold event occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
                     
                     .. attribute:: capabilities_conflict
                     
                     	Action to perform when a capabilities conflict occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     .. attribute:: remote_loopback
                     
                     	Action to perform when remote loopback is entered or exited
-                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnum>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionPrimEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnum>`
                     
                     .. attribute:: link_fault
                     
                     	Action to perform when a link fault message is received
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     .. attribute:: wiring_conflict
                     
                     	Action to perform when a wiring conflict occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
+                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     
 
@@ -1467,22 +1473,22 @@ class EthernetFeatures(Entity):
                     .. attribute:: mib_retrieval
                     
                     	Enable or disable MIB retrieval requirement
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: mode
                     
                     	Possible required OAM modes
-                    	**type**\:   :py:class:`EtherLinkOamRequireModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamRequireModeEnum>`
+                    	**type**\:  :py:class:`EtherLinkOamRequireModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamRequireModeEnum>`
                     
                     .. attribute:: remote_loopback
                     
                     	Enable or disable remote loopback requirement
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: link_monitoring
                     
                     	Enable or disable link monitoring requirement
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -1521,27 +1527,27 @@ class EthernetFeatures(Entity):
                     .. attribute:: symbol_period
                     
                     	Symbol\-period event configuration
-                    	**type**\:   :py:class:`SymbolPeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod>`
+                    	**type**\:  :py:class:`SymbolPeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod>`
                     
                     .. attribute:: frame_period
                     
                     	Frame\-period event configuration
-                    	**type**\:   :py:class:`FramePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod>`
+                    	**type**\:  :py:class:`FramePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod>`
                     
                     .. attribute:: frame_seconds
                     
                     	Frame\-seconds event configuration
-                    	**type**\:   :py:class:`FrameSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds>`
+                    	**type**\:  :py:class:`FrameSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds>`
                     
                     .. attribute:: frame
                     
                     	Frame event configuration
-                    	**type**\:   :py:class:`Frame <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame>`
+                    	**type**\:  :py:class:`Frame <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame>`
                     
                     .. attribute:: monitoring
                     
                     	Enable or disable monitoring
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -1594,14 +1600,14 @@ class EthernetFeatures(Entity):
                         .. attribute:: window
                         
                         	Window size configuration for symbol\-period events
-                        	**type**\:   :py:class:`Window <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window>`
+                        	**type**\:  :py:class:`Window <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: threshold
                         
                         	Threshold configuration for symbol\-period events
-                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold>`
+                        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold>`
                         
                         
 
@@ -1639,7 +1645,7 @@ class EthernetFeatures(Entity):
                             .. attribute:: window
                             
                             	Size of the symbol\-period window
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -1648,14 +1654,14 @@ class EthernetFeatures(Entity):
                             .. attribute:: units
                             
                             	Units to use for this window
-                            	**type**\:   :py:class:`EtherLinkOamWindowUnitsSymbolsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsSymbolsEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamWindowUnitsSymbolsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsSymbolsEnum>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: multiplier
                             
                             	The multiplier to use for this window (only valid if 'Units' is Symbols and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
@@ -1698,7 +1704,7 @@ class EthernetFeatures(Entity):
                             .. attribute:: threshold_low
                             
                             	The low threshold for symbol\-period
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -1707,28 +1713,28 @@ class EthernetFeatures(Entity):
                             .. attribute:: threshold_high
                             
                             	The high threshold for symbol\-period
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
                             .. attribute:: units
                             
                             	The units to use for these thresholds
-                            	**type**\:   :py:class:`EtherLinkOamThresholdUnitsSymbolsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsSymbolsEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdUnitsSymbolsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsSymbolsEnum>`
                             
                             	**default value**\: symbols
                             
                             .. attribute:: multiplier_low
                             
                             	The multiplier to use for the low threshold (only valid if 'Units' is Symbols and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
                             .. attribute:: multiplier_high
                             
                             	The multiplier to use for the high threshold (only valid if 'Units' is Symbols and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             
 
@@ -1769,14 +1775,14 @@ class EthernetFeatures(Entity):
                         .. attribute:: window
                         
                         	Window size configuration for frame\-period events
-                        	**type**\:   :py:class:`Window <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window>`
+                        	**type**\:  :py:class:`Window <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: threshold
                         
                         	Threshold configuration for frame\-period events
-                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold>`
+                        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold>`
                         
                         
 
@@ -1814,7 +1820,7 @@ class EthernetFeatures(Entity):
                             .. attribute:: window
                             
                             	Size of the frame\-period window
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -1823,14 +1829,14 @@ class EthernetFeatures(Entity):
                             .. attribute:: units
                             
                             	The units to use for this window
-                            	**type**\:   :py:class:`EtherLinkOamWindowUnitsFramesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsFramesEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamWindowUnitsFramesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsFramesEnum>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: multiplier
                             
                             	The multiplier to use for this window (only valid if 'Units' is Frames and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
@@ -1873,7 +1879,7 @@ class EthernetFeatures(Entity):
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame\-period events
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -1882,28 +1888,28 @@ class EthernetFeatures(Entity):
                             .. attribute:: threshold_high
                             
                             	The high threshold for frame\-period events
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
                             .. attribute:: units
                             
                             	The units to use for these thresholds
-                            	**type**\:   :py:class:`EtherLinkOamThresholdUnitsFramesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsFramesEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdUnitsFramesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsFramesEnum>`
                             
                             	**default value**\: ppm
                             
                             .. attribute:: multiplier_low
                             
                             	The multiplier to use for the low threshold (only valid if 'Units' is Frames and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
                             .. attribute:: multiplier_high
                             
                             	The multiplier to use for the high threshold (only valid if 'Units' is Frames and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             
 
@@ -1944,12 +1950,12 @@ class EthernetFeatures(Entity):
                         .. attribute:: threshold
                         
                         	Threshold configuration for frame\-seconds events
-                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold>`
+                        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold>`
                         
                         .. attribute:: window
                         
                         	Window size configuration for frame\-seconds events
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 10000..900000
                         
@@ -1994,7 +2000,7 @@ class EthernetFeatures(Entity):
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame\-seconds events
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..900
                             
@@ -2005,7 +2011,7 @@ class EthernetFeatures(Entity):
                             .. attribute:: threshold_high
                             
                             	The high threshold for frame\-seconds events
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..900
                             
@@ -2044,12 +2050,12 @@ class EthernetFeatures(Entity):
                         .. attribute:: threshold
                         
                         	Threshold configuration for frame events
-                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold>`
+                        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold>`
                         
                         .. attribute:: window
                         
                         	Window size configuration for frame events
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1000..60000
                         
@@ -2093,7 +2099,7 @@ class EthernetFeatures(Entity):
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame events
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -2102,21 +2108,21 @@ class EthernetFeatures(Entity):
                             .. attribute:: threshold_high
                             
                             	The high threshold for frame events
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
                             .. attribute:: multiplier_low
                             
                             	The multiplier to use for the low threshold (treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
                             .. attribute:: multiplier_high
                             
                             	The multiplier to use for the high threshold (treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
+                            	**type**\:  :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             
 

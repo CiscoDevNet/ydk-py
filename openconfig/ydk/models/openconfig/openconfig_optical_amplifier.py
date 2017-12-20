@@ -68,12 +68,12 @@ class OpticalAmplifier(Entity):
     .. attribute:: amplifiers
     
     	Enclosing container for list of amplifiers
-    	**type**\:   :py:class:`Amplifiers <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers>`
+    	**type**\:  :py:class:`Amplifiers <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers>`
     
     .. attribute:: supervisory_channels
     
     	Enclosing container for list of supervisory channels
-    	**type**\:   :py:class:`SupervisoryChannels <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels>`
+    	**type**\:  :py:class:`SupervisoryChannels <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels>`
     
     
 
@@ -112,7 +112,7 @@ class OpticalAmplifier(Entity):
         .. attribute:: amplifier
         
         	List of optical amplifiers present in the device
-        	**type**\: list of    :py:class:`Amplifier <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier>`
+        	**type**\: list of  		 :py:class:`Amplifier <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier>`
         
         
 
@@ -146,19 +146,19 @@ class OpticalAmplifier(Entity):
             .. attribute:: name  <key>
             
             	Reference to the name of the amplifier
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.Config>`
             
             .. attribute:: config
             
             	Configuration data for the amplifier
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.Config>`
             
             .. attribute:: state
             
             	Operational state data for the amplifier
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State>`
             
             
 
@@ -202,17 +202,17 @@ class OpticalAmplifier(Entity):
                 .. attribute:: name
                 
                 	User\-defined name assigned to identify a specific amplifier in the device
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: type
                 
                 	Type of the amplifier
-                	**type**\:   :py:class:`OPTICALAMPLIFIERTYPE <ydk.models.openconfig.openconfig_optical_amplifier.OPTICALAMPLIFIERTYPE>`
+                	**type**\:  :py:class:`OPTICALAMPLIFIERTYPE <ydk.models.openconfig.openconfig_optical_amplifier.OPTICALAMPLIFIERTYPE>`
                 
                 .. attribute:: target_gain
                 
                 	Positive gain applied by the amplifier
-                	**type**\:  Decimal64
+                	**type**\: Decimal64
                 
                 	**range:** 0..92233720368547758.07
                 
@@ -221,7 +221,7 @@ class OpticalAmplifier(Entity):
                 .. attribute:: target_gain_tilt
                 
                 	Gain tilt control
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -230,17 +230,17 @@ class OpticalAmplifier(Entity):
                 .. attribute:: gain_range
                 
                 	Selected gain range.  The gain range is a platform\-defined value indicating the switched gain amplifier setting
-                	**type**\:   :py:class:`GAINRANGE <ydk.models.openconfig.openconfig_optical_amplifier.GAINRANGE>`
+                	**type**\:  :py:class:`GAINRANGE <ydk.models.openconfig.openconfig_optical_amplifier.GAINRANGE>`
                 
                 .. attribute:: amp_mode
                 
                 	The operating mode of the amplifier
-                	**type**\:   :py:class:`OPTICALAMPLIFIERMODE <ydk.models.openconfig.openconfig_optical_amplifier.OPTICALAMPLIFIERMODE>`
+                	**type**\:  :py:class:`OPTICALAMPLIFIERMODE <ydk.models.openconfig.openconfig_optical_amplifier.OPTICALAMPLIFIERMODE>`
                 
                 .. attribute:: target_output_power
                 
                 	Output optical power of the amplifier
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -249,7 +249,7 @@ class OpticalAmplifier(Entity):
                 .. attribute:: enabled
                 
                 	Turns power on / off to the amplifiers gain module
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -296,17 +296,17 @@ class OpticalAmplifier(Entity):
                 .. attribute:: name
                 
                 	User\-defined name assigned to identify a specific amplifier in the device
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: type
                 
                 	Type of the amplifier
-                	**type**\:   :py:class:`OPTICALAMPLIFIERTYPE <ydk.models.openconfig.openconfig_optical_amplifier.OPTICALAMPLIFIERTYPE>`
+                	**type**\:  :py:class:`OPTICALAMPLIFIERTYPE <ydk.models.openconfig.openconfig_optical_amplifier.OPTICALAMPLIFIERTYPE>`
                 
                 .. attribute:: target_gain
                 
                 	Positive gain applied by the amplifier
-                	**type**\:  Decimal64
+                	**type**\: Decimal64
                 
                 	**range:** 0..92233720368547758.07
                 
@@ -315,7 +315,7 @@ class OpticalAmplifier(Entity):
                 .. attribute:: target_gain_tilt
                 
                 	Gain tilt control
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -324,17 +324,17 @@ class OpticalAmplifier(Entity):
                 .. attribute:: gain_range
                 
                 	Selected gain range.  The gain range is a platform\-defined value indicating the switched gain amplifier setting
-                	**type**\:   :py:class:`GAINRANGE <ydk.models.openconfig.openconfig_optical_amplifier.GAINRANGE>`
+                	**type**\:  :py:class:`GAINRANGE <ydk.models.openconfig.openconfig_optical_amplifier.GAINRANGE>`
                 
                 .. attribute:: amp_mode
                 
                 	The operating mode of the amplifier
-                	**type**\:   :py:class:`OPTICALAMPLIFIERMODE <ydk.models.openconfig.openconfig_optical_amplifier.OPTICALAMPLIFIERMODE>`
+                	**type**\:  :py:class:`OPTICALAMPLIFIERMODE <ydk.models.openconfig.openconfig_optical_amplifier.OPTICALAMPLIFIERMODE>`
                 
                 .. attribute:: target_output_power
                 
                 	Output optical power of the amplifier
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -343,71 +343,71 @@ class OpticalAmplifier(Entity):
                 .. attribute:: enabled
                 
                 	Turns power on / off to the amplifiers gain module
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ingress_port
                 
                 	Reference to system\-supplied name of the amplifier ingress port. This leaf is only valid for ports of type INGRESS
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                 
                 .. attribute:: egress_port
                 
                 	Reference to system\-supplied name of the amplifier egress port. This leaf is only valid for ports of type EGRESS
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                 
                 .. attribute:: actual_gain
                 
                 	The actual gain applied by the amplifier in units of 0.01dB. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`ActualGain <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain>`
+                	**type**\:  :py:class:`ActualGain <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain>`
                 
                 .. attribute:: actual_gain_tilt
                 
                 	The actual tilt applied by the amplifier in units of 0.01dB. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`ActualGainTilt <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt>`
+                	**type**\:  :py:class:`ActualGainTilt <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt>`
                 
                 .. attribute:: input_power_total
                 
                 	The total input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`InputPowerTotal <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal>`
+                	**type**\:  :py:class:`InputPowerTotal <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal>`
                 
                 .. attribute:: input_power_c_band
                 
                 	The C band (consisting of approximately 191 to 195 THz or 1530nm to 1565 nm) input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`InputPowerCBand <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand>`
+                	**type**\:  :py:class:`InputPowerCBand <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand>`
                 
                 .. attribute:: input_power_l_band
                 
                 	The L band (consisting of approximately 184 to 191 THz or 1565 to 1625 nm) input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`InputPowerLBand <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand>`
+                	**type**\:  :py:class:`InputPowerLBand <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand>`
                 
                 .. attribute:: output_power_total
                 
                 	The total output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`OutputPowerTotal <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal>`
+                	**type**\:  :py:class:`OutputPowerTotal <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal>`
                 
                 .. attribute:: output_power_c_band
                 
                 	The C band (consisting of approximately 191 to 195 THz or 1530nm to 1565 nm)output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`OutputPowerCBand <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand>`
+                	**type**\:  :py:class:`OutputPowerCBand <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand>`
                 
                 .. attribute:: output_power_l_band
                 
                 	The L band (consisting of approximately 184 to 191 THz or 1565 to 1625 nm)output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`OutputPowerLBand <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand>`
+                	**type**\:  :py:class:`OutputPowerLBand <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand>`
                 
                 .. attribute:: laser_bias_current
                 
                 	The current applied by the system to the transmit laser to achieve the output power. The current is expressed in mA with up to two decimal precision. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent>`
+                	**type**\:  :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent>`
                 
                 .. attribute:: optical_return_loss
                 
                 	The optical return loss (ORL) is the ratio of the light reflected back into the port to the light launched out of the port. ORL is in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`OpticalReturnLoss <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss>`
+                	**type**\:  :py:class:`OpticalReturnLoss <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss>`
                 
                 
 
@@ -510,7 +510,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -519,7 +519,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -528,7 +528,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -537,7 +537,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -582,7 +582,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -591,7 +591,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -600,7 +600,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -609,7 +609,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -654,7 +654,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -663,7 +663,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -672,7 +672,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -681,7 +681,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -727,7 +727,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -736,7 +736,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -745,7 +745,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -754,7 +754,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -800,7 +800,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -809,7 +809,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -818,7 +818,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -827,7 +827,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -872,7 +872,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -881,7 +881,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -890,7 +890,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -899,7 +899,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -945,7 +945,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -954,7 +954,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -963,7 +963,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -972,7 +972,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1018,7 +1018,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1027,7 +1027,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1036,7 +1036,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1045,7 +1045,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1091,7 +1091,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1100,7 +1100,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1109,7 +1109,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1118,7 +1118,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1164,7 +1164,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1173,7 +1173,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1182,7 +1182,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1191,7 +1191,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1234,7 +1234,7 @@ class OpticalAmplifier(Entity):
         .. attribute:: supervisory_channel
         
         	List of supervisory channels
-        	**type**\: list of    :py:class:`SupervisoryChannel <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel>`
+        	**type**\: list of  		 :py:class:`SupervisoryChannel <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel>`
         
         
 
@@ -1268,19 +1268,19 @@ class OpticalAmplifier(Entity):
             .. attribute:: interface  <key>
             
             	Reference to the interface of the supervisory channel
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`interface <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config>`
             
             .. attribute:: config
             
             	Configuration data for OSCs
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config>`
             
             .. attribute:: state
             
             	Operational state data for OSCs
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State>`
             
             
 
@@ -1324,7 +1324,7 @@ class OpticalAmplifier(Entity):
                 .. attribute:: interface
                 
                 	List of references to OSC interfaces
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
@@ -1359,24 +1359,24 @@ class OpticalAmplifier(Entity):
                 .. attribute:: interface
                 
                 	List of references to OSC interfaces
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: input_power
                 
                 	The input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                	**type**\:   :py:class:`InputPower <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower>`
+                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower>`
                 
                 .. attribute:: output_power
                 
                 	The output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                	**type**\:   :py:class:`OutputPower <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower>`
+                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower>`
                 
                 .. attribute:: laser_bias_current
                 
                 	The current applied by the system to the transmit laser to achieve the output power. The current is expressed in mA with up to one decimal precision. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                	**type**\:   :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent>`
+                	**type**\:  :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_optical_amplifier.OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent>`
                 
                 
 
@@ -1426,7 +1426,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1435,7 +1435,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1444,7 +1444,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1453,7 +1453,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1498,7 +1498,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1507,7 +1507,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1516,7 +1516,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1525,7 +1525,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1572,7 +1572,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1581,7 +1581,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1590,7 +1590,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -1599,7 +1599,7 @@ class OpticalAmplifier(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     

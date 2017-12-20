@@ -50,17 +50,17 @@ class PppoeCfg(Entity):
     .. attribute:: pppoe_bba_groups
     
     	PPPoE BBA\-Group configuration data
-    	**type**\:   :py:class:`PppoeBbaGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups>`
+    	**type**\:  :py:class:`PppoeBbaGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups>`
     
     .. attribute:: session_id_space_flat
     
     	Disable per\-parent session ID spaces
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: in_flight_window
     
     	Set the PPPoE in\-flight window size
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..20000
     
@@ -103,7 +103,7 @@ class PppoeCfg(Entity):
         .. attribute:: pppoe_bba_group
         
         	PPPoE BBA\-Group configuration data
-        	**type**\: list of    :py:class:`PppoeBbaGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup>`
+        	**type**\: list of  		 :py:class:`PppoeBbaGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup>`
         
         
 
@@ -137,49 +137,51 @@ class PppoeCfg(Entity):
             .. attribute:: bba_group  <key>
             
             	BBA\-Group name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: tag
             
             	PPPoE tag configuration data
-            	**type**\:   :py:class:`Tag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag>`
+            	**type**\:  :py:class:`Tag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag>`
             
             .. attribute:: sessions
             
             	PPPoE session configuration data
-            	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions>`
             
             .. attribute:: control_packets
             
             	PPPoE control\-packet configuration data
-            	**type**\:   :py:class:`ControlPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets>`
+            	**type**\:  :py:class:`ControlPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets>`
             
             .. attribute:: pa_do_delay
             
             	PPPoE PADO delay configuration data
-            	**type**\:   :py:class:`PaDoDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay>`
+            	**type**\:  :py:class:`PaDoDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay>`
             
             .. attribute:: completion_timeout
             
             	PPPoE session completion timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 30..600
             
             .. attribute:: invalid_session_id
             
             	Invalid session\-ID behavior
-            	**type**\:   :py:class:`PppoeInvalidSessionIdBehavior <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeInvalidSessionIdBehavior>`
+            	**type**\:  :py:class:`PppoeInvalidSessionIdBehavior <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeInvalidSessionIdBehavior>`
             
             .. attribute:: enable_padt_after_shut_down
             
             	Enable padt after shutdown
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: mtu
             
             	PPPoE default MTU
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 500..2000
             
@@ -243,34 +245,34 @@ class PppoeCfg(Entity):
                 .. attribute:: padr
                 
                 	PADR packets
-                	**type**\:   :py:class:`Padr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr>`
+                	**type**\:  :py:class:`Padr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr>`
                 
                 .. attribute:: service_name_configureds
                 
                 	Service name
-                	**type**\:   :py:class:`ServiceNameConfigureds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds>`
+                	**type**\:  :py:class:`ServiceNameConfigureds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds>`
                 
                 .. attribute:: ppp_max_payload
                 
                 	Minimum and maximum payloads
-                	**type**\:   :py:class:`PppMaxPayload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload>`
+                	**type**\:  :py:class:`PppMaxPayload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: ppp_max_payload_deny
                 
                 	Ignore the ppp\-max\-payload tag
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: service_selection_disable
                 
                 	Disable advertising of unrequested service names
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ac_name
                 
                 	The name to include in the AC tag
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -321,12 +323,12 @@ class PppoeCfg(Entity):
                     .. attribute:: session_unique_relay_session_id
                     
                     	Allow sessions to come up with unique relay\-session\-id in padr
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: invalid_payload_allow
                     
                     	Allow sessions to come up with invalid\-payload
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -361,7 +363,7 @@ class PppoeCfg(Entity):
                     .. attribute:: service_name_configured
                     
                     	Service name supported on this group
-                    	**type**\: list of    :py:class:`ServiceNameConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured>`
+                    	**type**\: list of  		 :py:class:`ServiceNameConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured>`
                     
                     
 
@@ -394,7 +396,9 @@ class PppoeCfg(Entity):
                         .. attribute:: name  <key>
                         
                         	Service name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         
 
@@ -427,7 +431,7 @@ class PppoeCfg(Entity):
                     .. attribute:: min
                     
                     	Minimum payload
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 500..2000
                     
@@ -436,7 +440,7 @@ class PppoeCfg(Entity):
                     .. attribute:: max
                     
                     	Maximum payload
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 500..2000
                     
@@ -478,147 +482,147 @@ class PppoeCfg(Entity):
                 .. attribute:: vlan_throttle
                 
                 	Set VLAN (inner + outer tags) session throttle
-                	**type**\:   :py:class:`VlanThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle>`
+                	**type**\:  :py:class:`VlanThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: inner_vlan_throttle
                 
                 	Set Inner VLAN session throttle
-                	**type**\:   :py:class:`InnerVlanThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle>`
+                	**type**\:  :py:class:`InnerVlanThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: remote_id_limit
                 
                 	Set Remote ID session limit and threshold
-                	**type**\:   :py:class:`RemoteIdLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit>`
+                	**type**\:  :py:class:`RemoteIdLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: mac_iwf_access_interface_throttle
                 
                 	Set per\-MAC/Access interface throttle for IWF sessions
-                	**type**\:   :py:class:`MacIwfAccessInterfaceThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle>`
+                	**type**\:  :py:class:`MacIwfAccessInterfaceThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: access_interface_limit
                 
                 	Set per\-access interface limit
-                	**type**\:   :py:class:`AccessInterfaceLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit>`
+                	**type**\:  :py:class:`AccessInterfaceLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: mac_access_interface_throttle
                 
                 	Set per\-MAC/Access Interface throttle
-                	**type**\:   :py:class:`MacAccessInterfaceThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle>`
+                	**type**\:  :py:class:`MacAccessInterfaceThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: outer_vlan_limit
                 
                 	Set Outer VLAN session limit and threshold
-                	**type**\:   :py:class:`OuterVlanLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit>`
+                	**type**\:  :py:class:`OuterVlanLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: circuit_id_throttle
                 
                 	Set Circuit ID session throttle
-                	**type**\:   :py:class:`CircuitIdThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle>`
+                	**type**\:  :py:class:`CircuitIdThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: mac_limit
                 
                 	Set per\-MAC address session limit and threshold
-                	**type**\:   :py:class:`MacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit>`
+                	**type**\:  :py:class:`MacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: circuit_id_limit
                 
                 	Set Circuit ID session limit and threshold
-                	**type**\:   :py:class:`CircuitIdLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit>`
+                	**type**\:  :py:class:`CircuitIdLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: mac_iwf_limit
                 
                 	Set per\-MAC session limit and threshold for IWF sessions
-                	**type**\:   :py:class:`MacIwfLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit>`
+                	**type**\:  :py:class:`MacIwfLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: mac_iwf_access_interface_limit
                 
                 	Set per\-MAC access interface session limit and threshold for IWF sessions
-                	**type**\:   :py:class:`MacIwfAccessInterfaceLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit>`
+                	**type**\:  :py:class:`MacIwfAccessInterfaceLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: inner_vlan_limit
                 
                 	Set Inner VLAN session limit and threshold
-                	**type**\:   :py:class:`InnerVlanLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit>`
+                	**type**\:  :py:class:`InnerVlanLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: outer_vlan_throttle
                 
                 	Set Outer VLAN session throttle
-                	**type**\:   :py:class:`OuterVlanThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle>`
+                	**type**\:  :py:class:`OuterVlanThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: mac_throttle
                 
                 	Set per\-MAC throttle
-                	**type**\:   :py:class:`MacThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle>`
+                	**type**\:  :py:class:`MacThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: circuit_id_and_remote_id_limit
                 
                 	Set Circuit ID and Remote ID session limit/threshold
-                	**type**\:   :py:class:`CircuitIdAndRemoteIdLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit>`
+                	**type**\:  :py:class:`CircuitIdAndRemoteIdLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: vlan_limit
                 
                 	Set VLAN (inner + outer tags) session limit and threshold
-                	**type**\:   :py:class:`VlanLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit>`
+                	**type**\:  :py:class:`VlanLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: mac_access_interface_limit
                 
                 	Set per\-MAC access interface session limit and threshold
-                	**type**\:   :py:class:`MacAccessInterfaceLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit>`
+                	**type**\:  :py:class:`MacAccessInterfaceLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: remote_id_throttle
                 
                 	Set Remote ID session throttle
-                	**type**\:   :py:class:`RemoteIdThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle>`
+                	**type**\:  :py:class:`RemoteIdThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: max_limit
                 
                 	Set per\-card session limit and threshold
-                	**type**\:   :py:class:`MaxLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit>`
+                	**type**\:  :py:class:`MaxLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: circuit_id_and_remote_id_throttle
                 
                 	Set Circuit ID and Remote ID session throttle
-                	**type**\:   :py:class:`CircuitIdAndRemoteIdThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle>`
+                	**type**\:  :py:class:`CircuitIdAndRemoteIdThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle>`
                 
                 	**presence node**\: True
                 
@@ -733,7 +737,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -742,7 +746,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -751,7 +755,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -795,7 +799,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -804,7 +808,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -813,7 +817,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -857,7 +861,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-Remote ID limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -866,7 +870,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-Remote ID threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -907,7 +911,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -916,7 +920,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -925,7 +929,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -969,7 +973,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-access interface session limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -978,7 +982,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-access interface session threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1018,7 +1022,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1027,7 +1031,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1036,7 +1040,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1080,7 +1084,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-Outer VLAN limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1089,7 +1093,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-Outer VLAN threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1129,7 +1133,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1138,7 +1142,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1147,7 +1151,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1192,7 +1196,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-MAC session limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1201,7 +1205,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-MAC session threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1241,7 +1245,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-Circuit ID limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1250,7 +1254,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-Circuit ID threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1291,7 +1295,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-MAC session limit for IWF sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1300,7 +1304,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-MAC session threshold for IWF sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1341,7 +1345,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-MAC access interface session limit for IWF sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1350,7 +1354,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-MAC access interface session threshold for IWF sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1390,7 +1394,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-Inner VLAN limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1399,7 +1403,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-Inner VLAN threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1439,7 +1443,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1448,7 +1452,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1457,7 +1461,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1501,7 +1505,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1510,7 +1514,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1519,7 +1523,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1564,7 +1568,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-Circuit ID limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1573,7 +1577,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-Circuit ID threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1614,7 +1618,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-VLAN (inner + outer tags) limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1623,7 +1627,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-VLAN (inner + outer tags) threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1664,7 +1668,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-MAC access interface session limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1673,7 +1677,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-MAC access interface session threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1713,7 +1717,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1722,7 +1726,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1731,7 +1735,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1775,7 +1779,7 @@ class PppoeCfg(Entity):
                     .. attribute:: limit
                     
                     	Per\-card session limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1784,7 +1788,7 @@ class PppoeCfg(Entity):
                     .. attribute:: threshold
                     
                     	Per\-card session threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1824,7 +1828,7 @@ class PppoeCfg(Entity):
                     .. attribute:: throttle
                     
                     	Number of requests at which to throttle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -1833,7 +1837,7 @@ class PppoeCfg(Entity):
                     .. attribute:: request_period
                     
                     	Throttle request period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1842,7 +1846,7 @@ class PppoeCfg(Entity):
                     .. attribute:: blocking_period
                     
                     	Throttle blocking period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -1886,7 +1890,7 @@ class PppoeCfg(Entity):
                 .. attribute:: priority
                 
                 	Set the Priority to use for PPP and PPPoE control packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..7
                 
@@ -1921,37 +1925,37 @@ class PppoeCfg(Entity):
                 .. attribute:: remote_id_substrings
                 
                 	Delay the PADO response when the received Remote ID contains the given string
-                	**type**\:   :py:class:`RemoteIdSubstrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings>`
+                	**type**\:  :py:class:`RemoteIdSubstrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings>`
                 
                 .. attribute:: remote_id_strings
                 
                 	Delay the PADO response when there is an exact match on the received Remote ID
-                	**type**\:   :py:class:`RemoteIdStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings>`
+                	**type**\:  :py:class:`RemoteIdStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings>`
                 
                 .. attribute:: service_name_strings
                 
                 	Delay the PADO response when there is an exact match on the received Service Name
-                	**type**\:   :py:class:`ServiceNameStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings>`
+                	**type**\:  :py:class:`ServiceNameStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings>`
                 
                 .. attribute:: circuit_id_substrings
                 
                 	Delay the PADO response when the received Circuit ID contains the given string
-                	**type**\:   :py:class:`CircuitIdSubstrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings>`
+                	**type**\:  :py:class:`CircuitIdSubstrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings>`
                 
                 .. attribute:: service_name_substrings
                 
                 	Delay the PADO response when the received Service Name contains the given string
-                	**type**\:   :py:class:`ServiceNameSubstrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings>`
+                	**type**\:  :py:class:`ServiceNameSubstrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings>`
                 
                 .. attribute:: circuit_id_strings
                 
                 	Delay the PADO response when there is an exact match on the received Circuit ID
-                	**type**\:   :py:class:`CircuitIdStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings>`
+                	**type**\:  :py:class:`CircuitIdStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings>`
                 
                 .. attribute:: default
                 
                 	PADO delay (in milliseconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
@@ -1960,7 +1964,7 @@ class PppoeCfg(Entity):
                 .. attribute:: circuit_id
                 
                 	Configure PADO delay dependent on the received Circuit ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
@@ -1969,7 +1973,7 @@ class PppoeCfg(Entity):
                 .. attribute:: remote_id
                 
                 	Configure PADO delay dependent on the received Remote ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
@@ -2041,7 +2045,7 @@ class PppoeCfg(Entity):
                     .. attribute:: remote_id_substring
                     
                     	Delay the PADO response when the received Remote ID contains the given string
-                    	**type**\: list of    :py:class:`RemoteIdSubstring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring>`
+                    	**type**\: list of  		 :py:class:`RemoteIdSubstring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring>`
                     
                     
 
@@ -2075,12 +2079,14 @@ class PppoeCfg(Entity):
                         .. attribute:: name  <key>
                         
                         	The string to be contained within the received Remote ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: delay
                         
                         	PADO delay (in milliseconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10000
                         
@@ -2122,7 +2128,7 @@ class PppoeCfg(Entity):
                     .. attribute:: remote_id_string
                     
                     	Delay the PADO response when there is an exact match on the received Remote ID
-                    	**type**\: list of    :py:class:`RemoteIdString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString>`
+                    	**type**\: list of  		 :py:class:`RemoteIdString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString>`
                     
                     
 
@@ -2156,12 +2162,14 @@ class PppoeCfg(Entity):
                         .. attribute:: name  <key>
                         
                         	The string to exactly match the received Remote ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: delay
                         
                         	PADO delay (in milliseconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10000
                         
@@ -2203,7 +2211,7 @@ class PppoeCfg(Entity):
                     .. attribute:: service_name_string
                     
                     	Delay the PADO response when there is an exact match on the received Service Name
-                    	**type**\: list of    :py:class:`ServiceNameString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString>`
+                    	**type**\: list of  		 :py:class:`ServiceNameString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString>`
                     
                     
 
@@ -2237,12 +2245,14 @@ class PppoeCfg(Entity):
                         .. attribute:: name  <key>
                         
                         	The string to exactly match the received Service Name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: delay
                         
                         	PADO delay (in milliseconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10000
                         
@@ -2284,7 +2294,7 @@ class PppoeCfg(Entity):
                     .. attribute:: circuit_id_substring
                     
                     	Delay the PADO response when the received Circuit ID contains the given string
-                    	**type**\: list of    :py:class:`CircuitIdSubstring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring>`
+                    	**type**\: list of  		 :py:class:`CircuitIdSubstring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring>`
                     
                     
 
@@ -2318,12 +2328,14 @@ class PppoeCfg(Entity):
                         .. attribute:: name  <key>
                         
                         	The string to be contained within the received Circuit ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: delay
                         
                         	PADO delay (in milliseconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10000
                         
@@ -2365,7 +2377,7 @@ class PppoeCfg(Entity):
                     .. attribute:: service_name_substring
                     
                     	Delay the PADO response when the received Service Name contains the given string
-                    	**type**\: list of    :py:class:`ServiceNameSubstring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring>`
+                    	**type**\: list of  		 :py:class:`ServiceNameSubstring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring>`
                     
                     
 
@@ -2399,12 +2411,14 @@ class PppoeCfg(Entity):
                         .. attribute:: name  <key>
                         
                         	The string to be contained within the received Service Name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: delay
                         
                         	PADO delay (in milliseconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10000
                         
@@ -2446,7 +2460,7 @@ class PppoeCfg(Entity):
                     .. attribute:: circuit_id_string
                     
                     	Delay the PADO response when there is an exact match on the received Circuit ID
-                    	**type**\: list of    :py:class:`CircuitIdString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString>`
+                    	**type**\: list of  		 :py:class:`CircuitIdString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg.PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString>`
                     
                     
 
@@ -2480,12 +2494,14 @@ class PppoeCfg(Entity):
                         .. attribute:: name  <key>
                         
                         	The string to exactly match the received Circuit ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: delay
                         
                         	PADO delay (in milliseconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10000
                         

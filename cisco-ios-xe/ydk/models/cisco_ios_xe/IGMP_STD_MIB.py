@@ -17,12 +17,12 @@ class IGMPSTDMIB(Entity):
     .. attribute:: igmpinterfacetable
     
     	The (conceptual) table listing the interfaces on which IGMP is enabled
-    	**type**\:   :py:class:`Igmpinterfacetable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpinterfacetable>`
+    	**type**\:  :py:class:`Igmpinterfacetable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpinterfacetable>`
     
     .. attribute:: igmpcachetable
     
     	The (conceptual) table listing the IP multicast groups for which there are members on a particular interface
-    	**type**\:   :py:class:`Igmpcachetable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpcachetable>`
+    	**type**\:  :py:class:`Igmpcachetable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpcachetable>`
     
     
 
@@ -62,7 +62,7 @@ class IGMPSTDMIB(Entity):
         .. attribute:: igmpinterfaceentry
         
         	An entry (conceptual row) representing an interface on which IGMP is enabled
-        	**type**\: list of    :py:class:`Igmpinterfaceentry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpinterfacetable.Igmpinterfaceentry>`
+        	**type**\: list of  		 :py:class:`Igmpinterfaceentry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpinterfacetable.Igmpinterfaceentry>`
         
         
 
@@ -97,14 +97,14 @@ class IGMPSTDMIB(Entity):
             .. attribute:: igmpinterfaceifindex  <key>
             
             	The ifIndex value of the interface for which IGMP is enabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: igmpinterfacequeryinterval
             
             	The frequency at which IGMP Host\-Query packets are transmitted on this interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -113,24 +113,26 @@ class IGMPSTDMIB(Entity):
             .. attribute:: igmpinterfacestatus
             
             	The activation of a row enables IGMP on the interface.  The destruction of a row disables IGMP on the interface
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: igmpinterfaceversion
             
             	The version of IGMP which is running on this interface. This object can be used to configure a router capable of running either value.  For IGMP to function correctly, all routers on a LAN must be configured to run the same version of IGMP on that LAN
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpinterfacequerier
             
             	The address of the IGMP Querier on the IP subnet to which      this interface is attached
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: igmpinterfacequerymaxresponsetime
             
             	The maximum query response time advertised in IGMPv2 queries on this interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -139,63 +141,63 @@ class IGMPSTDMIB(Entity):
             .. attribute:: igmpinterfacequerieruptime
             
             	The time since igmpInterfaceQuerier was last changed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpinterfacequerierexpirytime
             
             	The amount of time remaining before the Other Querier Present Timer expires.  If the local system is the querier, the value of this object is zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpinterfaceversion1queriertimer
             
             	The time remaining until the host assumes that there are no IGMPv1 routers present on the interface.  While this is non\- zero, the host will reply to all queries with version 1 membership reports
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpinterfacewrongversionqueries
             
             	The number of queries received whose IGMP version does not match igmpInterfaceVersion, over the lifetime of the row entry.  IGMP requires that all routers on a LAN be configured to run the same version of IGMP.  Thus, if any queries are received with the wrong version, this indicates a configuration error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpinterfacejoins
             
             	The number of times a group membership has been added on this interface; that is, the number of times an entry for this interface has been added to the Cache Table.  This object gives an indication of the amount of IGMP activity over the lifetime of the row entry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpinterfaceproxyifindex
             
             	Some devices implement a form of IGMP proxying whereby memberships learned on the interface represented by this row, cause IGMP Host Membership Reports to be sent on the interface whose ifIndex value is given by this object.  Such a device would implement the igmpV2RouterMIBGroup only on its router interfaces (those interfaces with non\-zero igmpInterfaceProxyIfIndex).  Typically, the value of this object is 0, indicating that no proxying is being done
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: igmpinterfacegroups
             
             	The current number of entries for this interface in the Cache Table
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpinterfacerobustness
             
             	The Robustness Variable allows tuning for the expected packet loss on a subnet.  If a subnet is expected to be lossy, the Robustness Variable may be increased.  IGMP is robust to (Robustness Variable\-1) packet losses
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: igmpinterfacelastmembqueryintvl
             
             	The Last Member Query Interval is the Max Response Time inserted into Group\-Specific Queries sent in response to Leave Group messages, and is also the amount of time between Group\-Specific Query messages.  This value may be tuned to modify the leave latency of the network.  A reduced value results in reduced time to detect the loss of the last member of a group.  The value of this object is irrelevant if igmpInterfaceVersion is 1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -262,7 +264,7 @@ class IGMPSTDMIB(Entity):
         .. attribute:: igmpcacheentry
         
         	An entry (conceptual row) in the igmpCacheTable
-        	**type**\: list of    :py:class:`Igmpcacheentry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpcachetable.Igmpcacheentry>`
+        	**type**\: list of  		 :py:class:`Igmpcacheentry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpcachetable.Igmpcacheentry>`
         
         
 
@@ -296,48 +298,52 @@ class IGMPSTDMIB(Entity):
             .. attribute:: igmpcacheaddress  <key>
             
             	The IP multicast group address for which this entry contains information
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: igmpcacheifindex  <key>
             
             	The interface for which this entry contains information for an IP multicast group address
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: igmpcacheself
             
             	An indication of whether the local system is a member of this group address on this interface
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: igmpcachelastreporter
             
             	The IP address of the source of the last membership report received for this IP Multicast group address on this interface.  If no membership report has been received, this object has the value 0.0.0.0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: igmpcacheuptime
             
             	The time elapsed since this entry was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpcacheexpirytime
             
             	The minimum amount of time remaining before this entry will be aged out.  A value of 0 indicates that the entry is only present because igmpCacheSelf is true and that if the router left the group, this entry would be aged out immediately. Note that some implementations may process membership reports from the local system in the same way as reports from other hosts, so a value of 0 is not required
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: igmpcachestatus
             
             	The status of this entry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: igmpcacheversion1hosttimer
             
             	The time remaining until the local router will assume that there are no longer any IGMP version 1 members on the IP subnet attached to this interface.  Upon hearing any IGMPv1 Membership Report, this value is reset to the group membership timer.  While this time remaining is non\-zero, the local router ignores any IGMPv2 Leave messages for this group that it receives on this interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

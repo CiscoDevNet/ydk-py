@@ -25,82 +25,82 @@ class QBRIDGEMIB(Entity):
     .. attribute:: dot1qbase
     
     	
-    	**type**\:   :py:class:`Dot1Qbase <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qbase>`
+    	**type**\:  :py:class:`Dot1Qbase <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qbase>`
     
     .. attribute:: dot1qvlan
     
     	
-    	**type**\:   :py:class:`Dot1Qvlan <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlan>`
+    	**type**\:  :py:class:`Dot1Qvlan <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlan>`
     
     .. attribute:: dot1qfdbtable
     
     	A table that contains configuration and control information for each Filtering Database currently operating on this device.  Entries in this table appear automatically when VLANs are assigned FDB IDs in the dot1qVlanCurrentTable
-    	**type**\:   :py:class:`Dot1Qfdbtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable>`
+    	**type**\:  :py:class:`Dot1Qfdbtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable>`
     
     .. attribute:: dot1qtpfdbtable
     
     	A table that contains information about unicast entries for which the device has forwarding and/or filtering information.  This information is used by the transparent bridging function in determining how to propagate a received frame
-    	**type**\:   :py:class:`Dot1Qtpfdbtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable>`
+    	**type**\:  :py:class:`Dot1Qtpfdbtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable>`
     
     .. attribute:: dot1qtpgrouptable
     
     	A table containing filtering information for VLANs configured into the bridge by (local or network) management, or learned dynamically, specifying the set of ports to which frames received on a VLAN for this FDB and containing a specific Group destination address are allowed to be forwarded
-    	**type**\:   :py:class:`Dot1Qtpgrouptable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpgrouptable>`
+    	**type**\:  :py:class:`Dot1Qtpgrouptable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpgrouptable>`
     
     .. attribute:: dot1qforwardalltable
     
     	A table containing forwarding information for each  VLAN, specifying the set of ports to which forwarding of all multicasts applies, configured statically by management or dynamically by GMRP.  An entry appears in this table for all VLANs that are currently instantiated
-    	**type**\:   :py:class:`Dot1Qforwardalltable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardalltable>`
+    	**type**\:  :py:class:`Dot1Qforwardalltable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardalltable>`
     
     .. attribute:: dot1qforwardunregisteredtable
     
     	A table containing forwarding information for each VLAN, specifying the set of ports to which forwarding of multicast group\-addressed frames for which no more specific forwarding information applies.  This is configured statically by management and determined dynamically by GMRP.  An entry appears in this table for all VLANs that are currently instantiated
-    	**type**\:   :py:class:`Dot1Qforwardunregisteredtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardunregisteredtable>`
+    	**type**\:  :py:class:`Dot1Qforwardunregisteredtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardunregisteredtable>`
     
     .. attribute:: dot1qstaticunicasttable
     
     	A table containing filtering information for Unicast MAC addresses for each Filtering Database, configured into the device by (local or network) management specifying the set of ports to which frames received from specific ports and containing specific unicast destination addresses are allowed to be forwarded.  A value of zero in this table (as the port number from  which frames with a specific destination address are received) is used to specify all ports for which there is no specific entry in this table for that particular destination address.  Entries are valid for unicast addresses only
-    	**type**\:   :py:class:`Dot1Qstaticunicasttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable>`
+    	**type**\:  :py:class:`Dot1Qstaticunicasttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable>`
     
     .. attribute:: dot1qstaticmulticasttable
     
     	A table containing filtering information for Multicast and Broadcast MAC addresses for each VLAN, configured into the device by (local or network) management specifying the set of ports to which frames received from specific ports and containing specific Multicast and Broadcast destination addresses are allowed to be forwarded.  A value of zero in this table (as the port number from which frames with a specific destination address are received) is used to specify all ports for which there is no specific entry in this table for that particular destination address.  Entries are valid for Multicast and Broadcast addresses only
-    	**type**\:   :py:class:`Dot1Qstaticmulticasttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable>`
+    	**type**\:  :py:class:`Dot1Qstaticmulticasttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable>`
     
     .. attribute:: dot1qvlancurrenttable
     
     	A table containing current configuration information for each VLAN currently configured into the device by (local or network) management, or dynamically created as a result of GVRP requests received
-    	**type**\:   :py:class:`Dot1Qvlancurrenttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable>`
+    	**type**\:  :py:class:`Dot1Qvlancurrenttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable>`
     
     .. attribute:: dot1qvlanstatictable
     
     	A table containing static configuration information for each VLAN configured into the device by (local or network) management.  All entries are permanent and will be restored after the device is reset
-    	**type**\:   :py:class:`Dot1Qvlanstatictable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlanstatictable>`
+    	**type**\:  :py:class:`Dot1Qvlanstatictable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlanstatictable>`
     
     .. attribute:: dot1qportvlanstatisticstable
     
     	A table containing per\-port, per\-VLAN statistics for traffic received.  Separate objects are provided for both the most\-significant and least\-significant bits of statistics counters for ports that are associated with this transparent bridge.  The most\-significant bit objects are only required on high\-capacity interfaces, as defined in the conformance clauses for these objects.  This mechanism is provided as a way to read 64\-bit counters for agents that support only SNMPv1.  Note that the reporting of most\-significant and least\- significant counter bits separately runs the risk of missing an overflow of the lower bits in the interval between sampling. The manager must be aware of this possibility, even within the same varbindlist, when interpreting the results of a request or  asynchronous notification
-    	**type**\:   :py:class:`Dot1Qportvlanstatisticstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanstatisticstable>`
+    	**type**\:  :py:class:`Dot1Qportvlanstatisticstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanstatisticstable>`
     
     .. attribute:: dot1qportvlanhcstatisticstable
     
     	A table containing per\-port, per\-VLAN statistics for traffic on high\-capacity interfaces
-    	**type**\:   :py:class:`Dot1Qportvlanhcstatisticstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanhcstatisticstable>`
+    	**type**\:  :py:class:`Dot1Qportvlanhcstatisticstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanhcstatisticstable>`
     
     .. attribute:: dot1qlearningconstraintstable
     
     	A table containing learning constraints for sets of Shared and Independent VLANs
-    	**type**\:   :py:class:`Dot1Qlearningconstraintstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable>`
+    	**type**\:  :py:class:`Dot1Qlearningconstraintstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable>`
     
     .. attribute:: dot1vprotocolgrouptable
     
     	A table that contains mappings from Protocol Templates to Protocol Group Identifiers used for Port\-and\-Protocol\-based VLAN Classification
-    	**type**\:   :py:class:`Dot1Vprotocolgrouptable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable>`
+    	**type**\:  :py:class:`Dot1Vprotocolgrouptable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable>`
     
     .. attribute:: dot1vprotocolporttable
     
     	A table that contains VID sets used for Port\-and\-Protocol\-based VLAN Classification
-    	**type**\:   :py:class:`Dot1Vprotocolporttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolporttable>`
+    	**type**\:  :py:class:`Dot1Vprotocolporttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolporttable>`
     
     
 
@@ -209,33 +209,33 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qvlanversionnumber
         
         	The version number of IEEE 802.1Q that this device supports
-        	**type**\:   :py:class:`Dot1Qvlanversionnumber <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qbase.Dot1Qvlanversionnumber>`
+        	**type**\:  :py:class:`Dot1Qvlanversionnumber <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qbase.Dot1Qvlanversionnumber>`
         
         .. attribute:: dot1qmaxvlanid
         
         	The maximum IEEE 802.1Q VLAN\-ID that this device  supports
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4094
         
         .. attribute:: dot1qmaxsupportedvlans
         
         	The maximum number of IEEE 802.1Q VLANs that this device supports
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: dot1qnumvlans
         
         	The current number of IEEE 802.1Q VLANs that are configured in this device
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: dot1qgvrpstatus
         
         	The administrative status requested by management for GVRP.  The value enabled(1) indicates that GVRP should be enabled on this device, on all ports for which it has not been specifically disabled.  When disabled(2), GVRP is disabled on all ports, and all GVRP packets will be forwarded transparently.  This object affects all GVRP Applicant and Registrar state machines.  A transition from disabled(2) to enabled(1) will cause a reset of all GVRP state machines on all ports.  The value of this object MUST be retained across reinitializations of the management system
-        	**type**\:   :py:class:`EnabledStatus <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.EnabledStatus>`
+        	**type**\:  :py:class:`EnabledStatus <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.EnabledStatus>`
         
         
 
@@ -292,28 +292,28 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qvlannumdeletes
         
         	The number of times a VLAN entry has been deleted from the dot1qVlanCurrentTable (for any reason).  If an entry is deleted, then inserted, and then deleted, this counter will be incremented by 2
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: dot1qnextfreelocalvlanindex
         
         	The next available value for dot1qVlanIndex of a local VLAN entry in dot1qVlanStaticTable.  This will report values >=4096 if a new Local VLAN may be created or else the value 0 if this is not possible.  A row creation operation in this table for an entry with a local VlanIndex value may fail if the current value of this object is not used as the index.  Even if the value read is used, there is no guarantee that it will still be the valid index when the create operation is attempted; another manager may have already got in during the intervening time interval. In this case, dot1qNextFreeLocalVlanIndex should be re\-read  and the creation re\-tried with the new value.  This value will automatically change when the current value is used to create a new row
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..None \| 4096..2147483647
         
         .. attribute:: dot1qconstraintsetdefault
         
         	The identity of the constraint set to which a VLAN belongs, if there is not an explicit entry for that VLAN in dot1qLearningConstraintsTable.  The value of this object MUST be retained across reinitializations of the management system
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: dot1qconstrainttypedefault
         
         	The type of constraint set to which a VLAN belongs, if there is not an explicit entry for that VLAN in dot1qLearningConstraintsTable.  The types are as defined for dot1qConstraintType.  The value of this object MUST be retained across  reinitializations of the management system
-        	**type**\:   :py:class:`Dot1Qconstrainttypedefault <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlan.Dot1Qconstrainttypedefault>`
+        	**type**\:  :py:class:`Dot1Qconstrainttypedefault <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlan.Dot1Qconstrainttypedefault>`
         
         
 
@@ -384,7 +384,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qfdbentry
         
         	Information about a specific Filtering Database
-        	**type**\: list of    :py:class:`Dot1Qfdbentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qfdbentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry>`
         
         
 
@@ -418,14 +418,14 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qfdbid  <key>
             
             	The identity of this Filtering Database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qfdbdynamiccount
             
             	The current number of dynamic entries in this Filtering Database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -467,7 +467,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qtpfdbentry
         
         	Information about a specific unicast MAC address for which the device has some forwarding and/or filtering information
-        	**type**\: list of    :py:class:`Dot1Qtpfdbentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qtpfdbentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry>`
         
         
 
@@ -503,7 +503,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qfdbid  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -512,19 +512,21 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qtpfdbaddress  <key>
             
             	A unicast MAC address for which the device has forwarding and/or filtering information
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: dot1qtpfdbport
             
             	Either the value '0', or the port number of the port on which a frame having a source address equal to the value of the corresponding instance of dot1qTpFdbAddress has been seen.  A value of '0' indicates that the port number has not been learned but that the device does have some forwarding/filtering information about this address (e.g., in the dot1qStaticUnicastTable). Implementors are encouraged to assign the port value to this object whenever it is learned, even for addresses for which the corresponding value of dot1qTpFdbStatus is not learned(3)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: dot1qtpfdbstatus
             
             	The status of this entry.  The meanings of the values are\:     other(1) \- none of the following.  This may include         the case where some other MIB object (not the         corresponding instance of dot1qTpFdbPort, nor an         entry in the dot1qStaticUnicastTable) is being         used to determine if and how frames addressed to         the value of the corresponding instance of         dot1qTpFdbAddress are being forwarded.     invalid(2) \- this entry is no longer valid (e.g., it          was learned but has since aged out), but has not         yet been flushed from the table.     learned(3) \- the value of the corresponding instance         of dot1qTpFdbPort was learned and is being used.     self(4) \- the value of the corresponding instance of         dot1qTpFdbAddress represents one of the device's         addresses.  The corresponding instance of         dot1qTpFdbPort indicates which of the device's         ports has this address.     mgmt(5) \- the value of the corresponding instance of         dot1qTpFdbAddress is also the value of an         existing instance of dot1qStaticAddress
-            	**type**\:   :py:class:`Dot1Qtpfdbstatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry.Dot1Qtpfdbstatus>`
+            	**type**\:  :py:class:`Dot1Qtpfdbstatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry.Dot1Qtpfdbstatus>`
             
             
 
@@ -640,7 +642,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qtpgroupentry
         
         	Filtering information configured into the bridge by management, or learned dynamically, specifying the set of ports to which frames received on a VLAN and containing a specific Group destination address are allowed to be forwarded.  The subset of these ports learned dynamically is also provided
-        	**type**\: list of    :py:class:`Dot1Qtpgroupentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpgrouptable.Dot1Qtpgroupentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qtpgroupentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpgrouptable.Dot1Qtpgroupentry>`
         
         
 
@@ -679,7 +681,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -688,17 +690,19 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qtpgroupaddress  <key>
             
             	The destination Group MAC address in a frame to which this entry's filtering information applies
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: dot1qtpgroupegressports
             
             	The complete set of ports, in this VLAN, to which frames destined for this Group MAC address are currently being explicitly forwarded.  This does not include ports for which this address is only implicitly forwarded, in the dot1qForwardAllPorts list
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qtpgrouplearnt
             
             	The subset of ports in dot1qTpGroupEgressPorts that were learned by GMRP or some other dynamic mechanism, in this Filtering database
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -744,7 +748,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qforwardallentry
         
         	Forwarding information for a VLAN, specifying the set of ports to which all multicasts should be forwarded, configured statically by management or dynamically by GMRP
-        	**type**\: list of    :py:class:`Dot1Qforwardallentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardalltable.Dot1Qforwardallentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qforwardallentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardalltable.Dot1Qforwardallentry>`
         
         
 
@@ -781,7 +785,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -790,17 +794,17 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qforwardallports
             
             	The complete set of ports in this VLAN to which all multicast group\-addressed frames are to be forwarded. This includes ports for which this need has been determined dynamically by GMRP, or configured statically by management
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qforwardallstaticports
             
             	The set of ports configured by management in this VLAN to which all multicast group\-addressed frames are to be forwarded.  Ports entered in this list will also appear in the complete set shown by dot1qForwardAllPorts.  This value will be restored after the device is reset.  This only applies to ports that are members of the VLAN, defined by dot1qVlanCurrentEgressPorts.  A port may not be added in this set if it is already a member of the set of ports in dot1qForwardAllForbiddenPorts.  The default value is a string of ones of appropriate length, to indicate the standard behaviour of using basic filtering services, i.e., forward all multicasts to all ports.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qforwardallforbiddenports
             
             	The set of ports configured by management in this VLAN for which the Service Requirement attribute Forward All Multicast Groups may not be dynamically registered by GMRP.  This value will be restored after the device is reset.  A port may not be added in this set if it is already a member of the set of ports in dot1qForwardAllStaticPorts.  The default value is a string of zeros of appropriate length.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -846,7 +850,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qforwardunregisteredentry
         
         	Forwarding information for a VLAN, specifying the set of ports to which all multicasts for which there is no more specific forwarding information shall be forwarded. This is configured statically by management or dynamically by GMRP
-        	**type**\: list of    :py:class:`Dot1Qforwardunregisteredentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qforwardunregisteredentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry>`
         
         
 
@@ -884,7 +888,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -893,17 +897,17 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qforwardunregisteredports
             
             	The complete set of ports in this VLAN to which multicast group\-addressed frames for which there is no more specific forwarding information will be forwarded. This includes ports for which this need has been determined dynamically by GMRP, or configured statically by management
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qforwardunregisteredstaticports
             
             	The set of ports configured by management, in this VLAN, to which multicast group\-addressed frames for which there is no more specific forwarding information  are to be forwarded.  Ports entered in this list will also appear in the complete set shown by dot1qForwardUnregisteredPorts.  This value will be restored after the device is reset.  A port may not be added in this set if it is already a member of the set of ports in dot1qForwardUnregisteredForbiddenPorts.  The default value is a string of zeros of appropriate length, although this has no effect with the default value of dot1qForwardAllStaticPorts.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qforwardunregisteredforbiddenports
             
             	The set of ports configured by management in this VLAN for which the Service Requirement attribute Forward Unregistered Multicast Groups may not be dynamically registered by GMRP.  This value will be restored after the device is reset.  A port may not be added in this set if it is already a member of the set of ports in dot1qForwardUnregisteredStaticPorts.  The default value is a string of zeros of appropriate length.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -955,7 +959,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qstaticunicastentry
         
         	Filtering information configured into the device by (local or network) management specifying the set of ports to which frames received from a specific port and containing a specific unicast destination address are allowed to be forwarded
-        	**type**\: list of    :py:class:`Dot1Qstaticunicastentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qstaticunicastentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry>`
         
         
 
@@ -993,7 +997,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qfdbid  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1002,24 +1006,26 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qstaticunicastaddress  <key>
             
             	The destination MAC address in a frame to which this entry's filtering information applies.  This object must take the value of a unicast address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: dot1qstaticunicastreceiveport  <key>
             
             	Either the value '0' or the port number of the port from which a frame must be received in order for this entry's filtering information to apply.  A value of zero indicates that this entry applies on all ports of the device for which there is no other applicable entry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: dot1qstaticunicastallowedtogoto
             
             	The set of ports for which a frame with a specific unicast address will be flooded in the event that it has not been learned.  It also specifies the set of ports on which a specific unicast address may be dynamically learned.  The dot1qTpFdbTable will have an equivalent entry with a dot1qTpFdbPort value of '0' until this address has been learned, at which point it will be updated with the port the address has been seen on.  This only applies to ports that are members of the VLAN, defined by dot1qVlanCurrentEgressPorts.  The default value of this object is a string of ones of appropriate length.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qstaticunicaststatus
             
             	This object indicates the status of this entry. other(1) \- this entry is currently in use, but      the conditions under which it will remain     so differ from the following values. invalid(2) \- writing this value to the object     removes the corresponding entry. permanent(3) \- this entry is currently in use     and will remain so after the next reset of     the bridge. deleteOnReset(4) \- this entry is currently in     use and will remain so until the next     reset of the bridge. deleteOnTimeout(5) \- this entry is currently in     use and will remain so until it is aged out.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:   :py:class:`Dot1Qstaticunicaststatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry.Dot1Qstaticunicaststatus>`
+            	**type**\:  :py:class:`Dot1Qstaticunicaststatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry.Dot1Qstaticunicaststatus>`
             
             
 
@@ -1131,7 +1137,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qstaticmulticastentry
         
         	Filtering information configured into the device by (local or network) management specifying the set of ports to which frames received from this specific port  for this VLAN and containing this Multicast or Broadcast destination address are allowed to be forwarded
-        	**type**\: list of    :py:class:`Dot1Qstaticmulticastentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qstaticmulticastentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry>`
         
         
 
@@ -1170,7 +1176,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1179,29 +1185,31 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qstaticmulticastaddress  <key>
             
             	The destination MAC address in a frame to which this entry's filtering information applies.  This object must take the value of a Multicast or Broadcast address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: dot1qstaticmulticastreceiveport  <key>
             
             	Either the value '0' or the port number of the port from which a frame must be received in order for this entry's filtering information to apply.  A value of zero indicates that this entry applies on all ports of the device for which there is no other applicable entry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: dot1qstaticmulticaststaticegressports
             
             	The set of ports to which frames received from a specific port and destined for a specific Multicast or Broadcast MAC address must be forwarded, regardless of any dynamic information, e.g., from GMRP.  A port may not be added in this set if it is already a member of the set of ports in dot1qStaticMulticastForbiddenEgressPorts. The default value of this object is a string of ones of appropriate length.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qstaticmulticastforbiddenegressports
             
             	The set of ports to which frames received from a specific port and destined for a specific Multicast or Broadcast MAC address must not be forwarded, regardless of any dynamic information, e.g., from GMRP.  A port may not be added in this set if it is already a member of the set of ports in dot1qStaticMulticastStaticEgressPorts. The default value of this object is a string of zeros of appropriate length.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qstaticmulticaststatus
             
             	This object indicates the status of this entry. other(1) \- this entry is currently in use, but     the conditions under which it will remain     so differ from the following values.  invalid(2) \- writing this value to the object     removes the corresponding entry. permanent(3) \- this entry is currently in use     and will remain so after the next reset of     the bridge. deleteOnReset(4) \- this entry is currently in     use and will remain so until the next     reset of the bridge. deleteOnTimeout(5) \- this entry is currently in     use and will remain so until it is aged out.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:   :py:class:`Dot1Qstaticmulticaststatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry.Dot1Qstaticmulticaststatus>`
+            	**type**\:  :py:class:`Dot1Qstaticmulticaststatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry.Dot1Qstaticmulticaststatus>`
             
             
 
@@ -1307,7 +1315,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qvlancurrententry
         
         	Information for a VLAN configured into the device by  (local or network) management, or dynamically created as a result of GVRP requests received
-        	**type**\: list of    :py:class:`Dot1Qvlancurrententry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+        	**type**\: list of  		 :py:class:`Dot1Qvlancurrententry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
         
         
 
@@ -1344,43 +1352,43 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlantimemark  <key>
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qvlanindex  <key>
             
             	The VLAN\-ID or other identifier referring to this VLAN
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qvlanfdbid
             
             	The Filtering Database used by this VLAN.  This is one of the dot1qFdbId values in the dot1qFdbTable.  This value is allocated automatically by the device whenever  the VLAN is created\: either dynamically by GVRP, or by management, in dot1qVlanStaticTable.  Allocation of this value follows the learning constraints defined for this VLAN in dot1qLearningConstraintsTable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qvlancurrentegressports
             
             	The set of ports that are transmitting traffic for this VLAN as either tagged or untagged frames
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qvlancurrentuntaggedports
             
             	The set of ports that are transmitting traffic for this VLAN as untagged frames
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qvlanstatus
             
             	This object indicates the status of this entry. other(1) \- this entry is currently in use, but the     conditions under which it will remain so differ     from the following values. permanent(2) \- this entry, corresponding to an entry     in dot1qVlanStaticTable, is currently in use and     will remain so after the next reset of the     device.  The port lists for this entry include     ports from the equivalent dot1qVlanStaticTable     entry and ports learned dynamically. dynamicGvrp(3) \- this entry is currently in use      and will remain so until removed by GVRP.  There     is no static entry for this VLAN, and it will be     removed when the last port leaves the VLAN
-            	**type**\:   :py:class:`Dot1Qvlanstatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry.Dot1Qvlanstatus>`
+            	**type**\:  :py:class:`Dot1Qvlanstatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry.Dot1Qvlanstatus>`
             
             .. attribute:: dot1qvlancreationtime
             
             	The value of sysUpTime when this VLAN was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1478,7 +1486,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qvlanstaticentry
         
         	Static information for a VLAN configured into the device by (local or network) management
-        	**type**\: list of    :py:class:`Dot1Qvlanstaticentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlanstatictable.Dot1Qvlanstaticentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qvlanstaticentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlanstatictable.Dot1Qvlanstaticentry>`
         
         
 
@@ -1513,7 +1521,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1522,29 +1530,29 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanstaticname
             
             	An administratively assigned string, which may be used to identify the VLAN
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..32
             
             .. attribute:: dot1qvlanstaticegressports
             
             	The set of ports that are permanently assigned to the egress list for this VLAN by management.  Changes to a bit in this object affect the per\-port, per\-VLAN Registrar control for Registration Fixed for the relevant GVRP state machine on each port.  A port may not be added in this set if it is already a member of the set of ports in dot1qVlanForbiddenEgressPorts.  The default value of this object is a string of zeros of appropriate length, indicating not fixed
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qvlanforbiddenegressports
             
             	The set of ports that are prohibited by management from being included in the egress list for this VLAN. Changes to this object that cause a port to be included or excluded affect the per\-port, per\-VLAN Registrar control for Registration Forbidden for the relevant GVRP state machine on each port.  A port may not be added in this set if it is already a member of the set of ports in dot1qVlanStaticEgressPorts.  The default value of this object is a string of zeros of appropriate length, excluding all ports from the forbidden set
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qvlanstaticuntaggedports
             
             	The set of ports that should transmit egress packets for this VLAN as untagged.  The default value of this object for the default VLAN (dot1qVlanIndex = 1) is a string of appropriate length including all ports.  There is no specified default for other VLANs.  If a device agent cannot support the set of ports being set, then it will reject the set operation with an error.  For example, a manager might attempt to set more than one VLAN to be untagged on egress where the device does not support this IEEE 802.1Q option
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: dot1qvlanstaticrowstatus
             
             	This object indicates the status of this entry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -1603,7 +1611,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qportvlanstatisticsentry
         
         	Traffic statistics for a VLAN on an interface
-        	**type**\: list of    :py:class:`Dot1Qportvlanstatisticsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qportvlanstatisticsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry>`
         
         
 
@@ -1637,7 +1645,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1dbaseport  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -1646,7 +1654,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1655,42 +1663,42 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qtpvlanportinframes
             
             	The number of valid frames received by this port from its segment that were classified as belonging to this VLAN.  Note that a frame received on this port is counted by this object if and only if it is for a protocol being processed by the local forwarding process for this VLAN.  This object includes received bridge management frames classified as belonging to this VLAN (e.g., GMRP, but not GVRP or STP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qtpvlanportoutframes
             
             	The number of valid frames transmitted by this port to its segment from the local forwarding process for this VLAN.  This includes bridge management frames originated by this device that are classified as belonging to this VLAN (e.g., GMRP, but not GVRP or STP)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qtpvlanportindiscards
             
             	The number of valid frames received by this port from its segment that were classified as belonging to this VLAN and that were discarded due to VLAN\-related reasons. Specifically, the IEEE 802.1Q counters for Discard Inbound and Discard on Ingress Filtering
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qtpvlanportinoverflowframes
             
             	The number of times the associated dot1qTpVlanPortInFrames counter has overflowed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qtpvlanportoutoverflowframes
             
             	The number of times the associated dot1qTpVlanPortOutFrames counter has overflowed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qtpvlanportinoverflowdiscards
             
             	The number of times the associated dot1qTpVlanPortInDiscards counter has overflowed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1741,7 +1749,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qportvlanhcstatisticsentry
         
         	Traffic statistics for a VLAN on a high\-capacity interface
-        	**type**\: list of    :py:class:`Dot1Qportvlanhcstatisticsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qportvlanhcstatisticsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry>`
         
         
 
@@ -1776,7 +1784,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1dbaseport  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -1785,7 +1793,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1794,21 +1802,21 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qtpvlanporthcinframes
             
             	The number of valid frames received by this port from its segment that were classified as belonging to this VLAN.  Note that a frame received on this port is counted by this object if and only if it is for a  protocol being processed by the local forwarding process for this VLAN.  This object includes received bridge management frames classified as belonging to this VLAN (e.g., GMRP, but not GVRP or STP)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dot1qtpvlanporthcoutframes
             
             	The number of valid frames transmitted by this port to its segment from the local forwarding process for this VLAN.  This includes bridge management frames originated by this device that are classified as belonging to this VLAN (e.g., GMRP, but not GVRP or STP)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dot1qtpvlanporthcindiscards
             
             	The number of valid frames received by this port from its segment that were classified as belonging to this VLAN and that were discarded due to VLAN\-related reasons. Specifically, the IEEE 802.1Q counters for Discard Inbound and Discard on Ingress Filtering
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1853,7 +1861,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qlearningconstraintsentry
         
         	A learning constraint defined for a VLAN
-        	**type**\: list of    :py:class:`Dot1Qlearningconstraintsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry>`
+        	**type**\: list of  		 :py:class:`Dot1Qlearningconstraintsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry>`
         
         
 
@@ -1887,26 +1895,26 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qconstraintvlan  <key>
             
             	The index of the row in dot1qVlanCurrentTable for the VLAN constrained by this entry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1qconstraintset  <key>
             
             	The identity of the constraint set to which dot1qConstraintVlan belongs.  These values may be chosen by the management station
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: dot1qconstrainttype
             
             	The type of constraint this entry defines. independent(1) \- the VLAN, dot1qConstraintVlan,     uses a filtering database independent from all     other VLANs in the same set, defined by     dot1qConstraintSet. shared(2) \- the VLAN, dot1qConstraintVlan, shares     the same filtering database as all other VLANs     in the same set, defined by dot1qConstraintSet
-            	**type**\:   :py:class:`Dot1Qconstrainttype <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry.Dot1Qconstrainttype>`
+            	**type**\:  :py:class:`Dot1Qconstrainttype <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry.Dot1Qconstrainttype>`
             
             .. attribute:: dot1qconstraintstatus
             
             	The status of this entry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -1979,7 +1987,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1vprotocolgroupentry
         
         	A mapping from a Protocol Template to a Protocol Group Identifier
-        	**type**\: list of    :py:class:`Dot1Vprotocolgroupentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry>`
+        	**type**\: list of  		 :py:class:`Dot1Vprotocolgroupentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry>`
         
         
 
@@ -2014,26 +2022,26 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1vprotocoltemplateframetype  <key>
             
             	The data\-link encapsulation format or the 'detagged\_frame\_type' in a Protocol Template
-            	**type**\:   :py:class:`Dot1Vprotocoltemplateframetype <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry.Dot1Vprotocoltemplateframetype>`
+            	**type**\:  :py:class:`Dot1Vprotocoltemplateframetype <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry.Dot1Vprotocoltemplateframetype>`
             
             .. attribute:: dot1vprotocoltemplateprotocolvalue  <key>
             
             	The identification of the protocol above the data\-link layer in a Protocol Template.  Depending on the frame type, the octet string will have one of the following values\:  For 'ethernet', 'rfc1042' and 'snap8021H',     this is the 16\-bit (2\-octet) IEEE 802.3 Type Field. For 'snapOther',     this is the 40\-bit (5\-octet) PID. For 'llcOther',     this is the 2\-octet IEEE 802.2 Link Service Access     Point (LSAP) pair\: first octet for Destination Service     Access Point (DSAP) and second octet for Source Service     Access Point (SSAP)
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2 \| 5
             
             .. attribute:: dot1vprotocolgroupid
             
             	Represents a group of protocols that are associated together when assigning a VID to a frame
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: dot1vprotocolgrouprowstatus
             
             	This object indicates the status of this entry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -2105,7 +2113,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1vprotocolportentry
         
         	A VID set for a port
-        	**type**\: list of    :py:class:`Dot1Vprotocolportentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolporttable.Dot1Vprotocolportentry>`
+        	**type**\: list of  		 :py:class:`Dot1Vprotocolportentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolporttable.Dot1Vprotocolportentry>`
         
         
 
@@ -2139,7 +2147,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1dbaseport  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -2148,21 +2156,21 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1vprotocolportgroupid  <key>
             
             	Designates a group of protocols in the Protocol Group Database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: dot1vprotocolportgroupvid
             
             	The VID associated with a group of protocols for each port
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4094
             
             .. attribute:: dot1vprotocolportrowstatus
             
             	This object indicates the status of this entry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 

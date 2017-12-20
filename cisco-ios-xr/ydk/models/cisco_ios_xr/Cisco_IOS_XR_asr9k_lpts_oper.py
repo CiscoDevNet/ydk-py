@@ -28,7 +28,7 @@ class PlatformLptspIfibStatic(Entity):
     .. attribute:: node_statics
     
     	List of nodes with platform specific lpts operation data
-    	**type**\:   :py:class:`NodeStatics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics>`
+    	**type**\:  :py:class:`NodeStatics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics>`
     
     
 
@@ -63,7 +63,7 @@ class PlatformLptspIfibStatic(Entity):
         .. attribute:: node_static
         
         	Node with platform specific lpts data
-        	**type**\: list of    :py:class:`NodeStatic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics.NodeStatic>`
+        	**type**\: list of  		 :py:class:`NodeStatic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics.NodeStatic>`
         
         
 
@@ -97,17 +97,19 @@ class PlatformLptspIfibStatic(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: police
             
             	pl\_pifib police data
-            	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police>`
+            	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police>`
             
             .. attribute:: stats
             
             	pl\_pifib stats
-            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats>`
+            	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats>`
             
             
 
@@ -151,7 +153,7 @@ class PlatformLptspIfibStatic(Entity):
                 .. attribute:: static_info
                 
                 	Per punt reason info
-                	**type**\: list of    :py:class:`StaticInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo>`
+                	**type**\: list of  		 :py:class:`StaticInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo>`
                 
                 
 
@@ -184,56 +186,56 @@ class PlatformLptspIfibStatic(Entity):
                     .. attribute:: punt_reason
                     
                     	punt reason
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sid
                     
                     	sid
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: flow_rate
                     
                     	flow rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: burst_rate
                     
                     	burst rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: accepted
                     
                     	accepted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dropped
                     
                     	dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: punt_reason_string
                     
                     	punt reason string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..50
                     
                     .. attribute:: change_type
                     
                     	change type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -282,28 +284,28 @@ class PlatformLptspIfibStatic(Entity):
                 .. attribute:: accepted
                 
                 	Deleted\-entry accepted packets counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: dropped
                 
                 	Deleted\-entry dropped packets counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: clear_ts
                 
                 	Statistics clear timestamp
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: no_stats_mem_err
                 
                 	No statistics memory error
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -347,7 +349,7 @@ class PlatformLptspIfib(Entity):
     .. attribute:: nodes
     
     	List of nodes with platform specific lpts operation data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes>`
     
     
 
@@ -382,7 +384,7 @@ class PlatformLptspIfib(Entity):
         .. attribute:: node
         
         	Node with platform specific lpts data
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes.Node>`
         
         
 
@@ -416,17 +418,19 @@ class PlatformLptspIfib(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: police
             
             	pl\_pifib police data
-            	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes.Node.Police>`
+            	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes.Node.Police>`
             
             .. attribute:: stats
             
             	pl\_pifib stats
-            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes.Node.Stats>`
+            	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes.Node.Stats>`
             
             
 
@@ -470,7 +474,7 @@ class PlatformLptspIfib(Entity):
                 .. attribute:: police_info
                 
                 	Per flow type police info
-                	**type**\: list of    :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes.Node.Police.PoliceInfo>`
+                	**type**\: list of  		 :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfib.Nodes.Node.Police.PoliceInfo>`
                 
                 
 
@@ -503,84 +507,84 @@ class PlatformLptspIfib(Entity):
                     .. attribute:: avgrate
                     
                     	avgrate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: burst
                     
                     	burst
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: static_avgrate
                     
                     	static avgrate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: avgrate_type
                     
                     	avgrate type
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..50
                     
                     .. attribute:: flow_type
                     
                     	flow type
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..50
                     
                     .. attribute:: accepted_stats
                     
                     	accepted stats
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dropped_stats
                     
                     	dropped stats
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: policer
                     
                     	policer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: str_iptos_val
                     
                     	str iptos val
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..8
                     
                     .. attribute:: change_type
                     
                     	change type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: acl_config
                     
                     	acl config
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: acl_str
                     
                     	acl str
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..50
                     
@@ -637,28 +641,28 @@ class PlatformLptspIfib(Entity):
                 .. attribute:: accepted
                 
                 	Deleted\-entry accepted packets counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: dropped
                 
                 	Deleted\-entry dropped packets counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: clear_ts
                 
                 	Statistics clear timestamp
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: no_stats_mem_err
                 
                 	No statistics memory error
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -702,7 +706,7 @@ class PlatformLptspIfibNpStats(Entity):
     .. attribute:: node_np_stats
     
     	List of nodes with platform specific lpts operation data
-    	**type**\:   :py:class:`NodeNpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats>`
+    	**type**\:  :py:class:`NodeNpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats>`
     
     
 
@@ -737,7 +741,7 @@ class PlatformLptspIfibNpStats(Entity):
         .. attribute:: node_np_stat
         
         	Node with platform specific lpts data
-        	**type**\: list of    :py:class:`NodeNpStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat>`
+        	**type**\: list of  		 :py:class:`NodeNpStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat>`
         
         
 
@@ -771,12 +775,14 @@ class PlatformLptspIfibNpStats(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: nps
             
             	List of all NP
-            	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps>`
+            	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps>`
             
             
 
@@ -815,7 +821,7 @@ class PlatformLptspIfibNpStats(Entity):
                 .. attribute:: np
                 
                 	np0 to np7
-                	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np>`
+                	**type**\: list of  		 :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np>`
                 
                 
 
@@ -848,12 +854,14 @@ class PlatformLptspIfibNpStats(Entity):
                     .. attribute:: np_name  <key>
                     
                     	NP name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (np0)\|(np1)\|(np2)\|(np3)\|(np4)\|(np5)\|(np6)\|(np7)
                     
                     .. attribute:: np_police
                     
                     	pl\_pifib police data
-                    	**type**\:   :py:class:`NpPolice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice>`
+                    	**type**\:  :py:class:`NpPolice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice>`
                     
                     
 
@@ -891,7 +899,7 @@ class PlatformLptspIfibNpStats(Entity):
                         .. attribute:: police_info
                         
                         	Per flow type police info
-                        	**type**\: list of    :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo>`
+                        	**type**\: list of  		 :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper.PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo>`
                         
                         
 
@@ -924,84 +932,84 @@ class PlatformLptspIfibNpStats(Entity):
                             .. attribute:: avgrate
                             
                             	avgrate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: burst
                             
                             	burst
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: static_avgrate
                             
                             	static avgrate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: avgrate_type
                             
                             	avgrate type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..50
                             
                             .. attribute:: flow_type
                             
                             	flow type
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..50
                             
                             .. attribute:: accepted_stats
                             
                             	accepted stats
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dropped_stats
                             
                             	dropped stats
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: policer
                             
                             	policer
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: str_iptos_val
                             
                             	str iptos val
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..8
                             
                             .. attribute:: change_type
                             
                             	change type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: acl_config
                             
                             	acl config
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: acl_str
                             
                             	acl str
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..50
                             

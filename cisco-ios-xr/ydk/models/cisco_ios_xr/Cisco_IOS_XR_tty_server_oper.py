@@ -91,17 +91,17 @@ class Tty(Entity):
     .. attribute:: console_nodes
     
     	List of Nodes for console
-    	**type**\:   :py:class:`ConsoleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes>`
+    	**type**\:  :py:class:`ConsoleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes>`
     
     .. attribute:: vty_lines
     
     	List of VTY lines
-    	**type**\:   :py:class:`VtyLines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines>`
+    	**type**\:  :py:class:`VtyLines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines>`
     
     .. attribute:: auxiliary_nodes
     
     	List of Nodes attached with an auxiliary line
-    	**type**\:   :py:class:`AuxiliaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes>`
+    	**type**\:  :py:class:`AuxiliaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes>`
     
     
 
@@ -145,7 +145,7 @@ class Tty(Entity):
         .. attribute:: console_node
         
         	Console line configuration on a node
-        	**type**\: list of    :py:class:`ConsoleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode>`
+        	**type**\: list of  		 :py:class:`ConsoleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode>`
         
         
 
@@ -179,12 +179,14 @@ class Tty(Entity):
             .. attribute:: id  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: console_line
             
             	Console line
-            	**type**\:   :py:class:`ConsoleLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine>`
+            	**type**\:  :py:class:`ConsoleLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine>`
             
             
 
@@ -223,17 +225,17 @@ class Tty(Entity):
                 .. attribute:: console_statistics
                 
                 	Statistics of the console line
-                	**type**\:   :py:class:`ConsoleStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics>`
+                	**type**\:  :py:class:`ConsoleStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics>`
                 
                 .. attribute:: state
                 
                 	Line state information
-                	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State>`
+                	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State>`
                 
                 .. attribute:: configuration
                 
                 	Configuration information of the line
-                	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration>`
+                	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration>`
                 
                 
 
@@ -276,22 +278,22 @@ class Tty(Entity):
                     .. attribute:: rs232
                     
                     	RS232 statistics of console line
-                    	**type**\:   :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232>`
+                    	**type**\:  :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232>`
                     
                     .. attribute:: general_statistics
                     
                     	General statistics of line
-                    	**type**\:   :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics>`
+                    	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics>`
                     
                     .. attribute:: exec_
                     
                     	Exec related statistics
-                    	**type**\:   :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_>`
+                    	**type**\:  :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_>`
                     
                     .. attribute:: aaa
                     
                     	AAA related statistics
-                    	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa>`
+                    	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa>`
                     
                     
 
@@ -339,7 +341,7 @@ class Tty(Entity):
                         .. attribute:: data_bits
                         
                         	Number of databits
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -348,26 +350,26 @@ class Tty(Entity):
                         .. attribute:: exec_disabled
                         
                         	Exec disabled on TTY
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: hardware_flow_control_status
                         
                         	Hardware flow control status
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: parity_status
                         
                         	Parity status
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: baud_rate
                         
                         	Inbound/Outbound baud rate in bps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -376,7 +378,7 @@ class Tty(Entity):
                         .. attribute:: stop_bits
                         
                         	Number of stopbits
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -385,21 +387,21 @@ class Tty(Entity):
                         .. attribute:: overrun_error_count
                         
                         	Overrun error count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: framing_error_count
                         
                         	Framing error count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: parity_error_count
                         
                         	Parity error count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -450,67 +452,67 @@ class Tty(Entity):
                         .. attribute:: terminal_length
                         
                         	Terminal length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: terminal_width
                         
                         	Line width
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: async_interface
                         
                         	Usable as async interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: flow_control_start_character
                         
                         	Software flow control start char
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-128..127
                         
                         .. attribute:: flow_control_stop_character
                         
                         	Software flow control stop char
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-128..127
                         
                         .. attribute:: domain_lookup_enabled
                         
                         	DNS resolution enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: motd_banner_enabled
                         
                         	MOTD banner enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: private_flag
                         
                         	TTY private flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: terminal_type
                         
                         	Terminal type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: absolute_timeout
                         
                         	Absolute timeout period
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: idle_time
                         
                         	TTY idle time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -565,7 +567,7 @@ class Tty(Entity):
                         .. attribute:: time_stamp_enabled
                         
                         	Specifies whether timestamp is enabled or not
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -598,7 +600,7 @@ class Tty(Entity):
                         .. attribute:: user_name
                         
                         	The authenticated username
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -631,12 +633,12 @@ class Tty(Entity):
                     .. attribute:: template
                     
                     	Information related to template applied to the line
-                    	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template>`
+                    	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template>`
                     
                     .. attribute:: general
                     
                     	General information
-                    	**type**\:   :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General>`
+                    	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General>`
                     
                     
 
@@ -675,7 +677,7 @@ class Tty(Entity):
                         .. attribute:: name
                         
                         	Name of the template
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -708,12 +710,12 @@ class Tty(Entity):
                         .. attribute:: operation_
                         
                         	application running of on the tty line
-                        	**type**\:   :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
+                        	**type**\:  :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                         
                         .. attribute:: general_state
                         
                         	State of the line
-                        	**type**\:   :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
+                        	**type**\:  :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
                         
                         
 
@@ -748,7 +750,7 @@ class Tty(Entity):
                     .. attribute:: connection_configuration
                     
                     	Conection configuration information
-                    	**type**\:   :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration>`
+                    	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration>`
                     
                     
 
@@ -781,17 +783,17 @@ class Tty(Entity):
                         .. attribute:: transport_input
                         
                         	Protocols to use when connecting to the terminal server
-                        	**type**\:   :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput>`
+                        	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput>`
                         
                         .. attribute:: acl_out
                         
                         	ACL for outbound traffic
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: acl_in
                         
                         	ACL for inbound traffic
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -832,24 +834,24 @@ class Tty(Entity):
                             .. attribute:: select
                             
                             	Choose transport protocols
-                            	**type**\:   :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
+                            	**type**\:  :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                             
                             	**default value**\: all
                             
                             .. attribute:: protocol1
                             
                             	Transport protocol1
-                            	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                            	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
                             .. attribute:: protocol2
                             
                             	Transport protocol2
-                            	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                            	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
                             .. attribute:: none
                             
                             	Not used
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -890,7 +892,7 @@ class Tty(Entity):
         .. attribute:: vty_line
         
         	VTY Line
-        	**type**\: list of    :py:class:`VtyLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine>`
+        	**type**\: list of  		 :py:class:`VtyLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine>`
         
         
 
@@ -924,29 +926,29 @@ class Tty(Entity):
             .. attribute:: line_number  <key>
             
             	VTY Line number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: vty_statistics
             
             	Statistics of the VTY line
-            	**type**\:   :py:class:`VtyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics>`
+            	**type**\:  :py:class:`VtyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics>`
             
             .. attribute:: state
             
             	Line state information
-            	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State>`
+            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State>`
             
             .. attribute:: configuration
             
             	Configuration information of the line
-            	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration>`
+            	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration>`
             
             .. attribute:: sessions
             
             	Outgoing sessions
-            	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions>`
             
             
 
@@ -962,7 +964,7 @@ class Tty(Entity):
                 self.yang_parent_name = "vty-lines"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"vty-statistics" : ("vty_statistics", Tty.VtyLines.VtyLine.VtyStatistics), "state" : ("state", Tty.VtyLines.VtyLine.State), "configuration" : ("configuration", Tty.VtyLines.VtyLine.Configuration), "sessions" : ("sessions", Tty.VtyLines.VtyLine.Sessions)}
+                self._child_container_classes = {"vty-statistics" : ("vty_statistics", Tty.VtyLines.VtyLine.VtyStatistics), "state" : ("state", Tty.VtyLines.VtyLine.State), "configuration" : ("configuration", Tty.VtyLines.VtyLine.Configuration), "Cisco-IOS-XR-tty-management-oper:sessions" : ("sessions", Tty.VtyLines.VtyLine.Sessions)}
                 self._child_list_classes = {}
 
                 self.line_number = YLeaf(YType.int32, "line-number")
@@ -1000,22 +1002,22 @@ class Tty(Entity):
                 .. attribute:: connection
                 
                 	Connection related statistics
-                	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Connection>`
+                	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Connection>`
                 
                 .. attribute:: general_statistics
                 
                 	General statistics of line
-                	**type**\:   :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics>`
+                	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics>`
                 
                 .. attribute:: exec_
                 
                 	Exec related statistics
-                	**type**\:   :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Exec_>`
+                	**type**\:  :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Exec_>`
                 
                 .. attribute:: aaa
                 
                 	AAA related statistics
-                	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Aaa>`
+                	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Aaa>`
                 
                 
 
@@ -1063,21 +1065,21 @@ class Tty(Entity):
                     .. attribute:: incoming_host_address
                     
                     	Incoming host address(max)
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..46
                     
                     .. attribute:: host_address_family
                     
                     	Incoming host address family
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service
                     
                     	Input transport
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1116,67 +1118,67 @@ class Tty(Entity):
                     .. attribute:: terminal_length
                     
                     	Terminal length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: terminal_width
                     
                     	Line width
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: async_interface
                     
                     	Usable as async interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: flow_control_start_character
                     
                     	Software flow control start char
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-128..127
                     
                     .. attribute:: flow_control_stop_character
                     
                     	Software flow control stop char
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-128..127
                     
                     .. attribute:: domain_lookup_enabled
                     
                     	DNS resolution enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: motd_banner_enabled
                     
                     	MOTD banner enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: private_flag
                     
                     	TTY private flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: terminal_type
                     
                     	Terminal type
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: absolute_timeout
                     
                     	Absolute timeout period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: idle_time
                     
                     	TTY idle time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1231,7 +1233,7 @@ class Tty(Entity):
                     .. attribute:: time_stamp_enabled
                     
                     	Specifies whether timestamp is enabled or not
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -1264,7 +1266,7 @@ class Tty(Entity):
                     .. attribute:: user_name
                     
                     	The authenticated username
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -1297,12 +1299,12 @@ class Tty(Entity):
                 .. attribute:: template
                 
                 	Information related to template applied to the line
-                	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.Template>`
+                	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.Template>`
                 
                 .. attribute:: general
                 
                 	General information
-                	**type**\:   :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.General>`
+                	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.General>`
                 
                 
 
@@ -1341,7 +1343,7 @@ class Tty(Entity):
                     .. attribute:: name
                     
                     	Name of the template
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -1374,12 +1376,12 @@ class Tty(Entity):
                     .. attribute:: operation_
                     
                     	application running of on the tty line
-                    	**type**\:   :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
+                    	**type**\:  :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                     
                     .. attribute:: general_state
                     
                     	State of the line
-                    	**type**\:   :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
+                    	**type**\:  :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
                     
                     
 
@@ -1414,7 +1416,7 @@ class Tty(Entity):
                 .. attribute:: connection_configuration
                 
                 	Conection configuration information
-                	**type**\:   :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration>`
+                	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration>`
                 
                 
 
@@ -1447,17 +1449,17 @@ class Tty(Entity):
                     .. attribute:: transport_input
                     
                     	Protocols to use when connecting to the terminal server
-                    	**type**\:   :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput>`
+                    	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput>`
                     
                     .. attribute:: acl_out
                     
                     	ACL for outbound traffic
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: acl_in
                     
                     	ACL for inbound traffic
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -1498,24 +1500,24 @@ class Tty(Entity):
                         .. attribute:: select
                         
                         	Choose transport protocols
-                        	**type**\:   :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
+                        	**type**\:  :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                         
                         	**default value**\: all
                         
                         .. attribute:: protocol1
                         
                         	Transport protocol1
-                        	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                        	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                         
                         .. attribute:: protocol2
                         
                         	Transport protocol2
-                        	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                        	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                         
                         .. attribute:: none
                         
                         	Not used
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -1556,7 +1558,7 @@ class Tty(Entity):
                 .. attribute:: outgoing_connection
                 
                 	List of outgoing sessions
-                	**type**\: list of    :py:class:`OutgoingConnection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection>`
+                	**type**\: list of  		 :py:class:`OutgoingConnection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection>`
                 
                 
 
@@ -1589,34 +1591,34 @@ class Tty(Entity):
                     .. attribute:: host_address
                     
                     	Host address
-                    	**type**\:   :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress>`
+                    	**type**\:  :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress>`
                     
                     .. attribute:: connection_id
                     
                     	Connection ID [1\-20]
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: host_name
                     
                     	Host name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: transport_protocol
                     
                     	Session transport protocol
-                    	**type**\:   :py:class:`TransportService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.TransportService>`
+                    	**type**\:  :py:class:`TransportService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.TransportService>`
                     
                     .. attribute:: is_last_active_session
                     
                     	True indicates last active session
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: idle_time
                     
                     	Elapsed time since session was suspended (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1666,17 +1668,21 @@ class Tty(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`HostAfIdBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.HostAfIdBase>`
+                        	**type**\:  :py:class:`HostAfIdBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.HostAfIdBase>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -1713,7 +1719,7 @@ class Tty(Entity):
         .. attribute:: auxiliary_node
         
         	Line configuration on a node
-        	**type**\: list of    :py:class:`AuxiliaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode>`
+        	**type**\: list of  		 :py:class:`AuxiliaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode>`
         
         
 
@@ -1747,12 +1753,14 @@ class Tty(Entity):
             .. attribute:: id  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: auxiliary_line
             
             	Auxiliary line
-            	**type**\:   :py:class:`AuxiliaryLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine>`
+            	**type**\:  :py:class:`AuxiliaryLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine>`
             
             
 
@@ -1791,17 +1799,17 @@ class Tty(Entity):
                 .. attribute:: auxiliary_statistics
                 
                 	Statistics of the auxiliary line
-                	**type**\:   :py:class:`AuxiliaryStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics>`
+                	**type**\:  :py:class:`AuxiliaryStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics>`
                 
                 .. attribute:: state
                 
                 	Line state information
-                	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State>`
+                	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State>`
                 
                 .. attribute:: configuration
                 
                 	Configuration information of the line
-                	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration>`
+                	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration>`
                 
                 
 
@@ -1844,22 +1852,22 @@ class Tty(Entity):
                     .. attribute:: rs232
                     
                     	RS232 statistics of console line
-                    	**type**\:   :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232>`
+                    	**type**\:  :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232>`
                     
                     .. attribute:: general_statistics
                     
                     	General statistics of line
-                    	**type**\:   :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics>`
+                    	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics>`
                     
                     .. attribute:: exec_
                     
                     	Exec related statistics
-                    	**type**\:   :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_>`
+                    	**type**\:  :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_>`
                     
                     .. attribute:: aaa
                     
                     	AAA related statistics
-                    	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa>`
+                    	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa>`
                     
                     
 
@@ -1907,7 +1915,7 @@ class Tty(Entity):
                         .. attribute:: data_bits
                         
                         	Number of databits
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1916,26 +1924,26 @@ class Tty(Entity):
                         .. attribute:: exec_disabled
                         
                         	Exec disabled on TTY
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: hardware_flow_control_status
                         
                         	Hardware flow control status
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: parity_status
                         
                         	Parity status
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: baud_rate
                         
                         	Inbound/Outbound baud rate in bps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1944,7 +1952,7 @@ class Tty(Entity):
                         .. attribute:: stop_bits
                         
                         	Number of stopbits
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1953,21 +1961,21 @@ class Tty(Entity):
                         .. attribute:: overrun_error_count
                         
                         	Overrun error count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: framing_error_count
                         
                         	Framing error count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: parity_error_count
                         
                         	Parity error count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2018,67 +2026,67 @@ class Tty(Entity):
                         .. attribute:: terminal_length
                         
                         	Terminal length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: terminal_width
                         
                         	Line width
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: async_interface
                         
                         	Usable as async interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: flow_control_start_character
                         
                         	Software flow control start char
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-128..127
                         
                         .. attribute:: flow_control_stop_character
                         
                         	Software flow control stop char
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-128..127
                         
                         .. attribute:: domain_lookup_enabled
                         
                         	DNS resolution enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: motd_banner_enabled
                         
                         	MOTD banner enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: private_flag
                         
                         	TTY private flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: terminal_type
                         
                         	Terminal type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: absolute_timeout
                         
                         	Absolute timeout period
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: idle_time
                         
                         	TTY idle time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2133,7 +2141,7 @@ class Tty(Entity):
                         .. attribute:: time_stamp_enabled
                         
                         	Specifies whether timestamp is enabled or not
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2166,7 +2174,7 @@ class Tty(Entity):
                         .. attribute:: user_name
                         
                         	The authenticated username
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -2199,12 +2207,12 @@ class Tty(Entity):
                     .. attribute:: template
                     
                     	Information related to template applied to the line
-                    	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template>`
+                    	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template>`
                     
                     .. attribute:: general
                     
                     	General information
-                    	**type**\:   :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General>`
+                    	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General>`
                     
                     
 
@@ -2243,7 +2251,7 @@ class Tty(Entity):
                         .. attribute:: name
                         
                         	Name of the template
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -2276,12 +2284,12 @@ class Tty(Entity):
                         .. attribute:: operation_
                         
                         	application running of on the tty line
-                        	**type**\:   :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
+                        	**type**\:  :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                         
                         .. attribute:: general_state
                         
                         	State of the line
-                        	**type**\:   :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
+                        	**type**\:  :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
                         
                         
 
@@ -2316,7 +2324,7 @@ class Tty(Entity):
                     .. attribute:: connection_configuration
                     
                     	Conection configuration information
-                    	**type**\:   :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration>`
+                    	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration>`
                     
                     
 
@@ -2349,17 +2357,17 @@ class Tty(Entity):
                         .. attribute:: transport_input
                         
                         	Protocols to use when connecting to the terminal server
-                        	**type**\:   :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput>`
+                        	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput>`
                         
                         .. attribute:: acl_out
                         
                         	ACL for outbound traffic
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: acl_in
                         
                         	ACL for inbound traffic
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -2400,24 +2408,24 @@ class Tty(Entity):
                             .. attribute:: select
                             
                             	Choose transport protocols
-                            	**type**\:   :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
+                            	**type**\:  :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                             
                             	**default value**\: all
                             
                             .. attribute:: protocol1
                             
                             	Transport protocol1
-                            	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                            	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
                             .. attribute:: protocol2
                             
                             	Transport protocol2
-                            	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                            	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
                             .. attribute:: none
                             
                             	Not used
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             

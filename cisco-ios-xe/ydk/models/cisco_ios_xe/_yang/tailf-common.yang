@@ -3,11 +3,11 @@ module tailf-common {
   prefix tailf;
 
   include tailf-meta-extensions {
-    revision-date 2016-11-24;
+    revision-date 2017-03-08;
   }
 
   include tailf-cli-extensions {
-    revision-date 2017-01-26;
+    revision-date 2017-08-23;
   }
 
   organization "Tail-f Systems";
@@ -15,6 +15,29 @@ module tailf-common {
   description
     "This module defines all Tail-f YANG extensions statements
     and common YANG types.";
+
+  revision 2017-08-23 {
+    description
+      "Released as part of ConfD-6.4.3 / NCS-4.4.3.
+
+       Included latest revision of tailf-cli-extensions.";
+  }
+
+  revision 2017-03-08 {
+    description
+      "Released as part of ConfD-6.4 / NCS-4.4.
+
+       Added tailf:ned-ignore-compare-config.
+
+       Added tailf:ned-default-handling.
+
+       Corrected the pattern for the tailf:size typedef.
+
+       Updated the description for tailf:meta-data and tailf:meta-value.
+
+       Included latest revision of tailf-cli-extensions and
+       tailf-meta-extensions submodules.";
+  }
 
   revision 2017-01-26 {
     description
@@ -3246,6 +3269,13 @@ module tailf-common {
       'tailf:junos-val-as-xml-tag'.";
   }
 
+  extension ned-ignore-compare-config {
+    tailf:use-in "leaf";
+    description
+      "Typically used for ignoring device encrypted leafs
+      in the compare-config output.";
+  }
+
   extension xpath-root {
     argument value {
       tailf:arg-type {
@@ -3453,4 +3483,23 @@ module tailf-common {
     description
       "Only evaluate the XPath filter when the operation matches.";
   }
+
+  extension ned-default-handling {
+    argument mode {
+      tailf:arg-type {
+        type enumeration {
+          enum explicit;
+          enum report-all;
+          enum trim;
+        }
+      }
+    }
+    tailf:use-in "leaf";
+    description
+      "This statement can only be used in NEDs for devices that have
+       irregular handling of defaults.  It sets a special default
+       handling mode for the leaf, regardless of the device's native
+       default handling mode.";
+  }
+
 }

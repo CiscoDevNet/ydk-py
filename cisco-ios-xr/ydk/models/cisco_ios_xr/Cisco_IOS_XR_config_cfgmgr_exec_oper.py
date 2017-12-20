@@ -94,7 +94,7 @@ class CfgHistGl(Entity):
     .. attribute:: record_type
     
     	History summary information for a specific type of history
-    	**type**\: list of    :py:class:`RecordType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType>`
+    	**type**\: list of  		 :py:class:`RecordType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType>`
     
     
 
@@ -129,12 +129,14 @@ class CfgHistGl(Entity):
         .. attribute:: record_type  <key>
         
         	Record type
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: record
         
         	History summary information for a specific type of history
-        	**type**\: list of    :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record>`
+        	**type**\: list of  		 :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record>`
         
         
 
@@ -171,26 +173,26 @@ class CfgHistGl(Entity):
             .. attribute:: record  <key>
             
             	Record
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: info
             
             	Content of the history
-            	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info>`
+            	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info>`
             
             .. attribute:: timestamp
             
             	Time stamp for the history
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: record_type
             
             	Record type
-            	**type**\:   :py:class:`HistRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecord>`
+            	**type**\:  :py:class:`HistRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecord>`
             
             
 
@@ -232,47 +234,47 @@ class CfgHistGl(Entity):
                 .. attribute:: alarm_info
                 
                 	alarm info
-                	**type**\:   :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.AlarmInfo>`
+                	**type**\:  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.AlarmInfo>`
                 
                 .. attribute:: cfscheck_info
                 
                 	cfscheck info
-                	**type**\:   :py:class:`CfscheckInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CfscheckInfo>`
+                	**type**\:  :py:class:`CfscheckInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CfscheckInfo>`
                 
                 .. attribute:: commit_info
                 
                 	commit info
-                	**type**\:   :py:class:`CommitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CommitInfo>`
+                	**type**\:  :py:class:`CommitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CommitInfo>`
                 
                 .. attribute:: oir_info
                 
                 	oir info
-                	**type**\:   :py:class:`OirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.OirInfo>`
+                	**type**\:  :py:class:`OirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.OirInfo>`
                 
                 .. attribute:: shutdown_info
                 
                 	shutdown info
-                	**type**\:   :py:class:`ShutdownInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.ShutdownInfo>`
+                	**type**\:  :py:class:`ShutdownInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.ShutdownInfo>`
                 
                 .. attribute:: startup_info
                 
                 	startup info
-                	**type**\:   :py:class:`StartupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.StartupInfo>`
+                	**type**\:  :py:class:`StartupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.StartupInfo>`
                 
                 .. attribute:: backup_info
                 
                 	backup info
-                	**type**\:   :py:class:`BackupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.BackupInfo>`
+                	**type**\:  :py:class:`BackupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.BackupInfo>`
                 
                 .. attribute:: type
                 
                 	type
-                	**type**\:   :py:class:`HistRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecord>`
+                	**type**\:  :py:class:`HistRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecord>`
                 
                 .. attribute:: a
                 
                 	B
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -344,12 +346,12 @@ class CfgHistGl(Entity):
                     .. attribute:: state
                     
                     	State
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: where
                     
                     	Where
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -384,12 +386,12 @@ class CfgHistGl(Entity):
                     .. attribute:: user_id
                     
                     	UserId
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: line
                     
                     	Line
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -424,32 +426,32 @@ class CfgHistGl(Entity):
                     .. attribute:: commit_id
                     
                     	CommitId
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: user_id
                     
                     	UserId
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: line
                     
                     	Line
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: client_name
                     
                     	Client name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: label
                     
                     	Label
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: comment
                     
                     	Comment
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -492,17 +494,17 @@ class CfgHistGl(Entity):
                     .. attribute:: config_type
                     
                     	Config Type
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: operation_
                     
                     	Operation
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: config_name
                     
                     	Config Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -539,7 +541,7 @@ class CfgHistGl(Entity):
                     .. attribute:: comment
                     
                     	Comment
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -572,12 +574,12 @@ class CfgHistGl(Entity):
                     .. attribute:: how_booted
                     
                     	How Booted
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: boot_path
                     
                     	Boot Path
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -612,7 +614,7 @@ class CfgHistGl(Entity):
                     .. attribute:: comment
                     
                     	Comment
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

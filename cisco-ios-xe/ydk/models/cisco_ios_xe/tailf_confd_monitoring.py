@@ -17,86 +17,86 @@ class ConfdState(Entity):
     .. attribute:: version
     
     	Tail\-f product version number
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: smp
     
     	
-    	**type**\:   :py:class:`Smp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Smp>`
+    	**type**\:  :py:class:`Smp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Smp>`
     
     	**presence node**\: True
     
     .. attribute:: epoll
     
     	Indicates whether an enhanced poll() function is used
-    	**type**\:  bool
+    	**type**\: bool
     
     .. attribute:: daemon_status
     
     	
-    	**type**\:   :py:class:`DaemonStatus <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.DaemonStatus>`
+    	**type**\:  :py:class:`DaemonStatus <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.DaemonStatus>`
     
     .. attribute:: read_only_mode
     
     	
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: upgrade_mode
     
     	Note that if the node is in upgrade mode, it is not possible to get any information from the system over NETCONF. The error\-app\-tag will be upgrade\-in\-progress.  Existing CLI sessions can get system information
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: ha
     
     	
-    	**type**\:   :py:class:`Ha <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Ha>`
+    	**type**\:  :py:class:`Ha <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Ha>`
     
     	**presence node**\: True
     
     .. attribute:: loaded_data_models
     
     	
-    	**type**\:   :py:class:`LoadedDataModels <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels>`
+    	**type**\:  :py:class:`LoadedDataModels <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels>`
     
     .. attribute:: netconf
     
     	
-    	**type**\:   :py:class:`Netconf <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf>`
+    	**type**\:  :py:class:`Netconf <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf>`
     
     	**presence node**\: True
     
     .. attribute:: cli
     
     	
-    	**type**\:   :py:class:`Cli <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli>`
+    	**type**\:  :py:class:`Cli <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli>`
     
     	**presence node**\: True
     
     .. attribute:: webui
     
     	
-    	**type**\:   :py:class:`Webui <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui>`
+    	**type**\:  :py:class:`Webui <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui>`
     
     	**presence node**\: True
     
     .. attribute:: rest
     
     	
-    	**type**\:   :py:class:`Rest <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest>`
+    	**type**\:  :py:class:`Rest <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest>`
     
     	**presence node**\: True
     
     .. attribute:: snmp
     
     	
-    	**type**\:   :py:class:`Snmp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp>`
+    	**type**\:  :py:class:`Snmp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp>`
     
     	**presence node**\: True
     
     .. attribute:: internal
     
     	
-    	**type**\:   :py:class:`Internal <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal>`
+    	**type**\:  :py:class:`Internal <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal>`
     
     
 
@@ -213,7 +213,7 @@ class ConfdState(Entity):
         .. attribute:: number_of_threads
         
         	Number of threads used by the daemon
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -252,27 +252,27 @@ class ConfdState(Entity):
         .. attribute:: mode
         
         	The current HA mode of the node in the HA cluster
-        	**type**\:   :py:class:`Mode <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Ha.Mode>`
+        	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Ha.Mode>`
         
         .. attribute:: node_id
         
         	The node identifier of this node in the HA cluster
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: master_node_id
         
         	The node identifier of this node's parent node. This is the HA cluster's master node unless relay slaves are used
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: connected_slave
         
         	The node identifiers of the currently connected slaves
-        	**type**\:  list of str
+        	**type**\: list of str
         
         .. attribute:: pending_slave
         
         	The node identifiers of slaves with pending acknowledgement of synchronous replication
-        	**type**\:  list of str
+        	**type**\: list of str
         
         
 
@@ -342,7 +342,7 @@ class ConfdState(Entity):
         .. attribute:: data_model
         
         	This list contains all loaded YANG data modules.  This list is a superset of the 'schema' list defined in ietf\-netconf\-monitoring, which only lists modules exported through NETCONF
-        	**type**\: list of    :py:class:`DataModel <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels.DataModel>`
+        	**type**\: list of  		 :py:class:`DataModel <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels.DataModel>`
         
         
 
@@ -380,41 +380,37 @@ class ConfdState(Entity):
             .. attribute:: name  <key>
             
             	The YANG module name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: revision
             
             	The YANG module revision
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: namespace
             
             	The YANG module namespace
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: prefix
             
             	The prefix defined in the YANG module
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: exported_to_all
             
             	This leaf is present if the module is exported to all northbound interfaces
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: exported_to
             
             	A list of the contexts (northbound interfaces) this module is exported to
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  list of   :py:class:`ExportedTo <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels.DataModel.ExportedTo>`
+            		**type**\: list of   :py:class:`ExportedTo <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels.DataModel.ExportedTo>`
             
+            		**type**\: list of str
             
-            ----
-            	**type**\:  list of str
-            
-            
-            ----
             
 
             """
@@ -488,7 +484,7 @@ class ConfdState(Entity):
         .. attribute:: listen
         
         	The transport addresses the NETCONF server is listening on.  Note that other mechanisms can be put in front of the TCP addresses below, e.g., an OpenSSH server.  Such mechanisms are not known to the daemon and not listed here
-        	**type**\:   :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen>`
+        	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen>`
         
         
 
@@ -529,12 +525,12 @@ class ConfdState(Entity):
             .. attribute:: tcp
             
             	
-            	**type**\: list of    :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen.Tcp>`
+            	**type**\: list of  		 :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen.Tcp>`
             
             .. attribute:: ssh
             
             	
-            	**type**\: list of    :py:class:`Ssh <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen.Ssh>`
+            	**type**\: list of  		 :py:class:`Ssh <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen.Ssh>`
             
             
 
@@ -569,20 +565,20 @@ class ConfdState(Entity):
                 .. attribute:: ip
                 
                 	
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port
                 
                 	
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -620,20 +616,20 @@ class ConfdState(Entity):
                 .. attribute:: ip
                 
                 	
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port
                 
                 	
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -671,7 +667,7 @@ class ConfdState(Entity):
         .. attribute:: listen
         
         	The transport addresses the CLI server is listening on.  In addition to the SSH addresses listen below, the CLI can always be invoked through the daemons IPC port.  Note that other mechanisms can be put in front of the IPC port, e.g., an OpenSSH server.  Such mechanisms are not known to the daemon and not listed here
-        	**type**\:   :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli.Listen>`
+        	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli.Listen>`
         
         
 
@@ -715,7 +711,7 @@ class ConfdState(Entity):
             .. attribute:: ssh
             
             	
-            	**type**\: list of    :py:class:`Ssh <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli.Listen.Ssh>`
+            	**type**\: list of  		 :py:class:`Ssh <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli.Listen.Ssh>`
             
             
 
@@ -749,20 +745,20 @@ class ConfdState(Entity):
                 .. attribute:: ip
                 
                 	
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port
                 
                 	
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -800,7 +796,7 @@ class ConfdState(Entity):
         .. attribute:: listen
         
         	The transport addresses the WebUI server is listening on
-        	**type**\:   :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen>`
+        	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen>`
         
         
 
@@ -837,12 +833,12 @@ class ConfdState(Entity):
             .. attribute:: tcp
             
             	
-            	**type**\: list of    :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen.Tcp>`
+            	**type**\: list of  		 :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen.Tcp>`
             
             .. attribute:: ssl
             
             	
-            	**type**\: list of    :py:class:`Ssl <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen.Ssl>`
+            	**type**\: list of  		 :py:class:`Ssl <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen.Ssl>`
             
             
 
@@ -877,20 +873,20 @@ class ConfdState(Entity):
                 .. attribute:: ip
                 
                 	
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port
                 
                 	
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -928,20 +924,20 @@ class ConfdState(Entity):
                 .. attribute:: ip
                 
                 	
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port
                 
                 	
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -979,7 +975,7 @@ class ConfdState(Entity):
         .. attribute:: listen
         
         	The transport addresses the REST server is listening on
-        	**type**\:   :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen>`
+        	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen>`
         
         
 
@@ -1016,12 +1012,12 @@ class ConfdState(Entity):
             .. attribute:: tcp
             
             	
-            	**type**\: list of    :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen.Tcp>`
+            	**type**\: list of  		 :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen.Tcp>`
             
             .. attribute:: ssl
             
             	
-            	**type**\: list of    :py:class:`Ssl <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen.Ssl>`
+            	**type**\: list of  		 :py:class:`Ssl <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen.Ssl>`
             
             
 
@@ -1056,20 +1052,20 @@ class ConfdState(Entity):
                 .. attribute:: ip
                 
                 	
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port
                 
                 	
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1107,20 +1103,20 @@ class ConfdState(Entity):
                 .. attribute:: ip
                 
                 	
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port
                 
                 	
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1158,22 +1154,24 @@ class ConfdState(Entity):
         .. attribute:: listen
         
         	The transport addresses the SNMP agent is listening on
-        	**type**\:   :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Listen>`
+        	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Listen>`
         
         .. attribute:: mib
         
         	MIBs loaded by the SNMP agent
-        	**type**\:  list of str
+        	**type**\: list of str
         
         .. attribute:: version
         
         	SNMP version used by the engine
-        	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Version>`
+        	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Version>`
         
         .. attribute:: engine_id
         
         	The local Engine ID specified as a list of colon\-specified hexadecimal octets e.g. '4F\:4C\:41\:71'
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([0\-9a\-fA\-F]){2}(\:([0\-9a\-fA\-F]){2}){4,31}
         
         
 
@@ -1222,7 +1220,7 @@ class ConfdState(Entity):
             .. attribute:: udp
             
             	
-            	**type**\: list of    :py:class:`Udp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Listen.Udp>`
+            	**type**\: list of  		 :py:class:`Udp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Listen.Udp>`
             
             
 
@@ -1256,20 +1254,20 @@ class ConfdState(Entity):
                 .. attribute:: ip
                 
                 	
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: port
                 
                 	
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1307,17 +1305,17 @@ class ConfdState(Entity):
             .. attribute:: v1
             
             	
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: v2c
             
             	
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: v3
             
             	
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1355,12 +1353,12 @@ class ConfdState(Entity):
         .. attribute:: callpoints
         
         	
-        	**type**\:   :py:class:`Callpoints <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints>`
+        	**type**\:  :py:class:`Callpoints <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints>`
         
         .. attribute:: cdb
         
         	
-        	**type**\:   :py:class:`Cdb <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb>`
+        	**type**\:  :py:class:`Cdb <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb>`
         
         
 
@@ -1420,54 +1418,54 @@ class ConfdState(Entity):
             .. attribute:: callpoint
             
             	
-            	**type**\: list of    :py:class:`Callpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint>`
+            	**type**\: list of  		 :py:class:`Callpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint>`
             
             .. attribute:: validationpoint
             
             	
-            	**type**\: list of    :py:class:`Validationpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint>`
+            	**type**\: list of  		 :py:class:`Validationpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint>`
             
             .. attribute:: actionpoint
             
             	
-            	**type**\: list of    :py:class:`Actionpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint>`
+            	**type**\: list of  		 :py:class:`Actionpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint>`
             
             .. attribute:: snmp_inform_callback
             
             	
-            	**type**\: list of    :py:class:`SnmpInformCallback <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback>`
+            	**type**\: list of  		 :py:class:`SnmpInformCallback <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback>`
             
             .. attribute:: snmp_notification_subscription
             
             	
-            	**type**\: list of    :py:class:`SnmpNotificationSubscription <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription>`
+            	**type**\: list of  		 :py:class:`SnmpNotificationSubscription <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription>`
             
             .. attribute:: error_formatting_callback
             
             	
-            	**type**\: list of    :py:class:`ErrorFormattingCallback <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback>`
+            	**type**\: list of  		 :py:class:`ErrorFormattingCallback <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback>`
             
             .. attribute:: typepoint
             
             	
-            	**type**\: list of    :py:class:`Typepoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint>`
+            	**type**\: list of  		 :py:class:`Typepoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint>`
             
             .. attribute:: notification_stream_replay
             
             	
-            	**type**\: list of    :py:class:`NotificationStreamReplay <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay>`
+            	**type**\: list of  		 :py:class:`NotificationStreamReplay <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay>`
             
             .. attribute:: authentication_callback
             
             	
-            	**type**\:   :py:class:`AuthenticationCallback <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback>`
+            	**type**\:  :py:class:`AuthenticationCallback <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback>`
             
             	**presence node**\: True
             
             .. attribute:: authorization_callbacks
             
             	
-            	**type**\:   :py:class:`AuthorizationCallbacks <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks>`
+            	**type**\:  :py:class:`AuthorizationCallbacks <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks>`
             
             	**presence node**\: True
             
@@ -1518,32 +1516,32 @@ class ConfdState(Entity):
                 .. attribute:: id  <key>
                 
                 	Callpoint id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Error>`
                 
                 
 
@@ -1617,19 +1615,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Daemon.Error>`
                     
                     
 
@@ -1685,22 +1683,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range.Daemon>`
                     
                     
 
@@ -1742,19 +1740,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range.Daemon.Error>`
                         
                         
 
@@ -1810,32 +1808,32 @@ class ConfdState(Entity):
                 .. attribute:: id  <key>
                 
                 	Callpoint id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Error>`
                 
                 
 
@@ -1909,19 +1907,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Daemon.Error>`
                     
                     
 
@@ -1977,22 +1975,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon>`
                     
                     
 
@@ -2034,19 +2032,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon.Error>`
                         
                         
 
@@ -2102,32 +2100,32 @@ class ConfdState(Entity):
                 .. attribute:: id  <key>
                 
                 	Callpoint id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Error>`
                 
                 
 
@@ -2201,19 +2199,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Daemon.Error>`
                     
                     
 
@@ -2269,22 +2267,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon>`
                     
                     
 
@@ -2326,19 +2324,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon.Error>`
                         
                         
 
@@ -2394,32 +2392,32 @@ class ConfdState(Entity):
                 .. attribute:: id  <key>
                 
                 	Callpoint id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Error>`
                 
                 
 
@@ -2493,19 +2491,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon.Error>`
                     
                     
 
@@ -2561,22 +2559,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon>`
                     
                     
 
@@ -2618,19 +2616,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon.Error>`
                         
                         
 
@@ -2686,32 +2684,32 @@ class ConfdState(Entity):
                 .. attribute:: id  <key>
                 
                 	Callpoint id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Error>`
                 
                 
 
@@ -2785,19 +2783,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon.Error>`
                     
                     
 
@@ -2853,22 +2851,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon>`
                     
                     
 
@@ -2910,19 +2908,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon.Error>`
                         
                         
 
@@ -2978,32 +2976,32 @@ class ConfdState(Entity):
                 .. attribute:: id  <key>
                 
                 	Callpoint id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Error>`
                 
                 
 
@@ -3077,19 +3075,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon.Error>`
                     
                     
 
@@ -3145,22 +3143,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon>`
                     
                     
 
@@ -3202,19 +3200,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon.Error>`
                         
                         
 
@@ -3270,32 +3268,32 @@ class ConfdState(Entity):
                 .. attribute:: id  <key>
                 
                 	Callpoint id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Error>`
                 
                 
 
@@ -3369,19 +3367,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Daemon.Error>`
                     
                     
 
@@ -3437,22 +3435,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range.Daemon>`
                     
                     
 
@@ -3494,19 +3492,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range.Daemon.Error>`
                         
                         
 
@@ -3562,37 +3560,37 @@ class ConfdState(Entity):
                 .. attribute:: name  <key>
                 
                 	Name of the notification stream
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: replay_support
                 
                 	
-                	**type**\:   :py:class:`ReplaySupport <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.ReplaySupport>`
+                	**type**\:  :py:class:`ReplaySupport <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.ReplaySupport>`
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Error>`
                 
                 
 
@@ -3687,19 +3685,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon.Error>`
                     
                     
 
@@ -3755,22 +3753,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon>`
                     
                     
 
@@ -3812,19 +3810,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon.Error>`
                         
                         
 
@@ -3880,32 +3878,32 @@ class ConfdState(Entity):
                 .. attribute:: enabled
                 
                 	
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Error>`
                 
                 
 
@@ -3982,19 +3980,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon.Error>`
                     
                     
 
@@ -4051,22 +4049,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon>`
                     
                     
 
@@ -4109,19 +4107,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon.Error>`
                         
                         
 
@@ -4178,32 +4176,32 @@ class ConfdState(Entity):
                 .. attribute:: enabled
                 
                 	
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: daemon
                 
                 	
-                	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon>`
+                	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon>`
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: range
                 
                 	
-                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range>`
+                	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range>`
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
-                	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Error>`
+                	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Error>`
                 
                 
 
@@ -4280,19 +4278,19 @@ class ConfdState(Entity):
                     .. attribute:: id
                     
                     	The numerical id assigned to the application daemon that has registered for a callpoint
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon.Error>`
                     
                     
 
@@ -4349,22 +4347,22 @@ class ConfdState(Entity):
                     .. attribute:: lower
                     
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: daemon
                     
                     	
-                    	**type**\:   :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon>`
+                    	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon>`
                     
                     
 
@@ -4407,19 +4405,19 @@ class ConfdState(Entity):
                         .. attribute:: id
                         
                         	The numerical id assigned to the application daemon that has registered for a callpoint
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
-                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon.Error>`
+                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon.Error>`
                         
                         
 
@@ -4476,12 +4474,12 @@ class ConfdState(Entity):
             .. attribute:: datastore
             
             	
-            	**type**\: list of    :py:class:`Datastore <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore>`
+            	**type**\: list of  		 :py:class:`Datastore <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore>`
             
             .. attribute:: client
             
             	
-            	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client>`
+            	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client>`
             
             
 
@@ -4516,72 +4514,72 @@ class ConfdState(Entity):
                 .. attribute:: name  <key>
                 
                 	
-                	**type**\:   :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
+                	**type**\:  :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
                 
                 .. attribute:: transaction_id
                 
                 	The id of the last committed transaction for the 'running' datastore, or the last update for the 'operational' datastore. For the 'operational' datastore, it is only present when HA is enabled
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: write_queue
                 
                 	Number of pending write requests for the 'operational' datastore on a HA slave that is in the process of syncronizing with the master
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: filename
                 
                 	The pathname of the file that is used for persistent storage for the datastore. Not present for 'running' when 'startup' exists
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: disk_size
                 
                 	The size of the file that is used for persistent storage for the datastore. Only present if 'filename' is present
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: ram_size
                 
                 	The size of the in\-memory representation of the datastore
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: read_locks
                 
                 	The number of read locks on the datastore. Not present for the 'operational' data store
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: write_lock_set
                 
                 	Indicates whether a write lock is in effect for the datastore. Not present for the 'operational' datastore
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: subscription_lock_set
                 
                 	Indicates whether a subscription lock is in effect for the 'operational' datastore
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: waiting_for_replication_sync
                 
                 	Indicates whether synchronous replication from HA master to HA slave is in progress for the datastore. Not present for the 'operational' datastore
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: pending_subscription_sync
                 
                 	Information pertaining to subscription notifications that have been delivered to, but not yet acknowledged by, subscribing clients. Not present for the 'startup' datastore
-                	**type**\:   :py:class:`PendingSubscriptionSync <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync>`
+                	**type**\:  :py:class:`PendingSubscriptionSync <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: pending_notification_queue
                 
                 	Queues of notifications that have been generated but not yet delivered to subscribing clients. Not present for the 'startup' datastore
-                	**type**\: list of    :py:class:`PendingNotificationQueue <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue>`
+                	**type**\: list of  		 :py:class:`PendingNotificationQueue <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue>`
                 
                 
 
@@ -4641,30 +4639,26 @@ class ConfdState(Entity):
                     .. attribute:: priority
                     
                     	The priority of the subscriptions that generated the notifications that are waiting for acknowledgement. Not present for the 'operational' datastore
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: notification
                     
                     	
-                    	**type**\: list of    :py:class:`Notification <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification>`
+                    	**type**\: list of  		 :py:class:`Notification <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification>`
                     
                     .. attribute:: time_remaining
                     
                     	The remaining time in seconds until subscribing clients that have not acknowledged their notifications are considered unresponsive and will be disconnected. See /confdConfig/cdb/clientTimeout in the confd.conf(5) manual page. The value 'infinity' means that no timeout has been configured in confd.conf
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 0..18446744073709551615
+                    			**range:** 0..18446744073709551615
                     
+                    		**type**\:  :py:class:`TimeRemaining <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.TimeRemaining>`
                     
-                    ----
-                    	**type**\:   :py:class:`TimeRemaining <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.TimeRemaining>`
-                    
-                    
-                    ----
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -4726,12 +4720,12 @@ class ConfdState(Entity):
                         .. attribute:: client_name
                         
                         	The name of the client that is the recipient of the notification
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: subscription_ids
                         
                         	The subscription identifiers for the subscriptions that generated the notification
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         
@@ -4770,7 +4764,7 @@ class ConfdState(Entity):
                     .. attribute:: notification
                     
                     	
-                    	**type**\: list of    :py:class:`Notification <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification>`
+                    	**type**\: list of  		 :py:class:`Notification <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification>`
                     
                     
 
@@ -4803,19 +4797,19 @@ class ConfdState(Entity):
                         .. attribute:: priority
                         
                         	The priority of the subscriptions that generated the notification. Not present for the the 'operational' datastore
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: client_name
                         
                         	The name of the client that is the recipient of the notification
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: subscription_ids
                         
                         	The subscription identifiers for the subscriptions that generated the notification
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         
@@ -4854,40 +4848,36 @@ class ConfdState(Entity):
                 .. attribute:: name
                 
                 	The client name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: info
                 
                 	Additional information about the client obtained at connect time. If present, it consists of client PID and socket file descriptor number
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: type
                 
                 	The type of client\: 'inactive' is a client connection without any specific state. 'client' means that the client has an active session towards a datastore. A 'subscriber' has made one or more subscriptions. 'waiting' means that the client is waiting for completion of a call such as cdb\_wait\_start()
-                	**type**\:   :py:class:`Type <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Type>`
+                	**type**\:  :py:class:`Type <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Type>`
                 
                 .. attribute:: datastore
                 
                 	The name of the datastore when 'type' = 'client'. The value 'pre\_commit\_running' is the 'pseudo' datastore representing 'running' before a commit
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:   :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
+                		**type**\:  :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
                 
+                		**type**\:  :py:class:`Datastore <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Datastore>`
                 
-                ----
-                	**type**\:   :py:class:`Datastore <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Datastore>`
-                
-                
-                ----
                 .. attribute:: lock
                 
                 	Set when 'type' = 'client' and the client has requested or acquired a lock on the datastore. The 'pending\-read' and 'pending\-subscription' values indicate that the client has requested but not yet acquired the corresponding lock. A 'read' lock is never taken for the 'operational' datastore, a 'subscription' lock is never taken for any other datastore than 'operational'
-                	**type**\:   :py:class:`Lock <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Lock>`
+                	**type**\:  :py:class:`Lock <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Lock>`
                 
                 .. attribute:: subscription
                 
                 	
-                	**type**\: list of    :py:class:`Subscription <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Subscription>`
+                	**type**\: list of  		 :py:class:`Subscription <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Subscription>`
                 
                 
 
@@ -5018,36 +5008,36 @@ class ConfdState(Entity):
                     .. attribute:: datastore
                     
                     	The name of the datastore for the subscription \- only 'running' and 'operational' can have subscriptions
-                    	**type**\:   :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
+                    	**type**\:  :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
                     
                     .. attribute:: twophase
                     
                     	Present if this is a 'twophase' subscription, i.e. notifications will be delivered at 'prepare' in addition to 'commit'. Only for the 'running' datastore
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: priority
                     
                     	The priority of the subscription
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: id
                     
                     	The subscription identifier for the subscription
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: path
                     
                     	The path that the subscription pertains to
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem  with the subscription
-                    	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Subscription.Error>`
+                    	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Subscription.Error>`
                     
                     
 

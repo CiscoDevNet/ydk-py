@@ -25,7 +25,7 @@ class NetFlow(Entity):
     .. attribute:: statistics
     
     	Node\-specific NetFlow statistics information
-    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics>`
     
     
 
@@ -59,7 +59,7 @@ class NetFlow(Entity):
         .. attribute:: statistic
         
         	NetFlow statistics information for a particular node
-        	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic>`
+        	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic>`
         
         
 
@@ -94,17 +94,19 @@ class NetFlow(Entity):
             .. attribute:: node  <key>
             
             	Node location
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: producer
             
             	NetFlow producer statistics
-            	**type**\:   :py:class:`Producer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Producer>`
+            	**type**\:  :py:class:`Producer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Producer>`
             
             .. attribute:: server
             
             	NetFlow server statistics
-            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server>`
+            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server>`
             
             
 
@@ -148,7 +150,7 @@ class NetFlow(Entity):
                 .. attribute:: statistics
                 
                 	Statistics information
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Producer.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Producer.Statistics>`
                 
                 
 
@@ -181,84 +183,84 @@ class NetFlow(Entity):
                     .. attribute:: ipv4_ingress_flows
                     
                     	IPv4 ingress flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ipv4_egress_flows
                     
                     	IPv4 egress flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ipv6_ingress_flows
                     
                     	IPv6 ingress flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ipv6_egress_flows
                     
                     	IPv6 egress flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: mpls_ingress_flows
                     
                     	MPLS ingress flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: mpls_egress_flows
                     
                     	MPLS egress flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: drops_no_space
                     
                     	Drops (no space)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: drops_others
                     
                     	Drops (others)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: unknown_ingress_flows
                     
                     	Unknown ingress flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: unknown_egress_flows
                     
                     	Unknown egress flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: waiting_servers
                     
                     	Number of waiting servers
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: last_cleared
                     
                     	Last time Statistics cleared in 'Mon Jan 1 12\:00 \:00 2xxx' format
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -313,7 +315,7 @@ class NetFlow(Entity):
                 .. attribute:: flow_exporters
                 
                 	Flow exporter information
-                	**type**\:   :py:class:`FlowExporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters>`
+                	**type**\:  :py:class:`FlowExporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters>`
                 
                 
 
@@ -346,7 +348,7 @@ class NetFlow(Entity):
                     .. attribute:: flow_exporter
                     
                     	Exporter information
-                    	**type**\: list of    :py:class:`FlowExporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter>`
+                    	**type**\: list of  		 :py:class:`FlowExporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter>`
                     
                     
 
@@ -379,12 +381,14 @@ class NetFlow(Entity):
                         .. attribute:: exporter_name  <key>
                         
                         	Exporter name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: exporter
                         
                         	Statistics information for the exporter
-                        	**type**\:   :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter>`
+                        	**type**\:  :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter>`
                         
                         
 
@@ -422,7 +426,7 @@ class NetFlow(Entity):
                             .. attribute:: statistic
                             
                             	Array of flow exporters
-                            	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic>`
+                            	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic>`
                             
                             
 
@@ -455,24 +459,24 @@ class NetFlow(Entity):
                                 .. attribute:: name
                                 
                                 	Exporter name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: memory_usage
                                 
                                 	Memory usage
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: used_by_flow_monitor
                                 
                                 	List of flow monitors that use the exporter
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 .. attribute:: collector
                                 
                                 	Statistics of all collectors
-                                	**type**\: list of    :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector>`
+                                	**type**\: list of  		 :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector>`
                                 
                                 
 
@@ -511,81 +515,81 @@ class NetFlow(Entity):
                                     .. attribute:: exporter_state
                                     
                                     	Exporter state
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: destination_address
                                     
                                     	Destination IPv4 address in AAA.BBB.CCC.DDD format
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: source_address
                                     
                                     	Source IPv4 address in AAA.BBB.CCC.DDD format
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: vrf_name
                                     
                                     	VRF Name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: destination_port
                                     
                                     	Destination port number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: souce_port
                                     
                                     	Source port number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: transport_protocol
                                     
                                     	Transport protocol
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: packets_sent
                                     
                                     	Packets sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: flows_sent
                                     
                                     	Flows sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: templates_sent
                                     
                                     	Templates sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: option_templates_sent
                                     
                                     	Option templates sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: option_data_sent
                                     
                                     	Option data sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: bytes_sent
                                     
                                     	Bytes sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -594,7 +598,7 @@ class NetFlow(Entity):
                                     .. attribute:: flow_bytes_sent
                                     
                                     	Flow bytes sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -603,7 +607,7 @@ class NetFlow(Entity):
                                     .. attribute:: template_bytes_sent
                                     
                                     	Template bytes sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -612,7 +616,7 @@ class NetFlow(Entity):
                                     .. attribute:: option_template_bytes_sent
                                     
                                     	Option template bytes sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -621,7 +625,7 @@ class NetFlow(Entity):
                                     .. attribute:: option_data_bytes_sent
                                     
                                     	Option data bytes sent
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -630,42 +634,42 @@ class NetFlow(Entity):
                                     .. attribute:: packets_dropped
                                     
                                     	Packets dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: flows_dropped
                                     
                                     	Flows dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: templates_dropped
                                     
                                     	Templates dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: option_templates_dropped
                                     
                                     	Option templates dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: option_data_dropped
                                     
                                     	Option data dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: bytes_dropped
                                     
                                     	Bytes dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -674,7 +678,7 @@ class NetFlow(Entity):
                                     .. attribute:: flow_bytes_dropped
                                     
                                     	Flow bytes dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -683,7 +687,7 @@ class NetFlow(Entity):
                                     .. attribute:: template_bytes_dropped
                                     
                                     	Template bytes dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -692,7 +696,7 @@ class NetFlow(Entity):
                                     .. attribute:: option_template_bytes_dropped
                                     
                                     	Option template bytes dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -701,21 +705,21 @@ class NetFlow(Entity):
                                     .. attribute:: option_data_bytes_dropped
                                     
                                     	Option data dropped
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_hour_packest_sent
                                     
                                     	Total packets exported over the last one hour
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_hour_bytes_sent
                                     
                                     	Total bytes exported over the last one hour
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -724,21 +728,21 @@ class NetFlow(Entity):
                                     .. attribute:: last_hour_flows_sent
                                     
                                     	Total flows exported over the of last one hour
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_minute_packets
                                     
                                     	Total packets exported over the last one minute
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_minute_bytes_sent
                                     
                                     	Total bytes exported over the last one minute
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -747,21 +751,21 @@ class NetFlow(Entity):
                                     .. attribute:: last_minute_flows_sent
                                     
                                     	Total flows exported over the last one minute
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_second_packets_sent
                                     
                                     	Total packets exported over the last one second
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_second_bytes_sent
                                     
                                     	Total bytes exported over the last one second
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -770,7 +774,7 @@ class NetFlow(Entity):
                                     .. attribute:: last_second_flows_sent
                                     
                                     	Total flows exported over the last one second
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     

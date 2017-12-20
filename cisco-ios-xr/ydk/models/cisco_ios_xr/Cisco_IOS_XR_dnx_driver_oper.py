@@ -679,7 +679,7 @@ class Fia(Entity):
     .. attribute:: nodes
     
     	FIA driver operational data for available nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes>`
     
     
 
@@ -713,7 +713,7 @@ class Fia(Entity):
         .. attribute:: node
         
         	FIA operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node>`
         
         
 
@@ -747,42 +747,44 @@ class Fia(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: rx_link_information
             
             	FIA link rx information
-            	**type**\:   :py:class:`RxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
+            	**type**\:  :py:class:`RxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
             
             .. attribute:: driver_information
             
             	FIA driver information
-            	**type**\:   :py:class:`DriverInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation>`
+            	**type**\:  :py:class:`DriverInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation>`
             
             .. attribute:: clear_statistics
             
             	Clear statistics information
-            	**type**\:   :py:class:`ClearStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics>`
+            	**type**\:  :py:class:`ClearStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics>`
             
             .. attribute:: tx_link_information
             
             	FIA link TX information
-            	**type**\:   :py:class:`TxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation>`
+            	**type**\:  :py:class:`TxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation>`
             
             .. attribute:: diag_shell
             
             	FIA diag shell information
-            	**type**\:   :py:class:`DiagShell <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell>`
+            	**type**\:  :py:class:`DiagShell <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell>`
             
             .. attribute:: oir_history
             
             	FIA operational data of oir history
-            	**type**\:   :py:class:`OirHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory>`
+            	**type**\:  :py:class:`OirHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory>`
             
             .. attribute:: asic_statistics
             
             	FIA asic statistics information
-            	**type**\:   :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
+            	**type**\:  :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
             
             
 
@@ -851,7 +853,7 @@ class Fia(Entity):
                 .. attribute:: link_options
                 
                 	Option table for link rx information
-                	**type**\:   :py:class:`LinkOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions>`
+                	**type**\:  :py:class:`LinkOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions>`
                 
                 
 
@@ -884,7 +886,7 @@ class Fia(Entity):
                     .. attribute:: link_option
                     
                     	Option \: topo , flag , stats
-                    	**type**\: list of    :py:class:`LinkOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption>`
+                    	**type**\: list of  		 :py:class:`LinkOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption>`
                     
                     
 
@@ -917,12 +919,14 @@ class Fia(Entity):
                         .. attribute:: option  <key>
                         
                         	Link option
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (flap)\|(topo)
                         
                         .. attribute:: rx_asic_instances
                         
                         	Instance table for rx information
-                        	**type**\:   :py:class:`RxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances>`
+                        	**type**\:  :py:class:`RxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances>`
                         
                         
 
@@ -960,7 +964,7 @@ class Fia(Entity):
                             .. attribute:: rx_asic_instance
                             
                             	Instance number for rx link information
-                            	**type**\: list of    :py:class:`RxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance>`
+                            	**type**\: list of  		 :py:class:`RxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance>`
                             
                             
 
@@ -993,14 +997,14 @@ class Fia(Entity):
                                 .. attribute:: instance  <key>
                                 
                                 	Receive instance
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: rx_links
                                 
                                 	Link table class for rx information
-                                	**type**\:   :py:class:`RxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks>`
+                                	**type**\:  :py:class:`RxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks>`
                                 
                                 
 
@@ -1038,7 +1042,7 @@ class Fia(Entity):
                                     .. attribute:: rx_link
                                     
                                     	Link number for rx link information
-                                    	**type**\: list of    :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink>`
+                                    	**type**\: list of  		 :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink>`
                                     
                                     
 
@@ -1071,26 +1075,28 @@ class Fia(Entity):
                                         .. attribute:: start_number
                                         
                                         	Start number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..47
                                         
                                         .. attribute:: end_number
                                         
                                         	End number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..47
                                         
                                         .. attribute:: status_option
                                         
                                         	RX link status option
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                         
                                         .. attribute:: rx_link
                                         
                                         	Single link information
-                                        	**type**\: list of    :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink>`
+                                        	**type**\: list of  		 :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink>`
                                         
                                         
 
@@ -1129,97 +1135,97 @@ class Fia(Entity):
                                             .. attribute:: link  <key>
                                             
                                             	Single link
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: this_link
                                             
                                             	this link
-                                            	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink>`
+                                            	**type**\:  :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink>`
                                             
                                             .. attribute:: far_end_link
                                             
                                             	far end link
-                                            	**type**\:   :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink>`
+                                            	**type**\:  :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink>`
                                             
                                             .. attribute:: far_end_link_in_hw
                                             
                                             	far end link in hw
-                                            	**type**\:   :py:class:`FarEndLinkInHw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw>`
+                                            	**type**\:  :py:class:`FarEndLinkInHw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw>`
                                             
                                             .. attribute:: history
                                             
                                             	history
-                                            	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History>`
+                                            	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History>`
                                             
                                             .. attribute:: speed
                                             
                                             	speed
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: stage
                                             
                                             	Stage
-                                            	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                            	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                             
                                             .. attribute:: is_link_valid
                                             
                                             	is link valid
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_conf_pending
                                             
                                             	is conf pending
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: admin_state
                                             
                                             	Admin State
-                                            	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                            	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                             
                                             .. attribute:: oper_state
                                             
                                             	Oper State
-                                            	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
+                                            	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                             
                                             .. attribute:: error_state
                                             
                                             	Error State
-                                            	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                            	**type**\:  :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
                                             
                                             .. attribute:: flags
                                             
                                             	flags
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: flap_cnt
                                             
                                             	flap cnt
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: num_admin_shuts
                                             
                                             	num admin shuts
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: correctable_errors
                                             
                                             	correctable errors
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: uncorrectable_errors
                                             
                                             	uncorrectable errors
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -1298,29 +1304,29 @@ class Fia(Entity):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId>`
+                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                                 
                                                 .. attribute:: link_num
                                                 
                                                 	link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -1366,31 +1372,31 @@ class Fia(Entity):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                                    	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
                                                     
                                                     .. attribute:: rack_num
                                                     
                                                     	rack num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
@@ -1433,29 +1439,29 @@ class Fia(Entity):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId>`
+                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                                 
                                                 .. attribute:: link_num
                                                 
                                                 	link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -1501,31 +1507,31 @@ class Fia(Entity):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                                    	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
                                                     
                                                     .. attribute:: rack_num
                                                     
                                                     	rack num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
@@ -1568,29 +1574,29 @@ class Fia(Entity):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId>`
+                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                                 
                                                 .. attribute:: link_num
                                                 
                                                 	link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -1636,31 +1642,31 @@ class Fia(Entity):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                                    	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
                                                     
                                                     .. attribute:: rack_num
                                                     
                                                     	rack num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
@@ -1703,21 +1709,21 @@ class Fia(Entity):
                                                 .. attribute:: histnum
                                                 
                                                 	histnum
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: start_index
                                                 
                                                 	start index
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: hist
                                                 
                                                 	hist
-                                                	**type**\: list of    :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist>`
+                                                	**type**\: list of  		 :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist>`
                                                 
                                                 
 
@@ -1754,29 +1760,29 @@ class Fia(Entity):
                                                     .. attribute:: admin_state
                                                     
                                                     	Admin State
-                                                    	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                                    	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                                     
                                                     .. attribute:: oper_state
                                                     
                                                     	Oper State
-                                                    	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
+                                                    	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                                     
                                                     .. attribute:: error_state
                                                     
                                                     	Error State
-                                                    	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                                    	**type**\:  :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
                                                     
                                                     .. attribute:: timestamp
                                                     
                                                     	timestamp
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
                                                     .. attribute:: reasons
                                                     
                                                     	reasons
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     
 
@@ -1817,282 +1823,282 @@ class Fia(Entity):
                 .. attribute:: drv_version
                 
                 	drv version
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: coeff_major_rev
                 
                 	coeff major rev
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: coeff_minor_rev
                 
                 	coeff minor rev
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: functional_role
                 
                 	functional role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: issu_role
                 
                 	issu role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: node_id
                 
                 	node id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: rack_type
                 
                 	rack type
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: rack_num
                 
                 	rack num
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: is_driver_ready
                 
                 	is driver ready
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: card_avail_mask
                 
                 	card avail mask
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: asic_avail_mask
                 
                 	asic avail mask
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: exp_asic_avail_mask
                 
                 	exp asic avail mask
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: ucmc_ratio
                 
                 	ucmc ratio
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
                 
                 	asic oper notify to fsdb pending bmap
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: is_full_fgid_download_req
                 
                 	is full fgid download req
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_fgid_download_in_progress
                 
                 	is fgid download in progress
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_fgid_download_completed
                 
                 	is fgid download completed
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: fsdb_conn_active
                 
                 	fsdb conn active
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: fgid_conn_active
                 
                 	fgid conn active
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: issu_mgr_conn_active
                 
                 	issu mgr conn active
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: fsdb_reg_active
                 
                 	fsdb reg active
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: fgid_reg_active
                 
                 	fgid reg active
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: issu_mgr_reg_active
                 
                 	issu mgr reg active
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: num_pm_conn_reqs
                 
                 	num pm conn reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_fsdb_conn_reqs
                 
                 	num fsdb conn reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_fgid_conn_reqs
                 
                 	num fgid conn reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_fstats_conn_reqs
                 
                 	num fstats conn reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_cm_conn_reqs
                 
                 	num cm conn reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_issu_mgr_conn_reqs
                 
                 	num issu mgr conn reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: num_peer_fia_conn_reqs
                 
                 	num peer fia conn reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: is_gaspp_registered
                 
                 	is gaspp registered
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_cih_registered
                 
                 	is cih registered
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: drvr_initial_startup_timestamp
                 
                 	drvr initial startup timestamp
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: drvr_current_startup_timestamp
                 
                 	drvr current startup timestamp
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: num_intf_ports
                 
                 	num intf ports
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: uc_weight
                 
                 	uc weight
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: respawn_count
                 
                 	respawn count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: total_asics
                 
                 	total asics
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: issu_ready_ntfy_pending
                 
                 	issu ready ntfy pending
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: issu_abort_sent
                 
                 	issu abort sent
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: issu_abort_rcvd
                 
                 	issu abort rcvd
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: fabric_mode
                 
                 	fabric mode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: fc_mode
                 
                 	FC Mode
-                	**type**\:   :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
+                	**type**\:  :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
                 
                 .. attribute:: board_rev_id
                 
                 	board rev id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: device_info
                 
                 	device info
-                	**type**\: list of    :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
+                	**type**\: list of  		 :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
                 
                 .. attribute:: card_info
                 
                 	card info
-                	**type**\: list of    :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
+                	**type**\: list of  		 :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
                 
                 
 
@@ -2214,70 +2220,70 @@ class Fia(Entity):
                     .. attribute:: asic_id
                     
                     	asic id
-                    	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId>`
+                    	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId>`
                     
                     .. attribute:: is_valid
                     
                     	is valid
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: fapid
                     
                     	fapid
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hotplug_event
                     
                     	hotplug event
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: slice_state
                     
                     	Slice State
-                    	**type**\:   :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
+                    	**type**\:  :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
                     
                     .. attribute:: admin_state
                     
                     	Admin State
-                    	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                    	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                     
                     .. attribute:: oper_state
                     
                     	Oper State
-                    	**type**\:   :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
+                    	**type**\:  :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
                     
                     .. attribute:: asic_state
                     
                     	Asic State
-                    	**type**\:   :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
+                    	**type**\:  :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
                     
                     .. attribute:: last_init_cause
                     
                     	last init cause
-                    	**type**\:   :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
+                    	**type**\:  :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
                     
                     .. attribute:: num_pon_resets
                     
                     	num pon resets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_hard_resets
                     
                     	num hard resets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_switch_state
                     
                     	local switch state
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -2335,31 +2341,31 @@ class Fia(Entity):
                         .. attribute:: rack_type
                         
                         	Rack Type
-                        	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                        	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                         
                         .. attribute:: asic_type
                         
                         	Asic Type
-                        	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                        	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
                         
                         .. attribute:: rack_num
                         
                         	rack num
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: slot_num
                         
                         	slot num
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: asic_instance
                         
                         	asic instance
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2402,106 +2408,106 @@ class Fia(Entity):
                     .. attribute:: oir_circular_buffer
                     
                     	oir circular buffer
-                    	**type**\:   :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
+                    	**type**\:  :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
                     
                     .. attribute:: card_type
                     
                     	card type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: card_name
                     
                     	card name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: slot_no
                     
                     	slot no
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: card_flag
                     
                     	card flag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: evt_flag
                     
                     	evt flag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: reg_flag
                     
                     	reg flag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: instance
                     
                     	instance
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: card_state
                     
                     	card state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: exp_num_asics
                     
                     	exp num asics
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: exp_num_asics_per_fsdb
                     
                     	exp num asics per fsdb
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_powered
                     
                     	is powered
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: cxp_avail_bitmap
                     
                     	cxp avail bitmap
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: num_ilkns_per_asic
                     
                     	num ilkns per asic
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_local_ports_per_ilkn
                     
                     	num local ports per ilkn
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_cos_per_port
                     
                     	num cos per port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -2569,28 +2575,28 @@ class Fia(Entity):
                         .. attribute:: count
                         
                         	count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: start
                         
                         	start
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: end
                         
                         	end
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: fia_oir_info
                         
                         	fia oir info
-                        	**type**\: list of    :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo>`
+                        	**type**\: list of  		 :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo>`
                         
                         
 
@@ -2629,49 +2635,49 @@ class Fia(Entity):
                             .. attribute:: card_flag
                             
                             	card flag
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: card_type
                             
                             	card type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: reg_flag
                             
                             	reg flag
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: evt_flag
                             
                             	evt flag
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: rack_num
                             
                             	rack num
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: instance
                             
                             	instance
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: cur_card_state
                             
                             	cur card state
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2718,7 +2724,7 @@ class Fia(Entity):
                 .. attribute:: asic_instances
                 
                 	Instance table for clear statistics information
-                	**type**\:   :py:class:`AsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances>`
+                	**type**\:  :py:class:`AsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances>`
                 
                 
 
@@ -2752,7 +2758,7 @@ class Fia(Entity):
                     .. attribute:: asic_instance
                     
                     	Asic instance to be cleared
-                    	**type**\: list of    :py:class:`AsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance>`
+                    	**type**\: list of  		 :py:class:`AsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance>`
                     
                     
 
@@ -2785,14 +2791,14 @@ class Fia(Entity):
                         .. attribute:: asic_instance  <key>
                         
                         	Asic instance
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: instance
                         
                         	Clear value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -2831,7 +2837,7 @@ class Fia(Entity):
                 .. attribute:: tx_status_option_table
                 
                 	Link table for tx information
-                	**type**\:   :py:class:`TxStatusOptionTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable>`
+                	**type**\:  :py:class:`TxStatusOptionTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable>`
                 
                 
 
@@ -2864,7 +2870,7 @@ class Fia(Entity):
                     .. attribute:: tx_status_option
                     
                     	Option\: data, ctrl, all\- for now none
-                    	**type**\:   :py:class:`TxStatusOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption>`
+                    	**type**\:  :py:class:`TxStatusOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption>`
                     
                     
 
@@ -2897,7 +2903,7 @@ class Fia(Entity):
                         .. attribute:: tx_asic_instances
                         
                         	Instance table for tx information
-                        	**type**\:   :py:class:`TxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances>`
+                        	**type**\:  :py:class:`TxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances>`
                         
                         
 
@@ -2930,7 +2936,7 @@ class Fia(Entity):
                             .. attribute:: tx_asic_instance
                             
                             	Instance number for tx link information
-                            	**type**\: list of    :py:class:`TxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance>`
+                            	**type**\: list of  		 :py:class:`TxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance>`
                             
                             
 
@@ -2963,14 +2969,14 @@ class Fia(Entity):
                                 .. attribute:: instance  <key>
                                 
                                 	Transmit instance
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: tx_links
                                 
                                 	Link table for tx information
-                                	**type**\:   :py:class:`TxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks>`
+                                	**type**\:  :py:class:`TxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks>`
                                 
                                 
 
@@ -3008,7 +3014,7 @@ class Fia(Entity):
                                     .. attribute:: tx_link
                                     
                                     	Link number for tx link information
-                                    	**type**\: list of    :py:class:`TxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink>`
+                                    	**type**\: list of  		 :py:class:`TxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink>`
                                     
                                     
 
@@ -3041,21 +3047,21 @@ class Fia(Entity):
                                         .. attribute:: start_number
                                         
                                         	Start number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..47
                                         
                                         .. attribute:: end_number
                                         
                                         	End number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..47
                                         
                                         .. attribute:: tx_link
                                         
                                         	Single link information
-                                        	**type**\: list of    :py:class:`TxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink>`
+                                        	**type**\: list of  		 :py:class:`TxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink>`
                                         
                                         
 
@@ -3092,92 +3098,92 @@ class Fia(Entity):
                                             .. attribute:: link  <key>
                                             
                                             	Single Link
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: this_link
                                             
                                             	this link
-                                            	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink>`
+                                            	**type**\:  :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink>`
                                             
                                             .. attribute:: far_end_link
                                             
                                             	far end link
-                                            	**type**\:   :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink>`
+                                            	**type**\:  :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink>`
                                             
                                             .. attribute:: stats
                                             
                                             	stats
-                                            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats>`
+                                            	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats>`
                                             
                                             .. attribute:: history
                                             
                                             	history
-                                            	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History>`
+                                            	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History>`
                                             
                                             .. attribute:: speed
                                             
                                             	speed
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: stage
                                             
                                             	stage
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..255
                                             
                                             .. attribute:: is_link_valid
                                             
                                             	is link valid
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_conf_pending
                                             
                                             	is conf pending
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_power_enabled
                                             
                                             	is power enabled
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: coeff1
                                             
                                             	coeff1
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: coeff2
                                             
                                             	coeff2
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: admin_state
                                             
                                             	Admin State
-                                            	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                            	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                             
                                             .. attribute:: oper_state
                                             
                                             	Oper State
-                                            	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
+                                            	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                             
                                             .. attribute:: error_state
                                             
                                             	Error State
-                                            	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                            	**type**\:  :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
                                             
                                             .. attribute:: num_admin_shuts
                                             
                                             	num admin shuts
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
@@ -3254,29 +3260,29 @@ class Fia(Entity):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId>`
+                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                                 
                                                 .. attribute:: link_num
                                                 
                                                 	link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -3322,31 +3328,31 @@ class Fia(Entity):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                                    	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
                                                     
                                                     .. attribute:: rack_num
                                                     
                                                     	rack num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
@@ -3389,29 +3395,29 @@ class Fia(Entity):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId>`
+                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:   :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
+                                                	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:   :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
                                                 
                                                 .. attribute:: link_num
                                                 
                                                 	link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -3457,31 +3463,31 @@ class Fia(Entity):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                                    	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
                                                     
                                                     .. attribute:: rack_num
                                                     
                                                     	rack num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
@@ -3524,7 +3530,7 @@ class Fia(Entity):
                                                 .. attribute:: dummy
                                                 
                                                 	dummy
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -3559,21 +3565,21 @@ class Fia(Entity):
                                                 .. attribute:: histnum
                                                 
                                                 	histnum
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: start_index
                                                 
                                                 	start index
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: hist
                                                 
                                                 	hist
-                                                	**type**\: list of    :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist>`
+                                                	**type**\: list of  		 :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist>`
                                                 
                                                 
 
@@ -3610,29 +3616,29 @@ class Fia(Entity):
                                                     .. attribute:: admin_state
                                                     
                                                     	Admin State
-                                                    	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                                    	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                                     
                                                     .. attribute:: oper_state
                                                     
                                                     	Oper State
-                                                    	**type**\:   :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
+                                                    	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                                     
                                                     .. attribute:: error_state
                                                     
                                                     	Error State
-                                                    	**type**\:   :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                                    	**type**\:  :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
                                                     
                                                     .. attribute:: timestamp
                                                     
                                                     	timestamp
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
                                                     .. attribute:: reasons
                                                     
                                                     	reasons
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     
 
@@ -3673,7 +3679,7 @@ class Fia(Entity):
                 .. attribute:: diag_shell_units
                 
                 	Unit table for diag shell
-                	**type**\:   :py:class:`DiagShellUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits>`
+                	**type**\:  :py:class:`DiagShellUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits>`
                 
                 
 
@@ -3706,7 +3712,7 @@ class Fia(Entity):
                     .. attribute:: diag_shell_unit
                     
                     	Unit number for diag shell statistics
-                    	**type**\: list of    :py:class:`DiagShellUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit>`
+                    	**type**\: list of  		 :py:class:`DiagShellUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit>`
                     
                     
 
@@ -3739,14 +3745,14 @@ class Fia(Entity):
                         .. attribute:: unit  <key>
                         
                         	Unit number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..63
                         
                         .. attribute:: commands
                         
                         	Command table for diag shell
-                        	**type**\:   :py:class:`Commands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands>`
+                        	**type**\:  :py:class:`Commands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands>`
                         
                         
 
@@ -3784,7 +3790,7 @@ class Fia(Entity):
                             .. attribute:: command
                             
                             	Command for diag shell statistics
-                            	**type**\: list of    :py:class:`Command <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command>`
+                            	**type**\: list of  		 :py:class:`Command <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command>`
                             
                             
 
@@ -3817,12 +3823,12 @@ class Fia(Entity):
                                 .. attribute:: cmd  <key>
                                 
                                 	Shell command
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: output
                                 
                                 	Added to support datalist
-                                	**type**\: list of    :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output>`
+                                	**type**\: list of  		 :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output>`
                                 
                                 
 
@@ -3857,12 +3863,14 @@ class Fia(Entity):
                                     .. attribute:: output  <key>
                                     
                                     	First line
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: output_xr
                                     
                                     	output xr
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -3897,7 +3905,7 @@ class Fia(Entity):
                 .. attribute:: flags
                 
                 	Flag table for history
-                	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags>`
+                	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags>`
                 
                 
 
@@ -3930,7 +3938,7 @@ class Fia(Entity):
                     .. attribute:: flag
                     
                     	Flag value for physical location
-                    	**type**\: list of    :py:class:`Flag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag>`
+                    	**type**\: list of  		 :py:class:`Flag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag>`
                     
                     
 
@@ -3963,14 +3971,14 @@ class Fia(Entity):
                         .. attribute:: flag  <key>
                         
                         	Flag value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: slots
                         
                         	Slot table for history
-                        	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots>`
+                        	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots>`
                         
                         
 
@@ -4008,7 +4016,7 @@ class Fia(Entity):
                             .. attribute:: slot
                             
                             	Slot number for getting history
-                            	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot>`
+                            	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot>`
                             
                             
 
@@ -4041,289 +4049,289 @@ class Fia(Entity):
                                 .. attribute:: slot  <key>
                                 
                                 	Slot number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: drv_version
                                 
                                 	drv version
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: coeff_major_rev
                                 
                                 	coeff major rev
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: coeff_minor_rev
                                 
                                 	coeff minor rev
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: functional_role
                                 
                                 	functional role
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: issu_role
                                 
                                 	issu role
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: node_id
                                 
                                 	node id
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: rack_type
                                 
                                 	rack type
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: rack_num
                                 
                                 	rack num
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: is_driver_ready
                                 
                                 	is driver ready
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: card_avail_mask
                                 
                                 	card avail mask
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: asic_avail_mask
                                 
                                 	asic avail mask
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: exp_asic_avail_mask
                                 
                                 	exp asic avail mask
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: ucmc_ratio
                                 
                                 	ucmc ratio
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
                                 
                                 	asic oper notify to fsdb pending bmap
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: is_full_fgid_download_req
                                 
                                 	is full fgid download req
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_fgid_download_in_progress
                                 
                                 	is fgid download in progress
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_fgid_download_completed
                                 
                                 	is fgid download completed
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: fsdb_conn_active
                                 
                                 	fsdb conn active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: fgid_conn_active
                                 
                                 	fgid conn active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: issu_mgr_conn_active
                                 
                                 	issu mgr conn active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: fsdb_reg_active
                                 
                                 	fsdb reg active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: fgid_reg_active
                                 
                                 	fgid reg active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: issu_mgr_reg_active
                                 
                                 	issu mgr reg active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: num_pm_conn_reqs
                                 
                                 	num pm conn reqs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: num_fsdb_conn_reqs
                                 
                                 	num fsdb conn reqs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: num_fgid_conn_reqs
                                 
                                 	num fgid conn reqs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: num_fstats_conn_reqs
                                 
                                 	num fstats conn reqs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: num_cm_conn_reqs
                                 
                                 	num cm conn reqs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: num_issu_mgr_conn_reqs
                                 
                                 	num issu mgr conn reqs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: num_peer_fia_conn_reqs
                                 
                                 	num peer fia conn reqs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: is_gaspp_registered
                                 
                                 	is gaspp registered
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_cih_registered
                                 
                                 	is cih registered
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: drvr_initial_startup_timestamp
                                 
                                 	drvr initial startup timestamp
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: drvr_current_startup_timestamp
                                 
                                 	drvr current startup timestamp
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: num_intf_ports
                                 
                                 	num intf ports
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: uc_weight
                                 
                                 	uc weight
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: respawn_count
                                 
                                 	respawn count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: total_asics
                                 
                                 	total asics
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: issu_ready_ntfy_pending
                                 
                                 	issu ready ntfy pending
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: issu_abort_sent
                                 
                                 	issu abort sent
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: issu_abort_rcvd
                                 
                                 	issu abort rcvd
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: fabric_mode
                                 
                                 	fabric mode
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: fc_mode
                                 
                                 	FC Mode
-                                	**type**\:   :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
+                                	**type**\:  :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
                                 
                                 .. attribute:: board_rev_id
                                 
                                 	board rev id
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: device_info
                                 
                                 	device info
-                                	**type**\: list of    :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
+                                	**type**\: list of  		 :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
                                 
                                 .. attribute:: card_info
                                 
                                 	card info
-                                	**type**\: list of    :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
+                                	**type**\: list of  		 :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
                                 
                                 
 
@@ -4447,70 +4455,70 @@ class Fia(Entity):
                                     .. attribute:: asic_id
                                     
                                     	asic id
-                                    	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId>`
+                                    	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId>`
                                     
                                     .. attribute:: is_valid
                                     
                                     	is valid
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: fapid
                                     
                                     	fapid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: hotplug_event
                                     
                                     	hotplug event
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: slice_state
                                     
                                     	Slice State
-                                    	**type**\:   :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
+                                    	**type**\:  :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
                                     
                                     .. attribute:: admin_state
                                     
                                     	Admin State
-                                    	**type**\:   :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                    	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                     
                                     .. attribute:: oper_state
                                     
                                     	Oper State
-                                    	**type**\:   :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
+                                    	**type**\:  :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
                                     
                                     .. attribute:: asic_state
                                     
                                     	Asic State
-                                    	**type**\:   :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
+                                    	**type**\:  :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
                                     
                                     .. attribute:: last_init_cause
                                     
                                     	last init cause
-                                    	**type**\:   :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
+                                    	**type**\:  :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
                                     
                                     .. attribute:: num_pon_resets
                                     
                                     	num pon resets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_hard_resets
                                     
                                     	num hard resets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: local_switch_state
                                     
                                     	local switch state
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -4568,31 +4576,31 @@ class Fia(Entity):
                                         .. attribute:: rack_type
                                         
                                         	Rack Type
-                                        	**type**\:   :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
+                                        	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                         
                                         .. attribute:: asic_type
                                         
                                         	Asic Type
-                                        	**type**\:   :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                        	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
                                         
                                         .. attribute:: rack_num
                                         
                                         	rack num
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: slot_num
                                         
                                         	slot num
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: asic_instance
                                         
                                         	asic instance
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4635,106 +4643,106 @@ class Fia(Entity):
                                     .. attribute:: oir_circular_buffer
                                     
                                     	oir circular buffer
-                                    	**type**\:   :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
+                                    	**type**\:  :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
                                     
                                     .. attribute:: card_type
                                     
                                     	card type
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: card_name
                                     
                                     	card name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: slot_no
                                     
                                     	slot no
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: card_flag
                                     
                                     	card flag
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: evt_flag
                                     
                                     	evt flag
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: reg_flag
                                     
                                     	reg flag
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: instance
                                     
                                     	instance
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: card_state
                                     
                                     	card state
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: exp_num_asics
                                     
                                     	exp num asics
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: exp_num_asics_per_fsdb
                                     
                                     	exp num asics per fsdb
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: is_powered
                                     
                                     	is powered
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: cxp_avail_bitmap
                                     
                                     	cxp avail bitmap
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: num_ilkns_per_asic
                                     
                                     	num ilkns per asic
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_local_ports_per_ilkn
                                     
                                     	num local ports per ilkn
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_cos_per_port
                                     
                                     	num cos per port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
@@ -4802,28 +4810,28 @@ class Fia(Entity):
                                         .. attribute:: count
                                         
                                         	count
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: start
                                         
                                         	start
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: end
                                         
                                         	end
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: fia_oir_info
                                         
                                         	fia oir info
-                                        	**type**\: list of    :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo>`
+                                        	**type**\: list of  		 :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo>`
                                         
                                         
 
@@ -4862,49 +4870,49 @@ class Fia(Entity):
                                             .. attribute:: card_flag
                                             
                                             	card flag
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: card_type
                                             
                                             	card type
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: reg_flag
                                             
                                             	reg flag
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: evt_flag
                                             
                                             	evt flag
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: rack_num
                                             
                                             	rack num
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: instance
                                             
                                             	instance
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: cur_card_state
                                             
                                             	cur card state
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
@@ -4951,7 +4959,7 @@ class Fia(Entity):
                 .. attribute:: statistics_asic_instances
                 
                 	Instance table for statistics
-                	**type**\:   :py:class:`StatisticsAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances>`
+                	**type**\:  :py:class:`StatisticsAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances>`
                 
                 
 
@@ -4984,7 +4992,7 @@ class Fia(Entity):
                     .. attribute:: statistics_asic_instance
                     
                     	Asic instance for statistics
-                    	**type**\: list of    :py:class:`StatisticsAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance>`
+                    	**type**\: list of  		 :py:class:`StatisticsAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance>`
                     
                     
 
@@ -5017,19 +5025,19 @@ class Fia(Entity):
                         .. attribute:: instance  <key>
                         
                         	Asic instance
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: pbc_statistics
                         
                         	Packet Byte Counter for a Asic
-                        	**type**\:   :py:class:`PbcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
+                        	**type**\:  :py:class:`PbcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
                         
                         .. attribute:: fmac_statistics
                         
                         	Statistics of FMAC
-                        	**type**\:   :py:class:`FmacStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics>`
+                        	**type**\:  :py:class:`FmacStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics>`
                         
                         
 
@@ -5072,7 +5080,7 @@ class Fia(Entity):
                             .. attribute:: pbc_stats
                             
                             	PBC stats bag
-                            	**type**\:   :py:class:`PbcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats>`
+                            	**type**\:  :py:class:`PbcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats>`
                             
                             
 
@@ -5105,38 +5113,38 @@ class Fia(Entity):
                                 .. attribute:: stats_info
                                 
                                 	stats info
-                                	**type**\:   :py:class:`StatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
+                                	**type**\:  :py:class:`StatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
                                 
                                 .. attribute:: valid
                                 
                                 	valid
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: rack_no
                                 
                                 	rack no
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: slot_no
                                 
                                 	slot no
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: asic_instance
                                 
                                 	asic instance
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: chip_ver
                                 
                                 	chip ver
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -5184,14 +5192,14 @@ class Fia(Entity):
                                     .. attribute:: num_blocks
                                     
                                     	Num Blocks
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..255
                                     
                                     .. attribute:: block_info
                                     
                                     	block info
-                                    	**type**\: list of    :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
+                                    	**type**\: list of  		 :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
                                     
                                     
 
@@ -5226,21 +5234,21 @@ class Fia(Entity):
                                         .. attribute:: block_name
                                         
                                         	Block Name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..10
                                         
                                         .. attribute:: num_fields
                                         
                                         	Num Fields
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: field_info
                                         
                                         	field info
-                                        	**type**\: list of    :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
+                                        	**type**\: list of  		 :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
                                         
                                         
 
@@ -5277,21 +5285,21 @@ class Fia(Entity):
                                             .. attribute:: field_name
                                             
                                             	Field Name
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..80
                                             
                                             .. attribute:: field_value
                                             
                                             	Field Value
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: is_ovf
                                             
                                             	Is Ovf
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -5328,7 +5336,7 @@ class Fia(Entity):
                             .. attribute:: fmac_links
                             
                             	Link table for statistics
-                            	**type**\:   :py:class:`FmacLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks>`
+                            	**type**\:  :py:class:`FmacLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks>`
                             
                             
 
@@ -5361,7 +5369,7 @@ class Fia(Entity):
                                 .. attribute:: fmac_link
                                 
                                 	Link number for statistics
-                                	**type**\: list of    :py:class:`FmacLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink>`
+                                	**type**\: list of  		 :py:class:`FmacLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink>`
                                 
                                 
 
@@ -5394,14 +5402,14 @@ class Fia(Entity):
                                     .. attribute:: link  <key>
                                     
                                     	Link number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: fmac_asic
                                     
                                     	Single aisc information
-                                    	**type**\: list of    :py:class:`FmacAsic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic>`
+                                    	**type**\: list of  		 :py:class:`FmacAsic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic>`
                                     
                                     
 
@@ -5436,57 +5444,57 @@ class Fia(Entity):
                                         .. attribute:: asic  <key>
                                         
                                         	Single asic
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: aggr_stats
                                         
                                         	aggr stats
-                                        	**type**\:   :py:class:`AggrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats>`
+                                        	**type**\:  :py:class:`AggrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats>`
                                         
                                         .. attribute:: incr_stats
                                         
                                         	incr stats
-                                        	**type**\:   :py:class:`IncrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats>`
+                                        	**type**\:  :py:class:`IncrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats>`
                                         
                                         .. attribute:: valid
                                         
                                         	valid
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: rack_no
                                         
                                         	rack no
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: slot_no
                                         
                                         	slot no
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: asic_instance
                                         
                                         	asic instance
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: link_no
                                         
                                         	link no
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: link_valid
                                         
                                         	link valid
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -5541,17 +5549,17 @@ class Fia(Entity):
                                             .. attribute:: link_error_status
                                             
                                             	link error status
-                                            	**type**\:   :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
+                                            	**type**\:  :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
                                             
                                             .. attribute:: link_counters
                                             
                                             	link counters
-                                            	**type**\:   :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters>`
+                                            	**type**\:  :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters>`
                                             
                                             .. attribute:: ovf_status
                                             
                                             	ovf status
-                                            	**type**\:   :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus>`
+                                            	**type**\:  :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus>`
                                             
                                             
 
@@ -5594,56 +5602,56 @@ class Fia(Entity):
                                                 .. attribute:: link_crc_error
                                                 
                                                 	link crc error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_size_error
                                                 
                                                 	link size error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_mis_align_error
                                                 
                                                 	link mis align error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_code_group_error
                                                 
                                                 	link code group error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_no_sig_lock_error
                                                 
                                                 	link no sig lock error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_no_sig_accept_error
                                                 
                                                 	link no sig accept error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_tokens_error
                                                 
                                                 	link tokens error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: error_token_count
                                                 
                                                 	error token count
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -5692,98 +5700,98 @@ class Fia(Entity):
                                                 .. attribute:: tx_control_cells_counter
                                                 
                                                 	TX Control cells counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
                                                 	TX Data byte counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
                                                 	RX LFEC FEC correctable error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
                                                 	RX Data byte counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
                                                 	TX Asyn fifo rate
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
@@ -5844,98 +5852,98 @@ class Fia(Entity):
                                                 .. attribute:: tx_control_cells_counter
                                                 
                                                 	TX Control cells counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
                                                 	TX Data byte counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
                                                 	RX LFEC FEC correctable error
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
                                                 	RX Data byte counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
                                                 	TX Asyn fifo rate
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
@@ -5996,17 +6004,17 @@ class Fia(Entity):
                                             .. attribute:: link_error_status
                                             
                                             	link error status
-                                            	**type**\:   :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
+                                            	**type**\:  :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
                                             
                                             .. attribute:: link_counters
                                             
                                             	link counters
-                                            	**type**\:   :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters>`
+                                            	**type**\:  :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters>`
                                             
                                             .. attribute:: ovf_status
                                             
                                             	ovf status
-                                            	**type**\:   :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus>`
+                                            	**type**\:  :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus>`
                                             
                                             
 
@@ -6049,56 +6057,56 @@ class Fia(Entity):
                                                 .. attribute:: link_crc_error
                                                 
                                                 	link crc error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_size_error
                                                 
                                                 	link size error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_mis_align_error
                                                 
                                                 	link mis align error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_code_group_error
                                                 
                                                 	link code group error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_no_sig_lock_error
                                                 
                                                 	link no sig lock error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_no_sig_accept_error
                                                 
                                                 	link no sig accept error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_tokens_error
                                                 
                                                 	link tokens error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
                                                 .. attribute:: error_token_count
                                                 
                                                 	error token count
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -6147,98 +6155,98 @@ class Fia(Entity):
                                                 .. attribute:: tx_control_cells_counter
                                                 
                                                 	TX Control cells counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
                                                 	TX Data byte counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
                                                 	RX LFEC FEC correctable error
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
                                                 	RX Data byte counter
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
                                                 	TX Asyn fifo rate
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
@@ -6299,98 +6307,98 @@ class Fia(Entity):
                                                 .. attribute:: tx_control_cells_counter
                                                 
                                                 	TX Control cells counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
                                                 	TX Data byte counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
                                                 	RX LFEC FEC correctable error
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
                                                 	RX Data byte counter
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
                                                 	TX Asyn fifo rate
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..6
                                                 

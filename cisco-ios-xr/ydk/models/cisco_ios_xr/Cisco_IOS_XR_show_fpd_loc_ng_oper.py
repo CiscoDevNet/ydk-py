@@ -25,32 +25,32 @@ class ShowFpd(Entity):
     .. attribute:: locations
     
     	location table
-    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations>`
+    	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations>`
     
     .. attribute:: hw_module_fpd
     
     	Display fpds on all locations \-show hw\-module fpd
-    	**type**\:   :py:class:`HwModuleFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpd>`
+    	**type**\:  :py:class:`HwModuleFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpd>`
     
     .. attribute:: help_locations
     
     	help location table
-    	**type**\:   :py:class:`HelpLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations>`
+    	**type**\:  :py:class:`HelpLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations>`
     
     .. attribute:: hw_module_fpd_help_fpd
     
     	Display help\-fpd \-show hw\-module fpd help\-fpd
-    	**type**\:   :py:class:`HwModuleFpdHelpFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpdHelpFpd>`
+    	**type**\:  :py:class:`HwModuleFpdHelpFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpdHelpFpd>`
     
     .. attribute:: package
     
     	gets fpd package info
-    	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Package>`
+    	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Package>`
     
     .. attribute:: location_help
     
     	fpd upgradable locations
-    	**type**\:   :py:class:`LocationHelp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.LocationHelp>`
+    	**type**\:  :py:class:`LocationHelp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.LocationHelp>`
     
     
 
@@ -109,7 +109,7 @@ class ShowFpd(Entity):
         .. attribute:: location
         
         	location
-        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location>`
+        	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location>`
         
         
 
@@ -143,14 +143,14 @@ class ShowFpd(Entity):
             .. attribute:: location_name  <key>
             
             	Fpd location
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: fpd
             
             	Display fpds on given locations
-            	**type**\: list of    :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpd>`
+            	**type**\: list of  		 :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpd>`
             
             
 
@@ -186,14 +186,14 @@ class ShowFpd(Entity):
                 .. attribute:: fpd_name  <key>
                 
                 	Fpd Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: fpd_info_detaile
                 
                 	 fpd list with all detailes
-                	**type**\: list of    :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpd.FpdInfoDetaile>`
+                	**type**\: list of  		 :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Fpd.FpdInfoDetaile>`
                 
                 
 
@@ -228,42 +228,42 @@ class ShowFpd(Entity):
                     .. attribute:: location
                     
                     	fpd location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: card_name
                     
                     	Name of card on which fpd is located
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: fpd_name
                     
                     	fpd name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: hw_version
                     
                     	hadware version
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: secure_boot_attr
                     
                     	secure boot attribur
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: status
                     
                     	status of the fpd
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: running_version
                     
                     	image running version 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: programd_version
                     
                     	image programd version
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -311,7 +311,7 @@ class ShowFpd(Entity):
         .. attribute:: fpd_info_detaile
         
         	 fpd list with all detailes
-        	**type**\: list of    :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpd.FpdInfoDetaile>`
+        	**type**\: list of  		 :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpd.FpdInfoDetaile>`
         
         
 
@@ -345,42 +345,42 @@ class ShowFpd(Entity):
             .. attribute:: location
             
             	fpd location
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: card_name
             
             	Name of card on which fpd is located
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: fpd_name
             
             	fpd name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: hw_version
             
             	hadware version
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: secure_boot_attr
             
             	secure boot attribur
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: status
             
             	status of the fpd
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: running_version
             
             	image running version 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: programd_version
             
             	image programd version
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -428,7 +428,7 @@ class ShowFpd(Entity):
         .. attribute:: help_location
         
         	location
-        	**type**\: list of    :py:class:`HelpLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation>`
+        	**type**\: list of  		 :py:class:`HelpLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation>`
         
         
 
@@ -462,14 +462,14 @@ class ShowFpd(Entity):
             .. attribute:: location_name  <key>
             
             	Fpd location
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: help_fpd
             
             	Display fpds on given locations
-            	**type**\:   :py:class:`HelpFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd>`
+            	**type**\:  :py:class:`HelpFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd>`
             
             
 
@@ -508,7 +508,7 @@ class ShowFpd(Entity):
                 .. attribute:: fpd_name
                 
                 	Fpd name list
-                	**type**\: list of    :py:class:`FpdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName>`
+                	**type**\: list of  		 :py:class:`FpdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName>`
                 
                 
 
@@ -541,12 +541,12 @@ class ShowFpd(Entity):
                     .. attribute:: location
                     
                     	fpd location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: fpd_name
                     
                     	fpd name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -581,7 +581,7 @@ class ShowFpd(Entity):
         .. attribute:: fpd_name
         
         	Fpd name list
-        	**type**\: list of    :py:class:`FpdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpdHelpFpd.FpdName>`
+        	**type**\: list of  		 :py:class:`FpdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpdHelpFpd.FpdName>`
         
         
 
@@ -615,12 +615,12 @@ class ShowFpd(Entity):
             .. attribute:: location
             
             	fpd location
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: fpd_name
             
             	fpd name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -656,7 +656,7 @@ class ShowFpd(Entity):
         .. attribute:: fpd_pkg_data
         
         	 fpd pkg list 
-        	**type**\: list of    :py:class:`FpdPkgData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Package.FpdPkgData>`
+        	**type**\: list of  		 :py:class:`FpdPkgData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Package.FpdPkgData>`
         
         
 
@@ -690,32 +690,32 @@ class ShowFpd(Entity):
             .. attribute:: card_type
             
             	card type
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: fpd_desc
             
             	fpd desc
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: upgrade_method
             
             	reload or not
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: fpd_ver
             
             	fpd version
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: min_sw_ver
             
             	minimum sw version
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: min_hw_ver
             
             	minimum hw version
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -759,7 +759,7 @@ class ShowFpd(Entity):
         .. attribute:: location_name
         
         	card location list
-        	**type**\: list of    :py:class:`LocationName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.LocationHelp.LocationName>`
+        	**type**\: list of  		 :py:class:`LocationName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.LocationHelp.LocationName>`
         
         
 
@@ -793,7 +793,7 @@ class ShowFpd(Entity):
             .. attribute:: location_name
             
             	card location
-            	**type**\:  str
+            	**type**\: str
             
             
 

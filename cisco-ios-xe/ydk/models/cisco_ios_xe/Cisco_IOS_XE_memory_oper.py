@@ -20,7 +20,7 @@ class MemoryStatistics(Entity):
     .. attribute:: memory_statistic
     
     	The list of software memory pools in the system
-    	**type**\: list of    :py:class:`MemoryStatistic <ydk.models.cisco_ios_xe.Cisco_IOS_XE_memory_oper.MemoryStatistics.MemoryStatistic>`
+    	**type**\: list of  		 :py:class:`MemoryStatistic <ydk.models.cisco_ios_xe.Cisco_IOS_XE_memory_oper.MemoryStatistics.MemoryStatistic>`
     
     
 
@@ -54,12 +54,12 @@ class MemoryStatistics(Entity):
         .. attribute:: name  <key>
         
         	The name of the memory pool
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: total_memory
         
         	Total memory in the pool (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -68,7 +68,7 @@ class MemoryStatistics(Entity):
         .. attribute:: used_memory
         
         	Total used memory in the pool (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -77,7 +77,7 @@ class MemoryStatistics(Entity):
         .. attribute:: free_memory
         
         	Total free memory in the pool (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -86,7 +86,7 @@ class MemoryStatistics(Entity):
         .. attribute:: lowest_usage
         
         	Historical lowest memory usage (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -95,7 +95,7 @@ class MemoryStatistics(Entity):
         .. attribute:: highest_usage
         
         	Historical highest memory usage (bytes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         

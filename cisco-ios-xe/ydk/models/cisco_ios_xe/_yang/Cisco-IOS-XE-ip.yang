@@ -38,6 +38,31 @@ submodule Cisco-IOS-XE-ip {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-28 {
+    description
+      "Extend modeling for multicast";
+  }
+
+   revision 2017-07-24 {
+     description
+       "Add ip ssh server peruser session limit";
+   }
+
+   revision 2017-06-29 {
+     description
+       "This revision fixes the compiling warning in ip route";
+   }
+ 
+   revision 2017-06-27 {
+     description
+       "Add maxstartups to ssh-server";
+   }
+
+   revision 2017-05-17 {
+    description
+      "This revision fixes the problem in ip route";
+  }
+
   revision 2017-04-10 {
     description
       "This revision fixes the problem where CDB not updated when configuring
@@ -241,6 +266,15 @@ submodule Cisco-IOS-XE-ip {
                   }
                 }
               }
+              container auto-discovery {
+                description
+                  "BGP auto-discovery for MVPN";
+                leaf pim {
+                  description
+                    "BGP auto-discovery for PIM";
+                  type empty;
+                }
+              }
               container data {
                 description
                   "MDT data trees";
@@ -275,6 +309,15 @@ submodule Cisco-IOS-XE-ip {
                   "The MTU";
                 type uint16 {
                   range "576..18010";
+                }
+              }
+              container overlay {
+                description
+                  "MDT Overlay Protocol";
+                leaf use-bgp {
+                  description
+                    "Use BGP for Overlay Signaling";
+                  type empty;
                 }
               }
               leaf-list preference {
@@ -384,7 +427,16 @@ submodule Cisco-IOS-XE-ip {
           uses vrf-route-target-grouping;
         }
         //  vnet            Virtual NETworking configuration
-        //  vpn             Configure VPN ID as specified in rfc2685
+        // vrf definition * / vpn
+        container vpn {
+          description
+            "Configure VPN ID as specified in rfc2685";
+          leaf id {
+            description
+              "Configure VPN ID in rfc2685 format";
+            type vpn-id-type;
+          }
+        }
       }
       // list "list" {
       //   key id;
@@ -410,14 +462,28 @@ submodule Cisco-IOS-XE-ip {
     }
   }
 
-  grouping ip-route-options-grouping {
+  grouping ip-route-dhcp-only-options-grouping {
+    leaf dhcp {
+      description
+        "Default Gateway obtained from DHCP";
+      type empty;
+    }
     leaf metric {
       type uint8 {
         range "1..255";
       }
     }
-    leaf forwarding-router-adr {
-      type inet:ipv4-address;
+  }
+  grouping ip-route-options-grouping {
+    leaf dhcp {
+      description
+        "Default Gateway obtained from DHCP";
+      type empty;
+    }
+    leaf metric {
+      type uint8 {
+        range "1..255";
+      }
     }
     leaf global {
       description
@@ -437,11 +503,6 @@ submodule Cisco-IOS-XE-ip {
     leaf multicast {
       description
         "multicast route";
-      type empty;
-    }
-    leaf dhcp {
-      description
-        "Default Gateway obtained from DHCP";
       type empty;
     }
     leaf tag {
@@ -469,6 +530,7 @@ submodule Cisco-IOS-XE-ip {
       leaf mask {
         type inet:ipv4-address;
       }
+      uses ip-route-dhcp-only-options-grouping;
       list fwd-list {
         key fwd;
         leaf fwd {
@@ -480,6 +542,13 @@ submodule Cisco-IOS-XE-ip {
                type inet:ipv4-address;
                type string;
             }
+        }
+        list interface-next-hop {
+          key ip-address;
+          leaf ip-address {
+             type inet:ipv4-address;
+          }
+          uses ip-route-options-grouping;
         }
         uses ip-route-options-grouping;
       }
@@ -1637,7 +1706,7 @@ submodule Cisco-IOS-XE-ip {
       container routing { 
         description
           "Enable IP routing";
-        presence "true";
+        presence "true"; 
         container protocol {
           description
             "IP routing protocol";
@@ -1834,6 +1903,21 @@ submodule Cisco-IOS-XE-ip {
           description 
             "Configuration for server";
           uses config-ip-ssh-algorithm-grouping;
+          container peruser {
+             description
+               "Per User configs";
+             container session {
+               description
+                 "Per User Session";
+               leaf limit {
+                 description
+                   "Per User Session Limit";
+                 type uint8 {
+                   range "1..16";
+                 }
+               }
+             }
+           }
         }    
         //  source-interface Specify interface for source address in
         // ip ssh source-interface
@@ -1857,6 +1941,14 @@ submodule Cisco-IOS-XE-ip {
             range "1..2";
           }
         }
+         leaf maxstartups {
+           description
+             "Maximum number of server sessions";
+           type uint8 {
+             range "2..128";
+           }
+         }
+
         list port {
           description
             "Starting (or only) Port number to listen on";

@@ -17,49 +17,49 @@ class PIMMIB(Entity):
     .. attribute:: pim
     
     	
-    	**type**\:   :py:class:`Pim <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pim>`
+    	**type**\:  :py:class:`Pim <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pim>`
     
     .. attribute:: piminterfacetable
     
     	The (conceptual) table listing the router's PIM interfaces. IGMP and PIM are enabled on all interfaces listed in this table
-    	**type**\:   :py:class:`Piminterfacetable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable>`
+    	**type**\:  :py:class:`Piminterfacetable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable>`
     
     .. attribute:: pimneighbortable
     
     	The (conceptual) table listing the router's PIM neighbors
-    	**type**\:   :py:class:`Pimneighbortable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable>`
+    	**type**\:  :py:class:`Pimneighbortable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable>`
     
     .. attribute:: pimipmroutetable
     
     	The (conceptual) table listing PIM\-specific information on a subset of the rows of the ipMRouteTable defined in the IP Multicast MIB
-    	**type**\:   :py:class:`Pimipmroutetable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutetable>`
+    	**type**\:  :py:class:`Pimipmroutetable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutetable>`
     
     .. attribute:: pimrptable
     
     	The (conceptual) table listing PIM version 1 information for the Rendezvous Points (RPs) for IP multicast groups. This table is deprecated since its function is replaced by the pimRPSetTable for PIM version 2
-    	**type**\:   :py:class:`Pimrptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable>`
+    	**type**\:  :py:class:`Pimrptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable>`
     
     	**status**\: deprecated
     
     .. attribute:: pimrpsettable
     
     	The (conceptual) table listing PIM information for candidate Rendezvous Points (RPs) for IP multicast groups. When the local router is the BSR, this information is obtained from received Candidate\-RP\-Advertisements.  When the local router is not the BSR, this information is obtained from received RP\-Set messages
-    	**type**\:   :py:class:`Pimrpsettable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrpsettable>`
+    	**type**\:  :py:class:`Pimrpsettable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrpsettable>`
     
     .. attribute:: pimipmroutenexthoptable
     
     	The (conceptual) table listing PIM\-specific information on a subset of the rows of the ipMRouteNextHopTable defined in the IP Multicast MIB
-    	**type**\:   :py:class:`Pimipmroutenexthoptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable>`
+    	**type**\:  :py:class:`Pimipmroutenexthoptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable>`
     
     .. attribute:: pimcandidaterptable
     
     	The (conceptual) table listing the IP multicast groups for which the local router is to advertise itself as a Candidate\-RP when the value of pimComponentCRPHoldTime is non\-zero.  If this table is empty, then the local router      will advertise itself as a Candidate\-RP for all groups (providing the value of pimComponentCRPHoldTime is non\- zero)
-    	**type**\:   :py:class:`Pimcandidaterptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcandidaterptable>`
+    	**type**\:  :py:class:`Pimcandidaterptable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcandidaterptable>`
     
     .. attribute:: pimcomponenttable
     
     	The (conceptual) table containing objects specific to a PIM domain.  One row exists for each domain to which the router is connected.  A PIM\-SM domain is defined as an area of the network over which Bootstrap messages are forwarded. Typically, a PIM\-SM router will be a member of exactly one domain.  This table also supports, however, routers which may form a border between two PIM\-SM domains and do not forward Bootstrap messages between them
-    	**type**\:   :py:class:`Pimcomponenttable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcomponenttable>`
+    	**type**\:  :py:class:`Pimcomponenttable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcomponenttable>`
     
     
 
@@ -133,7 +133,7 @@ class PIMMIB(Entity):
         .. attribute:: pimjoinpruneinterval
         
         	The default interval at which periodic PIM\-SM Join/Prune messages are to be sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
@@ -173,7 +173,7 @@ class PIMMIB(Entity):
         .. attribute:: piminterfaceentry
         
         	An entry (conceptual row) in the pimInterfaceTable
-        	**type**\: list of    :py:class:`Piminterfaceentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable.Piminterfaceentry>`
+        	**type**\: list of  		 :py:class:`Piminterfaceentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable.Piminterfaceentry>`
         
         
 
@@ -207,34 +207,40 @@ class PIMMIB(Entity):
             .. attribute:: piminterfaceifindex  <key>
             
             	The ifIndex value of this PIM interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: piminterfaceaddress
             
             	The IP address of the PIM interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: piminterfacenetmask
             
             	The network mask for the IP address of the PIM interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: piminterfacemode
             
             	The configured mode of this PIM interface.  A value of sparseDense is only valid for PIMv1
-            	**type**\:   :py:class:`Piminterfacemode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable.Piminterfaceentry.Piminterfacemode>`
+            	**type**\:  :py:class:`Piminterfacemode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Piminterfacetable.Piminterfaceentry.Piminterfacemode>`
             
             .. attribute:: piminterfacedr
             
             	The Designated Router on this PIM interface.  For point\-to\- point interfaces, this object has the value 0.0.0.0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: piminterfacehellointerval
             
             	The frequency at which PIM Hello messages are transmitted on this interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -243,12 +249,12 @@ class PIMMIB(Entity):
             .. attribute:: piminterfacestatus
             
             	The status of this entry.  Creating the entry enables PIM on the interface; destroying the entry disables PIM on the interface
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: piminterfacejoinpruneinterval
             
             	The frequency at which PIM Join/Prune messages are transmitted on this PIM interface.  The default value of this object is the pimJoinPruneInterval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -257,7 +263,7 @@ class PIMMIB(Entity):
             .. attribute:: piminterfacecbsrpreference
             
             	The preference value for the local interface as a candidate bootstrap router.  The value of \-1 is used to indicate that the local interface is not a candidate BSR interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1..255
             
@@ -332,7 +338,7 @@ class PIMMIB(Entity):
         .. attribute:: pimneighborentry
         
         	An entry (conceptual row) in the pimNeighborTable
-        	**type**\: list of    :py:class:`Pimneighborentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable.Pimneighborentry>`
+        	**type**\: list of  		 :py:class:`Pimneighborentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable.Pimneighborentry>`
         
         
 
@@ -366,33 +372,35 @@ class PIMMIB(Entity):
             .. attribute:: pimneighboraddress  <key>
             
             	The IP address of the PIM neighbor for which this entry contains information
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: pimneighborifindex
             
             	The value of ifIndex for the interface used to reach this PIM neighbor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: pimneighboruptime
             
             	The time since this PIM neighbor (last) became a neighbor of the local router
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pimneighborexpirytime
             
             	The minimum time remaining before this PIM neighbor will be aged out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pimneighbormode
             
             	The active PIM mode of this neighbor.  This object is deprecated for PIMv2 routers since all neighbors on the interface must be either dense or sparse as determined by the protocol running on the interface
-            	**type**\:   :py:class:`Pimneighbormode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable.Pimneighborentry.Pimneighbormode>`
+            	**type**\:  :py:class:`Pimneighbormode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimneighbortable.Pimneighborentry.Pimneighbormode>`
             
             	**status**\: deprecated
             
@@ -461,7 +469,7 @@ class PIMMIB(Entity):
         .. attribute:: pimipmrouteentry
         
         	An entry (conceptual row) in the pimIpMRouteTable.  There is one entry per entry in the ipMRouteTable whose incoming interface is running PIM
-        	**type**\: list of    :py:class:`Pimipmrouteentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutetable.Pimipmrouteentry>`
+        	**type**\: list of  		 :py:class:`Pimipmrouteentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutetable.Pimipmrouteentry>`
         
         
 
@@ -497,54 +505,60 @@ class PIMMIB(Entity):
             .. attribute:: ipmroutegroup  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutegroup <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry>`
             
             .. attribute:: ipmroutesource  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutesource <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry>`
             
             .. attribute:: ipmroutesourcemask  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutesourcemask <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry>`
             
             .. attribute:: pimipmrouteupstreamasserttimer
             
             	The time remaining before the router changes its upstream neighbor back to its RPF neighbor.  This timer is called the Assert timer in the PIM Sparse and Dense mode specification.      A value of 0 indicates that no Assert has changed the upstream neighbor away from the RPF neighbor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pimipmrouteassertmetric
             
             	The metric advertised by the assert winner on the upstream interface, or 0 if no such assert is in received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: pimipmrouteassertmetricpref
             
             	The preference advertised by the assert winner on the upstream interface, or 0 if no such assert is in effect
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: pimipmrouteassertrptbit
             
             	The value of the RPT\-bit advertised by the assert winner on the upstream interface, or false if no such assert is in effect
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: pimipmrouteflags
             
             	This object describes PIM\-specific flags related to a multicast state entry.  See the PIM Sparse Mode specification for the meaning of the RPT and SPT bits
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1
             
@@ -597,7 +611,7 @@ class PIMMIB(Entity):
         .. attribute:: pimrpentry
         
         	An entry (conceptual row) in the pimRPTable.  There is one entry per RP address for each IP multicast group
-        	**type**\: list of    :py:class:`Pimrpentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable.Pimrpentry>`
+        	**type**\: list of  		 :py:class:`Pimrpentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable.Pimrpentry>`
         
         	**status**\: deprecated
         
@@ -634,28 +648,32 @@ class PIMMIB(Entity):
             .. attribute:: pimrpgroupaddress  <key>
             
             	The IP multicast group address for which this entry contains information about an RP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: pimrpaddress  <key>
             
             	The unicast address of the RP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: pimrpstate
             
             	The state of the RP
-            	**type**\:   :py:class:`Pimrpstate <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable.Pimrpentry.Pimrpstate>`
+            	**type**\:  :py:class:`Pimrpstate <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrptable.Pimrpentry.Pimrpstate>`
             
             	**status**\: deprecated
             
             .. attribute:: pimrpstatetimer
             
             	The minimum time remaining before the next state change. When pimRPState is up, this is the minimum time which must expire until it can be declared down.  When pimRPState is down, this is the time until it will be declared up (in order to retry)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -664,7 +682,7 @@ class PIMMIB(Entity):
             .. attribute:: pimrplastchange
             
             	The value of sysUpTime at the time when the corresponding instance of pimRPState last changed its value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -673,7 +691,7 @@ class PIMMIB(Entity):
             .. attribute:: pimrprowstatus
             
             	The status of this row, by which new entries may be created, or old entries deleted from this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             	**status**\: deprecated
             
@@ -741,7 +759,7 @@ class PIMMIB(Entity):
         .. attribute:: pimrpsetentry
         
         	An entry (conceptual row) in the pimRPSetTable
-        	**type**\: list of    :py:class:`Pimrpsetentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrpsettable.Pimrpsetentry>`
+        	**type**\: list of  		 :py:class:`Pimrpsetentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimrpsettable.Pimrpsetentry>`
         
         
 
@@ -775,29 +793,35 @@ class PIMMIB(Entity):
             .. attribute:: pimrpsetcomponent  <key>
             
             	 A number uniquely identifying the component.  Each protocol instance connected to a separate domain should have a different index value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: pimrpsetgroupaddress  <key>
             
             	The IP multicast group address which, when combined with pimRPSetGroupMask, gives the group prefix for which this entry contains information about the Candidate\-RP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: pimrpsetgroupmask  <key>
             
             	The multicast group address mask which, when combined with pimRPSetGroupAddress, gives the group prefix for which this entry contains information about the Candidate\-RP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: pimrpsetaddress  <key>
             
             	The IP address of the Candidate\-RP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: pimrpsetholdtime
             
             	The holdtime of a Candidate\-RP.  If the local router is not the BSR, this value is 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -806,7 +830,7 @@ class PIMMIB(Entity):
             .. attribute:: pimrpsetexpirytime
             
             	The minimum time remaining before the Candidate\-RP will be declared down.  If the local router is not the BSR, this value is 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -854,7 +878,7 @@ class PIMMIB(Entity):
         .. attribute:: pimipmroutenexthopentry
         
         	An entry (conceptual row) in the pimIpMRouteNextHopTable. There is one entry per entry in the ipMRouteNextHopTable whose interface is running PIM and whose ipMRouteNextHopState is pruned(1)
-        	**type**\: list of    :py:class:`Pimipmroutenexthopentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry>`
+        	**type**\: list of  		 :py:class:`Pimipmroutenexthopentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry>`
         
         
 
@@ -891,28 +915,34 @@ class PIMMIB(Entity):
             .. attribute:: ipmroutenexthopgroup  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutenexthopgroup <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
             
             .. attribute:: ipmroutenexthopsource  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutenexthopsource <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
             
             .. attribute:: ipmroutenexthopsourcemask  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutenexthopsourcemask <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
             
             .. attribute:: ipmroutenexthopifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -921,14 +951,16 @@ class PIMMIB(Entity):
             .. attribute:: ipmroutenexthopaddress  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutenexthopaddress <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
             
             .. attribute:: pimipmroutenexthopprunereason
             
             	This object indicates why the downstream interface was pruned, whether in response to a PIM prune message or due to PIM Assert processing
-            	**type**\:   :py:class:`Pimipmroutenexthopprunereason <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry.Pimipmroutenexthopprunereason>`
+            	**type**\:  :py:class:`Pimipmroutenexthopprunereason <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimipmroutenexthoptable.Pimipmroutenexthopentry.Pimipmroutenexthopprunereason>`
             
             
 
@@ -1008,7 +1040,7 @@ class PIMMIB(Entity):
         .. attribute:: pimcandidaterpentry
         
         	An entry (conceptual row) in the pimCandidateRPTable
-        	**type**\: list of    :py:class:`Pimcandidaterpentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcandidaterptable.Pimcandidaterpentry>`
+        	**type**\: list of  		 :py:class:`Pimcandidaterpentry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcandidaterptable.Pimcandidaterpentry>`
         
         
 
@@ -1042,22 +1074,28 @@ class PIMMIB(Entity):
             .. attribute:: pimcandidaterpgroupaddress  <key>
             
             	The IP multicast group address which, when combined with pimCandidateRPGroupMask, identifies a group prefix for which the local router will advertise itself as a Candidate\-RP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: pimcandidaterpgroupmask  <key>
             
             	The multicast group address mask which, when combined with pimCandidateRPGroupMask, identifies a group prefix for which the local router will advertise itself as a Candidate\-RP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: pimcandidaterpaddress
             
             	The (unicast) address of the interface which will be      advertised as a Candidate\-RP
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: pimcandidaterprowstatus
             
             	The status of this row, by which new entries may be created, or old entries deleted from this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -1104,7 +1142,7 @@ class PIMMIB(Entity):
         .. attribute:: pimcomponententry
         
         	An entry (conceptual row) in the pimComponentTable
-        	**type**\: list of    :py:class:`Pimcomponententry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcomponenttable.Pimcomponententry>`
+        	**type**\: list of  		 :py:class:`Pimcomponententry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pimcomponenttable.Pimcomponententry>`
         
         
 
@@ -1138,26 +1176,28 @@ class PIMMIB(Entity):
             .. attribute:: pimcomponentindex  <key>
             
             	A number uniquely identifying the component.  Each protocol instance connected to a separate domain should have a different index value.  Routers that only support membership in a single PIM\-SM domain should use a pimComponentIndex value of 1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: pimcomponentbsraddress
             
             	The IP address of the bootstrap router (BSR) for the local PIM region
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: pimcomponentbsrexpirytime
             
             	The minimum time remaining before the bootstrap router in the local domain will be declared down.  For candidate BSRs, this is the time until the component sends an RP\-Set message.  For other routers, this is the time until it may accept an RP\-Set message from a lower candidate BSR
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pimcomponentcrpholdtime
             
             	The holdtime of the component when it is a candidate RP in the local domain.  The value of 0 is used to indicate that the local system is not a Candidate\-RP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -1166,7 +1206,7 @@ class PIMMIB(Entity):
             .. attribute:: pimcomponentstatus
             
             	The status of this entry.  Creating the entry creates another protocol instance; destroying the entry disables a protocol instance
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 

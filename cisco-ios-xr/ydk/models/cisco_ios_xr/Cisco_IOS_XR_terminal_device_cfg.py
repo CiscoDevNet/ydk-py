@@ -325,7 +325,7 @@ class LogicalChannels(Entity):
     .. attribute:: channel
     
     	Logical channel index
-    	**type**\: list of    :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel>`
+    	**type**\: list of  		 :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel>`
     
     
 
@@ -359,63 +359,65 @@ class LogicalChannels(Entity):
         .. attribute:: channel_index  <key>
         
         	Logical Channel Index
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: logical_channel_assignments
         
         	Logical channel assignment for logical channel
-        	**type**\:   :py:class:`LogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments>`
+        	**type**\:  :py:class:`LogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments>`
         
         .. attribute:: otn
         
         	Otn Related configs for Logical channel
-        	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.Otn>`
+        	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.Otn>`
         
         .. attribute:: trib_protocol
         
         	Protocol framing of the tributary signal
-        	**type**\:   :py:class:`LogicalTribProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalTribProtocol>`
+        	**type**\:  :py:class:`LogicalTribProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalTribProtocol>`
         
         .. attribute:: description
         
         	Description (Max 255 characters)
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..255
         
         .. attribute:: ingress_client_port
         
         	Configure ingress client port for this logical channel
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         .. attribute:: ingress_physical_channel
         
         	Configure ingress physical channel for this logical channel
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4
         
         .. attribute:: admin_state
         
         	Configure the admin\-state 
-        	**type**\:   :py:class:`LogicalAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalAdminState>`
+        	**type**\:  :py:class:`LogicalAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalAdminState>`
         
         .. attribute:: loopback_mode
         
         	Configure the loopback mode 
-        	**type**\:   :py:class:`LogicalLoopbackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalLoopbackMode>`
+        	**type**\:  :py:class:`LogicalLoopbackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalLoopbackMode>`
         
         .. attribute:: logical_channel_type
         
         	Configure the logical\-channel\-type 
-        	**type**\:   :py:class:`LogicalProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalProtocol>`
+        	**type**\:  :py:class:`LogicalProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalProtocol>`
         
         .. attribute:: rate_class
         
         	Rounded bit rate of the tributary signal
-        	**type**\:   :py:class:`LogicalTribRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalTribRate>`
+        	**type**\:  :py:class:`LogicalTribRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalTribRate>`
         
         
 
@@ -475,7 +477,7 @@ class LogicalChannels(Entity):
             .. attribute:: logical_channel_assignment
             
             	Logical Channel Assignment id
-            	**type**\: list of    :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment>`
+            	**type**\: list of  		 :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment>`
             
             
 
@@ -508,40 +510,40 @@ class LogicalChannels(Entity):
                 .. attribute:: assignment_index  <key>
                 
                 	Logical channel assignment index
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: description
                 
                 	Configure description for this assignment
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..255
                 
                 .. attribute:: logical_channel_id
                 
                 	Configure logical channel for this assignment
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: assignment_type
                 
                 	Type of assignment for logical channel
-                	**type**\:   :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannelAssignment>`
+                	**type**\:  :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannelAssignment>`
                 
                 .. attribute:: allocation
                 
                 	Configure Allocation for this assignment(10, 40 or 100G)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: optical_channel_id
                 
                 	Configure optical channel for this assignment
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -584,19 +586,19 @@ class LogicalChannels(Entity):
             .. attribute:: tti_msg_auto
             
             	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid. Trail trace identifier (TTI) transmit message automatically created
-            	**type**\:   :py:class:`LogicalChannelOtnTtiAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannelOtnTtiAuto>`
+            	**type**\:  :py:class:`LogicalChannelOtnTtiAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.LogicalChannelOtnTtiAuto>`
             
             .. attribute:: tti_msg_expected
             
             	Trail trace identifier (TTI) message expectedTrail trace identifier (TTI) message expected
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
             .. attribute:: tti_msg_transmit
             
             	Trail trace identifier (TTI) message transmittedTrail trace identifier (TTI) message transmitted
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
@@ -638,7 +640,7 @@ class OpticalChannels(Entity):
     .. attribute:: optical_channel
     
     	Optical Channel index
-    	**type**\: list of    :py:class:`OpticalChannel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.OpticalChannels.OpticalChannel>`
+    	**type**\: list of  		 :py:class:`OpticalChannel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg.OpticalChannels.OpticalChannel>`
     
     
 
@@ -672,19 +674,23 @@ class OpticalChannels(Entity):
         .. attribute:: ifname  <key>
         
         	Optical Channel Name
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: operational_mode
         
         	Configure operational mode
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..100000
         
         .. attribute:: line_port
         
         	Specify R/S/I/P
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         
 

@@ -46,7 +46,7 @@ class EsAcl(Entity):
     .. attribute:: accesses
     
     	Table of access lists
-    	**type**\:   :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses>`
+    	**type**\:  :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses>`
     
     
 
@@ -80,7 +80,7 @@ class EsAcl(Entity):
         .. attribute:: access
         
         	An ACL
-        	**type**\: list of    :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access>`
+        	**type**\: list of  		 :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access>`
         
         
 
@@ -114,14 +114,14 @@ class EsAcl(Entity):
             .. attribute:: name  <key>
             
             	Name of the access list
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65
             
             .. attribute:: access_list_entries
             
             	ACL entry table; contains list of access list entries
-            	**type**\:   :py:class:`AccessListEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries>`
+            	**type**\:  :py:class:`AccessListEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries>`
             
             
 
@@ -161,7 +161,7 @@ class EsAcl(Entity):
                 .. attribute:: access_list_entry
                 
                 	An ACL entry; either a description (remark) or anAccess List Entry to match against
-                	**type**\: list of    :py:class:`AccessListEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry>`
+                	**type**\: list of  		 :py:class:`AccessListEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry>`
                 
                 
 
@@ -195,109 +195,109 @@ class EsAcl(Entity):
                     .. attribute:: sequence_number  <key>
                     
                     	Sequence number of access list entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..2147483646
                     
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the ACE
-                    	**type**\:   :py:class:`EsAclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnum>`
+                    	**type**\:  :py:class:`EsAclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnum>`
                     
                     .. attribute:: source_network
                     
                     	Source network settings
-                    	**type**\:   :py:class:`SourceNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork>`
+                    	**type**\:  :py:class:`SourceNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork>`
                     
                     .. attribute:: destination_network
                     
                     	Destination network settings
-                    	**type**\:   :py:class:`DestinationNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork>`
+                    	**type**\:  :py:class:`DestinationNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork>`
                     
                     .. attribute:: vlan1
                     
                     	VLAN ID/range lower limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: vlan2
                     
                     	VLAN ID range higher limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: cos
                     
                     	COS value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: dei
                     
                     	DEI bit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: inner_vlan1
                     
                     	Inner VLAN ID/range lower limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: inner_vlan2
                     
                     	Inner VLAN ID range higher limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: inner_cos
                     
                     	Inner COS value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: inner_dei
                     
                     	Inner DEI bit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: remark
                     
                     	Comments or a description for the access list
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: ether_type_number
                     
                     	Ethernet type Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: capture
                     
                     	Enable capture
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: log_option
                     
                     	Whether and how to log matches against this entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: sequence_str
                     
                     	Sequence String for the ace
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -370,12 +370,16 @@ class EsAcl(Entity):
                         .. attribute:: source_address
                         
                         	Source address to match, leave unspecified for any
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{1,4}(\\.[0\-9a\-fA\-F]{1,4}){2})
                         
                         .. attribute:: source_wild_card_bits
                         
                         	Wildcard bits to apply to source address (if specified), leave unspecified for no wildcarding
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{1,4}(\\.[0\-9a\-fA\-F]{1,4}){2})
                         
                         
 
@@ -410,12 +414,16 @@ class EsAcl(Entity):
                         .. attribute:: destination_address
                         
                         	Destination address to match (if a protocol was specified), leave unspecified for any
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{1,4}(\\.[0\-9a\-fA\-F]{1,4}){2})
                         
                         .. attribute:: destination_wild_card_bits
                         
                         	Wildcard bits to apply to destination address (if specified), leave unspecified for no wildcarding
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{1,4}(\\.[0\-9a\-fA\-F]{1,4}){2})
                         
                         
 

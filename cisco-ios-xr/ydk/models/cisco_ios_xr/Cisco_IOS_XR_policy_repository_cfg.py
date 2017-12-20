@@ -25,27 +25,27 @@ class RoutingPolicy(Entity):
     .. attribute:: route_policies
     
     	All configured policies
-    	**type**\:   :py:class:`RoutePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.RoutePolicies>`
+    	**type**\:  :py:class:`RoutePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.RoutePolicies>`
     
     .. attribute:: sets
     
     	All configured sets
-    	**type**\:   :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets>`
+    	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets>`
     
     .. attribute:: limits
     
     	Limits for Routing Policy
-    	**type**\:   :py:class:`Limits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Limits>`
+    	**type**\:  :py:class:`Limits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Limits>`
     
     .. attribute:: set_exit_as_abort
     
     	Set exit under RPL config to abort
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: editor
     
     	'emacs' or 'vim' or 'nano'
-    	**type**\:  str
+    	**type**\: str
     
     
 
@@ -96,7 +96,7 @@ class RoutingPolicy(Entity):
         .. attribute:: route_policy
         
         	Information about an individual policy
-        	**type**\: list of    :py:class:`RoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.RoutePolicies.RoutePolicy>`
+        	**type**\: list of  		 :py:class:`RoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.RoutePolicies.RoutePolicy>`
         
         
 
@@ -130,12 +130,14 @@ class RoutingPolicy(Entity):
             .. attribute:: route_policy_name  <key>
             
             	Route policy name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: rpl_route_policy
             
             	policy statements
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
@@ -173,147 +175,147 @@ class RoutingPolicy(Entity):
         .. attribute:: prepend_etag_sets
         
         	Information about Etag sets
-        	**type**\:   :py:class:`PrependEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEtagSets>`
+        	**type**\:  :py:class:`PrependEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEtagSets>`
         
         .. attribute:: prefix_sets
         
         	Information about Prefix sets
-        	**type**\:   :py:class:`PrefixSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrefixSets>`
+        	**type**\:  :py:class:`PrefixSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrefixSets>`
         
         .. attribute:: large_community_sets
         
         	Information about Large Community sets
-        	**type**\:   :py:class:`LargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.LargeCommunitySets>`
+        	**type**\:  :py:class:`LargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.LargeCommunitySets>`
         
         .. attribute:: prepend_large_community_sets
         
         	Information about Large Community sets
-        	**type**\:   :py:class:`PrependLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependLargeCommunitySets>`
+        	**type**\:  :py:class:`PrependLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependLargeCommunitySets>`
         
         .. attribute:: append_etag_sets
         
         	Information about Etag sets
-        	**type**\:   :py:class:`AppendEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEtagSets>`
+        	**type**\:  :py:class:`AppendEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEtagSets>`
         
         .. attribute:: remove_etag_sets
         
         	Information about Etag sets
-        	**type**\:   :py:class:`RemoveEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEtagSets>`
+        	**type**\:  :py:class:`RemoveEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEtagSets>`
         
         .. attribute:: remove_large_community_sets
         
         	Information about Large Community sets
-        	**type**\:   :py:class:`RemoveLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveLargeCommunitySets>`
+        	**type**\:  :py:class:`RemoveLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveLargeCommunitySets>`
         
         .. attribute:: mac_sets
         
         	Information about Mac sets
-        	**type**\:   :py:class:`MacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.MacSets>`
+        	**type**\:  :py:class:`MacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.MacSets>`
         
         .. attribute:: extended_community_opaque_sets
         
         	Information about Opaque sets
-        	**type**\:   :py:class:`ExtendedCommunityOpaqueSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityOpaqueSets>`
+        	**type**\:  :py:class:`ExtendedCommunityOpaqueSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityOpaqueSets>`
         
         .. attribute:: prepend_mac_sets
         
         	Information about Mac sets
-        	**type**\:   :py:class:`PrependMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependMacSets>`
+        	**type**\:  :py:class:`PrependMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependMacSets>`
         
         .. attribute:: ospf_area_sets
         
         	Information about OSPF Area sets
-        	**type**\:   :py:class:`OspfAreaSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.OspfAreaSets>`
+        	**type**\:  :py:class:`OspfAreaSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.OspfAreaSets>`
         
         .. attribute:: append_mac_sets
         
         	Information about Mac sets
-        	**type**\:   :py:class:`AppendMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendMacSets>`
+        	**type**\:  :py:class:`AppendMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendMacSets>`
         
         .. attribute:: extended_community_cost_sets
         
         	Information about Cost sets
-        	**type**\:   :py:class:`ExtendedCommunityCostSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityCostSets>`
+        	**type**\:  :py:class:`ExtendedCommunityCostSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityCostSets>`
         
         .. attribute:: remove_mac_sets
         
         	Information about Mac sets
-        	**type**\:   :py:class:`RemoveMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveMacSets>`
+        	**type**\:  :py:class:`RemoveMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveMacSets>`
         
         .. attribute:: extended_community_soo_sets
         
         	Information about SOO sets
-        	**type**\:   :py:class:`ExtendedCommunitySooSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySooSets>`
+        	**type**\:  :py:class:`ExtendedCommunitySooSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySooSets>`
         
         .. attribute:: esi_sets
         
         	Information about Esi sets
-        	**type**\:   :py:class:`EsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EsiSets>`
+        	**type**\:  :py:class:`EsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EsiSets>`
         
         .. attribute:: prepend_esi_sets
         
         	Information about Esi sets
-        	**type**\:   :py:class:`PrependEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEsiSets>`
+        	**type**\:  :py:class:`PrependEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEsiSets>`
         
         .. attribute:: append_esi_sets
         
         	Information about Esi sets
-        	**type**\:   :py:class:`AppendEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEsiSets>`
+        	**type**\:  :py:class:`AppendEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEsiSets>`
         
         .. attribute:: remove_esi_sets
         
         	Information about Esi sets
-        	**type**\:   :py:class:`RemoveEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEsiSets>`
+        	**type**\:  :py:class:`RemoveEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEsiSets>`
         
         .. attribute:: extended_community_seg_nh_sets
         
         	Information about SegNH sets
-        	**type**\:   :py:class:`ExtendedCommunitySegNhSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySegNhSets>`
+        	**type**\:  :py:class:`ExtendedCommunitySegNhSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySegNhSets>`
         
         .. attribute:: rd_sets
         
         	Information about RD sets
-        	**type**\:   :py:class:`RdSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RdSets>`
+        	**type**\:  :py:class:`RdSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RdSets>`
         
         .. attribute:: policy_global_set_table
         
         	Information about PolicyGlobal sets
-        	**type**\:   :py:class:`PolicyGlobalSetTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PolicyGlobalSetTable>`
+        	**type**\:  :py:class:`PolicyGlobalSetTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PolicyGlobalSetTable>`
         
         .. attribute:: append_large_community_sets
         
         	Information about Large Community sets
-        	**type**\:   :py:class:`AppendLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendLargeCommunitySets>`
+        	**type**\:  :py:class:`AppendLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendLargeCommunitySets>`
         
         .. attribute:: extended_community_bandwidth_sets
         
         	Information about Bandwidth sets
-        	**type**\:   :py:class:`ExtendedCommunityBandwidthSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityBandwidthSets>`
+        	**type**\:  :py:class:`ExtendedCommunityBandwidthSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityBandwidthSets>`
         
         .. attribute:: community_sets
         
         	Information about Community sets
-        	**type**\:   :py:class:`CommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.CommunitySets>`
+        	**type**\:  :py:class:`CommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.CommunitySets>`
         
         .. attribute:: as_path_sets
         
         	Information about AS Path sets
-        	**type**\:   :py:class:`AsPathSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AsPathSets>`
+        	**type**\:  :py:class:`AsPathSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AsPathSets>`
         
         .. attribute:: tag_sets
         
         	Information about Tag sets
-        	**type**\:   :py:class:`TagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.TagSets>`
+        	**type**\:  :py:class:`TagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.TagSets>`
         
         .. attribute:: etag_sets
         
         	Information about Etag sets
-        	**type**\:   :py:class:`EtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EtagSets>`
+        	**type**\:  :py:class:`EtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EtagSets>`
         
         .. attribute:: extended_community_rt_sets
         
         	Information about RT sets
-        	**type**\:   :py:class:`ExtendedCommunityRtSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityRtSets>`
+        	**type**\:  :py:class:`ExtendedCommunityRtSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityRtSets>`
         
         
 
@@ -487,7 +489,7 @@ class RoutingPolicy(Entity):
             .. attribute:: prepend_etag_set
             
             	Prepend the entries to the existing set
-            	**type**\: list of    :py:class:`PrependEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet>`
+            	**type**\: list of  		 :py:class:`PrependEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet>`
             
             
 
@@ -521,12 +523,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: etag_set_as_text
                 
                 	Etag Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -564,7 +568,7 @@ class RoutingPolicy(Entity):
             .. attribute:: prefix_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`PrefixSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrefixSets.PrefixSet>`
+            	**type**\: list of  		 :py:class:`PrefixSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrefixSets.PrefixSet>`
             
             
 
@@ -598,12 +602,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_prefix_set
                 
                 	prefix statements
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -641,7 +647,7 @@ class RoutingPolicy(Entity):
             .. attribute:: large_community_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`LargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet>`
+            	**type**\: list of  		 :py:class:`LargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet>`
             
             
 
@@ -675,12 +681,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: large_community_set_as_text
                 
                 	Large Community Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -718,7 +726,7 @@ class RoutingPolicy(Entity):
             .. attribute:: prepend_large_community_set
             
             	Prepend the entries to the existing set
-            	**type**\: list of    :py:class:`PrependLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependLargeCommunitySets.PrependLargeCommunitySet>`
+            	**type**\: list of  		 :py:class:`PrependLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependLargeCommunitySets.PrependLargeCommunitySet>`
             
             
 
@@ -752,12 +760,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: large_community_set_as_text
                 
                 	Large Community Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -795,7 +805,7 @@ class RoutingPolicy(Entity):
             .. attribute:: append_etag_set
             
             	Append the entries to the existing set
-            	**type**\: list of    :py:class:`AppendEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet>`
+            	**type**\: list of  		 :py:class:`AppendEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet>`
             
             
 
@@ -829,12 +839,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: etag_set_as_text
                 
                 	Etag Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -872,7 +884,7 @@ class RoutingPolicy(Entity):
             .. attribute:: remove_etag_set
             
             	Remove the entries from the existing set
-            	**type**\: list of    :py:class:`RemoveEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet>`
+            	**type**\: list of  		 :py:class:`RemoveEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet>`
             
             
 
@@ -906,12 +918,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: etag_set_as_text
                 
                 	Etag Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -949,7 +963,7 @@ class RoutingPolicy(Entity):
             .. attribute:: remove_large_community_set
             
             	Remove the entries from the existing set
-            	**type**\: list of    :py:class:`RemoveLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveLargeCommunitySets.RemoveLargeCommunitySet>`
+            	**type**\: list of  		 :py:class:`RemoveLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveLargeCommunitySets.RemoveLargeCommunitySet>`
             
             
 
@@ -983,12 +997,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: large_community_set_as_text
                 
                 	Large Community Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1026,7 +1042,7 @@ class RoutingPolicy(Entity):
             .. attribute:: mac_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`MacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.MacSets.MacSet>`
+            	**type**\: list of  		 :py:class:`MacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.MacSets.MacSet>`
             
             
 
@@ -1060,12 +1076,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: mac_set_as_text
                 
                 	Mac Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1103,7 +1121,7 @@ class RoutingPolicy(Entity):
             .. attribute:: extended_community_opaque_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`ExtendedCommunityOpaqueSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet>`
+            	**type**\: list of  		 :py:class:`ExtendedCommunityOpaqueSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet>`
             
             
 
@@ -1137,12 +1155,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_extended_community_opaque_set
                 
                 	Extended Community Opaque Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1180,7 +1200,7 @@ class RoutingPolicy(Entity):
             .. attribute:: prepend_mac_set
             
             	Prepend the entries to the existing set
-            	**type**\: list of    :py:class:`PrependMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependMacSets.PrependMacSet>`
+            	**type**\: list of  		 :py:class:`PrependMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependMacSets.PrependMacSet>`
             
             
 
@@ -1214,12 +1234,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: mac_set_as_text
                 
                 	Mac Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1257,7 +1279,7 @@ class RoutingPolicy(Entity):
             .. attribute:: ospf_area_set
             
             	Information about an individual OSPF area set. Usage\: OSPF area set allows to define named set of area numbers        which can be referenced in the route\-policy. Area sets      may be used during redistribution of the ospf protocol.  Example\: ospf\-area\-set EXAMPLE      1,                                             192.168.1.255                                  end\-set                                        Syntax\: OSPF area number can be entered as 32 bit number or in          the ip address format. See example.                     Semantic\: Area numbers listed in the set will be searched for             a match. In the example these are areas 1 and                  192.168.1.255.                                
-            	**type**\: list of    :py:class:`OspfAreaSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet>`
+            	**type**\: list of  		 :py:class:`OspfAreaSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet>`
             
             
 
@@ -1306,12 +1328,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rplospf_area_set
                 
                 	OSPF Area Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1349,7 +1373,7 @@ class RoutingPolicy(Entity):
             .. attribute:: append_mac_set
             
             	Append the entries to the existing set
-            	**type**\: list of    :py:class:`AppendMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendMacSets.AppendMacSet>`
+            	**type**\: list of  		 :py:class:`AppendMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendMacSets.AppendMacSet>`
             
             
 
@@ -1383,12 +1407,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: mac_set_as_text
                 
                 	Mac Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1426,7 +1452,7 @@ class RoutingPolicy(Entity):
             .. attribute:: extended_community_cost_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`ExtendedCommunityCostSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet>`
+            	**type**\: list of  		 :py:class:`ExtendedCommunityCostSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet>`
             
             
 
@@ -1460,12 +1486,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_extended_community_cost_set
                 
                 	Extended Community Cost Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1503,7 +1531,7 @@ class RoutingPolicy(Entity):
             .. attribute:: remove_mac_set
             
             	Remove the entries from the existing set
-            	**type**\: list of    :py:class:`RemoveMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet>`
+            	**type**\: list of  		 :py:class:`RemoveMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet>`
             
             
 
@@ -1537,12 +1565,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: mac_set_as_text
                 
                 	Mac Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1580,7 +1610,7 @@ class RoutingPolicy(Entity):
             .. attribute:: extended_community_soo_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`ExtendedCommunitySooSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet>`
+            	**type**\: list of  		 :py:class:`ExtendedCommunitySooSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet>`
             
             
 
@@ -1614,12 +1644,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_extended_community_soo_set
                 
                 	Extended Community SOO Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1657,7 +1689,7 @@ class RoutingPolicy(Entity):
             .. attribute:: esi_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`EsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EsiSets.EsiSet>`
+            	**type**\: list of  		 :py:class:`EsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EsiSets.EsiSet>`
             
             
 
@@ -1691,12 +1723,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: esi_set_as_text
                 
                 	Esi Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1734,7 +1768,7 @@ class RoutingPolicy(Entity):
             .. attribute:: prepend_esi_set
             
             	Prepend the entries to the existing set
-            	**type**\: list of    :py:class:`PrependEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet>`
+            	**type**\: list of  		 :py:class:`PrependEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet>`
             
             
 
@@ -1768,12 +1802,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: esi_set_as_text
                 
                 	Esi Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1811,7 +1847,7 @@ class RoutingPolicy(Entity):
             .. attribute:: append_esi_set
             
             	Append the entries to the existing set
-            	**type**\: list of    :py:class:`AppendEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet>`
+            	**type**\: list of  		 :py:class:`AppendEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet>`
             
             
 
@@ -1845,12 +1881,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: esi_set_as_text
                 
                 	Esi Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1888,7 +1926,7 @@ class RoutingPolicy(Entity):
             .. attribute:: remove_esi_set
             
             	Remove the entries from the existing set
-            	**type**\: list of    :py:class:`RemoveEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet>`
+            	**type**\: list of  		 :py:class:`RemoveEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet>`
             
             
 
@@ -1922,12 +1960,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: esi_set_as_text
                 
                 	Esi Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -1965,7 +2005,7 @@ class RoutingPolicy(Entity):
             .. attribute:: extended_community_seg_nh_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`ExtendedCommunitySegNhSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet>`
+            	**type**\: list of  		 :py:class:`ExtendedCommunitySegNhSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet>`
             
             
 
@@ -1999,12 +2039,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_extended_community_seg_nh_set
                 
                 	Extended Community SegNH Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2042,7 +2084,7 @@ class RoutingPolicy(Entity):
             .. attribute:: rd_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`RdSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RdSets.RdSet>`
+            	**type**\: list of  		 :py:class:`RdSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RdSets.RdSet>`
             
             
 
@@ -2076,12 +2118,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rplrd_set
                 
                 	RD Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2119,7 +2163,7 @@ class RoutingPolicy(Entity):
             .. attribute:: policy_global_set
             
             	Information about an individual set
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -2153,7 +2197,7 @@ class RoutingPolicy(Entity):
             .. attribute:: append_large_community_set
             
             	Append the entries to the existing set
-            	**type**\: list of    :py:class:`AppendLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendLargeCommunitySets.AppendLargeCommunitySet>`
+            	**type**\: list of  		 :py:class:`AppendLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendLargeCommunitySets.AppendLargeCommunitySet>`
             
             
 
@@ -2187,12 +2231,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: large_community_set_as_text
                 
                 	Large Community Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2230,7 +2276,7 @@ class RoutingPolicy(Entity):
             .. attribute:: extended_community_bandwidth_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`ExtendedCommunityBandwidthSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet>`
+            	**type**\: list of  		 :py:class:`ExtendedCommunityBandwidthSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet>`
             
             
 
@@ -2264,12 +2310,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_extended_community_bandwidth_set
                 
                 	Extended Community Bandwidth Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2307,7 +2355,7 @@ class RoutingPolicy(Entity):
             .. attribute:: community_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`CommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.CommunitySets.CommunitySet>`
+            	**type**\: list of  		 :py:class:`CommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.CommunitySets.CommunitySet>`
             
             
 
@@ -2341,12 +2389,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_community_set
                 
                 	Community Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2384,7 +2434,7 @@ class RoutingPolicy(Entity):
             .. attribute:: as_path_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`AsPathSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AsPathSets.AsPathSet>`
+            	**type**\: list of  		 :py:class:`AsPathSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AsPathSets.AsPathSet>`
             
             
 
@@ -2418,12 +2468,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rplas_path_set
                 
                 	ASPath Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2461,7 +2513,7 @@ class RoutingPolicy(Entity):
             .. attribute:: tag_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`TagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.TagSets.TagSet>`
+            	**type**\: list of  		 :py:class:`TagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.TagSets.TagSet>`
             
             
 
@@ -2495,12 +2547,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_tag_set
                 
                 	Tag Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2538,7 +2592,7 @@ class RoutingPolicy(Entity):
             .. attribute:: etag_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`EtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EtagSets.EtagSet>`
+            	**type**\: list of  		 :py:class:`EtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EtagSets.EtagSet>`
             
             
 
@@ -2572,12 +2626,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: etag_set_as_text
                 
                 	Etag Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2615,7 +2671,7 @@ class RoutingPolicy(Entity):
             .. attribute:: extended_community_rt_set
             
             	Information about an individual set
-            	**type**\: list of    :py:class:`ExtendedCommunityRtSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet>`
+            	**type**\: list of  		 :py:class:`ExtendedCommunityRtSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet>`
             
             
 
@@ -2649,12 +2705,14 @@ class RoutingPolicy(Entity):
                 .. attribute:: set_name  <key>
                 
                 	Set name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: rpl_extended_community_rt_set
                 
                 	Extended Community RT Set
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -2692,7 +2750,7 @@ class RoutingPolicy(Entity):
         .. attribute:: maximum_lines_of_policy
         
         	Maximum number of lines of policy configuration that may be configured in total
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
@@ -2701,7 +2759,7 @@ class RoutingPolicy(Entity):
         .. attribute:: maximum_number_of_policies
         
         	Maximum number of policies that may be configured
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         

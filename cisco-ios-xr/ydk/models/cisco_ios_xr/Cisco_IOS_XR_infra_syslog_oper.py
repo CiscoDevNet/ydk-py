@@ -89,7 +89,7 @@ class Logging(Entity):
     .. attribute:: history
     
     	Syslog Info 
-    	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Logging.History>`
+    	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Logging.History>`
     
     
 
@@ -123,12 +123,12 @@ class Logging(Entity):
         .. attribute:: properties
         
         	Syslog Properties
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: message
         
         	Syslog Message
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -167,22 +167,22 @@ class Syslog(Entity):
     .. attribute:: logging_files
     
     	Logging Files information
-    	**type**\:   :py:class:`LoggingFiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles>`
+    	**type**\:  :py:class:`LoggingFiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles>`
     
     .. attribute:: an_remote_servers
     
     	Logging AN remote servers information
-    	**type**\:   :py:class:`AnRemoteServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
+    	**type**\:  :py:class:`AnRemoteServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
     
     .. attribute:: messages
     
     	Message table information
-    	**type**\:   :py:class:`Messages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages>`
+    	**type**\:  :py:class:`Messages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages>`
     
     .. attribute:: logging_statistics
     
     	Logging statistics information
-    	**type**\:   :py:class:`LoggingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics>`
+    	**type**\:  :py:class:`LoggingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics>`
     
     
 
@@ -231,7 +231,7 @@ class Syslog(Entity):
         .. attribute:: file_log_detail
         
         	Logging Files
-        	**type**\: list of    :py:class:`FileLogDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles.FileLogDetail>`
+        	**type**\: list of  		 :py:class:`FileLogDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles.FileLogDetail>`
         
         
 
@@ -265,12 +265,12 @@ class Syslog(Entity):
             .. attribute:: file_path
             
             	File path for logging messages
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: file_name
             
             	File name for logging messages
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -306,7 +306,7 @@ class Syslog(Entity):
         .. attribute:: an_remote_log_server
         
         	AN Remote Log Servers
-        	**type**\: list of    :py:class:`AnRemoteLogServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers.AnRemoteLogServer>`
+        	**type**\: list of  		 :py:class:`AnRemoteLogServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers.AnRemoteLogServer>`
         
         
 
@@ -340,22 +340,22 @@ class Syslog(Entity):
             .. attribute:: ip_address
             
             	IP Address
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_name
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_severity
             
             	VRF Severity
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: rh_discriminator
             
             	Remote\-Host Discriminator
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -395,7 +395,7 @@ class Syslog(Entity):
         .. attribute:: message
         
         	A system message
-        	**type**\: list of    :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages.Message>`
+        	**type**\: list of  		 :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages.Message>`
         
         
 
@@ -429,24 +429,26 @@ class Syslog(Entity):
             .. attribute:: message_id  <key>
             
             	Message ID of the system message
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: card_type
             
             	Message card location\: 'RP', 'DRP', 'LC', 'SC', 'SP' or 'UNK' 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: node_name
             
             	Message source location
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: time_stamp
             
             	Time in milliseconds since 00\:00\:00 UTC, January 11970 of when message was generated
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -455,42 +457,42 @@ class Syslog(Entity):
             .. attribute:: time_of_day
             
             	Time of day of event in DDD MMM DD  YYYY HH\:MM \:SS format, e.g Wed Apr 01 2009  15\:50\:26
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: time_zone
             
             	Time Zone in UTC+/\-HH\:MM format,  e.g UTC+5\:30, UTC\-6
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: process_name
             
             	Process name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: category
             
             	Message category
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: group
             
             	Message group
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: message_name
             
             	Message name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: severity
             
             	Message severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
             
             .. attribute:: text
             
             	Additional message text
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -546,42 +548,42 @@ class Syslog(Entity):
         .. attribute:: logging_stats
         
         	Logging statistics
-        	**type**\:   :py:class:`LoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
+        	**type**\:  :py:class:`LoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
         
         .. attribute:: console_logging_stats
         
         	Console logging statistics
-        	**type**\:   :py:class:`ConsoleLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.ConsoleLoggingStats>`
+        	**type**\:  :py:class:`ConsoleLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.ConsoleLoggingStats>`
         
         .. attribute:: monitor_logging_stats
         
         	Monitor loggingstatistics
-        	**type**\:   :py:class:`MonitorLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.MonitorLoggingStats>`
+        	**type**\:  :py:class:`MonitorLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.MonitorLoggingStats>`
         
         .. attribute:: trap_logging_stats
         
         	Trap logging statistics
-        	**type**\:   :py:class:`TrapLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
+        	**type**\:  :py:class:`TrapLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
         
         .. attribute:: buffer_logging_stats
         
         	Buffer logging statistics
-        	**type**\:   :py:class:`BufferLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
+        	**type**\:  :py:class:`BufferLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
         
         .. attribute:: remote_logging_stat
         
         	Remote logging statistics
-        	**type**\: list of    :py:class:`RemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
+        	**type**\: list of  		 :py:class:`RemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
         
         .. attribute:: tls_remote_logging_stat
         
         	TLS Remote logging statistics
-        	**type**\: list of    :py:class:`TlsRemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TlsRemoteLoggingStat>`
+        	**type**\: list of  		 :py:class:`TlsRemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TlsRemoteLoggingStat>`
         
         .. attribute:: file_logging_stat
         
         	File logging statistics
-        	**type**\: list of    :py:class:`FileLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
+        	**type**\: list of  		 :py:class:`FileLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
         
         
 
@@ -642,26 +644,26 @@ class Syslog(Entity):
             .. attribute:: is_log_enabled
             
             	Is log enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: drop_count
             
             	Number of messages dropped
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: flush_count
             
             	Number of messages flushed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: overrun_count
             
             	Number of messages overrun
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -703,24 +705,24 @@ class Syslog(Entity):
             .. attribute:: is_log_enabled
             
             	Is log enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: severity
             
             	Configured severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
             
             .. attribute:: message_count
             
             	Message count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: buffer_size
             
             	Buffer size in bytes if logging buffer isenabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -764,24 +766,24 @@ class Syslog(Entity):
             .. attribute:: is_log_enabled
             
             	Is log enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: severity
             
             	Configured severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
             
             .. attribute:: message_count
             
             	Message count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: buffer_size
             
             	Buffer size in bytes if logging buffer isenabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -825,24 +827,24 @@ class Syslog(Entity):
             .. attribute:: is_log_enabled
             
             	Is log enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: severity
             
             	Configured severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
             
             .. attribute:: message_count
             
             	Message count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: buffer_size
             
             	Buffer size in bytes if logging buffer isenabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -886,24 +888,24 @@ class Syslog(Entity):
             .. attribute:: is_log_enabled
             
             	Is log enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: severity
             
             	Configured severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
             
             .. attribute:: message_count
             
             	Message count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: buffer_size
             
             	Buffer size in bytes if logging buffer isenabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -947,12 +949,12 @@ class Syslog(Entity):
             .. attribute:: remote_host_name
             
             	Remote hostname
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: message_count
             
             	Message count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -990,12 +992,12 @@ class Syslog(Entity):
             .. attribute:: remote_host_name
             
             	TLS Remote hostname
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: message_count
             
             	Message count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1033,12 +1035,12 @@ class Syslog(Entity):
             .. attribute:: file_name
             
             	File name for logging messages
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: message_count
             
             	Message count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

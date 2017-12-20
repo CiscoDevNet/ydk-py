@@ -195,27 +195,27 @@ class Mpls(Entity):
     .. attribute:: global_
     
     	general mpls configuration applicable to any type of LSP and signaling protocol \- label ranges, entropy label supportmay be added here
-    	**type**\:   :py:class:`Global_ <ydk.models.openconfig.openconfig_mpls.Mpls.Global_>`
+    	**type**\:  :py:class:`Global_ <ydk.models.openconfig.openconfig_mpls.Mpls.Global_>`
     
     .. attribute:: te_global_attributes
     
     	traffic\-engineering global attributes
-    	**type**\:   :py:class:`TeGlobalAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes>`
+    	**type**\:  :py:class:`TeGlobalAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes>`
     
     .. attribute:: te_interface_attributes
     
     	traffic engineering attributes specific for interfaces
-    	**type**\:   :py:class:`TeInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes>`
+    	**type**\:  :py:class:`TeInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes>`
     
     .. attribute:: signaling_protocols
     
     	top\-level signaling protocol configuration
-    	**type**\:   :py:class:`SignalingProtocols <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols>`
+    	**type**\:  :py:class:`SignalingProtocols <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols>`
     
     .. attribute:: lsps
     
     	LSP definitions and configuration
-    	**type**\:   :py:class:`Lsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps>`
+    	**type**\:  :py:class:`Lsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps>`
     
     
 
@@ -274,17 +274,17 @@ class Mpls(Entity):
         .. attribute:: config
         
         	Top level global MPLS configuration
-        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.Config>`
+        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.Config>`
         
         .. attribute:: state
         
         	Top level global MPLS state
-        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.State>`
+        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.State>`
         
         .. attribute:: mpls_interface_attributes
         
         	Parameters related to MPLS interfaces
-        	**type**\:   :py:class:`MplsInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes>`
+        	**type**\:  :py:class:`MplsInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes>`
         
         
 
@@ -328,7 +328,7 @@ class Mpls(Entity):
             .. attribute:: null_label
             
             	The null\-label type used, implicit or explicit
-            	**type**\:   :py:class:`NullLabelType <ydk.models.openconfig.openconfig_mpls_types.NullLabelType>`
+            	**type**\:  :py:class:`NullLabelType <ydk.models.openconfig.openconfig_mpls_types.NullLabelType>`
             
             	**default value**\: mplst:IMPLICIT
             
@@ -364,7 +364,7 @@ class Mpls(Entity):
             .. attribute:: null_label
             
             	The null\-label type used, implicit or explicit
-            	**type**\:   :py:class:`NullLabelType <ydk.models.openconfig.openconfig_mpls_types.NullLabelType>`
+            	**type**\:  :py:class:`NullLabelType <ydk.models.openconfig.openconfig_mpls_types.NullLabelType>`
             
             	**default value**\: mplst:IMPLICIT
             
@@ -400,7 +400,7 @@ class Mpls(Entity):
             .. attribute:: interface
             
             	List of TE interfaces
-            	**type**\: list of    :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface>`
             
             
 
@@ -434,19 +434,19 @@ class Mpls(Entity):
                 .. attribute:: name  <key>
                 
                 	The interface name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to MPLS interfaces\:
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to TE interfaces
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.State>`
                 
                 
 
@@ -490,14 +490,14 @@ class Mpls(Entity):
                     .. attribute:: name
                     
                     	reference to interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: mpls_enabled
                     
                     	Enable MPLS forwarding on this interfacek
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
@@ -534,14 +534,14 @@ class Mpls(Entity):
                     .. attribute:: name
                     
                     	reference to interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: mpls_enabled
                     
                     	Enable MPLS forwarding on this interfacek
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
@@ -578,22 +578,22 @@ class Mpls(Entity):
         .. attribute:: srlg
         
         	Shared risk link groups attributes
-        	**type**\:   :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg>`
+        	**type**\:  :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg>`
         
         .. attribute:: igp_flooding_bandwidth
         
         	Interface bandwidth change percentages that trigger update events into the IGP traffic engineering database (TED)
-        	**type**\:   :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth>`
+        	**type**\:  :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth>`
         
         .. attribute:: mpls_admin_groups
         
         	Top\-level container for admin\-groups configuration and state
-        	**type**\:   :py:class:`MplsAdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups>`
+        	**type**\:  :py:class:`MplsAdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups>`
         
         .. attribute:: te_lsp_timers
         
         	Definition for delays associated with setup and cleanup of TE LSPs
-        	**type**\:   :py:class:`TeLspTimers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers>`
+        	**type**\:  :py:class:`TeLspTimers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers>`
         
         
 
@@ -642,7 +642,7 @@ class Mpls(Entity):
             .. attribute:: srlg
             
             	List of shared risk link groups
-            	**type**\: list of    :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
+            	**type**\: list of  		 :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
             
             
 
@@ -676,24 +676,24 @@ class Mpls(Entity):
                 .. attribute:: name  <key>
                 
                 	The SRLG group identifier
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to the SRLG
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to the SRLG
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.State>`
                 
                 .. attribute:: static_srlg_members
                 
                 	SRLG members for static (not flooded) SRLGs 
-                	**type**\:   :py:class:`StaticSrlgMembers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers>`
+                	**type**\:  :py:class:`StaticSrlgMembers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers>`
                 
                 
 
@@ -742,26 +742,26 @@ class Mpls(Entity):
                     .. attribute:: name
                     
                     	SRLG group identifier
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: value
                     
                     	group ID for the SRLG
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cost
                     
                     	The cost of the SRLG to the computation algorithm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: flooding_type
                     
                     	The type of SRLG, either flooded in the IGP or statically configured
-                    	**type**\:   :py:class:`MplsSrlgFloodingType <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType>`
+                    	**type**\:  :py:class:`MplsSrlgFloodingType <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType>`
                     
                     	**default value**\: FLOODED-SRLG
                     
@@ -802,26 +802,26 @@ class Mpls(Entity):
                     .. attribute:: name
                     
                     	SRLG group identifier
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: value
                     
                     	group ID for the SRLG
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cost
                     
                     	The cost of the SRLG to the computation algorithm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: flooding_type
                     
                     	The type of SRLG, either flooded in the IGP or statically configured
-                    	**type**\:   :py:class:`MplsSrlgFloodingType <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType>`
+                    	**type**\:  :py:class:`MplsSrlgFloodingType <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType>`
                     
                     	**default value**\: FLOODED-SRLG
                     
@@ -862,7 +862,7 @@ class Mpls(Entity):
                     .. attribute:: members_list
                     
                     	List of SRLG members, which are expressed as IP address endpoints of links contained in the SRLG
-                    	**type**\: list of    :py:class:`MembersList <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList>`
+                    	**type**\: list of  		 :py:class:`MembersList <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList>`
                     
                     
 
@@ -897,25 +897,27 @@ class Mpls(Entity):
                         .. attribute:: from_address  <key>
                         
                         	The from address of the link in the SRLG
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
+                        	**refers to**\:  :py:class:`from_address <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config>`
+                        
                         .. attribute:: config
                         
                         	Configuration parameters relating to the SRLG members
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to the SRLG members
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State>`
                         
                         
 
@@ -959,29 +961,29 @@ class Mpls(Entity):
                             .. attribute:: from_address
                             
                             	IP address of the a\-side of the SRLG link
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: to_address
                             
                             	IP address of the z\-side of the SRLG link
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             
 
                             """
@@ -1016,29 +1018,29 @@ class Mpls(Entity):
                             .. attribute:: from_address
                             
                             	IP address of the a\-side of the SRLG link
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: to_address
                             
                             	IP address of the z\-side of the SRLG link
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             
 
                             """
@@ -1074,12 +1076,12 @@ class Mpls(Entity):
             .. attribute:: config
             
             	Configuration parameters for TED update threshold 
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config>`
             
             .. attribute:: state
             
             	State parameters for TED update threshold 
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State>`
             
             
 
@@ -1119,38 +1121,38 @@ class Mpls(Entity):
                 .. attribute:: threshold_type
                 
                 	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\:   :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdType>`
+                	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdType>`
                 
                 .. attribute:: delta_percentage
                 
                 	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..100
                 
                 .. attribute:: threshold_specification
                 
                 	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\:   :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecification>`
+                	**type**\:  :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecification>`
                 
                 .. attribute:: up_thresholds
                 
                 	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..100
                 
                 .. attribute:: down_thresholds
                 
                 	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is decreasing
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..100
                 
                 .. attribute:: up_down_thresholds
                 
                 	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..100
                 
@@ -1298,38 +1300,38 @@ class Mpls(Entity):
                 .. attribute:: threshold_type
                 
                 	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\:   :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdType>`
+                	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdType>`
                 
                 .. attribute:: delta_percentage
                 
                 	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..100
                 
                 .. attribute:: threshold_specification
                 
                 	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\:   :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecification>`
+                	**type**\:  :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecification>`
                 
                 .. attribute:: up_thresholds
                 
                 	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..100
                 
                 .. attribute:: down_thresholds
                 
                 	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is decreasing
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..100
                 
                 .. attribute:: up_down_thresholds
                 
                 	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..100
                 
@@ -1478,7 +1480,7 @@ class Mpls(Entity):
             .. attribute:: admin_group
             
             	configuration of value to name mapping for mpls affinities/admin\-groups
-            	**type**\: list of    :py:class:`AdminGroup <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+            	**type**\: list of  		 :py:class:`AdminGroup <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
             
             
 
@@ -1513,19 +1515,19 @@ class Mpls(Entity):
                 .. attribute:: admin_group_name  <key>
                 
                 	name for mpls admin\-group
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config>`
                 
                 .. attribute:: config
                 
                 	Configurable items for admin\-groups
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state for admin\-groups
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State>`
                 
                 
 
@@ -1569,12 +1571,12 @@ class Mpls(Entity):
                     .. attribute:: admin_group_name
                     
                     	name for mpls admin\-group
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: bit_position
                     
                     	bit\-position value for mpls admin\-group. The value for the admin group is an integer that represents one of the bit positions in the admin\-group bitmask. Values between 0 and 31 are interpreted as the original limit of 32 admin groups. Values >=32 are interpreted as extended admin group values as per RFC7308
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1611,12 +1613,12 @@ class Mpls(Entity):
                     .. attribute:: admin_group_name
                     
                     	name for mpls admin\-group
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: bit_position
                     
                     	bit\-position value for mpls admin\-group. The value for the admin group is an integer that represents one of the bit positions in the admin\-group bitmask. Values between 0 and 31 are interpreted as the original limit of 32 admin groups. Values >=32 are interpreted as extended admin group values as per RFC7308
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1654,12 +1656,12 @@ class Mpls(Entity):
             .. attribute:: config
             
             	Configuration parameters related to timers for TE LSPs
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.Config>`
             
             .. attribute:: state
             
             	State related to timers for TE LSPs
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.State>`
             
             
 
@@ -1699,7 +1701,7 @@ class Mpls(Entity):
                 .. attribute:: install_delay
                 
                 	delay the use of newly installed te lsp for a specified amount of time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..3600
                 
@@ -1708,7 +1710,7 @@ class Mpls(Entity):
                 .. attribute:: cleanup_delay
                 
                 	delay the removal of old te lsp for a specified amount of time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1717,7 +1719,7 @@ class Mpls(Entity):
                 .. attribute:: reoptimize_timer
                 
                 	frequency of reoptimization of a traffic engineered LSP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1759,7 +1761,7 @@ class Mpls(Entity):
                 .. attribute:: install_delay
                 
                 	delay the use of newly installed te lsp for a specified amount of time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..3600
                 
@@ -1768,7 +1770,7 @@ class Mpls(Entity):
                 .. attribute:: cleanup_delay
                 
                 	delay the removal of old te lsp for a specified amount of time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1777,7 +1779,7 @@ class Mpls(Entity):
                 .. attribute:: reoptimize_timer
                 
                 	frequency of reoptimization of a traffic engineered LSP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -1820,7 +1822,7 @@ class Mpls(Entity):
         .. attribute:: interface
         
         	List of TE interfaces
-        	**type**\: list of    :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface>`
         
         
 
@@ -1854,24 +1856,24 @@ class Mpls(Entity):
             .. attribute:: name  <key>
             
             	The interface name
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
             
             .. attribute:: config
             
             	Configuration parameters related to TE interfaces\:
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
             
             .. attribute:: state
             
             	State parameters related to TE interfaces
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.State>`
             
             .. attribute:: igp_flooding_bandwidth
             
             	Interface bandwidth change percentages that trigger update events into the IGP traffic engineering database (TED)
-            	**type**\:   :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth>`
+            	**type**\:  :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth>`
             
             
 
@@ -1920,28 +1922,28 @@ class Mpls(Entity):
                 .. attribute:: name
                 
                 	reference to interface name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: te_metric
                 
                 	TE specific metric for the link
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: srlg_membership
                 
                 	list of references to named shared risk link groups that the interface belongs to
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
                 
                 .. attribute:: admin_group
                 
                 	list of admin groups (by name) on the interface
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -1980,28 +1982,28 @@ class Mpls(Entity):
                 .. attribute:: name
                 
                 	reference to interface name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: te_metric
                 
                 	TE specific metric for the link
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: srlg_membership
                 
                 	list of references to named shared risk link groups that the interface belongs to
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
                 
                 .. attribute:: admin_group
                 
                 	list of admin groups (by name) on the interface
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 
 
@@ -2042,12 +2044,12 @@ class Mpls(Entity):
                 .. attribute:: config
                 
                 	Configuration parameters for TED update threshold 
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters for TED update threshold 
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State>`
                 
                 
 
@@ -2086,38 +2088,38 @@ class Mpls(Entity):
                     .. attribute:: threshold_type
                     
                     	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                    	**type**\:   :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdType>`
+                    	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdType>`
                     
                     .. attribute:: delta_percentage
                     
                     	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..100
                     
                     .. attribute:: threshold_specification
                     
                     	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                    	**type**\:   :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecification>`
+                    	**type**\:  :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecification>`
                     
                     .. attribute:: up_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
                     .. attribute:: down_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is decreasing
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
                     .. attribute:: up_down_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
@@ -2264,38 +2266,38 @@ class Mpls(Entity):
                     .. attribute:: threshold_type
                     
                     	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                    	**type**\:   :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdType>`
+                    	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdType>`
                     
                     .. attribute:: delta_percentage
                     
                     	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..100
                     
                     .. attribute:: threshold_specification
                     
                     	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                    	**type**\:   :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecification>`
+                    	**type**\:  :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecification>`
                     
                     .. attribute:: up_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
                     .. attribute:: down_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is decreasing
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
                     .. attribute:: up_down_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
@@ -2442,17 +2444,17 @@ class Mpls(Entity):
         .. attribute:: rsvp_te
         
         	RSVP\-TE global signaling protocol configuration
-        	**type**\:   :py:class:`RsvpTe <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe>`
+        	**type**\:  :py:class:`RsvpTe <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe>`
         
         .. attribute:: segment_routing
         
         	SR global signaling config
-        	**type**\:   :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting>`
+        	**type**\:  :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting>`
         
         .. attribute:: ldp
         
         	LDP global signaling configuration
-        	**type**\:   :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp>`
+        	**type**\:  :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp>`
         
         
 
@@ -2496,22 +2498,22 @@ class Mpls(Entity):
             .. attribute:: sessions
             
             	Configuration and state of RSVP sessions
-            	**type**\:   :py:class:`Sessions <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions>`
             
             .. attribute:: neighbors
             
             	Configuration and state for RSVP neighbors connecting to the device
-            	**type**\:   :py:class:`Neighbors <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors>`
+            	**type**\:  :py:class:`Neighbors <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors>`
             
             .. attribute:: global_
             
             	Platform wide RSVP configuration and state
-            	**type**\:   :py:class:`Global_ <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_>`
+            	**type**\:  :py:class:`Global_ <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_>`
             
             .. attribute:: interface_attributes
             
             	Attributes relating to RSVP\-TE enabled interfaces
-            	**type**\:   :py:class:`InterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes>`
+            	**type**\:  :py:class:`InterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes>`
             
             
 
@@ -2560,12 +2562,12 @@ class Mpls(Entity):
                 .. attribute:: config
                 
                 	Configuration of RSVP sessions on the device
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to RSVP sessions on the device
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State>`
                 
                 
 
@@ -2629,7 +2631,7 @@ class Mpls(Entity):
                     .. attribute:: session
                     
                     	List of RSVP sessions
-                    	**type**\: list of    :py:class:`Session <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session>`
+                    	**type**\: list of  		 :py:class:`Session <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session>`
                     
                     
 
@@ -2663,94 +2665,86 @@ class Mpls(Entity):
                         .. attribute:: source_port  <key>
                         
                         	RSVP source port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: destination_port  <key>
                         
                         	RSVP source port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: source_address  <key>
                         
                         	Origin address of RSVP session
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: destination_address  <key>
                         
                         	Destination address of RSVP session
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: status
                         
                         	Enumeration of RSVP session states
-                        	**type**\:   :py:class:`Status <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Status>`
+                        	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Status>`
                         
                         .. attribute:: type
                         
                         	Enumeration of possible RSVP session types
-                        	**type**\:   :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Type>`
+                        	**type**\:  :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Type>`
                         
                         .. attribute:: tunnel_id
                         
                         	Unique identifier of RSVP session
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: label_in
                         
                         	Incoming MPLS label associated with this RSVP session
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  int
+                        		**type**\: int
                         
-                        	**range:** 16..1048575
+                        			**range:** 16..1048575
                         
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                         
-                        ----
-                        	**type**\:   :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
-                        
-                        
-                        ----
                         .. attribute:: label_out
                         
                         	Outgoing MPLS label associated with this RSVP session
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  int
+                        		**type**\: int
                         
-                        	**range:** 16..1048575
+                        			**range:** 16..1048575
                         
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                         
-                        ----
-                        	**type**\:   :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
-                        
-                        
-                        ----
                         .. attribute:: associated_lsps
                         
                         	List of label switched paths associated with this RSVP session
-                        	**type**\:  list of str
+                        	**type**\: list of str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
                         
@@ -2853,12 +2847,12 @@ class Mpls(Entity):
                 .. attribute:: config
                 
                 	Configuration of RSVP neighbor information
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to RSVP neighbors
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State>`
                 
                 
 
@@ -2921,7 +2915,7 @@ class Mpls(Entity):
                     .. attribute:: neighbor
                     
                     	List of RSVP neighbors connecting to the device, keyed by neighbor address
-                    	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor>`
+                    	**type**\: list of  		 :py:class:`Neighbor <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor>`
                     
                     
 
@@ -2956,30 +2950,30 @@ class Mpls(Entity):
                         .. attribute:: address  <key>
                         
                         	Address of RSVP neighbor
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: detected_interface
                         
                         	Interface where RSVP neighbor was detected
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: neighbor_status
                         
                         	Enumuration of possible RSVP neighbor states
-                        	**type**\:   :py:class:`NeighborStatus <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatus>`
+                        	**type**\:  :py:class:`NeighborStatus <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatus>`
                         
                         .. attribute:: refresh_reduction
                         
                         	Suppport of neighbor for RSVP refresh reduction
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -3044,22 +3038,22 @@ class Mpls(Entity):
                 .. attribute:: graceful_restart
                 
                 	Operational state and configuration parameters relating to graceful\-restart for RSVP
-                	**type**\:   :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart>`
+                	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart>`
                 
                 .. attribute:: soft_preemption
                 
                 	Protocol options relating to RSVP soft preemption
-                	**type**\:   :py:class:`SoftPreemption <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption>`
+                	**type**\:  :py:class:`SoftPreemption <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption>`
                 
                 .. attribute:: hellos
                 
                 	Top level container for RSVP hello parameters
-                	**type**\:   :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos>`
+                	**type**\:  :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos>`
                 
                 .. attribute:: state
                 
                 	Platform wide RSVP state, including counters
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.State>`
                 
                 
 
@@ -3109,12 +3103,12 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to graceful\-restart
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config>`
                     
                     .. attribute:: state
                     
                     	State information associated with RSVP graceful\-restart
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State>`
                     
                     
 
@@ -3154,21 +3148,21 @@ class Mpls(Entity):
                         .. attribute:: enable
                         
                         	Enables graceful restart on the node
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
                         .. attribute:: restart_time
                         
                         	Graceful restart time (seconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: recovery_time
                         
                         	RSVP state recovery time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3209,21 +3203,21 @@ class Mpls(Entity):
                         .. attribute:: enable
                         
                         	Enables graceful restart on the node
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
                         .. attribute:: restart_time
                         
                         	Graceful restart time (seconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: recovery_time
                         
                         	RSVP state recovery time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3264,12 +3258,12 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to RSVP soft preemption support
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters relating to RSVP soft preemption support
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State>`
                     
                     
 
@@ -3309,14 +3303,14 @@ class Mpls(Entity):
                         .. attribute:: enable
                         
                         	Enables soft preemption on a node
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
                         .. attribute:: soft_preemption_timeout
                         
                         	Timeout value for soft preemption to revert to hard preemption
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -3357,14 +3351,14 @@ class Mpls(Entity):
                         .. attribute:: enable
                         
                         	Enables soft preemption on a node
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
                         .. attribute:: soft_preemption_timeout
                         
                         	Timeout value for soft preemption to revert to hard preemption
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -3404,12 +3398,12 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to RSVP hellos
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config>`
                     
                     .. attribute:: state
                     
                     	State information associated with RSVP hellos
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State>`
                     
                     
 
@@ -3449,7 +3443,7 @@ class Mpls(Entity):
                         .. attribute:: hello_interval
                         
                         	set the interval in ms between RSVP hello messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1000..60000
                         
@@ -3460,7 +3454,7 @@ class Mpls(Entity):
                         .. attribute:: refresh_reduction
                         
                         	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
@@ -3498,7 +3492,7 @@ class Mpls(Entity):
                         .. attribute:: hello_interval
                         
                         	set the interval in ms between RSVP hello messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1000..60000
                         
@@ -3509,7 +3503,7 @@ class Mpls(Entity):
                         .. attribute:: refresh_reduction
                         
                         	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
@@ -3547,7 +3541,7 @@ class Mpls(Entity):
                     .. attribute:: counters
                     
                     	Platform wide RSVP statistics and counters
-                    	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters>`
+                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters>`
                     
                     
 
@@ -3581,147 +3575,147 @@ class Mpls(Entity):
                         .. attribute:: path_timeouts
                         
                         	TODO
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: reservation_timeouts
                         
                         	TODO
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: rate_limited_messages
                         
                         	RSVP messages dropped due to rate limiting
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_path_messages
                         
                         	Number of received RSVP Path messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_path_error_messages
                         
                         	Number of received RSVP Path Error messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_path_tear_messages
                         
                         	Number of received RSVP Path Tear messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_reservation_messages
                         
                         	Number of received RSVP Resv messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_reservation_error_messages
                         
                         	Number of received RSVP Resv Error messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_reservation_tear_messages
                         
                         	Number of received RSVP Resv Tear messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_hello_messages
                         
                         	Number of received RSVP hello messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_srefresh_messages
                         
                         	Number of received RSVP summary refresh messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_ack_messages
                         
                         	Number of received RSVP refresh reduction ack messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_path_messages
                         
                         	Number of sent RSVP PATH messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_path_error_messages
                         
                         	Number of sent RSVP Path Error messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_path_tear_messages
                         
                         	Number of sent RSVP Path Tear messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_reservation_messages
                         
                         	Number of sent RSVP Resv messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_reservation_error_messages
                         
                         	Number of sent RSVP Resv Error messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_reservation_tear_messages
                         
                         	Number of sent RSVP Resv Tear messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_hello_messages
                         
                         	Number of sent RSVP hello messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_srefresh_messages
                         
                         	Number of sent RSVP summary refresh messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_ack_messages
                         
                         	Number of sent RSVP refresh reduction ack messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3797,7 +3791,7 @@ class Mpls(Entity):
                 .. attribute:: interface
                 
                 	list of per\-interface RSVP configurations
-                	**type**\: list of    :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface>`
                 
                 
 
@@ -3831,39 +3825,39 @@ class Mpls(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	references a configured IP interface
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`interface_name <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration of per\-interface RSVP parameters
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
                     
                     .. attribute:: state
                     
                     	Per\-interface RSVP protocol and state information
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State>`
                     
                     .. attribute:: hellos
                     
                     	Top level container for RSVP hello parameters
-                    	**type**\:   :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos>`
+                    	**type**\:  :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos>`
                     
                     .. attribute:: authentication
                     
                     	Configuration and state parameters relating to RSVP authentication as per RFC2747
-                    	**type**\:   :py:class:`Authentication <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication>`
+                    	**type**\:  :py:class:`Authentication <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication>`
                     
                     .. attribute:: subscription
                     
                     	Bandwidth percentage reservable by RSVP on an interface
-                    	**type**\:   :py:class:`Subscription <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription>`
+                    	**type**\:  :py:class:`Subscription <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription>`
                     
                     .. attribute:: protection
                     
                     	link\-protection (NHOP) related configuration
-                    	**type**\:   :py:class:`Protection <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection>`
+                    	**type**\:  :py:class:`Protection <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection>`
                     
                     
 
@@ -3927,7 +3921,7 @@ class Mpls(Entity):
                         .. attribute:: interface_name
                         
                         	Name of configured IP interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                         
@@ -3962,26 +3956,26 @@ class Mpls(Entity):
                         .. attribute:: bandwidth
                         
                         	Available and reserved bandwidth by priority on the interface
-                        	**type**\: list of    :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth>`
+                        	**type**\: list of  		 :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth>`
                         
                         .. attribute:: highwater_mark
                         
                         	Maximum bandwidth ever reserved
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: active_reservation_count
                         
                         	Number of active RSVP reservations
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: counters
                         
                         	Interface specific RSVP statistics and counters
-                        	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters>`
+                        	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters>`
                         
                         
 
@@ -4024,21 +4018,21 @@ class Mpls(Entity):
                             .. attribute:: priority  <key>
                             
                             	RSVP priority level for LSPs traversing the interface
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: available_bandwidth
                             
                             	Bandwidth currently available
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: reserved_bandwidth
                             
                             	Bandwidth currently reserved
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4077,126 +4071,126 @@ class Mpls(Entity):
                             .. attribute:: in_path_messages
                             
                             	Number of received RSVP Path messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_path_error_messages
                             
                             	Number of received RSVP Path Error messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_path_tear_messages
                             
                             	Number of received RSVP Path Tear messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_reservation_messages
                             
                             	Number of received RSVP Resv messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_reservation_error_messages
                             
                             	Number of received RSVP Resv Error messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_reservation_tear_messages
                             
                             	Number of received RSVP Resv Tear messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_hello_messages
                             
                             	Number of received RSVP hello messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_srefresh_messages
                             
                             	Number of received RSVP summary refresh messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_ack_messages
                             
                             	Number of received RSVP refresh reduction ack messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_path_messages
                             
                             	Number of sent RSVP PATH messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_path_error_messages
                             
                             	Number of sent RSVP Path Error messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_path_tear_messages
                             
                             	Number of sent RSVP Path Tear messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_reservation_messages
                             
                             	Number of sent RSVP Resv messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_reservation_error_messages
                             
                             	Number of sent RSVP Resv Error messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_reservation_tear_messages
                             
                             	Number of sent RSVP Resv Tear messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_hello_messages
                             
                             	Number of sent RSVP hello messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_srefresh_messages
                             
                             	Number of sent RSVP summary refresh messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_ack_messages
                             
                             	Number of sent RSVP refresh reduction ack messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4265,12 +4259,12 @@ class Mpls(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to RSVP hellos
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config>`
                         
                         .. attribute:: state
                         
                         	State information associated with RSVP hellos
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State>`
                         
                         
 
@@ -4309,7 +4303,7 @@ class Mpls(Entity):
                             .. attribute:: hello_interval
                             
                             	set the interval in ms between RSVP hello messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1000..60000
                             
@@ -4320,7 +4314,7 @@ class Mpls(Entity):
                             .. attribute:: refresh_reduction
                             
                             	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: true
                             
@@ -4357,7 +4351,7 @@ class Mpls(Entity):
                             .. attribute:: hello_interval
                             
                             	set the interval in ms between RSVP hello messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1000..60000
                             
@@ -4368,7 +4362,7 @@ class Mpls(Entity):
                             .. attribute:: refresh_reduction
                             
                             	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: true
                             
@@ -4406,12 +4400,12 @@ class Mpls(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to authentication
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config>`
                         
                         .. attribute:: state
                         
                         	State information associated with authentication
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State>`
                         
                         
 
@@ -4450,14 +4444,14 @@ class Mpls(Entity):
                             .. attribute:: enable
                             
                             	Enables RSVP authentication on the node
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
                             .. attribute:: authentication_key
                             
                             	authenticate RSVP signaling messages
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..32
                             
@@ -4495,14 +4489,14 @@ class Mpls(Entity):
                             .. attribute:: enable
                             
                             	Enables RSVP authentication on the node
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
                             .. attribute:: authentication_key
                             
                             	authenticate RSVP signaling messages
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..32
                             
@@ -4540,12 +4534,12 @@ class Mpls(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to RSVP subscription options
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to RSVP subscription options
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State>`
                         
                         
 
@@ -4584,7 +4578,7 @@ class Mpls(Entity):
                             .. attribute:: subscription
                             
                             	percentage of the interface bandwidth that RSVP can reserve
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..100
                             
@@ -4620,7 +4614,7 @@ class Mpls(Entity):
                             .. attribute:: subscription
                             
                             	percentage of the interface bandwidth that RSVP can reserve
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..100
                             
@@ -4655,12 +4649,12 @@ class Mpls(Entity):
                         .. attribute:: config
                         
                         	Configuration for link\-protection
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config>`
                         
                         .. attribute:: state
                         
                         	State for link\-protection
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State>`
                         
                         
 
@@ -4698,14 +4692,14 @@ class Mpls(Entity):
                             .. attribute:: link_protection_style_requested
                             
                             	Style of mpls frr protection desired\: link, link\-node, or unprotected
-                            	**type**\:   :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
+                            	**type**\:  :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
                             
                             	**default value**\: mplst:link-node-protection-requested
                             
                             .. attribute:: bypass_optimize_interval
                             
                             	interval between periodic optimization of the bypass LSPs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -4744,14 +4738,14 @@ class Mpls(Entity):
                             .. attribute:: link_protection_style_requested
                             
                             	Style of mpls frr protection desired\: link, link\-node, or unprotected
-                            	**type**\:   :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
+                            	**type**\:  :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
                             
                             	**default value**\: mplst:link-node-protection-requested
                             
                             .. attribute:: bypass_optimize_interval
                             
                             	interval between periodic optimization of the bypass LSPs
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -4790,12 +4784,12 @@ class Mpls(Entity):
             .. attribute:: srgb
             
             	List of Segment Routing Global Block (SRGB) entries. These label blocks are reserved to be allocated as domain\-wide entries
-            	**type**\: list of    :py:class:`Srgb <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb>`
+            	**type**\: list of  		 :py:class:`Srgb <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb>`
             
             .. attribute:: interfaces
             
             	List of interfaces with associated segment routing configuration
-            	**type**\: list of    :py:class:`Interfaces <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces>`
+            	**type**\: list of  		 :py:class:`Interfaces <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces>`
             
             
 
@@ -4832,26 +4826,26 @@ class Mpls(Entity):
                 .. attribute:: lower_bound  <key>
                 
                 	Lower value in the block
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: upper_bound  <key>
                 
                 	Upper value in the block
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: config
                 
                 	Configuration parameters relating to the Segment Routing Global Block (SRGB)
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters relating to the Segment Routing Global Block (SRGB)
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.State>`
                 
                 
 
@@ -4898,14 +4892,14 @@ class Mpls(Entity):
                     .. attribute:: lower_bound
                     
                     	Lower value in the block
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: upper_bound
                     
                     	Upper value in the block
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4943,35 +4937,35 @@ class Mpls(Entity):
                     .. attribute:: lower_bound
                     
                     	Lower value in the block
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: upper_bound
                     
                     	Upper value in the block
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: size
                     
                     	Number of indexes in the SRGB block
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: free
                     
                     	Number of SRGB indexes that have not yet been allocated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: used
                     
                     	Number of SRGB indexes that are currently allocated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5015,24 +5009,24 @@ class Mpls(Entity):
                 .. attribute:: interface  <key>
                 
                 	Reference to the interface for which segment routing configuration is to be applied
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: config
                 
                 	Interface configuration parameters for Segment Routing relating to the specified interface
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters for Segment Routing features relating to the specified interface
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.State>`
                 
                 .. attribute:: adjacency_sid
                 
                 	Configuration for Adjacency SIDs that are related to the specified interface
-                	**type**\:   :py:class:`AdjacencySid <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid>`
+                	**type**\:  :py:class:`AdjacencySid <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid>`
                 
                 
 
@@ -5082,7 +5076,7 @@ class Mpls(Entity):
                     .. attribute:: interface
                     
                     	Reference to the interface for which segment routing configuration is to be applied
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
@@ -5118,7 +5112,7 @@ class Mpls(Entity):
                     .. attribute:: interface
                     
                     	Reference to the interface for which segment routing configuration is to be applied
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
@@ -5154,12 +5148,12 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters for the Adjacency\-SIDs that are related to this interface
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters for the Adjacency\-SIDs that are related to this interface
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State>`
                     
                     
 
@@ -5198,12 +5192,12 @@ class Mpls(Entity):
                         .. attribute:: advertise
                         
                         	Specifies the type of adjacency SID which should be advertised for the specified entity
-                        	**type**\:  list of   :py:class:`Advertise <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.Advertise>`
+                        	**type**\: list of   :py:class:`Advertise <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.Advertise>`
                         
                         .. attribute:: groups
                         
                         	Specifies the groups to which this interface belongs. Setting a value in this list results in an additional AdjSID being advertised, with the S\-bit set to 1. The AdjSID is assumed to be protected
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         
@@ -5276,12 +5270,12 @@ class Mpls(Entity):
                         .. attribute:: advertise
                         
                         	Specifies the type of adjacency SID which should be advertised for the specified entity
-                        	**type**\:  list of   :py:class:`Advertise <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.Advertise>`
+                        	**type**\: list of   :py:class:`Advertise <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.Advertise>`
                         
                         .. attribute:: groups
                         
                         	Specifies the groups to which this interface belongs. Setting a value in this list results in an additional AdjSID being advertised, with the S\-bit set to 1. The AdjSID is assumed to be protected
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         
@@ -5353,7 +5347,7 @@ class Mpls(Entity):
             .. attribute:: timers
             
             	LDP timers
-            	**type**\:   :py:class:`Timers <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp.Timers>`
+            	**type**\:  :py:class:`Timers <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp.Timers>`
             
             
 
@@ -5411,17 +5405,17 @@ class Mpls(Entity):
         .. attribute:: constrained_path
         
         	traffic\-engineered LSPs supporting different path computation and signaling methods
-        	**type**\:   :py:class:`ConstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath>`
+        	**type**\:  :py:class:`ConstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath>`
         
         .. attribute:: unconstrained_path
         
         	LSPs that use the IGP\-determined path, i.e., non traffic\-engineered, or non constrained\-path
-        	**type**\:   :py:class:`UnconstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath>`
+        	**type**\:  :py:class:`UnconstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath>`
         
         .. attribute:: static_lsps
         
         	statically configured LSPs, without dynamic signaling
-        	**type**\:   :py:class:`StaticLsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps>`
+        	**type**\:  :py:class:`StaticLsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps>`
         
         
 
@@ -5466,12 +5460,12 @@ class Mpls(Entity):
             .. attribute:: named_explicit_paths
             
             	A list of explicit paths
-            	**type**\: list of    :py:class:`NamedExplicitPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths>`
+            	**type**\: list of  		 :py:class:`NamedExplicitPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths>`
             
             .. attribute:: tunnel
             
             	List of TE tunnels
-            	**type**\: list of    :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel>`
+            	**type**\: list of  		 :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel>`
             
             
 
@@ -5506,24 +5500,24 @@ class Mpls(Entity):
                 .. attribute:: name  <key>
                 
                 	A string name that uniquely identifies an explicit path
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters relating to named explicit paths
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state parameters relating to the named explicit paths
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State>`
                 
                 .. attribute:: explicit_route_objects
                 
                 	List of explicit route objects
-                	**type**\: list of    :py:class:`ExplicitRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects>`
+                	**type**\: list of  		 :py:class:`ExplicitRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects>`
                 
                 
 
@@ -5570,7 +5564,7 @@ class Mpls(Entity):
                     .. attribute:: name
                     
                     	A string name that uniquely identifies an explicit path
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -5604,7 +5598,7 @@ class Mpls(Entity):
                     .. attribute:: name
                     
                     	A string name that uniquely identifies an explicit path
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -5637,7 +5631,7 @@ class Mpls(Entity):
                     .. attribute:: index  <key>
                     
                     	Index of this explicit route object, to express the order of hops in path
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -5646,12 +5640,12 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to an explicit route
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters relating to an explicit route
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State>`
                     
                     
 
@@ -5695,25 +5689,25 @@ class Mpls(Entity):
                         .. attribute:: address
                         
                         	router hop for the LSP path
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: hop_type
                         
                         	strict or loose hop
-                        	**type**\:   :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
+                        	**type**\:  :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
                         
                         .. attribute:: index
                         
                         	Index of this explicit route object to express the order of hops in the path
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -5752,25 +5746,25 @@ class Mpls(Entity):
                         .. attribute:: address
                         
                         	router hop for the LSP path
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: hop_type
                         
                         	strict or loose hop
-                        	**type**\:   :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
+                        	**type**\:  :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
                         
                         .. attribute:: index
                         
                         	Index of this explicit route object to express the order of hops in the path
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -5809,34 +5803,34 @@ class Mpls(Entity):
                 .. attribute:: name  <key>
                 
                 	The tunnel name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
                 
                 .. attribute:: type  <key>
                 
                 	The tunnel type, p2p or p2mp
-                	**type**\:   :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to TE tunnels\:
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to TE tunnels
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State>`
                 
                 .. attribute:: bandwidth
                 
                 	Bandwidth configuration for TE LSPs
-                	**type**\:   :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth>`
+                	**type**\:  :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth>`
                 
                 .. attribute:: p2p_tunnel_attributes
                 
                 	Parameters related to LSPs of type P2P
-                	**type**\:   :py:class:`P2PTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes>`
+                	**type**\:  :py:class:`P2PTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes>`
                 
                 
 
@@ -5892,78 +5886,70 @@ class Mpls(Entity):
                     .. attribute:: name
                     
                     	The tunnel name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: type
                     
                     	Tunnel type, p2p or p2mp
-                    	**type**\:   :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                    	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
                     
                     .. attribute:: signaling_protocol
                     
                     	Signaling protocol used to set up this tunnel
-                    	**type**\:   :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                    	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
                     
                     .. attribute:: local_id
                     
                     	locally signficant optional identifier for the tunnel; may be a numerical or string value
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 0..4294967295
+                    			**range:** 0..4294967295
                     
+                    		**type**\: str
                     
-                    ----
-                    	**type**\:  str
-                    
-                    
-                    ----
                     .. attribute:: description
                     
                     	optional text description for the tunnel
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: admin_status
                     
                     	TE tunnel administrative state
-                    	**type**\:   :py:class:`TunnelAdminStatus <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatus>`
+                    	**type**\:  :py:class:`TunnelAdminStatus <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatus>`
                     
                     	**default value**\: mplst:ADMIN_UP
                     
                     .. attribute:: preference
                     
                     	Specifies a preference for this tunnel. A lower number signifies a better preference
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
                     .. attribute:: metric
                     
                     	LSP metric, either explicit or IGP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:   :py:class:`TeMetricType <ydk.models.openconfig.openconfig_mpls.TeMetricType>`
+                    		**type**\:  :py:class:`TeMetricType <ydk.models.openconfig.openconfig_mpls.TeMetricType>`
                     
+                    		**type**\: int
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** 0..4294967295
                     
-                    	**range:** 0..4294967295
-                    
-                    
-                    ----
                     .. attribute:: protection_style_requested
                     
                     	style of mpls frr protection desired\: can be link, link\-node or unprotected
-                    	**type**\:   :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
+                    	**type**\:  :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
                     
                     	**default value**\: mplst:unprotected
                     
                     .. attribute:: reoptimize_timer
                     
                     	frequency of reoptimization of a traffic engineered LSP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -5972,27 +5958,27 @@ class Mpls(Entity):
                     .. attribute:: source
                     
                     	RSVP\-TE tunnel source address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: soft_preemption
                     
                     	Enables RSVP soft\-preemption on this LSP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
                     .. attribute:: setup_priority
                     
                     	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
@@ -6001,7 +5987,7 @@ class Mpls(Entity):
                     .. attribute:: hold_priority
                     
                     	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
@@ -6064,78 +6050,70 @@ class Mpls(Entity):
                     .. attribute:: name
                     
                     	The tunnel name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: type
                     
                     	Tunnel type, p2p or p2mp
-                    	**type**\:   :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                    	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
                     
                     .. attribute:: signaling_protocol
                     
                     	Signaling protocol used to set up this tunnel
-                    	**type**\:   :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                    	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
                     
                     .. attribute:: local_id
                     
                     	locally signficant optional identifier for the tunnel; may be a numerical or string value
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 0..4294967295
+                    			**range:** 0..4294967295
                     
+                    		**type**\: str
                     
-                    ----
-                    	**type**\:  str
-                    
-                    
-                    ----
                     .. attribute:: description
                     
                     	optional text description for the tunnel
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: admin_status
                     
                     	TE tunnel administrative state
-                    	**type**\:   :py:class:`TunnelAdminStatus <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatus>`
+                    	**type**\:  :py:class:`TunnelAdminStatus <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatus>`
                     
                     	**default value**\: mplst:ADMIN_UP
                     
                     .. attribute:: preference
                     
                     	Specifies a preference for this tunnel. A lower number signifies a better preference
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
                     .. attribute:: metric
                     
                     	LSP metric, either explicit or IGP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:   :py:class:`TeMetricType <ydk.models.openconfig.openconfig_mpls.TeMetricType>`
+                    		**type**\:  :py:class:`TeMetricType <ydk.models.openconfig.openconfig_mpls.TeMetricType>`
                     
+                    		**type**\: int
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** 0..4294967295
                     
-                    	**range:** 0..4294967295
-                    
-                    
-                    ----
                     .. attribute:: protection_style_requested
                     
                     	style of mpls frr protection desired\: can be link, link\-node or unprotected
-                    	**type**\:   :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
+                    	**type**\:  :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
                     
                     	**default value**\: mplst:unprotected
                     
                     .. attribute:: reoptimize_timer
                     
                     	frequency of reoptimization of a traffic engineered LSP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -6144,27 +6122,27 @@ class Mpls(Entity):
                     .. attribute:: source
                     
                     	RSVP\-TE tunnel source address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: soft_preemption
                     
                     	Enables RSVP soft\-preemption on this LSP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
                     .. attribute:: setup_priority
                     
                     	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
@@ -6173,7 +6151,7 @@ class Mpls(Entity):
                     .. attribute:: hold_priority
                     
                     	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
@@ -6182,17 +6160,17 @@ class Mpls(Entity):
                     .. attribute:: oper_status
                     
                     	The operational status of the TE tunnel
-                    	**type**\:   :py:class:`LspOperStatus <ydk.models.openconfig.openconfig_mpls_types.LspOperStatus>`
+                    	**type**\:  :py:class:`LspOperStatus <ydk.models.openconfig.openconfig_mpls_types.LspOperStatus>`
                     
                     .. attribute:: role
                     
                     	The lsp role at the current node, whether it is headend, transit or tailend
-                    	**type**\:   :py:class:`LspRole <ydk.models.openconfig.openconfig_mpls_types.LspRole>`
+                    	**type**\:  :py:class:`LspRole <ydk.models.openconfig.openconfig_mpls_types.LspRole>`
                     
                     .. attribute:: counters
                     
                     	State data for MPLS label switched paths. This state data is specific to a single label switched path
-                    	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters>`
+                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters>`
                     
                     
 
@@ -6261,45 +6239,51 @@ class Mpls(Entity):
                         .. attribute:: bytes
                         
                         	Number of bytes that have been forwarded over the label switched path
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packets
                         
                         	Number of pacets that have been forwarded over the label switched path
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: path_changes
                         
                         	Number of path changes for the label switched path
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: state_changes
                         
                         	Number of state changes for the label switched path
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: online_time
                         
                         	Indication of the time the label switched path transitioned to an Oper Up or in\-service state
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
                         .. attribute:: current_path_time
                         
                         	Indicates the time the LSP switched onto its current path. This is reset upon a LSP path change
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
                         .. attribute:: next_reoptimization_time
                         
                         	Indicates the next scheduled time the LSP will be reoptimized
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
                         
 
@@ -6344,17 +6328,17 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters related to bandwidth on TE tunnels\:
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters related to bandwidth configuration of TE tunnels
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State>`
                     
                     .. attribute:: auto_bandwidth
                     
                     	Parameters related to auto\-bandwidth
-                    	**type**\:   :py:class:`AutoBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth>`
+                    	**type**\:  :py:class:`AutoBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth>`
                     
                     
 
@@ -6398,14 +6382,14 @@ class Mpls(Entity):
                         .. attribute:: specification_type
                         
                         	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\:   :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
+                        	**type**\:  :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
                         
                         	**default value**\: SPECIFIED
                         
                         .. attribute:: set_bandwidth
                         
                         	set bandwidth explicitly, e.g., using offline calculation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6443,14 +6427,14 @@ class Mpls(Entity):
                         .. attribute:: specification_type
                         
                         	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\:   :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
+                        	**type**\:  :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
                         
                         	**default value**\: SPECIFIED
                         
                         .. attribute:: set_bandwidth
                         
                         	set bandwidth explicitly, e.g., using offline calculation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6487,22 +6471,22 @@ class Mpls(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to MPLS auto\-bandwidth on the tunnel
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to MPLS auto\-bandwidth on the tunnel
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State>`
                         
                         .. attribute:: overflow
                         
                         	configuration of MPLS overflow bandwidth adjustement for the LSP
-                        	**type**\:   :py:class:`Overflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow>`
+                        	**type**\:  :py:class:`Overflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow>`
                         
                         .. attribute:: underflow
                         
                         	configuration of MPLS underflow bandwidth           adjustement for the LSP
-                        	**type**\:   :py:class:`Underflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow>`
+                        	**type**\:  :py:class:`Underflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow>`
                         
                         
 
@@ -6551,35 +6535,35 @@ class Mpls(Entity):
                             .. attribute:: enabled
                             
                             	enables mpls auto\-bandwidth on the lsp
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
                             .. attribute:: min_bw
                             
                             	set the minimum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: max_bw
                             
                             	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: adjust_interval
                             
                             	time in seconds between adjustments to LSP bandwidth
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: adjust_threshold
                             
                             	percentage difference between the LSP's specified bandwidth and its current bandwidth allocation \-\- if the difference is greater than the specified percentage, auto\-bandwidth adjustment is triggered
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..100
                             
@@ -6623,35 +6607,35 @@ class Mpls(Entity):
                             .. attribute:: enabled
                             
                             	enables mpls auto\-bandwidth on the lsp
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
                             .. attribute:: min_bw
                             
                             	set the minimum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: max_bw
                             
                             	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: adjust_interval
                             
                             	time in seconds between adjustments to LSP bandwidth
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: adjust_threshold
                             
                             	percentage difference between the LSP's specified bandwidth and its current bandwidth allocation \-\- if the difference is greater than the specified percentage, auto\-bandwidth adjustment is triggered
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..100
                             
@@ -6695,12 +6679,12 @@ class Mpls(Entity):
                             .. attribute:: config
                             
                             	Config information for MPLS overflow bandwidth adjustment
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config>`
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config>`
                             
                             .. attribute:: state
                             
                             	Config information for MPLS overflow bandwidth adjustment
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State>`
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State>`
                             
                             
 
@@ -6739,21 +6723,21 @@ class Mpls(Entity):
                                 .. attribute:: enabled
                                 
                                 	enables mpls lsp bandwidth overflow adjustment on the lsp
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: overflow_threshold
                                 
                                 	bandwidth percentage change to trigger an overflow event
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..100
                                 
                                 .. attribute:: trigger_event_count
                                 
                                 	number of consecutive overflow sample events needed to trigger an overflow adjustment
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -6793,21 +6777,21 @@ class Mpls(Entity):
                                 .. attribute:: enabled
                                 
                                 	enables mpls lsp bandwidth overflow adjustment on the lsp
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: overflow_threshold
                                 
                                 	bandwidth percentage change to trigger an overflow event
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..100
                                 
                                 .. attribute:: trigger_event_count
                                 
                                 	number of consecutive overflow sample events needed to trigger an overflow adjustment
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -6847,12 +6831,12 @@ class Mpls(Entity):
                             .. attribute:: config
                             
                             	Config information for MPLS underflow bandwidth           adjustment
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config>`
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config>`
                             
                             .. attribute:: state
                             
                             	State information for MPLS underflow bandwidth           adjustment
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State>`
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State>`
                             
                             
 
@@ -6891,21 +6875,21 @@ class Mpls(Entity):
                                 .. attribute:: enabled
                                 
                                 	enables bandwidth underflow adjustment on the lsp
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: underflow_threshold
                                 
                                 	bandwidth percentage change to trigger and underflow event
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..100
                                 
                                 .. attribute:: trigger_event_count
                                 
                                 	number of consecutive underflow sample events needed to trigger an underflow adjustment
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -6945,21 +6929,21 @@ class Mpls(Entity):
                                 .. attribute:: enabled
                                 
                                 	enables bandwidth underflow adjustment on the lsp
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: underflow_threshold
                                 
                                 	bandwidth percentage change to trigger and underflow event
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..100
                                 
                                 .. attribute:: trigger_event_count
                                 
                                 	number of consecutive underflow sample events needed to trigger an underflow adjustment
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -6998,22 +6982,22 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters for P2P LSPs
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters for P2P LSPs
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State>`
                     
                     .. attribute:: p2p_primary_paths
                     
                     	List of p2p primary paths for a tunnel
-                    	**type**\: list of    :py:class:`P2PPrimaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths>`
+                    	**type**\: list of  		 :py:class:`P2PPrimaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths>`
                     
                     .. attribute:: p2p_secondary_paths
                     
                     	List of p2p primary paths for a tunnel
-                    	**type**\: list of    :py:class:`P2PSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths>`
+                    	**type**\: list of  		 :py:class:`P2PSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths>`
                     
                     
 
@@ -7057,16 +7041,16 @@ class Mpls(Entity):
                         .. attribute:: destination
                         
                         	P2P tunnel destination address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         
 
                         """
@@ -7098,16 +7082,16 @@ class Mpls(Entity):
                         .. attribute:: destination
                         
                         	P2P tunnel destination address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         
 
                         """
@@ -7139,29 +7123,29 @@ class Mpls(Entity):
                         .. attribute:: name  <key>
                         
                         	Path name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters related to paths
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters related to paths
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State>`
                         
                         .. attribute:: candidate_secondary_paths
                         
                         	The set of candidate secondary paths which may be used for this primary path. When secondary paths are specified in the list the path of the secondary LSP in use must be restricted to those path options referenced. The priority of the secondary paths is specified within the list. Higher priority values are less preferred \- that is to say that a path with priority 0 is the most preferred path. In the case that the list is empty, any secondary path option may be utilised when the current primary path is in use
-                        	**type**\:   :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths>`
+                        	**type**\:  :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths>`
                         
                         .. attribute:: admin_groups
                         
                         	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\:   :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups>`
+                        	**type**\:  :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups>`
                         
                         
 
@@ -7214,56 +7198,56 @@ class Mpls(Entity):
                             .. attribute:: name
                             
                             	Path name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:   :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
+                            	**type**\:  :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
                             
                             	**default value**\: locally-computed
                             
                             .. attribute:: use_cspf
                             
                             	Flag to enable CSPF for locally computed LSPs
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:   :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                            	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
                             
                             .. attribute:: path_computation_server
                             
                             	Address of the external path computation server
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: explicit_path_name
                             
                             	reference to a defined path
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                             
                             .. attribute:: preference
                             
                             	Specifies a preference for this path. The lower the number higher the preference
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..255
                             
                             .. attribute:: setup_priority
                             
                             	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -7272,7 +7256,7 @@ class Mpls(Entity):
                             .. attribute:: hold_priority
                             
                             	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -7281,7 +7265,7 @@ class Mpls(Entity):
                             .. attribute:: retry_timer
                             
                             	sets the time between attempts to establish the LSP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..600
                             
@@ -7336,56 +7320,56 @@ class Mpls(Entity):
                             .. attribute:: name
                             
                             	Path name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:   :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
+                            	**type**\:  :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
                             
                             	**default value**\: locally-computed
                             
                             .. attribute:: use_cspf
                             
                             	Flag to enable CSPF for locally computed LSPs
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:   :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                            	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
                             
                             .. attribute:: path_computation_server
                             
                             	Address of the external path computation server
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: explicit_path_name
                             
                             	reference to a defined path
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                             
                             .. attribute:: preference
                             
                             	Specifies a preference for this path. The lower the number higher the preference
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..255
                             
                             .. attribute:: setup_priority
                             
                             	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -7394,7 +7378,7 @@ class Mpls(Entity):
                             .. attribute:: hold_priority
                             
                             	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -7403,7 +7387,7 @@ class Mpls(Entity):
                             .. attribute:: retry_timer
                             
                             	sets the time between attempts to establish the LSP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..600
                             
@@ -7467,7 +7451,7 @@ class Mpls(Entity):
                             .. attribute:: candidate_secondary_path
                             
                             	List of secondary paths which may be utilised when the current primary path is in use
-                            	**type**\: list of    :py:class:`CandidateSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath>`
+                            	**type**\: list of  		 :py:class:`CandidateSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath>`
                             
                             
 
@@ -7501,19 +7485,19 @@ class Mpls(Entity):
                                 .. attribute:: secondary_path  <key>
                                 
                                 	A reference to the secondary path option reference which acts as the key of the candidate\-secondary\-path list
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**refers to**\:  :py:class:`secondary_path <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
                                 
                                 .. attribute:: config
                                 
                                 	Configuration parameters relating to the candidate secondary path
-                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
+                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state parameters relating to the candidate secondary path
-                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
+                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
                                 
                                 
 
@@ -7557,14 +7541,14 @@ class Mpls(Entity):
                                     .. attribute:: secondary_path
                                     
                                     	A reference to the secondary path that should be utilised when the containing primary path option is in use
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                                     
                                     .. attribute:: priority
                                     
                                     	The priority of the specified secondary path option. Higher priority options are less preferable \- such that a secondary path reference with a priority of 0 is the most preferred
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -7602,21 +7586,21 @@ class Mpls(Entity):
                                     .. attribute:: secondary_path
                                     
                                     	A reference to the secondary path that should be utilised when the containing primary path option is in use
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                                     
                                     .. attribute:: priority
                                     
                                     	The priority of the specified secondary path option. Higher priority options are less preferable \- such that a secondary path reference with a priority of 0 is the most preferred
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: active
                                     
                                     	Indicates the current active path option that has been selected of the candidate secondary paths
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -7654,12 +7638,12 @@ class Mpls(Entity):
                             .. attribute:: config
                             
                             	Configuration data 
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config>`
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config>`
                             
                             .. attribute:: state
                             
                             	Operational state data 
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State>`
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State>`
                             
                             
 
@@ -7697,21 +7681,21 @@ class Mpls(Entity):
                                 .. attribute:: exclude_group
                                 
                                 	list of references to named admin\-groups to exclude in path calculation
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_all_group
                                 
                                 	list of references to named admin\-groups of which all must be included
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_any_group
                                 
                                 	list of references to named admin\-groups of which one must be included
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
@@ -7750,21 +7734,21 @@ class Mpls(Entity):
                                 .. attribute:: exclude_group
                                 
                                 	list of references to named admin\-groups to exclude in path calculation
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_all_group
                                 
                                 	list of references to named admin\-groups of which all must be included
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_any_group
                                 
                                 	list of references to named admin\-groups of which one must be included
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
@@ -7803,24 +7787,24 @@ class Mpls(Entity):
                         .. attribute:: name  <key>
                         
                         	Path name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters related to paths
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters related to paths
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State>`
                         
                         .. attribute:: admin_groups
                         
                         	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\:   :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups>`
+                        	**type**\:  :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups>`
                         
                         
 
@@ -7868,56 +7852,56 @@ class Mpls(Entity):
                             .. attribute:: name
                             
                             	Path name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:   :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
+                            	**type**\:  :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
                             
                             	**default value**\: locally-computed
                             
                             .. attribute:: use_cspf
                             
                             	Flag to enable CSPF for locally computed LSPs
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:   :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                            	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
                             
                             .. attribute:: path_computation_server
                             
                             	Address of the external path computation server
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: explicit_path_name
                             
                             	reference to a defined path
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                             
                             .. attribute:: preference
                             
                             	Specifies a preference for this path. The lower the number higher the preference
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..255
                             
                             .. attribute:: setup_priority
                             
                             	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -7926,7 +7910,7 @@ class Mpls(Entity):
                             .. attribute:: hold_priority
                             
                             	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -7935,7 +7919,7 @@ class Mpls(Entity):
                             .. attribute:: retry_timer
                             
                             	sets the time between attempts to establish the LSP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..600
                             
@@ -7990,56 +7974,56 @@ class Mpls(Entity):
                             .. attribute:: name
                             
                             	Path name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:   :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
+                            	**type**\:  :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
                             
                             	**default value**\: locally-computed
                             
                             .. attribute:: use_cspf
                             
                             	Flag to enable CSPF for locally computed LSPs
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:   :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                            	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
                             
                             .. attribute:: path_computation_server
                             
                             	Address of the external path computation server
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: explicit_path_name
                             
                             	reference to a defined path
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                             
                             .. attribute:: preference
                             
                             	Specifies a preference for this path. The lower the number higher the preference
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..255
                             
                             .. attribute:: setup_priority
                             
                             	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -8048,7 +8032,7 @@ class Mpls(Entity):
                             .. attribute:: hold_priority
                             
                             	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -8057,7 +8041,7 @@ class Mpls(Entity):
                             .. attribute:: retry_timer
                             
                             	sets the time between attempts to establish the LSP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..600
                             
@@ -8113,12 +8097,12 @@ class Mpls(Entity):
                             .. attribute:: config
                             
                             	Configuration data 
-                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config>`
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config>`
                             
                             .. attribute:: state
                             
                             	Operational state data 
-                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State>`
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State>`
                             
                             
 
@@ -8156,21 +8140,21 @@ class Mpls(Entity):
                                 .. attribute:: exclude_group
                                 
                                 	list of references to named admin\-groups to exclude in path calculation
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_all_group
                                 
                                 	list of references to named admin\-groups of which all must be included
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_any_group
                                 
                                 	list of references to named admin\-groups of which one must be included
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
@@ -8209,21 +8193,21 @@ class Mpls(Entity):
                                 .. attribute:: exclude_group
                                 
                                 	list of references to named admin\-groups to exclude in path calculation
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_all_group
                                 
                                 	list of references to named admin\-groups of which all must be included
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_any_group
                                 
                                 	list of references to named admin\-groups of which one must be included
-                                	**type**\:  list of str
+                                	**type**\: list of str
                                 
                                 	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
@@ -8263,7 +8247,7 @@ class Mpls(Entity):
             .. attribute:: path_setup_protocol
             
             	select and configure the signaling method for  the LSP
-            	**type**\:   :py:class:`PathSetupProtocol <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol>`
+            	**type**\:  :py:class:`PathSetupProtocol <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol>`
             
             
 
@@ -8298,14 +8282,14 @@ class Mpls(Entity):
                 .. attribute:: ldp
                 
                 	LDP signaling setup for IGP\-congruent LSPs
-                	**type**\:   :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp>`
+                	**type**\:  :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: segment_routing
                 
                 	segment routing signaling extensions for IGP\-confgruent LSPs
-                	**type**\:   :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting>`
+                	**type**\:  :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting>`
                 
                 	**presence node**\: True
                 
@@ -8344,7 +8328,7 @@ class Mpls(Entity):
                     .. attribute:: tunnel
                     
                     	contains configuration stanzas for different LSP tunnel types (P2P, P2MP, etc.)
-                    	**type**\:   :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel>`
+                    	**type**\:  :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel>`
                     
                     
 
@@ -8382,27 +8366,27 @@ class Mpls(Entity):
                         .. attribute:: tunnel_type
                         
                         	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\:   :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                        	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
                         
                         .. attribute:: ldp_type
                         
                         	specify basic or targeted LDP LSP
-                        	**type**\:   :py:class:`LdpType <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpType>`
+                        	**type**\:  :py:class:`LdpType <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpType>`
                         
                         .. attribute:: p2p_lsp
                         
                         	properties of point\-to\-point tunnels
-                        	**type**\:   :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp>`
+                        	**type**\:  :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp>`
                         
                         .. attribute:: p2mp_lsp
                         
                         	properties of point\-to\-multipoint tunnels
-                        	**type**\:   :py:class:`P2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp>`
+                        	**type**\:  :py:class:`P2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp>`
                         
                         .. attribute:: mp2mp_lsp
                         
                         	properties of multipoint\-to\-multipoint tunnels
-                        	**type**\:   :py:class:`Mp2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp>`
+                        	**type**\:  :py:class:`Mp2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp>`
                         
                         
 
@@ -8474,16 +8458,16 @@ class Mpls(Entity):
                             .. attribute:: fec_address
                             
                             	Address prefix for packets sharing the same forwarding equivalence class for the IGP\-based LSP
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  list of str
+                            		**type**\: list of str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                             
-                            ----
-                            	**type**\:  list of str
+                            		**type**\: list of str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                             
-                            ----
                             
 
                             """
@@ -8565,7 +8549,7 @@ class Mpls(Entity):
                     .. attribute:: tunnel
                     
                     	contains configuration stanzas for different LSP tunnel types (P2P, P2MP, etc.)
-                    	**type**\:   :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel>`
+                    	**type**\:  :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel>`
                     
                     
 
@@ -8603,12 +8587,12 @@ class Mpls(Entity):
                         .. attribute:: tunnel_type
                         
                         	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\:   :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                        	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
                         
                         .. attribute:: p2p_lsp
                         
                         	properties of point\-to\-point tunnels
-                        	**type**\:   :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp>`
+                        	**type**\:  :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp>`
                         
                         
 
@@ -8647,7 +8631,7 @@ class Mpls(Entity):
                             .. attribute:: fec
                             
                             	List of FECs that are to be originated as SR LSPs
-                            	**type**\: list of    :py:class:`Fec <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec>`
+                            	**type**\: list of  		 :py:class:`Fec <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec>`
                             
                             
 
@@ -8681,30 +8665,30 @@ class Mpls(Entity):
                                 .. attribute:: fec_address  <key>
                                 
                                 	FEC that is to be advertised as part of the Prefix\-SID
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                 
-                                ----
                                 .. attribute:: config
                                 
                                 	Configuration parameters relating to the FEC to be advertised by SR
-                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config>`
+                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state relating to a FEC advertised by SR
-                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State>`
+                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State>`
                                 
                                 .. attribute:: prefix_sid
                                 
                                 	Parameters relating to the Prefix\-SID used for the originated FEC
-                                	**type**\:   :py:class:`PrefixSid <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid>`
+                                	**type**\:  :py:class:`PrefixSid <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid>`
                                 
                                 
 
@@ -8754,16 +8738,16 @@ class Mpls(Entity):
                                     .. attribute:: fec_address
                                     
                                     	FEC that is to be advertised as part of the Prefix\-SID
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     
 
                                     """
@@ -8795,16 +8779,16 @@ class Mpls(Entity):
                                     .. attribute:: fec_address
                                     
                                     	FEC that is to be advertised as part of the Prefix\-SID
-                                    	**type**\: one of the below types:
+                                    	**type**\: union of the below types:
                                     
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
-                                    ----
-                                    	**type**\:  str
+                                    		**type**\: str
                                     
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
-                                    ----
                                     
 
                                     """
@@ -8837,12 +8821,12 @@ class Mpls(Entity):
                                     .. attribute:: config
                                     
                                     	Configuration parameters relating to the Prefix\-SID used for the originated FEC
-                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config>`
+                                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config>`
                                     
                                     .. attribute:: state
                                     
                                     	Operational state parameters relating to the Prefix\-SID used for the originated FEC
-                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State>`
+                                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State>`
                                     
                                     
 
@@ -8881,19 +8865,19 @@ class Mpls(Entity):
                                         .. attribute:: type
                                         
                                         	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\:   :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.Type>`
+                                        	**type**\:  :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.Type>`
                                         
                                         	**default value**\: INDEX
                                         
                                         .. attribute:: node_flag
                                         
                                         	Specifies that the Prefix\-SID is to be treated as a Node\-SID by setting the N\-flag in the advertised Prefix\-SID TLV in the IGP
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: last_hop_behavior
                                         
                                         	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\:   :py:class:`LastHopBehavior <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehavior>`
+                                        	**type**\:  :py:class:`LastHopBehavior <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehavior>`
                                         
                                         
 
@@ -9005,19 +8989,19 @@ class Mpls(Entity):
                                         .. attribute:: type
                                         
                                         	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\:   :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.Type>`
+                                        	**type**\:  :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.Type>`
                                         
                                         	**default value**\: INDEX
                                         
                                         .. attribute:: node_flag
                                         
                                         	Specifies that the Prefix\-SID is to be treated as a Node\-SID by setting the N\-flag in the advertised Prefix\-SID TLV in the IGP
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: last_hop_behavior
                                         
                                         	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\:   :py:class:`LastHopBehavior <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehavior>`
+                                        	**type**\:  :py:class:`LastHopBehavior <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehavior>`
                                         
                                         
 
@@ -9129,7 +9113,7 @@ class Mpls(Entity):
             .. attribute:: label_switched_path
             
             	list of defined static LSPs
-            	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath>`
+            	**type**\: list of  		 :py:class:`LabelSwitchedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath>`
             
             
 
@@ -9163,22 +9147,22 @@ class Mpls(Entity):
                 .. attribute:: name  <key>
                 
                 	name to identify the LSP
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ingress
                 
                 	Static LSPs for which the router is an ingress node
-                	**type**\:   :py:class:`Ingress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress>`
+                	**type**\:  :py:class:`Ingress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress>`
                 
                 .. attribute:: transit
                 
                 	static LSPs for which the router is a transit node
-                	**type**\:   :py:class:`Transit <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit>`
+                	**type**\:  :py:class:`Transit <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit>`
                 
                 .. attribute:: egress
                 
                 	static LSPs for which the router is a egress  node
-                	**type**\:   :py:class:`Egress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress>`
+                	**type**\:  :py:class:`Egress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress>`
                 
                 
 
@@ -9228,46 +9212,38 @@ class Mpls(Entity):
                     .. attribute:: next_hop
                     
                     	next hop IP address for the LSP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: incoming_label
                     
                     	label value on the incoming packet
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 16..1048575
+                    			**range:** 16..1048575
                     
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
-                    ----
-                    	**type**\:   :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
-                    
-                    
-                    ----
                     .. attribute:: push_label
                     
                     	label value to push at the current hop for the LSP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 16..1048575
+                    			**range:** 16..1048575
                     
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
-                    ----
-                    	**type**\:   :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
-                    
-                    
-                    ----
                     
 
                     """
@@ -9304,46 +9280,38 @@ class Mpls(Entity):
                     .. attribute:: next_hop
                     
                     	next hop IP address for the LSP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: incoming_label
                     
                     	label value on the incoming packet
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 16..1048575
+                    			**range:** 16..1048575
                     
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
-                    ----
-                    	**type**\:   :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
-                    
-                    
-                    ----
                     .. attribute:: push_label
                     
                     	label value to push at the current hop for the LSP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 16..1048575
+                    			**range:** 16..1048575
                     
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
-                    ----
-                    	**type**\:   :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
-                    
-                    
-                    ----
                     
 
                     """
@@ -9380,46 +9348,38 @@ class Mpls(Entity):
                     .. attribute:: next_hop
                     
                     	next hop IP address for the LSP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: incoming_label
                     
                     	label value on the incoming packet
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 16..1048575
+                    			**range:** 16..1048575
                     
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
-                    ----
-                    	**type**\:   :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
-                    
-                    
-                    ----
                     .. attribute:: push_label
                     
                     	label value to push at the current hop for the LSP
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 16..1048575
+                    			**range:** 16..1048575
                     
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
-                    ----
-                    	**type**\:   :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
-                    
-                    
-                    ----
                     
 
                     """

@@ -37,6 +37,12 @@ module Cisco-IOS-XE-dhcp {
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-04-28 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -619,6 +625,16 @@ module Cisco-IOS-XE-dhcp {
             type empty;
           }
         }
+        container match {
+          description "dhcp filtering";
+          container server {
+            description "permitted server source addresses";
+            leaf access-list {
+              description "specify access-list for match";
+              type string;
+            }
+          }
+        }		  
       }
     }
     list pool {
@@ -724,6 +740,14 @@ module Cisco-IOS-XE-dhcp {
     uses config-interface-ip-dhcp-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip/ios:dhcp" {
+    uses config-interface-ip-dhcp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip/ios:dhcp" {
+    uses config-interface-ip-dhcp-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Port-channel/ios:ip/ios:dhcp" {
     uses config-interface-ip-dhcp-grouping;
   }
@@ -760,6 +784,14 @@ module Cisco-IOS-XE-dhcp {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6/ios:dhcp" {
+    uses config-interface-ipv6-dhcp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6/ios:dhcp" {
+    uses config-interface-ipv6-dhcp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6/ios:dhcp" {
     uses config-interface-ipv6-dhcp-grouping;
   }
 

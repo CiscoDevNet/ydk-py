@@ -23,12 +23,16 @@ module Cisco-IOS-XE-cdp {
 
   description
     "Cisco XE Native Cisco Discovery Protocol (CDP) Yang Model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -81,6 +85,20 @@ module Cisco-IOS-XE-cdp {
   }
 
   grouping config-cdp-grouping {
+    leaf holdtime {
+      description 
+        "Specify the holdtime (in sec) to be sent in packets";
+      type uint8 {
+        range "10..255";
+      }
+    }
+    leaf timer {
+      description 
+        "Specify the rate at which CDP packets are sent (in sec)";
+      type uint8 {
+        range "5..254";
+      }
+    }
     leaf run {
       description
         "Enable CDP";
@@ -109,6 +127,15 @@ module Cisco-IOS-XE-cdp {
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
     uses config-interface-cdp-grouping;
   }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-cdp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+    uses config-interface-cdp-grouping;
+  }
+
 
   augment "/ios:native/ios:interface/ios:Tunnel" {
     uses config-interface-cdp-grouping;

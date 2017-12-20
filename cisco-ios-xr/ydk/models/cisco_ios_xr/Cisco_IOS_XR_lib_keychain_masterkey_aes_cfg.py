@@ -25,7 +25,7 @@ class Password(Entity):
     .. attribute:: encryption
     
     	Enable password encryption
-    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg.Password.Encryption>`
+    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg.Password.Encryption>`
     
     
 
@@ -59,7 +59,7 @@ class Password(Entity):
         .. attribute:: aes
         
         	encryption type used to store key
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         

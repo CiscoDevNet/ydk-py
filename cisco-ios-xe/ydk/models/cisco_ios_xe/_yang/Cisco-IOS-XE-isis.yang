@@ -45,6 +45,16 @@ module Cisco-IOS-XE-isis {
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
+  revision 2017-07-20 {
+    description
+      "Add isis bfd";
+  }
   revision 2017-04-28 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -87,6 +97,19 @@ module Cisco-IOS-XE-isis {
       enum "level-1";
       enum "level-2";
     }
+  }
+
+  grouping isis-bfd-grouping {
+    container bfd {
+      description
+        "Bidirectional Forwarding Protocol";
+      presence "true";
+      leaf disable {
+	description 
+          "disable bfd";
+        type empty;
+      }
+    } 
   }
 
   // interface * / isis
@@ -251,6 +274,7 @@ module Cisco-IOS-XE-isis {
             range "1..4294967295";
           }
         }
+        uses isis-bfd-grouping;
       }
       leaf lsp-interval {
         description
@@ -359,6 +383,7 @@ module Cisco-IOS-XE-isis {
           range "1..4294967295";
         }
       }
+      uses isis-bfd-grouping;
       container three-way-handshake {
         description
           "Select Cisco or IETF three-way handshake";
@@ -2418,6 +2443,14 @@ module Cisco-IOS-XE-isis {
     uses config-interface-isis-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:isis" {
+    uses config-interface-isis-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:isis" {
+    uses config-interface-isis-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Loopback/ios:isis" {
     uses config-interface-isis-grouping;
   }
@@ -2435,6 +2468,9 @@ module Cisco-IOS-XE-isis {
   }
 
   augment "/ios:native/ios:interface/ios:Virtual-Template/ios:isis" {
+    uses config-interface-isis-grouping;
+  }
+  augment "/ios:native/ios:interface/ios:BDI/ios:isis" {
     uses config-interface-isis-grouping;
   }
 }

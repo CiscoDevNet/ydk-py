@@ -45,22 +45,22 @@ class ETHERWIS(Entity):
     .. attribute:: etherwisdevicetable
     
     	The table for Ethernet WIS devices
-    	**type**\:   :py:class:`Etherwisdevicetable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable>`
+    	**type**\:  :py:class:`Etherwisdevicetable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable>`
     
     .. attribute:: etherwissectioncurrenttable
     
     	The table for the current state of Ethernet WIS sections
-    	**type**\:   :py:class:`Etherwissectioncurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwissectioncurrenttable>`
+    	**type**\:  :py:class:`Etherwissectioncurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwissectioncurrenttable>`
     
     .. attribute:: etherwispathcurrenttable
     
     	The table for the current state of Ethernet WIS paths
-    	**type**\:   :py:class:`Etherwispathcurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable>`
+    	**type**\:  :py:class:`Etherwispathcurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable>`
     
     .. attribute:: etherwisfarendpathcurrenttable
     
     	The table for the current far\-end state of Ethernet WIS paths
-    	**type**\:   :py:class:`Etherwisfarendpathcurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable>`
+    	**type**\:  :py:class:`Etherwisfarendpathcurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable>`
     
     
 
@@ -109,7 +109,7 @@ class ETHERWIS(Entity):
         .. attribute:: etherwisdeviceentry
         
         	An entry in the Ethernet WIS device table.  For each instance of this object there MUST be a corresponding instance of sonetMediumEntry
-        	**type**\: list of    :py:class:`Etherwisdeviceentry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry>`
+        	**type**\: list of  		 :py:class:`Etherwisdeviceentry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry>`
         
         
 
@@ -145,7 +145,7 @@ class ETHERWIS(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -154,17 +154,17 @@ class ETHERWIS(Entity):
             .. attribute:: etherwisdevicetxtestpatternmode
             
             	This variable controls the transmit test pattern mode. The value none(1) puts the the WIS transmit path into the normal operating mode.  The value squareWave(2) puts the WIS transmit path into the square wave test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.1. The value prbs31(3) puts the WIS transmit path into the PRBS31 test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.2.  The value mixedFrequency(4) puts the WIS transmit path into the mixed frequency test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.3. Any attempt to set this object to a value other than none(1) when the corresponding instance of ifAdminStatus has the value up(1) MUST be rejected with the error inconsistentValue, and any attempt to set the corresponding instance of ifAdminStatus to the value up(1) when an instance of this object has a value other than none(1) MUST be rejected with the error inconsistentValue
-            	**type**\:   :py:class:`Etherwisdevicetxtestpatternmode <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry.Etherwisdevicetxtestpatternmode>`
+            	**type**\:  :py:class:`Etherwisdevicetxtestpatternmode <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry.Etherwisdevicetxtestpatternmode>`
             
             .. attribute:: etherwisdevicerxtestpatternmode
             
             	This variable controls the receive test pattern mode. The value none(1) puts the the WIS receive path into the normal operating mode.  The value prbs31(3) puts the WIS receive path into the PRBS31 test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.2.  The value mixedFrequency(4) puts the WIS receive path into the mixed frequency test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.3.  Any attempt to set this object to a value other than none(1) when the corresponding instance of ifAdminStatus has the value up(1) MUST be rejected with the error inconsistentValue, and any attempt to set the corresponding instance of ifAdminStatus to the value up(1) when an instance of this object has a value other than none(1) MUST be rejected with the error inconsistentValue
-            	**type**\:   :py:class:`Etherwisdevicerxtestpatternmode <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry.Etherwisdevicerxtestpatternmode>`
+            	**type**\:  :py:class:`Etherwisdevicerxtestpatternmode <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry.Etherwisdevicerxtestpatternmode>`
             
             .. attribute:: etherwisdevicerxtestpatternerrors
             
             	This object counts the number of errors detected when the WIS receive path is operating in the PRBS31 test pattern mode.  It is reset to zero when the WIS receive path initially enters that mode, and it increments each time the PRBS pattern checker detects an error as described in [IEEE 802.3 Std.] subclause 50.3.8.2 unless its value is 65535, in which case it remains unchanged.  This object is writeable so that it may be reset upon explicit request of a command generator application while the WIS receive path continues to operate in PRBS31 test pattern mode
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -310,7 +310,7 @@ class ETHERWIS(Entity):
         .. attribute:: etherwissectioncurrententry
         
         	An entry in the etherWisSectionCurrentTable.  For each instance of this object there MUST be a corresponding instance of sonetSectionCurrentEntry
-        	**type**\: list of    :py:class:`Etherwissectioncurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwissectioncurrenttable.Etherwissectioncurrententry>`
+        	**type**\: list of  		 :py:class:`Etherwissectioncurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwissectioncurrenttable.Etherwissectioncurrententry>`
         
         
 
@@ -346,7 +346,7 @@ class ETHERWIS(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -355,14 +355,14 @@ class ETHERWIS(Entity):
             .. attribute:: etherwissectioncurrentj0transmitted
             
             	This is the 16\-octet section trace message that is transmitted in the J0 byte.  The value SHOULD be '89'h followed by fifteen octets of '00'h (or some cyclic shift thereof) when the section trace function is not used, and the implementation SHOULD use that value (or a cyclic shift thereof) as a default if no other value has been set
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 16
             
             .. attribute:: etherwissectioncurrentj0received
             
             	This is the 16\-octet section trace message that was most recently received in the J0 byte
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 16
             
@@ -402,7 +402,7 @@ class ETHERWIS(Entity):
         .. attribute:: etherwispathcurrententry
         
         	An entry in the etherWisPathCurrentTable.  For each instance of this object there MUST be a corresponding instance of sonetPathCurrentEntry
-        	**type**\: list of    :py:class:`Etherwispathcurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry>`
+        	**type**\: list of  		 :py:class:`Etherwispathcurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry>`
         
         
 
@@ -438,7 +438,7 @@ class ETHERWIS(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -447,19 +447,19 @@ class ETHERWIS(Entity):
             .. attribute:: etherwispathcurrentstatus
             
             	This variable indicates the current status of the path payload with a bit map that can indicate multiple defects at once.  The bit positions are assigned as follows\:  etherWisPathLOP(0)    This bit is set to indicate that an    LOP\-P (Loss of Pointer \- Path) defect    is being experienced.  Note\:  when this    bit is set, sonetPathSTSLOP MUST be set    in the corresponding instance of    sonetPathCurrentStatus.  etherWisPathAIS(1)    This bit is set to indicate that an    AIS\-P (Alarm Indication Signal \- Path)    defect is being experienced.  Note\:  when    this bit is set, sonetPathSTSAIS MUST be    set in the corresponding instance of    sonetPathCurrentStatus.  etherWisPathPLM(1)    This bit is set to indicate that a    PLM\-P (Payload Label Mismatch \- Path)    defect is being experienced.  Note\:  when    this bit is set, sonetPathSignalLabelMismatch    MUST be set in the corresponding instance of    sonetPathCurrentStatus.  etherWisPathLCD(3)    This bit is set to indicate that an    LCD\-P (Loss of Codegroup Delination \- Path)    defect is being experienced.  Since this    defect is detected by the PCS and not by    the path layer itself, there is no    corresponding bit in sonetPathCurrentStatus
-            	**type**\:   :py:class:`Etherwispathcurrentstatus <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry.Etherwispathcurrentstatus>`
+            	**type**\:  :py:class:`Etherwispathcurrentstatus <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry.Etherwispathcurrentstatus>`
             
             .. attribute:: etherwispathcurrentj1transmitted
             
             	This is the 16\-octet path trace message that is transmitted in the J1 byte.  The value SHOULD be '89'h followed by fifteen octets of '00'h (or some cyclic shift thereof) when the path trace function is not used, and the implementation SHOULD use that value (or a cyclic shift thereof) as a default if no other value has been set
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 16
             
             .. attribute:: etherwispathcurrentj1received
             
             	This is the 16\-octet path trace message that was most recently received in the J1 byte
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 16
             
@@ -502,7 +502,7 @@ class ETHERWIS(Entity):
         .. attribute:: etherwisfarendpathcurrententry
         
         	An entry in the etherWisFarEndPathCurrentTable.  For each instance of this object there MUST be a corresponding instance of sonetFarEndPathCurrentEntry
-        	**type**\: list of    :py:class:`Etherwisfarendpathcurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry>`
+        	**type**\: list of  		 :py:class:`Etherwisfarendpathcurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry>`
         
         
 
@@ -538,7 +538,7 @@ class ETHERWIS(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -547,7 +547,7 @@ class ETHERWIS(Entity):
             .. attribute:: etherwisfarendpathcurrentstatus
             
             	This variable indicates the current status at the far end of the path using a bit map that can indicate multiple defects at once.  The bit positions are assigned as follows\:  etherWisFarEndPayloadDefect(0)    A far end payload defect (i.e., far end    PLM\-P or LCD\-P) is currently being signaled    in G1 bits 5\-7.  etherWisFarEndServerDefect(1)    A far end server defect (i.e., far end    LOP\-P or AIS\-P) is currently being signaled    in G1 bits 5\-7.  Note\:  when this bit is set,    sonetPathSTSRDI MUST be set in the corresponding    instance of sonetPathCurrentStatus
-            	**type**\:   :py:class:`Etherwisfarendpathcurrentstatus <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry.Etherwisfarendpathcurrentstatus>`
+            	**type**\:  :py:class:`Etherwisfarendpathcurrentstatus <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry.Etherwisfarendpathcurrentstatus>`
             
             
 

@@ -27,7 +27,7 @@ module Cisco-IOS-XE-service-insertion {
 
   description
     "Cisco XE Native Service Insertion Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================

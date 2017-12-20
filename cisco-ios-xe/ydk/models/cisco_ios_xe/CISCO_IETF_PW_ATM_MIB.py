@@ -23,7 +23,7 @@ class CISCOIETFPWATMMIB(Entity):
     .. attribute:: cpwvcatmtable
     
     	This table specifies the information for an ATM interface, VC, VP to be carried over PSN
-    	**type**\:   :py:class:`Cpwvcatmtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable>`
+    	**type**\:  :py:class:`Cpwvcatmtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable>`
     
     
 
@@ -58,7 +58,7 @@ class CISCOIETFPWATMMIB(Entity):
         .. attribute:: cpwvcatmentry
         
         	A row in this table represents an ATM interface, VC, VP that needs to be adapted and carried over PSN. This table is indexed by CpwVcIndex in CISCO\-IETF\-PW\-MIB
-        	**type**\: list of    :py:class:`Cpwvcatmentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry>`
+        	**type**\: list of  		 :py:class:`Cpwvcatmentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry>`
         
         
 
@@ -94,7 +94,7 @@ class CISCOIETFPWATMMIB(Entity):
             .. attribute:: cpwvcindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -103,151 +103,151 @@ class CISCOIETFPWATMMIB(Entity):
             .. attribute:: cpwatmif
             
             	The ATM Interface that receives cells from the ATM network
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: cpwatmvpi
             
             	VPI value of this ATM VC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
             .. attribute:: cpwatmvci
             
             	VCI value of this ATM VC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cpwatmclpqosmapping
             
             	This Object indicates whether the CLP bits are considered when determining the value placed in the Quality of Service fields (e.g. EXP fields of the MPLS Label Stack) of the encapsulating protocol
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cpwatmrowstatus
             
             	This Object is used to create, modify or delete a row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: cpwatmoamcellsupported
             
             	This Object indicates whether OAM Cells are transported on this VC
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cpwatmqosscalingfactor
             
             	This Object represents the scaling factor (% value) to be applied to ATM QoS rates when calculating QoS rates for the PSN domain . For example, in the cell transport mode the bandwidth needed in the PSN domain will be higher (since PSN Transport header, PW header, and optional control word have to transmitted with every cell), whereas in the AAL5 mode the bandwidth needed in PSN domain will be less since cell headers will be removed after reassembly
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: cpwatmcellpacking
             
             	This object is used to identify if the VC is configured to do Cell Packing
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cpwatmmncp
             
             	This object indicates the maximum number of cells that get packed in one packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: cpwatmpeermncp
             
             	This Object represents the maximum number of cell that can be packed in one packet for peer interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: cpwatmencap
             
             	This object indicates if the packet going on the pseudowire is mpls or l2tpv3 encapsulated
-            	**type**\:   :py:class:`Cpwatmencap <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry.Cpwatmencap>`
+            	**type**\:  :py:class:`Cpwatmencap <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry.Cpwatmencap>`
             
             .. attribute:: cpwatmmcpttimeout
             
             	This Object represents which MCPT timeout value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: cpwatmcellsreceived
             
             	This object can be used to obtain the information on the number of cells that were received and sent to the PSN
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpwatmcellssent
             
             	This object can be used to obtain the information on the number of cells that were received from the PSN and sent over the ATM network
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpwatmcellsrejected
             
             	This Object indicates the number of cells that were rejected by this VC because of policing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpwatmcellstagged
             
             	This Object indicates the number of cells that were Tagged
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpwatmhccellsreceived
             
             	High Capacity counter for the number of cells that were received by this VC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cpwatmhccellsrejected
             
             	High Capacity counter for the number of cells that were rejected by this VC because of policing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cpwatmhccellstagged
             
             	High Capacity counter for the number of cells that were tagged
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cpwatmavgcellspacked
             
             	It indicates the Average number of cells that were received in one packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpwatmpktsreceived
             
             	This object can be used to obtain the information on the number of packets that were received and sent to the PSN
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpwatmpktssent
             
             	This object indicates the number of packets that were sent to the atm network
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpwatmpktsrejected
             
             	This object indicates the number of packets that were rejected because of Policing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

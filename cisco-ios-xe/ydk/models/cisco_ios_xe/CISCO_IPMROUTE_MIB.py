@@ -19,12 +19,12 @@ class CISCOIPMROUTEMIB(Entity):
     .. attribute:: ciscoipmroute
     
     	
-    	**type**\:   :py:class:`Ciscoipmroute <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmroute>`
+    	**type**\:  :py:class:`Ciscoipmroute <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmroute>`
     
     .. attribute:: ciscoipmrouteheartbeattable
     
     	The (conceptual) table listing sets of IP Multicast heartbeat parameters.  If no IP Multicast heartbeat is configured, this table would be empty
-    	**type**\:   :py:class:`Ciscoipmrouteheartbeattable <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable>`
+    	**type**\:  :py:class:`Ciscoipmrouteheartbeattable <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable>`
     
     
 
@@ -63,7 +63,7 @@ class CISCOIPMROUTEMIB(Entity):
         .. attribute:: ciscoipmroutenumberofentries
         
         	Maintains a count of the number of entries in the ipMRouteTable
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -101,7 +101,7 @@ class CISCOIPMROUTEMIB(Entity):
         .. attribute:: ciscoipmrouteheartbeatentry
         
         	An entry (conceptual row) representing a set of IP Multicast heartbeat parameters
-        	**type**\: list of    :py:class:`Ciscoipmrouteheartbeatentry <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry>`
+        	**type**\: list of  		 :py:class:`Ciscoipmrouteheartbeatentry <ydk.models.cisco_ios_xe.CISCO_IPMROUTE_MIB.CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry>`
         
         
 
@@ -136,17 +136,21 @@ class CISCOIPMROUTEMIB(Entity):
             .. attribute:: ciscoipmrouteheartbeatgroupaddr  <key>
             
             	Multicast group address used to receive heartbeat packets
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ciscoipmrouteheartbeatsourceaddr
             
             	Source address of the last multicast heartbeat packet received
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ciscoipmrouteheartbeatinterval
             
             	Number of seconds in which a Cisco multicast router expects a valid heartBeat packet from a source.  This value must be a multiple of 10
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10..3600
             
@@ -155,35 +159,35 @@ class CISCOIPMROUTEMIB(Entity):
             .. attribute:: ciscoipmrouteheartbeatwindowsize
             
             	Number of ciscoIpMRouteHeartBeatInterval intervals a Cisco multicast router waits before checking if expected number of heartbeat packets are received or not
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
             .. attribute:: ciscoipmrouteheartbeatcount
             
             	Number of time intervals where multicast packets were received in the last ciscoIpMRouteHeartBeatWindowSize intervals
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscoipmrouteheartbeatminimum
             
             	The minimal number of heartbeat packets expected in the last ciscoIpMRouteHeartBeatWindowSize intervals. If ciscoIpMRouteHeartBeatCount falls below this value, an SNMP trap/notification, if configured, will be sent to the NMS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
             .. attribute:: ciscoipmrouteheartbeatalerttime
             
             	The value of sysUpTime on the most recent occasion at which a missing IP multicast heartbeat condition occured for the group address specified in this entry.  If no such condition have occurred since the last re\-initialization of the local management subsystem, then this object contains a zero value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscoipmrouteheartbeatstatus
             
             	This object is used to create a new row or delete an existing row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 

@@ -25,7 +25,7 @@ class HardwareModuleNp(Entity):
     .. attribute:: nodes
     
     	Table of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class HardwareModuleNp(Entity):
         .. attribute:: node
         
         	Number
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node>`
         
         
 
@@ -93,12 +93,14 @@ class HardwareModuleNp(Entity):
             .. attribute:: node_name  <key>
             
             	node number
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: nps
             
             	List of all NP
-            	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps>`
+            	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps>`
             
             
 
@@ -137,7 +139,7 @@ class HardwareModuleNp(Entity):
                 .. attribute:: np
                 
                 	np0 to np7
-                	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np>`
+                	**type**\: list of  		 :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np>`
                 
                 
 
@@ -170,27 +172,29 @@ class HardwareModuleNp(Entity):
                     .. attribute:: np_name  <key>
                     
                     	NP name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (np0)\|(np1)\|(np2)\|(np3)\|(np4)\|(np5)\|(np6)\|(np7)
                     
                     .. attribute:: chn_load
                     
                     	prm channel load info
-                    	**type**\:   :py:class:`ChnLoad <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad>`
+                    	**type**\:  :py:class:`ChnLoad <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad>`
                     
                     .. attribute:: tcam_summary
                     
                     	prm tcam summary info
-                    	**type**\:   :py:class:`TcamSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary>`
+                    	**type**\:  :py:class:`TcamSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary>`
                     
                     .. attribute:: counters
                     
                     	prm counters info
-                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.Counters>`
+                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.Counters>`
                     
                     .. attribute:: fast_drop
                     
                     	prm fast drop counters info
-                    	**type**\:   :py:class:`FastDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop>`
+                    	**type**\:  :py:class:`FastDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop>`
                     
                     
 
@@ -243,7 +247,7 @@ class HardwareModuleNp(Entity):
                         .. attribute:: np_chn_load
                         
                         	Array of NP Channel load counters
-                        	**type**\: list of    :py:class:`NpChnLoad <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad.NpChnLoad>`
+                        	**type**\: list of  		 :py:class:`NpChnLoad <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad.NpChnLoad>`
                         
                         
 
@@ -276,42 +280,42 @@ class HardwareModuleNp(Entity):
                             .. attribute:: flow_ctr_counter
                             
                             	Flow control counters
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: avg_rfd_usage
                             
                             	Average RFD Usage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: peak_rfd_usage
                             
                             	Peak RFD Usage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: avg_guar_rfd_usage
                             
                             	Average of garanteed RFD usage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: peak_guar_rfd_usage
                             
                             	Peak of garanteed RFD usage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: interface_name
                             
                             	Inerface Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -354,12 +358,12 @@ class HardwareModuleNp(Entity):
                         .. attribute:: internal_tcam_info
                         
                         	Internal tcam summary info
-                        	**type**\:   :py:class:`InternalTcamInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo>`
+                        	**type**\:  :py:class:`InternalTcamInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo>`
                         
                         .. attribute:: tcam_info
                         
                         	External tcam summary info
-                        	**type**\:   :py:class:`TcamInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo>`
+                        	**type**\:  :py:class:`TcamInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo>`
                         
                         
 
@@ -397,17 +401,17 @@ class HardwareModuleNp(Entity):
                             .. attribute:: tcam_lt_ods2
                             
                             	TCAM LT ODS 2 summary
-                            	**type**\:   :py:class:`TcamLtOds2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2>`
+                            	**type**\:  :py:class:`TcamLtOds2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2>`
                             
                             .. attribute:: tcam_lt_ods8
                             
                             	TCAM LT\_ODS 8 summary
-                            	**type**\:   :py:class:`TcamLtOds8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8>`
+                            	**type**\:  :py:class:`TcamLtOds8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8>`
                             
                             .. attribute:: tcam_lt_l2
                             
                             	Array of TCAM LT L2 partition summaries
-                            	**type**\: list of    :py:class:`TcamLtL2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtL2>`
+                            	**type**\: list of  		 :py:class:`TcamLtL2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtL2>`
                             
                             
 
@@ -450,49 +454,49 @@ class HardwareModuleNp(Entity):
                                 .. attribute:: app_id_ifib
                                 
                                 	app IFIB entry
-                                	**type**\:   :py:class:`AppIdIfib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdIfib>`
+                                	**type**\:  :py:class:`AppIdIfib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdIfib>`
                                 
                                 .. attribute:: app_id_qos
                                 
                                 	app qos entry
-                                	**type**\:   :py:class:`AppIdQos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdQos>`
+                                	**type**\:  :py:class:`AppIdQos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdQos>`
                                 
                                 .. attribute:: app_id_acl
                                 
                                 	app acl entry
-                                	**type**\:   :py:class:`AppIdAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAcl>`
+                                	**type**\:  :py:class:`AppIdAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAcl>`
                                 
                                 .. attribute:: app_id_afmon
                                 
                                 	app afmon entry
-                                	**type**\:   :py:class:`AppIdAfmon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAfmon>`
+                                	**type**\:  :py:class:`AppIdAfmon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAfmon>`
                                 
                                 .. attribute:: app_id_li
                                 
                                 	app LI entry
-                                	**type**\:   :py:class:`AppIdLi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdLi>`
+                                	**type**\:  :py:class:`AppIdLi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdLi>`
                                 
                                 .. attribute:: app_id_pbr
                                 
                                 	app PBR entry
-                                	**type**\:   :py:class:`AppIdPbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdPbr>`
+                                	**type**\:  :py:class:`AppIdPbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdPbr>`
                                 
                                 .. attribute:: application_edpl_entry
                                 
                                 	app EDPL entry
-                                	**type**\:   :py:class:`ApplicationEdplEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.ApplicationEdplEntry>`
+                                	**type**\:  :py:class:`ApplicationEdplEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.ApplicationEdplEntry>`
                                 
                                 .. attribute:: max_entries
                                 
                                 	Max entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: free_entries
                                 
                                 	free entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -564,21 +568,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -617,21 +621,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -670,21 +674,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -723,21 +727,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -776,21 +780,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -829,21 +833,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -882,21 +886,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -935,49 +939,49 @@ class HardwareModuleNp(Entity):
                                 .. attribute:: app_id_ifib
                                 
                                 	app IFIB entry
-                                	**type**\:   :py:class:`AppIdIfib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdIfib>`
+                                	**type**\:  :py:class:`AppIdIfib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdIfib>`
                                 
                                 .. attribute:: app_id_qos
                                 
                                 	app qos entry
-                                	**type**\:   :py:class:`AppIdQos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdQos>`
+                                	**type**\:  :py:class:`AppIdQos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdQos>`
                                 
                                 .. attribute:: app_id_acl
                                 
                                 	app acl entry
-                                	**type**\:   :py:class:`AppIdAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAcl>`
+                                	**type**\:  :py:class:`AppIdAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAcl>`
                                 
                                 .. attribute:: app_id_afmon
                                 
                                 	app afmon entry
-                                	**type**\:   :py:class:`AppIdAfmon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAfmon>`
+                                	**type**\:  :py:class:`AppIdAfmon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAfmon>`
                                 
                                 .. attribute:: app_id_li
                                 
                                 	app LI entry
-                                	**type**\:   :py:class:`AppIdLi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdLi>`
+                                	**type**\:  :py:class:`AppIdLi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdLi>`
                                 
                                 .. attribute:: app_id_pbr
                                 
                                 	app PBR entry
-                                	**type**\:   :py:class:`AppIdPbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdPbr>`
+                                	**type**\:  :py:class:`AppIdPbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdPbr>`
                                 
                                 .. attribute:: application_edpl_entry
                                 
                                 	app EDPL entry
-                                	**type**\:   :py:class:`ApplicationEdplEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.ApplicationEdplEntry>`
+                                	**type**\:  :py:class:`ApplicationEdplEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.ApplicationEdplEntry>`
                                 
                                 .. attribute:: max_entries
                                 
                                 	Max entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: free_entries
                                 
                                 	free entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1049,21 +1053,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1102,21 +1106,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1155,21 +1159,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1208,21 +1212,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1261,21 +1265,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1314,21 +1318,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1367,21 +1371,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_used_entries
                                     
                                     	number of used vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: total_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1420,21 +1424,21 @@ class HardwareModuleNp(Entity):
                                 .. attribute:: partition_id
                                 
                                 	PartitionID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: valid_entries
                                 
                                 	Valid Entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: free_entries
                                 
                                 	Free Entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1473,17 +1477,17 @@ class HardwareModuleNp(Entity):
                             .. attribute:: tcam_lt_ods2
                             
                             	TCAM ODS2 partition summary
-                            	**type**\:   :py:class:`TcamLtOds2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2>`
+                            	**type**\:  :py:class:`TcamLtOds2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2>`
                             
                             .. attribute:: tcam_lt_ods8
                             
                             	TCAM ODS8 partition summary
-                            	**type**\:   :py:class:`TcamLtOds8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8>`
+                            	**type**\:  :py:class:`TcamLtOds8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8>`
                             
                             .. attribute:: tcam_lt_l2
                             
                             	Array of TCAM L2 partition summaries
-                            	**type**\: list of    :py:class:`TcamLtL2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtL2>`
+                            	**type**\: list of  		 :py:class:`TcamLtL2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtL2>`
                             
                             
 
@@ -1526,54 +1530,54 @@ class HardwareModuleNp(Entity):
                                 .. attribute:: acl_common
                                 
                                 	ACL common region
-                                	**type**\:   :py:class:`AclCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AclCommon>`
+                                	**type**\:  :py:class:`AclCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AclCommon>`
                                 
                                 .. attribute:: app_id_ifib
                                 
                                 	app IFIB entry
-                                	**type**\:   :py:class:`AppIdIfib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdIfib>`
+                                	**type**\:  :py:class:`AppIdIfib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdIfib>`
                                 
                                 .. attribute:: app_id_qos
                                 
                                 	app qos entry
-                                	**type**\:   :py:class:`AppIdQos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdQos>`
+                                	**type**\:  :py:class:`AppIdQos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdQos>`
                                 
                                 .. attribute:: app_id_acl
                                 
                                 	app acl entry
-                                	**type**\:   :py:class:`AppIdAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAcl>`
+                                	**type**\:  :py:class:`AppIdAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAcl>`
                                 
                                 .. attribute:: app_id_afmon
                                 
                                 	app afmon entry
-                                	**type**\:   :py:class:`AppIdAfmon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAfmon>`
+                                	**type**\:  :py:class:`AppIdAfmon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAfmon>`
                                 
                                 .. attribute:: app_id_li
                                 
                                 	app LI entry
-                                	**type**\:   :py:class:`AppIdLi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdLi>`
+                                	**type**\:  :py:class:`AppIdLi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdLi>`
                                 
                                 .. attribute:: app_id_pbr
                                 
                                 	app PBR entry
-                                	**type**\:   :py:class:`AppIdPbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdPbr>`
+                                	**type**\:  :py:class:`AppIdPbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdPbr>`
                                 
                                 .. attribute:: app_id_edpl
                                 
                                 	app EDPL entry
-                                	**type**\:   :py:class:`AppIdEdpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdEdpl>`
+                                	**type**\:  :py:class:`AppIdEdpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdEdpl>`
                                 
                                 .. attribute:: free_entries
                                 
                                 	Free entries in the table
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: reserved_entries
                                 
                                 	The number of active vmr entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1650,14 +1654,14 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: free_entries
                                     
                                     	Free entries in the table
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1694,21 +1698,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1747,21 +1751,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1800,21 +1804,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1853,21 +1857,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1906,21 +1910,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1959,21 +1963,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2012,21 +2016,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2065,54 +2069,54 @@ class HardwareModuleNp(Entity):
                                 .. attribute:: acl_common
                                 
                                 	ACL common region
-                                	**type**\:   :py:class:`AclCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AclCommon>`
+                                	**type**\:  :py:class:`AclCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AclCommon>`
                                 
                                 .. attribute:: app_id_ifib
                                 
                                 	app IFIB entry
-                                	**type**\:   :py:class:`AppIdIfib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdIfib>`
+                                	**type**\:  :py:class:`AppIdIfib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdIfib>`
                                 
                                 .. attribute:: app_id_qos
                                 
                                 	app qos entry
-                                	**type**\:   :py:class:`AppIdQos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdQos>`
+                                	**type**\:  :py:class:`AppIdQos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdQos>`
                                 
                                 .. attribute:: app_id_acl
                                 
                                 	app acl entry
-                                	**type**\:   :py:class:`AppIdAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAcl>`
+                                	**type**\:  :py:class:`AppIdAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAcl>`
                                 
                                 .. attribute:: app_id_afmon
                                 
                                 	app afmon entry
-                                	**type**\:   :py:class:`AppIdAfmon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAfmon>`
+                                	**type**\:  :py:class:`AppIdAfmon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAfmon>`
                                 
                                 .. attribute:: app_id_li
                                 
                                 	app LI entry
-                                	**type**\:   :py:class:`AppIdLi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdLi>`
+                                	**type**\:  :py:class:`AppIdLi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdLi>`
                                 
                                 .. attribute:: app_id_pbr
                                 
                                 	app PBR entry
-                                	**type**\:   :py:class:`AppIdPbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdPbr>`
+                                	**type**\:  :py:class:`AppIdPbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdPbr>`
                                 
                                 .. attribute:: app_id_edpl
                                 
                                 	app EDPL entry
-                                	**type**\:   :py:class:`AppIdEdpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdEdpl>`
+                                	**type**\:  :py:class:`AppIdEdpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdEdpl>`
                                 
                                 .. attribute:: free_entries
                                 
                                 	Free entries in the table
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: reserved_entries
                                 
                                 	The number of active vmr entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2189,14 +2193,14 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: free_entries
                                     
                                     	Free entries in the table
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2233,21 +2237,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2286,21 +2290,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2339,21 +2343,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2392,21 +2396,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2445,21 +2449,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2498,21 +2502,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2551,21 +2555,21 @@ class HardwareModuleNp(Entity):
                                     .. attribute:: num_vmr_ids
                                     
                                     	Vmr IDs
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_active_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: num_allocated_entries
                                     
                                     	The number of active vmr entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2604,28 +2608,28 @@ class HardwareModuleNp(Entity):
                                 .. attribute:: partition_id
                                 
                                 	PartitionID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: priority
                                 
                                 	Priority
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: valid_entries
                                 
                                 	Valid Entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: free_entries
                                 
                                 	Free Entries
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2666,7 +2670,7 @@ class HardwareModuleNp(Entity):
                         .. attribute:: np_counter
                         
                         	Array of NP Counters
-                        	**type**\: list of    :py:class:`NpCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.Counters.NpCounter>`
+                        	**type**\: list of  		 :py:class:`NpCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.Counters.NpCounter>`
                         
                         
 
@@ -2699,21 +2703,21 @@ class HardwareModuleNp(Entity):
                             .. attribute:: counter_index
                             
                             	Counter Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: counter_value
                             
                             	The accurate value of the counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rate
                             
                             	Rate in Packets Per Second
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2722,12 +2726,12 @@ class HardwareModuleNp(Entity):
                             .. attribute:: counter_type
                             
                             	Counter TypeDROP\: Drop counterPUNT\: Punt counterFWD\:  Forward or generic counterUNKNOWN\: Counter type unknown
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: counter_name
                             
                             	Counter name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2768,7 +2772,7 @@ class HardwareModuleNp(Entity):
                         .. attribute:: np_fast_drop
                         
                         	Array of NP Fast Drop Counters
-                        	**type**\: list of    :py:class:`NpFastDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop.NpFastDrop>`
+                        	**type**\: list of  		 :py:class:`NpFastDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop.NpFastDrop>`
                         
                         
 
@@ -2801,12 +2805,12 @@ class HardwareModuleNp(Entity):
                             .. attribute:: interface_name
                             
                             	Interface name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: counter_value
                             
                             	The Value of the counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             

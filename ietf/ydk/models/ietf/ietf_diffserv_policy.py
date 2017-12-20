@@ -46,7 +46,7 @@ class Policies(Entity):
     .. attribute:: policy_entry
     
     	policy template
-    	**type**\: list of    :py:class:`PolicyEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry>`
+    	**type**\: list of  		 :py:class:`PolicyEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry>`
     
     
 
@@ -80,17 +80,17 @@ class Policies(Entity):
         .. attribute:: policy_name  <key>
         
         	Diffserv policy name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: policy_descr
         
         	Diffserv policy description
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: classifier_entry
         
         	Classifier entry configuration in a policy
-        	**type**\: list of    :py:class:`ClassifierEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry>`
+        	**type**\: list of  		 :py:class:`ClassifierEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry>`
         
         
 
@@ -128,31 +128,31 @@ class Policies(Entity):
             .. attribute:: classifier_entry_name  <key>
             
             	Diffserv classifier entry name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: classifier_entry_inline
             
             	Indication of inline classifier entry
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: classifier_entry_filter_oper
             
             	Filters are applicable as any or all filters
-            	**type**\:   :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
+            	**type**\:  :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
             
             	**default value**\: match-any-filter
             
             .. attribute:: filter_entry
             
             	Filters configured inline in a policy
-            	**type**\: list of    :py:class:`FilterEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry>`
+            	**type**\: list of  		 :py:class:`FilterEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry>`
             
             .. attribute:: classifier_action_entry_cfg
             
             	Configuration of classifier & associated actions
-            	**type**\: list of    :py:class:`ClassifierActionEntryCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg>`
+            	**type**\: list of  		 :py:class:`ClassifierActionEntryCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg>`
             
             
 
@@ -192,42 +192,42 @@ class Policies(Entity):
                 .. attribute:: filter_type  <key>
                 
                 	This leaf defines type of the filter
-                	**type**\:   :py:class:`FilterType <ydk.models.ietf.ietf_diffserv_classifier.FilterType>`
+                	**type**\:  :py:class:`FilterType <ydk.models.ietf.ietf_diffserv_classifier.FilterType>`
                 
                 .. attribute:: filter_logical_not  <key>
                 
                 	 This is logical\-not operator for a filter. When true, it  indicates filter looks for absence of a pattern defined  by the filter 
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: dscp_cfg
                 
                 	list of dscp ranges
-                	**type**\: list of    :py:class:`DscpCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg>`
+                	**type**\: list of  		 :py:class:`DscpCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg>`
                 
                 .. attribute:: source_ip_address_cfg
                 
                 	list of source ip address
-                	**type**\: list of    :py:class:`SourceIpAddressCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg>`
+                	**type**\: list of  		 :py:class:`SourceIpAddressCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg>`
                 
                 .. attribute:: destination_ip_address_cfg
                 
                 	list of destination ip address
-                	**type**\: list of    :py:class:`DestinationIpAddressCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg>`
+                	**type**\: list of  		 :py:class:`DestinationIpAddressCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg>`
                 
                 .. attribute:: source_port_cfg
                 
                 	list of ranges of source port
-                	**type**\: list of    :py:class:`SourcePortCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg>`
+                	**type**\: list of  		 :py:class:`SourcePortCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg>`
                 
                 .. attribute:: destination_port_cfg
                 
                 	list of ranges of destination port
-                	**type**\: list of    :py:class:`DestinationPortCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg>`
+                	**type**\: list of  		 :py:class:`DestinationPortCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg>`
                 
                 .. attribute:: protocol_cfg
                 
                 	list of ranges of protocol values
-                	**type**\: list of    :py:class:`ProtocolCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg>`
+                	**type**\: list of  		 :py:class:`ProtocolCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg>`
                 
                 
 
@@ -269,14 +269,14 @@ class Policies(Entity):
                     .. attribute:: dscp_min  <key>
                     
                     	Minimum value of dscp range
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..63
                     
                     .. attribute:: dscp_max  <key>
                     
                     	maximum value of dscp range
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..63
                     
@@ -313,16 +313,16 @@ class Policies(Entity):
                     .. attribute:: source_ip_addr  <key>
                     
                     	source ip prefix
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                     
-                    ----
                     
 
                     """
@@ -354,16 +354,16 @@ class Policies(Entity):
                     .. attribute:: destination_ip_addr  <key>
                     
                     	destination ip prefix
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                     
-                    ----
                     
 
                     """
@@ -395,14 +395,14 @@ class Policies(Entity):
                     .. attribute:: source_port_min  <key>
                     
                     	minimum value of source port range
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: source_port_max  <key>
                     
                     	maximum value of source port range
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -439,14 +439,14 @@ class Policies(Entity):
                     .. attribute:: destination_port_min  <key>
                     
                     	minimum value of destination port range
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: destination_port_max  <key>
                     
                     	maximum value of destination port range
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -483,14 +483,14 @@ class Policies(Entity):
                     .. attribute:: protocol_min  <key>
                     
                     	minimum value of protocol range
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: protocol_max  <key>
                     
                     	maximum value of protocol range
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -527,47 +527,47 @@ class Policies(Entity):
                 .. attribute:: action_type  <key>
                 
                 	This defines action type 
-                	**type**\:   :py:class:`ActionType <ydk.models.ietf.ietf_diffserv_policy.ActionType>`
+                	**type**\:  :py:class:`ActionType <ydk.models.ietf.ietf_diffserv_policy.ActionType>`
                 
                 .. attribute:: marking_cfg
                 
                 	Marking configuration container
-                	**type**\:   :py:class:`MarkingCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg>`
+                	**type**\:  :py:class:`MarkingCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg>`
                 
                 .. attribute:: priority_cfg
                 
                 	priority attributes container
-                	**type**\:   :py:class:`PriorityCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg>`
+                	**type**\:  :py:class:`PriorityCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg>`
                 
                 .. attribute:: meter_cfg
                 
                 	Meter list configuration container
-                	**type**\:   :py:class:`MeterCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg>`
+                	**type**\:  :py:class:`MeterCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg>`
                 
                 .. attribute:: min_rate_cfg
                 
                 	min guaranteed bandwidth
-                	**type**\:   :py:class:`MinRateCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg>`
+                	**type**\:  :py:class:`MinRateCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg>`
                 
                 .. attribute:: max_rate_cfg
                 
                 	maximum rate attributes
-                	**type**\:   :py:class:`MaxRateCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg>`
+                	**type**\:  :py:class:`MaxRateCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg>`
                 
                 .. attribute:: drop_cfg
                 
                 	Always Drop configuration container
-                	**type**\:   :py:class:`DropCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg>`
+                	**type**\:  :py:class:`DropCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg>`
                 
                 .. attribute:: tail_drop_cfg
                 
                 	Tail Drop configuration container
-                	**type**\:   :py:class:`TailDropCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg>`
+                	**type**\:  :py:class:`TailDropCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg>`
                 
                 .. attribute:: random_detect_cfg
                 
                 	Random Detect configuration container
-                	**type**\:   :py:class:`RandomDetectCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg>`
+                	**type**\:  :py:class:`RandomDetectCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg>`
                 
                 
 
@@ -583,7 +583,7 @@ class Policies(Entity):
                     self.yang_parent_name = "classifier-entry"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"marking-cfg" : ("marking_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg), "priority-cfg" : ("priority_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg), "meter-cfg" : ("meter_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg), "min-rate-cfg" : ("min_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg), "max-rate-cfg" : ("max_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg), "drop-cfg" : ("drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg), "tail-drop-cfg" : ("tail_drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg), "random-detect-cfg" : ("random_detect_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg)}
+                    self._child_container_classes = {"ietf-diffserv-action:marking-cfg" : ("marking_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg), "ietf-diffserv-action:priority-cfg" : ("priority_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg), "ietf-diffserv-action:meter-cfg" : ("meter_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg), "ietf-diffserv-action:min-rate-cfg" : ("min_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg), "ietf-diffserv-action:max-rate-cfg" : ("max_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg), "ietf-diffserv-action:drop-cfg" : ("drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg), "ietf-diffserv-action:tail-drop-cfg" : ("tail_drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg), "ietf-diffserv-action:random-detect-cfg" : ("random_detect_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg)}
                     self._child_list_classes = {}
 
                     self.action_type = YLeaf(YType.identityref, "action-type")
@@ -640,7 +640,7 @@ class Policies(Entity):
                     .. attribute:: dscp
                     
                     	dscp marking
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..63
                     
@@ -675,14 +675,14 @@ class Policies(Entity):
                     .. attribute:: priority_level
                     
                     	priority level
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rate_burst
                     
                     	absolute priority rate with/without burst rateand absolute percent
-                    	**type**\:   :py:class:`RateBurst <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst>`
+                    	**type**\:  :py:class:`RateBurst <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst>`
                     
                     
 
@@ -720,7 +720,7 @@ class Policies(Entity):
                         .. attribute:: rate
                         
                         	Rate value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -729,33 +729,33 @@ class Policies(Entity):
                         .. attribute:: absolute_rate_metric
                         
                         	Metric
-                        	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
+                        	**type**\:  :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
                         
                         	**default value**\: none
                         
                         .. attribute:: absolute_rate_units
                         
                         	Rate basic units
-                        	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
+                        	**type**\:  :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
                         
                         .. attribute:: rate_percent
                         
                         	percent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..100
                         
                         .. attribute:: rate_ratio
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65532
                         
                         .. attribute:: burst_size
                         
                         	burst size
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -764,7 +764,7 @@ class Policies(Entity):
                         .. attribute:: burst_interval
                         
                         	burst interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -813,7 +813,7 @@ class Policies(Entity):
                     .. attribute:: meter_list
                     
                     	Meter configuration
-                    	**type**\: list of    :py:class:`MeterList <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList>`
+                    	**type**\: list of  		 :py:class:`MeterList <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList>`
                     
                     
 
@@ -846,14 +846,14 @@ class Policies(Entity):
                         .. attribute:: meter_id  <key>
                         
                         	meter identifier
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: meter_rate
                         
                         	meter rate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -862,7 +862,7 @@ class Policies(Entity):
                         .. attribute:: burst_size
                         
                         	burst size
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -871,7 +871,7 @@ class Policies(Entity):
                         .. attribute:: burst_interval
                         
                         	burst interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -880,17 +880,17 @@ class Policies(Entity):
                         .. attribute:: color
                         
                         	color aware & color blind attributes container
-                        	**type**\:   :py:class:`Color <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color>`
+                        	**type**\:  :py:class:`Color <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color>`
                         
                         .. attribute:: succeed_action
                         
                         	confirm action
-                        	**type**\:   :py:class:`SucceedAction <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction>`
+                        	**type**\:  :py:class:`SucceedAction <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction>`
                         
                         .. attribute:: fail_action
                         
                         	exceed action
-                        	**type**\:   :py:class:`FailAction <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction>`
+                        	**type**\:  :py:class:`FailAction <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction>`
                         
                         
 
@@ -944,17 +944,17 @@ class Policies(Entity):
                             .. attribute:: classifier_entry_name
                             
                             	Diffserv classifier name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: classifier_entry_descr
                             
                             	Description of the class template
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: classifier_entry_filter_operation
                             
                             	Filters are applicable as any or all filters
-                            	**type**\:   :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
+                            	**type**\:  :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
                             
                             	**default value**\: match-any-filter
                             
@@ -993,26 +993,26 @@ class Policies(Entity):
                             .. attribute:: meter_action_type
                             
                             	meter action type
-                            	**type**\:   :py:class:`MeterActionType <ydk.models.ietf.ietf_diffserv_action.MeterActionType>`
+                            	**type**\:  :py:class:`MeterActionType <ydk.models.ietf.ietf_diffserv_action.MeterActionType>`
                             
                             .. attribute:: next_meter_id
                             
                             	next meter identifier
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: dscp
                             
                             	dscp marking
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..63
                             
                             .. attribute:: drop_action
                             
                             	always drop algorithm
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -1051,26 +1051,26 @@ class Policies(Entity):
                             .. attribute:: meter_action_type
                             
                             	meter action type
-                            	**type**\:   :py:class:`MeterActionType <ydk.models.ietf.ietf_diffserv_action.MeterActionType>`
+                            	**type**\:  :py:class:`MeterActionType <ydk.models.ietf.ietf_diffserv_action.MeterActionType>`
                             
                             .. attribute:: next_meter_id
                             
                             	next meter identifier
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: dscp
                             
                             	dscp marking
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..63
                             
                             .. attribute:: drop_action
                             
                             	always drop algorithm
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -1109,7 +1109,7 @@ class Policies(Entity):
                     .. attribute:: min_rate
                     
                     	minimum rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1118,33 +1118,33 @@ class Policies(Entity):
                     .. attribute:: absolute_rate_metric
                     
                     	Metric
-                    	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
+                    	**type**\:  :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
                     
                     	**default value**\: none
                     
                     .. attribute:: absolute_rate_units
                     
                     	Rate basic units
-                    	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
+                    	**type**\:  :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
                     
                     .. attribute:: rate_percent
                     
                     	percent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
                     .. attribute:: rate_ratio
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65532
                     
                     .. attribute:: bw_excess_share_cfg
                     
                     	share the bandwidth remaming
-                    	**type**\:   :py:class:`BwExcessShareCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg>`
+                    	**type**\:  :py:class:`BwExcessShareCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg>`
                     
                     
 
@@ -1190,33 +1190,33 @@ class Policies(Entity):
                         .. attribute:: value
                         
                         	percentage or ratio value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: absolute_rate_metric
                         
                         	Metric
-                        	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
+                        	**type**\:  :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
                         
                         	**default value**\: none
                         
                         .. attribute:: absolute_rate_units
                         
                         	Rate basic units
-                        	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
+                        	**type**\:  :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
                         
                         .. attribute:: rate_percent
                         
                         	percent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..100
                         
                         .. attribute:: rate_ratio
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65532
                         
@@ -1259,7 +1259,7 @@ class Policies(Entity):
                     .. attribute:: absolute_rate
                     
                     	rate in bits per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1268,7 +1268,7 @@ class Policies(Entity):
                     .. attribute:: burst_size
                     
                     	burst size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1277,7 +1277,7 @@ class Policies(Entity):
                     .. attribute:: burst_interval
                     
                     	burst interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1286,26 +1286,26 @@ class Policies(Entity):
                     .. attribute:: absolute_rate_metric
                     
                     	Metric
-                    	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
+                    	**type**\:  :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
                     
                     	**default value**\: none
                     
                     .. attribute:: absolute_rate_units
                     
                     	Rate basic units
-                    	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
+                    	**type**\:  :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
                     
                     .. attribute:: rate_percent
                     
                     	percent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
                     .. attribute:: rate_ratio
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65532
                     
@@ -1352,7 +1352,7 @@ class Policies(Entity):
                     .. attribute:: drop_action
                     
                     	always drop algorithm
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1385,7 +1385,7 @@ class Policies(Entity):
                     .. attribute:: qlimit_dscp_thresh
                     
                     	the queue limit per dscp range
-                    	**type**\: list of    :py:class:`QlimitDscpThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh>`
+                    	**type**\: list of  		 :py:class:`QlimitDscpThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh>`
                     
                     
 
@@ -1418,21 +1418,21 @@ class Policies(Entity):
                         .. attribute:: dscp_min  <key>
                         
                         	Minimum of dscp range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..63
                         
                         .. attribute:: dscp_max  <key>
                         
                         	Maximum of dscp range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..63
                         
                         .. attribute:: threshold
                         
                         	threshold
-                        	**type**\:   :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold>`
+                        	**type**\:  :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold>`
                         
                         
 
@@ -1472,7 +1472,7 @@ class Policies(Entity):
                             .. attribute:: threshold_size
                             
                             	Threshold size
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1481,7 +1481,7 @@ class Policies(Entity):
                             .. attribute:: threshold_interval
                             
                             	Threshold interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1520,24 +1520,24 @@ class Policies(Entity):
                     .. attribute:: exp_weighting_const
                     
                     	Exponential weighting constant factor for red profile 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: red_min_thresh
                     
                     	Minimum threshold
-                    	**type**\:   :py:class:`RedMinThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh>`
+                    	**type**\:  :py:class:`RedMinThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh>`
                     
                     .. attribute:: red_max_thresh
                     
                     	Maximum threshold
-                    	**type**\:   :py:class:`RedMaxThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh>`
+                    	**type**\:  :py:class:`RedMaxThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh>`
                     
                     .. attribute:: mark_probability
                     
                     	Mark probability
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1000
                     
@@ -1584,7 +1584,7 @@ class Policies(Entity):
                         .. attribute:: threshold
                         
                         	threshold
-                        	**type**\:   :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold>`
+                        	**type**\:  :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold>`
                         
                         
 
@@ -1617,7 +1617,7 @@ class Policies(Entity):
                             .. attribute:: threshold_size
                             
                             	Threshold size
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1626,7 +1626,7 @@ class Policies(Entity):
                             .. attribute:: threshold_interval
                             
                             	Threshold interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1665,7 +1665,7 @@ class Policies(Entity):
                         .. attribute:: threshold
                         
                         	threshold
-                        	**type**\:   :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold>`
+                        	**type**\:  :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold>`
                         
                         
 
@@ -1698,7 +1698,7 @@ class Policies(Entity):
                             .. attribute:: threshold_size
                             
                             	Threshold size
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1707,7 +1707,7 @@ class Policies(Entity):
                             .. attribute:: threshold_interval
                             
                             	Threshold interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             

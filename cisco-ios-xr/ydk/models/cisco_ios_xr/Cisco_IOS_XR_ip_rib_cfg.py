@@ -29,12 +29,12 @@ class Rib(Entity):
     .. attribute:: af
     
     	RIB address family configuration
-    	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af>`
+    	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af>`
     
     .. attribute:: max_recursion_depth
     
     	Set maximum depth for route recursion check
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 5..16
     
@@ -75,12 +75,12 @@ class Rib(Entity):
         .. attribute:: ipv4
         
         	IPv4 configuration
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4>`
         
         .. attribute:: ipv6
         
         	IPv6 configuration
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6>`
         
         
 
@@ -119,12 +119,12 @@ class Rib(Entity):
             .. attribute:: next_hop_dampening_disable
             
             	Disable next\-hop dampening
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redistribution_history
             
             	Redistribution history related configs
-            	**type**\:   :py:class:`RedistributionHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory>`
+            	**type**\:  :py:class:`RedistributionHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory>`
             
             
 
@@ -163,19 +163,19 @@ class Rib(Entity):
                 .. attribute:: keep
                 
                 	Retain redistribution history after disconnect
-                	**type**\:   :py:class:`Keep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory.Keep>`
+                	**type**\:  :py:class:`Keep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory.Keep>`
                 
                 .. attribute:: bcdl_client
                 
                 	Maximum BCDL redistribution history size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..2000000
                 
                 .. attribute:: protocol_client
                 
                 	Maximum protocol redistribution history size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..250000
                 
@@ -218,7 +218,7 @@ class Rib(Entity):
                     .. attribute:: bcdl
                     
                     	Enable retain BCDL history
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -252,12 +252,12 @@ class Rib(Entity):
             .. attribute:: next_hop_dampening_disable
             
             	Disable next\-hop dampening
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redistribution_history
             
             	Redistribution history related configs
-            	**type**\:   :py:class:`RedistributionHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory>`
+            	**type**\:  :py:class:`RedistributionHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory>`
             
             
 
@@ -296,19 +296,19 @@ class Rib(Entity):
                 .. attribute:: keep
                 
                 	Retain redistribution history after disconnect
-                	**type**\:   :py:class:`Keep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory.Keep>`
+                	**type**\:  :py:class:`Keep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory.Keep>`
                 
                 .. attribute:: bcdl_client
                 
                 	Maximum BCDL redistribution history size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..2000000
                 
                 .. attribute:: protocol_client
                 
                 	Maximum protocol redistribution history size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..250000
                 
@@ -351,7 +351,7 @@ class Rib(Entity):
                     .. attribute:: bcdl
                     
                     	Enable retain BCDL history
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 

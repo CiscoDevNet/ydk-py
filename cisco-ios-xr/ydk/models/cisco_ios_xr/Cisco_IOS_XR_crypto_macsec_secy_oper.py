@@ -25,7 +25,7 @@ class Macsec(Entity):
     .. attribute:: secy
     
     	MAC Security Entity
-    	**type**\:   :py:class:`Secy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy>`
+    	**type**\:  :py:class:`Secy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy>`
     
     
 
@@ -59,7 +59,7 @@ class Macsec(Entity):
         .. attribute:: interfaces
         
         	MAC Security Data
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces>`
         
         
 
@@ -93,7 +93,7 @@ class Macsec(Entity):
             .. attribute:: interface
             
             	MAC Security Data for the Interface
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface>`
             
             
 
@@ -127,12 +127,14 @@ class Macsec(Entity):
                 .. attribute:: name  <key>
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: stats
                 
                 	MACsec Stats
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats>`
+                	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats>`
                 
                 
 
@@ -171,17 +173,17 @@ class Macsec(Entity):
                     .. attribute:: intf_stats
                     
                     	Interface stats
-                    	**type**\:   :py:class:`IntfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.IntfStats>`
+                    	**type**\:  :py:class:`IntfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.IntfStats>`
                     
                     .. attribute:: tx_sc_stats
                     
                     	Tx SC Stats
-                    	**type**\:   :py:class:`TxScStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.TxScStats>`
+                    	**type**\:  :py:class:`TxScStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.TxScStats>`
                     
                     .. attribute:: rx_sc_stats
                     
                     	RX SC Stats List
-                    	**type**\: list of    :py:class:`RxScStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.RxScStats>`
+                    	**type**\: list of  		 :py:class:`RxScStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.RxScStats>`
                     
                     
 
@@ -224,84 +226,84 @@ class Macsec(Entity):
                         .. attribute:: in_pkts_untagged
                         
                         	InPktsUntagged
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_no_tag
                         
                         	InPktsNoTag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_bad_tag
                         
                         	InPktsBadTag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_unknown_sci
                         
                         	InPktsUnknownSCI
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_no_sci
                         
                         	InPktsNoSCI
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_overrun
                         
                         	InPktsOverrun
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_octets_validated
                         
                         	InOctetsValidated
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_octets_decrypted
                         
                         	InOctetsDecrypted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_pkts_untagged
                         
                         	OutPktsUntagged
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_pkts_too_long
                         
                         	OutPktsTooLong
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_octets_protected
                         
                         	OutOctetsProtected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_octets_encrypted
                         
                         	OutOctetsEncrypted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -358,49 +360,49 @@ class Macsec(Entity):
                         .. attribute:: tx_sci
                         
                         	Tx SCI
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_pkts_protected
                         
                         	OutPktsProtected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_pkts_encrypted
                         
                         	OutPktsEncrypted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_octets_protected
                         
                         	OutOctetsProtected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_octets_encrypted
                         
                         	OutOctetsEncrypted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_pkts_too_long
                         
                         	OutPktsTooLong
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: txsa_stat
                         
                         	tx sa stats
-                        	**type**\: list of    :py:class:`TxsaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat>`
+                        	**type**\: list of  		 :py:class:`TxsaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat>`
                         
                         
 
@@ -445,21 +447,21 @@ class Macsec(Entity):
                             .. attribute:: out_pkts_protected
                             
                             	OutPktsProtected
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_pkts_encrypted
                             
                             	OutPktsEncrypted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: next_pn
                             
                             	NextPN
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -498,91 +500,91 @@ class Macsec(Entity):
                         .. attribute:: rx_sci
                         
                         	Rx SCI
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_unchecked
                         
                         	InPktsUnchecked
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_delayed
                         
                         	InPktsDelayed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_late
                         
                         	InPktsLate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_ok
                         
                         	InPktsOK
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_invalid
                         
                         	InPktsInvalid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_not_valid
                         
                         	InPktsNotValid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_not_using_sa
                         
                         	InPktsNotUsingSA
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_unused_sa
                         
                         	InPktsUnusedSA
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_pkts_untagged_hit
                         
                         	InPktsUntaggedHit
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_octets_validated
                         
                         	InOctetsValidated
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_octets_decrypted
                         
                         	InOctetsDecrypted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: rxsa_stat
                         
                         	rxsa stats
-                        	**type**\: list of    :py:class:`RxsaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat>`
+                        	**type**\: list of  		 :py:class:`RxsaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat>`
                         
                         
 
@@ -639,42 +641,42 @@ class Macsec(Entity):
                             .. attribute:: in_pkts_ok
                             
                             	InPktsOK
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_pkts_invalid
                             
                             	InPktsInvalid
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_pkts_not_valid
                             
                             	InPktsNotValid
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_pkts_not_using_sa
                             
                             	InPktsNotUsingSA
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_pkts_unused_sa
                             
                             	InPktsUnusedSA
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: next_pn
                             
                             	NextPN
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             

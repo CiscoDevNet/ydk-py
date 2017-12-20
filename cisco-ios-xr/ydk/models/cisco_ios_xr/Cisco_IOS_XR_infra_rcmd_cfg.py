@@ -79,67 +79,67 @@ class RouterConvergence(Entity):
     .. attribute:: protocols
     
     	Table of Protocol
-    	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols>`
+    	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols>`
     
     .. attribute:: storage_location
     
     	Absolute directory path for saving the archive files. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
-    	**type**\:   :py:class:`StorageLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.StorageLocation>`
+    	**type**\:  :py:class:`StorageLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.StorageLocation>`
     
     	**presence node**\: True
     
     .. attribute:: mpls_ldp
     
     	RCMD related configuration for MPLS\-LDP
-    	**type**\:   :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp>`
+    	**type**\:  :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp>`
     
     	**presence node**\: True
     
     .. attribute:: collect_diagnostics
     
     	Table of CollectDiagnostics
-    	**type**\:   :py:class:`CollectDiagnostics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.CollectDiagnostics>`
+    	**type**\:  :py:class:`CollectDiagnostics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.CollectDiagnostics>`
     
     .. attribute:: nodes
     
     	Table of Node
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Nodes>`
     
     .. attribute:: event_buffer_size
     
     	Event buffer size for storing event traces (as number of events)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 100..500
     
     .. attribute:: prefix_monitor_limit
     
     	Limits Individual Prefix Monitoring
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..100
     
     .. attribute:: disable
     
     	Disable the monitoring of route convergence on the entire router
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: enable
     
     	Enable Configure Router Convergence Monitoring. Deletion of this object also causes deletion of all associated objects under RouterConvergence
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: max_events_stored
     
     	Maximum number of events stored in the server
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 10..500
     
     .. attribute:: monitoring_interval
     
     	Interval in which to collect logs (in mins)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 5..120
     
@@ -210,7 +210,7 @@ class RouterConvergence(Entity):
         .. attribute:: protocol
         
         	Protocol for which to configure RCMD parameters
-        	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols.Protocol>`
+        	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols.Protocol>`
         
         
 
@@ -244,17 +244,17 @@ class RouterConvergence(Entity):
             .. attribute:: protocol_name  <key>
             
             	Specify the protocol
-            	**type**\:   :py:class:`ProtocolName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.ProtocolName>`
+            	**type**\:  :py:class:`ProtocolName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.ProtocolName>`
             
             .. attribute:: priorities
             
             	Table of Priority
-            	**type**\:   :py:class:`Priorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols.Protocol.Priorities>`
+            	**type**\:  :py:class:`Priorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols.Protocol.Priorities>`
             
             .. attribute:: enable
             
             	Enable Protocol for which to configure RCMD parameters. Deletion of this object also causes deletion of all associated objects under Protocol
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -295,7 +295,7 @@ class RouterConvergence(Entity):
                 .. attribute:: priority
                 
                 	Priority
-                	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols.Protocol.Priorities.Priority>`
+                	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Protocols.Protocol.Priorities.Priority>`
                 
                 
 
@@ -328,36 +328,36 @@ class RouterConvergence(Entity):
                     .. attribute:: rcmd_priority  <key>
                     
                     	Specify the priority
-                    	**type**\:   :py:class:`RcmdPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RcmdPriority>`
+                    	**type**\:  :py:class:`RcmdPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RcmdPriority>`
                     
                     .. attribute:: threshold
                     
                     	Threshold value for convergence (in msec)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: leaf_networks
                     
                     	Specify the maximum number of leaf networks monitored
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 10..100
                     
                     .. attribute:: disable
                     
                     	Disables the monitoring of route convergence for specified priority
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: enable
                     
                     	Enable Priority. Deletion of this object also causes deletion of all associated objects under Priority
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: frr_threshold
                     
                     	Threshold value for Fast ReRoute Coverage (in percentage)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -406,26 +406,26 @@ class RouterConvergence(Entity):
         .. attribute:: diagnostics
         
         	Absolute directory path for storing diagnostic reports. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: diagnostics_size
         
         	Maximum size of diagnostics dir (5% \- 80%) for local storage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 5..80
         
         .. attribute:: reports_size
         
         	Maximum size of reports dir (5% \- 80%) for local storage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 5..80
         
         .. attribute:: reports
         
         	Absolute directory path for storing reports. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -468,7 +468,7 @@ class RouterConvergence(Entity):
         .. attribute:: remote_lfa
         
         	Monitoring configuration for Remote LFA
-        	**type**\:   :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp.RemoteLfa>`
+        	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp.RemoteLfa>`
         
         	**presence node**\: True
         
@@ -506,7 +506,7 @@ class RouterConvergence(Entity):
             .. attribute:: threshold
             
             	Threshold value for label coverage (in percentage)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
@@ -547,7 +547,7 @@ class RouterConvergence(Entity):
         .. attribute:: collect_diagnostic
         
         	Collect diagnostics on specified node
-        	**type**\: list of    :py:class:`CollectDiagnostic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.CollectDiagnostics.CollectDiagnostic>`
+        	**type**\: list of  		 :py:class:`CollectDiagnostic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.CollectDiagnostics.CollectDiagnostic>`
         
         
 
@@ -581,12 +581,14 @@ class RouterConvergence(Entity):
             .. attribute:: node_name  <key>
             
             	Specified location
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: enable
             
             	Enables collection of diagnostics on the specified location
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -622,7 +624,7 @@ class RouterConvergence(Entity):
         .. attribute:: node
         
         	Configure parameters for the specified node (Partially qualified location allowed)
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.Nodes.Node>`
         
         
 
@@ -657,17 +659,19 @@ class RouterConvergence(Entity):
             .. attribute:: node_name  <key>
             
             	Wildcard expression(eg. \*/\*/\*, R/\*/\*, R/S/\*, R/S/I)
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))/){2}(([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))
             
             .. attribute:: disable
             
             	Disables the monitoring of route convergence on specified location
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable Configure parameters for the specified node (Partially qualified location allowed). Deletion of this object also causes deletion of all associated objects under Node
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 

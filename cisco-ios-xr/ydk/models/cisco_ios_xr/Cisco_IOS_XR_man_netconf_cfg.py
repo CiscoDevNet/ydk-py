@@ -25,7 +25,7 @@ class NetconfYang(Entity):
     .. attribute:: agent
     
     	NETCONF YANG agent configuration commands
-    	**type**\:   :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent>`
+    	**type**\:  :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent>`
     
     
 
@@ -59,17 +59,17 @@ class NetconfYang(Entity):
         .. attribute:: ssh
         
         	NETCONF YANG agent over SSH connection
-        	**type**\:   :py:class:`Ssh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Ssh>`
+        	**type**\:  :py:class:`Ssh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Ssh>`
         
         .. attribute:: session
         
         	Session settings
-        	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Session>`
+        	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Session>`
         
         .. attribute:: rate_limit
         
         	Number of bytes to process per sec
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 4096..4294967295
         
@@ -117,7 +117,7 @@ class NetconfYang(Entity):
             .. attribute:: enable
             
             	Enable NETCONF YANG agent over SSH connection
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -151,7 +151,7 @@ class NetconfYang(Entity):
             .. attribute:: limit
             
             	Count of allowable concurrent netconf\-yang sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..50
             
@@ -160,7 +160,7 @@ class NetconfYang(Entity):
             .. attribute:: absolute_timeout
             
             	Absolute timeout in minutes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1440
             
@@ -169,7 +169,7 @@ class NetconfYang(Entity):
             .. attribute:: idle_timeout
             
             	Non\-active session lifetime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1440
             

@@ -85,62 +85,66 @@ class Pce(Entity):
     .. attribute:: pcc_addresses
     
     	Path computation client configuration
-    	**type**\:   :py:class:`PccAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses>`
+    	**type**\:  :py:class:`PccAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses>`
     
     .. attribute:: logging
     
     	PCE logging configuration
-    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Logging>`
+    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Logging>`
     
     .. attribute:: backoff
     
     	PCE backoff configuration
-    	**type**\:   :py:class:`Backoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Backoff>`
+    	**type**\:  :py:class:`Backoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Backoff>`
     
     .. attribute:: state_syncs
     
     	Standby PCE configuration
-    	**type**\:   :py:class:`StateSyncs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.StateSyncs>`
+    	**type**\:  :py:class:`StateSyncs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.StateSyncs>`
     
     .. attribute:: segment_routing
     
     	PCE segment\-routing configuration
-    	**type**\:   :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.SegmentRouting>`
+    	**type**\:  :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.SegmentRouting>`
     
     .. attribute:: timers
     
     	PCE Timers configuration
-    	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Timers>`
+    	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Timers>`
     
     .. attribute:: netconf
     
     	NETCONF configuration
-    	**type**\:   :py:class:`Netconf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Netconf>`
+    	**type**\:  :py:class:`Netconf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Netconf>`
     
     .. attribute:: disjoint_path
     
     	Disjoint path configuration
-    	**type**\:   :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath>`
+    	**type**\:  :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath>`
     
     .. attribute:: explicit_paths
     
     	Explicit paths
-    	**type**\:   :py:class:`ExplicitPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths>`
+    	**type**\:  :py:class:`ExplicitPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths>`
     
     .. attribute:: server_address
     
     	IPv4 address of PCE server
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
     
     .. attribute:: password
     
     	MD5 password
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** (!.+)\|([^!].+)
     
     .. attribute:: enable
     
     	True only
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -223,7 +227,7 @@ class Pce(Entity):
         .. attribute:: pcc_address
         
         	Path computation client address
-        	**type**\: list of    :py:class:`PccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress>`
+        	**type**\: list of  		 :py:class:`PccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress>`
         
         
 
@@ -257,17 +261,19 @@ class Pce(Entity):
             .. attribute:: address  <key>
             
             	IPv4 address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: lsp_names
             
             	MPLS label switched path
-            	**type**\:   :py:class:`LspNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames>`
+            	**type**\:  :py:class:`LspNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames>`
             
             .. attribute:: enable
             
             	True only
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -308,7 +314,7 @@ class Pce(Entity):
                 .. attribute:: lsp_name
                 
                 	MPLS label switched path
-                	**type**\: list of    :py:class:`LspName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames.LspName>`
+                	**type**\: list of  		 :py:class:`LspName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames.LspName>`
                 
                 
 
@@ -341,27 +347,29 @@ class Pce(Entity):
                     .. attribute:: name  <key>
                     
                     	LSP name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: rsvp_te
                     
                     	RSVP\-TE configuration
-                    	**type**\:   :py:class:`RsvpTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe>`
+                    	**type**\:  :py:class:`RsvpTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe>`
                     
                     .. attribute:: undelegate
                     
                     	Undelegate LSP
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: explicit_path_name
                     
                     	Explicit\-path name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: enable
                     
                     	True only
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -405,24 +413,24 @@ class Pce(Entity):
                         .. attribute:: affinity
                         
                         	LSP Affinity
-                        	**type**\:   :py:class:`Affinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity>`
+                        	**type**\:  :py:class:`Affinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity>`
                         
                         .. attribute:: priority
                         
                         	Tunnel Setup and Hold Priorities
-                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority>`
+                        	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: fast_protect
                         
                         	Enable fast protection
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: bandwidth
                         
                         	Bandwidth configuration
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -431,7 +439,7 @@ class Pce(Entity):
                         .. attribute:: enable
                         
                         	True only
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -477,17 +485,23 @@ class Pce(Entity):
                             .. attribute:: include_any
                             
                             	Include\-any affinity value
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             .. attribute:: include_all
                             
                             	Include\-all affinity value
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             .. attribute:: exclude_any
                             
                             	Exclude\-any affinity value
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             
 
@@ -524,7 +538,7 @@ class Pce(Entity):
                             .. attribute:: setup_priority
                             
                             	Setup Priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -533,7 +547,7 @@ class Pce(Entity):
                             .. attribute:: hold_priority
                             
                             	Hold Priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
@@ -575,12 +589,12 @@ class Pce(Entity):
         .. attribute:: no_path
         
         	Logging NO\-PATH configuration
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: fallback
         
         	Logging fallback configuration
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -616,7 +630,7 @@ class Pce(Entity):
         .. attribute:: ratio
         
         	Backoff common ratio configuration
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -625,7 +639,7 @@ class Pce(Entity):
         .. attribute:: threshold
         
         	Backoff threshold configuration
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..3600
         
@@ -634,7 +648,7 @@ class Pce(Entity):
         .. attribute:: difference
         
         	Backoff common difference configuration
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -676,7 +690,7 @@ class Pce(Entity):
         .. attribute:: state_sync
         
         	Standby PCE ipv4 address
-        	**type**\: list of    :py:class:`StateSync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.StateSyncs.StateSync>`
+        	**type**\: list of  		 :py:class:`StateSync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.StateSyncs.StateSync>`
         
         
 
@@ -710,7 +724,9 @@ class Pce(Entity):
             .. attribute:: address  <key>
             
             	IPv4 address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             
 
@@ -744,12 +760,12 @@ class Pce(Entity):
         .. attribute:: te_latency
         
         	Use te\-latency algorithm configuration
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: strict_sid_only
         
         	Use strict\-sid\-only configuration
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -785,7 +801,7 @@ class Pce(Entity):
         .. attribute:: reoptimization_timer
         
         	Topology reoptimization timer configuration
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 10..3600
         
@@ -796,7 +812,7 @@ class Pce(Entity):
         .. attribute:: keepalive
         
         	Keepalive interval in seconds, zero to disable
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -807,7 +823,7 @@ class Pce(Entity):
         .. attribute:: minimum_peer_keepalive
         
         	Minimum acceptable peer proposed keepalive interval
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -851,7 +867,7 @@ class Pce(Entity):
         .. attribute:: netconf_ssh
         
         	NETCONF SSH configuration
-        	**type**\:   :py:class:`NetconfSsh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Netconf.NetconfSsh>`
+        	**type**\:  :py:class:`NetconfSsh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Netconf.NetconfSsh>`
         
         
 
@@ -885,12 +901,14 @@ class Pce(Entity):
             .. attribute:: netconf_ssh_password
             
             	Password to use for NETCONF SSH connections
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             .. attribute:: netconf_ssh_user
             
             	User name to use for NETCONF SSH connections
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -926,7 +944,7 @@ class Pce(Entity):
         .. attribute:: groups
         
         	Association configuration
-        	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath.Groups>`
+        	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath.Groups>`
         
         
 
@@ -960,7 +978,7 @@ class Pce(Entity):
             .. attribute:: group
             
             	Association Group Configuration
-            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath.Groups.Group>`
+            	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath.Groups.Group>`
             
             
 
@@ -994,26 +1012,26 @@ class Pce(Entity):
                 .. attribute:: group_id  <key>
                 
                 	Group ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: dp_type  <key>
                 
                 	Disjoiness type
-                	**type**\:   :py:class:`PceDisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceDisjointPath>`
+                	**type**\:  :py:class:`PceDisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceDisjointPath>`
                 
                 .. attribute:: sub_id  <key>
                 
                 	Sub group ID, 0 to unset
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: strict
                 
                 	Disable Fallback
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1053,7 +1071,7 @@ class Pce(Entity):
         .. attribute:: explicit_path
         
         	Explicit\-path configuration
-        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath>`
+        	**type**\: list of  		 :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath>`
         
         
 
@@ -1087,17 +1105,19 @@ class Pce(Entity):
             .. attribute:: name  <key>
             
             	Explicit\-path name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: path_hops
             
             	Path Hops
-            	**type**\:   :py:class:`PathHops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath.PathHops>`
+            	**type**\:  :py:class:`PathHops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath.PathHops>`
             
             .. attribute:: enable
             
             	True only
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1138,7 +1158,7 @@ class Pce(Entity):
                 .. attribute:: path_hop
                 
                 	Explicit path hop configuration
-                	**type**\: list of    :py:class:`PathHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop>`
+                	**type**\: list of  		 :py:class:`PathHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop>`
                 
                 
 
@@ -1171,33 +1191,37 @@ class Pce(Entity):
                     .. attribute:: index  <key>
                     
                     	Hop Index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: hop_type
                     
                     	Path hop type
-                    	**type**\:   :py:class:`PceExplicitPathHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceExplicitPathHop>`
+                    	**type**\:  :py:class:`PceExplicitPathHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceExplicitPathHop>`
                     
                     .. attribute:: address
                     
                     	IPv4 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     	**default value**\: 0.0.0.0
                     
                     .. attribute:: remote_address
                     
                     	Remote IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     	**default value**\: 0.0.0.0
                     
                     .. attribute:: mpls_label
                     
                     	MPLS Label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..1048575
                     

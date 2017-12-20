@@ -94,7 +94,7 @@ class LptsPifib_(Entity):
     .. attribute:: nodes
     
     	List of Pre\-ifib Nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes>`
     
     
 
@@ -128,7 +128,7 @@ class LptsPifib_(Entity):
         .. attribute:: node
         
         	Pre\-ifib data for particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node>`
         
         
 
@@ -162,22 +162,24 @@ class LptsPifib_(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: type_values
             
             	Type specific
-            	**type**\:   :py:class:`TypeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues>`
+            	**type**\:  :py:class:`TypeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues>`
             
             .. attribute:: dynamic_flows_stats
             
             	Dynamic Flows Statistics
-            	**type**\:   :py:class:`DynamicFlowsStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.DynamicFlowsStats>`
+            	**type**\:  :py:class:`DynamicFlowsStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.DynamicFlowsStats>`
             
             .. attribute:: hardware
             
             	Hardware specific
-            	**type**\:   :py:class:`Hardware <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware>`
+            	**type**\:  :py:class:`Hardware <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware>`
             
             
 
@@ -193,7 +195,7 @@ class LptsPifib_(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"type-values" : ("type_values", LptsPifib_.Nodes.Node.TypeValues), "dynamic-flows-stats" : ("dynamic_flows_stats", LptsPifib_.Nodes.Node.DynamicFlowsStats), "hardware" : ("hardware", LptsPifib_.Nodes.Node.Hardware)}
+                self._child_container_classes = {"type-values" : ("type_values", LptsPifib_.Nodes.Node.TypeValues), "dynamic-flows-stats" : ("dynamic_flows_stats", LptsPifib_.Nodes.Node.DynamicFlowsStats), "Cisco-IOS-XR-platform-pifib-oper:hardware" : ("hardware", LptsPifib_.Nodes.Node.Hardware)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
@@ -226,7 +228,7 @@ class LptsPifib_(Entity):
                 .. attribute:: type_value
                 
                 	pifib types
-                	**type**\: list of    :py:class:`TypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues.TypeValue>`
+                	**type**\: list of  		 :py:class:`TypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues.TypeValue>`
                 
                 
 
@@ -259,12 +261,12 @@ class LptsPifib_(Entity):
                     .. attribute:: pifib_type  <key>
                     
                     	Type value
-                    	**type**\:   :py:class:`LptsPifib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib>`
+                    	**type**\:  :py:class:`LptsPifib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib>`
                     
                     .. attribute:: entry
                     
                     	Data for single pre\-ifib entry
-                    	**type**\: list of    :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry>`
+                    	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry>`
                     
                     
 
@@ -299,163 +301,165 @@ class LptsPifib_(Entity):
                         .. attribute:: entry  <key>
                         
                         	Single Pre\-ifib entry
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: vrf_name
                         
                         	VRF Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: vid
                         
                         	VRF ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: l3protocol
                         
                         	Layer 3 Protocol
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: l4protocol
                         
                         	Layer 4 Protocol
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: intf_name
                         
                         	Interface Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: intf_handle
                         
                         	Interface Handle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: destination_addr
                         
                         	Destination IP Address
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: source_addr
                         
                         	Source IP Address
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: destination_type
                         
                         	Destination Key Type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: destination_value
                         
                         	Destination Port/ICMP Type/IGMP Type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: source_port
                         
                         	Source port
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: is_frag
                         
                         	Is Fragment
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_syn
                         
                         	Is SYN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: opcode
                         
                         	Opcode
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: flow_type
                         
                         	Flow type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: listener_tag
                         
                         	Listener Tag
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: local_flag
                         
                         	Local Flag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_fgid
                         
                         	Is FGID or not
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: deliver_list_short
                         
                         	Deliver List Short Format
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: deliver_list_long
                         
                         	Deliver List Long Format
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: min_ttl
                         
                         	Minimum TTL
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: accepts
                         
                         	Packets matched to accept
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: drops
                         
                         	Packets matched for drop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: stale
                         
                         	Is Stale
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: pifib_type
                         
                         	sub Pre\-IFIB type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: pifib_program_time
                         
                         	Creation or Update Time
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -540,47 +544,47 @@ class LptsPifib_(Entity):
                 .. attribute:: dynamic_flows_enabled
                 
                 	Dynamic Flows Enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: platform_supported_max
                 
                 	Platform Max
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: platform_configured_max
                 
                 	Platform Config Limit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: platform_total_configured
                 
                 	Platform Total Configured
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_hw_entries
                 
                 	Total HW Entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_sw_entries
                 
                 	Total SW Entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: flow
                 
                 	Flow Datalist
-                	**type**\: list of    :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow>`
+                	**type**\: list of  		 :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow>`
                 
                 
 
@@ -625,55 +629,55 @@ class LptsPifib_(Entity):
                     .. attribute:: flow_name
                     
                     	Flow Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: configurable
                     
                     	Is Configurable
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: configured
                     
                     	Is Configured
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: default_max
                     
                     	Default Max
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: configured_max
                     
                     	Configured Max
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: active_max
                     
                     	Active Max
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hardware_count
                     
                     	Hardware Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: software_count
                     
                     	Software Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pending_software_entries
                     
                     	Pending Software Entries
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -722,32 +726,32 @@ class LptsPifib_(Entity):
                 .. attribute:: usage_entries
                 
                 	Usage Table options
-                	**type**\:   :py:class:`UsageEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries>`
+                	**type**\:  :py:class:`UsageEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries>`
                 
                 .. attribute:: police
                 
                 	Police details
-                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Police>`
+                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Police>`
                 
                 .. attribute:: static_police
                 
                 	Static Police details
-                	**type**\:   :py:class:`StaticPolice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.StaticPolice>`
+                	**type**\:  :py:class:`StaticPolice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.StaticPolice>`
                 
                 .. attribute:: bfd
                 
                 	Bfd details
-                	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Bfd>`
+                	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Bfd>`
                 
                 .. attribute:: statistics
                 
                 	Hardware Entry type
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Statistics>`
                 
                 .. attribute:: index_entries
                 
                 	Hardware Entry options
-                	**type**\:   :py:class:`IndexEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries>`
+                	**type**\:  :py:class:`IndexEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries>`
                 
                 
 
@@ -805,7 +809,7 @@ class LptsPifib_(Entity):
                     .. attribute:: usage_entry
                     
                     	Usage details
-                    	**type**\: list of    :py:class:`UsageEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry>`
+                    	**type**\: list of  		 :py:class:`UsageEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry>`
                     
                     
 
@@ -838,12 +842,12 @@ class LptsPifib_(Entity):
                         .. attribute:: region_id  <key>
                         
                         	Region ID
-                        	**type**\:   :py:class:`UsageAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_platform_pifib_oper.UsageAddressFamily>`
+                        	**type**\:  :py:class:`UsageAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_platform_pifib_oper.UsageAddressFamily>`
                         
                         .. attribute:: usage_info
                         
                         	Per TCAM type usage info
-                        	**type**\: list of    :py:class:`UsageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo>`
+                        	**type**\: list of  		 :py:class:`UsageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo>`
                         
                         
 
@@ -878,35 +882,35 @@ class LptsPifib_(Entity):
                             .. attribute:: pipe_id
                             
                             	Pipe ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: region
                             
                             	Region Type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: region_id
                             
                             	Region ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: size
                             
                             	Maximum Number of Entries in the Region
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: used
                             
                             	Used Number of Entries in the Region
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -949,7 +953,7 @@ class LptsPifib_(Entity):
                     .. attribute:: police_info
                     
                     	Per flow type police info
-                    	**type**\: list of    :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo>`
+                    	**type**\: list of  		 :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo>`
                     
                     
 
@@ -982,77 +986,79 @@ class LptsPifib_(Entity):
                         .. attribute:: avgrate
                         
                         	avgrate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: burst
                         
                         	burst
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: static_avgrate
                         
                         	static avgrate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: avgrate_type
                         
                         	avgrate type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: accepted_stats
                         
                         	accepted stats
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dropped_stats
                         
                         	dropped stats
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: policer
                         
                         	policer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: iptos_value
                         
                         	iptos value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: change_type
                         
                         	change type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: acl_config
                         
                         	acl config
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: acl_str
                         
                         	acl str
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
                         
 
@@ -1105,7 +1111,7 @@ class LptsPifib_(Entity):
                     .. attribute:: static_info
                     
                     	Per punt reason info
-                    	**type**\: list of    :py:class:`StaticInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo>`
+                    	**type**\: list of  		 :py:class:`StaticInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo>`
                     
                     
 
@@ -1138,54 +1144,56 @@ class LptsPifib_(Entity):
                         .. attribute:: punt_reason
                         
                         	punt reason
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sid
                         
                         	sid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: flow_rate
                         
                         	flow rate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: burst_rate
                         
                         	burst rate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: accepted
                         
                         	accepted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dropped
                         
                         	dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: punt_reason_string
                         
                         	punt reason string
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
                         .. attribute:: change_type
                         
                         	change type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -1234,7 +1242,7 @@ class LptsPifib_(Entity):
                     .. attribute:: bfd_entry_info
                     
                     	Per bfd disc entry info
-                    	**type**\: list of    :py:class:`BfdEntryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo>`
+                    	**type**\: list of  		 :py:class:`BfdEntryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo>`
                     
                     
 
@@ -1267,35 +1275,35 @@ class LptsPifib_(Entity):
                         .. attribute:: index
                         
                         	index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_mcast
                         
                         	is mcast
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: fgid_or_vqi
                         
                         	fgid or vqi
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_valid
                         
                         	is valid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: policer_id
                         
                         	policer id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1338,28 +1346,28 @@ class LptsPifib_(Entity):
                     .. attribute:: accepted
                     
                     	Deleted\-entry accepted packets counter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dropped
                     
                     	Deleted\-entry dropped packets counter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: clear_ts
                     
                     	Statistics clear timestamp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: no_stats_mem_err
                     
                     	No statistics memory error
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1400,7 +1408,7 @@ class LptsPifib_(Entity):
                     .. attribute:: index_entry
                     
                     	Entry options
-                    	**type**\: list of    :py:class:`IndexEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry>`
+                    	**type**\: list of  		 :py:class:`IndexEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry>`
                     
                     
 
@@ -1433,326 +1441,328 @@ class LptsPifib_(Entity):
                         .. attribute:: index  <key>
                         
                         	Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: l3protocol
                         
                         	Layer 3 Protocol
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: l4protocol
                         
                         	Layer 4 Protocol
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: intf_handle
                         
                         	Interface Handle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: intf_name
                         
                         	Interface Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: uidb_index
                         
                         	Interface uidb index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_addr
                         
                         	Local IP Address
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: local_prefix_len
                         
                         	Local Prefix Length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: remote_addr
                         
                         	Remote IP Address
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: remote_prefix_len
                         
                         	Remote Prefix Length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: vrf_id
                         
                         	VRF ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: u_value
                         
                         	Remote Port/ICMP Type/IGMP Type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: u_len
                         
                         	Union Key Length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_port
                         
                         	Local port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_frag
                         
                         	Is Fragment
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_syn
                         
                         	Is SYN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: action
                         
                         	Action
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: action_string
                         
                         	Action String
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: listener_tag
                         
                         	Listener Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_fgid
                         
                         	Is FGID or not
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_vrf
                         
                         	Is VRF or not
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_optimized
                         
                         	Is optimized or not
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_uidb_opt_bit
                         
                         	Is uidb set for optimized entry or not
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: fgid_or_sfp
                         
                         	fabric group id or swith fabric port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: remote_rack
                         
                         	Is entry remote or not
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: rack_id
                         
                         	Remote racknum if remote
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rslot
                         
                         	Remote slotnum if remote
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: cir
                         
                         	Committed Information Rate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: flow_type
                         
                         	Flow type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: priority
                         
                         	Flow priority or COS
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sid
                         
                         	Stream ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: policer_avgrate
                         
                         	Policer avg. rate limit
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: policer_burst
                         
                         	Policer burst
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lookup_priority
                         
                         	Lookup priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: storage_priority
                         
                         	Storage priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: num_tm_entries
                         
                         	Number of TCAM entries used
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: entry_ptr
                         
                         	ptr to ifib\_entry\_st
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: entry_shadow_ptr
                         
                         	ptr to ifib\_entry\_shadow\_st
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: list_node_ptr
                         
                         	ptr to dlqueue list node
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: state
                         
                         	state of pifib entry
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: retry_fail_cause
                         
                         	failure cause
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: num_retries
                         
                         	retries count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: min_ttl
                         
                         	Minimum TTL
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: u_type
                         
                         	Union Key Type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: remote_fgid
                         
                         	Remote FGID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acl_str
                         
                         	Acl name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
                         .. attribute:: no_stats
                         
                         	Stats not available
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: hw_info
                         
                         	Per pipe type hardware info
-                        	**type**\: list of    :py:class:`HwInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo>`
+                        	**type**\: list of  		 :py:class:`HwInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo>`
                         
                         
 
@@ -1879,42 +1889,42 @@ class LptsPifib_(Entity):
                             .. attribute:: policer
                             
                             	Policer Pointer
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stats_ptr
                             
                             	Stats Pointer
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: accepted
                             
                             	Accepted Packets Counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dropped
                             
                             	Dropped Packets Counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: sort_start_offset
                             
                             	Relative position in sorting order
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: tm_start_offset
                             
                             	Relative position in TCAM
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             

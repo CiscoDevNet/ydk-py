@@ -25,7 +25,7 @@ class Ssespan(Entity):
     .. attribute:: nodes
     
     	Node table for node\-specific operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class Ssespan(Entity):
         .. attribute:: node
         
         	Node\-specific data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node>`
         
         
 
@@ -93,22 +93,24 @@ class Ssespan(Entity):
             .. attribute:: node  <key>
             
             	Node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: span_mirr_infos
             
             	SPAN SFT entry
-            	**type**\:   :py:class:`SpanMirrInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.SpanMirrInfos>`
+            	**type**\:  :py:class:`SpanMirrInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.SpanMirrInfos>`
             
             .. attribute:: spanudf
             
             	udf info
-            	**type**\:   :py:class:`Spanudf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.Spanudf>`
+            	**type**\:  :py:class:`Spanudf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.Spanudf>`
             
             .. attribute:: span_sess_infos
             
             	SPAN SDT entry
-            	**type**\:   :py:class:`SpanSessInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.SpanSessInfos>`
+            	**type**\:  :py:class:`SpanSessInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.SpanSessInfos>`
             
             
 
@@ -157,7 +159,7 @@ class Ssespan(Entity):
                 .. attribute:: span_mirr_info
                 
                 	Mirror info 
-                	**type**\: list of    :py:class:`SpanMirrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo>`
+                	**type**\: list of  		 :py:class:`SpanMirrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo>`
                 
                 
 
@@ -190,164 +192,168 @@ class Ssespan(Entity):
                     .. attribute:: intf_name  <key>
                     
                     	interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: src_ifh
                     
                     	source IFH
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: intf_name_xr
                     
                     	interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
                     .. attribute:: v4_acl_flag
                     
                     	ipv4 acl flag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v6_acl_flag
                     
                     	ipv6 acl flag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: gre_acl_flag
                     
                     	gre acl flag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v4state
                     
                     	ipv4 state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v6state
                     
                     	ipv6 state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: gre_state
                     
                     	gre state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v4sessid
                     
                     	ipv4 session Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v6sessid
                     
                     	ipv6 session Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: gre_sessid
                     
                     	gre session Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v4dst_type
                     
                     	ipv4 dst type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v6dst_type
                     
                     	ipv6 dst type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: gredst_type
                     
                     	gre dst type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v4statsptr
                     
                     	v4 stats ptr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: v6statsptr
                     
                     	v6 stats ptr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: grev4statsptr
                     
                     	mpls ipv4 stats ptr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: grev6statsptr
                     
                     	mpls ipv6 stats ptr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mplsv4stats
                     
                     	mpls ipv4 pkts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mplsv6pkts
                     
                     	mpls ipv6 pkts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: np_umask
                     
                     	npu mask
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: uidb
                     
                     	uidb array 
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sft_hw_data
                     
                     	16x5npu=80 bytes of hw sft entry
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
@@ -428,35 +434,35 @@ class Ssespan(Entity):
                 .. attribute:: udf_hdr
                 
                 	udf header
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: udf_type
                 
                 	udf type
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: udf_len
                 
                 	udf len
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: udf_value
                 
                 	udf value
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: udf_hw_data
                 
                 	16x5npu=80 bytes of hw udf entry
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..4294967295
                 
@@ -499,7 +505,7 @@ class Ssespan(Entity):
                 .. attribute:: span_sess_info
                 
                 	Session info 
-                	**type**\: list of    :py:class:`SpanSessInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo>`
+                	**type**\: list of  		 :py:class:`SpanSessInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper.Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo>`
                 
                 
 
@@ -532,119 +538,119 @@ class Ssespan(Entity):
                     .. attribute:: session_id  <key>
                     
                     	Session Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: session_class  <key>
                     
                     	Session class
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: valid
                     
                     	marks validity of entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: id
                     
                     	Numerical ID assigned to session
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: state
                     
                     	session state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: class_
                     
                     	session Class gre,ipv4,ipv6
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ifhandle
                     
                     	ifhandle of interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mode
                     
                     	Tunnel mode
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ip_type
                     
                     	IP type v4 or v6 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vrf_id
                     
                     	Vrf Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tos_bit
                     
                     	type of service
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tos_bit_copied
                     
                     	type of service copied
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ttl
                     
                     	TTL
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: dfbit
                     
                     	DF bit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: src_ip
                     
                     	src ip v4 or v6
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: dst_ip
                     
                     	dst ip v4 or v6
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sdt_hw_data
                     
                     	16x5npu=80 bytes of hw sdt entry
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
