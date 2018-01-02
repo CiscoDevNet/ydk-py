@@ -1,39 +1,22 @@
 sudo: required
 
-
 matrix:
     include:
         - os: osx
           language: generic
-        - os: linux
-          python: 3
-          dist: trusty
+#        - os: linux
+#          python: 3
+#          dist: trusty
+        - env: DOCKER=true OS_TYPE=centos OS_VERSION=centos7
+        - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=xenial
 
 before_install:
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install libssh xml2 curl; curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.6.3/libydk-0.6.3-Darwin.pkg; sudo installer -pkg libydk*pkg -target / ;  curl -O https://www.python.org/ftp/python/3.6.3/python-3.6.3-macosx10.6.pkg ; sudo installer -pkg python-3.6.3-macosx10.6.pkg  -target / ; fi
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; sudo apt-get install libssh-dev libtool gdebi-core python3-dev python-dev -y; sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y ; sudo apt-get update ; sudo apt-get install cmake gcc-5 g++-5 -y; sudo ln -f -s /usr/bin/g++-5 /usr/bin/g++; sudo ln -f -s /usr/bin/gcc-5 /usr/bin/gcc; sudo apt-get install clang-3.8 lldb-3.8 -y ; sudo ln -f -s /usr/bin/clang++-3.8 /usr/bin/clang++ ; sudo ln -f -s /usr/bin/clang-3.8 /usr/bin/clang; git clone https://github.com/ciscodevnet/ydk-gen.git  ; cd ydk-gen;git checkout 56108154420b728f49cf89d4a24f4460c7cbfc9b ; cd - ; mkdir ydk-gen/sdk/cpp/core/build ; cd ydk-gen/sdk/cpp/core/build; cmake -DCMAKE_BUILD_TYPE=Release .. ; sudo make install;cd - ; fi
-
-install:
-    - virtualenv venv -p python3
-    - source venv/bin/activate
-    - cd core
-    - python setup.py sdist
-    - pip install dist/*.tar.gz
-    - cd ../ietf
-    - python setup.py  sdist
-    - pip install dist/*.tar.gz
-    - cd ../openconfig
-    - python setup.py sdist
-    - pip install dist/*.tar.gz
-    - cd ../cisco-ios-xr
-    - python setup.py sdist
-    - pip install dist/*.tar.gz
-    - cd ../cisco-ios-xe
-    - python setup.py sdist
-    - pip install dist/*.tar.gz
-
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./dependencies_osx.sh          ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./dependencies_trusty.sh     ; fi
+    - if [[ "$DOCKER" == "true" ]]; then docker pull ${OS_TYPE}:${OS_VERSION}  ; fi
 
 script:
-    - cd ../core/samples
-    - ./bgp_codec.py
+     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "centos" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_centos.sh && ./tests.sh" ; fi
+     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "ubuntu" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_xenial.sh && ./tests.sh" ; fi
+     - if [[ "$DOCKER" != "true" ]]; then ./tests.sh ; fi
 
