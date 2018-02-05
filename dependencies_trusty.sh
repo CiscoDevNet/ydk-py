@@ -14,3 +14,4 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 sudo make install
 cd -
 sudo easy_install pip
+sudo pip install pybind11
