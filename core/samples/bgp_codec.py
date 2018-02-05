@@ -67,7 +67,7 @@ if __name__ == "__main__":
     init_logging()
     provider = CodecServiceProvider(type='xml')
     codec_service = CodecService()
-    bgp_run(codec_service, provider)
+#bgp_run(codec_service, provider)
     run_routing(codec_service, provider)
     run_multiple_routing_bgp(codec_service, provider)
     exit()

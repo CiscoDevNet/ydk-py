@@ -4,9 +4,9 @@ matrix:
     include:
         - os: osx
           language: generic
-#        - os: linux
-#          python: 3
-#          dist: trusty
+        - os: linux
+          python: 3
+          dist: trusty
         - env: DOCKER=true OS_TYPE=centos OS_VERSION=centos7
         - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=xenial
 
