@@ -113,7 +113,7 @@ class YLeafList(_YLeafList):
 
 
 class Entity(_Entity):
-    """ Entity wrapper class overrides get_children method.
+    """ Entity wrapper class overrides some of the ydk::Entity methods.
     """
     def __init__(self):
         super(Entity, self).__init__()
@@ -145,9 +145,14 @@ class Entity(_Entity):
                     continue
                 children[name] = value
             elif isinstance(value, YList):
+                count=0
                 for v in value:
                     if isinstance(v, Entity):
-                        children[v.get_segment_path()] = v
+                        if v.get_segment_path() not in children:
+                            children[v.get_segment_path()] = v
+                        else:
+                            children['%s%s' % (v.get_segment_path(), count)] = v
+                            count += 1
         # store local refs so that pybind11 does not free the object. See https://github.com/pybind/pybind11/issues/673
         self._local_refs["ydk::children"] = children
         return children
@@ -294,9 +299,6 @@ class Entity(_Entity):
             for name in self._children_name_map:
                 if seg == self._children_name_map[name]:
                     return self.__dict__[name]
-            for name in self._local_refs:
-                if seg == name.lstrip("ydk::seg::"):
-                    return self._local_refs[name]
         return None
 
     def _check_monkey_patching_error(self, name, value):

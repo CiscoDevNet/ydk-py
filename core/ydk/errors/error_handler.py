@@ -33,16 +33,16 @@ if sys.version_info > (3, 0):
     inspect.getargspec = inspect.getfullargspec
 
 
-_ERRORS = {"YCPPError": _YPYError,
-           "YCPPCoreError": _YPYCoreError,
-           "YCPPCodecError": _YPYCodecError,
-           "YCPPClientError": _YPYClientError,
-           "YCPPIllegalStateError": _YPYIllegalStateError,
-           "YCPPInvalidArgumentError": _YPYInvalidArgumentError,
-           "YCPPModelError": _YPYModelError,
-           "YCPPOperationNotSupportedError": _YPYOperationNotSupportedError,
-           "YCPPServiceError": _YPYServiceError,
-           "YCPPServiceProviderError": _YPYServiceProviderError,
+_ERRORS = {"YError": _YPYError,
+           "YCoreError": _YPYCoreError,
+           "YCodecError": _YPYCodecError,
+           "YClientError": _YPYClientError,
+           "YIllegalStateError": _YPYIllegalStateError,
+           "YInvalidArgumentError": _YPYInvalidArgumentError,
+           "YModelError": _YPYModelError,
+           "YOperationNotSupportedError": _YPYOperationNotSupportedError,
+           "YServiceError": _YPYServiceError,
+           "YServiceProviderError": _YPYServiceProviderError,
 }
 
 
