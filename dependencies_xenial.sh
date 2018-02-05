@@ -7,6 +7,6 @@ apt-get update > /dev/null
 apt-get install gcc-5 g++-5 -y > /dev/null
 ln -f -s /usr/bin/g++-5 /usr/bin/c++
 ln -f -s /usr/bin/gcc-5 /usr/bin/cc
-wget https://devhub.cisco.com/artifactory/debian-ydk/0.6.3/libydk_0.6.3-1_amd64.deb
-gdebi -n libydk_0.6.3-1_amd64.deb
+wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.0/libydk_0.7.0-1_amd64.deb
+gdebi -n libydk_0.7.0-1_amd64.deb
 sudo easy_install pip
