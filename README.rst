@@ -23,8 +23,11 @@ Linux
 ~~~~~
 **Ubuntu (Debian-based)** - The following packages must be present in your system before installing YDK-Py::
 
-   $ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin
+   $ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin  
+   # Use the below for Ubuntu Xenial
    $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.0/libydk_0.7.0-1_amd64.deb
+   # Use the below for Ubuntu Artful
+   $ wget http://engci-maven.cisco.com/artifactory/debian-ydk/0.7.0/artful/libydk_0.7.0-1_amd64.deb
    $ sudo gdebi libydk_0.7.0-1_amd64.deb
 
 **Centos (Fedora-based)** - The following packages must be present in your system before installing YDK-Py::
