@@ -21,16 +21,39 @@ System Requirements
 -------------------
 Linux
 ~~~~~
-Ubuntu (Debian-based) - The following packages must be present in your system before installing YDK-Py::
+**Ubuntu (Debian-based)** - The following packages must be present in your system before installing YDK-Py::
 
    $ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin
    $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.0/libydk_0.7.0-1_amd64.deb
    $ sudo gdebi libydk_0.7.0-1_amd64.deb
 
-Centos (Fedora-based) - The following packages must be present in your system before installing YDK-Py::
+**Centos (Fedora-based)** - The following packages must be present in your system before installing YDK-Py::
 
    $ sudo yum install epel-release libssh-devel gcc-c++ python-devel
-   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.0/libydk-0.7.0-1.x86_64.rpm
+   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.0/libydk-0.7.0-1.x86_64.rpm   
+
+To install the core and bundles on Centos, please follow the below steps.
+
+Python2.7::
+
+    pip install ydk
+    pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-ietf
+    pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-openconfig
+    pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-cisco-ios-xr
+
+Python3.4::
+
+    pip install ydk
+    pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-ietf
+    pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-openconfig
+    pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-cisco-ios-xr
+
+Python3.6::
+
+    pip install ydk
+    pip install --install-option="--install-purelib=/usr/lib64/python3.6/site-packages" --no-deps ydk-models-ietf
+    pip install --install-option="--install-purelib=/usr/lib64/python3.6/site-packages" --no-deps ydk-models-openconfig
+    pip install --install-option="--install-purelib=/usr/lib64/python3.6/site-packages" --no-deps ydk-models-cisco-ios-xr
 
 macOS
 ~~~~~
