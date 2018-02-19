@@ -32,12 +32,19 @@ Linux
 
 **Centos (Fedora-based)** - The following packages must be present in your system before installing YDK-Py::
 
-   $ sudo yum install epel-release libssh-devel gcc-c++ python-devel
-   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.0/libydk-0.7.0-1.x86_64.rpm   
+   $ sudo yum install epel-release
+   $ sudo yum install libssh-devel gcc-c++ python-devel
+   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.0/libydk-0.7.0-1.x86_64.rpm
+
+   # Upgrade compiler to gcc 5.*
+   $ yum install centos-release-scl -y > /dev/null
+   $ yum install devtoolset-4-gcc* -y > /dev/null
+   $ ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/cc
+   $ ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/c++
 
 To install the core and bundles on Centos, please follow the below steps.
 
-Python2.7::
+``Python2.7``::
 
     pip install ydk
     pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-ietf
@@ -45,7 +52,7 @@ Python2.7::
     pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-cisco-ios-xr
     pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-cisco-ios-xe
 
-Python3.4::
+``Python3.4``::
 
     pip install ydk
     pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-ietf
@@ -53,7 +60,7 @@ Python3.4::
     pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-cisco-ios-xr
     pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-cisco-ios-xe
 
-Python3.6::
+``Python3.6``::
 
     pip install ydk
     pip install --install-option="--install-purelib=/usr/lib64/python3.6/site-packages" --no-deps ydk-models-ietf
